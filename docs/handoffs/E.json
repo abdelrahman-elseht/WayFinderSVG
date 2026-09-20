@@ -1,0 +1,32 @@
+{
+  "task": "E — bilingual search, localization and browser speech services",
+  "status": "complete",
+  "filesChanged": [
+    "packages/search/src/index.ts",
+    "packages/i18n/src/index.ts",
+    "packages/audio/src/index.ts",
+    "tests/unit/search.test.ts",
+    "tests/unit/i18n.test.ts",
+    "tests/unit/audio.test.ts",
+    "docs/handoffs/E.json"
+  ],
+  "testsRun": [
+    "npm test -- tests/unit/search.test.ts tests/unit/i18n.test.ts tests/unit/audio.test.ts: PASS, 36 tests",
+    "npm run typecheck: PASS"
+  ],
+  "assumptions": [
+    "Unsupported language values fall back to English; Arabic regional tags resolve to Arabic.",
+    "Search preserves original Room objects and inventory order for equal relevance; caller selects the public inventory.",
+    "Search-only normalization maps ta marbuta to ha, Arabic/Persian digits to ASCII, and Arabic/Persian ya/kaf variants to common forms.",
+    "Numeric terms never use fuzzy correction, although code-prefix search is supported.",
+    "Browser speech API availability does not assert that an Arabic or English voice is installed. Matching voices are used only if the browser reports them."
+  ],
+  "openIssues": [],
+  "handoffNotes": [
+    "Search exports normalizeSearch(text) and searchRooms(rooms, query, language='en'). Arabic and English names and aliases are always searchable.",
+    "i18n exports dictionary, dictionaries (alias), TranslationKey, getDirection, resolveLanguage and t. Unknown translation keys return the key; all dictionary entries have both languages.",
+    "Dictionary keys cover search, map controls, room details, route states, calibration/accessibility notices, audio, language, keyboard navigation, categories and loading/error states. Inspect TranslationKey or dictionary.en for the exact list.",
+    "createBrowserTTS returns the four-method TTSService. Create once, call speak(currentDescription, activeLanguage) for playback or replay, stop on selection/language changes and cleanup, and setMuted for mute state. No direct browser speech dependency is needed in UI.",
+    "Speech API access is lazy for SSR; each new utterance cancels the previous one. Unmuting never triggers playback automatically. Browser failures are contained."
+  ]
+}

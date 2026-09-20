@@ -1,0 +1,9 @@
+{
+  "task": "R2 independent exterior and internal source review",
+  "status": "completed",
+  "filesChanged": ["scripts/source-review/exterior_review.py", "docs/EXTERIOR_ACCESS_REVIEW.md", "artifacts/qa/r2-exterior-vector-evidence.json", "artifacts/qa/r2-exterior-*.png", "docs/handoffs/R2-SOURCE-REVIEW.json"],
+  "testsRun": ["Reproduced 8 original PDF crops and exact vector evidence", "Inspected G06, G17, G23, exterior front, G14 threshold and G44 original PDF crops", "Confirmed zero SITE-layer intersections for four exterior crop regions"],
+  "assumptions": ["Master translation follows SOURCE_AUDIT; source JSON is already rotated", "Overhead canopy and column symbols do not establish ground walking surfaces", "No raster tracing or production edits"],
+  "openIssues": ["G06: approximately 51.8 drawing-unit undefined ground gap between nearest ramp end and actual Storage opening", "G17: undefined east perimeter ground connection from an established exit to actual stair door", "G23: separate west-running landing/ramp lacks source-ground connection around Security footprint to south Main Entrance"],
+  "handoffNotes": ["Do not mark substitutes as successful actual-room arrival", "G14 strip bottom is a traversable dashed A-DOOR-STEP threshold, not A-WALL; informed graph owner", "G44 swing11655 has two cubic items; real hinge-to-jamb seal is [1255.60010,1186.96997] to [1279.87012,1180.16003]; informed graph owner", "Exact source items and transformed geometry persisted in vector evidence JSON"]
+}

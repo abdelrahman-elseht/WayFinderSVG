@@ -1,0 +1,21 @@
+
+Running 8 tests using 1 worker
+
+(node:18164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\wayfinding.qa.spec.ts:11:5 › English actual entrance and cross-wing routes, keyboard, planning reset and map controls (10.9s)
+  ok 2 tests\e2e\wayfinding.qa.spec.ts:51:5 › Arabic actual route, popup and language switch preserve selected endpoints (8.1s)
+  ok 3 tests\e2e\wayfinding.qa.spec.ts:71:5 › browser speech autoplays details and replay/stop/mute honor current language (6.9s)
+  ok 4 tests\e2e\wayfinding.qa.spec.ts:93:5 › WCAG AA contrast and semantics on English/Arabic default and popup states (14.7s)
+  ok 5 tests\e2e\wayfinding.qa.spec.ts:109:5 › mobile and 200 percent text retain usable controls without horizontal overflow (12.1s)
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-default-en-win32.png, writing actual.
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-popup-en-win32.png, writing actual.
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-route-success-en-win32.png, writing actual.
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-cross-wing-en-win32.png, writing actual.
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-popup-route-ar-win32.png, writing actual.
+A snapshot doesn't exist at F:\projects\WFSVG\tests\e2e\wayfinding.qa.spec.ts-snapshots\r2-mobile-ar-win32.png, writing actual.
+  ok 6 tests\e2e\wayfinding.qa.spec.ts:136:5 › reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile (16.9s)
+  ok 7 tests\e2e\wayfinding.qa.spec.ts:160:5 › WebGL-unavailable fallback preserves source plan and usable keyboard directory (3.1s)
+  ok 8 tests\e2e\wayfinding.qa.spec.ts:170:5 › forced colors and reduced motion preserve accessible directory and selection controls (6.6s)
+
+  8 passed (1.4m)

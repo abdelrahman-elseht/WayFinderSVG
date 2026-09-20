@@ -1,0 +1,37 @@
+{
+  "task": "R2 orchestrated integration and final phase acceptance",
+  "status": "completed",
+  "filesChanged": [
+    "docs/PROJECT_SPEC.md",
+    "docs/DATA_CONTRACTS.md",
+    "docs/DECISIONS.md",
+    "docs/KNOWN_ISSUES.md",
+    "docs/EXECUTION_LOG.md",
+    "docs/RESUMPTION_PLAN.md",
+    "docs/handoffs/R2-ACCEPTANCE.json"
+  ],
+  "testsRun": [
+    "npm run build: optimized production build passed",
+    "npm test: all 116 tests in 8 files passed in one final invocation",
+    "npm run typecheck: passed",
+    "npm run test:data: all 21 malformed-data checks passed",
+    "Independent QA: 1296 source and geometry assertions passed",
+    "Actual routing: 2916 ordered mapped-approach pairs passed",
+    "Independent production browser QA: 9 tests passed against localhost:3001, including 6 unchanged visual baselines",
+    "Graph owner: deterministic semantic regeneration and source-wall/enclosure checks passed",
+    "Root visually inspected successful Clinic, cross-wing and Arabic partial-route screenshots"
+  ],
+  "assumptions": [
+    "Sub-agent work used requested Astra Medium with bounded ownership and independent QA",
+    "Drawing-based navigation uses source geometry without requiring administrative confirmation",
+    "Main Entrance is a named planning default, not an invented physical kiosk position",
+    "Room elevation is illustrative; metric scale, physical access and accessibility remain unknown"
+  ],
+  "openIssues": [
+    "G-06, G-17 and G-23 have explicitly partial routes because final exterior connections are absent from supplied source drawings",
+    "G-21, G-28 and G-40 route to qualified suite approaches; other endpoint qualifications remain visible",
+    "15 room outlines remain unresolved source markers, and source label discrepancies remain documented",
+    "No physical installation or external deployment was requested or performed"
+  ],
+  "handoffNotes": "Phases 0 through 10 reviewed and integrated within documented source coverage. Production preview available at http://localhost:3001. Detailed acceptance and remaining source limitations: docs/QA_REPORT.md and docs/KNOWN_ISSUES.md. Specialist handoffs preserve their individual delivery-time context; this record and final QA report represent integrated acceptance."
+}

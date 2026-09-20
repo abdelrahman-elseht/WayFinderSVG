@@ -1,0 +1,55 @@
+{
+  "task": "A Source Ingestion",
+  "status": "complete",
+  "filesChanged": [
+    "scripts/map-ingest/ingest.py",
+    "scripts/map-ingest/config.json",
+    "scripts/map-ingest/validate.py",
+    "scripts/map-ingest/requirements.txt",
+    "scripts/map-ingest/README.md",
+    "maps/B03/GF/master.svg",
+    "maps/B03/GF/alignment.json",
+    "maps/B03/GF/manifest.json",
+    "maps/B03/GF/validation.json",
+    "maps/B03/GF/source/0001.json",
+    "maps/B03/GF/source/0002.json",
+    "maps/B03/GF/source/room-schedule.json",
+    "maps/B03/GF/inspection/0001.png",
+    "maps/B03/GF/inspection/0002.png",
+    "maps/B03/GF/inspection/master.png",
+    "docs/SOURCE_AUDIT.md",
+    "docs/handoffs/A.json"
+  ],
+  "testsRun": [
+    "Rendered and visually inspected both original PDF pages and final cleaned merged master",
+    "python scripts/map-ingest/validate.py: passed",
+    "Two deterministic regenerations produced matching SHA-256 artifact hashes",
+    "Original root PDF SHA-256 hashes unchanged",
+    "Six repeated room label anchors: maximum residual 0.00011 PDF point",
+    "474 coincident architectural primitives verified in source overlap at 0.1-point quantization",
+    "Master contains 6322 vector paths and no embedded image elements",
+    "Source schedule verified exactly G-01 through G-54"
+  ],
+  "assumptions": [
+    "Master drawing units are displayed PDF points, not meters",
+    "Master origin preserves sheet 0001 display coordinates; viewBox is nonzero-origin",
+    "Metric calibration is unknown and metersPerUnit remains null",
+    "Named CAD layer cleaning plus reviewed exceptions are presentation decisions, not semantic room geometry"
+  ],
+  "openIssues": [
+    "Metric calibration needs a verified source dimension with endpoints",
+    "Source plan/schedule conflicts for G-08, G-17, G-24, G-25 and G-34 require semantic provenance",
+    "Room polygons, navigability, accessibility and kiosk location are not established by ingestion"
+  ],
+  "handoffNotes": {
+    "viewBox": [650,500,3100,1550],
+    "source0001DisplayToMaster": [1,0,0,1,0,0],
+    "source0002DisplayToMaster": [1,0,0,1,1033.29,-28.35],
+    "sourceCoordinates": "All JSON path/text coordinates already normalized to PDF display orientation. Do not apply rawToDisplay again.",
+    "schema": "source/*.json texts[] includes id,text,bbox,origin,font,size,direction; paths[] includes id,layer,bbox,type,items[{type:line|cubic|rect|quad,points:[[x,y],...]}],stroke,fill,width,closed,evenOdd,dashes",
+    "inventory": "source/room-schedule.json contains 54 source schedule rows with names, codeTextId and nameTextId",
+    "cleaning": "Explicit layer allowlist; A-CLADDING ALUM. tag frames omitted; isolated source0002 A-DOOR-STEP dimension exclusion persisted in config",
+    "regenerate": "python scripts/map-ingest/ingest.py",
+    "validate": "python scripts/map-ingest/validate.py"
+  }
+}

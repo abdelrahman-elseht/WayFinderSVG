@@ -1,0 +1,16 @@
+
+Running 9 tests using 1 worker
+
+(node:24196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\wayfinding.qa.spec.ts:11:5 › English actual entrance and cross-wing routes, keyboard, planning reset and map controls (8.4s)
+  ok 2 tests\e2e\wayfinding.qa.spec.ts:51:5 › Arabic actual route, popup and language switch preserve selected endpoints (6.4s)
+  ok 3 tests\e2e\wayfinding.qa.spec.ts:71:5 › browser speech autoplays details and replay/stop/mute honor current language (5.6s)
+  ok 4 tests\e2e\wayfinding.qa.spec.ts:93:5 › WCAG AA contrast and semantics on English/Arabic default and popup states (13.7s)
+  ok 5 tests\e2e\wayfinding.qa.spec.ts:109:5 › mobile and 200 percent text retain usable controls without horizontal overflow (10.5s)
+  ok 6 tests\e2e\wayfinding.qa.spec.ts:136:5 › reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile (14.9s)
+  ok 7 tests\e2e\wayfinding.qa.spec.ts:160:5 › WebGL-unavailable fallback preserves source plan and usable keyboard directory (2.3s)
+  ok 8 tests\e2e\wayfinding.qa.spec.ts:170:5 › forced colors and reduced motion preserve accessible directory and selection controls (5.4s)
+  ok 9 tests\e2e\wayfinding.qa.spec.ts:187:5 › three exterior destinations and reversed starts clearly retain partial source coverage (6.6s)
+
+  9 passed (1.3m)

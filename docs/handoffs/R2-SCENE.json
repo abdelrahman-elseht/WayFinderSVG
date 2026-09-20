@@ -1,0 +1,34 @@
+{
+  "agent": "R2-SCENE",
+  "status": "complete",
+  "owned_paths": [
+    "apps/web/components/FloorMap.tsx",
+    "docs/handoffs/R2-SCENE.json"
+  ],
+  "entry": "apps/web/components/FloorMap.tsx",
+  "contract": "Unchanged: floor, rooms, language, selectedId, onSelect, route, zoom, reset",
+  "delivered": [
+    "Orthographic camera with azimuth and stronger tilt; source polygons raised .65 scene units, circulation remains .045; heights illustrative, not surveyed",
+    "Opaque pastel sides, source-textured tops preserving furniture and architectural lines, raised perimeter rims, candidate dashed edges, selected lift .16 and hover transitions honoring reduced motion",
+    "Transparent source architecture plane and subtle shadows; no rectangular slab or invented footprint",
+    "Labels projected through actual camera, prioritized selection and collision decluttering; all 54 markers and equivalent existing keyboard directory retained",
+    "Route framing fits actual projected route bounds, with floor-level green route and white outline, always-visible depth overlay, ring start and navy square destination"
+  ],
+  "verified": [
+    "npm run typecheck passed",
+    "Headless Edge 1440x960 English, selected auditorium and Arabic RTL screenshots; no page errors; one WebGL canvas and 54 labels",
+    "Visual check: source auditorium seating and internal architectural detail retained on raised caps; rectangular backing removed"
+  ],
+  "visual_artifacts": [
+    "artifacts/qa/r2-scene-en.png",
+    "artifacts/qa/r2-scene-selected.png",
+    "artifacts/qa/r2-scene-ar.png"
+  ],
+  "dev_server": "http://localhost:3000",
+  "limitations": [
+    "Production build coordinated by root to avoid conflicting shared .next writes",
+    "No confirmed live route is fabricated; route overlay and framing implementation typechecked, not shown with fake source graph",
+    "RTL selected map positioning issue outside owned files reported to root for CSS integration",
+    "Candidate room outlines retain their original geometry status; illustrative elevation does not imply surveyed wall heights"
+  ]
+}

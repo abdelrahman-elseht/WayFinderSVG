@@ -1,0 +1,36 @@
+
+> academy-wayfinding@0.1.0 test
+> vitest run --reporter=dot
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 F:/projects/WFSVG
+
+··················································································································x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/app-state.qa.test.tsx > independent React UI state with real data and isolated map rendering > retains configured kiosk precedence in an explicitly synthetic fixture
+AssertionError: expected 'DirectionsRoute on floor planRoute en…' to contain 'Your destination is on the right'
+
+Expected: "Your destination is on the right"
+Received: "DirectionsRoute on floor planRoute ends at the source label approach in this open circulation space. No physical doorway is implied.Start here and follow the route.The mapped entrance or approach is on the right.You have reached the mapped entrance or approach. Follow the destination note to continue."
+
+ ❯ tests/integration/app-state.qa.test.tsx:67:58
+     65|   fireEvent.change(screen.getByTestId('destination-select'),{target:{v…
+     66|   expect(screen.getByTestId('route-status').textContent).toContain('Ro…
+     67|   expect(screen.getByTestId('route-status').textContent).toContain('Yo…
+       |                                                          ^
+     68|   fireEvent.click(screen.getByTestId('language-toggle'));
+     69|   expect(screen.getByTestId('route-status').textContent).toContain('وج…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 115 passed (116)
+   Start at  20:07:26
+   Duration  118.11s (transform 716ms, setup 0ms, import 1.63s, tests 118.80s, environment 838ms)
+

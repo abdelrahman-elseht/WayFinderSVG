@@ -1,0 +1,20 @@
+const { chromium } = require('@playwright/test');
+(async () => {
+  const browser = await chromium.launch({ headless: true, channel: 'msedge' });
+  const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
+  page.on('pageerror', error => console.error(error));
+  await page.goto('http://localhost:3000');
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: 'apps/web/qa-desktop.png' });
+  await page.locator('[data-room-id="B03-GF-G-05"]').click();
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: 'apps/web/qa-selected.png' });
+  await page.getByTestId('language-toggle').click();
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: 'apps/web/qa-arabic.png' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: 'apps/web/qa-mobile.png', fullPage: true });
+  console.log('Visual captures complete.');
+  await browser.close();
+})();

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "checks": 1296,
+  "inventory": 54,
+  "candidatePolygons": 39,
+  "confirmedPolygons": 0,
+  "liveGraphNodes": 149,
+  "liveGraphEdges": 148,
+  "liveRouteGeometryValidation": "All graph edges independently checked against supplied solid walls and complete area union; endpoint boundary distances reported separately; physical access is unknown",
+  "endpointKinds": {
+    "open-circulation-approach": 8,
+    "source-door-approach": 39,
+    "approach": 7
+  },
+  "qualifiedRoomCount": 16
+}

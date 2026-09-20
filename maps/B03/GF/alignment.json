@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "buildingId": "B03",
+  "floorId": "GF",
+  "coordinateSystem": "PDF display points, x right, y down; master origin equals sheet 0001 display origin",
+  "viewBox": [
+    650,
+    500,
+    3100,
+    1550
+  ],
+  "seamX": 2300,
+  "sources": [
+    {
+      "id": "0001",
+      "file": "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf",
+      "displayToMaster": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "planCrop": [
+        650,
+        500,
+        2436,
+        2050
+      ],
+      "exclusions": []
+    },
+    {
+      "id": "0002",
+      "file": "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf",
+      "displayToMaster": [
+        1,
+        0,
+        0,
+        1,
+        1033.29,
+        -28.35
+      ],
+      "planCrop": [
+        746,
+        530,
+        2720,
+        2078.35
+      ],
+      "exclusions": [
+        {
+          "bbox": [
+            2100,
+            1950,
+            2200,
+            2080
+          ],
+          "layer": "A-DOOR-STEP",
+          "reason": "Detached lower-right outlined 3900 dimension and its witness line; visually reviewed outside building envelope."
+        }
+      ]
+    }
+  ],
+  "keepLayers": [
+    "A-WALL",
+    "A-WALL-02",
+    "A-CONC",
+    "A-DOOR",
+    "A-DOOR-STEP",
+    "A-GLAZING-6700",
+    "A-GLAZING-DOOR-7000",
+    "A-INT-GLAZ-01",
+    "A-STAIR-INT",
+    "A-STAIR-EXT",
+    "A-HANDRAIL",
+    "A-STAIR-EXT-HANDRAIL",
+    "A-STAGE & STEP",
+    "A-GYPSUM BOARD",
+    "A-CLADDING-STONE",
+    "A-HPL",
+    "A-SLABEDGE",
+    "A-LOUVER",
+    "02-XA-B03-GROUND FLOOR SKIN$0$A-WALL",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-DOOR",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-HANDRAIL",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-FLOR-STRS",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-ELEV",
+    "02-XA-B03-CORE GROUND$0$A-FURN-FIXD",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-FURN-FIXD",
+    "02-XA-B03-GROUND FLOOR PLAN$0$A-FIXT",
+    "AR-GF-BIND2-01|AR-GF-BIND2-01|AR-GF-BIND2-01|A-DOOR-INT"
+  ],
+  "alignmentAnchorTexts": [
+    "CLINIC",
+    "STAFF",
+    "SECURITY ROOM",
+    "IT ROOM",
+    "ELEC. ROOM",
+    "MAIN ENTRANCE"
+  ],
+  "calibration": {
+    "status": "unknown",
+    "metersPerUnit": null,
+    "reason": "Visible dimension numerals are outlined vectors; no verified dimension endpoints or explicit scale value have been paired. PDF points are drawing units, not physical floor meters."
+  },
+  "excludedAnnotationLayers": {
+    "A-CLADDING ALUM.": "Misnamed source layer contains empty room-number tag frames and annotation leader fragments; raw extraction is preserved."
+  },
+  "status": "confirmed",
+  "alignmentMethod": "Same-scale translation fitted and verified against six repeated room-label origins in the overlap; PDF rotation explicitly normalized.",
+  "rawToDisplay": [
+    0,
+    -1,
+    1,
+    0,
+    0,
+    2384
+  ],
+  "anchors": [
+    {
+      "text": "CLINIC",
+      "source0001": [
+        1813.78003,
+        1659.53003
+      ],
+      "source0002": [
+        780.48999,
+        1687.88
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.34997
+      ],
+      "residual": 5e-05
+    },
+    {
+      "text": "STAFF",
+      "source0001": [
+        1955.05005,
+        1594.45996
+      ],
+      "source0002": [
+        921.76001,
+        1622.81006
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.3501
+      ],
+      "residual": 0.00011
+    },
+    {
+      "text": "SECURITY ROOM",
+      "source0001": [
+        2140.81006,
+        1553.27002
+      ],
+      "source0002": [
+        1107.52002,
+        1581.62
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.34998
+      ],
+      "residual": 4e-05
+    },
+    {
+      "text": "IT ROOM",
+      "source0001": [
+        1884.28003,
+        837.59009
+      ],
+      "source0002": [
+        850.98999,
+        865.94006
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.34997
+      ],
+      "residual": 5e-05
+    },
+    {
+      "text": "ELEC. ROOM",
+      "source0001": [
+        1872.48999,
+        712.01001
+      ],
+      "source0002": [
+        839.19995,
+        740.35999
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.34998
+      ],
+      "residual": 4e-05
+    },
+    {
+      "text": "MAIN ENTRANCE",
+      "source0001": [
+        2317.47998,
+        1184.75
+      ],
+      "source0002": [
+        1284.18994,
+        1213.09998
+      ],
+      "observedTranslation": [
+        1033.29004,
+        -28.34998
+      ],
+      "residual": 4e-05
+    }
+  ],
+  "maxAnchorResidual": 0.00011,
+  "keptPaths": {
+    "0001": 3090,
+    "0002": 3232
+  },
+  "sourceHashes": {
+    "0001": "121e9e2f93d394f1589d0ecb9ec4fb9baff97504d428074bb45a431ec5ce6e36",
+    "0002": "990cda5bcfc25550d16955173b2c1f900c4bf3152c2a6e48f88a3e798812f493"
+  },
+  "cleaning": "Explicit CAD layer allowlist. Sheet borders, title blocks, schedules, axes, dimensions, hatches and annotation layers omitted. Seam divides an overlapping identical plan region; paths remain original geometry clipped at the seam."
+}

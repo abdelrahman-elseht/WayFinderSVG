@@ -1,0 +1,29 @@
+{
+  "agent": "F",
+  "status": "integration-complete-pending-final-independent-QA",
+  "owned": ["scripts/integration/", "packages/map-engine/src/validate.ts", "packages/map-engine/src/registry.ts", "README.md", "docs/DEPLOYMENT.md", "docs/handoffs/F.json"],
+  "transferred": ["apps/web/ integration, fonts and QA fixes after D final handoff", "scripts/semantic-map/render_review.py portable bundled font only"],
+  "outputs": ["cross-platform Python/Node pipeline runner", "shared runtime data validator", "validated building/floor/kiosk registry", "18 malformed-data rejection cases", "server-page validation replacing unsafe casts", "explicit build-time registered kiosk configuration", "local Inter and Noto Sans Arabic fonts", "source and production deployment documentation"],
+  "rootCoordinatedEdits": ["package.json ingestion/semantic/review/validate/test-data/prepare/pipeline/prebuild scripts", "packages/map-engine/src/index.ts exports", "fontsource dependencies"],
+  "validation": {
+    "npmRunPipeline": "passed end-to-end: source ingestion, source repeat determinism, semantic generation, semantic repeat determinism, geometry/evidence review, portable overlay, contract validation and SVG copy",
+    "source": {"originalPdfsUnchanged": true, "vectorPaths": 6322, "overlapMatches": 474, "maxAnchorResidual": 0.00011},
+    "semantic": {"rooms": 54, "candidatePolygons": 39, "unknownPolygons": 15, "candidateNodes": 4, "candidateEdges": 3, "jsonByteDeterminism": "passed"},
+    "npmRunTypecheck": "passed",
+    "npmRunTestData": "18 rejection cases passed; canonical bundle accepted",
+    "npmRunBuild": "passed optimized Next.js 16.3.5 production build including prebuild contract validation",
+    "productionStart": "Final rebuilt npm start -- --port 3001; ready in 263ms; production browser QA handed to G",
+    "servedMasterBytes": 963234,
+    "servedMasterSha256": "3d86edacd2126b8c708c848ae5bb3e4ef6fc67637dd98b0b717b0e03a8b39107",
+    "browserQA": "G dev checks green: five-state WCAG AA, journeys, TTS, mobile, 200% enlarged text (header clipping fixed), WebGL fallback and loaded local Arabic font. G final eight production E2E tests pending independently."
+  },
+  "deployment": {
+    "configuration": ["WAYFINDING_BUILDING_ID", "WAYFINDING_FLOOR_ID", "WAYFINDING_KIOSK_ID"],
+    "configurationTiming": "Set before production build; rebuild after change. Unknown registry IDs fail generation.",
+    "productionServerSession": 79310,
+    "productionUrl": "http://localhost:3001",
+    "assets": "Only cleaned canonical master.svg copied to public maps; full original vector extraction remains audit-only."
+  },
+  "evidenceGates": ["Live B03 graph remains candidate and cannot produce visitor directions", "kiosk node remains null and status unknown", "floor/graph scale remains null", "photos remain null; descriptions marked placeholders", "v1 constraints do not scope walls/areas per floor; constrained vertical graphs fail closed pending actual contract extension"],
+  "notes": ["Portable review raster now uses Pillow bundled font, so label raster hash differs from B's former Windows Arial overlay; canonical JSON/SVG unchanged.", "Registry supports real additional building/floor/kiosk bundles; current UI intentionally serves configured existing floor only."]
+}

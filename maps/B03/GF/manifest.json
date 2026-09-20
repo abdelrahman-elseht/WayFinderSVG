@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "generator": "scripts/map-ingest/ingest.py",
+  "pymupdfVersion": "1.28.2",
+  "files": {
+    "master.svg": "3d86edacd2126b8c708c848ae5bb3e4ef6fc67637dd98b0b717b0e03a8b39107",
+    "alignment.json": "2dc849ba75c72692af8517bdb75a9fbbbd39dd599b5fefab4208f0446ac0dbfc",
+    "source/0001.json": "d05b6b001f472407250554af6d4fa7f0521b1d1c2ff0f4a31d50cfda9423b4a8",
+    "source/0002.json": "9f96735e6471649dc5825059db9060c5ae9f1b6d33e2cc52a41f5a6d08596ac5",
+    "source/room-schedule.json": "cbb7b40e9e108f04811aa108635d365a0d455266c7d122fc5739f0e6995d5b4f",
+    "inspection/0001.png": "071011c82d995d6b430c9f3920413ed4c9e8fa788e81a49dd095fcbdeb26b59b",
+    "inspection/0002.png": "4ac8753e43def6defccb61806b0f4903e1732d9e2b1574df0bd6f0053f93cc3c",
+    "inspection/master.png": "2d077ea5c1914a3f0e8c91995a2ad7d2b9093548e0d2aac280292500601d2b3e"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "task": "R2-GRAPH",
+  "status": "completed",
+  "filesChanged": [
+    "scripts/semantic-map/explore.py",
+    "scripts/semantic-map/generate.py",
+    "scripts/semantic-map/drawing_graph.py",
+    "scripts/semantic-map/navigation-config.json",
+    "scripts/semantic-map/verify.py",
+    "scripts/semantic-map/verify_navigation.py",
+    "scripts/semantic-map/check_routes.mjs",
+    "scripts/semantic-map/render_review.py",
+    "scripts/semantic-map/requirements.txt",
+    "data/buildings/B03/GF.json",
+    "data/buildings/B03/GF.graph.json",
+    "data/buildings/B03/GF.review.json",
+    "data/buildings/B03/GF.navigation-validation.review.json",
+    "data/buildings/B03/GF.semantic-review.png",
+    "docs/SEMANTIC_REVIEW.md",
+    "docs/handoffs/R2-GRAPH.json"
+  ],
+  "testsRun": [
+    "Python verify.py --regenerate: passed byte determinism, inventory54, candidatecontours39, label containment/nonoverlap/source door references",
+    "Python verify_navigation.py:149nodes148edges745navAreas6873originalwalls,54connected approaches,2862ordered distinct-room pairs connected,zero wallcontacts,zero navcoveragefailures,zero roominteriorcrossings",
+    "npm run validate:data: passed actual shared runtime validator",
+    "node scripts/semantic-map/check_routes.mjs: actualTSfindRoute G01 to G01/G05/G14/G28/G54 all ok",
+    "Rendered and visually inspected source map/doors/detail views and final route/nav-area overlay"
+  ],
+  "assumptions": [
+    "RoutingPolicy drawing-based enables candidate geometric evidence without asserting public access; all restrictions/accessibility unknown",
+    "Main Entrance G01 is named default start; physical kiosk remains null/unknown",
+    "Map units remain uncalibrated; no fabricated metric distance",
+    "Reviewed circulation regions are conservatively bounded source plan areas; source structural walls remain independent mandatory constraints"
+  ],
+  "openIssues": [
+    "G06/G17/G23 carry navigationPartial=true: final exterior approaches are not mapped by available source; endpoints and bilingual notes explicitly stop at nearby interior approaches",
+    "G28/G40/G21 use qualified Reception/Services/Kitchen suite entrance approaches instead of routing through private interiors",
+    "15 room footprints remain unresolved markers; source inventory complete",
+    "Current access and accessibility, exact physical kiosk and metric calibration still unknown"
+  ],
+  "handoffNotes": [
+    "All54 directory approaches have connected room-linked nodes. This is51nonpartialapproaches plus3explicitpartialdestinations, not54exactroomdoorarrivals.",
+    "GF.review.json graphReview.candidateConnections and navigation-config preserve source arc/leaf, finaldoorrefs and approach classifications. SEMANTIC_REVIEW contains54-row connectiontable.",
+    "G44 compound door swing corrected with source11645 hinge,11655two-cubic arc,11647jamb; sharedAVfoyer is constrained explicitly.",
+    "EastG14/toiletvestibule threshold is actualA-DOOR-STEP and independentlysource-reviewed.",
+    "Graph1,286,554bytes.739-to745 simple area decomposition resolved overlap sliver problems; actualvalidator passes.",
+    "Source master/PDFs untouched. Temporary diagnostic files removed. Originalpartial_graph retained only as historicalinactiveinvestigation."
+  ]
+}

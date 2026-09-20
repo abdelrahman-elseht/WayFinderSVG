@@ -1,0 +1,49 @@
+{
+  "name": "academy-wayfinding",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "next dev apps/web --hostname 0.0.0.0",
+    "build": "next build apps/web",
+    "start": "next start apps/web --hostname 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "ingest": "node scripts/integration/pipeline.mjs ingest",
+    "semantic": "node scripts/integration/pipeline.mjs semantic",
+    "review:maps": "node scripts/integration/pipeline.mjs review",
+    "validate:data": "node scripts/integration/pipeline.mjs validate",
+    "test:data": "node scripts/integration/validate-selftest.mjs",
+    "prepare:maps": "node scripts/integration/pipeline.mjs prepare",
+    "pipeline": "node scripts/integration/pipeline.mjs all",
+    "prebuild": "node scripts/integration/pipeline.mjs prepare"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/noto-sans-arabic": "^5.3.0",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "lucide-react": "^0.468.0",
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.55.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@types/three": "^0.180.0",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.9.2",
+    "vitest": "4.1.11"
+  }
+}

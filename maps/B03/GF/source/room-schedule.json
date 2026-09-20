@@ -1,0 +1,763 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "0002",
+  "status": "confirmed",
+  "rows": [
+    {
+      "code": "G-01",
+      "name": "MAIN ENTRANCE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0165",
+      "nameTextId": "0002-text-0166",
+      "bbox": [
+        109.51001,
+        120.98804,
+        162.33234,
+        144.74976
+      ]
+    },
+    {
+      "code": "G-02",
+      "name": "CORRIDOR 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0167",
+      "nameTextId": "0002-text-0168",
+      "bbox": [
+        107.94995,
+        164.78809,
+        160.77228,
+        188.5498
+      ]
+    },
+    {
+      "code": "G-03",
+      "name": "CORRIDOR 2",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0169",
+      "nameTextId": "0002-text-0170",
+      "bbox": [
+        107.86011,
+        204.89819,
+        160.68243,
+        228.65991
+      ]
+    },
+    {
+      "code": "G-04",
+      "name": "CORRIDOR 3",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0171",
+      "nameTextId": "0002-text-0172",
+      "bbox": [
+        107.92017,
+        238.22827,
+        160.74225,
+        261.98999
+      ]
+    },
+    {
+      "code": "G-05",
+      "name": "AUDITORIUM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0173",
+      "nameTextId": "0002-text-0174",
+      "bbox": [
+        107.80005,
+        273.35815,
+        160.62238,
+        297.11987
+      ]
+    },
+    {
+      "code": "G-06",
+      "name": "STORAGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0175",
+      "nameTextId": "0002-text-0176",
+      "bbox": [
+        107.89014,
+        308.1582,
+        160.71222,
+        331.91992
+      ]
+    },
+    {
+      "code": "G-07",
+      "name": "VIP SALON",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0177",
+      "nameTextId": "0002-text-0178",
+      "bbox": [
+        107.86011,
+        343.82812,
+        160.68243,
+        367.58984
+      ]
+    },
+    {
+      "code": "G-08",
+      "name": "STAIRS 3",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0179",
+      "nameTextId": "0002-text-0180",
+      "bbox": [
+        107.86011,
+        374.4281,
+        160.68243,
+        398.18982
+      ]
+    },
+    {
+      "code": "G-09",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0181",
+      "nameTextId": "0002-text-0182",
+      "bbox": [
+        107.86011,
+        401.9082,
+        160.68243,
+        425.66992
+      ]
+    },
+    {
+      "code": "G-10",
+      "name": "VALVE ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0183",
+      "nameTextId": "0002-text-0184",
+      "bbox": [
+        107.89014,
+        444.59814,
+        160.71222,
+        468.35986
+      ]
+    },
+    {
+      "code": "G-11",
+      "name": "STORAGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0185",
+      "nameTextId": "0002-text-0186",
+      "bbox": [
+        109.51001,
+        491.93811,
+        162.33234,
+        515.69983
+      ]
+    },
+    {
+      "code": "G-12",
+      "name": "FEMALE TOILETS",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0187",
+      "nameTextId": "0002-text-0188",
+      "bbox": [
+        107.94995,
+        536.66809,
+        160.77228,
+        560.42981
+      ]
+    },
+    {
+      "code": "G-13",
+      "name": "MALE TOILETS",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0189",
+      "nameTextId": "0002-text-0190",
+      "bbox": [
+        107.86011,
+        586.91809,
+        160.68243,
+        610.67981
+      ]
+    },
+    {
+      "code": "G-14",
+      "name": "LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0191",
+      "nameTextId": "0002-text-0192",
+      "bbox": [
+        107.92017,
+        632.39819,
+        160.74225,
+        656.15991
+      ]
+    },
+    {
+      "code": "G-15",
+      "name": "TRANSLATION ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0193",
+      "nameTextId": "0002-text-0194",
+      "bbox": [
+        107.80005,
+        671.09814,
+        160.62238,
+        694.85986
+      ]
+    },
+    {
+      "code": "G-16",
+      "name": "AUDIO VISUAL",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0195",
+      "nameTextId": "0002-text-0196",
+      "bbox": [
+        107.89014,
+        712.58813,
+        160.71222,
+        736.34985
+      ]
+    },
+    {
+      "code": "G-17",
+      "name": "STAIRS 4",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0197",
+      "nameTextId": "0002-text-0198",
+      "bbox": [
+        107.86011,
+        761.96814,
+        160.68243,
+        785.72986
+      ]
+    },
+    {
+      "code": "G-18",
+      "name": "CAFETERIA",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0199",
+      "nameTextId": "0002-text-0200",
+      "bbox": [
+        107.86011,
+        812.75818,
+        160.68243,
+        836.5199
+      ]
+    },
+    {
+      "code": "G-19",
+      "name": "SERVICE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0201",
+      "nameTextId": "0002-text-0202",
+      "bbox": [
+        107.86011,
+        853.16809,
+        160.68243,
+        876.92981
+      ]
+    },
+    {
+      "code": "G-20",
+      "name": "KITCHEN",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0203",
+      "nameTextId": "0002-text-0204",
+      "bbox": [
+        107.89014,
+        890.96814,
+        160.71222,
+        914.72986
+      ]
+    },
+    {
+      "code": "G-21",
+      "name": "STORAGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0205",
+      "nameTextId": "0002-text-0206",
+      "bbox": [
+        109.51001,
+        930.47815,
+        162.33234,
+        954.23987
+      ]
+    },
+    {
+      "code": "G-22",
+      "name": "SECURITY ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0207",
+      "nameTextId": "0002-text-0208",
+      "bbox": [
+        107.94995,
+        964.70813,
+        160.77228,
+        988.46985
+      ]
+    },
+    {
+      "code": "G-23",
+      "name": "STAIR 02",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0209",
+      "nameTextId": "0002-text-0210",
+      "bbox": [
+        107.86011,
+        997.6781,
+        160.68243,
+        1021.43982
+      ]
+    },
+    {
+      "code": "G-24",
+      "name": "EXHIBITION ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0211",
+      "nameTextId": "0002-text-0212",
+      "bbox": [
+        107.92017,
+        1031.57812,
+        160.74225,
+        1055.33984
+      ]
+    },
+    {
+      "code": "G-25",
+      "name": "OPERATIONS OFFICE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0213",
+      "nameTextId": "0002-text-0214",
+      "bbox": [
+        107.80005,
+        1069.43811,
+        160.62238,
+        1093.19983
+      ]
+    },
+    {
+      "code": "G-26",
+      "name": "SKYLIGHT",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0215",
+      "nameTextId": "0002-text-0216",
+      "bbox": [
+        107.89014,
+        1106.75818,
+        160.71222,
+        1130.5199
+      ]
+    },
+    {
+      "code": "G-27",
+      "name": "RECEPTION",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0217",
+      "nameTextId": "0002-text-0218",
+      "bbox": [
+        107.86011,
+        1138.10815,
+        160.68243,
+        1161.86987
+      ]
+    },
+    {
+      "code": "G-28",
+      "name": "CLINIC",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0219",
+      "nameTextId": "0002-text-0220",
+      "bbox": [
+        107.86011,
+        1171.13818,
+        160.68243,
+        1194.8999
+      ]
+    },
+    {
+      "code": "G-29",
+      "name": "LOUNGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0221",
+      "nameTextId": "0002-text-0222",
+      "bbox": [
+        107.86011,
+        1208.18811,
+        160.68243,
+        1231.94983
+      ]
+    },
+    {
+      "code": "G-30",
+      "name": "MEETING ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0223",
+      "nameTextId": "0002-text-0224",
+      "bbox": [
+        107.89014,
+        1253.51819,
+        160.71222,
+        1277.27991
+      ]
+    },
+    {
+      "code": "G-31",
+      "name": "LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0225",
+      "nameTextId": "0002-text-0226",
+      "bbox": [
+        109.51001,
+        1303.58813,
+        162.33234,
+        1327.34985
+      ]
+    },
+    {
+      "code": "G-32",
+      "name": "STAIRS 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0227",
+      "nameTextId": "0002-text-0228",
+      "bbox": [
+        107.94995,
+        1348.10815,
+        160.77228,
+        1371.86987
+      ]
+    },
+    {
+      "code": "G-33",
+      "name": "PRAYER ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0229",
+      "nameTextId": "0002-text-0230",
+      "bbox": [
+        107.86011,
+        1393.73804,
+        160.68243,
+        1417.49976
+      ]
+    },
+    {
+      "code": "G-34",
+      "name": "STORAGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0231",
+      "nameTextId": "0002-text-0232",
+      "bbox": [
+        107.92017,
+        1438.61816,
+        160.74225,
+        1462.37976
+      ]
+    },
+    {
+      "code": "G-35",
+      "name": "COPY ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0233",
+      "nameTextId": "0002-text-0234",
+      "bbox": [
+        107.80005,
+        1477.49805,
+        160.62238,
+        1501.25977
+      ]
+    },
+    {
+      "code": "G-36",
+      "name": "ARCHIVES ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0235",
+      "nameTextId": "0002-text-0236",
+      "bbox": [
+        107.89014,
+        1521.08813,
+        160.71222,
+        1544.84985
+      ]
+    },
+    {
+      "code": "G-37",
+      "name": "GARBAGE CHUTE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0237",
+      "nameTextId": "0002-text-0238",
+      "bbox": [
+        107.86011,
+        1563.23804,
+        160.68243,
+        1586.99976
+      ]
+    },
+    {
+      "code": "G-38",
+      "name": "CONTROL ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0239",
+      "nameTextId": "0002-text-0240",
+      "bbox": [
+        107.86011,
+        1598.78809,
+        160.68243,
+        1622.5498
+      ]
+    },
+    {
+      "code": "G-39",
+      "name": "SERVICES",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0241",
+      "nameTextId": "0002-text-0242",
+      "bbox": [
+        107.86011,
+        1634.1582,
+        160.68243,
+        1657.9198
+      ]
+    },
+    {
+      "code": "G-40",
+      "name": "STORAGE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0243",
+      "nameTextId": "0002-text-0244",
+      "bbox": [
+        107.89014,
+        1671.50806,
+        160.71222,
+        1695.26978
+      ]
+    },
+    {
+      "code": "G-41",
+      "name": "FEMALE TOILET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0245",
+      "nameTextId": "0002-text-0246",
+      "bbox": [
+        109.51001,
+        1710.38818,
+        162.33234,
+        1734.14978
+      ]
+    },
+    {
+      "code": "G-42",
+      "name": "MALE TOILET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0247",
+      "nameTextId": "0002-text-0248",
+      "bbox": [
+        107.94995,
+        1749.05811,
+        160.77228,
+        1772.81982
+      ]
+    },
+    {
+      "code": "G-43",
+      "name": "MECHANICAL LAB",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0249",
+      "nameTextId": "0002-text-0250",
+      "bbox": [
+        107.86011,
+        1791.95813,
+        160.68243,
+        1815.71973
+      ]
+    },
+    {
+      "code": "G-44",
+      "name": "AV CONTROL ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0251",
+      "nameTextId": "0002-text-0252",
+      "bbox": [
+        107.92017,
+        1838.60815,
+        160.74225,
+        1862.36975
+      ]
+    },
+    {
+      "code": "G-45",
+      "name": "PHYSICAL TRAINING LAB 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0253",
+      "nameTextId": "0002-text-0254",
+      "bbox": [
+        107.80005,
+        1892.24817,
+        160.62238,
+        1916.00977
+      ]
+    },
+    {
+      "code": "G-46",
+      "name": "PHYSICAL TRAINING LAB 2",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0255",
+      "nameTextId": "0002-text-0256",
+      "bbox": [
+        107.89014,
+        1946.1582,
+        160.71222,
+        1969.9198
+      ]
+    },
+    {
+      "code": "G-47",
+      "name": "AV STUDIO",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0257",
+      "nameTextId": "0002-text-0258",
+      "bbox": [
+        107.86011,
+        1996.97815,
+        160.68243,
+        2020.73975
+      ]
+    },
+    {
+      "code": "G-48",
+      "name": "SERVICE ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0259",
+      "nameTextId": "0002-text-0260",
+      "bbox": [
+        107.86011,
+        2048.33813,
+        160.68243,
+        2072.09985
+      ]
+    },
+    {
+      "code": "G-49",
+      "name": "HVAC CABINET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0261",
+      "nameTextId": "0002-text-0262",
+      "bbox": [
+        107.86011,
+        2097.14819,
+        160.68243,
+        2120.90967
+      ]
+    },
+    {
+      "code": "G-50",
+      "name": "VISUAL TRAINING  LAB 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0263",
+      "nameTextId": "0002-text-0264",
+      "bbox": [
+        107.89014,
+        2143.91821,
+        160.71222,
+        2167.67969
+      ]
+    },
+    {
+      "code": "G-51",
+      "name": "IT ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0265",
+      "nameTextId": "0002-text-0266",
+      "bbox": [
+        109.51001,
+        2183.36816,
+        162.33234,
+        2207.12988
+      ]
+    },
+    {
+      "code": "G-52",
+      "name": "ELECT ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0267",
+      "nameTextId": "0002-text-0268",
+      "bbox": [
+        107.94995,
+        2226.32812,
+        160.77228,
+        2250.08984
+      ]
+    },
+    {
+      "code": "G-53",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0269",
+      "nameTextId": "0002-text-0270",
+      "bbox": [
+        107.86011,
+        2267.99805,
+        160.68243,
+        2291.75977
+      ]
+    },
+    {
+      "code": "G-54",
+      "name": "STAIRS 5",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0271",
+      "nameTextId": "0002-text-0272",
+      "bbox": [
+        107.92017,
+        2302.52808,
+        160.74225,
+        2326.28979
+      ]
+    }
+  ]
+}

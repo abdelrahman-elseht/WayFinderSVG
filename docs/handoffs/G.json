@@ -1,0 +1,12 @@
+{
+  "agent": "G",
+  "phase": "stage-1-source-and-services",
+  "status": "requires-routing-fixes-and-later-browser-qa",
+  "ownedFiles": ["tests/qa/source_truth.py", "tests/integration/route-safety.qa.test.ts", "tests/integration/live-data.qa.test.ts", "docs/QA_REPORT.md", "docs/handoffs/G.json", "artifacts/qa/source-truth.json"],
+  "passed": {"sourceReadOnlyAssertions": 357, "liveDataIntegrationTests": 4, "syntheticSafetyControl": 1},
+  "failed": ["P1 supplied wall crossing accepted", "P1 supplied navigable enclosure ignored", "P2 inconsistent edge floor accepted"],
+  "evidence": ["artifacts/qa/source-truth.json", "docs/QA_REPORT.md"],
+  "liveData": {"rooms": 54, "candidatePolygons": 40, "confirmedPolygons": 0, "graphNodes": 0, "graphEdges": 0},
+  "limitations": ["No live route geometry exists to validate", "Positive routing is synthetic-only", "No physical scale or kiosk location is verified", "Browser/UI/build review pending D/F handoff"],
+  "next": ["C fixes three independent regression failures", "Resume G for browser UI and integration QA after D/F ready"]
+}

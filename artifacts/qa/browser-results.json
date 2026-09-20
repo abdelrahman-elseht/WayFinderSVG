@@ -1,0 +1,397 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
+      "F:\\projects\\WFSVG\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "F:\\projects\\WFSVG\\playwright.config.ts",
+    "rootDir": "F:/projects/WFSVG/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/projects/WFSVG/artifacts/qa/browser-tests",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "F:/projects/WFSVG/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/qa/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "wayfinding.qa.spec.ts",
+      "file": "wayfinding.qa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "English actual entrance and cross-wing routes, keyboard, planning reset and map controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8418,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:15:55.181Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-a0f1f655352bf9b0633c",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "Arabic actual route, popup and language switch preserve selected endpoints",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:04.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-dff7514fe5e9f2cc14b2",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "browser speech autoplays details and replay/stop/mute honor current language",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5602,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:10.529Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-a2c5fd59a0dfc4a7558e",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 71,
+          "column": 5
+        },
+        {
+          "title": "WCAG AA contrast and semantics on English/Arabic default and popup states",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:16.144Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "axe-results",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJzdGF0ZSI6ICJlbi1kZWZhdWx0IiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJlbi1wb3B1cCIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAic3RhdGUiOiAiZW4tcm91dGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgInN0YXRlIjogImFyLXBvcHVwIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJhci1tb2JpbGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0KXQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-e9347334efbdf67c87dc",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "mobile and 200 percent text retain usable controls without horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10548,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:29.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-0e2bb2a88d493f7315ed",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 109,
+          "column": 5
+        },
+        {
+          "title": "reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14943,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:40.446Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-7399270c3e803fb3b0b6",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 136,
+          "column": 5
+        },
+        {
+          "title": "WebGL-unavailable fallback preserves source plan and usable keyboard directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2321,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:55.403Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-99db34315cc28c75a52d",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 160,
+          "column": 5
+        },
+        {
+          "title": "forced colors and reduced motion preserve accessible directory and selection controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5431,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:16:57.737Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-e777c5540957c895d261",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 170,
+          "column": 5
+        },
+        {
+          "title": "three exterior destinations and reversed starts clearly retain partial source coverage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6556,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T17:17:03.181Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-9d88422398be22d5c18b",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 187,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T17:15:54.526Z",
+    "duration": 75600.646,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

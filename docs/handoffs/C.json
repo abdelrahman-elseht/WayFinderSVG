@@ -1,0 +1,11 @@
+{
+  "agent": "C",
+  "status": "complete",
+  "owned": ["packages/routing/", "tests/fixtures/routing.ts", "tests/unit/routing.test.ts", "tests/unit/instructions.test.ts"],
+  "exports": ["findRoute(graph,startId,endId,options?)", "generateInstructions(graph,nodeIds,edgeIds)", "polylineLength(points)"],
+  "algorithm": "Zero-heuristic A* / Dijkstra; deterministic equal-cost ordering",
+  "safety": ["confirmed nodes/edges and open restriction required; confirmed subsets may route within a candidate/unknown aggregate graph", "accessibleOnly requires confirmed accessibility and excludes stairs", "null kiosk/start and missing destination produce bilingual unavailable results", "invalid weights/geometry/calibration fail closed", "no meters without confirmed positive scale", "supplied wall contact blocks routes; complete segment containment checked against polygon union", "floor IDs validated; unscoped geometry on multi-floor graphs fails closed"],
+  "directions": ["directed/reversed SVG polyline tangents", "start/continue/slight/full turns", "internal bends", "corridor entry", "stairs/elevator with destination floor", "left/right destination door", "arrival"],
+  "verification": {"routing_and_instruction_tests": "60 passed", "independent_geometry_regressions": "4 passed unchanged", "typecheck": "passed with npx tsc --noEmit --incremental false"},
+  "notes": ["All positive routing tests use isolated SYNTHETIC_TEST_BUILDING fixtures, never B03", "graph distance is authoritative, including vertical costs", "source pipeline owns evidence, completeness of constraints and physical-access confirmation", "no canonical type changes", "empty constraints retain synthetic multi-floor compatibility but provide no wall/enclosure verification", "wall/area constraints have no floor association in v1; constrained multi-floor graphs return invalid"]
+}

@@ -1,0 +1,45 @@
+{
+  "task": "R2 independent source, routing, UI and production QA",
+  "status": "completed-production-QA-passed-with-documented-source-limits",
+  "filesChanged": [
+    "tests/integration/live-data.qa.test.ts",
+    "tests/integration/app-state.qa.test.tsx",
+    "tests/integration/route-safety.qa.test.ts",
+    "tests/e2e/wayfinding.qa.spec.ts",
+    "tests/qa/source_truth.py",
+    "docs/QA_REPORT.md",
+    "docs/handoffs/R2-QA.json",
+    "artifacts/qa/r2-all-pairs.json",
+    "artifacts/qa/r2-source-truth.json",
+    "artifacts/qa/r2-production-e2e.log",
+    "artifacts/qa/r2-partial-route-ar.png"
+  ],
+  "testsRun": [
+    "Final npm test: 116 tests / 8 files passed in one run",
+    "npm run typecheck passed",
+    "npm run test:data: 21 rejection checks passed",
+    "1296 independent source and geometry checks passed",
+    "All 2916 ordered mapped-approach pairs passed (latest 92.7s)",
+    "Nine development browser tests passed",
+    "Six newly reviewed screenshots passed unchanged development comparison",
+    "Optimized production build passed (root coordinated)",
+    "Nine production browser tests passed on localhost:3001, including unchanged six-baseline visual comparison"
+  ],
+  "assumptions": [
+    "Working drawing-based approach planning must pass actual B03 routes; synthetic positives and unavailable-route assertions do not satisfy this",
+    "Physical kiosk remains null, source Main Entrance is explicitly a planning default",
+    "Graph endpoints may be room doors or qualified approaches; full route coverage does not establish true room-door arrival"
+  ],
+  "openIssues": [
+    "G06, G17 and G23 actual exterior connections remain unmapped because continuous ground-surface source evidence is absent; UI explicitly labels partial routes",
+    "Physical access, accessibility, kiosk location and scale remain unknown"
+  ],
+  "handoffNotes": [
+    "Positive real B03 journeys replace former unavailable-only acceptance",
+    "No geometry expectations relaxed: full area-union containment, solid-wall crossing/overlap and non-circulation-room shortcut assertions pass",
+    "Graph approach inventory: 39 source-door, 8 open-circulation, 7 other approaches; 16 rooms qualified; route connectivity is not 54 exact arrivals",
+    "P1 generic arrival overclaim fixed; actual Clinic and partial exterior routes tested in both languages",
+    "Six raised-scene/route/RTL/mobile baseline images independently viewed and unchanged rerun passed",
+    "QA_REPORT.md coherently rewritten with current stable results, replacing obsolete intermediate failures"
+  ]
+}

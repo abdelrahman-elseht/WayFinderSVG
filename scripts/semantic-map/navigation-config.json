@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "method": "Drawing-anchored circulation interior regions; source door normal approaches. No physical access or accessibility certification.",
+  "corridorSpines": [
+    [
+      [
+        1195,
+        1070
+      ],
+      [
+        1410,
+        1015
+      ],
+      [
+        1615,
+        975
+      ],
+      [
+        1880,
+        938
+      ],
+      [
+        2130,
+        930
+      ],
+      [
+        2380,
+        940
+      ]
+    ],
+    [
+      [
+        1195,
+        1070
+      ],
+      [
+        1230,
+        1190
+      ],
+      [
+        1290,
+        1390
+      ],
+      [
+        1330,
+        1530
+      ]
+    ],
+    [
+      [
+        1330,
+        1530
+      ],
+      [
+        1680,
+        1480
+      ],
+      [
+        1910,
+        1460
+      ],
+      [
+        2200,
+        1450
+      ],
+      [
+        2400,
+        1470
+      ],
+      [
+        2635,
+        1410
+      ],
+      [
+        2810,
+        1430
+      ],
+      [
+        3080,
+        1490
+      ],
+      [
+        3170,
+        1510
+      ]
+    ],
+    [
+      [
+        2380,
+        920
+      ],
+      [
+        2380,
+        1150
+      ],
+      [
+        2380,
+        1500
+      ],
+      [
+        2350,
+        1580
+      ]
+    ],
+    [
+      [
+        1290,
+        1350
+      ],
+      [
+        1160,
+        1365
+      ],
+      [
+        930,
+        1450
+      ]
+    ],
+    [
+      [
+        1330,
+        1530
+      ],
+      [
+        1370,
+        1660
+      ],
+      [
+        1310,
+        1775
+      ]
+    ],
+    [
+      [
+        2130,
+        930
+      ],
+      [
+        2150,
+        830
+      ],
+      [
+        2150,
+        790
+      ],
+      [
+        2000,
+        800
+      ]
+    ],
+    [
+      [
+        2635,
+        1410
+      ],
+      [
+        2660,
+        1570
+      ],
+      [
+        2600,
+        1610
+      ],
+      [
+        2720,
+        1760
+      ],
+      [
+        2880,
+        1850
+      ],
+      [
+        2980,
+        1920
+      ]
+    ],
+    [
+      [
+        2390,
+        980
+      ],
+      [
+        2650,
+        980
+      ]
+    ],
+    [
+      [
+        2640,
+        1380
+      ],
+      [
+        2720,
+        1415
+      ],
+      [
+        2890,
+        1435
+      ],
+      [
+        3160,
+        1510
+      ]
+    ],
+    [
+      [
+        1310,
+        1570
+      ],
+      [
+        1310,
+        1710
+      ],
+      [
+        1308,
+        1790
+      ]
+    ],
+    [
+      [
+        1300,
+        1610
+      ],
+      [
+        1130,
+        1670
+      ]
+    ],
+    [
+      [
+        2100,
+        910
+      ],
+      [
+        1985,
+        900
+      ],
+      [
+        1997,
+        785
+      ]
+    ],
+    [
+      [
+        1175,
+        1070
+      ],
+      [
+        1150,
+        1060
+      ]
+    ],
+    [
+      [
+        2950,
+        1920
+      ],
+      [
+        3050,
+        1910
+      ]
+    ],
+    [
+      [
+        2670,
+        1610
+      ],
+      [
+        2820,
+        1650
+      ],
+      [
+        2840,
+        1640
+      ],
+      [
+        2890,
+        1430
+      ]
+    ],
+    [
+      [
+        1255,
+        1095
+      ],
+      [
+        1280,
+        1150
+      ],
+      [
+        1270,
+        1180
+      ]
+    ]
+  ],
+  "corridorHalfWidth": 65,
+  "roomEndpoints": {
+    "G-01": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-02": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-03": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-04": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-05": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-07914",
+      "leafPathId": "0002-path-07913"
+    },
+    "G-06": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-07914",
+      "leafPathId": "0002-path-07913",
+      "note": {
+        "en": "Route ends at the Auditorium entrance. Storage G-06 is accessed from the exterior auditorium landing; that final access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل قاعة المحاضرات. الوصول النهائي إلى المخزن من البسطة الخارجية غير مرسوم في المسار."
+      },
+      "kind": "approach",
+      "partial": true,
+      "unmappedFinalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08027"
+      }
+    },
+    "G-07": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-11149",
+      "leafPathId": "0002-path-11150"
+    },
+    "G-08": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08079",
+      "leafPathId": "0002-path-08077"
+    },
+    "G-09": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-10": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08090",
+      "leafPathId": "0002-path-08089"
+    },
+    "G-11": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-11451",
+      "leafPathId": "0002-path-11453"
+    },
+    "G-12": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08007",
+      "leafPathId": "0002-path-08005"
+    },
+    "G-13": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-07958",
+      "leafPathId": "0002-path-07957"
+    },
+    "G-14": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-15": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-07947",
+      "leafPathId": "0002-path-07949"
+    },
+    "G-16": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-11071",
+      "leafPathId": "0002-path-11073"
+    },
+    "G-17": {
+      "sourceId": "0002",
+      "note": {
+        "en": "Route ends at Lobby G-14. Stair 4 has an exterior ground-floor door; the final exterior approach is not mapped.",
+        "ar": "ينتهي المسار عند الردهة G-14. باب السلم ٤ خارجي والمسار الخارجي الأخير غير مرسوم."
+      },
+      "kind": "approach",
+      "point": [
+        2981.452,
+        1418.202
+      ],
+      "partial": true,
+      "unmappedFinalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08038"
+      }
+    },
+    "G-18": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08103",
+      "leafPathId": "0002-path-08105"
+    },
+    "G-19": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08072",
+      "leafPathId": "0002-path-08070"
+    },
+    "G-20": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08062",
+      "leafPathId": "0002-path-08060"
+    },
+    "G-21": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-08062",
+      "leafPathId": "0002-path-08060",
+      "note": {
+        "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
+        "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
+      },
+      "kind": "approach",
+      "finalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08052"
+      }
+    },
+    "G-22": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07364",
+      "leafPathId": "0001-path-07365"
+    },
+    "G-23": {
+      "sourceId": "0002",
+      "arcPathId": "0002-path-07887",
+      "leafPathId": "0002-path-07886",
+      "note": {
+        "en": "Route ends at the south Main Entrance doors. Stair 2 has an exterior ground-floor door; the final exterior approach is not mapped.",
+        "ar": "ينتهي المسار عند أبواب المدخل الرئيسي الجنوبية. باب السلم ٢ خارجي والمسار الخارجي الأخير غير مرسوم."
+      },
+      "kind": "approach",
+      "partial": true,
+      "unmappedFinalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08275"
+      }
+    },
+    "G-24": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07377",
+      "leafPathId": "0001-path-07378"
+    },
+    "G-25": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07392",
+      "leafPathId": "0001-path-07390"
+    },
+    "G-26": {
+      "point": [
+        1810,
+        1445
+      ],
+      "note": {
+        "en": "Route ends beside the Skylight perimeter. The skylight is not a walking surface.",
+        "ar": "ينتهي المسار بجوار محيط فتحة الإضاءة العلوية، وهي ليست سطحاً للمشي."
+      },
+      "kind": "approach"
+    },
+    "G-27": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07403",
+      "leafPathId": "0001-path-07402"
+    },
+    "G-28": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07403",
+      "leafPathId": "0001-path-07402",
+      "note": {
+        "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
+        "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
+      },
+      "kind": "approach",
+      "finalDoorSource": {
+        "sourceId": "0001",
+        "arcPathId": "0001-path-07414"
+      }
+    },
+    "G-29": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07427",
+      "leafPathId": "0001-path-07428"
+    },
+    "G-30": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07526",
+      "leafPathId": "0001-path-07527"
+    },
+    "G-31": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-32": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07474",
+      "leafPathId": "0001-path-07473"
+    },
+    "G-33": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07485",
+      "leafPathId": "0001-path-07483"
+    },
+    "G-34": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07499",
+      "leafPathId": "0001-path-07497"
+    },
+    "G-35": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07504",
+      "leafPathId": "0001-path-07506"
+    },
+    "G-36": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07513",
+      "leafPathId": "0001-path-07514"
+    },
+    "G-37": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07539",
+      "leafPathId": "0001-path-07540"
+    },
+    "G-38": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07553",
+      "leafPathId": "0001-path-07552"
+    },
+    "G-39": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07560",
+      "leafPathId": "0001-path-07558"
+    },
+    "G-40": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07560",
+      "leafPathId": "0001-path-07558",
+      "note": {
+        "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
+        "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
+      },
+      "kind": "approach",
+      "finalDoorSource": {
+        "sourceId": "0001",
+        "arcPathId": "0001-path-07585"
+      }
+    },
+    "G-41": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07571",
+      "leafPathId": "0001-path-07569"
+    },
+    "G-42": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07702",
+      "leafPathId": "0001-path-07701"
+    },
+    "G-43": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07715",
+      "leafPathId": "0001-path-07716"
+    },
+    "G-44": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-11655",
+      "leafPathId": "0001-path-11645",
+      "sourceDoorSegment": [
+        [
+          1255.6001,
+          1186.96997
+        ],
+        [
+          1279.87012,
+          1180.16003
+        ]
+      ],
+      "note": {
+        "en": "AV Control Room is approached through the shared AV suite foyer.",
+        "ar": "الوصول إلى غرفة التحكم عبر الردهة المشتركة لجناح الوسائط."
+      }
+    },
+    "G-45": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07732",
+      "leafPathId": "0001-path-07733"
+    },
+    "G-46": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07749",
+      "leafPathId": "0001-path-07750"
+    },
+    "G-47": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07766",
+      "leafPathId": "0001-path-07767"
+    },
+    "G-48": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07809",
+      "leafPathId": "0001-path-07807"
+    },
+    "G-49": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07827",
+      "leafPathId": "0001-path-07818"
+    },
+    "G-50": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07783",
+      "leafPathId": "0001-path-07784"
+    },
+    "G-51": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07862",
+      "leafPathId": "0001-path-07864"
+    },
+    "G-52": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07871",
+      "leafPathId": "0001-path-07873"
+    },
+    "G-53": {
+      "note": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      }
+    },
+    "G-54": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07882",
+      "leafPathId": "0001-path-07880"
+    }
+  }
+}

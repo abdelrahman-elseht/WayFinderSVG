@@ -1,0 +1,102 @@
+{
+  "baseURL": "http://localhost:3001",
+  "mapAndFontsReadyMs": 3220,
+  "navigation": [
+    {
+      "name": "http://localhost:3001/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 191.80000000074506,
+      "navigationId": 5696,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 1.3999999985098839,
+      "domainLookupStart": 1.3999999985098839,
+      "domainLookupEnd": 1.3999999985098839,
+      "connectStart": 1.3999999985098839,
+      "secureConnectionStart": 0,
+      "connectEnd": 1.3999999985098839,
+      "requestStart": 2.300000000745058,
+      "responseStart": 12.399999998509884,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 12.399999998509884,
+      "responseEnd": 36.19999999925494,
+      "transferSize": 128657,
+      "encodedBodySize": 128357,
+      "decodedBodySize": 648717,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 134.80000000074506,
+      "domContentLoadedEventStart": 134.80000000074506,
+      "domContentLoadedEventEnd": 134.80000000074506,
+      "domComplete": 191.69999999925494,
+      "loadEventStart": 191.80000000074506,
+      "loadEventEnd": 191.80000000074506,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "high"
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "name": "http://localhost:3001/_next/static/chunks/2mdolztdas6eu.js",
+      "transferSize": 7659,
+      "duration": 19.100000001490116
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/34wvn5zw0a69w.js",
+      "transferSize": 64919,
+      "duration": 25.5
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/2l_y_qqi24r7y.js",
+      "transferSize": 47488,
+      "duration": 22.300000000745058
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/turbopack-2b14n0m51mw5s.js",
+      "transferSize": 4150,
+      "duration": 20.100000001490116
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/3fntmmi971322.js",
+      "transferSize": 3961,
+      "duration": 23.800000000745058
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/0zcuya4kjh81e.js",
+      "transferSize": 4243,
+      "duration": 23.699999999254942
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/3rn04t0rm0-dn.js",
+      "transferSize": 13644,
+      "duration": 25.200000002980232
+    },
+    {
+      "name": "http://localhost:3001/_next/static/chunks/0pz9hpb055m6h.js",
+      "transferSize": 241487,
+      "duration": 35.80000000074506
+    }
+  ],
+  "scope": "One local headless Edge observation, not a kiosk hardware benchmark"
+}

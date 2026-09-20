@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }],
+    "baseUrl": "../..",
+    "paths": { "@wayfinding/*": ["packages/*/src"], "@data/*": ["data/*"], "@content/*": ["content/*"] }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

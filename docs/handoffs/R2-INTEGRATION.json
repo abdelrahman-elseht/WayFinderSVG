@@ -1,0 +1,35 @@
+{
+  "task": "R2 application integration and default planning origin",
+  "status": "implementation-complete-pending-independent-live-QA",
+  "filesChanged": [
+    "apps/web/components/WayfindingApp.tsx",
+    "apps/web/app/kiosk.css",
+    "packages/i18n/src/index.ts",
+    "README.md",
+    "docs/DEPLOYMENT.md",
+    "docs/handoffs/R2-INTEGRATION.json"
+  ],
+  "testsRun": [
+    "TypeScript transpile syntax validation passed for WayfindingApp.tsx and packages/i18n/src/index.ts. Full typecheck/build deferred to coordinated root validation to avoid active Next.js output conflicts.",
+    "npm run typecheck passed after qualified endpoint and partial-route UI integration."
+  ],
+  "assumptions": [
+    "FloorData.navigationDefaults.startRoomId is the explicit named planning origin; custom room and confirmed kiosk take precedence.",
+    "B03 generator supplies source Main Entrance as default; no source coordinates, graph, route engine or FloorMap edits made by integration.",
+    "Unknown physical scale is not converted to metres; source-based guidance and physical-access confidence are distinct."
+  ],
+  "openIssues": [
+    "Independent QA must exercise qualified Clinic arrival and partial G06/G17/G23 routes, including English/Arabic and partial source behavior.",
+    "Coordinated final production build is required."
+  ],
+  "handoffNotes": [
+    "Removed fixed administrative verification failure heading and route-help block. Failures display actual route reason.",
+    "Successful uncalibrated route headline is Route on floor plan; turn instructions and route geometry use the router result.",
+    "Default source entrance is explicitly labeled default and not current location. Reset route / start retains the existing reset-kiosk test ID; confirmed kiosks retain Reset to kiosk.",
+    "Room navigationNote appears beside start/arrival instructions. Existing search, both room names and TTS preserved.",
+    "RTL selected-scene positioning fixed by applying LTR only to map-canvas child, leaving logical positioning wrapper in page direction.",
+    "README and deployment documentation reflect drawing policy, planning origins, unknown physical access and illustrative extrusion heights.",
+    "navigationPartial on either endpoint produces a prominent Partial route heading and ends instructions at the mapped segment without claiming the full journey.",
+    "Qualified destination navigationNote appears before instructions; arrival and destination-left/right use mapped entrance or approach text. Room cards show endpoint qualifications and partial coverage before Go here."
+  ]
+}

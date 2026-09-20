@@ -1,0 +1,31 @@
+{
+  "agent": "D",
+  "status": "complete",
+  "owned_paths": ["apps/web", "packages/ui"],
+  "entry": "apps/web/components/WayfindingApp.tsx",
+  "contract": "WayfindingApp({ floorData: FloorData, graph: NavigationGraph, contents: RoomContent[], audioService?: TTSService })",
+  "delivered": [
+    "Next.js 16 app-router application with explicit building, floor, selection, start, destination, language and mute state",
+    "R3F orthographic source map plane, low source-derived extrusions, candidate dashed contours, source markers, label decluttering, animated lift/color honoring reduced motion",
+    "Selection focus, pan, zoom, reset; WebGL fallback preserves source plan and keyboard directory",
+    "54-room bilingual searchable category directory, room details with both names, source SVG crop, honest geometry status and placeholder descriptions",
+    "Route selectors, verified-only graph routing, localized unavailable states, null kiosk reset and optional accessible-only routing",
+    "Automatic speech through injectable TTS service, replay/stop/mute, unsupported-speech state",
+    "RTL document direction, visible focus, semantic controls, live status, 44–48px primary controls, readable kiosk typography, mobile detail layout"
+  ],
+  "verified": [
+    "npx tsc --noEmit passed",
+    "npm run build passed Next.js 16.3.5 production prerender",
+    "Headless Edge Playwright visual inspection at 1440x960 desktop English, selected room, Arabic RTL; 390x844 mobile Arabic",
+    "54 canonical directory buttons present; cleaned master SVG loads correctly on WebGL map plane"
+  ],
+  "selectors": ["language-toggle", "room-directory", "[data-room-id]", "start-select", "destination-select", "kiosk-status", "route-status", "room-details", "reset-kiosk", "live-status", "floor-map"],
+  "visual_artifacts": ["apps/web/qa-desktop.png", "apps/web/qa-selected.png", "apps/web/qa-arabic.png", "apps/web/qa-mobile.png"],
+  "dev_server": "http://localhost:3000",
+  "limitations": [
+    "Canonical graph is not confirmed; no live visitor route is drawn. Kiosk node remains null.",
+    "Unresolved geometry uses label-position markers. Candidate contours do not imply facility approval or access.",
+    "Only B03/GF is supplied; typed props and explicit state permit additional floor datasets.",
+    "Automatic speech may require browser permission or a supported installed voice; replay remains available."
+  ]
+}

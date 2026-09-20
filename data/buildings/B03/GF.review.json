@@ -1,0 +1,3868 @@
+{
+  "schemaVersion": 1,
+  "method": "Source-vector free-space polygonization with source swing-and-leaf gap evidence",
+  "bufferTolerance": 0.2,
+  "simplificationTolerance": 0.18,
+  "inventoryCount": 54,
+  "candidatePolygonCount": 39,
+  "confirmedPolygonCount": 0,
+  "rooms": [
+    {
+      "code": "G-01",
+      "sourceLabelIds": [
+        "0001-text-0172",
+        "0002-text-0145"
+      ],
+      "labelPosition": [
+        2357.025,
+        1181.202
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-02",
+      "sourceLabelIds": [
+        "0001-text-0088",
+        "0001-text-0169",
+        "0002-text-0136"
+      ],
+      "labelPosition": [
+        1474.874,
+        1506.192
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-03",
+      "sourceLabelIds": [
+        "0001-text-0145"
+      ],
+      "labelPosition": [
+        1217.954,
+        1276.332
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-04",
+      "sourceLabelIds": [
+        "0001-text-0142",
+        "0001-text-0181",
+        "0002-text-0160"
+      ],
+      "labelPosition": [
+        1401.674,
+        1019.112
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-05",
+      "sourceLabelIds": [
+        "0002-text-0148"
+      ],
+      "labelPosition": [
+        2988.975,
+        1048.415
+      ],
+      "geometryStatus": "candidate",
+      "area": 376606.512,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 5 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-07914",
+        "0002-path-07915",
+        "0002-path-07929",
+        "0002-path-07930",
+        "0002-path-07940",
+        "0002-path-11127"
+      ]
+    },
+    {
+      "code": "G-06",
+      "sourceLabelIds": [
+        "0002-text-0151"
+      ],
+      "labelPosition": [
+        3478.124,
+        992.442
+      ],
+      "geometryStatus": "candidate",
+      "area": 9370.835,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08027"
+      ]
+    },
+    {
+      "code": "G-07",
+      "sourceLabelIds": [
+        "0002-text-0127"
+      ],
+      "labelPosition": [
+        2818.622,
+        1329.042
+      ],
+      "geometryStatus": "candidate",
+      "area": 29431.24,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-11127",
+        "0002-path-11136",
+        "0002-path-11149",
+        "0002-path-11153"
+      ]
+    },
+    {
+      "code": "G-08",
+      "sourceLabelIds": [
+        "0002-text-0118"
+      ],
+      "labelPosition": [
+        2815.813,
+        1430.082
+      ],
+      "geometryStatus": "candidate",
+      "area": 16029.029,
+      "conflict": "Plan STAIR (03) is tagged 007, but the schedule assigns G-08; association by unique stair name is candidate.",
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08079"
+      ]
+    },
+    {
+      "code": "G-09",
+      "sourceLabelIds": [
+        "0002-text-0139"
+      ],
+      "labelPosition": [
+        2639.69,
+        1467.012
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-10",
+      "sourceLabelIds": [
+        "0002-text-0157"
+      ],
+      "labelPosition": [
+        2713.465,
+        1612.332
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-11",
+      "sourceLabelIds": [
+        "0002-text-0103"
+      ],
+      "labelPosition": [
+        2926.784,
+        1667.682
+      ],
+      "geometryStatus": "candidate",
+      "area": 6934.333,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-11451"
+      ]
+    },
+    {
+      "code": "G-12",
+      "sourceLabelIds": [
+        "0002-text-0121"
+      ],
+      "labelPosition": [
+        2937.756,
+        1600.542
+      ],
+      "geometryStatus": "candidate",
+      "area": 12704.422,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08007"
+      ]
+    },
+    {
+      "code": "G-13",
+      "sourceLabelIds": [
+        "0002-text-0124"
+      ],
+      "labelPosition": [
+        2962.322,
+        1482.702
+      ],
+      "geometryStatus": "candidate",
+      "area": 13208.516,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-07958"
+      ]
+    },
+    {
+      "code": "G-14",
+      "sourceLabelIds": [
+        "0002-text-0142"
+      ],
+      "labelPosition": [
+        2981.452,
+        1418.202
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-15",
+      "sourceLabelIds": [
+        "0002-text-0130"
+      ],
+      "labelPosition": [
+        3006.762,
+        1355.352
+      ],
+      "geometryStatus": "candidate",
+      "area": 11162.053,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-07947"
+      ]
+    },
+    {
+      "code": "G-16",
+      "sourceLabelIds": [
+        "0002-text-0133"
+      ],
+      "labelPosition": [
+        3131.595,
+        1397.892
+      ],
+      "geometryStatus": "candidate",
+      "area": 7642.149,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-11071"
+      ]
+    },
+    {
+      "code": "G-17",
+      "sourceLabelIds": [
+        "0002-text-0106"
+      ],
+      "labelPosition": [
+        3084.613,
+        1639.752
+      ],
+      "geometryStatus": "candidate",
+      "area": 22816.286,
+      "conflict": "Plan STAIR (04) is tagged 009, but the schedule assigns G-17; association by unique stair name is candidate.",
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08038"
+      ]
+    },
+    {
+      "code": "G-18",
+      "sourceLabelIds": [
+        "0002-text-0100"
+      ],
+      "labelPosition": [
+        2783.383,
+        1778.704
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-19",
+      "sourceLabelIds": [
+        "0002-text-0112"
+      ],
+      "labelPosition": [
+        2987.528,
+        1922.022
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-20",
+      "sourceLabelIds": [
+        "0002-text-0109"
+      ],
+      "labelPosition": [
+        3035.841,
+        1743.252
+      ],
+      "geometryStatus": "candidate",
+      "area": 22479.538,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08052",
+        "0002-path-08062"
+      ]
+    },
+    {
+      "code": "G-21",
+      "sourceLabelIds": [
+        "0002-text-0115"
+      ],
+      "labelPosition": [
+        3157.544,
+        1775.712
+      ],
+      "geometryStatus": "candidate",
+      "area": 4794.999,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0002-path-08052"
+      ]
+    },
+    {
+      "code": "G-22",
+      "sourceLabelIds": [
+        "0001-text-0085",
+        "0002-text-0082"
+      ],
+      "labelPosition": [
+        2200.393,
+        1547.824
+      ],
+      "geometryStatus": "candidate",
+      "area": 19193.428,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07364",
+        "0002-path-08133"
+      ]
+    },
+    {
+      "code": "G-23",
+      "sourceLabelIds": [
+        "0001-text-0082",
+        "0002-text-0079"
+      ],
+      "labelPosition": [
+        2085.793,
+        1674.642
+      ],
+      "geometryStatus": "candidate",
+      "area": 16910.182,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07921",
+        "0002-path-08275"
+      ]
+    },
+    {
+      "code": "G-24",
+      "sourceLabelIds": [
+        "0001-text-0175",
+        "0002-text-0154"
+      ],
+      "labelPosition": [
+        2013.293,
+        1154.172
+      ],
+      "geometryStatus": "candidate",
+      "area": 98474.352,
+      "conflict": "Plan EXHIPITION ROOM is tagged 045, but the schedule assigns G-24. It is NOT Physical Training Lab G-45; association by unique use is candidate.",
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07377",
+        "0001-path-07381",
+        "0001-path-07906",
+        "0001-path-07910",
+        "0002-path-08146",
+        "0002-path-08150",
+        "0002-path-08260",
+        "0002-path-08264"
+      ]
+    },
+    {
+      "code": "G-25",
+      "sourceLabelIds": [
+        "0001-text-0079",
+        "0002-text-0076"
+      ],
+      "labelPosition": [
+        1976.334,
+        1589.014
+      ],
+      "geometryStatus": "candidate",
+      "area": 21553.243,
+      "conflict": "Plan G25 is STAFF; schedule G-25 is OPERATIONS OFFICE. Schedule retained; use conflict unresolved.",
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07392",
+        "0002-path-08161"
+      ]
+    },
+    {
+      "code": "G-26",
+      "sourceLabelIds": [
+        "0001-text-0109"
+      ],
+      "labelPosition": [
+        1696.737,
+        1310.322
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-27",
+      "sourceLabelIds": [
+        "0001-text-0076"
+      ],
+      "labelPosition": [
+        1796.666,
+        1550.284
+      ],
+      "geometryStatus": "candidate",
+      "area": 13093.534,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07403",
+        "0001-path-07414",
+        "0002-path-08172",
+        "0002-path-08183"
+      ]
+    },
+    {
+      "code": "G-28",
+      "sourceLabelIds": [
+        "0001-text-0073",
+        "0002-text-0071"
+      ],
+      "labelPosition": [
+        1836.745,
+        1654.084
+      ],
+      "geometryStatus": "candidate",
+      "area": 20743.847,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07414",
+        "0002-path-08183"
+      ]
+    },
+    {
+      "code": "G-29",
+      "sourceLabelIds": [
+        "0001-text-0070"
+      ],
+      "labelPosition": [
+        1525.547,
+        1657.834
+      ],
+      "geometryStatus": "candidate",
+      "area": 73250.67,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07427",
+        "0001-path-07431",
+        "0001-path-07444",
+        "0001-path-07448"
+      ]
+    },
+    {
+      "code": "G-30",
+      "sourceLabelIds": [
+        "0001-text-0106"
+      ],
+      "labelPosition": [
+        1399.043,
+        1367.022
+      ],
+      "geometryStatus": "candidate",
+      "area": 37372.565,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07526",
+        "0001-path-07530"
+      ]
+    },
+    {
+      "code": "G-31",
+      "sourceLabelIds": [
+        "0001-text-0067"
+      ],
+      "labelPosition": [
+        1308.123,
+        1775.974
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-32",
+      "sourceLabelIds": [
+        "0001-text-0178"
+      ],
+      "labelPosition": [
+        1275.403,
+        1685.742
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Visual overlay shows this face leaking along a thin boundary connection into adjacent elevator enclosure; rejected pending wall-jamb repair evidence.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-33",
+      "sourceLabelIds": [
+        "0001-text-0103"
+      ],
+      "labelPosition": [
+        986.047,
+        1584.552
+      ],
+      "geometryStatus": "candidate",
+      "area": 41793.668,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07485"
+      ]
+    },
+    {
+      "code": "G-34",
+      "sourceLabelIds": [
+        "0001-text-0094"
+      ],
+      "labelPosition": [
+        1118.966,
+        1581.072
+      ],
+      "geometryStatus": "candidate",
+      "area": 7164.521,
+      "conflict": "Plan G34 is PANTRY; schedule G-34 is STORAGE. Schedule retained; use conflict unresolved.",
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07499"
+      ]
+    },
+    {
+      "code": "G-35",
+      "sourceLabelIds": [
+        "0001-text-0091"
+      ],
+      "labelPosition": [
+        1208.37,
+        1561.152
+      ],
+      "geometryStatus": "candidate",
+      "area": 6831.143,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07504"
+      ]
+    },
+    {
+      "code": "G-36",
+      "sourceLabelIds": [
+        "0001-text-0100"
+      ],
+      "labelPosition": [
+        1179.576,
+        1477.182
+      ],
+      "geometryStatus": "candidate",
+      "area": 6438.849,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07513"
+      ]
+    },
+    {
+      "code": "G-37",
+      "sourceLabelIds": [
+        "0001-text-0148"
+      ],
+      "labelPosition": [
+        1154.112,
+        1394.472
+      ],
+      "geometryStatus": "candidate",
+      "area": 4908.227,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07539"
+      ]
+    },
+    {
+      "code": "G-38",
+      "sourceLabelIds": [
+        "0001-text-0097"
+      ],
+      "labelPosition": [
+        1083.475,
+        1475.382
+      ],
+      "geometryStatus": "candidate",
+      "area": 14246.982,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07553"
+      ]
+    },
+    {
+      "code": "G-39",
+      "sourceLabelIds": [
+        "0001-text-0151"
+      ],
+      "labelPosition": [
+        891.813,
+        1426.302
+      ],
+      "geometryStatus": "candidate",
+      "area": 6722.757,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07560",
+        "0001-path-07585"
+      ]
+    },
+    {
+      "code": "G-40",
+      "sourceLabelIds": [
+        "0001-text-0154"
+      ],
+      "labelPosition": [
+        836.114,
+        1302.312
+      ],
+      "geometryStatus": "candidate",
+      "area": 7170.494,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07585"
+      ]
+    },
+    {
+      "code": "G-41",
+      "sourceLabelIds": [
+        "0001-text-0157"
+      ],
+      "labelPosition": [
+        929.286,
+        1312.272
+      ],
+      "geometryStatus": "candidate",
+      "area": 19326.775,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07571"
+      ]
+    },
+    {
+      "code": "G-42",
+      "sourceLabelIds": [
+        "0001-text-0160"
+      ],
+      "labelPosition": [
+        1093.412,
+        1228.842
+      ],
+      "geometryStatus": "candidate",
+      "area": 19238.355,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07702"
+      ]
+    },
+    {
+      "code": "G-43",
+      "sourceLabelIds": [
+        "0001-text-0139"
+      ],
+      "labelPosition": [
+        1002.397,
+        973.092
+      ],
+      "geometryStatus": "candidate",
+      "area": 112854.498,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 1 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07715",
+        "0001-path-07719"
+      ]
+    },
+    {
+      "code": "G-44",
+      "sourceLabelIds": [
+        "0001-text-0115"
+      ],
+      "labelPosition": [
+        1301.561,
+        1219.212
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Face contains distinct room labels [44, 47]; partition unresolved. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-45",
+      "sourceLabelIds": [
+        "0001-text-0136"
+      ],
+      "labelPosition": [
+        1286.98,
+        823.872
+      ],
+      "geometryStatus": "candidate",
+      "area": 49985.103,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07732",
+        "0001-path-07736"
+      ]
+    },
+    {
+      "code": "G-46",
+      "sourceLabelIds": [
+        "0001-text-0133"
+      ],
+      "labelPosition": [
+        1499.67,
+        770.802
+      ],
+      "geometryStatus": "candidate",
+      "area": 48983.312,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07749",
+        "0001-path-07753"
+      ]
+    },
+    {
+      "code": "G-47",
+      "sourceLabelIds": [
+        "0001-text-0112"
+      ],
+      "labelPosition": [
+        1514.656,
+        1160.112
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Face contains distinct room labels [44, 47]; partition unresolved. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-48",
+      "sourceLabelIds": [
+        "0001-text-0124"
+      ],
+      "labelPosition": [
+        1696.889,
+        766.752
+      ],
+      "geometryStatus": "candidate",
+      "area": 38909.689,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07809"
+      ]
+    },
+    {
+      "code": "G-49",
+      "sourceLabelIds": [
+        "0001-text-0127"
+      ],
+      "labelPosition": [
+        1786.936,
+        873.515
+      ],
+      "geometryStatus": "candidate",
+      "area": 6310.891,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07827",
+        "0001-path-07838",
+        "0001-path-07849",
+        "0001-path-07860",
+        "0002-path-08203",
+        "0002-path-08214"
+      ]
+    },
+    {
+      "code": "G-50",
+      "sourceLabelIds": [
+        "0001-text-0118"
+      ],
+      "labelPosition": [
+        1761.613,
+        1097.712
+      ],
+      "geometryStatus": "candidate",
+      "area": 43487.607,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07783",
+        "0001-path-07787"
+      ]
+    },
+    {
+      "code": "G-51",
+      "sourceLabelIds": [
+        "0001-text-0121",
+        "0002-text-0086"
+      ],
+      "labelPosition": [
+        1905.204,
+        834.042
+      ],
+      "geometryStatus": "candidate",
+      "area": 9155.964,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07862",
+        "0002-path-08216"
+      ]
+    },
+    {
+      "code": "G-52",
+      "sourceLabelIds": [
+        "0001-text-0130",
+        "0002-text-0091"
+      ],
+      "labelPosition": [
+        1901.598,
+        708.462
+      ],
+      "geometryStatus": "candidate",
+      "area": 12594.288,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07871",
+        "0002-path-08225"
+      ]
+    },
+    {
+      "code": "G-53",
+      "sourceLabelIds": [
+        "0001-text-0163",
+        "0002-text-0094"
+      ],
+      "labelPosition": [
+        2152.22,
+        825.522
+      ],
+      "geometryStatus": "unknown",
+      "area": null,
+      "conflict": null,
+      "reason": "Label lies in an unbounded exterior/circulation-connected face; missing closures. No polygon accepted.",
+      "doorCandidates": []
+    },
+    {
+      "code": "G-54",
+      "sourceLabelIds": [
+        "0001-text-0166",
+        "0002-text-0097"
+      ],
+      "labelPosition": [
+        2171.863,
+        709.632
+      ],
+      "geometryStatus": "candidate",
+      "area": 16980.709,
+      "conflict": null,
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07882",
+        "0001-path-07893",
+        "0002-path-08236",
+        "0002-path-08247"
+      ]
+    }
+  ],
+  "doorGapCandidates": [
+    {
+      "arcPathId": "0001-path-07264",
+      "leafPathId": "0001-path-07263",
+      "segment": [
+        [
+          2351.103,
+          850.887
+        ],
+        [
+          2381.697,
+          853.12
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07265",
+      "leafPathId": "0001-path-07266",
+      "segment": [
+        [
+          2406.287,
+          854.923
+        ],
+        [
+          2375.693,
+          852.69
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07295",
+      "leafPathId": "0001-path-07294",
+      "segment": [
+        [
+          2363.476,
+          1579.555
+        ],
+        [
+          2332.891,
+          1577.207
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07296",
+      "leafPathId": "0001-path-07298",
+      "segment": [
+        [
+          2308.324,
+          1575.315
+        ],
+        [
+          2338.909,
+          1577.663
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07364",
+      "leafPathId": "0001-path-07365",
+      "segment": [
+        [
+          2244.353,
+          1506.592
+        ],
+        [
+          2211.719,
+          1505.433
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07377",
+      "leafPathId": "0001-path-07378",
+      "segment": [
+        [
+          2126.395,
+          1402.174
+        ],
+        [
+          2098.571,
+          1402.457
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07381",
+      "leafPathId": "0001-path-07380",
+      "segment": [
+        [
+          2076.745,
+          1402.685
+        ],
+        [
+          2104.569,
+          1402.403
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07392",
+      "leafPathId": "0001-path-07390",
+      "segment": [
+        [
+          1941.931,
+          1510.721
+        ],
+        [
+          1977.337,
+          1508.516
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07403",
+      "leafPathId": "0001-path-07402",
+      "segment": [
+        [
+          1888.632,
+          1514.902
+        ],
+        [
+          1853.315,
+          1518.25
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07414",
+      "leafPathId": "0001-path-07413",
+      "segment": [
+        [
+          1911.913,
+          1593.999
+        ],
+        [
+          1876.578,
+          1597.141
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07427",
+      "leafPathId": "0001-path-07428",
+      "segment": [
+        [
+          1708.185,
+          1533.988
+        ],
+        [
+          1680.729,
+          1538.506
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07431",
+      "leafPathId": "0001-path-07430",
+      "segment": [
+        [
+          1659.185,
+          1542.072
+        ],
+        [
+          1686.641,
+          1537.554
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07444",
+      "leafPathId": "0001-path-07445",
+      "segment": [
+        [
+          1439.082,
+          1589.675
+        ],
+        [
+          1412.213,
+          1596.909
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07448",
+      "leafPathId": "0001-path-07447",
+      "segment": [
+        [
+          1391.138,
+          1602.575
+        ],
+        [
+          1418.007,
+          1595.341
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07463",
+      "leafPathId": "0001-path-07462",
+      "segment": [
+        [
+          1320.427,
+          1849.471
+        ],
+        [
+          1352.813,
+          1840.805
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07464",
+      "leafPathId": "0001-path-07465",
+      "segment": [
+        [
+          1378.448,
+          1830.706
+        ],
+        [
+          1347.124,
+          1842.654
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07474",
+      "leafPathId": "0001-path-07473",
+      "segment": [
+        [
+          1324.047,
+          1724.675
+        ],
+        [
+          1290.321,
+          1735.676
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07485",
+      "leafPathId": "0001-path-07483",
+      "segment": [
+        [
+          1109.334,
+          1694.073
+        ],
+        [
+          1096.221,
+          1661.11
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07499",
+      "leafPathId": "0001-path-07497",
+      "segment": [
+        [
+          1126.871,
+          1642.311
+        ],
+        [
+          1154.843,
+          1631.678
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07504",
+      "leafPathId": "0001-path-07506",
+      "segment": [
+        [
+          1244.521,
+          1517.221
+        ],
+        [
+          1254.58,
+          1548.288
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07513",
+      "leafPathId": "0001-path-07514",
+      "segment": [
+        [
+          1240.609,
+          1505.139
+        ],
+        [
+          1230.55,
+          1474.072
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07526",
+      "leafPathId": "0001-path-07527",
+      "segment": [
+        [
+          1395.073,
+          1495.748
+        ],
+        [
+          1368.196,
+          1502.951
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07530",
+      "leafPathId": "0001-path-07529",
+      "segment": [
+        [
+          1347.097,
+          1508.581
+        ],
+        [
+          1373.974,
+          1501.379
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07539",
+      "leafPathId": "0001-path-07540",
+      "segment": [
+        [
+          1108.244,
+          1386.217
+        ],
+        [
+          1139.061,
+          1375.417
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07553",
+      "leafPathId": "0001-path-07552",
+      "segment": [
+        [
+          1096.34,
+          1390.427
+        ],
+        [
+          1068.262,
+          1400.778
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07560",
+      "leafPathId": "0001-path-07558",
+      "segment": [
+        [
+          931.624,
+          1448.554
+        ],
+        [
+          917.685,
+          1415.932
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07571",
+      "leafPathId": "0001-path-07569",
+      "segment": [
+        [
+          934.122,
+          1402.03
+        ],
+        [
+          966.914,
+          1388.495
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07585",
+      "leafPathId": "0001-path-07584",
+      "segment": [
+        [
+          888.919,
+          1364.385
+        ],
+        [
+          861.45,
+          1376.257
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07642",
+      "leafPathId": "0001-path-07640",
+      "segment": [
+        [
+          1036.716,
+          1364.168
+        ],
+        [
+          1056.676,
+          1356.689
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07702",
+      "leafPathId": "0001-path-07701",
+      "segment": [
+        [
+          1157.568,
+          1315.295
+        ],
+        [
+          1123.955,
+          1326.64
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07715",
+      "leafPathId": "0001-path-07716",
+      "segment": [
+        [
+          1187.721,
+          1018.041
+        ],
+        [
+          1161.048,
+          1025.965
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07719",
+      "leafPathId": "0001-path-07718",
+      "segment": [
+        [
+          1140.119,
+          1032.199
+        ],
+        [
+          1166.792,
+          1024.275
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07732",
+      "leafPathId": "0001-path-07733",
+      "segment": [
+        [
+          1414.002,
+          960.486
+        ],
+        [
+          1386.857,
+          966.601
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07736",
+      "leafPathId": "0001-path-07735",
+      "segment": [
+        [
+          1365.578,
+          971.404
+        ],
+        [
+          1392.723,
+          965.289
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07749",
+      "leafPathId": "0001-path-07750",
+      "segment": [
+        [
+          1624.127,
+          921.702
+        ],
+        [
+          1596.651,
+          926.09
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07753",
+      "leafPathId": "0001-path-07752",
+      "segment": [
+        [
+          1575.093,
+          929.518
+        ],
+        [
+          1602.569,
+          925.13
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07766",
+      "leafPathId": "0001-path-07767",
+      "segment": [
+        [
+          1644.682,
+          1022.264
+        ],
+        [
+          1617.16,
+          1026.357
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07770",
+      "leafPathId": "0001-path-07769",
+      "segment": [
+        [
+          1595.578,
+          1029.566
+        ],
+        [
+          1623.1,
+          1025.473
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07783",
+      "leafPathId": "0001-path-07784",
+      "segment": [
+        [
+          1712.364,
+          1015.196
+        ],
+        [
+          1684.825,
+          1019.176
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07787",
+      "leafPathId": "0001-path-07786",
+      "segment": [
+        [
+          1663.226,
+          1022.294
+        ],
+        [
+          1690.765,
+          1018.314
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07798",
+      "leafPathId": "0001-path-07796",
+      "segment": [
+        [
+          1644.145,
+          921.61
+        ],
+        [
+          1665.245,
+          918.59
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07809",
+      "leafPathId": "0001-path-07807",
+      "segment": [
+        [
+          1667.571,
+          915.401
+        ],
+        [
+          1702.736,
+          910.715
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07827",
+      "leafPathId": "0001-path-07818",
+      "segment": [
+        [
+          1781.869,
+          904.217
+        ],
+        [
+          1741.759,
+          910.542
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07838",
+      "leafPathId": "0001-path-07829",
+      "segment": [
+        [
+          1707.243,
+          912.889
+        ],
+        [
+          1747.736,
+          909.866
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07849",
+      "leafPathId": "0001-path-07840",
+      "segment": [
+        [
+          1859.999,
+          897.032
+        ],
+        [
+          1819.744,
+          902.354
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07860",
+      "leafPathId": "0001-path-07851",
+      "segment": [
+        [
+          1785.179,
+          903.814
+        ],
+        [
+          1825.734,
+          901.802
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07862",
+      "leafPathId": "0001-path-07864",
+      "segment": [
+        [
+          1970.372,
+          848.229
+        ],
+        [
+          1971.933,
+          880.846
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07871",
+      "leafPathId": "0001-path-07873",
+      "segment": [
+        [
+          2001.802,
+          772.44
+        ],
+        [
+          1969.176,
+          773.801
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07882",
+      "leafPathId": "0001-path-07880",
+      "segment": [
+        [
+          2213.455,
+          759.691
+        ],
+        [
+          2177.986,
+          759.028
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07893",
+      "leafPathId": "0001-path-07891",
+      "segment": [
+        [
+          2204.425,
+          668.782
+        ],
+        [
+          2168.954,
+          668.227
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07906",
+      "leafPathId": "0001-path-07907",
+      "segment": [
+        [
+          2126.815,
+          985.479
+        ],
+        [
+          2098.991,
+          985.721
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07910",
+      "leafPathId": "0001-path-07909",
+      "segment": [
+        [
+          2077.135,
+          985.921
+        ],
+        [
+          2104.959,
+          985.679
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-07921",
+      "leafPathId": "0001-path-07920",
+      "segment": [
+        [
+          2091.504,
+          1714.318
+        ],
+        [
+          2056.038,
+          1715.11
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11209",
+      "leafPathId": "0001-path-11201",
+      "segment": [
+        [
+          1962.689,
+          780.047
+        ],
+        [
+          1964.693,
+          802.563
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11220",
+      "leafPathId": "0001-path-11211",
+      "segment": [
+        [
+          1964.566,
+          819.185
+        ],
+        [
+          1964.41,
+          796.58
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11655",
+      "leafPathId": "0001-path-11645",
+      "segment": [
+        [
+          1252.969,
+          1185.487
+        ],
+        [
+          1280.191,
+          1200.762
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11660",
+      "leafPathId": "0001-path-11661",
+      "segment": [
+        [
+          1283.05,
+          1098.867
+        ],
+        [
+          1254.898,
+          1106.527
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11664",
+      "leafPathId": "0001-path-11663",
+      "segment": [
+        [
+          1232.598,
+          1112.86
+        ],
+        [
+          1260.675,
+          1104.931
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07766",
+      "leafPathId": "0002-path-07765",
+      "segment": [
+        [
+          2451.221,
+          858.868
+        ],
+        [
+          2481.735,
+          862.001
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07767",
+      "leafPathId": "0002-path-07768",
+      "segment": [
+        [
+          2506.27,
+          864.521
+        ],
+        [
+          2475.755,
+          861.389
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07814",
+      "leafPathId": "0002-path-07813",
+      "segment": [
+        [
+          2551.071,
+          869.791
+        ],
+        [
+          2581.48,
+          873.82
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07815",
+      "leafPathId": "0002-path-07816",
+      "segment": [
+        [
+          2605.919,
+          877.059
+        ],
+        [
+          2575.51,
+          873.03
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07831",
+      "leafPathId": "0002-path-07830",
+      "segment": [
+        [
+          2351.103,
+          850.887
+        ],
+        [
+          2381.697,
+          853.12
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07832",
+      "leafPathId": "0002-path-07833",
+      "segment": [
+        [
+          2406.287,
+          854.924
+        ],
+        [
+          2375.693,
+          852.69
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07870",
+      "leafPathId": "0002-path-07869",
+      "segment": [
+        [
+          2500.051,
+          1594.977
+        ],
+        [
+          2469.626,
+          1591.068
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07871",
+      "leafPathId": "0002-path-07873",
+      "segment": [
+        [
+          2445.2,
+          1587.943
+        ],
+        [
+          2475.624,
+          1591.852
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07887",
+      "leafPathId": "0002-path-07886",
+      "segment": [
+        [
+          2363.476,
+          1579.555
+        ],
+        [
+          2332.891,
+          1577.207
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07888",
+      "leafPathId": "0002-path-07890",
+      "segment": [
+        [
+          2308.294,
+          1575.316
+        ],
+        [
+          2338.879,
+          1577.663
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07914",
+      "leafPathId": "0002-path-07913",
+      "segment": [
+        [
+          2674.031,
+          952.689
+        ],
+        [
+          2667.142,
+          985.498
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07915",
+      "leafPathId": "0002-path-07916",
+      "segment": [
+        [
+          2664.583,
+          1012.939
+        ],
+        [
+          2668.065,
+          979.595
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07929",
+      "leafPathId": "0002-path-07928",
+      "segment": [
+        [
+          3321.663,
+          1192.831
+        ],
+        [
+          3335.65,
+          1162.364
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07930",
+      "leafPathId": "0002-path-07931",
+      "segment": [
+        [
+          3344.219,
+          1136.174
+        ],
+        [
+          3333.438,
+          1167.918
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07940",
+      "leafPathId": "0002-path-07938",
+      "segment": [
+        [
+          3231.25,
+          1403.238
+        ],
+        [
+          3195.412,
+          1389.658
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07947",
+      "leafPathId": "0002-path-07949",
+      "segment": [
+        [
+          2938.282,
+          1392.104
+        ],
+        [
+          2969.66,
+          1401.148
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-07958",
+      "leafPathId": "0002-path-07957",
+      "segment": [
+        [
+          2921.487,
+          1447.017
+        ],
+        [
+          2911.885,
+          1481.168
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08007",
+      "leafPathId": "0002-path-08005",
+      "segment": [
+        [
+          2870.243,
+          1629.253
+        ],
+        [
+          2879.849,
+          1595.103
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08018",
+      "leafPathId": "0002-path-08016",
+      "segment": [
+        [
+          2890.731,
+          1545.882
+        ],
+        [
+          2896.513,
+          1525.367
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08027",
+      "leafPathId": "0002-path-08029",
+      "segment": [
+        [
+          3417.545,
+          1038.557
+        ],
+        [
+          3447.805,
+          1050.833
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08038",
+      "leafPathId": "0002-path-08036",
+      "segment": [
+        [
+          3144.17,
+          1715.46
+        ],
+        [
+          3157.358,
+          1682.527
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08052",
+      "leafPathId": "0002-path-08050",
+      "segment": [
+        [
+          3102.563,
+          1812.631
+        ],
+        [
+          3113.654,
+          1784.837
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08062",
+      "leafPathId": "0002-path-08060",
+      "segment": [
+        [
+          3065.28,
+          1889.266
+        ],
+        [
+          3037.404,
+          1878.381
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08072",
+      "leafPathId": "0002-path-08070",
+      "segment": [
+        [
+          2924.383,
+          1927.343
+        ],
+        [
+          2934.075,
+          1899.031
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08079",
+      "leafPathId": "0002-path-08077",
+      "segment": [
+        [
+          2771.927,
+          1457.12
+        ],
+        [
+          2779.823,
+          1422.535
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08090",
+      "leafPathId": "0002-path-08089",
+      "segment": [
+        [
+          2684.243,
+          1558.385
+        ],
+        [
+          2678.864,
+          1584.829
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08103",
+      "leafPathId": "0002-path-08105",
+      "segment": [
+        [
+          2651.317,
+          1640.639
+        ],
+        [
+          2623.936,
+          1635.687
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08107",
+      "leafPathId": "0002-path-08106",
+      "segment": [
+        [
+          2602.453,
+          1631.801
+        ],
+        [
+          2629.834,
+          1636.753
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08120",
+      "leafPathId": "0002-path-08121",
+      "segment": [
+        [
+          2557.813,
+          1623.731
+        ],
+        [
+          2585.194,
+          1628.683
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08124",
+      "leafPathId": "0002-path-08123",
+      "segment": [
+        [
+          2606.677,
+          1632.569
+        ],
+        [
+          2579.296,
+          1627.617
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08133",
+      "leafPathId": "0002-path-08134",
+      "segment": [
+        [
+          2244.353,
+          1506.592
+        ],
+        [
+          2211.719,
+          1505.433
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08146",
+      "leafPathId": "0002-path-08147",
+      "segment": [
+        [
+          2126.365,
+          1402.175
+        ],
+        [
+          2098.541,
+          1402.457
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08150",
+      "leafPathId": "0002-path-08149",
+      "segment": [
+        [
+          2076.715,
+          1402.686
+        ],
+        [
+          2104.539,
+          1402.403
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08161",
+      "leafPathId": "0002-path-08159",
+      "segment": [
+        [
+          1941.931,
+          1510.722
+        ],
+        [
+          1977.337,
+          1508.516
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08172",
+      "leafPathId": "0002-path-08171",
+      "segment": [
+        [
+          1888.632,
+          1514.902
+        ],
+        [
+          1853.315,
+          1518.25
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08183",
+      "leafPathId": "0002-path-08182",
+      "segment": [
+        [
+          1911.883,
+          1593.999
+        ],
+        [
+          1876.548,
+          1597.141
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08203",
+      "leafPathId": "0002-path-08194",
+      "segment": [
+        [
+          1859.999,
+          897.032
+        ],
+        [
+          1819.744,
+          902.354
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08214",
+      "leafPathId": "0002-path-08205",
+      "segment": [
+        [
+          1785.179,
+          903.814
+        ],
+        [
+          1825.734,
+          901.802
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08216",
+      "leafPathId": "0002-path-08218",
+      "segment": [
+        [
+          1970.372,
+          848.229
+        ],
+        [
+          1971.933,
+          880.846
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08225",
+      "leafPathId": "0002-path-08227",
+      "segment": [
+        [
+          2001.803,
+          772.44
+        ],
+        [
+          1969.176,
+          773.801
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08236",
+      "leafPathId": "0002-path-08234",
+      "segment": [
+        [
+          2213.454,
+          759.691
+        ],
+        [
+          2177.986,
+          759.028
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08247",
+      "leafPathId": "0002-path-08245",
+      "segment": [
+        [
+          2204.395,
+          668.752
+        ],
+        [
+          2168.924,
+          668.197
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08260",
+      "leafPathId": "0002-path-08261",
+      "segment": [
+        [
+          2126.785,
+          985.479
+        ],
+        [
+          2098.961,
+          985.721
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08264",
+      "leafPathId": "0002-path-08263",
+      "segment": [
+        [
+          2077.135,
+          985.921
+        ],
+        [
+          2104.959,
+          985.679
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-08275",
+      "leafPathId": "0002-path-08274",
+      "segment": [
+        [
+          2091.504,
+          1714.288
+        ],
+        [
+          2056.038,
+          1715.081
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11071",
+      "leafPathId": "0002-path-11073",
+      "segment": [
+        [
+          3064.142,
+          1430.678
+        ],
+        [
+          3095.089,
+          1441.099
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11127",
+      "leafPathId": "0002-path-11126",
+      "segment": [
+        [
+          2635.209,
+          1240.051
+        ],
+        [
+          2672.968,
+          1246.618
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11136",
+      "leafPathId": "0002-path-11137",
+      "segment": [
+        [
+          2874.701,
+          1418.156
+        ],
+        [
+          2883.02,
+          1386.579
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11149",
+      "leafPathId": "0002-path-11150",
+      "segment": [
+        [
+          2673.622,
+          1379.333
+        ],
+        [
+          2700.919,
+          1384.73
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11153",
+      "leafPathId": "0002-path-11152",
+      "segment": [
+        [
+          2722.348,
+          1388.957
+        ],
+        [
+          2695.051,
+          1383.56
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11451",
+      "leafPathId": "0002-path-11453",
+      "segment": [
+        [
+          2867.006,
+          1640.757
+        ],
+        [
+          2858.182,
+          1672.197
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11769",
+      "leafPathId": "0002-path-11761",
+      "segment": [
+        [
+          1962.689,
+          780.017
+        ],
+        [
+          1964.693,
+          802.533
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0002-path-11780",
+      "leafPathId": "0002-path-11771",
+      "segment": [
+        [
+          1964.566,
+          819.185
+        ],
+        [
+          1964.41,
+          796.58
+        ]
+      ],
+      "status": "candidate"
+    }
+  ],
+  "graphReview": {
+    "status": "candidate",
+    "candidateConnections": [
+      {
+        "roomId": "B03-GF-G-01",
+        "kind": "open-circulation-approach",
+        "point": [
+          2357.025,
+          1181.202
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-02",
+        "kind": "open-circulation-approach",
+        "point": [
+          1474.874,
+          1506.192
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-03",
+        "kind": "open-circulation-approach",
+        "point": [
+          1217.954,
+          1276.332
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-04",
+        "kind": "open-circulation-approach",
+        "point": [
+          1401.674,
+          1019.112
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-05",
+        "kind": "source-door-approach",
+        "point": [
+          2649.056159024625,
+          964.5723234631027
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-07914",
+          "leafPathId": "0002-path-07913"
+        },
+        "sourceDoorSegment": [
+          [
+            2674.031494033275,
+            952.6890243138873
+          ],
+          [
+            2667.1415907274204,
+            985.4983196780402
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-06",
+        "kind": "approach",
+        "point": [
+          2649.056159024625,
+          964.5723234631027
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-07914",
+          "leafPathId": "0002-path-07913",
+          "note": {
+            "en": "Route ends at the Auditorium entrance. Storage G-06 is accessed from the exterior auditorium landing; that final access is not mapped.",
+            "ar": "ينتهي المسار عند مدخل قاعة المحاضرات. الوصول النهائي إلى المخزن من البسطة الخارجية غير مرسوم في المسار."
+          },
+          "kind": "approach",
+          "partial": true,
+          "unmappedFinalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08027"
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            2674.031494033275,
+            952.6890243138873
+          ],
+          [
+            2667.1415907274204,
+            985.4983196780402
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-07",
+        "kind": "source-door-approach",
+        "point": [
+          2686.882383234408,
+          1383.9935746924552
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-11149",
+          "leafPathId": "0002-path-11150"
+        },
+        "sourceDoorSegment": [
+          [
+            2673.6220400576713,
+            1379.3330559054243
+          ],
+          [
+            2700.918576778165,
+            1384.730057775266
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-08",
+        "kind": "source-door-approach",
+        "point": [
+          2773.9251993852877,
+          1439.3820845250627
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08079",
+          "leafPathId": "0002-path-08077"
+        },
+        "sourceDoorSegment": [
+          [
+            2771.9274114900195,
+            1457.1198303242313
+          ],
+          [
+            2779.8226648325713,
+            1422.5345718359888
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-09",
+        "kind": "open-circulation-approach",
+        "point": [
+          2639.69,
+          1467.012
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-10",
+        "kind": "source-door-approach",
+        "point": [
+          2679.5937538565445,
+          1571.2082964251517
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08090",
+          "leafPathId": "0002-path-08089"
+        },
+        "sourceDoorSegment": [
+          [
+            2684.2429696750473,
+            1558.3853407688598
+          ],
+          [
+            2678.8642725961986,
+            1584.8285481328496
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-11",
+        "kind": "source-door-approach",
+        "point": [
+          2860.668030207555,
+          1655.9362731755268
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-11451",
+          "leafPathId": "0002-path-11453"
+        },
+        "sourceDoorSegment": [
+          [
+            2867.005643469822,
+            1640.7565770299186
+          ],
+          [
+            2858.181612174448,
+            1672.19684642187
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-12",
+        "kind": "source-door-approach",
+        "point": [
+          2873.1202805170356,
+          1611.6366345105243
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08007",
+          "leafPathId": "0002-path-08005"
+        },
+        "sourceDoorSegment": [
+          [
+            2870.2425597597826,
+            1629.253134718535
+          ],
+          [
+            2879.8485652801915,
+            1595.1032579503221
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-13",
+        "kind": "source-door-approach",
+        "point": [
+          2914.760579167806,
+          1463.5509233259759
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-07958",
+          "leafPathId": "0002-path-07957"
+        },
+        "sourceDoorSegment": [
+          [
+            2921.487139014316,
+            1447.0169266536175
+          ],
+          [
+            2911.884694954867,
+            1481.1676467251784
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-14",
+        "kind": "open-circulation-approach",
+        "point": [
+          2981.452,
+          1418.202
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-15",
+        "kind": "source-door-approach",
+        "point": [
+          2953.417260897352,
+          1398.5478155663104
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-07947",
+          "leafPathId": "0002-path-07949"
+        },
+        "sourceDoorSegment": [
+          [
+            2938.282377383808,
+            1392.1041305501908
+          ],
+          [
+            2969.659951467489,
+            1401.1479652924445
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-16",
+        "kind": "source-door-approach",
+        "point": [
+          3078.977393479529,
+          1437.7838110303635
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-11071",
+          "leafPathId": "0002-path-11073"
+        },
+        "sourceDoorSegment": [
+          [
+            3064.1419065522196,
+            1430.677677561029
+          ],
+          [
+            3095.0894263063165,
+            1441.0991094246087
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-17",
+        "kind": "approach",
+        "point": [
+          2981.452,
+          1418.202
+        ],
+        "source": {
+          "sourceId": "0002",
+          "note": {
+            "en": "Route ends at Lobby G-14. Stair 4 has an exterior ground-floor door; the final exterior approach is not mapped.",
+            "ar": "ينتهي المسار عند الردهة G-14. باب السلم ٤ خارجي والمسار الخارجي الأخير غير مرسوم."
+          },
+          "kind": "approach",
+          "point": [
+            2981.452,
+            1418.202
+          ],
+          "partial": true,
+          "unmappedFinalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08038"
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-18",
+        "kind": "source-door-approach",
+        "point": [
+          2637.982634446414,
+          1636.1950814022448
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08103",
+          "leafPathId": "0002-path-08105"
+        },
+        "sourceDoorSegment": [
+          [
+            2651.317210418577,
+            1640.638880165536
+          ],
+          [
+            2623.9362624764026,
+            1635.6874414845092
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-19",
+        "kind": "source-door-approach",
+        "point": [
+          2927.3369882083152,
+          1912.5395245801055
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08072",
+          "leafPathId": "0002-path-08070"
+        },
+        "sourceDoorSegment": [
+          [
+            2924.3833014533157,
+            1927.3433443153745
+          ],
+          [
+            2934.0750835281297,
+            1899.0311784318133
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-20",
+        "kind": "source-door-approach",
+        "point": [
+          3047.7045091479363,
+          1893.1388891943222
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08062",
+          "leafPathId": "0002-path-08060"
+        },
+        "sourceDoorSegment": [
+          [
+            3065.2795054823637,
+            1889.26635756227
+          ],
+          [
+            3037.4043198080017,
+            1878.381413225923
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-21",
+        "kind": "approach",
+        "point": [
+          3047.7045091479363,
+          1893.1388891943222
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-08062",
+          "leafPathId": "0002-path-08060",
+          "note": {
+            "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
+            "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
+          },
+          "kind": "approach",
+          "finalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08052"
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            3065.2795054823637,
+            1889.26635756227
+          ],
+          [
+            3037.4043198080017,
+            1878.381413225923
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-22",
+        "kind": "source-door-approach",
+        "point": [
+          2228.106791251754,
+          1504.013598165432
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07364",
+          "leafPathId": "0001-path-07365"
+        },
+        "sourceDoorSegment": [
+          [
+            2244.3529945915825,
+            1506.5915533117711
+          ],
+          [
+            2211.718688297458,
+            1505.4331252891488
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-23",
+        "kind": "approach",
+        "point": [
+          2348.3367770777854,
+          1576.3866648992864
+        ],
+        "source": {
+          "sourceId": "0002",
+          "arcPathId": "0002-path-07887",
+          "leafPathId": "0002-path-07886",
+          "note": {
+            "en": "Route ends at the south Main Entrance doors. Stair 2 has an exterior ground-floor door; the final exterior approach is not mapped.",
+            "ar": "ينتهي المسار عند أبواب المدخل الرئيسي الجنوبية. باب السلم ٢ خارجي والمسار الخارجي الأخير غير مرسوم."
+          },
+          "kind": "approach",
+          "partial": true,
+          "unmappedFinalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08275"
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            2363.4762289289292,
+            1579.5545670460247
+          ],
+          [
+            2332.8912080028144,
+            1577.2070320821292
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-24",
+        "kind": "source-door-approach",
+        "point": [
+          2112.503443792154,
+          1404.3157114790752
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07377",
+          "leafPathId": "0001-path-07378"
+        },
+        "sourceDoorSegment": [
+          [
+            2126.395025857089,
+            1402.17436967479
+          ],
+          [
+            2098.5711950457858,
+            1402.4572600110753
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-25",
+        "kind": "source-door-approach",
+        "point": [
+          1959.5096643495249,
+          1507.6224872416979
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07392",
+          "leafPathId": "0001-path-07390"
+        },
+        "sourceDoorSegment": [
+          [
+            1941.9309556268001,
+            1510.721499300215
+          ],
+          [
+            1977.3370865927157,
+            1508.5157353932295
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-26",
+        "kind": "approach",
+        "point": [
+          1810,
+          1445
+        ],
+        "source": {
+          "point": [
+            1810,
+            1445
+          ],
+          "note": {
+            "en": "Route ends beside the Skylight perimeter. The skylight is not a walking surface.",
+            "ar": "ينتهي المسار بجوار محيط فتحة الإضاءة العلوية، وهي ليست سطحاً للمشي."
+          },
+          "kind": "approach"
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-27",
+        "kind": "source-door-approach",
+        "point": [
+          1870.7845010416065,
+          1514.585012501232
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07403",
+          "leafPathId": "0001-path-07402"
+        },
+        "sourceDoorSegment": [
+          [
+            1888.6316573951274,
+            1514.9018367182407
+          ],
+          [
+            1853.3149040641383,
+            1518.2503295320391
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-28",
+        "kind": "approach",
+        "point": [
+          1870.7845010416065,
+          1514.585012501232
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07403",
+          "leafPathId": "0001-path-07402",
+          "note": {
+            "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
+            "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
+          },
+          "kind": "approach",
+          "finalDoorSource": {
+            "sourceId": "0001",
+            "arcPathId": "0001-path-07414"
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            1888.6316573951274,
+            1514.9018367182407
+          ],
+          [
+            1853.3149040641383,
+            1518.2503295320391
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-29",
+        "kind": "source-door-approach",
+        "point": [
+          1694.132725722872,
+          1534.2733092255312
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07427",
+          "leafPathId": "0001-path-07428"
+        },
+        "sourceDoorSegment": [
+          [
+            1708.1854122108857,
+            1533.9879055939853
+          ],
+          [
+            1680.7294856466237,
+            1538.5056381614431
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-30",
+        "kind": "source-door-approach",
+        "point": [
+          1382.1522228122908,
+          1501.281516980419
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07526",
+          "leafPathId": "0001-path-07527"
+        },
+        "sourceDoorSegment": [
+          [
+            1395.0729245127975,
+            1495.7483647606177
+          ],
+          [
+            1368.196108587629,
+            1502.9510024308388
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-31",
+        "kind": "open-circulation-approach",
+        "point": [
+          1308.123,
+          1775.974
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-32",
+        "kind": "source-door-approach",
+        "point": [
+          1306.5639211625096,
+          1728.2741636566066
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07474",
+          "leafPathId": "0001-path-07473"
+        },
+        "sourceDoorSegment": [
+          [
+            1324.0469923724943,
+            1724.6746131589737
+          ],
+          [
+            1290.321379976944,
+            1735.6764875183144
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-33",
+        "kind": "source-door-approach",
+        "point": [
+          1130.6529827658674,
+          1666.5023602003928
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07485",
+          "leafPathId": "0001-path-07483"
+        },
+        "sourceDoorSegment": [
+          [
+            1109.3338827548832,
+            1694.072529207687
+          ],
+          [
+            1096.2213134828899,
+            1661.1099215353017
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-34",
+        "kind": "source-door-approach",
+        "point": [
+          1141.5675546354341,
+          1638.8638445972867
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07499",
+          "leafPathId": "0001-path-07497"
+        },
+        "sourceDoorSegment": [
+          [
+            1126.8708476781705,
+            1642.3110952695504
+          ],
+          [
+            1154.8429152573824,
+            1631.6776402485134
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-35",
+        "kind": "source-door-approach",
+        "point": [
+          1263.8211579442946,
+          1528.134188027877
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07504",
+          "leafPathId": "0001-path-07506"
+        },
+        "sourceDoorSegment": [
+          [
+            1244.5212339263921,
+            1517.220814340283
+          ],
+          [
+            1254.579697996385,
+            1548.2882002927604
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-36",
+        "kind": "source-door-approach",
+        "point": [
+          1249.8503949059354,
+          1484.985093355968
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07513",
+          "leafPathId": "0001-path-07514"
+        },
+        "sourceDoorSegment": [
+          [
+            1240.6090663986638,
+            1505.1391316437184
+          ],
+          [
+            1230.5504056841128,
+            1474.0718982270907
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-37",
+        "kind": "source-door-approach",
+        "point": [
+          1122.9908380463971,
+          1378.9296695293372
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07539",
+          "leafPathId": "0001-path-07540"
+        },
+        "sourceDoorSegment": [
+          [
+            1108.243587375656,
+            1386.217266917636
+          ],
+          [
+            1139.0610393939999,
+            1375.416963067488
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-38",
+        "kind": "source-door-approach",
+        "point": [
+          1081.6092025975825,
+          1393.7262855882773
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07553",
+          "leafPathId": "0001-path-07552"
+        },
+        "sourceDoorSegment": [
+          [
+            1096.33993029502,
+            1390.4272197852165
+          ],
+          [
+            1068.2620900318943,
+            1400.778431348812
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-39",
+        "kind": "source-door-approach",
+        "point": [
+          926.4934664330302,
+          1431.4569861038028
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07560",
+          "leafPathId": "0001-path-07558"
+        },
+        "sourceDoorSegment": [
+          [
+            931.6240022857535,
+            1448.5537348439805
+          ],
+          [
+            917.6846617434506,
+            1415.9319683723577
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-40",
+        "kind": "approach",
+        "point": [
+          926.4934664330302,
+          1431.4569861038028
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07560",
+          "leafPathId": "0001-path-07558",
+          "note": {
+            "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
+            "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
+          },
+          "kind": "approach",
+          "finalDoorSource": {
+            "sourceId": "0001",
+            "arcPathId": "0001-path-07585"
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            931.6240022857535,
+            1448.5537348439805
+          ],
+          [
+            917.6846617434506,
+            1415.9319683723577
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-41",
+        "kind": "source-door-approach",
+        "point": [
+          951.2807703401265,
+          1397.110896921618
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07571",
+          "leafPathId": "0001-path-07569"
+        },
+        "sourceDoorSegment": [
+          [
+            934.1218593190946,
+            1402.0295445284762
+          ],
+          [
+            966.9135729611016,
+            1388.4948186999575
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-42",
+        "kind": "source-door-approach",
+        "point": [
+          1141.4010136880802,
+          1322.8624871063444
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07702",
+          "leafPathId": "0001-path-07701"
+        },
+        "sourceDoorSegment": [
+          [
+            1157.56756355524,
+            1315.2954891748877
+          ],
+          [
+            1123.955358919736,
+            1326.639512656402
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-43",
+        "kind": "source-door-approach",
+        "point": [
+          1174.953899076039,
+          1023.9198699175951
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07715",
+          "leafPathId": "0001-path-07716"
+        },
+        "sourceDoorSegment": [
+          [
+            1187.7207535844852,
+            1018.040673788068
+          ],
+          [
+            1161.047921576766,
+            1025.964695327986
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-44",
+        "kind": "source-door-approach",
+        "point": [
+          1267.194795593059,
+          1181.639367547622
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-11655",
+          "leafPathId": "0001-path-11645",
+          "sourceDoorSegment": [
+            [
+              1255.6001,
+              1186.96997
+            ],
+            [
+              1279.87012,
+              1180.16003
+            ]
+          ],
+          "note": {
+            "en": "AV Control Room is approached through the shared AV suite foyer.",
+            "ar": "الوصول إلى غرفة التحكم عبر الردهة المشتركة لجناح الوسائط."
+          }
+        },
+        "sourceDoorSegment": [
+          [
+            1255.6001,
+            1186.96997
+          ],
+          [
+            1279.87012,
+            1180.16003
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-45",
+        "kind": "source-door-approach",
+        "point": [
+          1400.868798499912,
+          965.4942931624756
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07732",
+          "leafPathId": "0001-path-07733"
+        },
+        "sourceDoorSegment": [
+          [
+            1414.0015061200545,
+            960.4858166207313
+          ],
+          [
+            1386.8570521890815,
+            966.6005535415406
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-46",
+        "kind": "source-door-approach",
+        "point": [
+          1610.704521438857,
+          925.8711377235942
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07749",
+          "leafPathId": "0001-path-07750"
+        },
+        "sourceDoorSegment": [
+          [
+            1624.1273137432652,
+            921.7018625152261
+          ],
+          [
+            1596.6508351565412,
+            926.0904796681411
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-47",
+        "kind": "source-door-approach",
+        "point": [
+          1630.6270610418733,
+          1022.3321771041619
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07766",
+          "leafPathId": "0001-path-07767"
+        },
+        "sourceDoorSegment": [
+          [
+            1644.6823631319153,
+            1022.2637284684538
+          ],
+          [
+            1617.1602070378813,
+            1026.357105090255
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-48",
+        "kind": "source-door-approach",
+        "point": [
+          1685.417690220061,
+          915.04053313769
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07809",
+          "leafPathId": "0001-path-07807"
+        },
+        "sourceDoorSegment": [
+          [
+            1667.5713937782114,
+            915.4013774766371
+          ],
+          [
+            1702.7355450216844,
+            910.7147487698302
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-49",
+        "kind": "source-door-approach",
+        "point": [
+          1762.1251001130063,
+          909.355115373743
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07827",
+          "leafPathId": "0001-path-07818"
+        },
+        "sourceDoorSegment": [
+          [
+            1781.8685595302795,
+            904.2174652034148
+          ],
+          [
+            1741.7586583893099,
+            910.5415767298175
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-50",
+        "kind": "source-door-approach",
+        "point": [
+          1698.3087368959104,
+          1015.2063612083797
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07783",
+          "leafPathId": "0001-path-07784"
+        },
+        "sourceDoorSegment": [
+          [
+            1712.364305330714,
+            1015.1959393957876
+          ],
+          [
+            1684.8252732960648,
+            1019.1756586262185
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-51",
+        "kind": "source-door-approach",
+        "point": [
+          1973.1500726763607,
+          864.4417202707349
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07862",
+          "leafPathId": "0001-path-07864"
+        },
+        "sourceDoorSegment": [
+          [
+            1970.3715939212075,
+            848.2285390243773
+          ],
+          [
+            1971.9331273871405,
+            880.8461780332799
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-52",
+        "kind": "source-door-approach",
+        "point": [
+          1986.114551303891,
+          788.1075451767173
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07871",
+          "leafPathId": "0001-path-07873"
+        },
+        "sourceDoorSegment": [
+          [
+            2001.802444851712,
+            772.4398250159139
+          ],
+          [
+            1969.1758287562461,
+            773.8013528999825
+          ]
+        ]
+      },
+      {
+        "roomId": "B03-GF-G-53",
+        "kind": "open-circulation-approach",
+        "point": [
+          2152.22,
+          825.522
+        ],
+        "source": {
+          "note": {
+            "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+            "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+          }
+        },
+        "sourceDoorSegment": null
+      },
+      {
+        "roomId": "B03-GF-G-54",
+        "kind": "source-door-approach",
+        "point": [
+          2195.6827545772044,
+          761.3592023415599
+        ],
+        "source": {
+          "sourceId": "0001",
+          "arcPathId": "0001-path-07882",
+          "leafPathId": "0001-path-07880"
+        },
+        "sourceDoorSegment": [
+          [
+            2213.4546385467675,
+            759.6910626189227
+          ],
+          [
+            2177.985629513085,
+            759.0280407369579
+          ]
+        ]
+      }
+    ],
+    "missingRouteRooms": [],
+    "reason": "Drawing-based source doorway approaches within source-wall-constrained circulation regions. Candidate access and accessibility remain unknown. Shared-suite and exterior-only destinations carry explicit approach limitations. No physical kiosk is asserted."
+  }
+}

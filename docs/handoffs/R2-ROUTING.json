@@ -1,0 +1,35 @@
+{
+  "task": "R2 routing policy and validation",
+  "status": "completed",
+  "filesChanged": [
+    "packages/routing/src/index.ts",
+    "packages/routing/src/geometry-safety.ts",
+    "packages/map-engine/src/validate.ts",
+    "tests/unit/routing.test.ts",
+    "tests/unit/instructions.test.ts",
+    "scripts/integration/validate-selftest.mjs",
+    "docs/handoffs/R2-ROUTING.json"
+  ],
+  "testsRun": [
+    "65 routing and instruction unit tests passed",
+    "npm run typecheck passed",
+    "npm run test:data: 21 rejection checks passed"
+  ],
+  "assumptions": [
+    "Drawing-based mode allows candidate source nodes and edges, unknown physical access, but never unknown geometry or closed links.",
+    "Room approach nodes can have candidate source points without claiming a field-confirmed door.",
+    "Supplied v1 enclosure/wall constraints apply to a single floor."
+  ],
+  "openIssues": [
+    "Actual B03 graph all-pairs coverage and source corridor geometry require graph owner and independent QA.",
+    "tests/integration/live-data.qa.test.ts contains old candidate-route-unconfirmed expectation and needs QA update after new B03 graph lands."
+  ],
+  "handoffNotes": [
+    "Default verified-only behavior and negative safety tests preserved.",
+    "Drawing routes require navigable areas, finite points, matching geometric weights and full interval wall/area validation; accessibility remains explicitly confirmed-only.",
+    "Candidate status/provenance and null scale are preserved.",
+    "Prepared graph cache signs complete input content and owns a structuredClone snapshot, so mutations invalidate cached results; compiled bounds reduce repeated obstacle work.",
+    "Consecutive continue instructions aggregate distances without changing rendered route geometry or omitting meaningful bends.",
+    "Validator accepts optional routingPolicy and navigationDefaults.startRoomId; rejects unknown policy and missing room defaults."
+  ]
+}
