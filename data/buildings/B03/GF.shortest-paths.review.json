@@ -1,0 +1,7163 @@
+{
+  "method": "Independent shortest distances on the complete source-constrained eight-neighbor grid before reduction; line-of-sight compression may improve them.",
+  "gridStep": 3.0,
+  "gridVertices": 70079,
+  "gridLinks": 264980,
+  "pairs": [
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-02-approach",
+      "distance": 1120.534219
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-03-approach",
+      "distance": 1543.246622
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-04-approach",
+      "distance": 1159.506785
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-05-approach",
+      "distance": 413.033951
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-06-approach",
+      "distance": 413.033951
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 495.519846
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 598.418528
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 473.672761
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 556.844568
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 780.254464
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 788.278963
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 938.849413
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 1042.46975
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 1021.719642
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 1136.269285
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 1042.46975
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 594.218375
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 1016.656929
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1110.86479
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1110.86479
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 377.044482
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 399.524963
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 479.317166
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 639.103382
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 762.953366
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 728.404276
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 728.404276
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 913.116343
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1211.443244
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1466.135
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1433.530172
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1533.031881
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1511.226198
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1342.490695
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1364.181279
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1581.894239
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1627.534805
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1797.242792
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1797.242792
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1759.823915
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1560.115513
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1386.027621
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1405.676582
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1136.546883
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 935.889811
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 930.161352
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 865.2772
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 793.358575
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 860.151926
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 598.776232
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 663.475509
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 445.329123
+    },
+    {
+      "start": "B03-GF-G-01-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 489.077558
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-03-approach",
+      "distance": 439.908596
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-04-approach",
+      "distance": 823.212481
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-05-approach",
+      "distance": 1531.048305
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-06-approach",
+      "distance": 1531.048305
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 1265.585933
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 1328.720112
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 1181.606813
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 1247.381651
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 1470.791546
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 1478.816045
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 1629.386495
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 1733.006832
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 1712.256724
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 1826.806367
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 1733.006832
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 1284.755457
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 1707.194011
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1801.401873
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1801.401873
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 759.221175
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 910.988019
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 679.986282
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 486.853668
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 360.409279
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 402.154562
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 402.154562
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 232.866629
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 98.164092
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 347.885286
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 315.280457
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 414.782167
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 392.976484
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 224.240981
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 245.931564
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 463.644525
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 509.285091
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 678.993078
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 678.993078
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 641.574201
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 441.865799
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 709.365785
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 707.978166
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 844.987645
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1071.786417
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1053.381767
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1151.173806
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1229.255181
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1122.828186
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1476.489071
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1556.401552
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1528.549538
+    },
+    {
+      "start": "B03-GF-G-02-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1572.297973
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-04-approach",
+      "distance": 385.969474
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-05-approach",
+      "distance": 1664.106812
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-06-approach",
+      "distance": 1664.106812
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 1703.210024
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 1766.344203
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 1619.230905
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 1685.005742
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 1908.415638
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 1916.440136
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 2067.010586
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 2170.630923
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 2149.880815
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 2264.430458
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 2170.630923
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 1722.379549
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 2144.818103
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 2239.025964
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 2239.025964
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 1196.845266
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 1348.612111
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1117.610374
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 924.477759
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 798.033371
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 834.808091
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 834.808091
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 660.549595
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 349.788183
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 564.590546
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 531.985718
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 568.524007
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 546.718325
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 273.372648
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 226.151543
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 149.313205
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 194.953771
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 364.661759
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 364.661759
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 327.242882
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 107.652228
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 272.122778
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 270.735158
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 407.744637
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 634.543409
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 616.138759
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 713.930798
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 792.012173
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 685.585178
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1039.246064
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1119.158544
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1216.953283
+    },
+    {
+      "start": "B03-GF-G-03-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1296.22358
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-05-approach",
+      "distance": 1280.366976
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-06-approach",
+      "distance": 1280.366976
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 1652.506767
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 1755.405448
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 1630.659682
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 1713.831489
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 1937.241384
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 1945.265883
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 2095.836333
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 2199.45667
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 2178.706562
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 2293.256205
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 2199.45667
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 1751.205295
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 2173.64385
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 2267.851711
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 2267.851711
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 1499.237464
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 1549.05604
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1500.914259
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1307.781645
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1181.337257
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1218.111976
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1218.111976
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1043.853481
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 733.092069
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 947.894432
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 915.289604
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 951.827893
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 930.02221
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 656.676534
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 609.455429
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 532.617091
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 578.257657
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 747.965644
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 747.965644
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 710.546767
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 490.956114
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 228.750473
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 248.399434
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 55.637268
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 250.803572
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 234.884204
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 330.190961
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 408.272336
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 301.845341
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 655.506227
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 735.418707
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 833.213446
+    },
+    {
+      "start": "B03-GF-G-04-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 912.483743
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-06-approach",
+      "distance": 2.857561
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 836.446054
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 939.344735
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 814.598969
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 897.770776
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 1121.180672
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 1129.205171
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 1279.775621
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 1383.395957
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 1362.64585
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 1477.195493
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 1383.395957
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 935.144583
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 1357.583137
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1451.790998
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1451.790998
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 787.558569
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 810.03905
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 889.831252
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1049.617468
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1173.467453
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1138.918363
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1138.918363
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1323.63043
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1621.95733
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1876.649086
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1844.044258
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1943.545968
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1921.740285
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1753.004781
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1774.695365
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1810.754429
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1856.394996
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2026.102983
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2026.102983
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1988.684106
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1769.093453
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1506.887812
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1526.536772
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1257.407074
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1056.750002
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1051.021542
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 986.137391
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 914.218766
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 981.012117
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 719.636423
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 784.3357
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 559.159876
+    },
+    {
+      "start": "B03-GF-G-05-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 602.908312
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-07-approach",
+      "distance": 836.446054
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 939.344735
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 814.598969
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 897.770776
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 1121.180672
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 1129.205171
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 1279.775621
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 1383.395957
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 1362.64585
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 1477.195493
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 1383.395957
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 935.144583
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 1357.583137
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1451.790998
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1451.790998
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 787.558569
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 810.03905
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 889.831252
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1049.617468
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1173.467453
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1138.918363
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1138.918363
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1323.63043
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1621.95733
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1876.649086
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1844.044258
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1943.545968
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1921.740285
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1753.004781
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1774.695365
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1810.754429
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1856.394996
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2026.102983
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2026.102983
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1988.684106
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1769.093453
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1506.887812
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1526.536772
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1257.407074
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1056.750002
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1051.021542
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 986.137391
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 914.218766
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 981.012117
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 719.636423
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 784.3357
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 559.159876
+    },
+    {
+      "start": "B03-GF-G-06-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 602.908312
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-08-approach",
+      "distance": 113.34535
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 105.687895
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 195.21295
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 432.380204
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 440.404703
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 590.975153
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 694.59549
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 673.845382
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 788.395025
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 694.59549
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 276.167492
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 691.150202
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 785.358063
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 785.358063
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 511.552041
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 421.561525
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 624.36888
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 784.155096
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 908.00508
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 873.45599
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 873.45599
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1058.168057
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1356.494958
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1611.186714
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1578.581886
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1678.083595
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1656.277912
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1487.542409
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1509.232992
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1726.945953
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1772.586519
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1942.294506
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1942.294506
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1904.875629
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1705.167227
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1879.027603
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1898.676564
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1629.546866
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1428.889793
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1423.161334
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1358.277183
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1286.358558
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1353.151909
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1091.776214
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1156.475491
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 938.329105
+    },
+    {
+      "start": "B03-GF-G-07-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 982.07754
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-09-approach",
+      "distance": 147.733763
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 212.655786
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 449.823041
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 457.84754
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 608.41799
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 712.038327
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 691.288219
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 805.837862
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 712.038327
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 293.610329
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 708.593039
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 802.8009
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 802.8009
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 574.68622
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 484.695704
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 687.503059
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 847.289275
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 971.139259
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 936.59017
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 936.59017
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1121.302236
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1419.629137
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1674.320893
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1641.716065
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1741.217774
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1719.412092
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1550.676588
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1572.367172
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1790.080132
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1835.720698
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2005.428685
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2005.428685
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1968.009808
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1768.301406
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1981.926284
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2001.575245
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1732.445547
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1531.788474
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1526.060015
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1461.175864
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1389.257239
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1456.05059
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1194.674895
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1259.374172
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1041.227786
+    },
+    {
+      "start": "B03-GF-G-08-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1084.976221
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-10-approach",
+      "distance": 122.454176
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 354.650868
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 362.675367
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 513.245817
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 616.866154
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 596.116046
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 710.665689
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 616.866154
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 171.100061
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 591.053333
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 685.261195
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 685.261195
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 427.572921
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 337.582406
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 560.272011
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 700.175977
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 841.422931
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 789.476871
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 789.476871
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 974.188938
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1272.515838
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1527.207595
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1494.602766
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1594.104476
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1572.298793
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1403.56329
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1425.253873
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1642.966833
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1688.6074
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1858.315387
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1858.315387
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1820.89651
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1621.188108
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1857.180518
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1876.829479
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1607.699781
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1407.042708
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1401.314249
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1336.430098
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1264.511473
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1331.304824
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1069.929129
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1134.628406
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 916.48202
+    },
+    {
+      "start": "B03-GF-G-09-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 960.230455
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-11-approach",
+      "distance": 239.146485
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 247.170984
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 397.741434
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 501.361771
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 480.611663
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 595.161306
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 501.361771
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 82.933773
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 497.916483
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 592.124344
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 592.124344
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 493.347759
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 403.357243
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 643.443819
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 765.950814
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 924.594738
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 855.251709
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 855.251709
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1039.963775
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1338.290676
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1592.982432
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1560.377604
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1659.879313
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1638.073631
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1469.338127
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1491.028711
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1708.741671
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1754.382237
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1924.090224
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1924.090224
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1886.671347
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1686.962945
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1940.352325
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1953.075312
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1690.871588
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1490.214515
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1484.486056
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1419.601905
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1347.68328
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1414.476631
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1153.100936
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1217.800213
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 999.653827
+    },
+    {
+      "start": "B03-GF-G-10-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1043.402262
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-12-approach",
+      "distance": 54.875252
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 219.504576
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 323.124913
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 302.374805
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 416.924448
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 323.124913
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 236.579166
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 644.532439
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 738.7403
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 738.7403
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 716.757654
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 626.767139
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 866.853714
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 989.360709
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1148.004633
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1078.661604
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1078.661604
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1263.373671
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1561.700571
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1816.392328
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1783.787499
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1883.289209
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1861.483526
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1692.748023
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1714.438606
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1932.151566
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1977.792132
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2147.50012
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2147.50012
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2110.081243
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1910.372841
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2163.762221
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2176.485208
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1914.281483
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1713.624411
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1707.895951
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1643.0118
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1571.093175
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1637.886526
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1376.510832
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1441.210109
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1223.063722
+    },
+    {
+      "start": "B03-GF-G-11-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1266.812158
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-13-approach",
+      "distance": 166.801153
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 270.42149
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 249.671382
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 364.221025
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 270.42149
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 249.574228
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 657.5275
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 751.735362
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 751.735362
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 724.782153
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 634.791638
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 874.878213
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 997.385208
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1156.029132
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1086.686103
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1086.686103
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1271.39817
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1569.72507
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1824.416826
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1791.811998
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1891.313708
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1869.508025
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1700.772521
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1722.463105
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1940.176065
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1985.816631
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2155.524619
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2155.524619
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2118.105742
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1918.397339
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2171.78672
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2184.509707
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1922.305982
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1721.64891
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1715.92045
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1651.036299
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1579.117674
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1645.911025
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1384.53533
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1449.234608
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1231.088221
+    },
+    {
+      "start": "B03-GF-G-12-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1274.836657
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-14-approach",
+      "distance": 108.742157
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 87.992049
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 202.541692
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 108.742157
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 400.144678
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 808.097951
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 902.305812
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 902.305812
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 875.352603
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 785.362088
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1025.448663
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1147.955658
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1306.599582
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1237.256553
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1237.256553
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1421.96862
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1720.29552
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1974.987277
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1942.382448
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2041.884158
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2020.078475
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1851.342972
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1873.033555
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2090.746515
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2136.387081
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2306.095069
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2306.095069
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2268.676192
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2068.96779
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2322.35717
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2335.080157
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2072.876432
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1872.21936
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1866.4909
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1801.606749
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1729.688124
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1796.481475
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1535.105781
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1599.805058
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1381.658671
+    },
+    {
+      "start": "B03-GF-G-13-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1425.407107
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-15-approach",
+      "distance": 41.185979
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 105.676747
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 1.936087
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 503.765015
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 911.718287
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1005.926149
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1005.926149
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 978.97294
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 888.982425
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1129.069
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1251.575995
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1410.219919
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1340.87689
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1340.87689
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1525.588957
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1823.915857
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2078.607613
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2046.002785
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2145.504495
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2123.698812
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1954.963308
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1976.653892
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2194.366852
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2240.007418
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2409.715406
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2409.715406
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2372.296528
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2172.588126
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2425.977506
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2438.700494
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2176.496769
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1975.839697
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1970.111237
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1905.227086
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1833.308461
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1900.101812
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1638.726117
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1703.425394
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1485.279008
+    },
+    {
+      "start": "B03-GF-G-14-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1529.027444
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-16-approach",
+      "distance": 144.926639
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 41.185979
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 483.014907
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 890.968179
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 985.176041
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 985.176041
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 958.222832
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 868.232317
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1108.318892
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1230.825887
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1389.469811
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1320.126782
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1320.126782
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1504.838849
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1803.165749
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2057.857505
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2025.252677
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2124.754387
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2102.948704
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1934.2132
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1955.903784
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2173.616744
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2219.25731
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2388.965298
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2388.965298
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2351.546421
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2151.838018
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2405.227399
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2417.950386
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2155.746661
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1955.089589
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1949.361129
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1884.476978
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1812.558353
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1879.351704
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1617.97601
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1682.675287
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1464.5289
+    },
+    {
+      "start": "B03-GF-G-15-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1508.277336
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-17-approach",
+      "distance": 105.676747
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 597.56455
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 1005.517822
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1099.725684
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1099.725684
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 1072.772475
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 982.78196
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1222.868535
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1345.37553
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1504.019454
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1434.676425
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1434.676425
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1619.388492
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1917.715392
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2172.407148
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2139.80232
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2239.30403
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2217.498347
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 2048.762843
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 2070.453427
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2288.166387
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2333.806953
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2503.514941
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2503.514941
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2466.096064
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2266.387661
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2519.777042
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2532.500029
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2270.296304
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 2069.639232
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 2063.910772
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1999.026621
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1927.107996
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1993.901347
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1732.525652
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1797.22493
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1579.078543
+    },
+    {
+      "start": "B03-GF-G-16-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1622.826979
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-18-approach",
+      "distance": 503.765015
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 911.718287
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 1005.926149
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 1005.926149
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 978.97294
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 888.982425
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1129.069
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1251.575995
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1410.219919
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1340.87689
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1340.87689
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1525.588957
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1823.915857
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2078.607613
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2046.002785
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2145.504495
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2123.698812
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1954.963308
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1976.653892
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2194.366852
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2240.007418
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2409.715406
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2409.715406
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2372.296528
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2172.588126
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2425.977506
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2438.700494
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2176.496769
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1975.839697
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1970.111237
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1905.227086
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1833.308461
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1900.101812
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1638.726117
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1703.425394
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1485.279008
+    },
+    {
+      "start": "B03-GF-G-17-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1529.027444
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-19-approach",
+      "distance": 425.53293
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 519.740791
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 519.740791
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 530.721565
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 440.73105
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 680.817625
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 803.32462
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 961.968544
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 892.625515
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 892.625515
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1077.337582
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1375.664482
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1630.356239
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1597.75141
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1697.25312
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1675.447437
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1506.711934
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1528.402517
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1746.115477
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1791.756043
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1961.464031
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1961.464031
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1924.045154
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1724.336752
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1977.726132
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1990.449119
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1728.245394
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1527.588322
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1521.859862
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1456.975711
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1385.057086
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1451.850437
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1190.474743
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1255.17402
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1037.027633
+    },
+    {
+      "start": "B03-GF-G-18-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1080.776069
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-20-approach",
+      "distance": 130.628913
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 130.628913
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 953.160119
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 863.169604
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1103.256179
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1225.763175
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1384.407098
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1315.064069
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1315.064069
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1499.776136
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1798.103036
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2052.794793
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2020.189965
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2119.691674
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2097.885991
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1929.150488
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1950.841071
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2168.554032
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2214.194598
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2383.902585
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2383.902585
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2346.483708
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2146.775306
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2400.164686
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2412.887673
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2150.683948
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1950.026876
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1944.298417
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1879.414265
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1807.49564
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1874.288991
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1612.913297
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1677.612574
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1459.466187
+    },
+    {
+      "start": "B03-GF-G-19-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1503.214623
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-21-approach",
+      "distance": 0.653009
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 1047.367981
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 957.377465
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1197.464041
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1319.971036
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1478.61496
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1409.271931
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1409.271931
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1593.983997
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1892.310898
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2147.002654
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2114.397826
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2213.899535
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2192.093853
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 2023.358349
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 2045.048933
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2262.761893
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2308.402459
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2478.110446
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2478.110446
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2440.691569
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2240.983167
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2494.372547
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2507.095534
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2244.89181
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 2044.234737
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 2038.506278
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1973.622127
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1901.703502
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1968.496853
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1707.121158
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1771.820435
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1553.674049
+    },
+    {
+      "start": "B03-GF-G-20-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1597.422484
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-22-approach",
+      "distance": 1047.367981
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 957.377465
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 1197.464041
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 1319.971036
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 1478.61496
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 1409.271931
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 1409.271931
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 1593.983997
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1892.310898
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 2147.002654
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 2114.397826
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 2213.899535
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 2192.093853
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 2023.358349
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 2045.048933
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 2262.761893
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 2308.402459
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 2478.110446
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 2478.110446
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 2440.691569
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 2240.983167
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 2494.372547
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 2507.095534
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 2244.89181
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 2044.234737
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 2038.506278
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1973.622127
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1901.703502
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1968.496853
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1707.121158
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1771.820435
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1553.674049
+    },
+    {
+      "start": "B03-GF-G-21-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1597.422484
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-23-approach",
+      "distance": 156.954127
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 165.224468
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 277.790338
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 446.375387
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 367.091233
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 367.091233
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 551.8033
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 850.1302
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1104.821957
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1072.217128
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1171.718838
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1149.913155
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 981.177652
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1002.868235
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1220.581195
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1266.221761
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1435.929749
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1435.929749
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1398.510872
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1198.80247
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1466.302456
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1464.914837
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1476.277562
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1275.62049
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1269.892031
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1205.007879
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1133.089254
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1199.882605
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 938.506911
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1003.206188
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 785.059802
+    },
+    {
+      "start": "B03-GF-G-22-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 828.808237
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-24-approach",
+      "distance": 316.991312
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 429.557182
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 598.142231
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 518.858077
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 518.858077
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 703.570144
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 1001.897044
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1256.588801
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 1223.983972
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1323.485682
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1301.679999
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 1132.944496
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 1154.635079
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1372.348039
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1417.988605
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1587.696593
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1587.696593
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1550.277716
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1350.569314
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1618.0693
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1616.681681
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1526.096138
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1325.439066
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1319.710607
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1254.826455
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1182.90783
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1249.701181
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 988.325487
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1053.024764
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 834.878377
+    },
+    {
+      "start": "B03-GF-G-23-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 878.626813
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-25-approach",
+      "distance": 198.555446
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 322.40543
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 287.85634
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 287.85634
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 472.568407
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 770.895307
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 1025.587064
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 992.982236
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 1092.483945
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 1070.678262
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 901.942759
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 923.633342
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 1141.346303
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 1186.986869
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1356.694856
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1356.694856
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1319.275979
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 1119.567577
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1387.067563
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1385.679944
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1522.689423
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1377.893174
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1372.164714
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1307.280563
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1235.361938
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1302.155289
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1040.779594
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1105.478871
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 887.332485
+    },
+    {
+      "start": "B03-GF-G-24-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 931.08092
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-26-approach",
+      "distance": 178.978443
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 94.723725
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 94.723725
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 279.435792
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 582.733255
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 832.454449
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 799.849621
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 899.35133
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 877.545647
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 708.810144
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 730.500727
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 948.213688
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 993.854254
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1163.562241
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1163.562241
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1126.143364
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 926.434962
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1193.934948
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1192.547329
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1329.556808
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1537.67939
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1531.95093
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1467.066779
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1395.148154
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1461.941505
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1200.56581
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1265.265087
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1047.118701
+    },
+    {
+      "start": "B03-GF-G-25-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1090.867136
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-27-approach",
+      "distance": 97.794056
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 97.794056
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 152.991404
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 451.318304
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 706.010061
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 673.405233
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 772.906942
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 751.101259
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 582.365756
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 604.056339
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 821.7693
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 867.409866
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1037.117853
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1037.117853
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 999.698976
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 799.990574
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1067.49056
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1066.102941
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1203.11242
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1429.911192
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1411.506542
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1509.298581
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1518.998138
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1480.952961
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1324.415795
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1389.115072
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1170.968685
+    },
+    {
+      "start": "B03-GF-G-26-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1214.717121
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-28-approach",
+      "distance": 2.568776
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 189.766124
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 498.03415
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 742.784781
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 710.179953
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 809.681662
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 787.875979
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 619.140476
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 640.831059
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 858.54402
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 904.184586
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1073.892573
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1073.892573
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1036.473696
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 836.765294
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1104.26528
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1102.877661
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1239.88714
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1466.685912
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1448.281262
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1546.073301
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1484.449048
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1517.727681
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1289.866705
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1354.565982
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1136.419596
+    },
+    {
+      "start": "B03-GF-G-27-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1180.168031
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-29-approach",
+      "distance": 189.766124
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 498.03415
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 742.784781
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 710.179953
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 809.681662
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 787.875979
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 619.140476
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 640.831059
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 858.54402
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 904.184586
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 1073.892573
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1073.892573
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 1036.473696
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 836.765294
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 1104.26528
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 1102.877661
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1239.88714
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1466.685912
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1448.281262
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1546.073301
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1484.449048
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1517.727681
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1289.866705
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1354.565982
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1136.419596
+    },
+    {
+      "start": "B03-GF-G-28-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1180.168031
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-30-approach",
+      "distance": 328.746217
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 556.099878
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 523.49505
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 622.996759
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 601.191076
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 437.426136
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 466.572563
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 684.285524
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 729.92609
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 899.634077
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 899.634077
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 862.2152
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 662.506798
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 930.006784
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 928.619165
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 1065.628644
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1292.427416
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1274.022766
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1371.814805
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1449.89618
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1343.469185
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1474.578772
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1539.278049
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1321.131662
+    },
+    {
+      "start": "B03-GF-G-29-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1364.880098
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-31-approach",
+      "distance": 308.728294
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 276.123465
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 324.661755
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 302.856072
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 134.120569
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 155.811152
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 373.524112
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 419.164678
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 588.872666
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 588.872666
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 551.453789
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 351.745387
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 619.245373
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 617.857754
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 754.867232
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 981.666004
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 963.261355
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1061.053394
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1139.134768
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1032.707773
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1386.368659
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1466.281139
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1564.075878
+    },
+    {
+      "start": "B03-GF-G-30-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1643.346175
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-32-approach",
+      "distance": 49.587733
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 370.912819
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 349.107136
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 332.680291
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 361.826718
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 588.326475
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 633.967041
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 803.675029
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 803.675029
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 766.256152
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 566.547749
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 834.047736
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 832.660117
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 969.669595
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1196.468367
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1178.063717
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1275.855756
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1353.937131
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1247.510136
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1601.171022
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1681.083502
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1778.878241
+    },
+    {
+      "start": "B03-GF-G-31-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1858.148538
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-33-approach",
+      "distance": 338.307991
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 316.502308
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 300.075462
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 329.22189
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 555.721647
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 601.362213
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 771.0702
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 771.0702
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 733.651323
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 533.942921
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 801.442908
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 800.055288
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 937.064767
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1163.863539
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1145.458889
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1243.250928
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1321.332303
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1214.905308
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1568.566193
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1648.478674
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1746.273413
+    },
+    {
+      "start": "B03-GF-G-32-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1825.54371
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-34-approach",
+      "distance": 38.180641
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 336.613752
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 365.760179
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 592.259936
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 637.900502
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 807.60849
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 807.60849
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 770.189613
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 570.481211
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 837.981197
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 836.593578
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 973.603056
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1200.401828
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1181.997179
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1279.789218
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1357.870593
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1251.443597
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1605.104483
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1685.016963
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1782.811702
+    },
+    {
+      "start": "B03-GF-G-33-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1862.081999
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-35-approach",
+      "distance": 314.808069
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 343.954496
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 570.454253
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 616.094819
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 785.802807
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 785.802807
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 748.38393
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 548.675528
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 816.175514
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 814.787895
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 951.797373
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 1178.596145
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 1160.191496
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1257.983535
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1336.06491
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1229.637914
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1583.2988
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1663.211281
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1761.00602
+    },
+    {
+      "start": "B03-GF-G-34-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1840.276316
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-36-approach",
+      "distance": 49.520508
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 297.108577
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 342.749143
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 512.45713
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 512.45713
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 475.038253
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 275.329851
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 542.829838
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 541.442218
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 678.451697
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 905.250469
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 886.845819
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 984.637858
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1062.719233
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 956.292238
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1309.953124
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1389.865604
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1487.660343
+    },
+    {
+      "start": "B03-GF-G-35-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1566.93064
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-37-approach",
+      "distance": 249.887472
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 295.528038
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 465.236026
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 465.236026
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 427.817149
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 228.108746
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 495.608733
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 494.221114
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 631.230592
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 858.029364
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 839.624714
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 937.416753
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1015.498128
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 909.071133
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1262.732019
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1342.644499
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1440.439238
+    },
+    {
+      "start": "B03-GF-G-36-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1519.709535
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-38-approach",
+      "distance": 48.557666
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 218.265653
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 218.265653
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 180.846776
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 67.32214
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 401.373425
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 417.382775
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 554.392254
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 781.191026
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 762.786376
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 860.578415
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 938.65979
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 832.232795
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1185.893681
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1265.806161
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1363.6009
+    },
+    {
+      "start": "B03-GF-G-37-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1442.871197
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-39-approach",
+      "distance": 173.479812
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 173.479812
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 136.060935
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 98.903832
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 447.013991
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 463.023341
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 600.03282
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 826.831592
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 808.426942
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 906.218981
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 984.300356
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 877.873361
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1231.534247
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1311.446727
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1409.241466
+    },
+    {
+      "start": "B03-GF-G-38-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1488.511763
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-40-approach",
+      "distance": 1.364423
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 44.555719
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 259.825022
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 616.721978
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 632.731329
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 769.740807
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 996.539579
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 978.13493
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1075.926969
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1154.008344
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1047.581348
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1401.242234
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1481.154715
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1578.949454
+    },
+    {
+      "start": "B03-GF-G-39-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1658.21975
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-41-approach",
+      "distance": 44.555719
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 259.825022
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 616.721978
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 632.731329
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 769.740807
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 996.539579
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 978.13493
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1075.926969
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1154.008344
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1047.581348
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1401.242234
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1481.154715
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1578.949454
+    },
+    {
+      "start": "B03-GF-G-40-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1658.21975
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-42-approach",
+      "distance": 222.406145
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 579.303101
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 595.312452
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 732.32193
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 959.120702
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 940.716053
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 1038.508092
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 1116.589467
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 1010.162471
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1363.823357
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1443.735837
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1541.530576
+    },
+    {
+      "start": "B03-GF-G-41-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1620.800873
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-43-approach",
+      "distance": 359.712448
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 375.721799
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 512.731277
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 739.530049
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 721.125399
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 818.917439
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 896.998813
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 790.571818
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 1144.232704
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 1224.145184
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1321.939923
+    },
+    {
+      "start": "B03-GF-G-42-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1401.21022
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-44-approach",
+      "distance": 198.92027
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 250.525636
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 477.324408
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 458.919758
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 556.711797
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 634.793172
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 528.366177
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 882.027063
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 961.939543
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1059.734282
+    },
+    {
+      "start": "B03-GF-G-43-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1139.004579
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-45-approach",
+      "distance": 273.689316
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 496.973369
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 478.568719
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 576.360758
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 654.442133
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 548.015138
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 901.676024
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 981.588504
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 1079.383243
+    },
+    {
+      "start": "B03-GF-G-44-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 1158.65354
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-46-approach",
+      "distance": 227.84367
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 256.659367
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 307.23106
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 385.312435
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 318.649942
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 632.546325
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 712.458806
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 810.253545
+    },
+    {
+      "start": "B03-GF-G-45-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 889.523841
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-47-approach",
+      "distance": 107.392122
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 81.721174
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 159.802549
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 125.448713
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 407.036439
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 486.94892
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 584.743659
+    },
+    {
+      "start": "B03-GF-G-46-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 664.013956
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-48-approach",
+      "distance": 132.477996
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 178.926903
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 72.499908
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 426.160793
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 506.073274
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 603.868013
+    },
+    {
+      "start": "B03-GF-G-47-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 683.13831
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-49-approach",
+      "distance": 79.248813
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 105.799523
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 326.482703
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 406.395183
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 504.189922
+    },
+    {
+      "start": "B03-GF-G-48-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 583.460219
+    },
+    {
+      "start": "B03-GF-G-49-approach",
+      "end": "B03-GF-G-50-approach",
+      "distance": 133.520508
+    },
+    {
+      "start": "B03-GF-G-49-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 249.593515
+    },
+    {
+      "start": "B03-GF-G-49-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 329.505996
+    },
+    {
+      "start": "B03-GF-G-49-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 427.300735
+    },
+    {
+      "start": "B03-GF-G-49-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 506.571031
+    },
+    {
+      "start": "B03-GF-G-50-approach",
+      "end": "B03-GF-G-51-approach",
+      "distance": 356.151368
+    },
+    {
+      "start": "B03-GF-G-50-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 436.063849
+    },
+    {
+      "start": "B03-GF-G-50-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 533.858588
+    },
+    {
+      "start": "B03-GF-G-50-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 613.128884
+    },
+    {
+      "start": "B03-GF-G-51-approach",
+      "end": "B03-GF-G-52-approach",
+      "distance": 81.828198
+    },
+    {
+      "start": "B03-GF-G-51-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 217.806703
+    },
+    {
+      "start": "B03-GF-G-51-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 297.077
+    },
+    {
+      "start": "B03-GF-G-52-approach",
+      "end": "B03-GF-G-53-approach",
+      "distance": 282.50598
+    },
+    {
+      "start": "B03-GF-G-52-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 361.776277
+    },
+    {
+      "start": "B03-GF-G-53-approach",
+      "end": "B03-GF-G-54-approach",
+      "distance": 83.681622
+    }
+  ]
+}

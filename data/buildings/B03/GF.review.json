@@ -4,7 +4,7 @@
   "bufferTolerance": 0.2,
   "simplificationTolerance": 0.18,
   "inventoryCount": 54,
-  "candidatePolygonCount": 39,
+  "candidatePolygonCount": 41,
   "confirmedPolygonCount": 0,
   "rooms": [
     {
@@ -762,11 +762,14 @@
         1301.561,
         1219.212
       ],
-      "geometryStatus": "unknown",
-      "area": null,
+      "geometryStatus": "candidate",
+      "area": 11036.091,
       "conflict": null,
-      "reason": "Face contains distinct room labels [44, 47]; partition unresolved. No polygon accepted.",
-      "doorCandidates": []
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-11655",
+        "0001-path-11655"
+      ]
     },
     {
       "code": "G-45",
@@ -813,11 +816,18 @@
         1514.656,
         1160.112
       ],
-      "geometryStatus": "unknown",
-      "area": null,
+      "geometryStatus": "candidate",
+      "area": 76847.354,
       "conflict": null,
-      "reason": "Face contains distinct room labels [44, 47]; partition unresolved. No polygon accepted.",
-      "doorCandidates": []
+      "reason": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 1 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+      "doorCandidates": [
+        "0001-path-07766",
+        "0001-path-07770",
+        "0001-path-11655",
+        "0001-path-11660",
+        "0001-path-11664",
+        "0001-path-11655"
+      ]
     },
     {
       "code": "G-48",
@@ -2614,6 +2624,21 @@
         [
           1964.41,
           796.58
+        ]
+      ],
+      "status": "candidate"
+    },
+    {
+      "arcPathId": "0001-path-11655",
+      "leafPathId": "0001-path-11645",
+      "segment": [
+        [
+          1252.712,
+          1187.78
+        ],
+        [
+          1282.759,
+          1179.35
         ]
       ],
       "status": "candidate"

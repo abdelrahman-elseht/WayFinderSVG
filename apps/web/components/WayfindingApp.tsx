@@ -23,7 +23,8 @@ export function WayfindingApp({ floorData, graph, contents, audioService, config
   const [language, setLanguage] = useState<Language>('en');
   const [buildingId] = useState(floorData.building.id); const [floorId, setFloorId] = useState(floorData.floor.id);
   const [selectedId, setSelectedId] = useState<string | null>(null); const [customStartId, setCustomStartId] = useState<string | null>(null); const [destinationId, setDestinationId] = useState<string | null>(null);
-  const [query, setQuery] = useState(''); const [category, setCategory] = useState<RoomCategory | 'all'>('all'); const [mode, setMode] = useState<'browse' | 'navigate'>('browse');
+  const [query, setQuery] = useState(''); const [category, setCategory] = useState<RoomCategory | 'all'>('all'); const [mode, setMode] = useState<'browse' | 'navigate'>('navigate');
+  const [journeyStarted, setJourneyStarted] = useState(false); const [journeyStep, setJourneyStep] = useState(0); const [journeyPlaying, setJourneyPlaying] = useState(false);
   const [muted, setMuted] = useState(false); const [audioSupported, setAudioSupported] = useState(true); const [accessibleOnly, setAccessibleOnly] = useState(false); const [zoom, setZoom] = useState(1); const [reset, setReset] = useState(0);
   const audio = useRef<TTSService | null>(null); const c = copy[language];
   const rooms = useMemo(() => floorData.rooms.filter(room => room.public && room.buildingId === buildingId && room.floorId === floorId), [floorData.rooms, buildingId, floorId]);
@@ -43,14 +44,22 @@ export function WayfindingApp({ floorData, graph, contents, audioService, config
   const destinationNode = destinationRoom?.doorNodeId ?? null;
   const partialRoute = Boolean(startRoom?.navigationPartial || destinationRoom?.navigationPartial);
   const route = useMemo(() => destinationId ? findRoute(graph, startNode, destinationNode, { accessibleOnly }) : null, [graph, startNode, destinationNode, accessibleOnly, destinationId]);
+  const routeInstructions = route?.status === 'ok' ? route.instructions : [];
+  const visibleRoute = route?.status === 'ok' && journeyStarted
+    ? route.points.slice(0, Math.max(2, Math.ceil(route.points.length * Math.min(1, (journeyStep + 1) / Math.max(routeInstructions.length, 1)))))
+    : [];
+  const currentInstruction = routeInstructions[journeyStep] ?? routeInstructions[routeInstructions.length - 1] ?? null;
 
   useEffect(() => { const service = audioService ?? createBrowserTTS(); audio.current = service; setAudioSupported(service.isSupported()); return () => service.stop(); }, [audioService]);
   useEffect(() => { audio.current?.setMuted(muted); }, [muted]);
-  useEffect(() => { if (speechText) audio.current?.speak(speechText, language); else audio.current?.stop(); return () => audio.current?.stop(); }, [speechText, language]);
+  useEffect(() => { if (speechText && !journeyStarted) audio.current?.speak(speechText, language); else if (!journeyStarted) audio.current?.stop(); return () => audio.current?.stop(); }, [speechText, language, journeyStarted]);
+  useEffect(() => { if (!journeyPlaying || !routeInstructions.length) return; const timer = window.setInterval(() => setJourneyStep(value => { if (value >= routeInstructions.length - 1) { setJourneyPlaying(false); return value; } return value + 1; }), 2600); return () => window.clearInterval(timer); }, [journeyPlaying, routeInstructions.length]);
+  useEffect(() => { if (journeyStarted && currentInstruction) audio.current?.speak(currentInstruction.text[language], language); }, [journeyStarted, currentInstruction, language]);
   useEffect(() => { document.documentElement.lang = language; document.documentElement.dir = getDirection(language); }, [language]);
   function selectRoom(id: string) { setSelectedId(id); }
-  function resetKiosk() { setCustomStartId(null); setDestinationId(null); setSelectedId(null); setQuery(''); setCategory('all'); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
-  function goToRoom(id: string) { setDestinationId(id); setMode('navigate'); }
+  function resetKiosk() { setCustomStartId(null); setDestinationId(null); setSelectedId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setJourneyPlaying(false); setJourneyStep(0); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
+  function goToRoom(id: string) { setDestinationId(id); setSelectedId(id); setJourneyStarted(false); setJourneyPlaying(false); setJourneyStep(0); }
+  function startJourney() { if (route?.status !== 'ok') return; setJourneyStarted(true); setJourneyPlaying(true); setJourneyStep(0); }
 
   return <div className="wayfinding-app" dir={getDirection(language)} data-language={language}>
     <a className="skip-link" href="#directory">{t(language, 'skipToDirectory')}</a>

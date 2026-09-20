@@ -652,5 +652,28 @@
       "arcPathId": "0001-path-07882",
       "leafPathId": "0001-path-07880"
     }
+  },
+  "sharedAVFoyer": {
+    "polygon": [
+      [
+        1225,
+        1100
+      ],
+      [
+        1325,
+        1075
+      ],
+      [
+        1360,
+        1170
+      ],
+      [
+        1250,
+        1200
+      ]
+    ],
+    "roomCode": "G-47",
+    "source": "docs/EXTERIOR_ACCESS_REVIEW.md#two-positive-internal-source-findings-sent-to-graph-owner",
+    "note": "Bounded internal AV foyer entered through north double door and connecting G44 source door11655; does not exempt walls or the remainder of G47."
   }
 }

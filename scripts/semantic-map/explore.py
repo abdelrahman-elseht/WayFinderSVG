@@ -62,6 +62,14 @@ for p,it in arcs:
  closed=matches[0][1]; v=[(closed[j]-center[j])/radius for j in range(2)]
  line=LineString([[center[j]-3*v[j] for j in range(2)],[closed[j]+3*v[j] for j in range(2)]])
  seals.append(dict(id=p['id'],sourceId=p['sourceId'],leaf=matches[0][0],line=line))
+# The G44 door swing is two contiguous cubics, not a quarter-circle item.
+# Recover its actual hinge and closed jamb from the source leaf/jamb paths.
+by_id={p['id']:p for p in paths}
+hinge=by_id['0001-path-11645']['items'][0]['points'][0]
+jamb=by_id['0001-path-11647']['items'][0]['points'][0]
+radius=math.dist(hinge,jamb); direction=[(jamb[j]-hinge[j])/radius for j in range(2)]
+seals.append(dict(id='0001-path-11655',sourceId='0001',leaf='0001-path-11645',
+ line=LineString([[hinge[j]-3*direction[j] for j in range(2)],[jamb[j]+3*direction[j] for j in range(2)]])))
 # Narrow buffer resolves sub-point PDF drafting gaps; resulting contours explicitly candidate.
 network=unary_union([set_precision(l,.01) for l in walls+[l for _,l in doorlines]+[s['line'] for s in seals]])
 solid=network.buffer(.20,join_style=2)

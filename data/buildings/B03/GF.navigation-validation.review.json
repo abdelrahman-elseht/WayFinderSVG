@@ -1,9 +1,9 @@
 {
-  "nodes": 149,
-  "edges": 148,
-  "navAreas": 745,
+  "nodes": 2280,
+  "edges": 4191,
+  "navAreas": 743,
   "walls": 6873,
-  "graphBytes": 1286554,
+  "graphBytes": 3761167,
   "roomApproaches": 54,
   "orderedRoomPairs": 2862,
   "wallContacts": [],

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "owner": "R3 topology",
+  "status": "candidate",
+  "scope": "Independent shortest paths over complete source-constrained GF circulation grid",
+  "implementation": [
+    "drawing_graph.py validates cached eight-neighbor links and runs deterministic Dijkstra from each endpoint",
+    "all endpoint-pair paths are unioned before degree-two line-of-sight compression",
+    "shared AV foyer exemption is bounded by navigation-config.sharedAVFoyer and retains original wall checks"
+  ],
+  "evidence": {
+    "oracle": "data/buildings/B03/GF.shortest-paths.review.json",
+    "validation": "data/buildings/B03/GF.topology-validation.review.json",
+    "navigationValidation": "data/buildings/B03/GF.navigation-validation.review.json"
+  },
+  "results": {
+    "nodes": 2280,
+    "edges": 4191,
+    "cycles": 1912,
+    "pairs": 1431,
+    "maxExportedToOracleRatio": 1.000014,
+    "mechanicalLabG43ToPrayerRoomG33": 794.1364,
+    "samePairViaMainEntrance": 2847.5039,
+    "rootedTreeNegativeControlRejectedPairs": 1087
+  },
+  "checks": [
+    "python scripts/semantic-map/verify_topology.py",
+    "python scripts/semantic-map/verify_navigation.py",
+    "node scripts/semantic-map/check_routes.mjs"
+  ],
+  "limitations": [
+    "Drawing-based candidate graph remains subject to source and facility access review",
+    "Graph is larger than the former rooted tree; route preparation remains deterministic but should be profiled in UI"
+  ]
+}

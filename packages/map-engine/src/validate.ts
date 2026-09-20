@@ -103,6 +103,8 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
   scale(floor,'floor');
   const inBounds=(p: Point,path: string)=> {if(p[0]<box[0]-1e-3 || p[1]<box[1]-1e-3 || p[0]>box[0]+box[2]+1e-3 || p[1]>box[1]+box[3]+1e-3) fail(path,'point outside floor viewBox');};
   const roomValues=records(data.rooms,'rooms'), kiosks=records(data.kiosks,'kiosks'), contents=records(contentInput,'contents');
+  const features=data.mapFeatures===undefined ? [] : records(data.mapFeatures,'mapFeatures');
+  features.forEach((f,i)=>{const p=`mapFeatures[${i}]`; if(f.buildingId!==buildingId||f.floorId!==floorId) fail(p,'feature belongs to another building/floor'); localized(f.name,`${p}.name`); choice(f.kind,['escalator','elevator'],`${p}.kind`); polygon(f.polygon,`${p}.polygon`).forEach(v=>inBounds(v,`${p}.polygon`)); choice(f.geometryStatus,statuses,`${p}.geometryStatus`); choice(f.accessibility,statuses,`${p}.accessibility`); const floors=array(f.connectedFloorIds,`${p}.connectedFloorIds`).map((v,j)=>text(v,`${p}.connectedFloorIds[${j}]`)); floors.forEach((id,j)=>{if(!floorIds.includes(id)) fail(`${p}.connectedFloorIds[${j}]`,'unknown floor')}); const ev=array(f.provenance,`${p}.provenance`); if(!ev.length) fail(`${p}.provenance`,'source evidence required'); ev.forEach((v,j)=>{const e=object(v,`${p}.provenance[${j}]`); text(e.source,`${p}.provenance[${j}].source`); text(e.note,`${p}.provenance[${j}].note`); choice(e.status,statuses,`${p}.provenance[${j}].status`); number(e.page,`${p}.provenance[${j}].page`);}); });
   const roomIds=new Set(roomValues.map(v=>v.id));
   const contentIds=new Set(contents.map(v=>v.id));
   if(data.navigationDefaults!==undefined) {
