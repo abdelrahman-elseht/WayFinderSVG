@@ -92,12 +92,26 @@ export interface NavigationGraph {
   walls: [Point, Point][];
   status: EvidenceStatus;
 }
+/** Source geometry only; this entity does not create a navigable floor connection. */
+export interface MapFeature {
+  id: string;
+  buildingId: string;
+  floorId: string;
+  name: Localized;
+  kind: 'escalator' | 'elevator';
+  polygon: Point[];
+  geometryStatus: EvidenceStatus;
+  accessibility: EvidenceStatus;
+  connectedFloorIds: string[];
+  provenance: Provenance[];
+}
 export interface FloorData {
   schemaVersion: 1;
   building: Building;
   floor: Floor;
   rooms: Room[];
   kiosks: Kiosk[];
+  mapFeatures?: MapFeature[];
   /** Explicit planning origin; never presented as the physical kiosk or current position. */
   navigationDefaults?: { startRoomId: string };
 }

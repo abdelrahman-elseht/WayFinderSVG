@@ -5,7 +5,7 @@ import json, math, heapq
 from collections import defaultdict
 from shapely.geometry import Point, LineString, Polygon, box
 from shapely.ops import unary_union
-from shapely import set_precision, contains_xy, constrained_delaunay_triangles, prepare
+from shapely import set_precision, contains_xy, constrained_delaunay_triangles, prepare, linestrings, covers
 import numpy as np
 from explore import ROOT
 
@@ -13,11 +13,11 @@ def derive(rooms,walls,seals):
  cfg=json.loads((ROOT/'scripts/semantic-map/navigation-config.json').read_text(encoding='utf8'))
  wall=unary_union([set_precision(w,.01) for w in walls])
  regions=unary_union([LineString(p).buffer(cfg['corridorHalfWidth'],cap_style=2,join_style=2) for p in cfg['corridorSpines']])
- blocked=[Polygon(r['polygon']).buffer(.3) for r in rooms if r['polygon']]
+ foyer=Polygon(cfg['sharedAVFoyer']['polygon'])
+ blocked=[(Polygon(r['polygon']).buffer(.3).difference(foyer) if r['code']==cfg['sharedAVFoyer']['roomCode'] else Polygon(r['polygon']).buffer(.3)) for r in rooms if r['polygon']]
  # AV suite is a source face with two labels: it is not common circulation.
  from explore import polys
  av=next(p for p in polys if p.contains(Point(next(r['centroid'] for r in rooms if r['code']=='G-47'))))
- foyer=Polygon([[1225,1100],[1325,1075],[1360,1170],[1250,1200]])
  blocked.append(av.difference(foyer))
  # Conservatively keep the open skylight footprint out of walking geometry.
  blocked.append(Polygon([[1488,1280],[1810,1205],[1865,1432],[1550,1460]]))
@@ -41,21 +41,33 @@ def derive(rooms,walls,seals):
     x,y=ix+dx,iy+dy
     if 0<=x<nx and 0<=y<ny and mask[y,x]:
      k=y*nx+x;line=LineString([p,pos(k)])
-     if domain.covers(line):result.append((line.length,k))
+     if line.length>.001 and domain.covers(line):result.append((line.length,k))
   return min(result)[1] if result else None
+ # Validate each undirected grid link once, in vectorized batches. Every route
+ # search uses the whole source-constrained circulation, never a G01 parent tree.
+ keys=np.flatnonzero(mask);gx=keys%nx;gy=keys//nx
+ adjacency={int(k):[] for k in keys}
+ for dx,dy in [(1,0),(0,1),(1,1),(-1,1)]:
+  ax=gx+dx;ay=gy+dy;inside=(ax>=0)&(ax<nx)&(ay>=0)&(ay<ny)
+  starts=keys[inside];ends=ay[inside]*nx+ax[inside]
+  valid=mask.ravel()[ends];starts=starts[valid];ends=ends[valid]
+  coords=np.stack((np.column_stack((ox+starts%nx*step,oy+starts//nx*step)),np.column_stack((ox+ends%nx*step,oy+ends//nx*step))),axis=1)
+  valid=covers(domain,linestrings(coords));cost=step*math.hypot(dx,dy)
+  for a,b in zip(starts[valid],ends[valid]):
+   a=int(a);b=int(b);adjacency[a].append((b,cost));adjacency[b].append((a,cost))
+ for links in adjacency.values():links.sort()
+ def shortest(start):
+  distance={start:0.};parent={start:None};queue=[(0.,start)]
+  while queue:
+   dist,k=heapq.heappop(queue)
+   if dist!=distance[k]:continue
+   for nk,cost in adjacency[k]:
+    nd=dist+cost
+    if nd>=distance.get(nk,float('inf')):continue
+    distance[nk]=nd;parent[nk]=k;heapq.heappush(queue,(nd,nk))
+  return distance,parent
  rootroom=rooms[0];root=nearest(rootroom['centroid']);assert root is not None
- distance={root:0};parent={root:None};queue=[(0,root)]
- while queue:
-  dist,k=heapq.heappop(queue)
-  if dist!=distance[k]:continue
-  x,y=k%nx,k//nx
-  for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]:
-   a,b=x+dx,y+dy
-   if not (0<=a<nx and 0<=b<ny and mask[b,a]):continue
-   nk=b*nx+a;nd=dist+step*math.hypot(dx,dy)
-   if nd>=distance.get(nk,float('inf')):continue
-   if not domain.covers(LineString([pos(k),pos(nk)])):continue
-   distance[nk]=nd;parent[nk]=k;heapq.heappush(queue,(nd,nk))
+ distance,_=shortest(root)
  endpoints=[];evidence=[];fail=[]
  for r in rooms:
   spec=cfg['roomEndpoints'][r['code']];candidates=[];s=None
@@ -84,12 +96,19 @@ def derive(rooms,walls,seals):
   endpoints.append((r,p,k))
   evidence.append(dict(roomId=r['id'],kind=spec.get('kind','source-door-approach' if s else 'open-circulation-approach'),point=p,source=spec,sourceDoorSegment=list(s['line'].coords) if s else None))
  print('routing endpoints',len(endpoints),'missing',fail,flush=True)
- # Union all shortest paths, then compress degree-two grid vertices.
- used=defaultdict(set)
- for _,_,k in endpoints:
-  while parent[k] is not None:
-   pk=parent[k];used[k].add(pk);used[pk].add(k);k=pk
- special={root}|{k for _,_,k in endpoints}|{k for k,v in used.items() if len(v)!=2}
+ # Retain every endpoint pair's optimal grid path. A single rooted tree loses
+ # valid cycles and forces unrelated journeys to detour through the entrance.
+ used=defaultdict(set);pair_reference=[]
+ for i,(r,p,start) in enumerate(endpoints):
+  pair_distance,pair_parent=shortest(start)
+  for other,q,target in endpoints[i+1:]:
+   assert target in pair_distance,(r['code'],other['code'])
+   pair_reference.append(dict(start=r['doorNodeId'],end=other['doorNodeId'],distance=round(math.dist(p,pos(start))+pair_distance[target]+math.dist(q,pos(target)),6)))
+   k=target
+   while k!=start:
+    pk=pair_parent[k];used[k].add(pk);used[pk].add(k);k=pk
+ print('all-pair grid paths',len(pair_reference),'retained vertices',len(used),flush=True)
+ special={k for _,_,k in endpoints}|{k for k,v in used.items() if len(v)!=2}
  nodes=[];edges=[]
  def rnd(p):return [round(v,4) for v in p]
  for k in sorted(special):nodes.append(dict(id=f'B03-GF-j{k}',buildingId='B03',floorId='GF',point=rnd(pos(k)),type='junction',status='candidate'))
@@ -114,11 +133,6 @@ def derive(rooms,walls,seals):
    addedge(f'B03-GF-j{start}',f'B03-GF-j{chain[-1]}',[pos(k) for k in chain])
  for r,p,k in endpoints:
   nodes.append(dict(id=r['doorNodeId'],buildingId='B03',floorId='GF',point=rnd(p),type='entrance' if r['code']=='G-01' else 'door' if cfg['roomEndpoints'][r['code']].get('arcPathId') else 'junction',roomId=r['id'],status='candidate'))
-  if math.dist(p,pos(k))<.001:
-   # Keep distinct room endpoints with a short valid link to an adjacent grid node.
-   k=next(iter(used[k]));
-   if k not in special:
-    nodes.append(dict(id=f'B03-GF-j{k}',buildingId='B03',floorId='GF',point=rnd(pos(k)),type='junction',status='candidate'))
   addedge(r['doorNodeId'],f'B03-GF-j{k}',[p,pos(k)],'door' if cfg['roomEndpoints'][r['code']].get('arcPathId') else 'corridor')
  # Polygons with holes are decomposed, preserving all wall/room/void exclusions.
  areas=[]
@@ -133,4 +147,4 @@ def derive(rooms,walls,seals):
     points=[rnd(p) for p in list(area.exterior.coords)[:-1]]
     points=[p for i,p in enumerate(points) if i==0 or p!=points[i-1]]
     if len({tuple(p) for p in points})>=3 and Polygon(points).area>.00001 and Polygon(points).is_valid:areas.append(points)
- return nodes,edges,evidence,areas,fail
+ return nodes,edges,evidence,areas,fail,dict(method="Independent shortest distances on the complete source-constrained eight-neighbor grid before reduction; line-of-sight compression may improve them.",gridStep=step,gridVertices=len(adjacency),gridLinks=sum(map(len,adjacency.values()))//2,pairs=pair_reference)

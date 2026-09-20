@@ -7,6 +7,7 @@ import json, hashlib
 from shapely.geometry import Point, Polygon
 from explore import ROOT, read, labels, polys, walls, seals, align
 from drawing_graph import derive
+from features import derive_features
 OUT=ROOT/'data/buildings/B03'; OUT.mkdir(parents=True,exist_ok=True)
 CONTENT=ROOT/'content/B03'; CONTENT.mkdir(parents=True,exist_ok=True)
 def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -57,7 +58,9 @@ for line in walls:
  coords=list(line.coords)
  for a,b in zip(coords,coords[1:]):segments.append([[round(v,3) for v in a],[round(v,3) for v in b]])
 segments=sorted({json.dumps(s):s for s in segments}.values())
-nodes,edges,graph_evidence,nav_areas,missing_routes=derive(rooms,walls,seals)
+nodes,edges,graph_evidence,nav_areas,missing_routes,topology_review=derive(rooms,walls,seals)
+floor['mapFeatures']=derive_features(read)
+write(OUT/'GF.shortest-paths.review.json',topology_review)
 floor["navigationDefaults"]={"startRoomId":"B03-GF-G-01"}
 graph=dict(nodes=nodes,edges=edges,metersPerUnit=None,calibrationStatus='unknown',navigableAreas=nav_areas,walls=segments,status='candidate' if edges else 'unknown',routingPolicy='drawing-based')
 write(OUT/'GF.json',floor);write(OUT/'GF.graph.json',graph);write(CONTENT/'GF.json',contents)
