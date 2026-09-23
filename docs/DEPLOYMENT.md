@@ -51,6 +51,21 @@ Unknown IDs fail the build. No coordinate or arbitrary node environment override
 
 ## Confirming a physical starting point
 
+### Updating destination availability
+
+Operational destination status is configured in `scripts/semantic-map/availability.json`, keyed by the source room code (for example `G-28`). Each entry must contain `status` (`available` or `unavailable`), non-empty English and Arabic `reason` text, and may include an opaque `configurationId`. Rooms omitted from this file retain the available default. The semantic generator copies these entries onto matching room records while preserving geometry, source evidence, door endpoints, and accessibility metadata.
+
+After changing the file, regenerate and validate the canonical data, then rebuild and restart the service:
+
+```powershell
+python -X utf8 scripts/semantic-map/generate.py
+npm run validate:data
+npm run test:data
+npm run build
+```
+
+An unavailable room remains searchable and its details remain visible, but the directory must not offer it as a route destination or starting point. Restore availability by removing the room entry (or setting `status` to `available`) and rerun the same commands. Do not edit `data/buildings/B03/GF.json` by hand; it is generated output.
+
 Confirm the kiosk's physical placement with facility staff and relate it to the current drawing. Record the evidence with the semantic generation/review inputs, add the correct graph node, and set that kiosk's `nodeId` and status only after verification. Update the generation source as well as generated JSON so a subsequent pipeline run does not erase the configuration. A confirmed kiosk must reference a confirmed node on the same building/floor; the validator enforces this.
 
 The supplied B03 graph explicitly uses `routingPolicy: "drawing-based"`. Candidate source connections with unknown physical access can generate routes only after navigable-area and wall checks; closed links and unknown geometry remain excluded. The optional verified-accessibility filter still requires confirmed step-free evidence. Omitting the policy retains the stricter `verified-only` behavior. Confirm current public access, door restrictions and wheelchair access separately with facility staff. Add physical scale only with recorded calibration evidence, keeping floor and graph calibration synchronized. Without calibration, the UI shows “Route on floor plan” and turn instructions, not invented metre distances. Re-run the source pipeline, actual B03 journey tests and review before release. Algorithm and geometry tests do not establish current building conditions.

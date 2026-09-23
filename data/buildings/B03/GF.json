@@ -3846,6 +3846,14 @@
       "navigationNote": {
         "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
         "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
+      },
+      "availability": {
+        "status": "unavailable",
+        "reason": {
+          "en": "Temporarily unavailable while facility access is being confirmed.",
+          "ar": "غير متاحة مؤقتًا ريثما يتم تأكيد إمكانية الوصول من قبل إدارة المرافق."
+        },
+        "configurationId": "b03-gf-availability-g28"
       }
     },
     {

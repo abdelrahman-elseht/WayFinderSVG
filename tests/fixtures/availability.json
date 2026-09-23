@@ -1,0 +1,12 @@
+{
+  "roomCode": "G-28",
+  "availability": {
+    "status": "unavailable",
+    "reason": {
+      "en": "Temporarily unavailable while facility access is being confirmed.",
+      "ar": "غير متاحة مؤقتًا ريثما يتم تأكيد إمكانية الوصول من قبل إدارة المرافق."
+    },
+    "configurationId": "b03-gf-availability-g28"
+  },
+  "invariants": ["polygon", "geometryStatus", "geometryRef", "doorNodeId", "accessibility"]
+}
