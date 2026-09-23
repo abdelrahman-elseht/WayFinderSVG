@@ -3,6 +3,13 @@ export type Localized = Record<Language, string>;
 export type Point = [number, number];
 export type EvidenceStatus = 'confirmed' | 'candidate' | 'unknown';
 export type RoomCategory = 'classroom' | 'office' | 'laboratory' | 'service' | 'restroom' | 'circulation' | 'other';
+export type RoomAvailabilityStatus = 'available' | 'unavailable';
+export interface RoomAvailability {
+  status: RoomAvailabilityStatus;
+  reason: Localized;
+  /** Optional operator/configuration reference; it does not imply physical access. */
+  configurationId?: string;
+}
 export interface Provenance {
   source: string;
   page: number;
@@ -26,6 +33,8 @@ export interface Room {
   navigationNote?: Localized;
   /** True when the supplied plan does not cover the final connection to this destination. */
   navigationPartial?: boolean;
+  /** Optional operational availability; omission preserves the legacy available default. */
+  availability?: RoomAvailability;
   public: boolean;
   geometryStatus: EvidenceStatus;
   provenance: Provenance[];

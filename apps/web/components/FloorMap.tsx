@@ -6,9 +6,10 @@ import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
 import type { Floor, Language, Point, Room, RoomCategory } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
+import type { PlaybackPhase } from './routePlayback';
 
 export const categoryColors: Record<RoomCategory, string> = { classroom: '#a8cfb9', office: '#bfb0d8', laboratory: '#aad1e2', service: '#e4c895', restroom: '#d9bcae', circulation: '#e7ebe2', other: '#bdd0c6' };
-type Props = { floor: Floor; rooms: Room[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; zoom: number; reset: number };
+type Props = { floor: Floor; rooms: Room[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
 function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
@@ -104,20 +105,21 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${room.polygon ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-code">{room.code}</span><span className="map-label-name">{room.name[language]}</span></button>
   </Html>)}</>;
 }
-function RouteOverlay({ route, center }: { route: Point[]; center: Point }) {
+function RouteOverlay({ route, fullRoute = route, center }: { route: Point[]; fullRoute?: Point[]; center: Point }) {
   const points = useMemo(() => route.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [route, center]);
+  const endpointPoints = useMemo(() => fullRoute.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [fullRoute, center]);
   if (points.length < 2) return null;
   return <group renderOrder={20}>
     <Line points={points} color="#ffffff" lineWidth={10} depthTest={false} renderOrder={20} />
     <Line points={points} color="#087864" lineWidth={5} depthTest={false} renderOrder={21} />
-    {[points[0], points[points.length - 1]].map((point, index) => <group key={index} position={point}>
+    {[endpointPoints[0], endpointPoints[endpointPoints.length - 1]].map((point, index) => <group key={index} position={point}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color="#ffffff" depthTest={false} /></mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? '#174a71' : '#087864'} depthTest={false} /></mesh>
     </group>)}
   </group>;
 }
 function Scene(props: Props) {
-  const { floor, rooms, language, selectedId, onSelect, route, zoom, reset } = props;
+  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
@@ -134,6 +136,9 @@ function Scene(props: Props) {
     const horizontal = projected.map(point => point.dot(right)); const vertical = projected.map(point => point.dot(up));
     return { x, z, width: Math.max(...horizontal.map(Math.abs)) * 2 + 4, height: Math.max(...vertical.map(Math.abs)) * 2 + 4 };
   }, [route, center]);
+  // During playback, pause, stop, and reset the overlay is the clipped render-time
+  // segment. Only completion (including reduced-motion completion) uses the full route.
+  const renderRoute = playbackPhase === 'complete' ? route : visibleRoute;
   useEffect(() => {
     const orthographic = camera as THREE.OrthographicCamera;
     orthographic.zoom = Math.min(size.width / (routeFrame?.width ?? width * 1.13), size.height / (routeFrame?.height ?? depth * 1.26)) * zoom;
@@ -144,13 +149,21 @@ function Scene(props: Props) {
     const z = routeFrame ? routeFrame.z : selected ? (selected.centroid[1] - center[1]) / SCALE : 0;
     controls.current?.target.set(x, 0, z); camera.position.copy(CAMERA_OFFSET).add(new THREE.Vector3(x, 0, z)); camera.lookAt(x, 0, z); controls.current?.update();
   }, [selectedId, camera, center, routeFrame]);
+  useEffect(() => {
+    if (!followCamera || !visibleRoute?.length) return;
+    const point = visibleRoute[visibleRoute.length - 1];
+    const x = (point[0] - center[0]) / SCALE; const z = (point[1] - center[1]) / SCALE;
+    controls.current?.target.lerp(new THREE.Vector3(x, 0, z), .18);
+    camera.position.lerp(CAMERA_OFFSET.clone().add(new THREE.Vector3(x, 0, z)), .18);
+    camera.lookAt(controls.current?.target ?? new THREE.Vector3(x, 0, z));
+  }, [followCamera, visibleRoute, center, camera]);
   useEffect(() => { controls.current?.target.set(0, 0, 0); camera.position.copy(CAMERA_OFFSET); camera.lookAt(0, 0, 0); controls.current?.update(); }, [reset, camera]);
   return <>
     <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[2048, 2048]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.02, 0]}><planeGeometry args={[width, depth]} /><meshBasicMaterial key={inkTexture?.uuid ?? 'loading'} map={inkTexture} transparent opacity={inkTexture ? 1 : 0} depthWrite={false} toneMapped={false} /></mesh>
     {rooms.map(room => <RoomShape key={room.id} room={room} center={center} selected={room.id === selectedId} onSelect={() => onSelect(room.id)} texture={texture} width={width} depth={depth} />)}
-    <RouteOverlay route={route} center={center} />
+    <RouteOverlay route={renderRoute} fullRoute={route} center={center} />
     <MapLabels rooms={rooms} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;

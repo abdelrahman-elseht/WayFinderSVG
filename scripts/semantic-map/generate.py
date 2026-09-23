@@ -10,7 +10,30 @@ from drawing_graph import derive
 from features import derive_features
 OUT=ROOT/'data/buildings/B03'; OUT.mkdir(parents=True,exist_ok=True)
 CONTENT=ROOT/'content/B03'; CONTENT.mkdir(parents=True,exist_ok=True)
+AVAILABILITY_CONFIG = ROOT/'scripts/semantic-map/availability.json'
 def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+def read_availability():
+    """Read operational room availability overrides from a deterministic input.
+
+    The file is intentionally separate from generated floor JSON so operators can
+    toggle destinations without altering source geometry, evidence, or access data.
+    Omitted rooms retain the legacy available default (no availability field).
+    """
+    if not AVAILABILITY_CONFIG.exists():
+        return {}
+    raw=json.loads(AVAILABILITY_CONFIG.read_text(encoding='utf-8'))
+    if not isinstance(raw, dict):
+        raise ValueError('availability configuration must be an object keyed by room code')
+    for code,value in raw.items():
+        if not isinstance(code,str) or not isinstance(value,dict):
+            raise ValueError('availability entries must map room codes to objects')
+        if value.get('status') not in ('available','unavailable'):
+            raise ValueError(f'{code}: availability status must be available or unavailable')
+        reason=value.get('reason')
+        if not isinstance(reason,dict) or not isinstance(reason.get('en'),str) or not reason['en'].strip() or not isinstance(reason.get('ar'),str) or not reason['ar'].strip():
+            raise ValueError(f'{code}: availability reason requires non-empty en and ar')
+    return raw
+availability_overrides=read_availability()
 schedule=read('maps/B03/GF/source/room-schedule.json')['rows']
 arabic=['المدخل الرئيسي','الممر ١','الممر ٢','الممر ٣','قاعة المحاضرات','مخزن','صالة كبار الزوار','السلم ٣','ردهة المصاعد','غرفة الصمامات','مخزن','دورات مياه النساء','دورات مياه الرجال','ردهة','غرفة الترجمة','غرفة الوسائط السمعية والبصرية','السلم ٤','الكافتيريا','خدمة','المطبخ','مخزن','غرفة الأمن','السلم ٢','قاعة المعارض','مكتب العمليات','فتحة إضاءة علوية','الاستقبال','العيادة','الاستراحة','غرفة الاجتماعات','ردهة','السلم ١','غرفة الصلاة','مخزن','غرفة النسخ','غرفة الأرشيف','مجرى النفايات','غرفة التحكم','الخدمات','مخزن','دورة مياه النساء','دورة مياه الرجال','المعمل الميكانيكي','غرفة التحكم السمعي والبصري','معمل التدريب البدني ١','معمل التدريب البدني ٢','استوديو الوسائط السمعية والبصرية','غرفة الخدمات','خزانة التكييف والتهوية','معمل التدريب البصري ١','غرفة تقنية المعلومات','غرفة الكهرباء','ردهة المصاعد','السلم ٥']
 conflicts={8:'Plan STAIR (03) is tagged 007, but the schedule assigns G-08; association by unique stair name is candidate.',17:'Plan STAIR (04) is tagged 009, but the schedule assigns G-17; association by unique stair name is candidate.',24:'Plan EXHIPITION ROOM is tagged 045, but the schedule assigns G-24. It is NOT Physical Training Lab G-45; association by unique use is candidate.',25:'Plan G25 is STAFF; schedule G-25 is OPERATIONS OFFICE. Schedule retained; use conflict unresolved.',34:'Plan G34 is PANTRY; schedule G-34 is STORAGE. Schedule retained; use conflict unresolved.'}
@@ -43,7 +66,10 @@ for n,row in enumerate(schedule,1):
    reason=f'Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. {len(contour.interiors)} interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.'
  provenance=[dict(source='maps/B03/GF/source/0002.json#'+row['nameTextId'],page=1,note='Authoritative G-01…G-54 room schedule; name retained despite conflicting plan uses.',status='confirmed'),dict(source='maps/B03/GF/source/'+label['sourceId']+'.json#'+label['id'],page=1,note='Plan label '+label['name']+'; tag '+label['code']+'. Centroid field is the source name-label bounding-box center, not a computed room centroid. '+conflicts.get(n,''),status='candidate' if n in conflicts else 'confirmed'),dict(source='scripts/semantic-map/generate.py',page=1,note='Arabic name is an editorial translation of the English schedule, pending facility terminology review. Public=true means directory-visible only; no physical access is asserted.',status='candidate'),dict(source='scripts/semantic-map/explore.py',page=1,note=reason,status='candidate' if polygon else 'unknown')]
  code=row['code']; rid='B03-GF-'+code
- rooms.append(dict(id=rid,code=code,buildingId='B03',floorId='GF',name=dict(en=' '.join(row['name'].split()).title(),ar=arabic[n-1]),category=category(n),polygon=polygon,geometryRef=('semantic:'+rid if polygon else None),centroid=[round(v,3) for v in point],doorNodeId=None,aliases=sorted(set([row['name'],label['name'],code.replace('-',''),label['code'],'G '+label['code']])),contentRef=rid,public=True,geometryStatus='candidate' if polygon else 'unknown',provenance=provenance))
+ room=dict(id=rid,code=code,buildingId='B03',floorId='GF',name=dict(en=' '.join(row['name'].split()).title(),ar=arabic[n-1]),category=category(n),polygon=polygon,geometryRef=('semantic:'+rid if polygon else None),centroid=[round(v,3) for v in point],doorNodeId=None,aliases=sorted(set([row['name'],label['name'],code.replace('-',''),label['code'],'G '+label['code']])),contentRef=rid,public=True,geometryStatus='candidate' if polygon else 'unknown',provenance=provenance)
+ if code in availability_overrides:
+  room['availability']=availability_overrides[code]
+ rooms.append(room)
  contents.append(dict(id=rid,description=dict(en='Verified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.',ar='لم تُقدَّم معلومات موثقة عن هذا المكان. هذا نص مؤقت؛ يُرجى تأكيد استخدام المكان وإمكانية الدخول إليه مع موظفي الأكاديمية.'),placeholder=True,image=None,imageAlt=dict(en='No verified room photograph available',ar='لا تتوفر صورة موثقة للمكان')))
  review.append(dict(code=code,sourceLabelIds=[l['id'] for l in choices],labelPosition=rooms[-1]['centroid'],geometryStatus=rooms[-1]['geometryStatus'],area=round(contour.area,3) if polygon else None,conflict=conflicts.get(n),reason=reason,doorCandidates=[s['id'] for s in seals if polygon and contour.boundary.distance(s['line'])<1]))
 for i,a in enumerate(rooms):

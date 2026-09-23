@@ -29,6 +29,15 @@ function choice(value: unknown, options: readonly string[], path: string) {
   if (typeof value !== 'string' || !options.includes(value)) fail(path, `expected ${options.join(' | ')}`);
 }
 function localized(value: unknown, path: string) { const v = object(value, path); text(v.en, `${path}.en`); text(v.ar, `${path}.ar`); }
+function roomAvailability(value: unknown, path: string) {
+  const v = object(value, path);
+  choice(v.status, ['available', 'unavailable'], `${path}.status`);
+  localized(v.reason, `${path}.reason`);
+  if (v.configurationId !== undefined) text(v.configurationId, `${path}.configurationId`);
+  // Availability is deliberately inline on a Room. A roomId field would make
+  // it possible for configuration to point at a different/nonexistent room.
+  if (v.roomId !== undefined) fail(`${path}.roomId`, 'availability must be attached to its room record');
+}
 function nullableText(value: unknown, path: string) { if (value !== null) text(value, path); }
 const statuses = ['confirmed', 'candidate', 'unknown'];
 function point(value: unknown, path: string): Point {
@@ -120,6 +129,7 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     choice(r.geometryStatus,statuses,`${p}.geometryStatus`); nullableText(r.geometryRef,`${p}.geometryRef`); nullableText(r.doorNodeId,`${p}.doorNodeId`);
     if(r.navigationNote!==undefined) localized(r.navigationNote,`${p}.navigationNote`);
     if(r.navigationPartial!==undefined) { bool(r.navigationPartial,`${p}.navigationPartial`); if(r.navigationPartial && !r.navigationNote) fail(p,'partial navigation requires an explanatory bilingual note'); }
+    if(r.availability!==undefined) roomAvailability(r.availability,`${p}.availability`);
     if(r.polygon!==null) {
       const poly=polygon(r.polygon,`${p}.polygon`); poly.forEach(v=>inBounds(v,`${p}.polygon`));
       if(!contains(center,poly)) fail(`${p}.centroid`,'source label must lie within its footprint');

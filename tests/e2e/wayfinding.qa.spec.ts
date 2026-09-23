@@ -4,10 +4,61 @@ import {writeFileSync} from 'node:fs';
 
 async function ready(page:Page) {
  await page.goto('/');
+ // The current application opens in Navigate mode; switch to Browse for
+ // directory/search journeys used by this suite.
+ if (await page.getByTestId('room-directory').count() === 0) {
+  await page.getByRole('button',{name:'Browse',exact:true}).click();
+ }
  await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(54);
  await expect(page.locator('.map-label')).toHaveCount(54);
  await page.evaluate(()=>document.fonts.ready);
 }
+
+test('route playback progressively reveals, pauses, stops, and resets', async ({page}) => {
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ await ready(page);
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();
+ await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
+ await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+ const progress = page.getByTestId('route-status').locator('progress');
+ await expect(progress).toHaveAttribute('value','0');
+ // Selecting a destination starts playback automatically.
+ await expect(page.getByTestId('playback-toggle')).toHaveText('Pause route playback');
+ await expect.poll(async()=>Number(await progress.getAttribute('value'))).toBeGreaterThan(0);
+ const mid = Number(await progress.getAttribute('value'));
+ expect(mid).toBeLessThan(1);
+ await page.getByTestId('playback-toggle').click();
+ await expect(page.getByTestId('playback-toggle')).toHaveText('Start route playback');
+ await page.getByTestId('playback-stop').click();
+ await expect(progress).toHaveAttribute('value','0');
+ await expect(page.getByTestId('playback-stop')).toBeDisabled();
+ await page.getByTestId('playback-toggle').click();
+ await expect.poll(async()=>Number(await progress.getAttribute('value'))).toBeGreaterThan(0);
+ await page.getByTestId('playback-reset').click();
+ await expect(progress).toHaveAttribute('value','0');
+});
+
+test('reduced motion completes route without progressive animation', async ({page}) => {
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await ready(page);
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();
+ await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
+ await page.getByTestId('playback-toggle').click();
+ await expect(page.getByTestId('playback-toggle')).toBeDisabled();
+ await expect(page.getByTestId('route-status').locator('progress')).toHaveAttribute('value','1');
+});
+
+test('unavailable destination remains discoverable but blocks route start (US2)', async ({page}) => {
+ test.fail(true, 'Known product gap: WayfindingApp does not gate route actions on Room.availability.status.');
+ await ready(page);
+ await page.getByRole('searchbox').fill('G-28');
+ const room = page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');
+ await expect(room).toBeVisible();
+ await room.click();
+ await expect(page.getByTestId('room-details')).toContainText('Clinic');
+ await expect(page.getByTestId('room-details')).toContainText('Temporarily unavailable');
+ await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();
+});
 test('English actual entrance and cross-wing routes, keyboard, planning reset and map controls',async({page})=>{
  await ready(page);
  await page.getByRole('searchbox').fill('G-28');
