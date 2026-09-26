@@ -222,10 +222,27 @@ test('reviewed raised-scene visual baselines: default, popup, successful route, 
  await snapshot('r2-mobile-ar.png');
 });
 
+test('source reviewed cafeteria and elevator features are interactive and localized', async ({ page }) => {
+ await ready(page);
+ const cafeteria = page.getByRole('button', { name: /Cafeteria, Feature location is source-marked/ });
+ const elevator = page.getByRole('button', { name: /Elevator Lobby, Vertical transition identity/ });
+ await expect(cafeteria).toHaveCount(1);
+ await expect(elevator).toHaveCount(1);
+ await cafeteria.focus();
+ await page.keyboard.press('Enter');
+ await expect(page.getByTestId('room-details')).toContainText('Cafeteria');
+ await expect(cafeteria).toHaveAttribute('aria-pressed', 'true');
+ await page.getByTestId('language-toggle').click();
+ await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+ await expect(page.locator('.map-feature-label').filter({ hasText: 'الكافتيريا' })).toHaveCount(1);
+ await expect(page.locator('.map-feature-label').filter({ hasText: 'هوية انتقال رأسي' })).toHaveCount(1);
+});
+
 test('WebGL-unavailable fallback preserves source plan and usable keyboard directory',async({page})=>{
  await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type==='webgl2')return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});
  await page.goto('/');
  await expect(page.locator('.map-fallback img')).toBeVisible();
+ if (await page.getByTestId('room-directory').count() === 0) await page.getByRole('button', { name: 'Browse', exact: true }).click();
  await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(54);
  await page.getByRole('searchbox').fill('G-28');
  const room=page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');await room.focus();await page.keyboard.press('Enter');

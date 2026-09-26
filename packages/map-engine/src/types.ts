@@ -107,8 +107,13 @@ export interface MapFeature {
   buildingId: string;
   floorId: string;
   name: Localized;
-  kind: 'escalator' | 'elevator';
-  polygon: Point[];
+  kind: 'cafeteria' | 'escalator' | 'elevator';
+  /** Null means the source does not support a bounded footprint. */
+  polygon: Point[] | null;
+  /** Source label or reviewed feature anchor used when polygon is null. */
+  anchor: Point;
+  /** Optional room identity for a feature that also represents a directory room. */
+  roomId?: string;
   geometryStatus: EvidenceStatus;
   accessibility: EvidenceStatus;
   connectedFloorIds: string[];
