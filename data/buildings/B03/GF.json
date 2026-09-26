@@ -3843,10 +3843,6 @@
           "note": "Drawing-based endpoint approach. Route ends at Reception entrance; continue through Reception to Clinic."
         }
       ],
-      "navigationNote": {
-        "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
-        "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
-      },
       "availability": {
         "status": "unavailable",
         "reason": {
@@ -3854,6 +3850,10 @@
           "ar": "غير متاحة مؤقتًا ريثما يتم تأكيد إمكانية الوصول من قبل إدارة المرافق."
         },
         "configurationId": "b03-gf-availability-g28"
+      },
+      "navigationNote": {
+        "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
+        "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
       }
     },
     {
@@ -8654,6 +8654,98 @@
       },
       "nodeId": null,
       "status": "unknown"
+    }
+  ],
+  "mapFeatures": [
+    {
+      "id": "B03-GF-escalator-west",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Main Entrance escalator (west)",
+        "ar": "السلم المتحرك بجوار المدخل الرئيسي (الغربي)"
+      },
+      "kind": "escalator",
+      "polygon": [
+        [
+          2143.9,
+          978.74
+        ],
+        [
+          2143.48,
+          1393.46
+        ],
+        [
+          2187.4,
+          1393.52
+        ],
+        [
+          2187.85,
+          978.8
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-08616",
+          "page": 1,
+          "status": "candidate",
+          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+        },
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-08574",
+          "page": 1,
+          "status": "candidate",
+          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-escalator-east",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Main Entrance escalator (east)",
+        "ar": "السلم المتحرك بجوار المدخل الرئيسي (الشرقي)"
+      },
+      "kind": "escalator",
+      "polygon": [
+        [
+          2187.85,
+          978.8
+        ],
+        [
+          2187.4,
+          1393.52
+        ],
+        [
+          2231.35,
+          1393.55
+        ],
+        [
+          2231.77,
+          978.83
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-08684",
+          "page": 1,
+          "status": "candidate",
+          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+        },
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-08642",
+          "page": 1,
+          "status": "candidate",
+          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+        }
+      ]
     }
   ],
   "navigationDefaults": {

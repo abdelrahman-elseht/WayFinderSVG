@@ -28,11 +28,15 @@ def derive(rooms,walls,seals):
  domain=set_precision(domain,.01).simplify(.01,preserve_topology=True)
  prepare(domain)
  # Keep exact original structural linework in final evidence, not snapped surrogates.
+ # A grid point is preferred when it has more clearance from every boundary
+ # of the source-constrained domain. This keeps retained middle vertices away
+ # from raised room/block footprints without changing the domain or endpoints.
  minx,miny,maxx,maxy=domain.bounds;step=3.;ox=math.floor(minx/step)*step;oy=math.floor(miny/step)*step
  nx=int((maxx-ox)/step)+2;ny=int((maxy-oy)/step)+2
  xx,yy=np.meshgrid(np.arange(nx)*step+ox,np.arange(ny)*step+oy)
  mask=contains_xy(domain,xx,yy)
  def pos(k):return (ox+(k%nx)*step,oy+(k//nx)*step)
+ clearance={int(k):domain.boundary.distance(Point(pos(int(k)))) for k in np.flatnonzero(mask)}
  def nearest(p):
   ix=round((p[0]-ox)/step);iy=round((p[1]-oy)/step)
   result=[]
@@ -43,8 +47,8 @@ def derive(rooms,walls,seals):
      k=y*nx+x;line=LineString([p,pos(k)])
      if line.length>.001 and domain.covers(line):result.append((line.length,k))
   return min(result)[1] if result else None
- # Validate each undirected grid link once, in vectorized batches. Every route
- # search uses the whole source-constrained circulation, never a G01 parent tree.
+ # Validate each undirected grid link once. Link cost is geometric distance
+ # plus a bounded clearance penalty; exported distances remain true lengths.
  keys=np.flatnonzero(mask);gx=keys%nx;gy=keys//nx
  adjacency={int(k):[] for k in keys}
  for dx,dy in [(1,0),(0,1),(1,1),(-1,1)]:
@@ -54,18 +58,21 @@ def derive(rooms,walls,seals):
   coords=np.stack((np.column_stack((ox+starts%nx*step,oy+starts//nx*step)),np.column_stack((ox+ends%nx*step,oy+ends//nx*step))),axis=1)
   valid=covers(domain,linestrings(coords));cost=step*math.hypot(dx,dy)
   for a,b in zip(starts[valid],ends[valid]):
-   a=int(a);b=int(b);adjacency[a].append((b,cost));adjacency[b].append((a,cost))
+   a=int(a);b=int(b);mid_clear=min(clearance[a],clearance[b])
+   search_cost=cost*(1.+8./max(mid_clear,0.25))
+   adjacency[a].append((b,search_cost,cost));adjacency[b].append((a,search_cost,cost))
  for links in adjacency.values():links.sort()
  def shortest(start):
-  distance={start:0.};parent={start:None};queue=[(0.,start)]
+  priority={start:0.};distance={start:0.};parent={start:None};queue=[(0.,start)]
   while queue:
-   dist,k=heapq.heappop(queue)
-   if dist!=distance[k]:continue
-   for nk,cost in adjacency[k]:
-    nd=dist+cost
-    if nd>=distance.get(nk,float('inf')):continue
-    distance[nk]=nd;parent[nk]=k;heapq.heappush(queue,(nd,nk))
+   score,k=heapq.heappop(queue)
+   if score!=priority[k]:continue
+   for nk,cost,geometric in adjacency[k]:
+    ns=score+cost;nd=distance[k]+geometric
+    if ns>=priority.get(nk,float('inf')):continue
+    priority[nk]=ns;distance[nk]=nd;parent[nk]=k;heapq.heappush(queue,(ns,nk))
   return distance,parent
+  return nodes,edges,evidence,areas,fail,dict(method="Clearance-weighted shortest paths on the complete source-constrained eight-neighbor grid; middle vertices favor the local center of the usable domain before conservative line-of-sight reduction.",gridStep=step,clearancePenalty=8.0,minClearanceFloor=0.25,gridVertices=len(adjacency),gridLinks=sum(map(len,adjacency.values()))//2,pairs=pair_reference)
  rootroom=rooms[0];root=nearest(rootroom['centroid']);assert root is not None
  distance,_=shortest(root)
  endpoints=[];evidence=[];fail=[]
@@ -147,4 +154,4 @@ def derive(rooms,walls,seals):
     points=[rnd(p) for p in list(area.exterior.coords)[:-1]]
     points=[p for i,p in enumerate(points) if i==0 or p!=points[i-1]]
     if len({tuple(p) for p in points})>=3 and Polygon(points).area>.00001 and Polygon(points).is_valid:areas.append(points)
- return nodes,edges,evidence,areas,fail,dict(method="Independent shortest distances on the complete source-constrained eight-neighbor grid before reduction; line-of-sight compression may improve them.",gridStep=step,gridVertices=len(adjacency),gridLinks=sum(map(len,adjacency.values()))//2,pairs=pair_reference)
+ return nodes,edges,evidence,areas,fail,dict(method="Clearance-weighted shortest paths on the complete source-constrained eight-neighbor grid; middle vertices favor the local center of the usable domain before conservative line-of-sight reduction.",gridStep=step,clearancePenalty=8.0,minClearanceFloor=0.25,gridVertices=len(adjacency),gridLinks=sum(map(len,adjacency.values()))//2,pairs=pair_reference)
