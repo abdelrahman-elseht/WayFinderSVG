@@ -10,7 +10,7 @@ import contentJson from '../../content/B03/GF.json';
 import { syntheticCorner } from '../fixtures/routing';
 vi.mock('next/dynamic', () => ({default:()=>()=> <div data-testid="isolated-map-stub"/>}));
 afterEach(cleanup);
-const floor=floorJson as FloorData, graph=graphJson as unknown as NavigationGraph;
+const floor=floorJson as unknown as FloorData, graph=graphJson as unknown as NavigationGraph;
 const contents=contentJson as RoomContent[];
 function mount(data=floor, navigation=graph) {
  const audio={speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true};
@@ -20,6 +20,7 @@ function mount(data=floor, navigation=graph) {
 describe('independent React UI state with real data and isolated map rendering',()=>{
  it('automatically speaks room details and supports replay, stop, mute and Arabic changes',()=>{
   const audio=mount();
+  fireEvent.click(screen.getByText('Browse'));
   fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
   expect(audio.speak).toHaveBeenLastCalledWith(expect.stringContaining('Clinic'), 'en');
   fireEvent.click(screen.getByLabelText('Replay description'));
@@ -32,8 +33,20 @@ describe('independent React UI state with real data and isolated map rendering',
   expect(document.documentElement.dir).toBe('rtl');
   expect(audio.speak).toHaveBeenLastCalledWith(expect.stringContaining('العيادة'),'ar');
  });
+ it('keeps destination options name-first while retaining the code identifier in both languages',()=>{
+  mount();
+  fireEvent.click(screen.getByText('Navigate'));
+  const destination=screen.getByTestId('destination-select') as HTMLSelectElement;
+  const english=Array.from(destination.options).find(option=>option.value==='B03-GF-G-43');
+  expect(english?.textContent).toBe('Mechanical Lab — G-43');
+  fireEvent.click(screen.getByTestId('language-toggle'));
+  const arabic=Array.from((screen.getByTestId('destination-select') as HTMLSelectElement).options).find(option=>option.value==='B03-GF-G-43');
+  expect(arabic?.textContent).toContain('G-43');
+  expect(arabic?.textContent).not.toBe('G-43');
+ });
  it('selects real route endpoints then restores the named planning default without inventing a kiosk',()=>{
   mount();
+  fireEvent.click(screen.getByText('Browse'));
   fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-45"]')!);
   fireEvent.click(screen.getByText('Start here'));
   expect((screen.getByTestId('start-select') as HTMLSelectElement).value).toBe('B03-GF-G-45');
