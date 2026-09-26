@@ -93,7 +93,7 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     for (const room of orderedRooms) {
       vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE).project(camera);
       const x = (vector.x + 1) * size.width / 2; const y = (1 - vector.y) * size.height / 2;
-      const labelWidth = room.name[language].length * 6 + room.code.length * 7 + 30;
+      const labelWidth = room.name[language].length * 7 + room.code.length * 7 + 38;
       const width = room.id === selectedId ? 210 : Math.max(52, labelWidth);
       if (x < -width || x > size.width + width || y < -30 || y > size.height + 30) continue;
       if (!occupied.some(item => Math.abs(item.x - x) < (item.width + width) / 2 + 5 && Math.abs(item.y - y) < 32)) {

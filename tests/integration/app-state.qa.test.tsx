@@ -10,7 +10,7 @@ import contentJson from '../../content/B03/GF.json';
 import { syntheticCorner } from '../fixtures/routing';
 vi.mock('next/dynamic', () => ({default:()=>()=> <div data-testid="isolated-map-stub"/>}));
 afterEach(cleanup);
-const floor=floorJson as FloorData, graph=graphJson as unknown as NavigationGraph;
+const floor=floorJson as unknown as FloorData, graph=graphJson as unknown as NavigationGraph;
 const contents=contentJson as RoomContent[];
 function mount(data=floor, navigation=graph) {
  const audio={speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true};
@@ -20,6 +20,7 @@ function mount(data=floor, navigation=graph) {
 describe('independent React UI state with real data and isolated map rendering',()=>{
  it('automatically speaks room details and supports replay, stop, mute and Arabic changes',()=>{
   const audio=mount();
+  fireEvent.click(screen.getByText('Browse'));
   fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
   expect(audio.speak).toHaveBeenLastCalledWith(expect.stringContaining('Clinic'), 'en');
   fireEvent.click(screen.getByLabelText('Replay description'));
@@ -45,6 +46,7 @@ describe('independent React UI state with real data and isolated map rendering',
  });
  it('selects real route endpoints then restores the named planning default without inventing a kiosk',()=>{
   mount();
+  fireEvent.click(screen.getByText('Browse'));
   fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-45"]')!);
   fireEvent.click(screen.getByText('Start here'));
   expect((screen.getByTestId('start-select') as HTMLSelectElement).value).toBe('B03-GF-G-45');
