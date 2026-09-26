@@ -32,6 +32,17 @@ describe('independent React UI state with real data and isolated map rendering',
   expect(document.documentElement.dir).toBe('rtl');
   expect(audio.speak).toHaveBeenLastCalledWith(expect.stringContaining('العيادة'),'ar');
  });
+ it('keeps destination options name-first while retaining the code identifier in both languages',()=>{
+  mount();
+  fireEvent.click(screen.getByText('Navigate'));
+  const destination=screen.getByTestId('destination-select') as HTMLSelectElement;
+  const english=Array.from(destination.options).find(option=>option.value==='B03-GF-G-43');
+  expect(english?.textContent).toBe('Mechanical Lab — G-43');
+  fireEvent.click(screen.getByTestId('language-toggle'));
+  const arabic=Array.from((screen.getByTestId('destination-select') as HTMLSelectElement).options).find(option=>option.value==='B03-GF-G-43');
+  expect(arabic?.textContent).toContain('G-43');
+  expect(arabic?.textContent).not.toBe('G-43');
+ });
  it('selects real route endpoints then restores the named planning default without inventing a kiosk',()=>{
   mount();
   fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-45"]')!);

@@ -93,7 +93,8 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     for (const room of orderedRooms) {
       vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE).project(camera);
       const x = (vector.x + 1) * size.width / 2; const y = (1 - vector.y) * size.height / 2;
-      const width = room.id === selectedId ? 210 : Math.max(52, room.code.length * 7 + 18);
+      const labelWidth = room.name[language].length * 6 + room.code.length * 7 + 30;
+      const width = room.id === selectedId ? 210 : Math.max(52, labelWidth);
       if (x < -width || x > size.width + width || y < -30 || y > size.height + 30) continue;
       if (!occupied.some(item => Math.abs(item.x - x) < (item.width + width) / 2 + 5 && Math.abs(item.y - y) < 32)) {
         occupied.push({ x, y, width }); next.push(room.id);
@@ -102,7 +103,7 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     const key = next.join('|'); if (key !== signature.current) { signature.current = key; setVisible(new Set(next)); }
   });
   return <>{rooms.map(room => <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
-    <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${room.polygon ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-code">{room.code}</span><span className="map-label-name">{room.name[language]}</span></button>
+    <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${room.polygon ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{room.name[language]}</span><span className="map-label-code">{room.code}</span></button>
   </Html>)}</>;
 }
 function RouteOverlay({ route, fullRoute = route, center }: { route: Point[]; fullRoute?: Point[]; center: Point }) {

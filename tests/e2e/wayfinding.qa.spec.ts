@@ -119,6 +119,20 @@ test('Arabic actual route, popup and language switch preserve selected endpoints
  await expect(page.getByTestId('room-details')).toContainText('Auditorium');
 });
 
+test('destination labels lead with source room names in English and Arabic',async({page})=>{
+ await ready(page);
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();
+ const destination=page.getByTestId('destination-select');
+ await expect(destination.locator('option[value="B03-GF-G-43"]')).toHaveText('Mechanical Lab — G-43');
+ await destination.selectOption('B03-GF-G-43');
+ await expect(page.locator('.map-label[aria-label="Mechanical Lab, G-43"]')).toHaveCount(1);
+ await page.getByTestId('language-toggle').click();
+ await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+ await expect(page.getByTestId('destination-select').locator('option[value="B03-GF-G-43"]')).toContainText('G-43');
+ await expect(page.getByTestId('destination-select').locator('option[value="B03-GF-G-43"]')).not.toHaveText('G-43');
+ await expect(page.locator('.map-label[aria-label="المعمل الميكانيكي, G-43"]')).toHaveCount(1);
+});
+
 test('browser speech autoplays details and replay/stop/mute honor current language',async({page})=>{
  await page.addInitScript(()=>{
   const state={spoken:[] as {text:string,lang:string}[], cancels:0};
