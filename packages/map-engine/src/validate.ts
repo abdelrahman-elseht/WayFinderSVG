@@ -130,6 +130,7 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     if(r.navigationNote!==undefined) localized(r.navigationNote,`${p}.navigationNote`);
     if(r.navigationPartial!==undefined) { bool(r.navigationPartial,`${p}.navigationPartial`); if(r.navigationPartial && !r.navigationNote) fail(p,'partial navigation requires an explanatory bilingual note'); }
     if(r.availability!==undefined) roomAvailability(r.availability,`${p}.availability`);
+    bool(r.mapVisible,`${p}.mapVisible`); bool(r.destinationVisible,`${p}.destinationVisible`);
     if(r.polygon!==null) {
       const poly=polygon(r.polygon,`${p}.polygon`); poly.forEach(v=>inBounds(v,`${p}.polygon`));
       if(!contains(center,poly)) fail(`${p}.centroid`,'source label must lie within its footprint');

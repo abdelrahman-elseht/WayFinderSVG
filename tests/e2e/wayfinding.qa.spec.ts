@@ -9,8 +9,8 @@ async function ready(page:Page) {
  if (await page.getByTestId('room-directory').count() === 0) {
   await page.getByRole('button',{name:'Browse',exact:true}).click();
  }
- await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(54);
- await expect(page.locator('.map-label')).toHaveCount(54);
+ await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(31);
+ await expect(page.locator('.map-label')).toHaveCount(39);
  await page.evaluate(()=>document.fonts.ready);
 }
 
@@ -49,7 +49,6 @@ test('reduced motion completes route without progressive animation', async ({pag
 });
 
 test('unavailable destination remains discoverable but blocks route start (US2)', async ({page}) => {
- test.fail(true, 'Known product gap: WayfindingApp does not gate route actions on Room.availability.status.');
  await ready(page);
  await page.getByRole('searchbox').fill('G-28');
  const room = page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');
@@ -69,19 +68,15 @@ test('English actual entrance and cross-wing routes, keyboard, planning reset an
  await expect(clinic).toHaveCSS('outline-style','solid');
  await page.keyboard.press('Enter');
  await expect(page.getByTestId('room-details')).toContainText('Clinic');
- await page.getByRole('button',{name:'Go here',exact:true}).click();
- await expect(page.getByTestId('route-status')).toContainText('Route on floor plan');
- await expect(page.getByTestId('arrival-note')).toContainText('Reception');
- await expect(page.getByTestId('route-status')).not.toContainText('You have arrived at your destination.');
- await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+ await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();
  await expect(page.getByTestId('kiosk-status')).toContainText('not your current location');
- await expect(page.getByTestId('start-select').locator('option:checked')).toContainText('Main Entrance');
+ await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
+ await expect(page.getByTestId('route-status')).toContainText('Route on floor plan');
  await page.getByTestId('start-select').selectOption('B03-GF-G-45');
  await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
- await page.getByTestId('start-select').selectOption('B03-GF-G-54');
- await page.getByTestId('destination-select').selectOption('B03-GF-G-02');
- await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+ await expect(page.getByTestId('destination-select').locator('option[value="B03-GF-G-54"]')).toHaveCount(0);
  await page.getByRole('button',{name:'Use default starting point',exact:true}).click();
  await expect(page.getByTestId('start-select')).toHaveValue('');
  await page.getByTestId('reset-kiosk').click();
@@ -103,11 +98,8 @@ test('Arabic actual route, popup and language switch preserve selected endpoints
  await ready(page); await page.getByTestId('language-toggle').click();
  await expect(page.locator('html')).toHaveAttribute('dir','rtl');
  await expect(page.locator('html')).toHaveAttribute('lang','ar');
- await page.getByRole('searchbox').fill('الْعِيَادَة');
- await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
- await expect(page.getByTestId('room-details')).toContainText('العيادة');
- await page.getByRole('button',{name:'اذهب إلى هنا',exact:true}).click();
- await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+ await page.getByRole('button',{name:'التنقل',exact:true}).click();
+ await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await page.getByTestId('start-select').selectOption('B03-GF-G-45');
  await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
@@ -161,7 +153,7 @@ test('WCAG AA contrast and semantics on English/Arabic default and popup states'
  for(const state of ['en-default','en-popup','en-route','ar-popup','ar-mobile']) {
   if(state==='en-popup') {await page.getByRole('searchbox').fill('G-28');await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();}
   if(state==='ar-popup') await page.getByTestId('language-toggle').click();
-  if(state==='en-route') await page.getByRole('button',{name:'Go here',exact:true}).click();
+  if(state==='en-route') {await page.getByRole('button',{name:'Navigate',exact:true}).click();await page.getByTestId('destination-select').selectOption('B03-GF-G-05');}
   if(state==='ar-mobile') await page.setViewportSize({width:390,height:844});
   await page.evaluate(()=>document.fonts.ready);
   const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
@@ -175,8 +167,8 @@ test('mobile and 200 percent text retain usable controls without horizontal over
  await page.setViewportSize({width:390,height:844}); await ready(page);
  await page.getByRole('searchbox').fill('G-28');
  await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
- await page.getByRole('button',{name:'Go here',exact:true}).click();
- await expect(page.getByTestId('route-status')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  await page.getByTestId('language-toggle').click();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
@@ -189,7 +181,7 @@ test('mobile and 200 percent text retain usable controls without horizontal over
  await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await page.getByTestId('language-toggle').click();
  await page.evaluate(()=>{const sizes=[...document.querySelectorAll<HTMLElement>('body *')].map(e=>({e,size:parseFloat(getComputedStyle(e).fontSize)}));for(const {e,size} of sizes)e.style.fontSize=`${size*2}px`;});
- await page.getByRole('button',{name:'اذهب إلى هنا',exact:true}).click();
+ await page.getByRole('button',{name:'التنقل',exact:true}).click();await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await expect(page.getByTestId('floor-map')).toBeVisible();
  expect((await page.getByTestId('floor-map').boundingBox())!.height).toBeGreaterThan(150);
@@ -206,7 +198,7 @@ test('reviewed raised-scene visual baselines: default, popup, successful route, 
  await snapshot('r2-default-en.png');
  await page.getByRole('searchbox').fill('G-28');await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await snapshot('r2-popup-en.png');
- await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await snapshot('r2-route-success-en.png');
  await page.getByTestId('start-select').selectOption('B03-GF-G-45');
@@ -226,7 +218,7 @@ test('WebGL-unavailable fallback preserves source plan and usable keyboard direc
  await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type==='webgl2')return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});
  await page.goto('/');
  await expect(page.locator('.map-fallback img')).toBeVisible();
- await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(54);
+ await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(31);
  await page.getByRole('searchbox').fill('G-28');
  const room=page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');await room.focus();await page.keyboard.press('Enter');
  await expect(page.getByTestId('room-details')).toContainText('Clinic');
@@ -239,8 +231,9 @@ test('forced colors and reduced motion preserve accessible directory and selecti
  const room=page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');
  await room.focus();await page.keyboard.press('Enter');
  await expect(page.getByTestId('room-details')).toContainText('Clinic');
- await expect(page.getByRole('button',{name:'Go here',exact:true})).toHaveCSS('transition-duration','0s');
- await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();
+ await page.getByRole('button',{name:'Navigate',exact:true}).click();
+ await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await page.screenshot({path:'artifacts/qa/forced-colors-reduced-motion.png',fullPage:true});
  await page.getByTestId('reset-kiosk').click();
@@ -249,20 +242,15 @@ test('forced colors and reduced motion preserve accessible directory and selecti
 
 
 
-test('three exterior destinations and reversed starts clearly retain partial source coverage',async({page})=>{
+test('hidden endpoints stay out of selectors while mapped partial-route evidence remains visible',async({page})=>{
  await ready(page);await page.getByRole('button',{name:'Navigate',exact:true}).click();
  for(const code of ['06','17','23']) {
-  await page.getByTestId('destination-select').selectOption(`B03-GF-G-${code}`);
-  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
-  await expect(page.getByTestId('route-status')).toContainText('Partial route');
-  await expect(page.getByTestId('route-status')).not.toContainText('You have arrived at your destination.');
-  await expect(page.getByTestId('room-details')).toContainText('Partial route');
+  await expect(page.getByTestId('destination-select').locator(`option[value="B03-GF-G-${code}"]`)).toHaveCount(0);
  }
- await page.getByTestId('start-select').selectOption('B03-GF-G-06');
- await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
- await expect(page.getByTestId('route-status')).toContainText('Partial route');
+ await expect(page.locator('.map-label[aria-label$=", G-06"]')).toHaveCount(0);
+ await page.getByRole('button',{name:'Browse',exact:true}).click();
+ await page.locator('.map-label[aria-label$=", G-17"]').click();
+ await expect(page.getByTestId('room-details')).toContainText('Partial route');
  await page.getByTestId('language-toggle').click();
- await expect(page.getByTestId('route-status')).toContainText('مسار جزئي');
- await expect(page.getByTestId('route-status')).not.toContainText('لقد وصلت إلى وجهتك.');
- await page.screenshot({path:'artifacts/qa/r2-partial-route-ar.png',fullPage:true});
+ await expect(page.getByTestId('room-details')).toContainText('مسار جزئي');
 });

@@ -18,6 +18,20 @@ function mount(data=floor, navigation=graph) {
  return audio;
 }
 describe('independent React UI state with real data and isolated map rendering',()=>{
+ it('keeps map and destination policy independent while preserving unavailable search details',()=>{
+  mount();
+  fireEvent.click(screen.getByText('Navigate'));
+  const destination=screen.getByTestId('destination-select') as HTMLSelectElement;
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-02'))).toBe(false);
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-08'))).toBe(false);
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-45'))).toBe(true);
+  fireEvent.click(screen.getByText('Browse'));
+  expect(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-02"]')).toBeNull();
+  expect(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-34"]')).toBeNull();
+  fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
+  expect(screen.getByTestId('availability-note').textContent).toContain('Temporarily unavailable');
+  expect((screen.getByRole('button',{name:'Go here'}) as HTMLButtonElement).disabled).toBe(true);
+ });
  it('automatically speaks room details and supports replay, stop, mute and Arabic changes',()=>{
   const audio=mount();
   fireEvent.click(screen.getByText('Browse'));
@@ -60,7 +74,9 @@ describe('independent React UI state with real data and isolated map rendering',
   expect((screen.getByTestId('destination-select') as HTMLSelectElement).value).toBe('');
  });
  it('qualifies clinic arrival at the mapped reception approach in both languages',()=>{
-  mount();
+  const data=structuredClone(floor);
+  data.rooms.find(room=>room.code==='G-28')!.availability={status:'available',reason:{en:'Open for route contract test.',ar:'متاحة لاختبار عقد المسار.'}};
+  mount(data);
   fireEvent.click(screen.getByText('Navigate'));
   fireEvent.change(screen.getByTestId('destination-select'),{target:{value:'B03-GF-G-28'}});
   expect(screen.getByTestId('route-status').className).toContain('ok');
@@ -71,6 +87,8 @@ describe('independent React UI state with real data and isolated map rendering',
  });
  it('retains configured kiosk precedence in an explicitly synthetic fixture',()=>{
   const data=structuredClone(floor);
+  data.rooms[0].mapVisible=true;
+  data.rooms[0].destinationVisible=true;
   data.rooms[0].doorNodeId='c';
   delete data.rooms[0].navigationNote;
   data.kiosks[0].nodeId='a';data.kiosks[0].status='confirmed';

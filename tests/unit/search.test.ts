@@ -6,7 +6,7 @@ const room = (id: string, code: string, en: string, ar: string, aliases: string[
   id, code, name: { en, ar }, aliases,
   buildingId: 'B03', floorId: 'GF', category: 'other', polygon: null,
   geometryRef: null, centroid: [0, 0], doorNodeId: null, contentRef: id,
-  public: true, geometryStatus: 'unknown', provenance: [],
+  mapVisible: true, destinationVisible: true, public: true, geometryStatus: 'unknown', provenance: [],
 });
 
 const rooms = [

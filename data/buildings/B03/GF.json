@@ -53,6 +53,8 @@
         "MAIN ENTRANCE"
       ],
       "contentRef": "B03-GF-G-01",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -116,6 +118,8 @@
         "G02"
       ],
       "contentRef": "B03-GF-G-02",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -179,6 +183,8 @@
         "G03"
       ],
       "contentRef": "B03-GF-G-03",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -242,6 +248,8 @@
         "G04"
       ],
       "contentRef": "B03-GF-G-04",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -686,6 +694,8 @@
         "G05"
       ],
       "contentRef": "B03-GF-G-05",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -810,6 +820,8 @@
         "STORAGE"
       ],
       "contentRef": "B03-GF-G-06",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1103,6 +1115,8 @@
         "VIP SALON"
       ],
       "contentRef": "B03-GF-G-07",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1248,6 +1262,8 @@
         "STAIRS 3"
       ],
       "contentRef": "B03-GF-G-08",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1307,6 +1323,8 @@
         "G09"
       ],
       "contentRef": "B03-GF-G-09",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -1370,6 +1388,8 @@
         "VALVE ROOM"
       ],
       "contentRef": "B03-GF-G-10",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -1510,6 +1530,8 @@
         "STORAGE"
       ],
       "contentRef": "B03-GF-G-11",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1675,6 +1697,8 @@
         "G12"
       ],
       "contentRef": "B03-GF-G-12",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1856,6 +1880,8 @@
         "MALE TOILETS"
       ],
       "contentRef": "B03-GF-G-13",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -1916,6 +1942,8 @@
         "LOBBY"
       ],
       "contentRef": "B03-GF-G-14",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -2061,6 +2089,8 @@
         "TRANSLATION ROOM"
       ],
       "contentRef": "B03-GF-G-15",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -2193,6 +2223,8 @@
         "G16"
       ],
       "contentRef": "B03-GF-G-16",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -2354,6 +2386,8 @@
         "STAIRS 4"
       ],
       "contentRef": "B03-GF-G-17",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -2418,6 +2452,8 @@
         "G18"
       ],
       "contentRef": "B03-GF-G-18",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -2477,6 +2513,8 @@
         "SERVICE"
       ],
       "contentRef": "B03-GF-G-19",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -2649,6 +2687,8 @@
         "KITCHEN"
       ],
       "contentRef": "B03-GF-G-20",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -2777,6 +2817,8 @@
         "STORAGE"
       ],
       "contentRef": "B03-GF-G-21",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -2933,6 +2975,8 @@
         "SECURITY ROOM"
       ],
       "contentRef": "B03-GF-G-22",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -3070,6 +3114,8 @@
         "STAIR 02"
       ],
       "contentRef": "B03-GF-G-23",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -3308,6 +3354,8 @@
         "G24"
       ],
       "contentRef": "B03-GF-G-24",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -3429,6 +3477,8 @@
         "STAFF"
       ],
       "contentRef": "B03-GF-G-25",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -3489,6 +3539,8 @@
         "SKYLIGHT"
       ],
       "contentRef": "B03-GF-G-26",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -3665,6 +3717,8 @@
         "RECEPTION"
       ],
       "contentRef": "B03-GF-G-27",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -3809,6 +3863,8 @@
         "G28"
       ],
       "contentRef": "B03-GF-G-28",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4065,6 +4121,8 @@
         "LOUNGE"
       ],
       "contentRef": "B03-GF-G-29",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4209,6 +4267,8 @@
         "MEETING ROOM"
       ],
       "contentRef": "B03-GF-G-30",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4269,6 +4329,8 @@
         "LOPBBY"
       ],
       "contentRef": "B03-GF-G-31",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -4333,6 +4395,8 @@
         "STAIRS 1"
       ],
       "contentRef": "B03-GF-G-32",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -4589,6 +4653,8 @@
         "PRAYER ROOM"
       ],
       "contentRef": "B03-GF-G-33",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4702,6 +4768,8 @@
         "STORAGE"
       ],
       "contentRef": "B03-GF-G-34",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4830,6 +4898,8 @@
         "G35"
       ],
       "contentRef": "B03-GF-G-35",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -4955,6 +5025,8 @@
         "G36"
       ],
       "contentRef": "B03-GF-G-36",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -5155,6 +5227,8 @@
         "GARBAGE CHUTE"
       ],
       "contentRef": "B03-GF-G-37",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -5271,6 +5345,8 @@
         "G38"
       ],
       "contentRef": "B03-GF-G-38",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -5443,6 +5519,8 @@
         "SERVICES"
       ],
       "contentRef": "B03-GF-G-39",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -5587,6 +5665,8 @@
         "STORAGE"
       ],
       "contentRef": "B03-GF-G-40",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -5815,6 +5895,8 @@
         "G41"
       ],
       "contentRef": "B03-GF-G-41",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -6031,6 +6113,8 @@
         "MALE TOILET"
       ],
       "contentRef": "B03-GF-G-42",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -6424,6 +6508,8 @@
         "MECHANICAL&FABRICATION LAB"
       ],
       "contentRef": "B03-GF-G-43",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -6548,6 +6634,8 @@
         "G44"
       ],
       "contentRef": "B03-GF-G-44",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -6801,6 +6889,8 @@
         "PHYSICAL TRAINING LAB 1"
       ],
       "contentRef": "B03-GF-G-45",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -7053,6 +7143,8 @@
         "PHYSICAL TRAINING LAB 2"
       ],
       "contentRef": "B03-GF-G-46",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -7421,6 +7513,8 @@
         "G47"
       ],
       "contentRef": "B03-GF-G-47",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -7609,6 +7703,8 @@
         "SERVICE ROOM"
       ],
       "contentRef": "B03-GF-G-48",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -7829,6 +7925,8 @@
         "HVAC CABINET"
       ],
       "contentRef": "B03-GF-G-49",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -8018,6 +8116,8 @@
         "VISUAL TRAINING LAB"
       ],
       "contentRef": "B03-GF-G-50",
+      "mapVisible": true,
+      "destinationVisible": true,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -8190,6 +8290,8 @@
         "IT ROOM"
       ],
       "contentRef": "B03-GF-G-51",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -8343,6 +8445,8 @@
         "G52"
       ],
       "contentRef": "B03-GF-G-52",
+      "mapVisible": false,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
@@ -8402,6 +8506,8 @@
         "G53"
       ],
       "contentRef": "B03-GF-G-53",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "unknown",
       "provenance": [
@@ -8607,6 +8713,8 @@
         "STAIRS 5"
       ],
       "contentRef": "B03-GF-G-54",
+      "mapVisible": true,
+      "destinationVisible": false,
       "public": true,
       "geometryStatus": "candidate",
       "provenance": [
