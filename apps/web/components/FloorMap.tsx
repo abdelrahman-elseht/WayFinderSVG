@@ -4,11 +4,12 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
-import type { Floor, Language, Point, Room, RoomCategory } from '@wayfinding/map-engine';
+import type { Floor, Language, Point, Room } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 
-export const categoryColors: Record<RoomCategory, string> = { classroom: '#a8cfb9', office: '#bfb0d8', laboratory: '#aad1e2', service: '#e4c895', restroom: '#d9bcae', circulation: '#e7ebe2', other: '#bdd0c6' };
+import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
+export { categoryColors } from './palette';
 type Props = { floor: Floor; rooms: Room[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
 function useFloorTexture(asset: string) {
@@ -29,7 +30,7 @@ function useFloorTexture(asset: string) {
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
         const inkCanvas = document.createElement('canvas'); inkCanvas.width = 4096; inkCanvas.height = 2048; inkCanvas.getContext('2d')?.drawImage(canvas, 0, 0);
         ink = new THREE.CanvasTexture(inkCanvas); ink.colorSpace = THREE.SRGBColorSpace; ink.anisotropy = 8; setInkTexture(ink);
-        context.fillStyle = '#fafbf7'; context.fillRect(0, 0, canvas.width, canvas.height); context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        context.fillStyle = mapPalette.backing; context.fillRect(0, 0, canvas.width, canvas.height); context.drawImage(image, 0, 0, canvas.width, canvas.height);
         created = new THREE.CanvasTexture(canvas); created.colorSpace = THREE.SRGBColorSpace; created.anisotropy = 8; setTexture(created);
         if (blobUrl) URL.revokeObjectURL(blobUrl); blobUrl = null;
       };
@@ -39,6 +40,11 @@ function useFloorTexture(asset: string) {
   }, [asset]);
   return { texture, inkTexture };
 }
+function useForcedColors() {
+  const [forcedColors, setForcedColors] = useState(false);
+  useEffect(() => { const media = window.matchMedia('(forced-colors: active)'); const update = () => setForcedColors(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
+  return forcedColors;
+}
 // Heights communicate spatial hierarchy; they are illustrative, not surveyed dimensions.
 const ROOM_HEIGHT = .65;
 const ROOM_LIFT = .16;
@@ -46,13 +52,13 @@ const CAMERA_OFFSET = new THREE.Vector3(5, 30, 22);
 const roomHeight = (room: Room) => room.category === 'circulation' ? .045 : ROOM_HEIGHT;
 const roomLift = (room: Room) => room.category === 'circulation' ? 0 : ROOM_LIFT;
 const roomY = (room: Room, selected: boolean) => room.polygon?.length ? roomHeight(room) + (selected ? roomLift(room) : 0) + .13 : .18;
-const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, texture, width, depth }: { room: Room; center: Point; selected: boolean; onSelect: () => void; texture: THREE.Texture | null; width: number; depth: number }) {
+const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, texture, width, depth, forcedColors }: { room: Room; center: Point; selected: boolean; onSelect: () => void; texture: THREE.Texture | null; width: number; depth: number; forcedColors: boolean }) {
   const [hovered, setHovered] = useState(false);
   const group = useRef<THREE.Group>(null);
   const material = useRef<THREE.MeshStandardMaterial>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => { const media = window.matchMedia('(prefers-reduced-motion: reduce)'); const update = () => setReducedMotion(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
-  const targetColor = useMemo(() => new THREE.Color(selected ? '#72baa9' : hovered ? '#a7d7c3' : categoryColors[room.category]), [selected, hovered, room.category]);
+  const targetColor = useMemo(() => new THREE.Color(forcedColors ? selected ? highContrastMapPalette.selection : hovered ? highContrastMapPalette.hover : highContrastMapPalette.room : selected ? mapPalette.selection : hovered ? mapPalette.hover : categoryColors[room.category]), [forcedColors, selected, hovered, room.category]);
   useFrame((_, delta) => {
     const blend = reducedMotion ? 1 : 1 - Math.exp(-delta * 12);
     if (group.current) group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, selected ? roomLift(room) : hovered && room.category !== 'circulation' ? .055 : 0, blend);
@@ -75,11 +81,11 @@ const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, te
   if (!geometry || !border) return null;
   return <group ref={group}>
     <mesh castShadow receiveShadow geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .02, 0]} onClick={event => { event.stopPropagation(); onSelect(); }} onPointerOver={event => { event.stopPropagation(); setHovered(true); }} onPointerOut={() => setHovered(false)}>
-      <meshStandardMaterial key={texture?.uuid ?? 'loading'} attach="material-0" ref={material} map={texture} color={categoryColors[room.category]} roughness={.95} />
-      <meshStandardMaterial attach="material-1" color={selected ? '#377f70' : categoryColors[room.category]} roughness={1} />
+      <meshStandardMaterial key={texture?.uuid ?? 'loading'} attach="material-0" ref={material} map={forcedColors ? null : texture} color={targetColor} roughness={.95} />
+      <meshStandardMaterial attach="material-1" color={forcedColors ? highContrastMapPalette.roomSide : selected ? mapPalette.selectionSide : categoryColors[room.category]} roughness={1} />
     </mesh>
-    <Line points={border} color={selected ? '#0e6959' : '#edf4ef'} lineWidth={selected ? 2.4 : 1.5} />
-    {room.geometryStatus !== 'confirmed' && <Line points={border} color={selected ? '#075749' : '#65887a'} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
+    <Line points={border} color={forcedColors ? selected ? highContrastMapPalette.selectionOutline : highContrastMapPalette.outline : selected ? mapPalette.selection : mapPalette.ink} lineWidth={selected ? 2.4 : 1.5} />
+    {room.geometryStatus !== 'confirmed' && <Line points={border} color={forcedColors ? highContrastMapPalette.candidate : selected ? mapPalette.candidateSelected : mapPalette.candidate} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
   </group>;
 });
 function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
@@ -106,16 +112,18 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${room.polygon ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{room.name[language]}</span><span className="map-label-code">{room.code}</span></button>
   </Html>)}</>;
 }
-function RouteOverlay({ route, fullRoute = route, center }: { route: Point[]; fullRoute?: Point[]; center: Point }) {
+function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
   const points = useMemo(() => route.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [route, center]);
   const endpointPoints = useMemo(() => fullRoute.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [fullRoute, center]);
   if (points.length < 2) return null;
+  const routeColor = forcedColors ? highContrastMapPalette.route : mapPalette.route;
+  const destinationColor = forcedColors ? highContrastMapPalette.routeDestination : mapPalette.routeDestination;
   return <group renderOrder={20}>
-    <Line points={points} color="#ffffff" lineWidth={10} depthTest={false} renderOrder={20} />
-    <Line points={points} color="#087864" lineWidth={5} depthTest={false} renderOrder={21} />
+    <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} depthTest={false} renderOrder={20} />
+    <Line points={points} color={routeColor} lineWidth={5} depthTest={false} renderOrder={21} />
     {[endpointPoints[0], endpointPoints[endpointPoints.length - 1]].map((point, index) => <group key={index} position={point}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color="#ffffff" depthTest={false} /></mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? '#174a71' : '#087864'} depthTest={false} /></mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color={forcedColors ? highContrastMapPalette.endpointUnderlay : mapPalette.endpointUnderlay} depthTest={false} /></mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? destinationColor : routeColor} depthTest={false} /></mesh>
     </group>)}
   </group>;
 }
@@ -123,6 +131,7 @@ function Scene(props: Props) {
   const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
+  const forcedColors = useForcedColors();
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
   const { texture, inkTexture } = useFloorTexture(floor.mapAsset);
@@ -163,8 +172,8 @@ function Scene(props: Props) {
     <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[2048, 2048]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.02, 0]}><planeGeometry args={[width, depth]} /><meshBasicMaterial key={inkTexture?.uuid ?? 'loading'} map={inkTexture} transparent opacity={inkTexture ? 1 : 0} depthWrite={false} toneMapped={false} /></mesh>
-    {rooms.map(room => <RoomShape key={room.id} room={room} center={center} selected={room.id === selectedId} onSelect={() => onSelect(room.id)} texture={texture} width={width} depth={depth} />)}
-    <RouteOverlay route={renderRoute} fullRoute={route} center={center} />
+    {rooms.map(room => <RoomShape key={room.id} room={room} center={center} selected={room.id === selectedId} onSelect={() => onSelect(room.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
+    <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
     <MapLabels rooms={rooms} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
