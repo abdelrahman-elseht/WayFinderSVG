@@ -4,13 +4,13 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
-import type { Floor, Language, Point, Room } from '@wayfinding/map-engine';
+import type { Floor, Language, MapFeature, Point, Room } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 
 import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
-type Props = { floor: Floor; rooms: Room[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
+type Props = { floor: Floor; rooms: Room[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; selectedFeatureId?: string | null; onSelect: (id: string) => void; onSelectFeature?: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
 function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
@@ -88,6 +88,70 @@ const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, te
     {room.geometryStatus !== 'confirmed' && <Line points={border} color={forcedColors ? highContrastMapPalette.candidate : selected ? mapPalette.candidateSelected : mapPalette.candidate} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
   </group>;
 });
+const featureColors: Record<MapFeature['kind'], string> = { cafeteria: '#d5a86d', escalator: '#90b9c7', elevator: '#9d9cc6' };
+const featureHeight = (feature: MapFeature) => feature.polygon?.length ? .42 : .16;
+const FeatureShape = memo(function FeatureShape({ feature, center, selected, onSelect }: { feature: MapFeature; center: Point; selected: boolean; onSelect: () => void }) {
+  const [hovered, setHovered] = useState(false);
+  const group = useRef<THREE.Group>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => { const media = window.matchMedia('(prefers-reduced-motion: reduce)'); const update = () => setReducedMotion(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
+  const color = featureColors[feature.kind];
+  const geometry = useMemo(() => {
+    if (!feature.polygon?.length) return null;
+    const shape = new THREE.Shape(); feature.polygon.forEach(([x, y], index) => index ? shape.lineTo((x - center[0]) / SCALE, -(y - center[1]) / SCALE) : shape.moveTo((x - center[0]) / SCALE, -(y - center[1]) / SCALE)); shape.closePath();
+    return new THREE.ExtrudeGeometry(shape, { depth: featureHeight(feature), bevelEnabled: false });
+  }, [feature, center]);
+  useEffect(() => () => geometry?.dispose(), [geometry]);
+  const lift = selected ? .14 : hovered ? .055 : 0;
+  useFrame((_, delta) => { const blend = reducedMotion ? 1 : 1 - Math.exp(-delta * 12); if (group.current) group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, lift, blend); });
+  const border = feature.polygon?.length ? feature.polygon.concat([feature.polygon[0]]).map(([x, y]) => [(x - center[0]) / SCALE, featureHeight(feature) + .04, (y - center[1]) / SCALE] as [number, number, number]) : null;
+  const markerPosition: [number, number, number] = [(feature.anchor[0] - center[0]) / SCALE, featureHeight(feature) + .02, (feature.anchor[1] - center[1]) / SCALE];
+  return <group ref={group} onClick={event => { event.stopPropagation(); onSelect(); }} onPointerOver={event => { event.stopPropagation(); setHovered(true); }} onPointerOut={() => setHovered(false)}>
+    {geometry ? <mesh castShadow receiveShadow geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .03, 0]}><meshStandardMaterial color={color} roughness={.9} /><meshStandardMaterial attach="material-1" color={selected ? '#6d6650' : '#81765b'} roughness={1} /></mesh> : <mesh castShadow receiveShadow position={markerPosition} rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[.22, 24]} /><meshStandardMaterial color={selected ? '#6d6650' : color} roughness={.8} /></mesh>}
+    {border && <Line points={border} color={selected ? '#594c38' : color} lineWidth={selected ? 2.6 : 1.8} dashed={feature.geometryStatus !== 'confirmed'} dashSize={.12} gapSize={.08} />}
+    {!border && <Line points={[[markerPosition[0] - .25, markerPosition[1], markerPosition[2]], [markerPosition[0] + .25, markerPosition[1], markerPosition[2]]] as [number, number, number][]} color={selected ? '#594c38' : color} lineWidth={selected ? 2.4 : 1.4} />}
+  </group>;
+});
+type LabelBox = { x: number; y: number; width: number; height: number };
+const overlaps = (left: LabelBox, right: LabelBox) => Math.abs(left.x - right.x) < (left.width + right.width) / 2 + 5 && Math.abs(left.y - right.y) < (left.height + right.height) / 2 + 5;
+const featureLabelStatus = (feature: MapFeature, language: Language) => feature.kind === 'elevator' ? t(language, 'verticalTransition') : t(language, feature.geometryStatus === 'unknown' ? 'mapFeatureUnknown' : 'mapFeatureCandidate');
+const featureLabelWidth = (feature: MapFeature, language: Language) => Math.max(150, feature.name[language].length * 8 + featureLabelStatus(feature, language).length * 4.8 + 42);
+const roomLabelWidth = (room: Room, language: Language, selectedId: string | null) => room.id === selectedId ? 210 : Math.max(52, room.name[language].length * 7 + room.code.length * 7 + 38);
+function FeatureLabels({ features, rooms, language, selectedId, selectedFeatureId, onSelectFeature, center }: { features: MapFeature[]; rooms: Room[]; language: Language; selectedId: string | null; selectedFeatureId?: string | null; onSelectFeature: (id: string) => void; center: Point }) {
+  const { camera, size } = useThree();
+  const [offsets, setOffsets] = useState<Record<string, [number, number]>>({});
+  const signature = useRef('');
+  const vector = useMemo(() => new THREE.Vector3(), []);
+  const roomVector = useMemo(() => new THREE.Vector3(), []);
+  const candidates = useMemo(() => [-480, -360, -240, -120, 0, 120, 240, 360, 480].flatMap(x => [-336, -252, -168, -84, 0, 84, 168, 252, 336].map(y => [x, y] as [number, number])).sort((a, b) => Math.hypot(...a) - Math.hypot(...b)), []);
+  useFrame(() => {
+    const occupied: LabelBox[] = rooms.map(room => {
+      roomVector.set((room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE).project(camera);
+      return { x: (roomVector.x + 1) * size.width / 2, y: (1 - roomVector.y) * size.height / 2, width: roomLabelWidth(room, language, selectedId), height: room.id === selectedId ? 34 : 25 };
+    });
+    const controls = document.querySelector('.map-control-stack')?.getBoundingClientRect();
+    if (controls) occupied.push({ x: (controls.left + controls.right) / 2, y: (controls.top + controls.bottom) / 2, width: controls.width + 10, height: controls.height + 10 });
+    const featureBoxes: LabelBox[] = controls ? [{ x: (controls.left + controls.right) / 2, y: (controls.top + controls.bottom) / 2, width: controls.width + 10, height: controls.height + 10 }] : [];
+    const next: Record<string, [number, number]> = {};
+    const orderedFeatures = [...features].sort((a, b) => a.id.localeCompare(b.id));
+    for (const feature of orderedFeatures) {
+      vector.set((feature.anchor[0] - center[0]) / SCALE, featureHeight(feature) + .24, (feature.anchor[1] - center[1]) / SCALE).project(camera);
+      const anchorX = (vector.x + 1) * size.width / 2;
+      const anchorY = (1 - vector.y) * size.height / 2;
+      const width = featureLabelWidth(feature, language);
+      const height = 35;
+      const box = (offset: [number, number]) => ({ x: anchorX + offset[0], y: anchorY + offset[1], width, height });
+      const offset = candidates.find(([x, y]) => anchorX + x - width / 2 >= 0 && anchorX + x + width / 2 <= size.width && anchorY + y - height / 2 >= 0 && anchorY + y + height / 2 <= size.height && !occupied.some(existing => overlaps(existing, box([x, y])))) ?? candidates.find(candidate => !featureBoxes.some(existing => overlaps(existing, box(candidate)))) ?? [0, 0];
+      const placed = box(offset);
+      featureBoxes.push(placed);
+      occupied.push(placed);
+      next[feature.id] = offset;
+    }
+    const nextSignature = JSON.stringify(next);
+    if (nextSignature !== signature.current) { signature.current = nextSignature; setOffsets(next); }
+  });
+  return <>{features.map(feature => <Html key={feature.id} position={[(feature.anchor[0] - center[0]) / SCALE, featureHeight(feature) + .24, (feature.anchor[1] - center[1]) / SCALE]} center zIndexRange={selectedFeatureId === feature.id ? [45, 35] : [35, 25]} style={{ pointerEvents: 'none' }}><div style={{ transform: `translate(${offsets[feature.id]?.[0] ?? 0}px, ${offsets[feature.id]?.[1] ?? 0}px)`, pointerEvents: 'none' }}><button type="button" data-feature-id={feature.id} className={`map-feature-label ${selectedFeatureId === feature.id ? 'selected' : ''} ${feature.geometryStatus === 'unknown' ? 'unknown' : 'candidate'}`} aria-label={`${feature.name[language]}, ${featureLabelStatus(feature, language)}`} aria-pressed={selectedFeatureId === feature.id} onClick={() => onSelectFeature(feature.id)} style={{ pointerEvents: 'auto' }}><span className={`map-feature-icon ${feature.kind}`} aria-hidden="true" /><span>{feature.name[language]}</span><small>{featureLabelStatus(feature, language)}</small></button></div></Html>)}</>;
+}
 function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
   const { camera, size } = useThree();
   const [visible, setVisible] = useState<Set<string>>(new Set());
@@ -128,7 +192,7 @@ function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { rout
   </group>;
 }
 function Scene(props: Props) {
-  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
+  const { floor, rooms, mapFeatures = [], language, selectedId, selectedFeatureId, onSelect, onSelectFeature = () => undefined, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
   const forcedColors = useForcedColors();
@@ -136,6 +200,7 @@ function Scene(props: Props) {
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
   const { texture, inkTexture } = useFloorTexture(floor.mapAsset);
   const selected = rooms.find(room => room.id === selectedId);
+  const selectedFeature = mapFeatures.find(feature => feature.id === selectedFeatureId);
   const routeFrame = useMemo(() => {
     if (route.length < 2) return null;
     const xs = route.map(point => (point[0] - center[0]) / SCALE); const zs = route.map(point => (point[1] - center[1]) / SCALE);
@@ -155,10 +220,11 @@ function Scene(props: Props) {
     orthographic.updateProjectionMatrix();
   }, [camera, size.width, size.height, width, depth, zoom, routeFrame]);
   useEffect(() => {
-    const x = routeFrame ? routeFrame.x : selected ? (selected.centroid[0] - center[0]) / SCALE : 0;
-    const z = routeFrame ? routeFrame.z : selected ? (selected.centroid[1] - center[1]) / SCALE : 0;
+    const focus = selectedFeature?.anchor ?? selected?.centroid;
+    const x = routeFrame ? routeFrame.x : focus ? (focus[0] - center[0]) / SCALE : 0;
+    const z = routeFrame ? routeFrame.z : focus ? (focus[1] - center[1]) / SCALE : 0;
     controls.current?.target.set(x, 0, z); camera.position.copy(CAMERA_OFFSET).add(new THREE.Vector3(x, 0, z)); camera.lookAt(x, 0, z); controls.current?.update();
-  }, [selectedId, camera, center, routeFrame]);
+  }, [selectedId, selectedFeatureId, selected, selectedFeature, camera, center, routeFrame]);
   useEffect(() => {
     if (!followCamera || !visibleRoute?.length) return;
     const point = visibleRoute[visibleRoute.length - 1];
@@ -173,8 +239,10 @@ function Scene(props: Props) {
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.02, 0]}><planeGeometry args={[width, depth]} /><meshBasicMaterial key={inkTexture?.uuid ?? 'loading'} map={inkTexture} transparent opacity={inkTexture ? 1 : 0} depthWrite={false} toneMapped={false} /></mesh>
     {rooms.map(room => <RoomShape key={room.id} room={room} center={center} selected={room.id === selectedId} onSelect={() => onSelect(room.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
+    {mapFeatures.map(feature => <FeatureShape key={feature.id} feature={feature} center={center} selected={feature.id === selectedFeatureId} onSelect={() => onSelectFeature(feature.id)} />)}
     <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
     <MapLabels rooms={rooms} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
+    <FeatureLabels features={mapFeatures} rooms={rooms} language={language} selectedId={selectedId} selectedFeatureId={selectedFeatureId} onSelectFeature={onSelectFeature} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
 }
