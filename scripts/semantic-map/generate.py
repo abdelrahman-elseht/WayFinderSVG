@@ -11,6 +11,7 @@ from features import derive_features
 OUT=ROOT/'data/buildings/B03'; OUT.mkdir(parents=True,exist_ok=True)
 CONTENT=ROOT/'content/B03'; CONTENT.mkdir(parents=True,exist_ok=True)
 AVAILABILITY_CONFIG = ROOT/'scripts/semantic-map/availability.json'
+VISIBILITY_CONFIG = ROOT/'scripts/semantic-map/visibility.json'
 def write(path,data):path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def read_availability():
     """Read operational room availability overrides from a deterministic input.
@@ -33,8 +34,30 @@ def read_availability():
         if not isinstance(reason,dict) or not isinstance(reason.get('en'),str) or not reason['en'].strip() or not isinstance(reason.get('ar'),str) or not reason['ar'].strip():
             raise ValueError(f'{code}: availability reason requires non-empty en and ar')
     return raw
-availability_overrides=read_availability()
+def read_visibility_policy(schedule):
+    """Read exact-code presentation policy without using semantic categories."""
+    if not VISIBILITY_CONFIG.exists():
+        return {}
+    raw=json.loads(VISIBILITY_CONFIG.read_text(encoding='utf-8'))
+    if not isinstance(raw,dict):
+        raise ValueError('visibility configuration must be an object keyed by room code')
+    known={row['code'] for row in schedule}
+    allowed={'mapVisible','destinationVisible'}
+    policy={}
+    for code,value in raw.items():
+        if not isinstance(code,str) or code not in known:
+            raise ValueError(f'{code}: visibility policy references an unknown room code')
+        if not isinstance(value,dict):
+            raise ValueError(f'{code}: visibility policy must be an object')
+        if set(value)!=allowed:
+            raise ValueError(f'{code}: visibility policy requires exactly mapVisible and destinationVisible')
+        if not all(isinstance(value[key],bool) for key in allowed):
+            raise ValueError(f'{code}: visibility policy values must be boolean')
+        policy[code]={'mapVisible':value['mapVisible'],'destinationVisible':value['destinationVisible']}
+    return policy
 schedule=read('maps/B03/GF/source/room-schedule.json')['rows']
+availability_overrides=read_availability()
+visibility_policy=read_visibility_policy(schedule)
 arabic=['المدخل الرئيسي','الممر ١','الممر ٢','الممر ٣','قاعة المحاضرات','مخزن','صالة كبار الزوار','السلم ٣','ردهة المصاعد','غرفة الصمامات','مخزن','دورات مياه النساء','دورات مياه الرجال','ردهة','غرفة الترجمة','غرفة الوسائط السمعية والبصرية','السلم ٤','الكافتيريا','خدمة','المطبخ','مخزن','غرفة الأمن','السلم ٢','قاعة المعارض','مكتب العمليات','فتحة إضاءة علوية','الاستقبال','العيادة','الاستراحة','غرفة الاجتماعات','ردهة','السلم ١','غرفة الصلاة','مخزن','غرفة النسخ','غرفة الأرشيف','مجرى النفايات','غرفة التحكم','الخدمات','مخزن','دورة مياه النساء','دورة مياه الرجال','المعمل الميكانيكي','غرفة التحكم السمعي والبصري','معمل التدريب البدني ١','معمل التدريب البدني ٢','استوديو الوسائط السمعية والبصرية','غرفة الخدمات','خزانة التكييف والتهوية','معمل التدريب البصري ١','غرفة تقنية المعلومات','غرفة الكهرباء','ردهة المصاعد','السلم ٥']
 conflicts={8:'Plan STAIR (03) is tagged 007, but the schedule assigns G-08; association by unique stair name is candidate.',17:'Plan STAIR (04) is tagged 009, but the schedule assigns G-17; association by unique stair name is candidate.',24:'Plan EXHIPITION ROOM is tagged 045, but the schedule assigns G-24. It is NOT Physical Training Lab G-45; association by unique use is candidate.',25:'Plan G25 is STAFF; schedule G-25 is OPERATIONS OFFICE. Schedule retained; use conflict unresolved.',34:'Plan G34 is PANTRY; schedule G-34 is STORAGE. Schedule retained; use conflict unresolved.'}
 def label_code(l):
@@ -65,8 +88,8 @@ for n,row in enumerate(schedule,1):
    polygon=[[round(x,3),round(y,3)] for x,y in simple.exterior.coords[:-1]]
    reason=f'Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. {len(contour.interiors)} interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.'
  provenance=[dict(source='maps/B03/GF/source/0002.json#'+row['nameTextId'],page=1,note='Authoritative G-01…G-54 room schedule; name retained despite conflicting plan uses.',status='confirmed'),dict(source='maps/B03/GF/source/'+label['sourceId']+'.json#'+label['id'],page=1,note='Plan label '+label['name']+'; tag '+label['code']+'. Centroid field is the source name-label bounding-box center, not a computed room centroid. '+conflicts.get(n,''),status='candidate' if n in conflicts else 'confirmed'),dict(source='scripts/semantic-map/generate.py',page=1,note='Arabic name is an editorial translation of the English schedule, pending facility terminology review. Public=true means directory-visible only; no physical access is asserted.',status='candidate'),dict(source='scripts/semantic-map/explore.py',page=1,note=reason,status='candidate' if polygon else 'unknown')]
- code=row['code']; rid='B03-GF-'+code
- room=dict(id=rid,code=code,buildingId='B03',floorId='GF',name=dict(en=' '.join(row['name'].split()).title(),ar=arabic[n-1]),category=category(n),polygon=polygon,geometryRef=('semantic:'+rid if polygon else None),centroid=[round(v,3) for v in point],doorNodeId=None,aliases=sorted(set([row['name'],label['name'],code.replace('-',''),label['code'],'G '+label['code']])),contentRef=rid,public=True,geometryStatus='candidate' if polygon else 'unknown',provenance=provenance)
+ code=row['code']; rid='B03-GF-'+code; visibility=visibility_policy.get(code,{'mapVisible':True,'destinationVisible':True})
+ room=dict(id=rid,code=code,buildingId='B03',floorId='GF',name=dict(en=' '.join(row['name'].split()).title(),ar=arabic[n-1]),category=category(n),polygon=polygon,geometryRef=('semantic:'+rid if polygon else None),centroid=[round(v,3) for v in point],doorNodeId=None,aliases=sorted(set([row['name'],label['name'],code.replace('-',''),label['code'],'G '+label['code']])),contentRef=rid,mapVisible=visibility['mapVisible'],destinationVisible=visibility['destinationVisible'],public=True,geometryStatus='candidate' if polygon else 'unknown',provenance=provenance)
  if code in availability_overrides:
   room['availability']=availability_overrides[code]
  rooms.append(room)
@@ -92,4 +115,3 @@ graph=dict(nodes=nodes,edges=edges,metersPerUnit=None,calibrationStatus='unknown
 write(OUT/'GF.json',floor);write(OUT/'GF.graph.json',graph);write(CONTENT/'GF.json',contents)
 write(OUT/'GF.review.json',dict(schemaVersion=1,method='Source-vector free-space polygonization with source swing-and-leaf gap evidence',bufferTolerance=.20,simplificationTolerance=.18,inventoryCount=len(rooms),candidatePolygonCount=sum(bool(r['polygon']) for r in rooms),confirmedPolygonCount=0,rooms=review,doorGapCandidates=[dict(arcPathId=s['id'],leafPathId=s['leaf'],segment=[[round(v,3) for v in p] for p in s['line'].coords],status='candidate') for s in seals],graphReview=dict(status=graph['status'],candidateConnections=graph_evidence,missingRouteRooms=missing_routes,reason='Drawing-based source doorway approaches within source-wall-constrained circulation regions. Candidate access and accessibility remain unknown. Shared-suite and exterior-only destinations carry explicit approach limitations. No physical kiosk is asserted.')))
 print('GENERATED',len(rooms),'rooms,',len(nodes),'drawing-based nodes,',len(edges),'edges; missing',missing_routes)
-

@@ -65,6 +65,17 @@ npm run build
 ```
 
 An unavailable room remains searchable and its details remain visible, but the directory must not offer it as a route destination or starting point. Restore availability by removing the room entry (or setting `status` to `available`) and rerun the same commands. Do not edit `data/buildings/B03/GF.json` by hand; it is generated output.
+### Independent room visibility
+
+Presentation visibility is configured in `scripts/semantic-map/visibility.json`, keyed by the authoritative source room code. Each entry must contain only boolean `mapVisible` and `destinationVisible` fields. The committed policy explicitly hides corridors G-02 through G-04 from map labels and selectors, keeps Main Entrance, elevator lobbies, and stairs as map landmarks without ordinary destination options, and hides the reviewed storage/technical code allowlist G-06, G-10, G-11, G-21, G-34, G-36, G-37, G-40, G-48, G-49, G-51, and G-52. Omitted codes default to visible in both projections. This policy is independent from `public`, availability, source geometry, provenance, and graph routing.
+
+After changing the file, regenerate the semantic output and run the data checks. Do not edit `data/buildings/B03/GF.json` by hand:
+
+```powershell
+python -X utf8 scripts/semantic-map/generate.py
+npm run validate:data
+npm run test:data
+```
 
 Confirm the kiosk's physical placement with facility staff and relate it to the current drawing. Record the evidence with the semantic generation/review inputs, add the correct graph node, and set that kiosk's `nodeId` and status only after verification. Update the generation source as well as generated JSON so a subsequent pipeline run does not erase the configuration. A confirmed kiosk must reference a confirmed node on the same building/floor; the validator enforces this.
 

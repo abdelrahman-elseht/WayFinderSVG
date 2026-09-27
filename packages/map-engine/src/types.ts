@@ -35,6 +35,10 @@ export interface Room {
   navigationPartial?: boolean;
   /** Optional operational availability; omission preserves the legacy available default. */
   availability?: RoomAvailability;
+  /** Independent presentation policy for map labels, solids, and interactions. */
+  mapVisible: boolean;
+  /** Independent presentation policy for directory, search, and route selectors. */
+  destinationVisible: boolean;
   public: boolean;
   geometryStatus: EvidenceStatus;
   provenance: Provenance[];

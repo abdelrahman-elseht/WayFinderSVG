@@ -90,7 +90,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-02",
@@ -153,7 +155,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-03",
@@ -216,7 +220,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-04",
@@ -279,7 +285,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-05",
@@ -719,7 +727,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-06",
@@ -848,7 +858,9 @@
         "en": "Route ends at the Auditorium entrance. Storage G-06 is accessed from the exterior auditorium landing; that final access is not mapped.",
         "ar": "ينتهي المسار عند مدخل قاعة المحاضرات. الوصول النهائي إلى المخزن من البسطة الخارجية غير مرسوم في المسار."
       },
-      "navigationPartial": true
+      "navigationPartial": true,
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-07",
@@ -1136,7 +1148,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-08",
@@ -1281,7 +1295,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-09",
@@ -1344,7 +1360,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-10",
@@ -1403,7 +1421,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-11",
@@ -1543,7 +1563,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-12",
@@ -1708,7 +1730,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-13",
@@ -1889,7 +1913,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-14",
@@ -1953,7 +1979,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-15",
@@ -2094,7 +2122,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-16",
@@ -2226,7 +2256,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-17",
@@ -2392,7 +2424,9 @@
         "en": "Route ends at Lobby G-14. Stair 4 has an exterior ground-floor door; the final exterior approach is not mapped.",
         "ar": "ينتهي المسار عند الردهة G-14. باب السلم ٤ خارجي والمسار الخارجي الأخير غير مرسوم."
       },
-      "navigationPartial": true
+      "navigationPartial": true,
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-18",
@@ -2451,7 +2485,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-19",
@@ -2510,7 +2546,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-20",
@@ -2682,7 +2720,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-21",
@@ -2814,7 +2854,9 @@
       "navigationNote": {
         "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
         "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
-      }
+      },
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-22",
@@ -2966,7 +3008,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-23",
@@ -3108,7 +3152,9 @@
         "en": "Route ends at the south Main Entrance doors. Stair 2 has an exterior ground-floor door; the final exterior approach is not mapped.",
         "ar": "ينتهي المسار عند أبواب المدخل الرئيسي الجنوبية. باب السلم ٢ خارجي والمسار الخارجي الأخير غير مرسوم."
       },
-      "navigationPartial": true
+      "navigationPartial": true,
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-24",
@@ -3341,7 +3387,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-25",
@@ -3462,7 +3510,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-26",
@@ -3526,7 +3576,9 @@
       "navigationNote": {
         "en": "Route ends beside the Skylight perimeter. The skylight is not a walking surface.",
         "ar": "ينتهي المسار بجوار محيط فتحة الإضاءة العلوية، وهي ليست سطحاً للمشي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-27",
@@ -3698,7 +3750,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-28",
@@ -3854,7 +3908,9 @@
       "navigationNote": {
         "en": "Route ends at Reception entrance; continue through Reception to Clinic.",
         "ar": "ينتهي المسار عند مدخل الاستقبال؛ الوصول إلى العيادة عبر الاستقبال."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-29",
@@ -4098,7 +4154,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-30",
@@ -4242,7 +4300,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-31",
@@ -4306,7 +4366,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-32",
@@ -4366,7 +4428,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-33",
@@ -4622,7 +4686,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-34",
@@ -4735,7 +4801,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-35",
@@ -4863,7 +4931,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-36",
@@ -4988,7 +5058,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-37",
@@ -5188,7 +5260,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-38",
@@ -5304,7 +5378,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-39",
@@ -5476,7 +5552,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-40",
@@ -5624,7 +5702,9 @@
       "navigationNote": {
         "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
         "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
-      }
+      },
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-41",
@@ -5848,7 +5928,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-42",
@@ -6064,7 +6146,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-43",
@@ -6457,7 +6541,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-44",
@@ -6585,7 +6671,9 @@
       "navigationNote": {
         "en": "AV Control Room is approached through the shared AV suite foyer.",
         "ar": "الوصول إلى غرفة التحكم عبر الردهة المشتركة لجناح الوسائط."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-45",
@@ -6834,7 +6922,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-46",
@@ -7086,7 +7176,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-47",
@@ -7454,7 +7546,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-48",
@@ -7642,7 +7736,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-49",
@@ -7862,7 +7958,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-50",
@@ -8051,7 +8149,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": true
     },
     {
       "id": "B03-GF-G-51",
@@ -8223,7 +8323,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-52",
@@ -8376,7 +8478,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": false,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-53",
@@ -8439,7 +8543,9 @@
       "navigationNote": {
         "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
         "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
-      }
+      },
+      "mapVisible": true,
+      "destinationVisible": false
     },
     {
       "id": "B03-GF-G-54",
@@ -8640,7 +8746,9 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "mapVisible": true,
+      "destinationVisible": false
     }
   ],
   "kiosks": [

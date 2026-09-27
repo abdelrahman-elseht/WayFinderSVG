@@ -1,0 +1,94 @@
+{
+  "G-01": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-02": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-03": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-04": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-06": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-08": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-09": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-10": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-11": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-17": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-21": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-23": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-32": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-34": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-36": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-37": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-40": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-48": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-49": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-51": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-52": {
+    "mapVisible": false,
+    "destinationVisible": false
+  },
+  "G-53": {
+    "mapVisible": true,
+    "destinationVisible": false
+  },
+  "G-54": {
+    "mapVisible": true,
+    "destinationVisible": false
+  }
+}
