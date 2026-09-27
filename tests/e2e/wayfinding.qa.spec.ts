@@ -237,6 +237,32 @@ test('source reviewed cafeteria and elevator features are interactive and locali
  await expect(page.locator('.map-feature-label').filter({ hasText: 'الكافتيريا' })).toHaveCount(1);
  await expect(page.locator('.map-feature-label').filter({ hasText: 'هوية انتقال رأسي' })).toHaveCount(1);
 });
+test('escalator labels avoid collisions and both remain pointer-activatable', async ({ page }) => {
+ await ready(page);
+ const west = page.locator('[data-feature-id="B03-GF-escalator-west"]');
+ const east = page.locator('[data-feature-id="B03-GF-escalator-east"]');
+ await expect(west).toHaveAccessibleName(/Main Entrance escalator \(west\), Feature outline is source-marked/);
+ await expect(east).toHaveAccessibleName(/Main Entrance escalator \(east\), Feature outline is source-marked/);
+ const assertNoFeatureOverlap = async () => {
+  const boxes = await page.locator('.map-feature-label').evaluateAll(elements => elements.map(element => { const box = element.getBoundingClientRect(); return { left: box.left, right: box.right, top: box.top, bottom: box.bottom }; }));
+  for (let left = 0; left < boxes.length; left++) for (let right = left + 1; right < boxes.length; right++) expect(boxes[left].right <= boxes[right].left || boxes[right].right <= boxes[left].left || boxes[left].bottom <= boxes[right].top || boxes[right].bottom <= boxes[left].top).toBe(true);
+ };
+ await assertNoFeatureOverlap();
+ await west.click();
+ await expect(west).toHaveAttribute('aria-pressed', 'true');
+ await expect(page.getByTestId('room-details')).toContainText('Main Entrance');
+ await east.click();
+ await expect(east).toHaveAttribute('aria-pressed', 'true');
+ await expect(west).toHaveAttribute('aria-pressed', 'false');
+ await page.setViewportSize({ width: 390, height: 844 });
+ await page.getByTestId('language-toggle').click();
+ await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+ await assertNoFeatureOverlap();
+ await west.click();
+ await expect(west).toHaveAttribute('aria-pressed', 'true');
+ await east.click();
+ await expect(east).toHaveAttribute('aria-pressed', 'true');
+});
 
 test('WebGL-unavailable fallback preserves source plan and usable keyboard directory',async({page})=>{
  await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type==='webgl2')return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});

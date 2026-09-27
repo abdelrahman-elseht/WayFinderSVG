@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { FloorData } from '@wayfinding/map-engine';
+import { t } from '@wayfinding/i18n';
 import floorJson from '../../data/buildings/B03/GF.json';
 
 const floor = floorJson as unknown as FloorData;
@@ -19,5 +20,11 @@ describe('source reviewed map features', () => {
     expect(elevator?.connectedFloorIds).toEqual([]);
     expect(elevator?.provenance[0].source).toContain('0002-text-0139');
     expect(floor.rooms.find(room => room.code === 'G-09')?.doorNodeId).toBeTruthy();
+  });
+
+  it('uses feature-specific candidate copy in both languages', () => {
+    expect(t('en', 'mapFeatureCandidate')).toBe('Feature outline is source-marked; awaiting review');
+    expect(t('ar', 'mapFeatureCandidate')).toBe('حدود الميزة محددة من المصدر؛ بانتظار المراجعة');
+    expect(t('en', 'mapFeatureCandidate')).not.toContain('room');
   });
 });
