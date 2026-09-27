@@ -675,5 +675,55 @@
     "roomCode": "G-47",
     "source": "docs/EXTERIOR_ACCESS_REVIEW.md#two-positive-internal-source-findings-sent-to-graph-owner",
     "note": "Bounded internal AV foyer entered through north double door and connecting G44 source door11655; does not exempt walls or the remainder of G47."
-  }
+  },
+  "mapFeatures": [
+    {
+      "id": "B03-GF-escalator-west",
+      "name": {"en": "Main Entrance escalator (west)", "ar": "السلم المتحرك بجوار المدخل الرئيسي (الغربي)"},
+      "kind": "escalator",
+      "roomCode": "G-01",
+      "sourceId": "0001",
+      "pathIds": ["0001-path-08616", "0001-path-08574"],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+    },
+    {
+      "id": "B03-GF-escalator-east",
+      "name": {"en": "Main Entrance escalator (east)", "ar": "السلم المتحرك بجوار المدخل الرئيسي (الشرقي)"},
+      "kind": "escalator",
+      "roomCode": "G-01",
+      "sourceId": "0001",
+      "pathIds": ["0001-path-08684", "0001-path-08642"],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+    },
+    {
+      "id": "B03-GF-cafeteria",
+      "name": {"en": "Cafeteria", "ar": "الكافتيريا"},
+      "kind": "cafeteria",
+      "roomCode": "G-18",
+      "sourceId": "0002",
+      "labelId": "0002-text-0100",
+      "geometryStatus": "unknown",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "note": "Source room label and door are known, but an enclosing face remains unresolved; marker-only and non-routing."
+    },
+    {
+      "id": "B03-GF-elevator-lobby",
+      "name": {"en": "Elevator Lobby", "ar": "ردهة المصاعد"},
+      "kind": "elevator",
+      "roomCode": "G-09",
+      "sourceId": "0002",
+      "labelId": "0002-text-0139",
+      "geometryStatus": "unknown",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "note": "Source room label is known, but its circulation-connected enclosure is unresolved. This feature identifies an elevator location only; no vertical transition edge or upper-floor connection is asserted."
+    }
+  ]
 }

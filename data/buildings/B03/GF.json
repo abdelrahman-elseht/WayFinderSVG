@@ -8684,6 +8684,11 @@
           978.8
         ]
       ],
+      "anchor": [
+        2165.658,
+        1186.13
+      ],
+      "roomId": "B03-GF-G-01",
       "geometryStatus": "candidate",
       "accessibility": "unknown",
       "connectedFloorIds": [],
@@ -8729,6 +8734,11 @@
           978.83
         ]
       ],
+      "anchor": [
+        2209.592,
+        1186.175
+      ],
+      "roomId": "B03-GF-G-01",
       "geometryStatus": "candidate",
       "accessibility": "unknown",
       "connectedFloorIds": [],
@@ -8744,6 +8754,60 @@
           "page": 1,
           "status": "candidate",
           "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-cafeteria",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Cafeteria",
+        "ar": "الكافتيريا"
+      },
+      "kind": "cafeteria",
+      "polygon": null,
+      "anchor": [
+        2783.383,
+        1778.704
+      ],
+      "roomId": "B03-GF-G-18",
+      "geometryStatus": "unknown",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0002.json#0002-text-0100",
+          "page": 1,
+          "status": "confirmed",
+          "note": "Source room label and door are known, but an enclosing face remains unresolved; marker-only and non-routing."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-elevator-lobby",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Elevator Lobby",
+        "ar": "ردهة المصاعد"
+      },
+      "kind": "elevator",
+      "polygon": null,
+      "anchor": [
+        2639.69,
+        1467.012
+      ],
+      "roomId": "B03-GF-G-09",
+      "geometryStatus": "unknown",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0002.json#0002-text-0139",
+          "page": 1,
+          "status": "confirmed",
+          "note": "Source room label is known, but its circulation-connected enclosure is unresolved. This feature identifies an elevator location only; no vertical transition edge or upper-floor connection is asserted."
         }
       ]
     }

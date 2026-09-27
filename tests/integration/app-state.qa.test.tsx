@@ -8,7 +8,7 @@ import floorJson from '../../data/buildings/B03/GF.json';
 import graphJson from '../../data/buildings/B03/GF.graph.json';
 import contentJson from '../../content/B03/GF.json';
 import { syntheticCorner } from '../fixtures/routing';
-vi.mock('next/dynamic', () => ({default:()=>()=> <div data-testid="isolated-map-stub"/>}));
+vi.mock('next/dynamic', () => ({default:()=>({onSelect}:{onSelect?:(id:string)=>void}) => <button data-testid="map-select" onClick={()=>onSelect?.('B03-GF-G-01')}>map</button>}));
 afterEach(cleanup);
 const floor=floorJson as unknown as FloorData, graph=graphJson as unknown as NavigationGraph;
 const contents=contentJson as RoomContent[];
@@ -17,7 +17,54 @@ function mount(data=floor, navigation=graph) {
  render(<WayfindingApp floorData={data} graph={navigation} contents={contents} audioService={audio}/>);
  return audio;
 }
+function renderApp(data=floor, navigation=graph) {
+ const audio={speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true};
+ const view=render(<WayfindingApp floorData={data} graph={navigation} contents={contents} audioService={audio}/>);
+ return {audio, view};
+}
 describe('independent React UI state with real data and isolated map rendering',()=>{
+ it('keeps map and destination policy independent while preserving unavailable search details',()=>{
+  mount();
+  fireEvent.click(screen.getByText('Navigate'));
+  const destination=screen.getByTestId('destination-select') as HTMLSelectElement;
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-02'))).toBe(false);
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-08'))).toBe(false);
+  expect(Array.from(destination.options).some(option=>option.value.endsWith('G-45'))).toBe(true);
+  fireEvent.click(screen.getByText('Browse'));
+  expect(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-02"]')).toBeNull();
+  expect(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-34"]')).toBeNull();
+  fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
+  expect(screen.getByTestId('availability-note').textContent).toContain('Temporarily unavailable');
+  expect((screen.getByRole('button',{name:'Go here'}) as HTMLButtonElement).disabled).toBe(true);
+ });
+ it('clears directory-originated selection when destination visibility is removed',()=>{
+  const data=structuredClone(floor); const {view}=renderApp(data);
+  fireEvent.click(screen.getByText('Browse'));
+  fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-45"]')!);
+  expect(screen.getByTestId('room-details').textContent).toContain('Physical Training Lab 1');
+  const nextData=structuredClone(data); nextData.rooms.find(room=>room.code==='G-45')!.destinationVisible=false;
+  view.rerender(<WayfindingApp floorData={nextData} graph={graph} contents={contents} audioService={{speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true}}/>);
+  expect(screen.queryByTestId('room-details')).toBeNull();
+ });
+ it('clears map-originated selection when map visibility is removed',()=>{
+  const data=structuredClone(floor); const {view}=renderApp(data);
+  fireEvent.click(screen.getByTestId('map-select'));
+  expect(screen.getByTestId('room-details').textContent).toContain('Main Entrance');
+  const nextData=structuredClone(data); nextData.rooms.find(room=>room.code==='G-01')!.mapVisible=false;
+  nextData.rooms.find(room=>room.code==='G-01')!.destinationVisible=true;
+  view.rerender(<WayfindingApp floorData={nextData} graph={graph} contents={contents} audioService={{speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true}}/>);
+  expect(screen.queryByTestId('room-details')).toBeNull();
+ });
+ it('clears route and playback when a selected destination becomes hidden',()=>{
+  const data=structuredClone(floor); const {view}=renderApp(data);
+  fireEvent.click(screen.getByText('Navigate'));
+  fireEvent.change(screen.getByTestId('destination-select'),{target:{value:'B03-GF-G-05'}});
+  expect(screen.getByTestId('route-status').className).toContain('ok');
+  const nextData=structuredClone(data); nextData.rooms.find(room=>room.code==='G-05')!.destinationVisible=false;
+  view.rerender(<WayfindingApp floorData={nextData} graph={graph} contents={contents} audioService={{speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true}}/>);
+  expect(screen.queryByTestId('route-status')).toBeNull();
+  expect(screen.queryByTestId('playback-toggle')).toBeNull();
+ });
  it('automatically speaks room details and supports replay, stop, mute and Arabic changes',()=>{
   const audio=mount();
   fireEvent.click(screen.getByText('Browse'));
@@ -60,7 +107,9 @@ describe('independent React UI state with real data and isolated map rendering',
   expect((screen.getByTestId('destination-select') as HTMLSelectElement).value).toBe('');
  });
  it('qualifies clinic arrival at the mapped reception approach in both languages',()=>{
-  mount();
+  const data=structuredClone(floor);
+  data.rooms.find(room=>room.code==='G-28')!.availability={status:'available',reason:{en:'Open for route contract test.',ar:'متاحة لاختبار عقد المسار.'}};
+  mount(data);
   fireEvent.click(screen.getByText('Navigate'));
   fireEvent.change(screen.getByTestId('destination-select'),{target:{value:'B03-GF-G-28'}});
   expect(screen.getByTestId('route-status').className).toContain('ok');
@@ -71,6 +120,8 @@ describe('independent React UI state with real data and isolated map rendering',
  });
  it('retains configured kiosk precedence in an explicitly synthetic fixture',()=>{
   const data=structuredClone(floor);
+  data.rooms[0].mapVisible=true;
+  data.rooms[0].destinationVisible=true;
   data.rooms[0].doorNodeId='c';
   delete data.rooms[0].navigationNote;
   data.kiosks[0].nodeId='a';data.kiosks[0].status='confirmed';
