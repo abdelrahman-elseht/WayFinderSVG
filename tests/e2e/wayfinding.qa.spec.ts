@@ -2,8 +2,8 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {writeFileSync} from 'node:fs';
 
-async function ready(page:Page) {
- await page.goto('/');
+async function ready(page:Page,path='/') {
+ await page.goto(path);
  // The current application opens in Navigate mode; switch to Browse for
  // directory/search journeys used by this suite.
  if (await page.getByTestId('room-directory').count() === 0) {
@@ -242,15 +242,30 @@ test('forced colors and reduced motion preserve accessible directory and selecti
 
 
 
-test('hidden endpoints stay out of selectors while mapped partial-route evidence remains visible',async({page})=>{
- await ready(page);await page.getByRole('button',{name:'Navigate',exact:true}).click();
+test('hidden endpoints stay out of selectors and partial routes remain bilingual',async({page})=>{
  for(const code of ['06','17','23']) {
-  await expect(page.getByTestId('destination-select').locator(`option[value="B03-GF-G-${code}"]`)).toHaveCount(0);
+  await ready(page,`/?routeDestination=B03-GF-G-${code}`);
+  await page.getByRole('button',{name:'Navigate',exact:true}).click();
+  for(const hiddenCode of ['06','17','23']) await expect(page.getByTestId('destination-select').locator(`option[value="B03-GF-G-${hiddenCode}"]`)).toHaveCount(0);
+  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+  await expect(page.getByTestId('route-status')).toContainText('Partial route');
+  await expect(page.getByTestId('route-status')).not.toContainText('You have arrived at your destination.');
+  await page.getByTestId('language-toggle').click();
+  await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+  await expect(page.getByTestId('route-status')).toContainText('مسار جزئي');
+  await expect(page.getByTestId('route-status')).not.toContainText('لقد وصلت إلى وجهتك.');
  }
- await expect(page.locator('.map-label[aria-label$=", G-06"]')).toHaveCount(0);
- await page.getByRole('button',{name:'Browse',exact:true}).click();
- await page.locator('.map-label[aria-label$=", G-17"]').click();
- await expect(page.getByTestId('room-details')).toContainText('Partial route');
- await page.getByTestId('language-toggle').click();
- await expect(page.getByTestId('room-details')).toContainText('مسار جزئي');
+});
+
+test('reversed hidden partial route keeps the qualified arrival in Arabic',async({page})=>{
+ for(const code of ['06','17','23']) {
+  await ready(page,`/?routeStart=B03-GF-G-${code}&routeDestination=B03-GF-G-05`);
+  await page.getByRole('button',{name:'Navigate',exact:true}).click();
+  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+  await expect(page.getByTestId('route-status')).toContainText('Partial route');
+  await expect(page.getByTestId('route-status')).not.toContainText('You have arrived at your destination.');
+  await page.getByTestId('language-toggle').click();
+  await expect(page.getByTestId('route-status')).toContainText('مسار جزئي');
+  await expect(page.getByTestId('route-status')).not.toContainText('لقد وصلت إلى وجهتك.');
+ }
 });
