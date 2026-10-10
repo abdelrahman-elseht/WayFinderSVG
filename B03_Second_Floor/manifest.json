@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "generator": "scripts/rebuild.py",
+  "pymupdfVersion": "1.26.7",
+  "files": {
+    "README.md": "3ddd7bb46a447ece7fca0880cded24d387d2dee6631fb73ab6a410fb570b627d",
+    "alignment.json": "388034c84fdd19b15288b16460927fff7ccfc0745a759d863c63e8dc41845c03",
+    "inspection/0002-full-sheet.png": "d18b3efba426f1dd2ba2ad4a5e4b2bdafd5bbd29d8a13b954b8a7b1833d05ba0",
+    "inspection/master-upright.png": "eb4840bc87f64da3389dfc4ee50f72fc5513cd6fc1eb71c51619a860b891f56a",
+    "inspection/master.png": "3a3ddfe9484596a24e035df6dda8e754ac8dcf829dc366aa8e24f3c36081cee9",
+    "inspection/reference-sideways.png": "59a5d5071060ebd1b9e2a6830434d0086a225d017dcf2d4e93c8bae6bbf5af07",
+    "inspection/user-provided-screenshot.png": "ffc39b4449ad9175a6a891845d9c81172661868009d5decc9034d4c9935ef327",
+    "master-upright.svg": "b04dc7f73ec7255523d5e7f3b519abf85ed28e5bde94170f50c72c70a9ca1147",
+    "master.svg": "45accdf2e02d1c958e7bae04a6ad093c172600553069a7b8ede869a13db095ee",
+    "reference-sideways.svg": "f35ca1207a9f22297774ba8e5369588e11c8d6b8edcb1fa7af1f831ca5051daa",
+    "room-schedule.json": "b5fd82e9600f951854f4c652dec3200421aad0246c6ec0a561e853ef1d789177",
+    "scripts/rebuild.py": "88b3fe456aef29c0ba14bc8f39f15f719dc9a408b2c084d9ba2c7d1fc02114ed",
+    "source/0002.json": "364dc9b8eaad4da74ac42ad623bf9621906bed25e61bd8ca87ff616e35f4e576",
+    "source/pdfs/2761-SOD-B03-DWG-AAR-15-02-Z-0002-00.pdf": "f7123ab9ae68d19c38f7d46c1eaf03f2a95841a74a410b97fe0669af8bfa4b03",
+    "source/room-schedule.json": "b5fd82e9600f951854f4c652dec3200421aad0246c6ec0a561e853ef1d789177",
+    "validation.json": "dbc6019ff8bafe183b5d5f9d04dd429dffee9bac715430fe45f01fbb30ba029f"
+  }
+}

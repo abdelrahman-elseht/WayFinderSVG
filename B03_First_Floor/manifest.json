@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "generator": "scripts/rebuild.py",
+  "pymupdfVersion": "1.26.7",
+  "buildingId": "B03",
+  "floorId": "01",
+  "files": {
+    "master.svg": "e21e531eaa0226e881ac29a53ff1f881ce63c13299775032e9b1ec362f3fd0e0",
+    "alignment.json": "966d6ae4a2eab47a0adc8f54f9ed8eed43a71206c8eb0648d2392016148beb20",
+    "validation.json": "619b6721b562843cdbb1122b200c7ce7ee6837f6dd3c5663c0cccc09e425c661",
+    "room-schedule.json": "5953bbb20a3d38bb1300e20b03d3f24a2060242bad447af157047e07b260e7dd",
+    "README.md": "28b27d5257beb14266a38cd0428f81552c0095c9b1ec6d8c6551b2a4294dda01",
+    "source/0001.json": "c791a3b363011a7d98bb62036bf19e301b70402191cc68ac073336a34b9df6f5",
+    "source/0002.json": "508e7e7b4510725bfda0a51d72607a244b01ab818b1b58bf63cc33c73ce5b73e",
+    "source/room-schedule.json": "5953bbb20a3d38bb1300e20b03d3f24a2060242bad447af157047e07b260e7dd",
+    "inspection/0001.png": "357b24d35871b6e9acf37df7ece90dc74195f73ef2f00e0e14c459989e4867e6",
+    "inspection/0002.png": "19c1705760c92bee3c08d336d02fa61716c6443ae1ba41432262c600ac8d1ec6",
+    "inspection/master.png": "9c70f378172908cc45381b90281e338a17df3eb26435f5f8ba9c46204963af8f",
+    "inspection/seam-detail.png": "7792c8c69717014cf5f9ebb96859539eeaf8b4a82e9db22006c57e155ed7477a",
+    "source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0001-00.pdf": "cbcc2829f84f9bb336fb17db0f22d605aeaf710e52a813178e47a66a3f8bda94",
+    "source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0002-00.pdf": "882ed490480ecc66adf01d34affb5b56242a7cc47db30761591098f464f561c2",
+    "scripts/rebuild.py": "614fbab9933a3fa60967787beaf60d9984ced3d72ef52226929cd4779adbecbd"
+  }
+}

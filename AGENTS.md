@@ -1,31 +1,29 @@
-# Agent Operating Contract
+# Local agent guide
 
-## Read First
+This file is the repository-local contract. Keep it short. Start with [README.md](README.md), then open only the owning document for the task. For floor expansion or routing work, use [memory.md](memory.md) and then the targeted runbook [docs/FLOOR_ONBOARDING.md](docs/FLOOR_ONBOARDING.md). For parallel Floor 01/02 spec planning, use [the handoff](docs/handoffs/B03_FLOOR_01_02_SPEC_PLANS_HANDOFF.md).
 
-Before changing code or data, read `README.md`, then the relevant document:
+If `.codegraph/` contains a usable index, query it before text search; otherwise use `rg`. Complete the requested scope rather than silently replacing it with a prototype or first slice.
 
-- Product scope, commands, and ownership: `docs/PROJECT_SPEC.md` and `README.md`
-- Source evidence and provenance: `docs/SOURCE_AUDIT.md` and `docs/SEMANTIC_REVIEW.md`
-- Data shapes and validation: `docs/DATA_CONTRACTS.md`
-- Accepted work, dependencies, and remaining work: `docs/EXECUTION_LOG.md`
-- QA, known limitations, and deployment: `docs/QA_REPORT.md`, `docs/KNOWN_ISSUES.md`, and `docs/DEPLOYMENT.md`
+## Work in the pipeline order
 
-Keep documentation routed by purpose. Update the owning document when behavior changes; do not create a parallel plan or duplicate contract in an arbitrary markdown file. Use `docs/handoffs/` only for bounded specialist evidence and handoffs.
+Source PDFs and audit -> aligned vectors -> semantic rooms/content -> validated graph -> shared services -> web UI -> integration -> independent QA -> build/deployment docs. Generated files under `maps/`, `data/`, `content/`, and `apps/web/public/maps/` are outputs; change their source/configuration and regenerate them.
 
-## Implementation Order
+## Open documents by trigger
 
-Preserve the established pipeline: source PDFs and audit -> aligned vectors -> semantic rooms/content -> validated navigation graph -> shared services -> web UI -> integration -> independent QA -> build/deployment docs. Treat existing generated map/data files as outputs of that pipeline. Run the smallest relevant validation after each change, then the full checks before reporting completion.
+- Source files, coordinates, transforms, or provenance: [docs/SOURCE_AUDIT.md](docs/SOURCE_AUDIT.md).
+- JSON shapes, IDs, evidence states, or routing contracts: [docs/DATA_CONTRACTS.md](docs/DATA_CONTRACTS.md).
+- Room contours, doors, endpoint qualifications, or semantic review: [docs/SEMANTIC_REVIEW.md](docs/SEMANTIC_REVIEW.md).
+- QA, known limitations, or release checks: [docs/QA_REPORT.md](docs/QA_REPORT.md), [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+- Existing decisions and accepted work: [docs/DECISIONS.md](docs/DECISIONS.md), [docs/EXECUTION_LOG.md](docs/EXECUTION_LOG.md).
 
-## Invariants and Gates
+## Hard gates
 
-- Source evidence remains traceable through provenance; originals are never rewritten.
-- Never invent kiosk coordinates, metre scale, room geometry, photographs, architectural dimensions, or accessibility claims.
-- Drawing-based routing may use validated candidate geometry, but must remain explicitly drawing-based and fail closed on invalid or unsupported paths.
-- Preserve bilingual (`en`/`ar`) behavior, RTL support, accessibility, and partial-route disclosures.
-- Respect package ownership and frozen data contracts; change the contract deliberately and update its consumers/tests together.
-- Verify state-changing work with tests, validation output, or a production browser check before claiming success.
+- Preserve original evidence and provenance. Never invent room geometry, kiosk coordinates, metre scale, photographs, architectural dimensions, or accessibility claims.
+- A drawing-based route is a corridor/approach graph. Every segment must stay in the graph's navigable-area union and have no contact with supplied wall segments; do not route through room solids, voids, the building envelope, or a straight room-centroid shortcut.
+- Use source-derived door or approach nodes. Keep candidate/unknown status and bilingual partial-route notes; directory visibility does not grant physical access.
+- Keep `en`/`ar`, RTL, keyboard, reduced-motion, and accessible-only behavior intact. Unknown accessibility is excluded when the accessible filter is requested.
+- Treat `GF` as the only currently registered runtime floor. Verified source packs for `01` and `02` exist, but adding them to the app requires complete semantic bundles, registry imports, floor-scoped graph evidence, and tests before enabling floor options or cross-floor journeys.
 
-## Agent Discipline
+## Validation
 
-Prefer deterministic commands and repository evidence over conversational assumptions. Keep tasks bounded, reversible, and auditable; stop at an ambiguity that changes product truth instead of guessing. Treat these rules as de-humanization gates: they remove ad-hoc improvisation and model-specific shortcuts from execution. This file is the shared instruction source for Codex and other harnesses; keep it concise and suitable for automated auditing and future `backpass` review. Do not weaken a gate to make a test or task pass.
-
+Run the smallest relevant check after each change. Before reporting a data or integration change, run `npm run validate:data`, `npm run test:data`, `npm run typecheck`, and the relevant Vitest/browser checks. Use `npm run pipeline` only when regenerating source-derived outputs. Record unresolved evidence in the owning review/known-issues document.

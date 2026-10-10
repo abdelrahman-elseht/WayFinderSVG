@@ -60,3 +60,12 @@ All new delegated tasks use the user-selected Astra Medium. Current graph, scene
 - Phase 10: optimized Next.js production build passes, including data validation and canonical asset preparation. Production preview runs at http://localhost:3001; deployment and repeatable pipeline instructions are in README.md and DEPLOYMENT.md.
 
 Source coverage exception: G-06, G-17 and G-23 have explicitly partial exterior approaches because the supplied sheets omit their final ground connections. G-21, G-28 and G-40 use qualified suite entrances. Connected approach coverage does not mean 54 exact physical door arrivals. No architectural gap, measured height, metre scale or accessible route was invented to satisfy coverage.
+
+## Floor expansion preparation - 10 October 2026
+
+- Added `memory.md` as the compact repository map and `docs/FLOOR_ONBOARDING.md` as the repeatable source-to-route runbook for future B03 floors.
+- Kept the local `AGENTS.md` focused on conditional document pointers and hard route/evidence gates so routine turns do not load the full project history.
+- Recorded the current seams that still require implementation before F1/F2 can be registered: GF-specific source/semantic generators, the GF-only server import and single-floor UI, and floor-scoped obstacle evidence for constrained cross-floor routing.
+- Added verified source-evidence packs for First Floor (`B03_First_Floor`, floor `01`, 59 scheduled rooms across two aligned sheets) and Second Floor (`B03_Second_Floor`, floor `02`, 27 scheduled rooms from the supplied Part 02 sheet only). Their PDFs remain unchanged and their deterministic rebuild/validation metadata is retained.
+- Added `docs/handoffs/B03_FLOOR_01_02_SPEC_PLANS_HANDOFF.md`, which gives a parallel-worktree planning agent two single-file Floor 01/02 plans with goals, acceptance criteria, source mappings, broad phases/tasks, routing guardrails, and e2e/Playwright/Chrome DevTools AXI screenshot evidence requirements.
+- F1/F2 runtime semantic bundles, registry imports, multi-floor UI, and floor-scoped cross-floor constraints remain implementation work; no placeholder route data or unverified floor connection was added.

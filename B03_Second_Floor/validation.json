@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checks": {
+    "sourcePDFHashConfirmed": true,
+    "sourcePDFPageCountOne": true,
+    "sourcePagesNormalizedFromRotation270": true,
+    "singleSourceOnly": true,
+    "svgPathCountMatchesExtraction": true,
+    "roomSchedule01To27": true,
+    "noRoomLabelsEmitted": true,
+    "previewIsNotBlank": true,
+    "annotatedReferenceSVGParses": true,
+    "masterBoundingBoxRotated": true,
+    "sourceLayerAllowlistOnly": true
+  },
+  "sourceExtractedPathCount": 23975,
+  "masterVectorPathCount": 4569,
+  "roomScheduleCount": 27,
+  "previewSize": [
+    1750,
+    1533
+  ],
+  "darkPreviewPixelCount": 122326,
+  "sourceOriginalsUnchanged": true,
+  "seam": null,
+  "overlapGeometryMatches": null,
+  "notes": [
+    "Only 0002 PDF is used; no merge or seam applies.",
+    "Labels and room names are in JSON, not in clean SVG.",
+    "The main SVG is rotated to the sideways view seen in the reference screenshot.",
+    "Physical meter calibration is intentionally not claimed."
+  ]
+}

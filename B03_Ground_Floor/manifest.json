@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "generator": "B03_Ground_Floor/scripts/rebuild.py",
+  "buildingId": "B03",
+  "floorId": "GF",
+  "canonicalSource": "maps/B03/GF",
+  "files": {
+    "alignment.json": "2dc849ba75c72692af8517bdb75a9fbbbd39dd599b5fefab4208f0446ac0dbfc",
+    "inspection/0001.png": "071011c82d995d6b430c9f3920413ed4c9e8fa788e81a49dd095fcbdeb26b59b",
+    "inspection/0002.png": "4ac8753e43def6defccb61806b0f4903e1732d9e2b1574df0bd6f0053f93cc3c",
+    "inspection/master.png": "2d077ea5c1914a3f0e8c91995a2ad7d2b9093548e0d2aac280292500601d2b3e",
+    "master.svg": "3d86edacd2126b8c708c848ae5bb3e4ef6fc67637dd98b0b717b0e03a8b39107",
+    "README.md": "9aff709209d4b85c135f0a309da4ee40ea9c6c0590a1878a0b11b1aa3da6e27c",
+    "room-schedule.json": "cbb7b40e9e108f04811aa108635d365a0d455266c7d122fc5739f0e6995d5b4f",
+    "scripts/rebuild.py": "5a20e44d901b9464f0000cab45a230dd07c90a72edcabd788ff36557bdd7dd6c",
+    "source/0001.json": "d05b6b001f472407250554af6d4fa7f0521b1d1c2ff0f4a31d50cfda9423b4a8",
+    "source/0002.json": "9f96735e6471649dc5825059db9060c5ae9f1b6d33e2cc52a41f5a6d08596ac5",
+    "source/pdfs/2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf": "121e9e2f93d394f1589d0ecb9ec4fb9baff97504d428074bb45a431ec5ce6e36",
+    "source/pdfs/2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf": "990cda5bcfc25550d16955173b2c1f900c4bf3152c2a6e48f88a3e798812f493",
+    "source/room-schedule.json": "cbb7b40e9e108f04811aa108635d365a0d455266c7d122fc5739f0e6995d5b4f",
+    "validation.json": "34c145faf1b8b85fa966dbbe2ee4022bc41f3e7dcb1610a3504d9c6961ceab4c"
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "0002",
+  "status": "confirmed",
+  "rows": [
+    {
+      "code": "S-01",
+      "name": "CORRIDOR 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0132",
+      "nameTextId": "0002-text-0133",
+      "bbox": [
+        2380.98999,
+        195.62891,
+        2431.17285,
+        219.38965
+      ]
+    },
+    {
+      "code": "S-02",
+      "name": "CORRIDOR 2",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0134",
+      "nameTextId": "0002-text-0135",
+      "bbox": [
+        2379.42993,
+        256.43896,
+        2429.61279,
+        280.19971
+      ]
+    },
+    {
+      "code": "S-03",
+      "name": "CORRIDOR 3",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0136",
+      "nameTextId": "0002-text-0137",
+      "bbox": [
+        2379.34009,
+        315.59888,
+        2429.52295,
+        339.35962
+      ]
+    },
+    {
+      "code": "S-04",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0138",
+      "nameTextId": "0002-text-0139",
+      "bbox": [
+        2379.37012,
+        379.22876,
+        2429.55273,
+        402.98962
+      ]
+    },
+    {
+      "code": "S-05",
+      "name": "STAIR 03",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0140",
+      "nameTextId": "0002-text-0141",
+      "bbox": [
+        2379.28003,
+        449.45874,
+        2429.46289,
+        473.2196
+      ]
+    },
+    {
+      "code": "S-06",
+      "name": "FEMALE TOILET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0142",
+      "nameTextId": "0002-text-0143",
+      "bbox": [
+        2379.34009,
+        518.93872,
+        2429.52295,
+        542.69958
+      ]
+    },
+    {
+      "code": "S-07",
+      "name": "MALE TOILET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0144",
+      "nameTextId": "0002-text-0145",
+      "bbox": [
+        2379.34009,
+        576.32874,
+        2429.52295,
+        600.0896
+      ]
+    },
+    {
+      "code": "S-08",
+      "name": "LOBBY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0146",
+      "nameTextId": "0002-text-0147",
+      "bbox": [
+        2379.34009,
+        628.13879,
+        2429.52295,
+        651.89966
+      ]
+    },
+    {
+      "code": "S-09",
+      "name": "COPY ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0148",
+      "nameTextId": "0002-text-0149",
+      "bbox": [
+        2379.34009,
+        680.18872,
+        2429.52295,
+        703.94958
+      ]
+    },
+    {
+      "code": "S-10",
+      "name": "STAIR 04",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0150",
+      "nameTextId": "0002-text-0151",
+      "bbox": [
+        2379.37012,
+        749.75879,
+        2429.55273,
+        773.51965
+      ]
+    },
+    {
+      "code": "S-11",
+      "name": "CALIBRATION LAB",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0152",
+      "nameTextId": "0002-text-0153",
+      "bbox": [
+        2380.98999,
+        823.9187,
+        2431.17285,
+        847.67957
+      ]
+    },
+    {
+      "code": "S-12",
+      "name": "OFFICE AREA 4",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0154",
+      "nameTextId": "0002-text-0155",
+      "bbox": [
+        2379.42993,
+        895.6488,
+        2429.61279,
+        919.40967
+      ]
+    },
+    {
+      "code": "S-13",
+      "name": "MEETING ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0156",
+      "nameTextId": "0002-text-0157",
+      "bbox": [
+        2379.34009,
+        970.85876,
+        2429.52295,
+        994.61963
+      ]
+    },
+    {
+      "code": "S-14",
+      "name": "OFFICE AREA 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0158",
+      "nameTextId": "0002-text-0159",
+      "bbox": [
+        2379.37012,
+        1036.55872,
+        2429.55273,
+        1060.31958
+      ]
+    },
+    {
+      "code": "S-15",
+      "name": "OFFICE AREA 2",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0160",
+      "nameTextId": "0002-text-0161",
+      "bbox": [
+        2379.28003,
+        1103.87878,
+        2429.46289,
+        1127.63965
+      ]
+    },
+    {
+      "code": "S-16",
+      "name": "OFFICE AREA 3",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0162",
+      "nameTextId": "0002-text-0163",
+      "bbox": [
+        2379.34009,
+        1186.9187,
+        2429.52295,
+        1210.67957
+      ]
+    },
+    {
+      "code": "S-17",
+      "name": "IT ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0164",
+      "nameTextId": "0002-text-0165",
+      "bbox": [
+        2379.34009,
+        1283.69873,
+        2429.52295,
+        1307.45959
+      ]
+    },
+    {
+      "code": "S-18",
+      "name": "SECRETARY",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0166",
+      "nameTextId": "0002-text-0167",
+      "bbox": [
+        2379.34009,
+        1379.87878,
+        2429.52295,
+        1403.63965
+      ]
+    },
+    {
+      "code": "S-19",
+      "name": "ARCHIVES",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0168",
+      "nameTextId": "0002-text-0169",
+      "bbox": [
+        2379.34009,
+        1472.33887,
+        2429.52295,
+        1496.09961
+      ]
+    },
+    {
+      "code": "S-20",
+      "name": "CHAIRMAN",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0170",
+      "nameTextId": "0002-text-0171",
+      "bbox": [
+        2379.37012,
+        1561.55884,
+        2429.55273,
+        1585.31958
+      ]
+    },
+    {
+      "code": "S-21",
+      "name": "TOILET",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0172",
+      "nameTextId": "0002-text-0173",
+      "bbox": [
+        2380.98999,
+        1633.97876,
+        2431.17285,
+        1657.73962
+      ]
+    },
+    {
+      "code": "S-22",
+      "name": "EXECUTIVE BOARD 1",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0174",
+      "nameTextId": "0002-text-0175",
+      "bbox": [
+        2379.42993,
+        1706.3988,
+        2429.61279,
+        1730.15967
+      ]
+    },
+    {
+      "code": "S-23",
+      "name": "EXECUTIVE BOARD 2",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0176",
+      "nameTextId": "0002-text-0177",
+      "bbox": [
+        2379.34009,
+        1793.06885,
+        2429.52295,
+        1816.82959
+      ]
+    },
+    {
+      "code": "S-24",
+      "name": "OFFICE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0178",
+      "nameTextId": "0002-text-0179",
+      "bbox": [
+        2379.37012,
+        1876.58875,
+        2429.55273,
+        1900.34961
+      ]
+    },
+    {
+      "code": "S-25",
+      "name": "KITCHENETTE",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0180",
+      "nameTextId": "0002-text-0181",
+      "bbox": [
+        2379.28003,
+        1953.44873,
+        2429.46289,
+        1977.20959
+      ]
+    },
+    {
+      "code": "S-26",
+      "name": "VALVE ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0182",
+      "nameTextId": "0002-text-0183",
+      "bbox": [
+        2379.34009,
+        2026.85876,
+        2429.52295,
+        2050.61963
+      ]
+    },
+    {
+      "code": "S-27",
+      "name": "ELECTRIC ROOM",
+      "sourceId": "0002",
+      "page": 1,
+      "codeTextId": "0002-text-0184",
+      "nameTextId": "0002-text-0185",
+      "bbox": [
+        2379.34009,
+        2100.2688,
+        2429.52295,
+        2124.02954
+      ]
+    }
+  ]
+}

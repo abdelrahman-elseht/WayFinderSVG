@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "sourceOriginalsUnchanged": true,
+  "repeatRegenerationHashesMatch": true,
+  "masterVectorPathCount": 6322,
+  "overlapGeometryMatchesAt0_1PointQuantization": 474,
+  "maxLabelAnchorResidual": 0.00011,
+  "roomScheduleCount": 54,
+  "metricCalibration": "unknown; metersPerUnit null",
+  "visualInspection": [
+    "0001 full page",
+    "0002 full page",
+    "merged master after annotation cleanup"
+  ]
+}
