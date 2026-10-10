@@ -6,18 +6,20 @@ Use this handoff to create two independent, implementation-ready single-file spe
 
 Agents should update these checkboxes in their own worktree. Keep the work to four broad phases; the detailed tasks belong inside each floor's single plan file.
 
-- [ ] **Phase 1 — freeze source evidence**
-  - [ ] Read the repository guide, memory, runbook, and the applicable floor-pack README.
-  - [ ] Record floor ID, sheet scope, transform, viewBox, schedule count, calibration status, and source limits.
-- [ ] **Phase 2 — write two single-file plans**
-  - [ ] Create one `spec-plan.md` for Floor 01 and one for Floor 02.
-  - [ ] Put the goal, file mapping, acceptance criteria, and dependency-ordered implementation tasks in each file.
-- [ ] **Phase 3 — add validation tasks**
-  - [ ] Include source regeneration, semantic rooms/content, safe graph, 2.5D blocks, registry/UI, bilingual behavior, and cross-floor gating.
-  - [ ] Include e2e, Playwright MCP, Chrome DevTools AXI, screenshots, console/network/accessibility checks, and build checks.
-- [ ] **Phase 4 — review the two plans**
-  - [ ] Confirm each plan is self-contained for its worktree and does not require companion spec files.
-  - [ ] Confirm no plan invents geometry, height, scale, kiosk position, accessibility, or a vertical connection.
+- [x] **Phase 1 — freeze source evidence**
+  - [x] Read the repository guide, memory, runbook, and the applicable floor-pack README.
+  - [x] Record floor ID, sheet scope, transform, viewBox, schedule count, calibration status, and source limits.
+- [x] **Phase 2 — write two single-file plans**
+  - [x] Create one `spec-plan.md` for Floor 01 and one for Floor 02.
+  - [x] Put the goal, file mapping, acceptance criteria, and dependency-ordered implementation tasks in each file.
+- [x] **Phase 3 — add validation tasks**
+  - [x] Include source regeneration, semantic rooms/content, safe graph, 2.5D blocks, registry/UI, bilingual behavior, and cross-floor gating.
+  - [x] Include e2e, Playwright MCP, Chrome DevTools AXI, screenshots, console/network/accessibility checks, and build checks.
+- [x] **Phase 4 — review the two plans**
+  - [x] Confirm each plan is self-contained for its worktree and does not require companion spec files.
+  - [x] Confirm no plan invents geometry, height, scale, kiosk position, accessibility, or a vertical connection.
+
+Planning deliverables: [Floor 01 spec plan](../../specs/002-b03-first-floor-wayfinding/spec-plan.md) and [Floor 02 spec plan](../../specs/003-b03-second-floor-wayfinding/spec-plan.md). Each contains four implementation phases, 30 ordered tasks, 11 acceptance criteria, task/criterion traceability, source hashes and executable QA/evidence instructions. These checkmarks record planning completion only; implementation and acceptance checkboxes remain open inside each floor's plan.
 
 ## Deliverables expected from the planning agent
 
