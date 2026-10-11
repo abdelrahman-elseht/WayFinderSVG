@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "sourceOriginalsUnchanged": true,
+  "repeatRegenerationHashesMatch": true,
+  "masterVectorPathCount": 3966,
+  "overlapGeometryMatchesAt0_1PointQuantization": 442,
+  "scale": 0.75,
+  "uniformScaleValidatedByTextSizeRatio": true,
+  "maxLabelAnchorResidual": 0.01271,
+  "roomScheduleCount": 59,
+  "metricCalibration": "unknown; metersPerUnit null",
+  "svgPreviewPixels": [
+    1746,
+    951
+  ],
+  "visualInspection": [
+    "0001 full page",
+    "0002 full page",
+    "merged master after annotation cleanup",
+    "joined-seam detail"
+  ],
+  "sourceFiles": {
+    "0001": "source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0001-00.pdf",
+    "0002": "source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0002-00.pdf"
+  }
+}

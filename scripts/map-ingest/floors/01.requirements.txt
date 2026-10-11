@@ -1,0 +1,5 @@
+# The immutable accepted pack was extracted with this version, distinct from GF.
+PyMuPDF==1.26.7
+CairoSVG==2.8.2
+Pillow==12.1.1
+pycairo==1.29.2; sys_platform == 'win32'

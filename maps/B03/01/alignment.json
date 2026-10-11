@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "buildingId": "B03",
+  "floorId": "01",
+  "coordinateSystem": "PDF display points, x right, y down; master origin equals sheet 0001 display origin",
+  "viewBox": [
+    580.0,
+    315.0,
+    2910.0,
+    1585.0
+  ],
+  "seamX": 2055.0,
+  "sources": [
+    {
+      "id": "0001",
+      "file": "2761-SOD-B03-DWG-AAR-15-01-Z-0001-00.pdf",
+      "displayToMaster": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "planCrop": [
+        600,
+        330,
+        2160,
+        1830
+      ],
+      "exclusions": []
+    },
+    {
+      "id": "0002",
+      "file": "2761-SOD-B03-DWG-AAR-15-01-Z-0002-00.pdf",
+      "displayToMaster": [
+        0.75,
+        0,
+        0,
+        0.75,
+        1444.55,
+        182.41
+      ],
+      "planCrop": [
+        280,
+        225,
+        2635,
+        2190
+      ],
+      "exclusions": []
+    }
+  ],
+  "keepLayers": [
+    "A-CONC",
+    "A-WALL",
+    "A-WALL-02",
+    "A-DOOR",
+    "A-GYPSUM BOARD",
+    "A-INT-GLAZ-01",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-WALL",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-GLAZ",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-ELEV",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-WALL-PART",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-DOOR",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-HANDRAIL",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-FLOR-STRS",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-ELEV",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-FIXT",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-FURN-FIXD",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-FLOR-PFIX",
+    "03-XA-B03-CORE FIRST$0$A-WALL",
+    "03-XA-B03-CORE FIRST$0$A-FLOR-STRS",
+    "03-XA-B03-CORE FIRST$0$A-FURN-FIXD",
+    "03-XA-B03-CORE FIRST$0$A-HANDRAIL",
+    "00-XA-B03-CORE TOILET$0$A-WALL-PART"
+  ],
+  "alignmentAnchorTexts": [
+    "IT ROOM",
+    "ELECT ROOM",
+    "LIBRARY",
+    "STAIR 05",
+    "LABS OPERATIONS",
+    "STUNTING TRAINING"
+  ],
+  "calibration": {
+    "status": "unknown",
+    "metersPerUnit": null,
+    "reason": "No verified drawing dimension endpoints and scale value have been paired. PDF display points are not building meters."
+  },
+  "excludedAnnotationLayers": {
+    "A-TBLK": "Sheet title block graphic components",
+    "A-ANNO-TEXT": "Nonarchitectural annotations / outlined lettering",
+    "TEXT": "Outlined text and schedule graphics",
+    "Axes": "Structural layout axes",
+    "Z-K-AXES": "Structural grid axes",
+    "DIM-AXES": "Dimensions and axis markers",
+    "A-BW-HATCH": "Hatch patterns excluded for a clean line plan",
+    "A-CONC-PATT": "Concrete hatching excluded; concrete outline retained",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-ELEV-TN03": "Small repetitive facade elevation strokes not required for clean plan",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-MULLION": "High-density facade mullion details excluded from clean plan",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-FLOR-OVHD": "Overhead floor linework excluded as in the previous clean architecture merge"
+  },
+  "status": "confirmed",
+  "alignmentMethod": "PDF page rotation normalized first; fixed uniform 0.75 scale and translation verified across six shared room-label origins and overlapping architectural geometry.",
+  "rawToDisplay": [
+    0.0,
+    -1.0,
+    1.0,
+    0.0,
+    0.0,
+    2384.0
+  ],
+  "scale": 0.75,
+  "translation": [
+    1444.55,
+    182.41
+  ],
+  "anchors": [
+    {
+      "text": "IT ROOM",
+      "source0001": [
+        1760.07007,
+        642.39001
+      ],
+      "source0002": [
+        420.69019,
+        613.29004
+      ],
+      "observedTranslation": [
+        1444.55243,
+        182.42248
+      ],
+      "residual": 0.01271,
+      "source0001TextId": "0001-text-0083",
+      "source0002TextId": "0002-text-0142"
+    },
+    {
+      "text": "ELECT ROOM",
+      "source0001": [
+        1762.71008,
+        518.43005
+      ],
+      "source0002": [
+        424.19995,
+        448.02002
+      ],
+      "observedTranslation": [
+        1444.56012,
+        182.41504
+      ],
+      "residual": 0.0113,
+      "source0001TextId": "0001-text-0086",
+      "source0002TextId": "0002-text-0145"
+    },
+    {
+      "text": "LIBRARY",
+      "source0001": [
+        1862.48999,
+        971.88
+      ],
+      "source0002": [
+        557.25,
+        1052.64001
+      ],
+      "observedTranslation": [
+        1444.55249,
+        182.39999
+      ],
+      "residual": 0.01031,
+      "source0001TextId": "0001-text-0080",
+      "source0002TextId": "0002-text-0139"
+    },
+    {
+      "text": "STAIR 05",
+      "source0001": [
+        2011.77002,
+        513.33008
+      ],
+      "source0002": [
+        756.30005,
+        441.23999
+      ],
+      "observedTranslation": [
+        1444.54498,
+        182.40009
+      ],
+      "residual": 0.01111,
+      "source0001TextId": "0001-text-0074",
+      "source0002TextId": "0002-text-0133"
+    },
+    {
+      "text": "LABS OPERATIONS",
+      "source0001": [
+        1797.51001,
+        1359.27002
+      ],
+      "source0002": [
+        470.61011,
+        1569.15002
+      ],
+      "observedTranslation": [
+        1444.55243,
+        182.4075
+      ],
+      "residual": 0.00348,
+      "source0001TextId": "0001-text-0155",
+      "source0002TextId": "0002-text-0159"
+    },
+    {
+      "text": "STUNTING TRAINING",
+      "source0001": [
+        1660.77002,
+        1371.68994
+      ],
+      "source0002": [
+        288.30005,
+        1585.70996
+      ],
+      "observedTranslation": [
+        1444.54498,
+        182.40747
+      ],
+      "residual": 0.00562,
+      "source0001TextId": "0001-text-0152",
+      "source0002TextId": "0002-text-0156"
+    }
+  ],
+  "maxAnchorResidual": 0.01271,
+  "overlapGeometryMatchesAt0_1PointQuantization": 442,
+  "keptPaths": {
+    "0001": 1995,
+    "0002": 1971
+  },
+  "sourceHashes": {
+    "0001": "cbcc2829f84f9bb336fb17db0f22d605aeaf710e52a813178e47a66a3f8bda94",
+    "0002": "882ed490480ecc66adf01d34affb5b56242a7cc47db30761591098f464f561c2"
+  },
+  "cleaning": "Explicit CAD layer allowlist plus source plan bounding boxes. Title blocks, schedules, grid axes, dimensions, hatches, text and detail-only vector layers omitted. The original matched geometry is clipped at the seam."
+}

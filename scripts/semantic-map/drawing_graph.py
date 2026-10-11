@@ -7,9 +7,14 @@ from shapely.geometry import Point, LineString, Polygon, box
 from shapely.ops import unary_union
 from shapely import set_precision, contains_xy, constrained_delaunay_triangles, prepare, linestrings, covers
 import numpy as np
-from explore import ROOT
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2]
 
-def derive(rooms,walls,seals):
+def derive(rooms,walls,seals,*,context=None,config=None):
+ if context is not None:
+  from floor_01_graph import derive as derive_floor_01
+  nodes,edges,areas,evidence,missing,topology=derive_floor_01(rooms,context,config)
+  return nodes,edges,evidence,areas,missing,topology
  cfg=json.loads((ROOT/'scripts/semantic-map/navigation-config.json').read_text(encoding='utf8'))
  wall=unary_union([set_precision(w,.01) for w in walls])
  regions=unary_union([LineString(p).buffer(cfg['corridorHalfWidth'],cap_style=2,join_style=2) for p in cfg['corridorSpines']])

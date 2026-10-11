@@ -3,6 +3,8 @@ node_modules/
 *.tsbuildinfo
 __pycache__/
 .venv/
+.venv-source-*/
+.e2e/
 test-results/
 playwright-report/
 tmp/

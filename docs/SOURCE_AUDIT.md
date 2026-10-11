@@ -1,5 +1,13 @@
 # B03 Ground Floor source audit
 
+## First Floor phase 1 source adapter
+
+`scripts/map-ingest/floors/01.json` selects the immutable `B03_First_Floor` pack. Its two originals retain SHA-256 `cbcc2829f84f9bb336fb17db0f22d605aeaf710e52a813178e47a66a3f8bda94` and `882ed490480ecc66adf01d34affb5b56242a7cc47db30761591098f464f561c2`. The master has viewBox `[580,315,2910,1585]`, seam x=2055, identity Part 01 and `[.75,0,0,.75,1444.55,182.41]` Part 02 transforms. Six anchors have maximum residual .01271; 442 overlap matches and 3,966 retained vector paths remain unchanged. Calibration is unknown.
+
+The accepted extractor is **PyMuPDF 1.26.7**, distinct from the GF pin. Install `scripts/map-ingest/floors/01.requirements.txt` into `.venv-source-01`. The wrapper runs the unchanged pack script in disposable copies, supplies Windows PyCairo when needed, normalizes source JSON paths/line endings, and explicitly encodes regenerated seam PNG scanlines with zlib level 6, memory level 9, filtered strategy and 65,536-byte IDAT chunks. This reproduces accepted bytes without copying an accepted preview into the rebuild. Every manifest entry, including original PDFs and all four PNGs, must match on both runs. Failed verification leaves the accepted pack untouched.
+
+`npm run ingest -- --building B03 --floor 01` copies verified canonical assets into `maps/B03/01`; original PDF references remain private pack paths. `npm run review:maps -- --building B03 --floor 01` repeats the source gate and semantic review. Full command evidence is recorded under T001–T005 in the First Floor spec-plan.
+
 ## Sources and inspection
 
 Both source files remain unchanged at repository root:

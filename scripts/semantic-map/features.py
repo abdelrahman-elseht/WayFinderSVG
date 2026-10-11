@@ -1,6 +1,8 @@
 """Source rail envelopes; features never imply inter-floor routing."""
 from shapely.geometry import MultiPoint
-def derive_features(read):
+def derive_features(read, floor_id='GF'):
+    if floor_id != 'GF':
+        return read(f'scripts/semantic-map/floors/{floor_id}.json')['mapFeatures']
     source=read('maps/B03/GF/source/0001.json'); paths={p['id']:p for p in source['paths']}; out=[]
     for side,ids,ar in [('west',['0001-path-08616','0001-path-08574'],'الغربي'),('east',['0001-path-08684','0001-path-08642'],'الشرقي')]:
         pts=[xy for i in ids for it in paths[i]['items'] for xy in it['points']]; poly=MultiPoint(pts).convex_hull

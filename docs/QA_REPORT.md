@@ -1,5 +1,23 @@
 # Independent QA report — R2
 
+## First Floor phase 1–2 verification (2026-10-10)
+
+T001–T014 are implemented and evidenced in `specs/002-b03-first-floor-wayfinding/spec-plan.md`. The selected `npm.cmd run pipeline -- --building B03 --floor 01` passes two byte-identical accepted source rebuilds, two source adapters, two semantic generations, independent checks and asset preparation. Both original PDF hashes remain unchanged. Repeated semantic overlay and canonical/public SVG hashes match. GF retains its geometry/graph/content/origin; only shared building registration metadata changes. All 34 other-floor baseline artifacts pass ownership comparison, and Floor 02 has no changes.
+
+All 59 schedule rows are accounted for: 54 mapped records, 38 candidate contours and 16 markers, with five individually evidenced missing-marker exceptions. The final graph contains 307 nodes, 420 edges and 51 approaches. Original-source QA passes **18,425 assertions** with zero wall contacts or room shortcuts. The production-router matrix accounts for **3,481 pairs**: 2,444 connected, 51 self, 6 shared-approach, 100 disconnected, 315 unsupported and 565 unmapped. It has 1,274 successful cross-seam pairs and zero unexpected results. F-57's local approach remains disconnected; F-17/F-30/F-49 remain unsupported. Topology verifies 1,225 connected unordered pairs and 115 cycles; the rooted-tree negative control rejects 1,121 detours.
+
+Validation: `validate:data`, all 21 `test:data` rejection checks, typecheck, **149 Vitest tests across 14 files**, and production builds for configured `01` and default GF pass. Unregistered floor `99` and a GF kiosk configured on `01` correctly fail builds. The full router matrix uses a 600-second timeout and the complete single-worker Vitest run passes; no pairs are sampled away.
+
+**Nine First Floor Playwright tests pass**, covering configured assets/privacy, inventory and bilingual search, keyboard/source-marker selection, cross-seam/reversed/shared-suite routes, unsupported and no-origin states, accessibility exclusion, reset/playback, five axe WCAG AA states, RTL, 390px mobile, enlarged text, forced colors and WebGL fallback. Playwright MCP and Chrome DevTools AXI independently exercised live production selection/routes/Arabic/mobile and captured screenshots/network logs. No application exceptions or unexpected app-resource failures were observed; the inherited missing favicon remains 404. All evidence is under `artifacts/qa/floor-01/`, including screenshot dimensions/configuration metadata.
+
+Tester-army/e2e reports **one deterministic pass and one explicit agent-test skip**: no provider key or saved subscription login is available. This is a model-driven QA blocker, not agentic coverage. The report and trace are archived as `army-report.json` and `army-traces/`.
+
+The default GF Playwright suite reports **12 passed, one failed**, including the existing expected availability-gating failure. Its visual test differs by 22,356 pixels (2%) at `r2-default-en.png`: the saved image uses an older graduation icon, code-only map labels and palette; current unchanged UI/renderer files use the academy logo, named labels and current palette. Expected/actual/diff images and trace remain under `gf-regression/browser-tests/`; golden images were preserved. Stale functional tests were corrected to enter Navigate explicitly, respect automatic reduced-motion completion, use the fallback directory and control playback with Playwright's clock. These are test maintenance changes, not UI implementation.
+
+Visual inspection also found black room roofs in AXI Chrome's route/mobile captures, while its default capture and Playwright route captures show expected shading. The images retain this observed renderer issue for phase 3/4 diagnosis; no cross-browser visual approval is claimed.
+
+Interactive floor switching, source-texture aspect registration, availability gating and remaining product integration belong to phase 3. Overall feature/release criteria remain open; no facility access, kiosk location, physical scale or vertical connection approval is asserted.
+
 Status: **production QA passed for drawing-based approach planning, with three explicitly partial exterior destinations** (20 September 2026).
 
 ## Source and geometry

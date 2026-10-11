@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "0001",
+  "status": "confirmed",
+  "rows": [
+    {
+      "code": "F-01",
+      "name": "CORRIDOR 1",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0166",
+      "nameTextId": "0001-text-0167",
+      "bbox": [
+        2242.37988,
+        131.3291,
+        2290.41016,
+        154.68994
+      ]
+    },
+    {
+      "code": "F-02",
+      "name": "CORRIDOR 2",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0168",
+      "nameTextId": "0001-text-0169",
+      "bbox": [
+        2240.8501,
+        160.09912,
+        2288.88037,
+        183.45996
+      ]
+    },
+    {
+      "code": "F-03",
+      "name": "CORRIDOR 3",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0170",
+      "nameTextId": "0001-text-0171",
+      "bbox": [
+        2240.76001,
+        190.39917,
+        2288.79028,
+        213.76001
+      ]
+    },
+    {
+      "code": "F-04",
+      "name": "CORRIDOR 4",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0172",
+      "nameTextId": "0001-text-0173",
+      "bbox": [
+        2240.79004,
+        219.94922,
+        2288.82031,
+        243.31006
+      ]
+    },
+    {
+      "code": "F-05",
+      "name": "CORRIDOR 5",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0174",
+      "nameTextId": "0001-text-0175",
+      "bbox": [
+        2240.7002,
+        254.14917,
+        2288.73047,
+        277.51001
+      ]
+    },
+    {
+      "code": "F-06",
+      "name": "CORRIDOR 6",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0176",
+      "nameTextId": "0001-text-0177",
+      "bbox": [
+        2240.79004,
+        284.9292,
+        2288.82031,
+        308.29004
+      ]
+    },
+    {
+      "code": "F-07",
+      "name": "BUSINESS DEVELOPMENT",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0178",
+      "nameTextId": "0001-text-0179",
+      "bbox": [
+        2240.76001,
+        319.27905,
+        2288.79028,
+        342.64014
+      ]
+    },
+    {
+      "code": "F-08",
+      "name": "INCUBATOR 1",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0180",
+      "nameTextId": "0001-text-0181",
+      "bbox": [
+        2240.76001,
+        354.8291,
+        2288.79028,
+        378.19019
+      ]
+    },
+    {
+      "code": "F-09",
+      "name": "INCUBATOR 2",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0182",
+      "nameTextId": "0001-text-0183",
+      "bbox": [
+        2240.76001,
+        383.20911,
+        2288.79028,
+        406.57019
+      ]
+    },
+    {
+      "code": "F-10",
+      "name": "STORAGE",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0184",
+      "nameTextId": "0001-text-0185",
+      "bbox": [
+        2240.79004,
+        416.41907,
+        2288.82031,
+        439.78015
+      ]
+    },
+    {
+      "code": "F-11",
+      "name": "BIONICS AND REHABILITATION LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0186",
+      "nameTextId": "0001-text-0187",
+      "bbox": [
+        2242.37988,
+        456.85901,
+        2290.41016,
+        480.22009
+      ]
+    },
+    {
+      "code": "F-12",
+      "name": "FEMALE CHANGING ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0188",
+      "nameTextId": "0001-text-0189",
+      "bbox": [
+        2240.8501,
+        503.83911,
+        2288.88037,
+        527.2002
+      ]
+    },
+    {
+      "code": "F-13",
+      "name": "MALE CHANGING ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0190",
+      "nameTextId": "0001-text-0191",
+      "bbox": [
+        2240.76001,
+        548.29907,
+        2288.79028,
+        571.66016
+      ]
+    },
+    {
+      "code": "F-14",
+      "name": "RECORDING ROOM 1",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0192",
+      "nameTextId": "0001-text-0193",
+      "bbox": [
+        2240.79004,
+        586.78906,
+        2288.82031,
+        610.15015
+      ]
+    },
+    {
+      "code": "F-15",
+      "name": "RECORDING ROOM 2",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0194",
+      "nameTextId": "0001-text-0195",
+      "bbox": [
+        2240.7002,
+        624.79907,
+        2288.73047,
+        648.16016
+      ]
+    },
+    {
+      "code": "F-16",
+      "name": "RECORDING ROOM 3",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0196",
+      "nameTextId": "0001-text-0197",
+      "bbox": [
+        2240.79004,
+        664.5791,
+        2288.82031,
+        687.94019
+      ]
+    },
+    {
+      "code": "F-17",
+      "name": "STAIR 03",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0198",
+      "nameTextId": "0001-text-0199",
+      "bbox": [
+        2240.76001,
+        707.83911,
+        2288.79028,
+        731.2002
+      ]
+    },
+    {
+      "code": "F-18",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0200",
+      "nameTextId": "0001-text-0201",
+      "bbox": [
+        2240.76001,
+        748.21899,
+        2288.79028,
+        771.58008
+      ]
+    },
+    {
+      "code": "F-19",
+      "name": "VALVE ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0202",
+      "nameTextId": "0001-text-0203",
+      "bbox": [
+        2240.76001,
+        787.78906,
+        2288.79028,
+        811.15015
+      ]
+    },
+    {
+      "code": "F-20",
+      "name": "HEARING DIFFICULTIES TRAINING 1",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0204",
+      "nameTextId": "0001-text-0205",
+      "bbox": [
+        2240.79004,
+        836.65906,
+        2288.82031,
+        860.02014
+      ]
+    },
+    {
+      "code": "F-21",
+      "name": "HEARING DIFFICULTIES TRAINING 2",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0206",
+      "nameTextId": "0001-text-0207",
+      "bbox": [
+        2242.37988,
+        892.03906,
+        2290.41016,
+        915.40015
+      ]
+    },
+    {
+      "code": "F-22",
+      "name": "LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0208",
+      "nameTextId": "0001-text-0209",
+      "bbox": [
+        2240.8501,
+        935.4491,
+        2288.88037,
+        958.81018
+      ]
+    },
+    {
+      "code": "F-23",
+      "name": "FEMALE TOILET",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0210",
+      "nameTextId": "0001-text-0211",
+      "bbox": [
+        2240.76001,
+        974.08899,
+        2288.79028,
+        997.45007
+      ]
+    },
+    {
+      "code": "F-24",
+      "name": "MALE TOILET",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0212",
+      "nameTextId": "0001-text-0213",
+      "bbox": [
+        2240.79004,
+        1015.54907,
+        2288.82031,
+        1038.91016
+      ]
+    },
+    {
+      "code": "F-25",
+      "name": "MULTI-PURPOSE TRAINING",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0214",
+      "nameTextId": "0001-text-0215",
+      "bbox": [
+        2240.7002,
+        1055.20911,
+        2288.73047,
+        1078.57019
+      ]
+    },
+    {
+      "code": "F-26",
+      "name": "STORAGE",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0216",
+      "nameTextId": "0001-text-0217",
+      "bbox": [
+        2240.79004,
+        1093.90906,
+        2288.82031,
+        1117.27014
+      ]
+    },
+    {
+      "code": "F-27",
+      "name": "STAIR 04",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0218",
+      "nameTextId": "0001-text-0219",
+      "bbox": [
+        2240.76001,
+        1131.67908,
+        2288.79028,
+        1155.04016
+      ]
+    },
+    {
+      "code": "F-28",
+      "name": "LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0220",
+      "nameTextId": "0001-text-0221",
+      "bbox": [
+        2240.76001,
+        1169.08899,
+        2288.79028,
+        1192.45007
+      ]
+    },
+    {
+      "code": "F-29",
+      "name": "STORAGE",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0222",
+      "nameTextId": "0001-text-0223",
+      "bbox": [
+        2240.76001,
+        1202.71899,
+        2288.79028,
+        1226.08008
+      ]
+    },
+    {
+      "code": "F-30",
+      "name": "STAIR 02",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0224",
+      "nameTextId": "0001-text-0225",
+      "bbox": [
+        2240.79004,
+        1235.02905,
+        2288.82031,
+        1258.39014
+      ]
+    },
+    {
+      "code": "F-31",
+      "name": "LIBRARY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0226",
+      "nameTextId": "0001-text-0227",
+      "bbox": [
+        2242.37988,
+        1271.20898,
+        2290.41016,
+        1294.57007
+      ]
+    },
+    {
+      "code": "F-32",
+      "name": "LABS OPERATIONS",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0228",
+      "nameTextId": "0001-text-0229",
+      "bbox": [
+        2240.8501,
+        1308.8291,
+        2288.88037,
+        1332.19019
+      ]
+    },
+    {
+      "code": "F-33",
+      "name": "STUNTING TRAINING",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0230",
+      "nameTextId": "0001-text-0231",
+      "bbox": [
+        2240.76001,
+        1346.59912,
+        2288.79028,
+        1369.96021
+      ]
+    },
+    {
+      "code": "F-34",
+      "name": "INTELLECTUAL DIFFICULTIES LAB 1",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0232",
+      "nameTextId": "0001-text-0233",
+      "bbox": [
+        2240.79004,
+        1387.54907,
+        2288.82031,
+        1410.91016
+      ]
+    },
+    {
+      "code": "F-35",
+      "name": "VR LAB 2",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0234",
+      "nameTextId": "0001-text-0235",
+      "bbox": [
+        2240.7002,
+        1427.08911,
+        2288.73047,
+        1450.4502
+      ]
+    },
+    {
+      "code": "F-36",
+      "name": "ELECTRONICS AND ROBOTICS LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0236",
+      "nameTextId": "0001-text-0237",
+      "bbox": [
+        2240.79004,
+        1466.80908,
+        2288.82031,
+        1490.17017
+      ]
+    },
+    {
+      "code": "F-37",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0238",
+      "nameTextId": "0001-text-0239",
+      "bbox": [
+        2240.76001,
+        1507.75903,
+        2288.79028,
+        1531.12012
+      ]
+    },
+    {
+      "code": "F-38",
+      "name": "STAIR 01",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0240",
+      "nameTextId": "0001-text-0241",
+      "bbox": [
+        2240.76001,
+        1545.76904,
+        2288.79028,
+        1569.13013
+      ]
+    },
+    {
+      "code": "F-39",
+      "name": "PRAYER ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0242",
+      "nameTextId": "0001-text-0243",
+      "bbox": [
+        2240.76001,
+        1582.5791,
+        2288.79028,
+        1605.94019
+      ]
+    },
+    {
+      "code": "F-40",
+      "name": "PANTRY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0244",
+      "nameTextId": "0001-text-0245",
+      "bbox": [
+        2240.79004,
+        1617.0791,
+        2288.82031,
+        1640.44019
+      ]
+    },
+    {
+      "code": "F-41",
+      "name": "COPY ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0246",
+      "nameTextId": "0001-text-0247",
+      "bbox": [
+        2242.37988,
+        1652.23901,
+        2290.41016,
+        1675.6001
+      ]
+    },
+    {
+      "code": "F-42",
+      "name": "STAFF",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0248",
+      "nameTextId": "0001-text-0249",
+      "bbox": [
+        2240.8501,
+        1689.52905,
+        2288.88037,
+        1712.89014
+      ]
+    },
+    {
+      "code": "F-43",
+      "name": "GARBAGE CHUTE",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0250",
+      "nameTextId": "0001-text-0251",
+      "bbox": [
+        2240.76001,
+        1729.12915,
+        2288.79028,
+        1752.49011
+      ]
+    },
+    {
+      "code": "F-44",
+      "name": "MALE TOILET",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0252",
+      "nameTextId": "0001-text-0253",
+      "bbox": [
+        2240.79004,
+        1766.20911,
+        2288.82031,
+        1789.57007
+      ]
+    },
+    {
+      "code": "F-45",
+      "name": "LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0254",
+      "nameTextId": "0001-text-0255",
+      "bbox": [
+        2240.7002,
+        1798.45911,
+        2288.73047,
+        1821.82007
+      ]
+    },
+    {
+      "code": "F-46",
+      "name": "SERVICES",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0256",
+      "nameTextId": "0001-text-0257",
+      "bbox": [
+        2240.79004,
+        1836.37915,
+        2288.82031,
+        1859.74011
+      ]
+    },
+    {
+      "code": "F-47",
+      "name": "STORAGE",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0258",
+      "nameTextId": "0001-text-0259",
+      "bbox": [
+        2240.76001,
+        1876.60913,
+        2288.79028,
+        1899.97009
+      ]
+    },
+    {
+      "code": "F-48",
+      "name": "FEMALE TOILET",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0260",
+      "nameTextId": "0001-text-0261",
+      "bbox": [
+        2240.76001,
+        1915.6991,
+        2288.79028,
+        1939.06006
+      ]
+    },
+    {
+      "code": "F-49",
+      "name": "SERVICE CORRIDOR",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0262",
+      "nameTextId": "0001-text-0263",
+      "bbox": [
+        2240.76001,
+        1955.08911,
+        2288.79028,
+        1978.45007
+      ]
+    },
+    {
+      "code": "F-50",
+      "name": "WET LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0264",
+      "nameTextId": "0001-text-0265",
+      "bbox": [
+        2240.79004,
+        1993.03906,
+        2288.82031,
+        2016.40015
+      ]
+    },
+    {
+      "code": "F-51",
+      "name": "LOT LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0266",
+      "nameTextId": "0001-text-0267",
+      "bbox": [
+        2242.37988,
+        2030.53906,
+        2290.41016,
+        2053.90015
+      ]
+    },
+    {
+      "code": "F-52",
+      "name": "ADVANCED ENGINEERING LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0268",
+      "nameTextId": "0001-text-0269",
+      "bbox": [
+        2240.8501,
+        2068.69897,
+        2288.88037,
+        2092.06006
+      ]
+    },
+    {
+      "code": "F-53",
+      "name": "MEETING ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0270",
+      "nameTextId": "0001-text-0271",
+      "bbox": [
+        2240.76001,
+        2105.41895,
+        2288.79028,
+        2128.78003
+      ]
+    },
+    {
+      "code": "F-54",
+      "name": "VISUAL TRAINING LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0272",
+      "nameTextId": "0001-text-0273",
+      "bbox": [
+        2240.79004,
+        2139.91895,
+        2288.82031,
+        2163.28003
+      ]
+    },
+    {
+      "code": "F-55",
+      "name": "AL LAB",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0274",
+      "nameTextId": "0001-text-0275",
+      "bbox": [
+        2240.7002,
+        2169.61914,
+        2288.73047,
+        2192.97998
+      ]
+    },
+    {
+      "code": "F-56",
+      "name": "IT ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0276",
+      "nameTextId": "0001-text-0277",
+      "bbox": [
+        2240.79004,
+        2194.69897,
+        2288.82031,
+        2218.06006
+      ]
+    },
+    {
+      "code": "F-57",
+      "name": "ELECT ROOM",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0278",
+      "nameTextId": "0001-text-0279",
+      "bbox": [
+        2240.76001,
+        2221.75903,
+        2288.79028,
+        2245.12012
+      ]
+    },
+    {
+      "code": "F-58",
+      "name": "ELEVATOR LOBBY",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0280",
+      "nameTextId": "0001-text-0281",
+      "bbox": [
+        2240.76001,
+        2255.56909,
+        2288.79028,
+        2278.93018
+      ]
+    },
+    {
+      "code": "F-59",
+      "name": "STAIR 05",
+      "sourceId": "0001",
+      "page": 1,
+      "codeTextId": "0001-text-0282",
+      "nameTextId": "0001-text-0283",
+      "bbox": [
+        2240.76001,
+        2289.79907,
+        2288.79028,
+        2313.16016
+      ]
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "schemaVersion": "report-1",
+  "run": {
+    "id": "01a12786-d880-7ddc-a63e-2e423837c9ef",
+    "specVersion": "0.1",
+    "runner": {
+      "name": "e2e",
+      "version": "0.19.0"
+    },
+    "status": "passed",
+    "exitCode": 0,
+    "startedAt": "2026-10-10T20:35:11.836Z",
+    "finishedAt": "2026-10-10T20:35:25.923Z",
+    "project": {
+      "id": "academy-wayfinding",
+      "configDigest": "0c5d47d3554747d9285a3acd8ac739ccdbc6e0ec3be4191bb64c148c7c403dc9"
+    },
+    "environment": {
+      "ci": false,
+      "trustNoticeShown": false,
+      "os": "win32 10.0.19045",
+      "arch": "x64",
+      "runtime": "node v22.23.2"
+    },
+    "vcs": {
+      "commit": "bf68f7b93274d13b1ea033f0e871dc035fa3d341",
+      "branch": "codex/b03-first-floor-wayfinding",
+      "dirty": true
+    },
+    "targets": [
+      {
+        "id": "web",
+        "index": 0,
+        "platform": "web",
+        "baseOrigin": "http://localhost:3101",
+        "environment": "test",
+        "engine": {
+          "name": "web",
+          "version": "0.14.0",
+          "spiVersion": 1
+        },
+        "capabilities": [
+          "actions",
+          "artifacts",
+          "browser",
+          "keyboard",
+          "location",
+          "observation",
+          "pointer",
+          "state"
+        ],
+        "artifactCapabilities": [
+          "screenshot",
+          "video"
+        ],
+        "stateCapability": true
+      }
+    ],
+    "serialGroups": [],
+    "results": [
+      {
+        "id": "11777505234df049d5ae2344ecebef22261d572defaf83ba11a94a0be6b56798",
+        "testId": "tests/agentic/floor-01.e2e.ts::configured%20First%20Floor%20directory%20and%20prepared%20map%20asset",
+        "kind": "test",
+        "declarationIndex": 0,
+        "titlePath": [
+          "configured First Floor directory and prepared map asset"
+        ],
+        "file": "tests/agentic/floor-01.e2e.ts",
+        "source": {
+          "file": "tests/agentic/floor-01.e2e.ts",
+          "line": 4,
+          "column": 1
+        },
+        "targetId": "web",
+        "platform": "web",
+        "agent": "default",
+        "repeat": 0,
+        "tags": [],
+        "selected": true,
+        "status": "passed",
+        "attempts": [
+          {
+            "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9",
+            "index": 0,
+            "status": "passed",
+            "startedAt": "2026-10-10T20:35:12.854Z",
+            "durationMs": 7651,
+            "artifacts": [],
+            "secondaryErrors": [],
+            "cleanup": "complete",
+            "environment": {
+              "browser": "chromium 153.0.8010.12",
+              "user agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36"
+            },
+            "steps": [
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:0",
+                "index": 0,
+                "kind": "app",
+                "api": "app.open",
+                "label": "/",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:13.008Z",
+                "durationMs": 517,
+                "events": [
+                  {
+                    "kind": "navigation",
+                    "startedAt": "2026-10-10T20:35:13.406Z",
+                    "durationMs": 0,
+                    "status": "passed",
+                    "detail": "navigated to http://localhost:3101/"
+                  }
+                ],
+                "artifacts": [],
+                "screen": {
+                  "location": "http://localhost:3101/",
+                  "nodes": 181,
+                  "changes": []
+                },
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:1",
+                "index": 1,
+                "kind": "assertion",
+                "api": "expect.toHaveValue",
+                "label": "getByRole(\"combobox\", name: \"Floor\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:13.532Z",
+                "durationMs": 53,
+                "events": [
+                  {
+                    "kind": "poll",
+                    "name": "expect",
+                    "startedAt": "2026-10-10T20:35:13.533Z",
+                    "durationMs": 52,
+                    "status": "passed",
+                    "count": 1
+                  }
+                ],
+                "artifacts": [],
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:2",
+                "index": 2,
+                "kind": "locator",
+                "api": "locator.tap",
+                "label": "getByRole(\"button\", name: \"Browse\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:13.585Z",
+                "durationMs": 3134,
+                "events": [
+                  {
+                    "kind": "engine",
+                    "name": "tap",
+                    "startedAt": "2026-10-10T20:35:13.586Z",
+                    "durationMs": 3134,
+                    "status": "passed",
+                    "detail": "tap button \"Browse\""
+                  }
+                ],
+                "artifacts": [],
+                "screen": {
+                  "location": "http://localhost:3101/",
+                  "nodes": 472,
+                  "since": 0,
+                  "changes": [
+                    "changed button \"Browse\" [pressed] (was: button \"Browse\")",
+                    "changed button \"Navigate\" (was: button \"Navigate\" [pressed])",
+                    "added text=\"Search rooms\"",
+                    "added searchbox \"Search rooms\"",
+                    "added text=\"Filter by category\"",
+                    "added combobox \"Filter by category\" value=\"all\"",
+                    "added option \"All spaces\" [selected]",
+                    "added option \"Circulation\"",
+                    "added option \"Office\"",
+                    "added option \"Other\"",
+                    "added option \"Laboratory\"",
+                    "added option \"Restroom\""
+                  ],
+                  "more": 519
+                },
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:3",
+                "index": 3,
+                "kind": "assertion",
+                "api": "expect.toBeVisible",
+                "label": "getByRole(\"searchbox\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:16.731Z",
+                "durationMs": 235,
+                "events": [
+                  {
+                    "kind": "poll",
+                    "name": "expect",
+                    "startedAt": "2026-10-10T20:35:16.731Z",
+                    "durationMs": 235,
+                    "status": "passed",
+                    "count": 1
+                  }
+                ],
+                "artifacts": [],
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:4",
+                "index": 4,
+                "kind": "locator",
+                "api": "locator.fill",
+                "label": "getByRole(\"searchbox\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:16.966Z",
+                "durationMs": 1166,
+                "events": [
+                  {
+                    "kind": "engine",
+                    "name": "fill",
+                    "startedAt": "2026-10-10T20:35:16.967Z",
+                    "durationMs": 1165,
+                    "status": "passed",
+                    "detail": "fill searchbox \"Search rooms\""
+                  }
+                ],
+                "artifacts": [],
+                "screen": {
+                  "location": "http://localhost:3101/",
+                  "nodes": 209,
+                  "since": 2,
+                  "changes": [
+                    "changed searchbox \"Search rooms\" value=\"F-31\" (was: searchbox \"Search rooms\")",
+                    "added button \"Clear search\"",
+                    "changed text=\"1 spaces\" (was: text=\"54 spaces\")",
+                    "removed button \"CORRIDOR 1 F-01 · Circulation\"",
+                    "removed image",
+                    "removed text=\"CORRIDOR 1\"",
+                    "removed text=\"F-01 · Circulation\"",
+                    "removed image",
+                    "removed button \"CORRIDOR 2 F-02 · Circulation\"",
+                    "removed image",
+                    "removed text=\"CORRIDOR 2\"",
+                    "removed text=\"F-02 · Circulation\""
+                  ],
+                  "more": 255
+                },
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:5",
+                "index": 5,
+                "kind": "assertion",
+                "api": "expect.toBeVisible",
+                "label": "getByRole(\"button\", name: \"LIBRARY F-31 · Other\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:18.135Z",
+                "durationMs": 150,
+                "events": [
+                  {
+                    "kind": "poll",
+                    "name": "expect",
+                    "startedAt": "2026-10-10T20:35:18.136Z",
+                    "durationMs": 150,
+                    "status": "passed",
+                    "count": 1
+                  }
+                ],
+                "artifacts": [],
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:6",
+                "index": 6,
+                "kind": "locator",
+                "api": "locator.tap",
+                "label": "getByRole(\"button\", name: \"LIBRARY F-31 · Other\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:18.286Z",
+                "durationMs": 1886,
+                "events": [
+                  {
+                    "kind": "engine",
+                    "name": "tap",
+                    "startedAt": "2026-10-10T20:35:18.287Z",
+                    "durationMs": 1886,
+                    "status": "passed",
+                    "detail": "tap button \"LIBRARY F-31 · Other\""
+                  }
+                ],
+                "artifacts": [],
+                "screen": {
+                  "location": "http://localhost:3101/",
+                  "nodes": 233,
+                  "since": 4,
+                  "changes": [
+                    "changed button \"LIBRARY F-31 · Other\" [pressed] (was: button \"LIBRARY F-31 · Other\")",
+                    "changed button \"LIBRARY, F-31\" [pressed] (was: button \"LIBRARY, F-31\")",
+                    "added complementary \"Room details\" testid=\"room-details\"",
+                    "added text=\"DESTINATION DETAILS\"",
+                    "added button \"Close\"",
+                    "added image \"Source floor drawing: LIBRARY · F-31\"",
+                    "added text=\"Drawing detail\"",
+                    "added text=\"Other\"",
+                    "added text=\"F-31\"",
+                    "added heading \"LIBRARY\"",
+                    "added text=\"المكتبة\"",
+                    "added text=\"Building First Floor\""
+                  ],
+                  "more": 21
+                },
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              },
+              {
+                "id": "01a12786-df56-7984-b0ed-5d132c5bb2e9:7",
+                "index": 7,
+                "kind": "assertion",
+                "api": "expect.toBeVisible",
+                "label": "getByRole(\"heading\", name: \"LIBRARY\")",
+                "status": "passed",
+                "startedAt": "2026-10-10T20:35:20.190Z",
+                "durationMs": 176,
+                "events": [
+                  {
+                    "kind": "poll",
+                    "name": "expect",
+                    "startedAt": "2026-10-10T20:35:20.190Z",
+                    "durationMs": 176,
+                    "status": "passed",
+                    "count": 1
+                  }
+                ],
+                "artifacts": [],
+                "source": {
+                  "file": "node_modules/e2e/dist/run/steps.js",
+                  "line": 29,
+                  "column": 16
+                }
+              }
+            ],
+            "appLog": [
+              {
+                "source": "console",
+                "level": "warning",
+                "text": "[.WebGL-0x4954001efe00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (at http://localhost:3101/:1)",
+                "at": "2026-10-10T20:35:13.722Z",
+                "step": 2
+              },
+              {
+                "source": "console",
+                "level": "warning",
+                "text": "[.WebGL-0x4954001efe00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (at http://localhost:3101/:1)",
+                "at": "2026-10-10T20:35:14.072Z",
+                "step": 2
+              },
+              {
+                "source": "console",
+                "level": "warning",
+                "text": "[.WebGL-0x4954001efe00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (at http://localhost:3101/:1)",
+                "at": "2026-10-10T20:35:14.174Z",
+                "step": 2
+              },
+              {
+                "source": "console",
+                "level": "warning",
+                "text": "[.WebGL-0x4954001efe00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) (at http://localhost:3101/:1)",
+                "at": "2026-10-10T20:35:14.247Z",
+                "step": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "63cf9c46afd141a7763c82d0e1c20fa02fff4d3f51c25de8e0109f835e4ac6b5",
+        "testId": "tests/agentic/floor-01.e2e.ts::agent%20explores%20bilingual%20source-marker%20selection",
+        "kind": "test",
+        "declarationIndex": 1,
+        "titlePath": [
+          "agent explores bilingual source-marker selection"
+        ],
+        "file": "tests/agentic/floor-01.e2e.ts",
+        "source": {
+          "file": "tests/agentic/floor-01.e2e.ts",
+          "line": 18,
+          "column": 1
+        },
+        "targetId": "web",
+        "platform": "web",
+        "agent": "default",
+        "repeat": 0,
+        "tags": [],
+        "selected": true,
+        "status": "skipped",
+        "skip": {
+          "cause": "explicit",
+          "reason": "Tooling blocker: no configured provider key or saved e2e subscription login; deterministic coverage runs separately."
+        },
+        "attempts": []
+      }
+    ],
+    "errors": [],
+    "summary": {
+      "discovered": 2,
+      "selected": 2,
+      "executed": 1,
+      "passed": 1,
+      "failed": 0,
+      "interrupted": 0,
+      "flaky": 0,
+      "skipped": 1
+    },
+    "limits": {
+      "maxAgentContextBytes": 16384,
+      "maxLedgerBytes": 8192,
+      "maxObservationBytes": 262144,
+      "maxEventsPerStep": 1000,
+      "maxModelTokensPerCall": 64000
+    },
+    "usage": {
+      "discoveredResults": 2,
+      "maxAgentContextBytes": 0,
+      "maxLedgerBytes": 0,
+      "maxObservationBytes": 0,
+      "artifactBytes": 0,
+      "downloads": 0,
+      "events": 8,
+      "modelTokens": 0,
+      "maxModelCallsInStep": 0,
+      "maxActionStepsInStep": 0
+    }
+  }
+}

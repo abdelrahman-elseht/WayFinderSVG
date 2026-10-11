@@ -1,16 +1,20 @@
 """Render candidate contours over A's cleaned vector master for independent QA."""
 from pathlib import Path
 import json, html
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+selected = selection()
 from PIL import Image, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[2]
-data=json.loads((ROOT/'data/buildings/B03/GF.json').read_text(encoding='utf-8'))
-base=Image.open(ROOT/'maps/B03/GF/inspection/master.png').convert('RGBA')
+data=json.loads((ROOT/f'data/buildings/{selected.building}/{selected.floor}.json').read_text(encoding='utf-8'))
+base=Image.open(ROOT/f'maps/{selected.building}/{selected.floor}/inspection/master.png').convert('RGBA')
 layer=Image.new('RGBA',base.size); draw=ImageDraw.Draw(layer)
 x,y,w,h=data['floor']['viewBox']; sx=base.width/w; sy=base.height/h
 def pt(p):return ((p[0]-x)*sx,(p[1]-y)*sy)
 # Pillow's bundled font keeps this evidence overlay portable and repeatable.
 font=ImageFont.load_default(size=13)
-graph=json.loads((ROOT/'data/buildings/B03/GF.graph.json').read_text(encoding='utf-8'))
+graph=json.loads((ROOT/f'data/buildings/{selected.building}/{selected.floor}.graph.json').read_text(encoding='utf-8'))
 for area in graph['navigableAreas']:
  draw.polygon([pt(p) for p in area],fill=(30,155,225,30))
 for r in data['rooms']:
@@ -25,5 +29,6 @@ for node in graph['nodes']:
  p=pt(node['point']);draw.ellipse([p[0]-4,p[1]-4,p[0]+4,p[1]+4],fill=(255,190,50,255),outline=(150,70,0,255))
 draw.rectangle((10,10,650,42),fill=(255,255,255,235))
 draw.text((18,18),'Orange routes | blue navigation area | ? unresolved footprint | access unknown',font=font,fill=(30,35,50,255))
-Image.alpha_composite(base,layer).convert('RGB').save(ROOT/'data/buildings/B03/GF.semantic-review.png')
-print('Rendered data/buildings/B03/GF.semantic-review.png')
+output=ROOT/f'data/buildings/{selected.building}/{selected.floor}.semantic-review.png'
+Image.alpha_composite(base,layer).convert('RGB').save(output)
+print(f'Rendered {output.relative_to(ROOT)}')

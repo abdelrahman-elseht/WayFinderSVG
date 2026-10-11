@@ -1,6 +1,13 @@
 """Verify inventory, geometry safety, evidence links, and optional byte determinism."""
 from pathlib import Path
 import json, hashlib, subprocess, sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+selected = selection()
+if selected.floor != 'GF':
+ from floor_01 import verify
+ verify(selected.regenerate)
+ raise SystemExit(0)
 from shapely.geometry import Point, Polygon, LineString
 from shapely.ops import unary_union
 ROOT=Path(__file__).resolve().parents[2]

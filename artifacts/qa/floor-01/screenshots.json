@@ -1,0 +1,191 @@
+[
+  {
+    "file": "artifacts/qa/floor-01/axi-default-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "dcfc4474dd11213fd5ceaec832db2e1f7c539d850262e2dace6ba4f85b723b83",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Chrome DevTools AXI",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/axi-mobile-ar.png",
+    "pixels": [
+      500,
+      1996
+    ],
+    "sha256": "1fe7e2d4df606d1260430dd5a95670849f53c1c24c02d526ff58864632e79412",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Chrome DevTools AXI",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions",
+    "observedIssue": "Black room roofs after route selection in AXI Chrome; expected shading in default/PW captures. Phase 3/4 renderer diagnosis remains open."
+  },
+  {
+    "file": "artifacts/qa/floor-01/axi-route-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "cc22813433246296706f91a0ddd6c9f493182aeb13b0d3b558a19b9cb655ba8f",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Chrome DevTools AXI",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions",
+    "observedIssue": "Black room roofs after route selection in AXI Chrome; expected shading in default/PW captures. Phase 3/4 renderer diagnosis remains open."
+  },
+  {
+    "file": "artifacts/qa/floor-01/blocked-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "025e5833e091178fe0204fde1574b5860ef575963c271d8f97a3e6bfaabd6930",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/default-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "7396e3feb0119e825fd9a52999d543aef522ed052aeb8e73966c3e613d522512",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/forced-colors-ar.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "446ce45e1f5e182e3a73a606bef3cc9bd9fdcaf9e8ebff20f61a50762d96ebec",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/mcp-route-ar.png",
+    "pixels": [
+      1019,
+      650
+    ],
+    "sha256": "3e2551919f8c8e38aa77fe02d774a89bcf7222b2df669a215dff0e7e0aabe58f",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright MCP",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/mcp-route-en.png",
+    "pixels": [
+      1019,
+      650
+    ],
+    "sha256": "456f8217fee5b644942ce7c0219ebfd814910701db9a0a25bddd30e8e12aacac",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright MCP",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/mcp-selection-en.png",
+    "pixels": [
+      1019,
+      650
+    ],
+    "sha256": "9aa32b71bb0a0e176f155a19883985c2f461f9f8b1d5e9d0d6dabb8b525c4b8f",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright MCP",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/mobile-ar.png",
+    "pixels": [
+      390,
+      1088
+    ],
+    "sha256": "690f1842633549ca5d547096eed956680595b06e18904e12b651c111af00d7aa",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/qualified-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "763bab432c2c80b0bde99408f250f17601711df6b6897719b7735d2ed31bf114",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/route-ar.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "16663b49dba974104f7403170cd1ef18c44d2c8f836dfe3bca30b16bd5e47380",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/route-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "f0d3c5c5c25dbe922c1d95bc200fdf88954e66ebdda27cf5942f9034fd29e1cb",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/selection-ar.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "9078ebcb58dcb17dec480666dc0ec611e5e7372e068dc5163d35879196f3bbdc",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/selection-en.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "7c85ab94f43312a03ed92f8026414a675ebfccfcf10c7eeccf19081b7bccb21f",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/text-200-ar.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "0ffff3203a54a63ccf0705f02865c031f397acd9abf86874360f7333b375827f",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  },
+  {
+    "file": "artifacts/qa/floor-01/webgl-fallback.png",
+    "pixels": [
+      1440,
+      1000
+    ],
+    "sha256": "b5b8c593aa4d6400cd8b20744b9684e5b87866412bd22070195c659b2ea82fe6",
+    "configuration": "WAYFINDING_FLOOR_ID=01; configured single-floor phase 2 preview",
+    "runner": "Playwright acceptance",
+    "review": "visually reviewed selected representative states; PNG capture follows state assertions"
+  }
+]

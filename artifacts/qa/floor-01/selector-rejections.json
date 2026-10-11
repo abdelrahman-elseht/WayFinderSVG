@@ -1,0 +1,52 @@
+[
+  {
+    "args": [
+      "ingest",
+      "--building",
+      "B03",
+      "--floor",
+      "02"
+    ],
+    "exitCode": 1,
+    "error": "Integration failed: Unsupported pipeline selection: B03/02"
+  },
+  {
+    "args": [
+      "semantic",
+      "--building",
+      "B03",
+      "--floor",
+      "99"
+    ],
+    "exitCode": 1,
+    "error": "Integration failed: Unsupported pipeline selection: B03/99"
+  },
+  {
+    "args": [
+      "review",
+      "--building",
+      "X",
+      "--floor",
+      "01"
+    ],
+    "exitCode": 1,
+    "error": "Integration failed: Unsupported pipeline selection: X/01"
+  },
+  {
+    "args": [
+      "all",
+      "--floor"
+    ],
+    "exitCode": 1,
+    "error": "Integration failed: Invalid pipeline selector: --floor"
+  },
+  {
+    "args": [
+      "all",
+      "--unrecognized",
+      "01"
+    ],
+    "exitCode": 1,
+    "error": "Integration failed: Invalid pipeline selector: --unrecognized"
+  }
+]

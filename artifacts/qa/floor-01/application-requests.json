@@ -1,0 +1,27 @@
+{
+  "errors": [],
+  "failures": [],
+  "requested": [
+    "http://localhost:3101/",
+    "http://localhost:3101/academy-logo.png",
+    "http://localhost:3101/_next/static/chunks/2w05sz97qz6r8.css",
+    "http://localhost:3101/_next/static/chunks/09lgyggnhjlha.js",
+    "http://localhost:3101/_next/static/chunks/2mdolztdas6eu.js",
+    "http://localhost:3101/_next/static/chunks/34wvn5zw0a69w.js",
+    "http://localhost:3101/_next/static/chunks/2l_y_qqi24r7y.js",
+    "http://localhost:3101/_next/static/chunks/turbopack-2b14n0m51mw5s.js",
+    "http://localhost:3101/_next/static/chunks/3fntmmi971322.js",
+    "http://localhost:3101/_next/static/chunks/2kt0jteiawlka.js",
+    "http://localhost:3101/_next/static/chunks/3frksi9t_og8q.js",
+    "http://localhost:3101/_next/static/media/inter-latin-400-normal.2qdljeg3s-lsl.woff2",
+    "http://localhost:3101/_next/static/media/inter-latin-600-normal.2dov6rjg62vru.woff2",
+    "http://localhost:3101/_next/static/media/inter-latin-700-normal.4421omqeymgmp.woff2",
+    "http://localhost:3101/_next/static/media/noto-sans-arabic-arabic-400-normal.3lnpfdatzd3y2.woff2",
+    "http://localhost:3101/_next/static/media/inter-latin-500-normal.1d14jwmkqqa0f.woff2",
+    "http://localhost:3101/_next/static/media/noto-sans-arabic-latin-400-normal.1akab5ms3pzvq.woff2",
+    "http://localhost:3101/_next/static/chunks/3cww_pkdso7i1.js",
+    "http://localhost:3101/maps/B03/01/master.svg",
+    "blob:http://localhost:3101/97484d20-1957-4aa2-a7c1-1cbc58a5293e"
+  ],
+  "knownBrowserRequest": "favicon.ico is absent (404), inherited from the baseline app"
+}

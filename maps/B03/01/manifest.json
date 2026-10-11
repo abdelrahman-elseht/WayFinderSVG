@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "buildingId": "B03",
+  "floorId": "01",
+  "generator": "scripts/map-ingest/pack_adapter.py",
+  "sourcePack": "B03_First_Floor",
+  "acceptedPackManifestSha256": "1166ab9dfd2107e2c41fe08aa164992c7ff7c2f47b79b698d74f56fcf892fb39",
+  "sourceFiles": {
+    "0001": "B03_First_Floor/source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0001-00.pdf",
+    "0002": "B03_First_Floor/source/pdfs/2761-SOD-B03-DWG-AAR-15-01-Z-0002-00.pdf"
+  },
+  "files": {
+    "master.svg": "e21e531eaa0226e881ac29a53ff1f881ce63c13299775032e9b1ec362f3fd0e0",
+    "alignment.json": "966d6ae4a2eab47a0adc8f54f9ed8eed43a71206c8eb0648d2392016148beb20",
+    "validation.json": "619b6721b562843cdbb1122b200c7ce7ee6837f6dd3c5663c0cccc09e425c661",
+    "source/room-schedule.json": "5953bbb20a3d38bb1300e20b03d3f24a2060242bad447af157047e07b260e7dd",
+    "source/0001.json": "c791a3b363011a7d98bb62036bf19e301b70402191cc68ac073336a34b9df6f5",
+    "source/0002.json": "508e7e7b4510725bfda0a51d72607a244b01ab818b1b58bf63cc33c73ce5b73e",
+    "inspection/0001.png": "357b24d35871b6e9acf37df7ece90dc74195f73ef2f00e0e14c459989e4867e6",
+    "inspection/0002.png": "19c1705760c92bee3c08d336d02fa61716c6443ae1ba41432262c600ac8d1ec6",
+    "inspection/master.png": "9c70f378172908cc45381b90281e338a17df3eb26435f5f8ba9c46204963af8f",
+    "inspection/seam-detail.png": "7792c8c69717014cf5f9ebb96859539eeaf8b4a82e9db22006c57e155ed7477a"
+  }
+}

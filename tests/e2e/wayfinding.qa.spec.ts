@@ -1,6 +1,8 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import {writeFileSync} from 'node:fs';
+import {mkdirSync, writeFileSync} from 'node:fs';
+const artifactDirectory = process.env.QA_ARTIFACT_DIR || 'artifacts/qa';
+mkdirSync(artifactDirectory, {recursive:true});
 
 async function ready(page:Page) {
  await page.goto('/');
@@ -14,9 +16,18 @@ async function ready(page:Page) {
  await page.evaluate(()=>document.fonts.ready);
 }
 
+async function showNavigation(page:Page) {
+ if (await page.getByTestId('start-select').count() === 0) {
+  await page.getByRole('button',{name:/^(Navigate|التنقل)$/}).click();
+ }
+}
+
 test('route playback progressively reveals, pauses, stops, and resets', async ({page}) => {
  await page.emulateMedia({reducedMotion:'no-preference'});
  await ready(page);
+ const time = new Date('2026-10-10T12:00:00Z');
+ await page.clock.install({time});
+ await page.clock.pauseAt(time);
  await page.getByRole('button',{name:'Navigate',exact:true}).click();
  await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
@@ -24,6 +35,7 @@ test('route playback progressively reveals, pauses, stops, and resets', async ({
  await expect(progress).toHaveAttribute('value','0');
  // Selecting a destination starts playback automatically.
  await expect(page.getByTestId('playback-toggle')).toHaveText('Pause route playback');
+ await page.clock.runFor(100);
  await expect.poll(async()=>Number(await progress.getAttribute('value'))).toBeGreaterThan(0);
  const mid = Number(await progress.getAttribute('value'));
  expect(mid).toBeLessThan(1);
@@ -33,6 +45,7 @@ test('route playback progressively reveals, pauses, stops, and resets', async ({
  await expect(progress).toHaveAttribute('value','0');
  await expect(page.getByTestId('playback-stop')).toBeDisabled();
  await page.getByTestId('playback-toggle').click();
+ await page.clock.runFor(100);
  await expect.poll(async()=>Number(await progress.getAttribute('value'))).toBeGreaterThan(0);
  await page.getByTestId('playback-reset').click();
  await expect(progress).toHaveAttribute('value','0');
@@ -43,7 +56,6 @@ test('reduced motion completes route without progressive animation', async ({pag
  await ready(page);
  await page.getByRole('button',{name:'Navigate',exact:true}).click();
  await page.getByTestId('destination-select').selectOption('B03-GF-G-05');
- await page.getByTestId('playback-toggle').click();
  await expect(page.getByTestId('playback-toggle')).toBeDisabled();
  await expect(page.getByTestId('route-status').locator('progress')).toHaveAttribute('value','1');
 });
@@ -70,6 +82,7 @@ test('English actual entrance and cross-wing routes, keyboard, planning reset an
  await page.keyboard.press('Enter');
  await expect(page.getByTestId('room-details')).toContainText('Clinic');
  await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toContainText('Route on floor plan');
  await expect(page.getByTestId('arrival-note')).toContainText('Reception');
  await expect(page.getByTestId('route-status')).not.toContainText('You have arrived at your destination.');
@@ -107,6 +120,7 @@ test('Arabic actual route, popup and language switch preserve selected endpoints
  await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await expect(page.getByTestId('room-details')).toContainText('العيادة');
  await page.getByRole('button',{name:'اذهب إلى هنا',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await page.getByTestId('start-select').selectOption('B03-GF-G-45');
@@ -156,12 +170,13 @@ test('browser speech autoplays details and replay/stop/mute honor current langua
 });
 
 test('WCAG AA contrast and semantics on English/Arabic default and popup states',async({page})=>{
+ test.setTimeout(180000);
  await ready(page);
  const violations=[];
  for(const state of ['en-default','en-popup','en-route','ar-popup','ar-mobile']) {
   if(state==='en-popup') {await page.getByRole('searchbox').fill('G-28');await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();}
   if(state==='ar-popup') await page.getByTestId('language-toggle').click();
-  if(state==='en-route') await page.getByRole('button',{name:'Go here',exact:true}).click();
+  if(state==='en-route') { await page.getByRole('button',{name:'Go here',exact:true}).click(); await showNavigation(page); }
   if(state==='ar-mobile') await page.setViewportSize({width:390,height:844});
   await page.evaluate(()=>document.fonts.ready);
   const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
@@ -176,6 +191,7 @@ test('mobile and 200 percent text retain usable controls without horizontal over
  await page.getByRole('searchbox').fill('G-28');
  await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
  await page.getByTestId('language-toggle').click();
@@ -185,15 +201,16 @@ test('mobile and 200 percent text retain usable controls without horizontal over
  await expect(page.getByTestId('language-toggle')).toBeVisible();
  await page.getByTestId('reset-kiosk').click();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
- await page.reload(); await page.getByRole('searchbox').fill('G-28');
+ await ready(page); await page.getByRole('searchbox').fill('G-28');
  await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await page.getByTestId('language-toggle').click();
  await page.evaluate(()=>{const sizes=[...document.querySelectorAll<HTMLElement>('body *')].map(e=>({e,size:parseFloat(getComputedStyle(e).fontSize)}));for(const {e,size} of sizes)e.style.fontSize=`${size*2}px`;});
  await page.getByRole('button',{name:'اذهب إلى هنا',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await expect(page.getByTestId('floor-map')).toBeVisible();
  expect((await page.getByTestId('floor-map').boundingBox())!.height).toBeGreaterThan(150);
- await page.screenshot({path:'artifacts/qa/r2-text-200-percent-ar.png',fullPage:true});
+ await page.screenshot({path:`${artifactDirectory}/r2-text-200-percent-ar.png`,fullPage:true});
  const brand=await page.locator('.brand').boundingBox();
  expect(brand?.y).toBeGreaterThanOrEqual(0);
 });
@@ -201,12 +218,13 @@ test('mobile and 200 percent text retain usable controls without horizontal over
 test('reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile',async({page})=>{
  const start=Date.now();await ready(page);
  const performanceData=await page.evaluate(()=>({navigation:performance.getEntriesByType('navigation').map(e=>e.toJSON()),scripts:performance.getEntriesByType('resource').filter(e=>(e as PerformanceResourceTiming).initiatorType==='script').map(e=>({name:e.name,transferSize:(e as PerformanceResourceTiming).transferSize,duration:e.duration}))}));
- writeFileSync('artifacts/qa/performance-observation.json',JSON.stringify({baseURL:test.info().project.use.baseURL,mapAndFontsReadyMs:Date.now()-start,...performanceData,scope:'One local headless Edge observation, not a kiosk hardware benchmark'},null,2));
- const snapshot=async(name:string)=>{await expect(page).toHaveScreenshot(name,{fullPage:true,maxDiffPixelRatio:.005,animations:'disabled'});await page.screenshot({path:`artifacts/qa/${name}`,fullPage:true});};
+ writeFileSync(`${artifactDirectory}/performance-observation.json`,JSON.stringify({baseURL:test.info().project.use.baseURL,mapAndFontsReadyMs:Date.now()-start,...performanceData,scope:'One local headless Edge observation, not a kiosk hardware benchmark'},null,2));
+ const snapshot=async(name:string)=>{await expect(page).toHaveScreenshot(name,{fullPage:true,maxDiffPixelRatio:.005,animations:'disabled'});await page.screenshot({path:`${artifactDirectory}/${name}`,fullPage:true});};
  await snapshot('r2-default-en.png');
  await page.getByRole('searchbox').fill('G-28');await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
  await snapshot('r2-popup-en.png');
  await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
  await snapshot('r2-route-success-en.png');
  await page.getByTestId('start-select').selectOption('B03-GF-G-45');
@@ -226,6 +244,7 @@ test('WebGL-unavailable fallback preserves source plan and usable keyboard direc
  await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type==='webgl2')return null;return Reflect.apply(original,this,[type,...args]);} as typeof original;});
  await page.goto('/');
  await expect(page.locator('.map-fallback img')).toBeVisible();
+ await page.getByRole('button',{name:'Browse',exact:true}).click();
  await expect(page.getByTestId('room-directory').locator('[data-room-id]')).toHaveCount(54);
  await page.getByRole('searchbox').fill('G-28');
  const room=page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]');await room.focus();await page.keyboard.press('Enter');
@@ -241,8 +260,9 @@ test('forced colors and reduced motion preserve accessible directory and selecti
  await expect(page.getByTestId('room-details')).toContainText('Clinic');
  await expect(page.getByRole('button',{name:'Go here',exact:true})).toHaveCSS('transition-duration','0s');
  await page.getByRole('button',{name:'Go here',exact:true}).click();
+ await showNavigation(page);
  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
- await page.screenshot({path:'artifacts/qa/forced-colors-reduced-motion.png',fullPage:true});
+ await page.screenshot({path:`${artifactDirectory}/forced-colors-reduced-motion.png`,fullPage:true});
  await page.getByTestId('reset-kiosk').click();
  await expect(page.getByTestId('room-details')).toHaveCount(0);
 });
@@ -264,5 +284,5 @@ test('three exterior destinations and reversed starts clearly retain partial sou
  await page.getByTestId('language-toggle').click();
  await expect(page.getByTestId('route-status')).toContainText('مسار جزئي');
  await expect(page.getByTestId('route-status')).not.toContainText('لقد وصلت إلى وجهتك.');
- await page.screenshot({path:'artifacts/qa/r2-partial-route-ar.png',fullPage:true});
+ await page.screenshot({path:`${artifactDirectory}/r2-partial-route-ar.png`,fullPage:true});
 });

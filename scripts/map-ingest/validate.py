@@ -1,6 +1,13 @@
 """Validate source-backed ingestion and deterministic regeneration."""
 from pathlib import Path
 import hashlib, json, subprocess, sys, xml.etree.ElementTree as ET
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+selected = selection()
+if selected.floor != 'GF':
+    from pack_adapter import verify
+    verify(selected.floor)
+    raise SystemExit(0)
 ROOT=Path(__file__).resolve().parents[2]
 OUT=ROOT/'maps/B03/GF'
 

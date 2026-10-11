@@ -1,5 +1,12 @@
 from pathlib import Path
 import json, math, collections
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+if selection().floor != 'GF':
+ from floor_01 import inspect
+ inspect()
+ raise SystemExit(0)
 from shapely.geometry import LineString, Point, box
 from shapely.ops import unary_union, polygonize
 from shapely.strtree import STRtree

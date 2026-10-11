@@ -1,0 +1,426 @@
+{
+  "buildingId": "B03",
+  "floorId": "01",
+  "level": 1,
+  "name": {
+    "en": "First Floor",
+    "ar": "الدور الأول"
+  },
+  "tagPrefix": "F",
+  "scheduleCount": 59,
+  "wallLayers": [
+    "A-CONC",
+    "A-WALL",
+    "A-WALL-02",
+    "A-GYPSUM BOARD",
+    "A-INT-GLAZ-01",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-WALL",
+    "03-XA-B03-FIRST FLOOR SKIN$0$A-GLAZ",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-WALL-PART",
+    "03-XA-B03-CORE FIRST$0$A-WALL",
+    "00-XA-B03-CORE TOILET$0$A-WALL-PART",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-HANDRAIL",
+    "03-XA-B03-CORE FIRST$0$A-HANDRAIL"
+  ],
+  "doorLayers": [
+    "A-DOOR",
+    "03-XA-B03-FIRST FLOOR PLAN$0$A-DOOR"
+  ],
+  "availability": {},
+  "planningOrigin": null,
+  "labelChoices": {
+    "F-17": "0002-text-0103"
+  },
+  "conflicts": {
+    "F-17": "F-17 / STAIR 03 occurs at two distinct enclosures: west core (0001-text-0140, overlap 0002-text-0153) and east stair (0002-text-0103). East stair has visible stair treads; use its label marker, retain all alternatives, and withhold navigation until identity is resolved. Matching labels do not prove a vertical connection."
+  },
+  "translations": {
+    "CORRIDOR 1": "الممر ١",
+    "CORRIDOR 2": "الممر ٢",
+    "CORRIDOR 3": "الممر ٣",
+    "CORRIDOR 4": "الممر ٤",
+    "CORRIDOR 5": "الممر ٥",
+    "CORRIDOR 6": "الممر ٦",
+    "BUSINESS DEVELOPMENT": "تطوير الأعمال",
+    "INCUBATOR 1": "حاضنة الأعمال ١",
+    "INCUBATOR 2": "حاضنة الأعمال ٢",
+    "STORAGE": "مخزن",
+    "BIONICS AND REHABILITATION LAB": "معمل البيونيك وإعادة التأهيل",
+    "FEMALE CHANGING ROOM": "غرفة تبديل ملابس النساء",
+    "MALE CHANGING ROOM": "غرفة تبديل ملابس الرجال",
+    "RECORDING ROOM 1": "غرفة التسجيل ١",
+    "RECORDING ROOM 2": "غرفة التسجيل ٢",
+    "RECORDING ROOM 3": "غرفة التسجيل ٣",
+    "STAIR 03": "السلم ٣",
+    "ELEVATOR LOBBY": "ردهة المصاعد",
+    "VALVE ROOM": "غرفة الصمامات",
+    "HEARING DIFFICULTIES TRAINING 1": "تدريب صعوبات السمع ١",
+    "HEARING DIFFICULTIES TRAINING 2": "تدريب صعوبات السمع ٢",
+    "LOBBY": "ردهة",
+    "FEMALE TOILET": "دورة مياه النساء",
+    "MALE TOILET": "دورة مياه الرجال",
+    "MULTI-PURPOSE TRAINING": "تدريب متعدد الأغراض",
+    "STAIR 04": "السلم ٤",
+    "STAIR 02": "السلم ٢",
+    "LIBRARY": "المكتبة",
+    "LABS OPERATIONS": "عمليات المعامل",
+    "STUNTING TRAINING": "تدريب التقزم",
+    "INTELLECTUAL DIFFICULTIES LAB 1": "معمل الصعوبات الذهنية ١",
+    "VR LAB 2": "معمل الواقع الافتراضي ٢",
+    "ELECTRONICS AND ROBOTICS LAB": "معمل الإلكترونيات والروبوتات",
+    "STAIR 01": "السلم ١",
+    "PRAYER ROOM": "غرفة الصلاة",
+    "PANTRY": "مطبخ تحضيري",
+    "COPY ROOM": "غرفة النسخ",
+    "STAFF": "الموظفون",
+    "GARBAGE CHUTE": "مجرى النفايات",
+    "SERVICES": "الخدمات",
+    "SERVICE CORRIDOR": "ممر الخدمة",
+    "WET LAB": "المعمل الرطب",
+    "LOT LAB": "معمل LOT",
+    "ADVANCED ENGINEERING LAB": "معمل الهندسة المتقدمة",
+    "MEETING ROOM": "غرفة الاجتماعات",
+    "VISUAL TRAINING LAB": "معمل التدريب البصري",
+    "AL LAB": "معمل AL",
+    "IT ROOM": "غرفة تقنية المعلومات",
+    "ELECT ROOM": "غرفة الكهرباء",
+    "STAIR 05": "السلم ٥"
+  },
+  "translationNotes": "Editorial translations of schedule text, pending facility terminology review. LOT and AL are retained literally; they are not silently corrected to IoT/AI. STUNTING terminology remains source wording with a candidate translation.",
+  "circulationCodes": [
+    "F-01",
+    "F-02",
+    "F-03",
+    "F-04",
+    "F-05",
+    "F-06",
+    "F-22",
+    "F-37",
+    "F-49",
+    "F-58"
+  ],
+  "corridorSpines": [
+    [
+      [
+        1035,
+        865
+      ],
+      [
+        1267,
+        813
+      ],
+      [
+        1473,
+        775
+      ],
+      [
+        1690,
+        744
+      ],
+      [
+        1990,
+        737
+      ],
+      [
+        2390,
+        785
+      ],
+      [
+        2570,
+        780
+      ],
+      [
+        2770,
+        825
+      ],
+      [
+        2830,
+        850
+      ],
+      [
+        2840,
+        875
+      ]
+    ],
+    [
+      [
+        1116,
+        1129
+      ],
+      [
+        1035,
+        865
+      ]
+    ],
+    [
+      [
+        1116,
+        1129
+      ],
+      [
+        1160,
+        1370
+      ],
+      [
+        1455,
+        1300
+      ],
+      [
+        1635,
+        1280
+      ],
+      [
+        1666,
+        1246
+      ],
+      [
+        2190,
+        1245
+      ],
+      [
+        2440,
+        1420
+      ],
+      [
+        2645,
+        1460
+      ],
+      [
+        2850,
+        1525
+      ],
+      [
+        2940,
+        1530
+      ]
+    ],
+    [
+      [
+        2390,
+        785
+      ],
+      [
+        2426,
+        919
+      ],
+      [
+        2390,
+        1100
+      ],
+      [
+        2350,
+        1270
+      ]
+    ],
+    [
+      [
+        2608,
+        895
+      ],
+      [
+        2588,
+        990
+      ],
+      [
+        2568,
+        1080
+      ],
+      [
+        2545,
+        1240
+      ],
+      [
+        2540,
+        1300
+      ],
+      [
+        2570,
+        1420
+      ]
+    ],
+    [
+      [
+        2570,
+        780
+      ],
+      [
+        2608,
+        895
+      ]
+    ],
+    [
+      [
+        1990,
+        737
+      ],
+      [
+        1995,
+        670
+      ],
+      [
+        2005,
+        590
+      ]
+    ],
+    [
+      [
+        1115,
+        1140
+      ],
+      [
+        1010,
+        1145
+      ],
+      [
+        830,
+        1225
+      ]
+    ],
+    [
+      [
+        1160,
+        1350
+      ],
+      [
+        1185,
+        1515
+      ],
+      [
+        1220,
+        1540
+      ]
+    ],
+    [
+      [
+        1160,
+        1350
+      ],
+      [
+        1025,
+        1420
+      ],
+      [
+        990,
+        1480
+      ]
+    ],
+    [
+      [
+        2715,
+        1435
+      ],
+      [
+        2690,
+        1330
+      ],
+      [
+        2755,
+        1290
+      ]
+    ],
+    [
+      [
+        1995,
+        670
+      ],
+      [
+        1850,
+        665
+      ]
+    ],
+    [
+      [
+        2005,
+        590
+      ],
+      [
+        1900,
+        580
+      ],
+      [
+        1850,
+        580
+      ]
+    ],
+    [
+      [
+        2005,
+        590
+      ],
+      [
+        2090,
+        580
+      ]
+    ]
+  ],
+  "corridorHalfWidth": 36,
+  "excludedRoomCodes": [
+    "F-17"
+  ],
+  "endpointOverrides": {
+    "F-19": {
+      "arcPathId": "0002-path-09420",
+      "kind": "source-door-approach",
+      "note": {
+        "en": "Route ends outside the source doorway for VALVE ROOM. The outline or label association remains candidate; access is unverified.",
+        "ar": "ينتهي المسار خارج الباب المرسوم لـغرفة الصمامات؛ حدود المكان أو ارتباط التسمية مرشح ولم يتم التحقق من الدخول."
+      }
+    },
+    "F-23": {
+      "arcPathId": "0002-path-09389",
+      "kind": "source-door-approach",
+      "note": {
+        "en": "Route ends outside the source doorway for FEMALE TOILET. The outline or label association remains candidate; access is unverified.",
+        "ar": "ينتهي المسار خارج الباب المرسوم لـدورة مياه النساء؛ حدود المكان أو ارتباط التسمية مرشح ولم يتم التحقق من الدخول."
+      }
+    },
+    "F-27": {
+      "arcPathId": "0002-path-09400",
+      "kind": "source-door-approach",
+      "note": {
+        "en": "Route ends outside the source doorway for STAIR 04. The outline or label association remains candidate; access is unverified.",
+        "ar": "ينتهي المسار خارج الباب المرسوم لـالسلم ٤؛ حدود المكان أو ارتباط التسمية مرشح ولم يتم التحقق من الدخول."
+      }
+    },
+    "F-35": {
+      "arcPathId": "0001-path-14249",
+      "kind": "source-door-approach",
+      "note": {
+        "en": "Route ends outside the source doorway for VR LAB 2. The outline or label association remains candidate; access is unverified.",
+        "ar": "ينتهي المسار خارج الباب المرسوم لـمعمل الواقع الافتراضي ٢؛ حدود المكان أو ارتباط التسمية مرشح ولم يتم التحقق من الدخول."
+      }
+    },
+    "F-12": {
+      "arcPathId": "0002-path-10302",
+      "kind": "shared-suite-approach",
+      "note": {
+        "en": "Route ends at the BIONICS AND REHABILITATION LAB suite entrance; the changing room lies inside that suite. Internal access is unverified.",
+        "ar": "ينتهي المسار عند مدخل جناح معمل البيونيك وإعادة التأهيل؛ غرفة تبديل الملابس داخل الجناح ولم يتم التحقق من الدخول الداخلي."
+      }
+    },
+    "F-13": {
+      "arcPathId": "0002-path-10302",
+      "kind": "shared-suite-approach",
+      "note": {
+        "en": "Route ends at the BIONICS AND REHABILITATION LAB suite entrance; the changing room lies inside that suite. Internal access is unverified.",
+        "ar": "ينتهي المسار عند مدخل جناح معمل البيونيك وإعادة التأهيل؛ غرفة تبديل الملابس داخل الجناح ولم يتم التحقق من الدخول الداخلي."
+      }
+    }
+  },
+  "mapFeatures": [],
+  "corridorReview": "Reviewed corridor investigation spines traced between supplied architectural walls and annotated F-01/02/03/04/05/06 lobbies; they bound the domain but cannot erase walls or room solids. Branches stop outside source thresholds. Every retained edge is independently checked against original source walls. No exterior/service-corridor or void connection is inferred.",
+  "unsupportedNotes": {
+    "F-17": {
+      "en": "Two distinct enclosures carry F-17 / STAIR 03. Navigation is unavailable until the destination identity is resolved.",
+      "ar": "تحمل حجرتان مختلفتان الرمز F-17 واسم السلم ٣؛ لا تتوفر الملاحة حتى يتم تحديد الوجهة."
+    },
+    "F-30": {
+      "en": "The drawn Stair 02 doorway faces the unresolved west F-17 enclosure. A supported common-corridor connection is not established.",
+      "ar": "باب السلم ٢ المرسوم يواجه حجرة F-17 الغربية غير المحسومة؛ لم يثبت اتصال مدعوم بالممر المشترك."
+    },
+    "F-49": {
+      "en": "The service-corridor marker lies outside the mapped building enclosure. The supplied plans do not establish its walking surface or continuous interior connection.",
+      "ar": "تقع علامة ممر الخدمة خارج حدود المبنى المرسومة؛ لا يثبت المخطط سطح السير أو اتصالاً داخلياً متصلاً."
+    }
+  }
+}

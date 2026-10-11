@@ -1,0 +1,11 @@
+# Evidence manifests hash bytes. Keep accepted source text stable on Windows.
+B03_First_Floor/*.json text eol=lf
+B03_First_Floor/*.svg text eol=lf
+B03_First_Floor/README.md text eol=lf
+B03_First_Floor/source/*.json text eol=lf
+B03_First_Floor/scripts/*.py text eol=lf
+maps/B03/01/** text=auto eol=lf
+maps/B03/01/**/*.png binary
+data/buildings/B03/01*.json text eol=lf
+data/buildings/B03/01*.png binary
+content/B03/01.json text eol=lf

@@ -1,5 +1,15 @@
 # B03 ground floor semantic review
 
+## First Floor phase 2 bundle
+
+Floor `01` reconciles all **59** schedule identities in `data/buildings/B03/01.review.json`. It contains **54 directory records**, **38 candidate contours**, and **16 source-label markers**. F-10, F-18, F-28, F-29 and F-45 lack an in-bounds source plan label; their individual review rows retain schedule names/evidence with null room/position rather than fabricated coordinates. LOT LAB and AL LAB remain literal source names. Arabic names are documented editorial translations.
+
+F-17 occurs at two distinct stair enclosures; the selected eastern marker retains both alternatives and its route connection is withheld. F-30 faces the unresolved western enclosure. F-49 has an exterior marker with no delineated walking connection. These three rooms remain discoverable with bilingual unsupported notes. F-12/F-13 route to the source-supported Bionics and Rehabilitation Lab suite entrance (`0002-path-10302`), with bilingual qualifications for both directions.
+
+The source-bounded graph retains connected pair paths and cycles while preserving disconnections. Mapped circulation approaches reuse retained junctions with room identity; portal approaches retain swing/leaf IDs. All 51 supported endpoints are qualified approaches, never label-centroid shortcuts. Room solids and source walls are excluded from the navigation union. The 0.20-unit contour closure buffer and simplified outer rings are display evidence, not walking surfaces; unresolved room faces remain null.
+
+`01.semantic-review.png` overlays source ink, contours, marker exceptions, navigation area and graph. Independent QA re-extracts original PDF evidence and samples curved walls at 96 subdivisions, separate from the generator's 24. Geometry/accessibility/access remain candidate/unknown; scale, photographs and physical kiosk are unknown. First Floor has no default planning origin. Stair/elevator names do not establish vertical connections.
+
 ## Inventory and coordinate evidence
 
 The part 2 room schedule is the authoritative inventory: exactly G-01 through G-54, with stable IDs `B03-GF-G-01` … `B03-GF-G-54`. All rooms are directory-visible. This presentation flag is **not** permission to enter a room. Both drawing sheets describe one floor. Source 0001 display coordinates are unchanged; source 0002 receives only (+1033.29, -28.35). The normalized master viewBox is [650, 500, 3100, 1550]. No calibration or kiosk location is invented.

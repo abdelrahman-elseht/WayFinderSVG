@@ -1,0 +1,22 @@
+[
+  {
+    "state": "directory-en",
+    "violations": []
+  },
+  {
+    "state": "selection-en",
+    "violations": []
+  },
+  {
+    "state": "selection-ar",
+    "violations": []
+  },
+  {
+    "state": "directory-ar",
+    "violations": []
+  },
+  {
+    "state": "route-en",
+    "violations": []
+  }
+]

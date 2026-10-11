@@ -1,5 +1,12 @@
 import json,math
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+if selection().floor != 'GF':
+ from floor_01 import verify_navigation
+ verify_navigation()
+ raise SystemExit(0)
 from shapely.geometry import LineString,Polygon,Point
 from shapely.ops import unary_union
 from shapely.strtree import STRtree

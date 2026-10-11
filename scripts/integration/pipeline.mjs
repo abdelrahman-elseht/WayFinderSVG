@@ -6,6 +6,18 @@ import ts from 'typescript';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const command = process.argv[2] ?? 'validate';
+function selectionArgs(argv) {
+  const values = { building: 'B03', floor: 'GF' };
+  const seen = new Set();
+  for (let i = 0; i < argv.length; i += 2) {
+    const flag = argv[i];
+    if (!['--building', '--floor'].includes(flag) || !argv[i + 1] || seen.has(flag)) throw new Error(`Invalid pipeline selector: ${flag}`);
+    seen.add(flag);
+    values[flag.slice(2)] = argv[i + 1];
+  }
+  if (values.building !== 'B03' || !['GF', '01'].includes(values.floor)) throw new Error(`Unsupported pipeline selection: ${values.building}/${values.floor}`);
+  return ['--building', values.building, '--floor', values.floor];
+}
 const readJson = filename => JSON.parse(readFileSync(path.join(root, filename), 'utf8'));
 
 // Run the exact shared validator without another runtime dependency or emitted build files.
@@ -77,22 +89,23 @@ function copyAssets(bundles) {
   }
 }
 async function main() {
+  const selected = selectionArgs(process.argv.slice(3));
   switch(command) {
-    case 'ingest': python('scripts/map-ingest/ingest.py'); break;
-    case 'semantic': python('scripts/semantic-map/generate.py'); break;
+    case 'ingest': python('scripts/map-ingest/ingest.py', selected); break;
+    case 'semantic': python('scripts/semantic-map/generate.py', selected); break;
     case 'review':
-      python('scripts/map-ingest/validate.py');
-      python('scripts/semantic-map/verify.py',['--regenerate']);
-      python('scripts/semantic-map/render_review.py');
+      python('scripts/map-ingest/validate.py', selected);
+      python('scripts/semantic-map/verify.py',[...selected, '--regenerate']);
+      python('scripts/semantic-map/render_review.py', selected);
       await validateData(); break;
     case 'validate': await validateData(); break;
     case 'prepare': copyAssets(await validateData()); break;
     case 'all':
-      python('scripts/map-ingest/ingest.py');
-      python('scripts/map-ingest/validate.py');
-      python('scripts/semantic-map/generate.py');
-      python('scripts/semantic-map/verify.py',['--regenerate']);
-      python('scripts/semantic-map/render_review.py');
+      python('scripts/map-ingest/ingest.py', selected);
+      python('scripts/map-ingest/validate.py', selected);
+      python('scripts/semantic-map/generate.py', selected);
+      python('scripts/semantic-map/verify.py',[...selected, '--regenerate']);
+      python('scripts/semantic-map/render_review.py', selected);
       copyAssets(await validateData()); break;
     default: throw new Error('Usage: node scripts/integration/pipeline.mjs [ingest|semantic|review|validate|prepare|all]');
   }

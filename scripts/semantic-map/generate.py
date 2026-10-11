@@ -4,6 +4,21 @@ Candidate geometry supports drawing-based routes only after computational safety
 """
 from pathlib import Path
 import json, hashlib
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection, read_json, write_json
+selected = selection()
+if selected.metadata_only:
+    for floor_id in read_json('scripts/semantic-map/buildings/B03.json')['floorIds']:
+        path = Path(__file__).resolve().parents[2] / f'data/buildings/B03/{floor_id}.json'
+        data = read_json(path)
+        data['building'] = read_json('scripts/semantic-map/buildings/B03.json')
+        write_json(path, data)
+    raise SystemExit(0)
+if selected.floor != 'GF':
+    from floor_01 import generate
+    generate()
+    raise SystemExit(0)
 from shapely.geometry import Point, Polygon
 from explore import ROOT, read, labels, polys, walls, seals, align
 from drawing_graph import derive
@@ -86,6 +101,7 @@ for line in walls:
 segments=sorted({json.dumps(s):s for s in segments}.values())
 nodes,edges,graph_evidence,nav_areas,missing_routes,topology_review=derive(rooms,walls,seals)
 floor['mapFeatures']=derive_features(read)
+floor['building']=read_json('scripts/semantic-map/buildings/B03.json')
 write(OUT/'GF.shortest-paths.review.json',topology_review)
 floor["navigationDefaults"]={"startRoomId":"B03-GF-G-01"}
 graph=dict(nodes=nodes,edges=edges,metersPerUnit=None,calibrationStatus='unknown',navigableAreas=nav_areas,walls=segments,status='candidate' if edges else 'unknown',routingPolicy='drawing-based')

@@ -34,7 +34,9 @@
     "three": "^0.180.0"
   },
   "devDependencies": {
+    "@ai-sdk/openai": "^4.0.91",
     "@axe-core/playwright": "^4.13.0",
+    "@e2e-dev/web": "^0.14.0",
     "@playwright/test": "^1.55.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -42,6 +44,8 @@
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@types/three": "^0.180.0",
+    "ai": "^7.0.137",
+    "e2e": "^0.19.0",
     "jsdom": "^26.1.0",
     "typescript": "^5.9.2",
     "vitest": "4.1.11"

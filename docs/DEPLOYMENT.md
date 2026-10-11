@@ -1,5 +1,33 @@
 # Deployment and physical kiosk configuration
 
+## First Floor phase 1–2 reproduction and preview
+
+Install the accepted source extractor separately from GF:
+
+```powershell
+python -m venv .venv-source-01
+.venv-source-01/Scripts/python.exe -m pip install -r scripts/map-ingest/floors/01.requirements.txt
+```
+
+Install the shared semantic requirements in the pipeline Python environment. The source verifier automatically uses `.venv-source-01` when present. `SOURCE_PACK_REBUILD_COMMAND` can supply a JSON array of executable/arguments for another pinned environment. Source packs stay private; only prepared `master.svg` assets are published.
+
+Floor-scoped `ingest`, `semantic`, `review:maps` and `pipeline` accept `--building B03 --floor 01`; omitted selectors retain GF behavior, and unsupported selections fail. Validation/preparation inspect every complete bundle. Example:
+
+```powershell
+npm.cmd run pipeline -- --building B03 --floor 01
+npm.cmd run validate:data
+npm.cmd run test:data
+npm.cmd run typecheck
+$env:WAYFINDING_FLOOR_ID = '01'
+Remove-Item Env:WAYFINDING_KIOSK_ID -ErrorAction SilentlyContinue
+npm.cmd run build
+npm.cmd run start -- --port 3101
+```
+
+The current client exposes the configured floor only; interactive switching remains phase 3. Default configuration remains GF. First Floor requires a chosen source-supported start; a GF kiosk cannot supply its origin. Building registration configuration is `scripts/semantic-map/buildings/B03.json`; `generate.py --metadata-only` refreshes shared building metadata without regenerating GF geometry.
+
+For isolated QA, set `QA_BASE_URL=http://localhost:3101` and `QA_ARTIFACT_DIR=artifacts/qa/floor-01`. Run `npm.cmd run test:e2e -- tests/e2e/floor-01.qa.spec.ts` and `npx.cmd e2e run tests/agentic/floor-01.e2e.ts --workers 1 --trace on`. The latter contains a separately reported model-dependent test; set `OPENAI_API_KEY` and optional `E2E_MODEL` to enable it. Never substitute a deterministic pass for model-driven coverage.
+
 ## Production build
 
 Use Node.js 22.23+ and the committed lockfile. From the repository root:

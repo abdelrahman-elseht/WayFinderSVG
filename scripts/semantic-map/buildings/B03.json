@@ -1,0 +1,5 @@
+{
+  "id": "B03",
+  "name": {"en": "Building B03", "ar": "المبنى B03"},
+  "floorIds": ["GF", "01"]
+}

@@ -1,0 +1,12 @@
+{
+  "nodes": 307,
+  "edges": 420,
+  "navAreas": 421,
+  "walls": 22226,
+  "roomApproaches": 51,
+  "scheduleEntries": 59,
+  "orderedSchedulePairs": 3481,
+  "wallContacts": [],
+  "areaFailures": [],
+  "roomInteriorCrossings": []
+}

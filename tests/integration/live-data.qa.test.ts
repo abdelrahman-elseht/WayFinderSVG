@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import type { FloorData, NavigationGraph } from '@wayfinding/map-engine';
 import { searchRooms } from '@wayfinding/search';
 import { findRoute } from '@wayfinding/routing';
@@ -47,7 +47,9 @@ describe('independent live B03 data/service integration', () => {
    const result=findRoute(graph,a.doorNodeId,b.doorNodeId);pairs++;
    if(result.status!=='ok') failures.push({from:a.code,to:b.code,status:result.status,reason:result.reason});
   }
-  writeFileSync('artifacts/qa/r2-all-pairs.json',JSON.stringify({pairs,elapsedMs:Date.now()-started,failures,scope:'Source drawing approach endpoints; does not certify physical access or exact room-door arrival'},null,2));
+  const output = process.env.QA_ARTIFACT_DIR || 'artifacts/qa';
+  mkdirSync(output, { recursive: true });
+  writeFileSync(`${output}/r2-all-pairs.json`,JSON.stringify({pairs,elapsedMs:Date.now()-started,failures,scope:'Source drawing approach endpoints; does not certify physical access or exact room-door arrival'},null,2));
   expect(pairs).toBe(2916);expect(failures.length,JSON.stringify(failures.slice(0,5))).toBe(0);
  },120000);
 });

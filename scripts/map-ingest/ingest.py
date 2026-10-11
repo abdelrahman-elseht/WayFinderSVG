@@ -4,6 +4,14 @@ Requires PyMuPDF==1.28.2. Originals are never modified.
 """
 from pathlib import Path
 import collections, hashlib, html, json, math
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+selected = selection()
+if selected.floor != 'GF':
+    from pack_adapter import ingest
+    ingest(selected.floor)
+    raise SystemExit(0)
 import pymupdf as fitz
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'maps/B03/GF'

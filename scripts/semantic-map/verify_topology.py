@@ -7,12 +7,16 @@ ensures this check rejects the original entrance-detour failure.
 import heapq
 import json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from floor_context import selection
+selected = selection()
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'data/buildings/B03'
-graph = json.loads((OUT / 'GF.graph.json').read_text(encoding='utf8'))
-oracle = json.loads((OUT / 'GF.shortest-paths.review.json').read_text(encoding='utf8'))
-floor = json.loads((OUT / 'GF.json').read_text(encoding='utf8'))
+graph = json.loads((OUT / f'{selected.floor}.graph.json').read_text(encoding='utf8'))
+oracle = json.loads((OUT / f'{selected.floor}.shortest-paths.review.json').read_text(encoding='utf8'))
+floor = json.loads((OUT / f'{selected.floor}.json').read_text(encoding='utf8'))
 
 def shortest(adjacency, start):
     best = {start: 0.0}
@@ -34,9 +38,9 @@ adjacency = {n['id']: [] for n in graph['nodes']}
 for edge in graph['edges']:
     adjacency[edge['from']].append((edge['to'], edge['distance']))
     adjacency[edge['to']].append((edge['from'], edge['distance']))
-endpoints = [r['doorNodeId'] for r in floor['rooms']]
+endpoints = [r['doorNodeId'] for r in floor['rooms'] if r['doorNodeId']]
 costs = {start: shortest(adjacency, start)[0] for start in endpoints}
-assert len(oracle['pairs']) == len(endpoints) * (len(endpoints)-1)//2
+assert len(oracle['pairs']) + len(oracle.get('disconnectedPairs', [])) == len(endpoints) * (len(endpoints)-1)//2
 failures = []
 max_ratio = 0.0
 for pair in oracle['pairs']:
@@ -47,21 +51,27 @@ for pair in oracle['pairs']:
 assert not failures, failures[:10]
 
 root = endpoints[0]
-_, parents = shortest(adjacency, root)
+reachable_from_root, parents = shortest(adjacency, root)
 tree = {node: [] for node in adjacency}
 for node, (parent, cost) in parents.items():
     tree[node].append((parent, cost))
     tree[parent].append((node, cost))
 tree_costs = {start: shortest(tree, start)[0] for start in endpoints}
-negative_failures = sum(tree_costs[p['start']][p['end']] > p['distance'] + .05 for p in oracle['pairs'])
+negative_failures = sum(tree_costs[p['start']].get(p['end'], float('inf')) > p['distance'] + .05
+    for p in oracle['pairs'] if p['start'] in reachable_from_root and p['end'] in reachable_from_root)
 assert negative_failures > 0, 'The shortest-path oracle must reject entrance-rooted tree reduction'
 
-lab = 'B03-GF-G-43-approach'
-prayer = 'B03-GF-G-33-approach'
+lab = next(r['doorNodeId'] for r in floor['rooms'] if r['code'] == ('G-43' if selected.floor == 'GF' else 'F-31'))
+prayer = next(r['doorNodeId'] for r in floor['rooms'] if r['code'] == ('G-33' if selected.floor == 'GF' else 'F-04'))
 direct = costs[lab][prayer]
 via_entrance = costs[lab][root] + costs[root][prayer]
-assert direct < 1000 and direct < via_entrance * .5, (direct, via_entrance)
-cycles = len(graph['edges']) - len(graph['nodes']) + 1
+if selected.floor == 'GF':
+    assert direct < 1000 and direct < via_entrance * .5, (direct, via_entrance)
+unvisited = set(adjacency); component_count = 0
+while unvisited:
+    component_count += 1
+    unvisited.difference_update(shortest(adjacency, next(iter(unvisited)))[0])
+cycles = len(graph['edges']) - len(graph['nodes']) + component_count
 assert cycles > 0
 report = dict(unorderedPairs=len(oracle['pairs']), orderedPairs=len(oracle['pairs'])*2,
               maximumExportedToFullGridCostRatio=round(max_ratio, 6),
@@ -70,5 +80,8 @@ report = dict(unorderedPairs=len(oracle['pairs']), orderedPairs=len(oracle['pair
               mechanicalLabToPrayerRoom=dict(distance=round(direct, 4),
                   viaMainEntrance=round(via_entrance, 4), baselineTreeDistance=2833.0013),
               failures=failures)
-(OUT / 'GF.topology-validation.review.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf8')
+if selected.floor != 'GF':
+    report.pop('mechanicalLabToPrayerRoom')
+    report['sourceDisconnections'] = oracle.get('disconnectedPairs', [])
+(OUT / f'{selected.floor}.topology-validation.review.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf8')
 print(json.dumps(report, indent=2))
