@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "assertions": 18425,
+  "assertions": 22255,
   "scheduleEntries": 59,
   "rooms": 54,
   "sourceStatusExceptions": [
@@ -11,8 +11,8 @@
     "F-45"
   ],
   "candidateContours": 38,
-  "nodes": 307,
-  "edges": 420,
+  "nodes": 323,
+  "edges": 452,
   "supportedApproaches": 51,
   "originalWallCurveSubdivisions": 96,
   "wallContacts": 0,

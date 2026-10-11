@@ -178,8 +178,16 @@
         1245
       ],
       [
-        2440,
-        1420
+        2405,
+        1270
+      ],
+      [
+        2475,
+        1350
+      ],
+      [
+        2470,
+        1410
       ],
       [
         2645,
@@ -355,7 +363,8 @@
   ],
   "corridorHalfWidth": 36,
   "excludedRoomCodes": [
-    "F-17"
+    "F-17",
+    "F-57"
   ],
   "endpointOverrides": {
     "F-19": {
@@ -413,6 +422,10 @@
     "F-17": {
       "en": "Two distinct enclosures carry F-17 / STAIR 03. Navigation is unavailable until the destination identity is resolved.",
       "ar": "تحمل حجرتان مختلفتان الرمز F-17 واسم السلم ٣؛ لا تتوفر الملاحة حتى يتم تحديد الوجهة."
+    },
+    "F-57": {
+      "en": "The ELECT ROOM source doorway is visible, but the supplied corridor review does not establish a continuous source-safe approach to it. Navigation remains unavailable until that connection is resolved.",
+      "ar": "يظهر باب غرفة الكهرباء في المصدر، لكن مراجعة الممرات المقدمة لا تثبت اقتراباً متصلاً وآمناً من المصدر. يظل التوجيه غير متاح حتى حل هذا الاتصال."
     },
     "F-30": {
       "en": "The drawn Stair 02 doorway faces the unresolved west F-17 enclosure. A supported common-corridor connection is not established.",

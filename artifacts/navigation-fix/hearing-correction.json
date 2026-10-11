@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-12",
+  "floor": "B03/01",
+  "symptom": "Hearing difficulties to intellectual difficulties detoured around the northern wing; source texture drift made routes appear to cross lifts and raised blocks.",
+  "causes": [
+    "The southern investigation spine crossed source walls 0002-path-07511, 0002-path-07512 and 0002-path-07513, disconnecting the subtracted walkable corridor.",
+    "A single rooted tree discarded alternate corridor paths.",
+    "Default SVG aspect preservation letterboxed the first-floor viewBox into a 4096x2048 texture, misregistering CAD against semantic polygons.",
+    "Depth-disabled route rendering painted lines over raised solids; selection lifted blocks away from their footprint bases."
+  ],
+  "routeDistances": {
+    "unit": "map-unit",
+    "F20ToF34Before": 3175.7521,
+    "F20ToF34After": 1184.432,
+    "F21ToF34After": 1318.7796,
+    "physicalScale": "unknown"
+  },
+  "graph": {
+    "nodes": 323,
+    "edges": 452,
+    "supportedApproaches": 51,
+    "components": 1,
+    "independentCycles": 130,
+    "checkedUnorderedEndpointPairs": 1275,
+    "maximumExportedToGridRatio": 1.000001,
+    "rootedTreeNegativeControlRejectedPairs": 975
+  },
+  "checks": {
+    "unitAndIntegration": "151 tests across 15 files passed",
+    "originalSource": "22255 assertions passed; zero wall contacts and room/stair shortcuts",
+    "runtimePairMatrix": "3481 schedule pairs classified; zero unexpected outcomes",
+    "browser": "12 First Floor Playwright tests passed across two invocations, including bilingual hearing routes and a rasterized CAD corner landmark",
+    "typecheck": "passed",
+    "malformedData": "21 rejection checks passed",
+    "configuredFirstFloorProductionBuild": "passed",
+    "visualInspection": "Desktop and Arabic mobile verified; no horizontal mobile overflow"
+  },
+  "screenshots": [
+    "artifacts/navigation-fix/after-hearing-desktop.png",
+    "artifacts/navigation-fix/after-hearing-mobile-ar.png",
+    "artifacts/qa/floor-01/route-hearing-to-intellectual-en.png",
+    "artifacts/qa/floor-01/route-hearing-to-intellectual-ar.png"
+  ],
+  "limitations": [
+    "Drawing-based candidate approaches, not confirmed physical or wheelchair access.",
+    "F-17, F-49 and F-57 remain unsupported; five schedule entries lack mapped source markers.",
+    "Original source contours and illustrative extrusion heights are preserved."
+  ]
+}

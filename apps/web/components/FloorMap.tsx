@@ -20,6 +20,11 @@ function useFloorTexture(asset: string) {
     fetch(asset).then(response => { if (!response.ok) throw Error('Map unavailable'); return response.text(); }).then(svg => {
       if (disposed) return;
       const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
+      // The texture UVs span the entire canonical viewBox. SVG's default
+      // xMidYMid meet adds letterboxing when the raster aspect differs, shifting
+      // CAD ink relative to room footprints. Map that viewBox edge-to-edge;
+      // the world plane restores its source aspect ratio.
+      doc.documentElement.setAttribute('preserveAspectRatio', 'none');
       doc.documentElement.setAttribute('width', '4096'); doc.documentElement.setAttribute('height', '2048');
       blobUrl = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(doc)], { type: 'image/svg+xml' }));
       const image = new Image();
@@ -47,21 +52,18 @@ function useForcedColors() {
 }
 // Heights communicate spatial hierarchy; they are illustrative, not surveyed dimensions.
 const ROOM_HEIGHT = .65;
-const ROOM_LIFT = .16;
 const CAMERA_OFFSET = new THREE.Vector3(5, 30, 22);
 const roomHeight = (room: Room) => room.category === 'circulation' ? .045 : ROOM_HEIGHT;
-const roomLift = (room: Room) => room.category === 'circulation' ? 0 : ROOM_LIFT;
-const roomY = (room: Room, selected: boolean) => room.polygon?.length ? roomHeight(room) + (selected ? roomLift(room) : 0) + .13 : .18;
+const roomY = (room: Room) => room.polygon?.length ? roomHeight(room) + .13 : .18;
 const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, texture, width, depth, forcedColors }: { room: Room; center: Point; selected: boolean; onSelect: () => void; texture: THREE.Texture | null; width: number; depth: number; forcedColors: boolean }) {
   const [hovered, setHovered] = useState(false);
-  const group = useRef<THREE.Group>(null);
   const material = useRef<THREE.MeshStandardMaterial>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => { const media = window.matchMedia('(prefers-reduced-motion: reduce)'); const update = () => setReducedMotion(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   const targetColor = useMemo(() => new THREE.Color(forcedColors ? selected ? highContrastMapPalette.selection : hovered ? highContrastMapPalette.hover : highContrastMapPalette.room : selected ? mapPalette.selection : hovered ? mapPalette.hover : categoryColors[room.category]), [forcedColors, selected, hovered, room.category]);
   useFrame((_, delta) => {
     const blend = reducedMotion ? 1 : 1 - Math.exp(-delta * 12);
-    if (group.current) group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, selected ? roomLift(room) : hovered && room.category !== 'circulation' ? .055 : 0, blend);
+    // Keep every footprint anchored to the plan during hover and selection.
     material.current?.color.lerp(targetColor, blend);
   });
   const geometry = useMemo(() => {
@@ -79,7 +81,7 @@ const RoomShape = memo(function RoomShape({ room, center, selected, onSelect, te
   useEffect(() => () => geometry?.dispose(), [geometry]);
   const border = useMemo(() => room.polygon?.concat([room.polygon[0]]).map(([x, y]) => [(x - center[0]) / SCALE, roomHeight(room) + .027, (y - center[1]) / SCALE] as [number, number, number]), [room.polygon, room.category, center]);
   if (!geometry || !border) return null;
-  return <group ref={group}>
+  return <group>
     <mesh castShadow receiveShadow geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .02, 0]} onClick={event => { event.stopPropagation(); onSelect(); }} onPointerOver={event => { event.stopPropagation(); setHovered(true); }} onPointerOut={() => setHovered(false)}>
       <meshStandardMaterial key={texture?.uuid ?? 'loading'} attach="material-0" ref={material} map={forcedColors ? null : texture} color={targetColor} roughness={.95} />
       <meshStandardMaterial attach="material-1" color={forcedColors ? highContrastMapPalette.roomSide : selected ? mapPalette.selectionSide : categoryColors[room.category]} roughness={1} />
@@ -97,7 +99,7 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
   useFrame(() => {
     const occupied: { x: number; y: number; width: number }[] = []; const next: string[] = [];
     for (const room of orderedRooms) {
-      vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE).project(camera);
+      vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE).project(camera);
       const x = (vector.x + 1) * size.width / 2; const y = (1 - vector.y) * size.height / 2;
       const labelWidth = room.name[language].length * 7 + room.code.length * 7 + 38;
       const width = room.id === selectedId ? 210 : Math.max(52, labelWidth);
@@ -108,7 +110,7 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     }
     const key = next.join('|'); if (key !== signature.current) { signature.current = key; setVisible(new Set(next)); }
   });
-  return <>{rooms.map(room => <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room, room.id === selectedId), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
+  return <>{rooms.map(room => <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
     <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${room.polygon ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{room.name[language]}</span><span className="map-label-code">{room.code}</span></button>
   </Html>)}</>;
 }
@@ -119,11 +121,11 @@ function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { rout
   const routeColor = forcedColors ? highContrastMapPalette.route : mapPalette.route;
   const destinationColor = forcedColors ? highContrastMapPalette.routeDestination : mapPalette.routeDestination;
   return <group renderOrder={20}>
-    <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} depthTest={false} renderOrder={20} />
-    <Line points={points} color={routeColor} lineWidth={5} depthTest={false} renderOrder={21} />
+    <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} depthTest depthWrite={false} renderOrder={20} />
+    <Line points={points} color={routeColor} lineWidth={5} depthTest depthWrite={false} renderOrder={21} />
     {[endpointPoints[0], endpointPoints[endpointPoints.length - 1]].map((point, index) => <group key={index} position={point}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color={forcedColors ? highContrastMapPalette.endpointUnderlay : mapPalette.endpointUnderlay} depthTest={false} /></mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? destinationColor : routeColor} depthTest={false} /></mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color={forcedColors ? highContrastMapPalette.endpointUnderlay : mapPalette.endpointUnderlay} depthTest /></mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? destinationColor : routeColor} depthTest /></mesh>
     </group>)}
   </group>;
 }

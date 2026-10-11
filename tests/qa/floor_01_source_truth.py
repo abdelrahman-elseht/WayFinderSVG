@@ -151,6 +151,24 @@ def main():
     supplied_walls = unary_union([LineString(w) for w in graph['walls']])
     areas = unary_union([Polygon(p) for p in graph['navigableAreas']])
     investigation = unary_union([LineString(p).buffer(cfg['corridorHalfWidth'], cap_style=2, join_style=2) for p in cfg['corridorSpines']])
+    # The generator supports short source-door landings beyond the main traces.
+    # Verify their provenance against the independently checked swing/leaf
+    # portals above, then include their bounded envelope. Every retained edge
+    # still has to avoid ALL original walls and room/stair solids below.
+    topology = read('data/buildings/B03/01.shortest-paths.review.json')
+    for bridge in topology['landingBridges']:
+        seal = next(s for s in review['doorGapCandidates'] if s['arcPathId'] == bridge['arcPathId'])
+        portal = LineString(seal['sourceDoorSegment'])
+        path = LineString(bridge['points'])
+        check(portal.distance(Point(bridge['points'][0])) <= 22.01, 'Landing starts at a source threshold or its corridor-side approach')
+        check(path.length <= cfg['corridorHalfWidth'] * 16, 'Landing has bounded local extent')
+        check(0 < bridge['halfWidth'] <= cfg['corridorHalfWidth'], 'Landing cannot widen the corridor allowance')
+        check(frame.covers(path), 'Landing stays in the source frame')
+        # Bent connectors may end at an earlier source landing; all extensions
+        # must meet the already established investigation envelope.
+        check(investigation.buffer(.02).intersects(path), 'Landing joins reviewed circulation')
+        landing = path.buffer(bridge['halfWidth'], cap_style=2, join_style=2)
+        investigation = investigation.union(landing)
     for node in graph['nodes']:
         check(node['buildingId'] == 'B03' and node['floorId'] == '01' and node['status'] == 'candidate', 'Floor-local node evidence')
         check(areas.buffer(.0002).covers(Point(node['point'])) and not original_wall_union.intersects(Point(node['point'])), 'Safe source endpoint')
@@ -162,7 +180,7 @@ def main():
         check(areas.buffer(.0002).covers(line) and frame.covers(line) and investigation.buffer(.02).covers(line), 'Full-segment union/envelope coverage')
         check(not line.intersects(supplied_walls) and not line.intersects(original_wall_union), 'Zero contact with supplied AND original dense source walls')
         for code, polygon in polygons:
-            if next(r for r in floor['rooms'] if r['code'] == code)['category'] != 'circulation':
+            if code not in cfg['circulationCodes']:
                 check(not line.intersects(polygon), 'No non-circulation room shortcut')
         check(edge['status'] == 'candidate' and edge['accessibility'] == 'unknown' and edge['restriction'] == 'unknown', 'Honest access metadata')
     report = dict(status='passed', assertions=checks, scheduleEntries=59, rooms=54, sourceStatusExceptions=[r['code'] for r in exceptions],

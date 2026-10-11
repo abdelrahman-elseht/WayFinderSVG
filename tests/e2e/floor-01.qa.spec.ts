@@ -87,6 +87,54 @@ test('cross-seam route and reverse preserve qualifications, RTL and no metric cl
   await expect(page.getByTestId('route-status')).toContainText('Starting point: Route ends at the mapped corridor approach');
 });
 
+test('repaired First Floor endpoints route through the shared corridor graph', async ({ page }) => {
+  await ready(page);
+  await journey(page, 'F-30', 'F-20');
+  await expect(page.getByTestId('route-status')).toContainText('Route on floor plan');
+  await shot(page, 'route-f30-to-f20');
+  await journey(page, 'F-32', 'F-20');
+  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+  await shot(page, 'route-f32-to-f20');
+  await journey(page, 'F-01', 'F-20');
+  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+  await shot(page, 'route-f01-to-f20');
+});
+
+test('hearing to intellectual difficulties uses the repaired southern corridor in both languages', async ({ page }) => {
+  await ready(page);
+  await journey(page, 'F-20', 'F-34');
+  await expect(page.getByTestId('route-status').locator('progress')).toHaveAttribute('value', '1');
+  await shot(page, 'route-hearing-to-intellectual-en');
+  await page.getByTestId('language-toggle').click();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await expect(page.getByTestId('route-status')).toHaveClass(/\bok\b/);
+  await shot(page, 'route-hearing-to-intellectual-ar');
+});
+
+test('CAD raster covers the canonical viewBox without shifting its landmarks', async ({ page }) => {
+  await page.route('**/maps/B03/01/master.svg', async route => {
+    const response = await route.fetch();
+    const svg = (await response.text()).replace('</svg>',
+      '<rect x="580" y="315" width="12" height="12" fill="#ff00ff"/></svg>');
+    await route.fulfill({ response, body: svg });
+  });
+  await page.addInitScript(() => {
+    const original = CanvasRenderingContext2D.prototype.drawImage;
+    CanvasRenderingContext2D.prototype.drawImage = function (this: CanvasRenderingContext2D, ...args: Parameters<typeof original>) {
+      original.apply(this, args);
+      const source = args[0];
+      if (source instanceof HTMLImageElement && source.src.startsWith('blob:') && this.canvas.width === 4096) {
+        // The top-left source landmark must occupy the top-left texture texel.
+        // SVG xMidYMid meet previously inserted horizontal margins here.
+        const pixel = Array.from(this.getImageData(2, 2, 1, 1).data);
+        document.documentElement.dataset.cadCorner = pixel.join(',');
+      }
+    } as typeof original;
+  });
+  await ready(page);
+  await expect(page.locator('html')).toHaveAttribute('data-cad-corner', '255,0,255,255');
+});
+
 test('missing start, unsupported destinations and unknown accessibility fail closed; reset restores no origin', async ({ page }) => {
   await ready(page);
   await page.getByTestId('destination-select').selectOption('B03-01-F-31');
@@ -97,7 +145,7 @@ test('missing start, unsupported destinations and unknown accessibility fail clo
   await expect(page.getByTestId('route-status')).toContainText('confirmed step-free accessibility');
   await expect(page.getByTestId('playback-toggle')).toHaveCount(0);
   await page.getByRole('checkbox').uncheck();
-  for (const [code, note] of [['F-17', 'Navigation is unavailable'], ['F-30', 'connection is not established'], ['F-49', 'do not establish its walking surface']]) {
+  for (const [code, note] of [['F-17', 'Navigation is unavailable'], ['F-49', 'do not establish its walking surface'], ['F-57', 'Navigation remains unavailable']]) {
     await page.getByTestId('destination-select').selectOption(`B03-01-${code}`);
     await expect(page.getByTestId('route-status')).toHaveClass(/\bunavailable\b/);
     await expect(page.getByTestId('room-details').locator('.room-navigation-note')).toContainText(note);

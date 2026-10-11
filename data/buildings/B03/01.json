@@ -46,7 +46,7 @@
         2425.704,
         918.572
       ],
-      "doorNodeId": "B03-01-j89413",
+      "doorNodeId": "B03-01-j89917",
       "aliases": [
         "CORRIDOR 1",
         "F 01",
@@ -108,7 +108,7 @@
         1665.514,
         1245.637
       ],
-      "doorNodeId": "B03-01-j166658",
+      "doorNodeId": "B03-01-j167598",
       "aliases": [
         "CORRIDOR 2",
         "F 02",
@@ -170,7 +170,7 @@
         1116.574,
         1128.907
       ],
-      "doorNodeId": "B03-01-j139457",
+      "doorNodeId": "B03-01-j140245",
       "aliases": [
         "CORRIDOR 3",
         "F 03",
@@ -232,7 +232,7 @@
         1679.944,
         735.607
       ],
-      "doorNodeId": "B03-01-j47926",
+      "doorNodeId": "B03-01-j48198",
       "aliases": [
         "CORRIDOR 4",
         "F 04",
@@ -295,7 +295,7 @@
         2580.554,
         1020.244
       ],
-      "doorNodeId": "B03-01-j113638",
+      "doorNodeId": "B03-01-j114278",
       "aliases": [
         "CORRIDOR 5",
         "F 05",
@@ -357,7 +357,7 @@
         2698.741,
         1456.502
       ],
-      "doorNodeId": "B03-01-j221748",
+      "doorNodeId": "B03-01-j222996",
       "aliases": [
         "CORRIDOR 6",
         "F 06",
@@ -1019,7 +1019,7 @@
           "note": "Enclosing face has unrelated labels ['F-11', 'F-12', 'F-13']; marker only."
         },
         {
-          "source": "maps/B03/01/source/0002.json#0002-path-10302",
+          "source": "maps/B03/01/source/0002.json#0002-path-10298",
           "page": 1,
           "status": "candidate",
           "note": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified."
@@ -2040,7 +2040,7 @@
         2712.642,
         1354.667
       ],
-      "doorNodeId": "B03-01-j194020",
+      "doorNodeId": "B03-01-j195112",
       "aliases": [
         "F 22",
         "F22",
@@ -3175,7 +3175,7 @@
         1949.897,
         1319.407
       ],
-      "doorNodeId": null,
+      "doorNodeId": "B03-01-F-30-approach",
       "aliases": [
         "F 30",
         "F30",
@@ -3208,11 +3208,17 @@
           "page": 1,
           "status": "candidate",
           "note": "Source wall/door free-space face, 0.20-unit candidate closure buffer and 0.18 simplification. 2 obstruction holes omitted from display-only outer ring; not walking geometry."
+        },
+        {
+          "source": "maps/B03/01/source/0001.json#0001-path-09974",
+          "page": 1,
+          "status": "candidate",
+          "note": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified."
         }
       ],
       "navigationNote": {
-        "en": "The drawn Stair 02 doorway faces the unresolved west F-17 enclosure. A supported common-corridor connection is not established.",
-        "ar": "باب السلم ٢ المرسوم يواجه حجرة F-17 الغربية غير المحسومة؛ لم يثبت اتصال مدعوم بالممر المشترك."
+        "en": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified.",
+        "ar": "ينتهي المسار عند نقطة الاقتراب المرسومة من الممر؛ لم يتم التحقق من الدخول أو الإتاحة."
       }
     },
     {
@@ -4175,7 +4181,7 @@
           "note": "Source wall/door free-space face, 0.20-unit candidate closure buffer and 0.18 simplification. 0 obstruction holes omitted from display-only outer ring; not walking geometry."
         },
         {
-          "source": "maps/B03/01/source/0001.json#0001-path-09540",
+          "source": "maps/B03/01/source/0001.json#0001-path-09536",
           "page": 1,
           "status": "candidate",
           "note": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified."
@@ -4202,7 +4208,7 @@
         1215.373,
         1540.507
       ],
-      "doorNodeId": "B03-01-j236187",
+      "doorNodeId": "B03-01-j237519",
       "aliases": [
         "ELEVATOR LOBBY",
         "F 37",
@@ -8030,7 +8036,7 @@
         1800.469,
         514.207
       ],
-      "doorNodeId": "B03-01-F-57-approach",
+      "doorNodeId": null,
       "aliases": [
         "ELECT ROOM",
         "ELECT ROOM ",
@@ -8064,17 +8070,11 @@
           "page": 1,
           "status": "candidate",
           "note": "Source wall/door free-space face, 0.20-unit candidate closure buffer and 0.18 simplification. 0 obstruction holes omitted from display-only outer ring; not walking geometry."
-        },
-        {
-          "source": "maps/B03/01/source/0001.json#0001-path-08248",
-          "page": 1,
-          "status": "candidate",
-          "note": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified."
         }
       ],
       "navigationNote": {
-        "en": "Route ends at the mapped corridor approach; doorway access and accessibility are unverified.",
-        "ar": "ينتهي المسار عند نقطة الاقتراب المرسومة من الممر؛ لم يتم التحقق من الدخول أو الإتاحة."
+        "en": "The ELECT ROOM source doorway is visible, but the supplied corridor review does not establish a continuous source-safe approach to it. Navigation remains unavailable until that connection is resolved.",
+        "ar": "يظهر باب غرفة الكهرباء في المصدر، لكن مراجعة الممرات المقدمة لا تثبت اقتراباً متصلاً وآمناً من المصدر. يظل التوجيه غير متاح حتى حل هذا الاتصال."
       }
     },
     {
@@ -8093,7 +8093,7 @@
         2003.803,
         604.027
       ],
-      "doorNodeId": "B03-01-j14617",
+      "doorNodeId": "B03-01-j14701",
       "aliases": [
         "ELEVATOR LOBBY",
         "F 58",

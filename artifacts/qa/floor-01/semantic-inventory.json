@@ -1,21 +1,17 @@
 {
   "first": {
-    "data/buildings/B03/01.json": "5c4fd49a5de03168621ed5e1587ac8af67743cf8474d6e0520912a053168ed04",
-    "data/buildings/B03/01.graph.json": "a9bb7581ad61c7afcfd46f59efae718d5073898dcfc77ef7c054b2288fc194d9",
-    "data/buildings/B03/01.review.json": "3d918dd279bda45c8865589ba4f409acbab8122b27129e1f8771b2e0de8e9e06",
-    "data/buildings/B03/01.shortest-paths.review.json": "8e786959067676da7f1e778f347c46dc65e946cf1f14ee924809e6cd91bcdc74",
+    "data/buildings/B03/01.json": "4fe262ca70c1e68147117e9d9b048b04b01457ddb9754d79f3e5bb9377223efa",
+    "data/buildings/B03/01.graph.json": "41d72749af4f573ef7d74ab1c0a51b4bd86bb45783b21737137a6af0bb31cdd0",
+    "data/buildings/B03/01.review.json": "599ef687fbbd6b93802c7ecf487d5e1bea5d74ab4d479765744190701f60deb9",
+    "data/buildings/B03/01.shortest-paths.review.json": "2cc3cb6a5a01c8eda8b2ff4af3b712a5e591d14ac1ebbafe29e80f99c8276a3c",
     "content/B03/01.json": "8a7b3a731c580d68e3cffbbe25801ad3c5a7583d194c3861a01055f3c9073b8e"
   },
   "second": {
-    "data/buildings/B03/01.json": "5c4fd49a5de03168621ed5e1587ac8af67743cf8474d6e0520912a053168ed04",
-    "data/buildings/B03/01.graph.json": "a9bb7581ad61c7afcfd46f59efae718d5073898dcfc77ef7c054b2288fc194d9",
-    "data/buildings/B03/01.review.json": "3d918dd279bda45c8865589ba4f409acbab8122b27129e1f8771b2e0de8e9e06",
-    "data/buildings/B03/01.shortest-paths.review.json": "8e786959067676da7f1e778f347c46dc65e946cf1f14ee924809e6cd91bcdc74",
+    "data/buildings/B03/01.json": "4fe262ca70c1e68147117e9d9b048b04b01457ddb9754d79f3e5bb9377223efa",
+    "data/buildings/B03/01.graph.json": "41d72749af4f573ef7d74ab1c0a51b4bd86bb45783b21737137a6af0bb31cdd0",
+    "data/buildings/B03/01.review.json": "599ef687fbbd6b93802c7ecf487d5e1bea5d74ab4d479765744190701f60deb9",
+    "data/buildings/B03/01.shortest-paths.review.json": "2cc3cb6a5a01c8eda8b2ff4af3b712a5e591d14ac1ebbafe29e80f99c8276a3c",
     "content/B03/01.json": "8a7b3a731c580d68e3cffbbe25801ad3c5a7583d194c3861a01055f3c9073b8e"
   },
-  "status": "identical",
-  "overlay": {
-    "first": "4a065f32541329e154a0b9ec9d518d430f13fd7d5e9b16c3ab3617c21673daff",
-    "second": "4a065f32541329e154a0b9ec9d518d430f13fd7d5e9b16c3ab3617c21673daff"
-  }
+  "status": "identical"
 }

@@ -8,6 +8,7 @@ import graph from '../../data/buildings/B03/01.graph.json';
 import contents from '../../content/B03/01.json';
 import review from '../../data/buildings/B03/01.review.json';
 import schedule from '../../maps/B03/01/source/room-schedule.json';
+import topology from '../../data/buildings/B03/01.shortest-paths.review.json';
 
 const bundle = validateFloorBundle(floor, graph, contents);
 const rooms = new Map(bundle.floorData.rooms.map(room => [room.code, room]));
@@ -32,6 +33,27 @@ for (const node of bundle.graph.nodes) {
 }
 
 describe('First Floor source-backed phase 2 bundle', () => {
+  it('keeps the sparse source-bounded topology and commissioned endpoint set stable', () => {
+    // Sparse does not mean a tree: preserve alternate corridors without
+    // publishing every raster-grid pixel as a navigation node.
+    expect(bundle.graph.nodes.length).toBeLessThan(topology.gridVertices / 10);
+    expect(bundle.graph.edges.length).toBeGreaterThanOrEqual(bundle.graph.nodes.length);
+    expect(bundle.graph.nodes.filter(node => node.roomId)).toHaveLength(51);
+    expect(bundle.graph.navigableAreas.length).toBeGreaterThan(0);
+    expect(bundle.graph.edges.every(edge => edge.geometry.length >= 2 && edge.distance > 0)).toBe(true);
+
+    const commissioned = ['F-01', 'F-20', 'F-30', 'F-32'];
+    for (const code of commissioned) expect(rooms.get(code)!.doorNodeId).toBeTruthy();
+    expect(['F-17', 'F-49', 'F-57'].filter(code => !rooms.get(code)!.doorNodeId)).toEqual(['F-17', 'F-49', 'F-57']);
+    expect(review.graphReview.missingRouteRooms.map(row => row.code)).toEqual(['F-17', 'F-49', 'F-57']);
+    expect(new Set(commissioned.map(code => components.get(rooms.get(code)!.doorNodeId!))).size).toBe(1);
+    expect(components.has(rooms.get('F-57')!.doorNodeId ?? '')).toBe(false);
+
+    expect(findRoute(bundle.graph, rooms.get('F-30')!.doorNodeId, rooms.get('F-20')!.doorNodeId).status).toBe('ok');
+    expect(findRoute(bundle.graph, rooms.get('F-32')!.doorNodeId, rooms.get('F-20')!.doorNodeId).status).toBe('ok');
+    expect(findRoute(bundle.graph, rooms.get('F-01')!.doorNodeId, rooms.get('F-20')!.doorNodeId).status).toBe('ok');
+  });
+
   it('accounts for every schedule row without fabricated positions or translations', () => {
     expect(schedule.rows).toHaveLength(59);
     expect(review.rooms).toHaveLength(59);

@@ -1,5 +1,15 @@
 # Independent QA report — R2
 
+## First Floor southern-route correction (2026-10-12)
+
+The F-20 to F-34 regression first failed at 3,175.7521 drawing units and now passes at 1,184.432 (62.7% shorter). F-21 to F-34 is 1,318.7796. The corrected southern corridor and distance-preserving graph reduction produce 323 nodes, 452 edges, 130 cycles and one connected component for all 51 supported approaches. All 1,275 endpoint pairs pass the existing 0.05-unit grid-reference tolerance; the rooted-tree negative control rejects 975 detours. The production router classifies all 3,481 schedule pairs without unexpected failures.
+
+Independent original-source checks pass 22,255 assertions, including zero wall contacts, zero room/stair shortcuts, bounded source-door landing evidence, and complete navigation-envelope containment. Source PDFs and semantic contour coordinates are preserved. The corrected CAD raster spans its canonical viewBox, raised footprints remain anchored during selection, and route rendering respects solid depth. A browser landmark test samples actual raster pixels to reject the former SVG letterboxing.
+
+Validation passed: all 151 Vitest tests in 15 files, typecheck, `validate:data`, 21 malformed-data checks, and a configured First Floor production build. Twelve First Floor Playwright tests passed in two invocations (two new route/raster regressions and ten existing checks), including English/Arabic routing, accessibility exclusion, reduced motion, forced colors, mobile, keyboard, five axe states and WebGL fallback. Desktop and Arabic mobile screenshots were inspected; no mobile horizontal overflow was observed. See `artifacts/navigation-fix/hearing-correction.json`, `artifacts/navigation-fix/after-hearing-desktop.png`, `artifacts/navigation-fix/after-hearing-mobile-ar.png`, and current `data/buildings/B03/01.*review.json`.
+
+F-17/F-49/F-57 remain unsupported, five schedule entries remain unmapped, and physical access, accessibility and metre scale remain unknown. Earlier QA entries below are historical baselines.
+
 ## First Floor phase 1–2 verification (2026-10-10)
 
 T001–T014 are implemented and evidenced in `specs/002-b03-first-floor-wayfinding/spec-plan.md`. The selected `npm.cmd run pipeline -- --building B03 --floor 01` passes two byte-identical accepted source rebuilds, two source adapters, two semantic generations, independent checks and asset preparation. Both original PDF hashes remain unchanged. Repeated semantic overlay and canonical/public SVG hashes match. GF retains its geometry/graph/content/origin; only shared building registration metadata changes. All 34 other-floor baseline artifacts pass ownership comparison, and Floor 02 has no changes.
