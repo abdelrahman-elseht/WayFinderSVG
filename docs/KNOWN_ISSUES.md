@@ -1,5 +1,7 @@
 # Known issues
 
+Raised-block correction (2026-10-12): previously missing enclosed-room blocks now have candidate source-derived display outlines on GF and 01, including lifts/escalators. Original semantic unknowns are retained where label position or closure interpretation prevents promoting a contour. Open circulation, the skylight void and schedule-only First Floor entries without source positions are intentionally not fabricated as solid blocks. GF G-19/G-20/G-21 routes now stop at the cafeteria suite entrance; internal suite access remains unmapped and is explained in both languages. See `SEMANTIC_REVIEW.md` for generation evidence.
+
 ## First Floor phase 1–2 limits
 
 The complete source/semantic bundle is available as configured floor `01`; interactive GF↔01 selection and renderer refinements belong to phase 3. Building metadata and server imports are shared prerequisites for validating and previewing the bundle. The client still receives one configured floor.

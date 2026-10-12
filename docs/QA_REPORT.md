@@ -1,5 +1,11 @@
 # Independent QA report — R2
 
+## Raised blocks, GF and 01 (2026-10-12)
+
+Branch `fix/Bo3-first-floor-Gf-blocks` adds ten recovered candidate room display footprints, five lift cabins and two escalators per floor, and consistent illustrative stair height. `tests/qa/display_footprints.py` passes dense source-boundary, nonoverlap and all-edge route-occlusion checks for both floors; its report and desktop/detail screenshots are under `artifacts/block-heights/`. GF recovery excludes cafeteria/service interiors and qualifies G-19/G-20/G-21 at the cafeteria entrance in English/Arabic. The 2,862 ordered GF pairs remain connected and topology verification reports no failures. First Floor routes remain unchanged.
+
+Validation: both floor pipelines and deterministic regeneration passed; `validate:data`, `test:data` (21 rejection checks), TypeScript and the 155-test Vitest suite passed. After GF graph correction, the relevant live-data/route-safety suites passed (11 tests), as did block/route unit checks. First Floor browser suite: 12 passed. GF functional browser suite: 12 expected outcomes, including the existing expected unavailable-room failure; no unexpected failures. Existing GF screenshot baselines were excluded because the raised geometry intentionally changes them; replacement screenshots were visually inspected. English/Arabic, axe, mobile, 200% text, forced colors, reduced motion and fallback checks passed. First Floor production build passed. The inherited favicon 404 remains.
+
 ## First Floor southern-route correction (2026-10-12)
 
 The F-20 to F-34 regression first failed at 3,175.7521 drawing units and now passes at 1,184.432 (62.7% shorter). F-21 to F-34 is 1,318.7796. The corrected southern corridor and distance-preserving graph reduction produce 323 nodes, 452 edges, 130 cycles and one connected component for all 51 supported approaches. All 1,275 endpoint pairs pass the existing 0.05-unit grid-reference tolerance; the rooted-tree negative control rejects 975 detours. The production router classifies all 3,481 schedule pairs without unexpected failures.

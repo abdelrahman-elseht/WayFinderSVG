@@ -1404,7 +1404,450 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "displayFootprint": {
+        "polygon": [
+          [
+            2687.412,
+            1558.566
+          ],
+          [
+            2686.346,
+            1562.679
+          ],
+          [
+            2684.87,
+            1562.363
+          ],
+          [
+            2684.811,
+            1561.795
+          ],
+          [
+            2683.818,
+            1561.579
+          ],
+          [
+            2683.527,
+            1562.895
+          ],
+          [
+            2679.69,
+            1581.755
+          ],
+          [
+            2680.715,
+            1581.956
+          ],
+          [
+            2680.994,
+            1581.42
+          ],
+          [
+            2682.548,
+            1581.829
+          ],
+          [
+            2681.766,
+            1585.935
+          ],
+          [
+            2733.879,
+            1597.237
+          ],
+          [
+            2726.048,
+            1586.089
+          ],
+          [
+            2725.31,
+            1586.229
+          ],
+          [
+            2724.61,
+            1585.95
+          ],
+          [
+            2724.151,
+            1585.317
+          ],
+          [
+            2724.103,
+            1584.6
+          ],
+          [
+            2724.479,
+            1583.919
+          ],
+          [
+            2725.16,
+            1583.543
+          ],
+          [
+            2725.877,
+            1583.591
+          ],
+          [
+            2726.51,
+            1584.05
+          ],
+          [
+            2726.79,
+            1584.962
+          ],
+          [
+            2726.375,
+            1585.858
+          ],
+          [
+            2734.045,
+            1596.778
+          ],
+          [
+            2740.15,
+            1569.982
+          ]
+        ],
+        "geometryStatus": "candidate",
+        "provenance": [
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00399",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00401",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00403",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00405",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00407",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00409",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00411",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00413",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00415",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00417",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00419",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00421",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00423",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00425",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00427",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00429",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00431",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00433",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00435",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00437",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00438",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00439",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00440",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00441",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00442",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00443",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00444",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00606",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06063",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06064",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08088",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08089",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08090",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08091",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08092",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08093",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08096",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12054",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12055",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12056",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12057",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12058",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12059",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12060",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12061",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12062",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12063",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12064",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12065",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12066",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12067",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12068",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12069",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12070",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12071",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12104",
+            "page": 1,
+            "status": "candidate",
+            "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          }
+        ]
+      }
     },
     {
       "id": "B03-GF-G-11",
@@ -2452,7 +2895,1052 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "displayFootprint": {
+        "polygon": [
+          [
+            2540.157,
+            1624.059
+          ],
+          [
+            2533.657,
+            1665.635
+          ],
+          [
+            2544.838,
+            1667.404
+          ],
+          [
+            2541.267,
+            1690.209
+          ],
+          [
+            2530.08,
+            1688.439
+          ],
+          [
+            2508.181,
+            1828.054
+          ],
+          [
+            2519.368,
+            1829.824
+          ],
+          [
+            2515.797,
+            1852.629
+          ],
+          [
+            2510.214,
+            1851.746
+          ],
+          [
+            2509.949,
+            1853.43
+          ],
+          [
+            2553.676,
+            1860.723
+          ],
+          [
+            2586.618,
+            1866.784
+          ],
+          [
+            2619.469,
+            1873.294
+          ],
+          [
+            2668.554,
+            1883.915
+          ],
+          [
+            2717.397,
+            1895.526
+          ],
+          [
+            2766.003,
+            1908.157
+          ],
+          [
+            2814.337,
+            1921.808
+          ],
+          [
+            2862.399,
+            1936.419
+          ],
+          [
+            2909.927,
+            1951.991
+          ],
+          [
+            2910.471,
+            1950.399
+          ],
+          [
+            2905.106,
+            1948.585
+          ],
+          [
+            2912.438,
+            1926.898
+          ],
+          [
+            2917.87,
+            1928.543
+          ],
+          [
+            2919.695,
+            1923.187
+          ],
+          [
+            2922.365,
+            1924.082
+          ],
+          [
+            2922.965,
+            1922.792
+          ],
+          [
+            2924.389,
+            1923.266
+          ],
+          [
+            2924.363,
+            1923.854
+          ],
+          [
+            2925.261,
+            1924.153
+          ],
+          [
+            2932.847,
+            1902.013
+          ],
+          [
+            2931.916,
+            1901.703
+          ],
+          [
+            2931.585,
+            1902.188
+          ],
+          [
+            2930.161,
+            1901.714
+          ],
+          [
+            2930.457,
+            1900.316
+          ],
+          [
+            2927.726,
+            1899.385
+          ],
+          [
+            2963.191,
+            1794.672
+          ],
+          [
+            2957.816,
+            1792.855
+          ],
+          [
+            2965.187,
+            1771.15
+          ],
+          [
+            2970.609,
+            1772.813
+          ],
+          [
+            2984.126,
+            1732.916
+          ],
+          [
+            2949.548,
+            1721.49
+          ],
+          [
+            2914.661,
+            1710.481
+          ],
+          [
+            2879.624,
+            1699.922
+          ],
+          [
+            2844.436,
+            1689.873
+          ],
+          [
+            2791.4,
+            1675.684
+          ],
+          [
+            2738.094,
+            1662.605
+          ],
+          [
+            2684.518,
+            1650.636
+          ],
+          [
+            2647.243,
+            1643.012
+          ],
+          [
+            2647.38,
+            1641.348
+          ],
+          [
+            2647.952,
+            1641.29
+          ],
+          [
+            2648.145,
+            1640.283
+          ],
+          [
+            2605.579,
+            1632.585
+          ],
+          [
+            2605.385,
+            1633.595
+          ],
+          [
+            2605.92,
+            1633.845
+          ],
+          [
+            2605.611,
+            1635.381
+          ],
+          [
+            2602.656,
+            1634.947
+          ],
+          [
+            2602.739,
+            1633.28
+          ],
+          [
+            2603.338,
+            1633.221
+          ],
+          [
+            2603.509,
+            1632.214
+          ],
+          [
+            2560.944,
+            1624.511
+          ],
+          [
+            2560.771,
+            1625.526
+          ],
+          [
+            2561.28,
+            1625.793
+          ],
+          [
+            2560.845,
+            1627.36
+          ]
+        ],
+        "geometryStatus": "candidate",
+        "provenance": [
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00226",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00227",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00228",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00229",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00230",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00231",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00232",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00233",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00234",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00235",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00236",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00237",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00238",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00239",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00240",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00241",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00242",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00243",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00244",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00245",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00259",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00260",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00261",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00262",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00263",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00264",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00265",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00266",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00267",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00268",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00269",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00270",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00271",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00272",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00279",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00280",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00281",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00282",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00283",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00284",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00285",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00288",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00289",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00290",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00291",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00292",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00293",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00294",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00594",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00595",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00597",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00598",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00599",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00600",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06037",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06039",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06041",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06042",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06065",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06066",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06072",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07129",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07130",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07408",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07409",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07661",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07662",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07664",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07665",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07666",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07670",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07671",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08067",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08068",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08070",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08071",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08072",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08073",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08074",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08075",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08099",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08101",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08102",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08103",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08104",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08105",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08106",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08107",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08108",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08109",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08112",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08116",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08118",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08119",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08120",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08121",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08122",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08123",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08124",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08125",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08126",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08129",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08603",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08604",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08605",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08606",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08607",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08608",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08609",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08610",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08611",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08617",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08622",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08623",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08624",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08625",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08626",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08627",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08628",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08629",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08630",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08636",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11447",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11450",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11503",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11945",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11950",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12014",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12015",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12100",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12102",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          }
+        ]
+      }
     },
     {
       "id": "B03-GF-G-19",
@@ -2509,9 +3997,408 @@
           "source": "scripts/semantic-map/navigation-config.json#roomEndpoints/G-19",
           "page": 1,
           "status": "candidate",
-          "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
+          "note": "Drawing-based endpoint approach. Route ends at the Cafeteria entrance. Service G-19 is reached through the Cafeteria; internal access is not mapped."
         }
-      ]
+      ],
+      "displayFootprint": {
+        "polygon": [
+          [
+            2946.045,
+            1899.604
+          ],
+          [
+            2935.308,
+            1895.965
+          ],
+          [
+            2926.092,
+            1922.961
+          ],
+          [
+            2948.314,
+            1930.536
+          ],
+          [
+            2948.583,
+            1930.428
+          ],
+          [
+            2948.163,
+            1932.21
+          ],
+          [
+            2925.586,
+            1924.684
+          ],
+          [
+            2915.676,
+            1953.95
+          ],
+          [
+            2963.329,
+            1970.772
+          ],
+          [
+            2995.04,
+            1982.563
+          ],
+          [
+            3026.364,
+            1994.752
+          ],
+          [
+            3026.985,
+            1993.195
+          ],
+          [
+            3021.71,
+            1991.113
+          ],
+          [
+            3030.132,
+            1969.819
+          ],
+          [
+            3041.13,
+            1973.967
+          ],
+          [
+            3039.507,
+            1978.069
+          ],
+          [
+            3071.386,
+            1898.002
+          ],
+          [
+            3060.981,
+            1893.853
+          ],
+          [
+            3061.897,
+            1891.179
+          ],
+          [
+            3060.653,
+            1890.526
+          ],
+          [
+            3061.191,
+            1889.133
+          ],
+          [
+            3061.786,
+            1889.191
+          ],
+          [
+            3062.145,
+            1888.26
+          ],
+          [
+            3040.328,
+            1879.739
+          ],
+          [
+            3039.958,
+            1880.696
+          ],
+          [
+            3040.437,
+            1881.055
+          ],
+          [
+            3039.869,
+            1882.447
+          ],
+          [
+            3038.445,
+            1882.07
+          ],
+          [
+            3037.181,
+            1884.631
+          ],
+          [
+            2990.912,
+            1867.408
+          ],
+          [
+            2960.574,
+            1856.707
+          ]
+        ],
+        "geometryStatus": "candidate",
+        "provenance": [
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00284",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00285",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00286",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00287",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-00599",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03347",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03348",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03349",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03350",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03351",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03352",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-03355",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06036",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06037",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06041",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-06042",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07125",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07128",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07621",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-07622",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08057",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08058",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08060",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08061",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08062",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08063",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08064",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08065",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08067",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08068",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08069",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08070",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08071",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08072",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08073",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08074",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08075",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-08076",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11503",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11944",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-11947",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12022",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12023",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0002.json#0002-path-12101",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          }
+        ]
+      },
+      "navigationNote": {
+        "en": "Route ends at the Cafeteria entrance. Service G-19 is reached through the Cafeteria; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى الخدمة G-19 عبر الكافتيريا؛ الوصول الداخلي غير مرسوم."
+      }
     },
     {
       "id": "B03-GF-G-20",
@@ -2681,9 +4568,13 @@
           "source": "scripts/semantic-map/navigation-config.json#roomEndpoints/G-20",
           "page": 1,
           "status": "candidate",
-          "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
+          "note": "Drawing-based endpoint approach. Route ends at the Cafeteria entrance. Kitchen G-20 is reached through the Cafeteria and Service room; internal access is not mapped."
         }
-      ]
+      ],
+      "navigationNote": {
+        "en": "Route ends at the Cafeteria entrance. Kitchen G-20 is reached through the Cafeteria and Service room; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المطبخ G-20 عبر الكافتيريا وغرفة الخدمة؛ الوصول الداخلي غير مرسوم."
+      }
     },
     {
       "id": "B03-GF-G-21",
@@ -2809,12 +4700,12 @@
           "source": "scripts/semantic-map/navigation-config.json#roomEndpoints/G-21",
           "page": 1,
           "status": "candidate",
-          "note": "Drawing-based endpoint approach. Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen."
+          "note": "Drawing-based endpoint approach. Route ends at the Cafeteria entrance. Storage G-21 is reached through the Cafeteria, Service room and Kitchen; internal access is not mapped."
         }
       ],
       "navigationNote": {
-        "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
-        "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
+        "en": "Route ends at the Cafeteria entrance. Storage G-21 is reached through the Cafeteria, Service room and Kitchen; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المخزن G-21 عبر الكافتيريا وغرفة الخدمة والمطبخ؛ الوصول الداخلي غير مرسوم."
       }
     },
     {
@@ -4367,7 +6258,1068 @@
           "status": "candidate",
           "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
         }
-      ]
+      ],
+      "displayFootprint": {
+        "polygon": [
+          [
+            1295.526,
+            1640.464
+          ],
+          [
+            1297.198,
+            1645.84
+          ],
+          [
+            1293.83,
+            1646.888
+          ],
+          [
+            1292.16,
+            1641.549
+          ],
+          [
+            1282.528,
+            1644.653
+          ],
+          [
+            1246.503,
+            1656.621
+          ],
+          [
+            1210.657,
+            1669.1
+          ],
+          [
+            1174.992,
+            1682.058
+          ],
+          [
+            1122.165,
+            1702.327
+          ],
+          [
+            1151.757,
+            1776.737
+          ],
+          [
+            1177.526,
+            1766.697
+          ],
+          [
+            1220.139,
+            1750.791
+          ],
+          [
+            1257.718,
+            1737.435
+          ],
+          [
+            1289.57,
+            1726.578
+          ],
+          [
+            1290.0,
+            1726.768
+          ],
+          [
+            1291.699,
+            1731.898
+          ],
+          [
+            1292.786,
+            1731.543
+          ],
+          [
+            1293.15,
+            1731.747
+          ],
+          [
+            1293.627,
+            1733.196
+          ],
+          [
+            1293.183,
+            1733.641
+          ],
+          [
+            1293.404,
+            1734.305
+          ],
+          [
+            1320.76,
+            1725.376
+          ],
+          [
+            1320.539,
+            1724.713
+          ],
+          [
+            1319.916,
+            1724.623
+          ],
+          [
+            1319.457,
+            1723.171
+          ],
+          [
+            1319.625,
+            1722.797
+          ],
+          [
+            1320.675,
+            1722.432
+          ],
+          [
+            1318.993,
+            1717.155
+          ],
+          [
+            1324.311,
+            1715.341
+          ],
+          [
+            1309.614,
+            1668.669
+          ],
+          [
+            1301.509,
+            1671.251
+          ],
+          [
+            1300.463,
+            1667.851
+          ],
+          [
+            1308.554,
+            1665.304
+          ],
+          [
+            1300.252,
+            1638.941
+          ]
+        ],
+        "geometryStatus": "candidate",
+        "provenance": [
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01557",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01558",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01559",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01560",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01561",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01562",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01563",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01564",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01565",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01566",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01567",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01568",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01569",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01570",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01571",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01572",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01573",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01574",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01575",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01576",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01577",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01578",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01579",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01580",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01581",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01582",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01583",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01584",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01585",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01586",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01587",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01588",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01589",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01590",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01591",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01592",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01593",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01594",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01595",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01596",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01597",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01598",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01599",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01600",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01601",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01602",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01603",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01604",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01605",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01606",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01607",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01608",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01609",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01610",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01611",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01612",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01613",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01614",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01615",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01616",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01617",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01618",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01619",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01620",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01621",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01622",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01623",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01624",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01625",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01626",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01627",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01628",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01629",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01631",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01632",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01634",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01635",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01637",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01638",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01640",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01641",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01643",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01644",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01646",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01647",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01649",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01650",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01652",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01653",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01655",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01656",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01658",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01659",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01661",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01662",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01665",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01667",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01668",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01670",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01671",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01673",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01674",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01676",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01677",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01679",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01680",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01682",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01683",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01685",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01686",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01688",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01689",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01691",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01692",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01694",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01695",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01697",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01698",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01700",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01701",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01703",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01704",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01706",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01707",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01709",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01712",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01715",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01718",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01721",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01723",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01725",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01727",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-01729",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-04762",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-04763",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-05071",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-05072",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-06393",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-06394",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07472",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07473",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07474",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07475",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07476",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07477",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-07480",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-08353",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-08354",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-08355",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-08356",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-08438",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-12199",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          },
+          {
+            "source": "maps/B03/GF/source/0001.json#0001-path-12200",
+            "page": 1,
+            "status": "candidate",
+            "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+          }
+        ]
+      }
     },
     {
       "id": "B03-GF-G-33",
@@ -8659,12 +11611,215 @@
   ],
   "mapFeatures": [
     {
+      "id": "B03-GF-elevator-1",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Lift 1",
+        "ar": "مصعد 1"
+      },
+      "kind": "elevator",
+      "polygon": [
+        [
+          1210.78,
+          1773.71
+        ],
+        [
+          1171.18,
+          1788.35
+        ],
+        [
+          1184.95,
+          1825.73
+        ],
+        [
+          1224.58,
+          1811.12
+        ],
+        [
+          1213.24,
+          1780.37
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-09683",
+          "page": 1,
+          "status": "candidate",
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-elevator-2",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Lift 2",
+        "ar": "مصعد 2"
+      },
+      "kind": "elevator",
+      "polygon": [
+        [
+          2071.96,
+          832.13
+        ],
+        [
+          2030.74,
+          832.79
+        ],
+        [
+          2031.31,
+          869.84
+        ],
+        [
+          2072.53,
+          869.18
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-09717",
+          "page": 1,
+          "status": "candidate",
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-elevator-3",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Lift 3",
+        "ar": "مصعد 3"
+      },
+      "kind": "elevator",
+      "polygon": [
+        [
+          2071.06,
+          776.87
+        ],
+        [
+          2029.84,
+          777.53
+        ],
+        [
+          2030.44,
+          814.55
+        ],
+        [
+          2071.66,
+          813.92
+        ],
+        [
+          2071.18,
+          783.95
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0001.json#0001-path-09751",
+          "page": 1,
+          "status": "candidate",
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-elevator-4",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Lift 4",
+        "ar": "مصعد 4"
+      },
+      "kind": "elevator",
+      "polygon": [
+        [
+          2710.96,
+          1464.68
+        ],
+        [
+          2704.63,
+          1495.46
+        ],
+        [
+          2740.99,
+          1502.93
+        ],
+        [
+          2747.32,
+          1472.15
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0002.json#0002-path-10443",
+          "page": 1,
+          "status": "candidate",
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
+        }
+      ]
+    },
+    {
+      "id": "B03-GF-elevator-5",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "name": {
+        "en": "Lift 5",
+        "ar": "مصعد 5"
+      },
+      "kind": "elevator",
+      "polygon": [
+        [
+          2701.27,
+          1511.87
+        ],
+        [
+          2694.94,
+          1542.65
+        ],
+        [
+          2731.3,
+          1550.12
+        ],
+        [
+          2737.63,
+          1519.34
+        ]
+      ],
+      "geometryStatus": "candidate",
+      "accessibility": "unknown",
+      "connectedFloorIds": [],
+      "provenance": [
+        {
+          "source": "maps/B03/GF/source/0002.json#0002-path-10475",
+          "page": 1,
+          "status": "candidate",
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
+        }
+      ]
+    },
+    {
       "id": "B03-GF-escalator-west",
       "buildingId": "B03",
       "floorId": "GF",
       "name": {
-        "en": "Main Entrance escalator (west)",
-        "ar": "السلم المتحرك بجوار المدخل الرئيسي (الغربي)"
+        "en": "Escalator 1",
+        "ar": "سلم متحرك 1"
       },
       "kind": "escalator",
       "polygon": [
@@ -8693,13 +11848,13 @@
           "source": "maps/B03/GF/source/0001.json#0001-path-08616",
           "page": 1,
           "status": "candidate",
-          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
         },
         {
           "source": "maps/B03/GF/source/0001.json#0001-path-08574",
           "page": 1,
           "status": "candidate",
-          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
         }
       ]
     },
@@ -8708,8 +11863,8 @@
       "buildingId": "B03",
       "floorId": "GF",
       "name": {
-        "en": "Main Entrance escalator (east)",
-        "ar": "السلم المتحرك بجوار المدخل الرئيسي (الشرقي)"
+        "en": "Escalator 2",
+        "ar": "سلم متحرك 2"
       },
       "kind": "escalator",
       "polygon": [
@@ -8738,13 +11893,13 @@
           "source": "maps/B03/GF/source/0001.json#0001-path-08684",
           "page": 1,
           "status": "candidate",
-          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
         },
         {
           "source": "maps/B03/GF/source/0001.json#0001-path-08642",
           "page": 1,
           "status": "candidate",
-          "note": "Drawn A-ELEV rail endpoints bound the escalator beside G01. This source feature has no inferred upper-floor connection or accessibility claim."
+          "note": "Source cabin casing or paired escalator rail envelope. Illustrative raised display only; no measured height, accessibility or inter-floor connection inferred."
         }
       ]
     }

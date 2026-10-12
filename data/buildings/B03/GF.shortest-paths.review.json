@@ -3,8 +3,8 @@
   "gridStep": 3.0,
   "clearancePenalty": 8.0,
   "minClearanceFloor": 0.25,
-  "gridVertices": 70079,
-  "gridLinks": 264980,
+  "gridVertices": 61320,
+  "gridLinks": 231152,
   "pairs": [
     {
       "start": "B03-GF-G-01-approach",
@@ -49,7 +49,7 @@
     {
       "start": "B03-GF-G-01-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 586.719677
+      "distance": 588.477036
     },
     {
       "start": "B03-GF-G-01-approach",
@@ -94,17 +94,17 @@
     {
       "start": "B03-GF-G-01-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 1069.377708
+      "distance": 632.88028
     },
     {
       "start": "B03-GF-G-01-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1181.887085
+      "distance": 632.88028
     },
     {
       "start": "B03-GF-G-01-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1181.887085
+      "distance": 632.88028
     },
     {
       "start": "B03-GF-G-01-approach",
@@ -159,7 +159,7 @@
     {
       "start": "B03-GF-G-01-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1480.221578
+      "distance": 1481.978937
     },
     {
       "start": "B03-GF-G-01-approach",
@@ -309,7 +309,7 @@
     {
       "start": "B03-GF-G-02-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 1270.77862
+      "distance": 1272.53598
     },
     {
       "start": "B03-GF-G-02-approach",
@@ -354,17 +354,17 @@
     {
       "start": "B03-GF-G-02-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 1753.436652
+      "distance": 1316.939223
     },
     {
       "start": "B03-GF-G-02-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1865.946029
+      "distance": 1316.939223
     },
     {
       "start": "B03-GF-G-02-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1865.946029
+      "distance": 1316.939223
     },
     {
       "start": "B03-GF-G-02-approach",
@@ -419,7 +419,7 @@
     {
       "start": "B03-GF-G-02-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 342.942426
+      "distance": 344.699786
     },
     {
       "start": "B03-GF-G-02-approach",
@@ -564,7 +564,7 @@
     {
       "start": "B03-GF-G-03-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 1725.373275
+      "distance": 1727.130634
     },
     {
       "start": "B03-GF-G-03-approach",
@@ -609,17 +609,17 @@
     {
       "start": "B03-GF-G-03-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 2208.031306
+      "distance": 1771.533877
     },
     {
       "start": "B03-GF-G-03-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 2320.540683
+      "distance": 1771.533877
     },
     {
       "start": "B03-GF-G-03-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 2320.540683
+      "distance": 1771.533877
     },
     {
       "start": "B03-GF-G-03-approach",
@@ -674,7 +674,7 @@
     {
       "start": "B03-GF-G-03-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 556.559375
+      "distance": 558.316735
     },
     {
       "start": "B03-GF-G-03-approach",
@@ -814,7 +814,7 @@
     {
       "start": "B03-GF-G-04-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 1784.375645
+      "distance": 1786.133004
     },
     {
       "start": "B03-GF-G-04-approach",
@@ -859,17 +859,17 @@
     {
       "start": "B03-GF-G-04-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 2267.033677
+      "distance": 1830.536248
     },
     {
       "start": "B03-GF-G-04-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 2379.543053
+      "distance": 1830.536248
     },
     {
       "start": "B03-GF-G-04-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 2379.543053
+      "distance": 1830.536248
     },
     {
       "start": "B03-GF-G-04-approach",
@@ -924,7 +924,7 @@
     {
       "start": "B03-GF-G-04-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 967.076464
+      "distance": 968.833824
     },
     {
       "start": "B03-GF-G-04-approach",
@@ -1059,7 +1059,7 @@
     {
       "start": "B03-GF-G-05-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 983.22662
+      "distance": 984.98398
     },
     {
       "start": "B03-GF-G-05-approach",
@@ -1104,17 +1104,17 @@
     {
       "start": "B03-GF-G-05-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 1465.884652
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-05-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1578.394029
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-05-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1578.394029
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-05-approach",
@@ -1169,7 +1169,7 @@
     {
       "start": "B03-GF-G-05-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1908.309257
+      "distance": 1910.066617
     },
     {
       "start": "B03-GF-G-05-approach",
@@ -1299,7 +1299,7 @@
     {
       "start": "B03-GF-G-06-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 983.22662
+      "distance": 984.98398
     },
     {
       "start": "B03-GF-G-06-approach",
@@ -1344,17 +1344,17 @@
     {
       "start": "B03-GF-G-06-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 1465.884652
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-06-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1578.394029
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-06-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1578.394029
+      "distance": 1029.387223
     },
     {
       "start": "B03-GF-G-06-approach",
@@ -1409,7 +1409,7 @@
     {
       "start": "B03-GF-G-06-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1908.309257
+      "distance": 1910.066617
     },
     {
       "start": "B03-GF-G-06-approach",
@@ -1534,7 +1534,7 @@
     {
       "start": "B03-GF-G-07-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 210.124638
+      "distance": 211.881997
     },
     {
       "start": "B03-GF-G-07-approach",
@@ -1579,17 +1579,17 @@
     {
       "start": "B03-GF-G-07-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 720.120765
+      "distance": 276.167492
     },
     {
       "start": "B03-GF-G-07-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 832.630141
+      "distance": 276.167492
     },
     {
       "start": "B03-GF-G-07-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 832.630141
+      "distance": 276.167492
     },
     {
       "start": "B03-GF-G-07-approach",
@@ -1644,7 +1644,7 @@
     {
       "start": "B03-GF-G-07-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1614.729136
+      "distance": 1616.486495
     },
     {
       "start": "B03-GF-G-07-approach",
@@ -1764,7 +1764,7 @@
     {
       "start": "B03-GF-G-08-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 243.082193
+      "distance": 244.839553
     },
     {
       "start": "B03-GF-G-08-approach",
@@ -1809,17 +1809,17 @@
     {
       "start": "B03-GF-G-08-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 757.320961
+      "distance": 313.367688
     },
     {
       "start": "B03-GF-G-08-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 869.830337
+      "distance": 313.367688
     },
     {
       "start": "B03-GF-G-08-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 869.830337
+      "distance": 313.367688
     },
     {
       "start": "B03-GF-G-08-approach",
@@ -1874,7 +1874,7 @@
     {
       "start": "B03-GF-G-08-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1686.775003
+      "distance": 1688.532363
     },
     {
       "start": "B03-GF-G-08-approach",
@@ -1989,7 +1989,7 @@
     {
       "start": "B03-GF-G-09-approach",
       "end": "B03-GF-G-10-approach",
-      "distance": 122.454176
+      "distance": 124.211536
     },
     {
       "start": "B03-GF-G-09-approach",
@@ -2034,17 +2034,17 @@
     {
       "start": "B03-GF-G-09-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 615.053333
+      "distance": 171.100061
     },
     {
       "start": "B03-GF-G-09-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 727.56271
+      "distance": 171.100061
     },
     {
       "start": "B03-GF-G-09-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 727.56271
+      "distance": 171.100061
     },
     {
       "start": "B03-GF-G-09-approach",
@@ -2099,7 +2099,7 @@
     {
       "start": "B03-GF-G-09-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1527.235298
+      "distance": 1528.992657
     },
     {
       "start": "B03-GF-G-09-approach",
@@ -2214,37 +2214,37 @@
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-11-approach",
-      "distance": 258.903844
+      "distance": 252.903844
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-12-approach",
-      "distance": 276.869469
+      "distance": 270.869469
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-13-approach",
-      "distance": 439.741434
+      "distance": 433.741434
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-14-approach",
-      "distance": 546.876489
+      "distance": 540.876489
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-15-approach",
-      "distance": 529.6411
+      "distance": 523.6411
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-16-approach",
-      "distance": 659.830353
+      "distance": 653.830353
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-17-approach",
-      "distance": 546.876489
+      "distance": 540.876489
     },
     {
       "start": "B03-GF-G-10-approach",
@@ -2254,182 +2254,182 @@
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 529.673842
+      "distance": 88.205851
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 642.183219
+      "distance": 88.205851
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 642.183219
+      "distance": 88.205851
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-22-approach",
-      "distance": 513.531525
+      "distance": 515.288884
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-23-approach",
-      "distance": 421.78365
+      "distance": 423.54101
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-24-approach",
-      "distance": 659.260052
+      "distance": 661.017412
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-25-approach",
-      "distance": 787.891939
+      "distance": 789.649299
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-26-approach",
-      "distance": 928.109456
+      "distance": 929.866816
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-27-approach",
-      "distance": 882.163397
+      "distance": 883.920756
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-28-approach",
-      "distance": 882.163397
+      "distance": 883.920756
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-29-approach",
-      "distance": 1066.875464
+      "distance": 1068.632823
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-30-approach",
-      "distance": 1378.356693
+      "distance": 1380.114052
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-31-approach",
-      "distance": 1633.65148
+      "distance": 1635.408839
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1611.436542
+      "distance": 1614.951261
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-33-approach",
-      "distance": 1683.276283
+      "distance": 1685.033642
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-34-approach",
-      "distance": 1670.683804
+      "distance": 1672.441163
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-35-approach",
-      "distance": 1500.190941
+      "distance": 1501.9483
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-36-approach",
-      "distance": 1524.366806
+      "distance": 1526.124165
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-37-approach",
-      "distance": 1770.623922
+      "distance": 1772.381281
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-38-approach",
-      "distance": 1818.021847
+      "distance": 1819.779207
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-39-approach",
-      "distance": 1980.700397
+      "distance": 1982.457757
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-40-approach",
-      "distance": 1980.700397
+      "distance": 1982.457757
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-41-approach",
-      "distance": 1948.252083
+      "distance": 1950.009442
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-42-approach",
-      "distance": 1739.631993
+      "distance": 1741.389352
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-43-approach",
-      "distance": 2022.594966
+      "distance": 2024.352325
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-44-approach",
-      "distance": 2039.332238
+      "distance": 2041.089598
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-45-approach",
-      "distance": 1778.084791
+      "distance": 1779.84215
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-46-approach",
-      "distance": 1557.545468
+      "distance": 1559.302827
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-47-approach",
-      "distance": 1558.54493
+      "distance": 1560.30229
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-48-approach",
-      "distance": 1479.477013
+      "distance": 1481.234372
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-49-approach",
-      "distance": 1405.073107
+      "distance": 1406.830466
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-50-approach",
-      "distance": 1488.535505
+      "distance": 1490.292864
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-51-approach",
-      "distance": 1205.821716
+      "distance": 1207.579075
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-52-approach",
-      "distance": 1274.035711
+      "distance": 1275.793071
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-53-approach",
-      "distance": 1054.131965
+      "distance": 1055.889325
     },
     {
       "start": "B03-GF-G-10-approach",
       "end": "B03-GF-G-54-approach",
-      "distance": 1101.821527
+      "distance": 1103.578886
     },
     {
       "start": "B03-GF-G-11-approach",
@@ -2469,17 +2469,17 @@
     {
       "start": "B03-GF-G-11-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 683.01772
+      "distance": 246.520291
     },
     {
       "start": "B03-GF-G-11-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 795.527097
+      "distance": 246.520291
     },
     {
       "start": "B03-GF-G-11-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 795.527097
+      "distance": 246.520291
     },
     {
       "start": "B03-GF-G-11-approach",
@@ -2534,7 +2534,7 @@
     {
       "start": "B03-GF-G-11-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1855.93475
+      "distance": 1857.692109
     },
     {
       "start": "B03-GF-G-11-approach",
@@ -2679,17 +2679,17 @@
     {
       "start": "B03-GF-G-12-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 700.983345
+      "distance": 264.485916
     },
     {
       "start": "B03-GF-G-12-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 813.492721
+      "distance": 264.485916
     },
     {
       "start": "B03-GF-G-12-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 813.492721
+      "distance": 264.485916
     },
     {
       "start": "B03-GF-G-12-approach",
@@ -2744,7 +2744,7 @@
     {
       "start": "B03-GF-G-12-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1873.900374
+      "distance": 1875.657733
     },
     {
       "start": "B03-GF-G-12-approach",
@@ -2884,17 +2884,17 @@
     {
       "start": "B03-GF-G-13-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 863.85531
+      "distance": 427.357881
     },
     {
       "start": "B03-GF-G-13-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 976.364686
+      "distance": 427.357881
     },
     {
       "start": "B03-GF-G-13-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 976.364686
+      "distance": 427.357881
     },
     {
       "start": "B03-GF-G-13-approach",
@@ -2949,7 +2949,7 @@
     {
       "start": "B03-GF-G-13-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2036.772339
+      "distance": 2038.529699
     },
     {
       "start": "B03-GF-G-13-approach",
@@ -3084,17 +3084,17 @@
     {
       "start": "B03-GF-G-14-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 970.990365
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-14-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1083.499742
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-14-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1083.499742
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-14-approach",
@@ -3149,7 +3149,7 @@
     {
       "start": "B03-GF-G-14-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2143.907395
+      "distance": 2145.664754
     },
     {
       "start": "B03-GF-G-14-approach",
@@ -3279,17 +3279,17 @@
     {
       "start": "B03-GF-G-15-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 953.754976
+      "distance": 517.257547
     },
     {
       "start": "B03-GF-G-15-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1066.264353
+      "distance": 517.257547
     },
     {
       "start": "B03-GF-G-15-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1066.264353
+      "distance": 517.257547
     },
     {
       "start": "B03-GF-G-15-approach",
@@ -3344,7 +3344,7 @@
     {
       "start": "B03-GF-G-15-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2126.672005
+      "distance": 2128.429365
     },
     {
       "start": "B03-GF-G-15-approach",
@@ -3469,17 +3469,17 @@
     {
       "start": "B03-GF-G-16-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 1083.944229
+      "distance": 647.446801
     },
     {
       "start": "B03-GF-G-16-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1196.453606
+      "distance": 647.446801
     },
     {
       "start": "B03-GF-G-16-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1196.453606
+      "distance": 647.446801
     },
     {
       "start": "B03-GF-G-16-approach",
@@ -3534,7 +3534,7 @@
     {
       "start": "B03-GF-G-16-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2256.861259
+      "distance": 2258.618618
     },
     {
       "start": "B03-GF-G-16-approach",
@@ -3654,17 +3654,17 @@
     {
       "start": "B03-GF-G-17-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 970.990365
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-17-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 1083.499742
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-17-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 1083.499742
+      "distance": 534.492937
     },
     {
       "start": "B03-GF-G-17-approach",
@@ -3719,7 +3719,7 @@
     {
       "start": "B03-GF-G-17-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2143.907395
+      "distance": 2145.664754
     },
     {
       "start": "B03-GF-G-17-approach",
@@ -3834,17 +3834,17 @@
     {
       "start": "B03-GF-G-18-approach",
       "end": "B03-GF-G-19-approach",
-      "distance": 439.591804
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-18-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 552.101181
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-18-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 552.101181
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-18-approach",
@@ -3899,7 +3899,7 @@
     {
       "start": "B03-GF-G-18-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1657.597145
+      "distance": 1659.354505
     },
     {
       "start": "B03-GF-G-18-approach",
@@ -4014,512 +4014,512 @@
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-20-approach",
-      "distance": 130.628913
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 130.628913
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-22-approach",
-      "distance": 996.189557
+      "distance": 559.692128
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-23-approach",
-      "distance": 900.199041
+      "distance": 467.944253
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-24-approach",
-      "distance": 1141.918084
+      "distance": 705.420655
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-25-approach",
-      "distance": 1270.549971
+      "distance": 834.052542
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-26-approach",
-      "distance": 1410.767488
+      "distance": 974.270059
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-27-approach",
-      "distance": 1364.821428
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-28-approach",
-      "distance": 1364.821428
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-29-approach",
-      "distance": 1549.533495
+      "distance": 1113.036067
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-30-approach",
-      "distance": 1861.014725
+      "distance": 1424.517296
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-31-approach",
-      "distance": 2116.309511
+      "distance": 1679.812083
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2094.094574
+      "distance": 1659.354505
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-33-approach",
-      "distance": 2165.934315
+      "distance": 1729.436886
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-34-approach",
-      "distance": 2153.341835
+      "distance": 1716.844407
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-35-approach",
-      "distance": 1982.848973
+      "distance": 1546.351544
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-36-approach",
-      "distance": 2007.024837
+      "distance": 1570.527409
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-37-approach",
-      "distance": 2253.281954
+      "distance": 1816.784525
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-38-approach",
-      "distance": 2300.679879
+      "distance": 1864.18245
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-39-approach",
-      "distance": 2463.358429
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-40-approach",
-      "distance": 2463.358429
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-41-approach",
-      "distance": 2430.910115
+      "distance": 1994.412686
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-42-approach",
-      "distance": 2222.290024
+      "distance": 1785.792596
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-43-approach",
-      "distance": 2505.252998
+      "distance": 2068.755569
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-44-approach",
-      "distance": 2521.99027
+      "distance": 2085.492841
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-45-approach",
-      "distance": 2260.742823
+      "distance": 1824.245394
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-46-approach",
-      "distance": 2040.2035
+      "distance": 1603.706071
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-47-approach",
-      "distance": 2041.202962
+      "distance": 1604.705533
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-48-approach",
-      "distance": 1962.135045
+      "distance": 1525.637616
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-49-approach",
-      "distance": 1887.731138
+      "distance": 1451.23371
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-50-approach",
-      "distance": 1971.193537
+      "distance": 1534.696108
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-51-approach",
-      "distance": 1688.479747
+      "distance": 1251.982319
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-52-approach",
-      "distance": 1756.693743
+      "distance": 1320.196314
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-53-approach",
-      "distance": 1536.789997
+      "distance": 1100.292568
     },
     {
       "start": "B03-GF-G-19-approach",
       "end": "B03-GF-G-54-approach",
-      "distance": 1584.479558
+      "distance": 1147.982129
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-21-approach",
-      "distance": 0.653009
+      "distance": 3.094376
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-22-approach",
-      "distance": 1108.698933
+      "distance": 559.692128
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-23-approach",
-      "distance": 1012.708418
+      "distance": 467.944253
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-24-approach",
-      "distance": 1254.427461
+      "distance": 705.420655
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-25-approach",
-      "distance": 1383.059348
+      "distance": 834.052542
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-26-approach",
-      "distance": 1523.276865
+      "distance": 974.270059
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-27-approach",
-      "distance": 1477.330805
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-28-approach",
-      "distance": 1477.330805
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-29-approach",
-      "distance": 1662.042872
+      "distance": 1113.036067
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-30-approach",
-      "distance": 1973.524101
+      "distance": 1424.517296
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-31-approach",
-      "distance": 2228.818888
+      "distance": 1679.812083
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2206.603951
+      "distance": 1659.354505
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-33-approach",
-      "distance": 2278.443691
+      "distance": 1729.436886
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-34-approach",
-      "distance": 2265.851212
+      "distance": 1716.844407
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-35-approach",
-      "distance": 2095.358349
+      "distance": 1546.351544
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-36-approach",
-      "distance": 2119.534214
+      "distance": 1570.527409
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-37-approach",
-      "distance": 2365.79133
+      "distance": 1816.784525
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-38-approach",
-      "distance": 2413.189256
+      "distance": 1864.18245
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-39-approach",
-      "distance": 2575.867806
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-40-approach",
-      "distance": 2575.867806
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-41-approach",
-      "distance": 2543.419491
+      "distance": 1994.412686
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-42-approach",
-      "distance": 2334.799401
+      "distance": 1785.792596
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-43-approach",
-      "distance": 2617.762374
+      "distance": 2068.755569
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-44-approach",
-      "distance": 2634.499647
+      "distance": 2085.492841
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-45-approach",
-      "distance": 2373.252199
+      "distance": 1824.245394
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-46-approach",
-      "distance": 2152.712876
+      "distance": 1603.706071
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-47-approach",
-      "distance": 2153.712339
+      "distance": 1604.705533
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-48-approach",
-      "distance": 2074.644421
+      "distance": 1525.637616
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-49-approach",
-      "distance": 2000.240515
+      "distance": 1451.23371
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-50-approach",
-      "distance": 2083.702913
+      "distance": 1534.696108
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-51-approach",
-      "distance": 1800.989124
+      "distance": 1251.982319
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-52-approach",
-      "distance": 1869.20312
+      "distance": 1320.196314
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-53-approach",
-      "distance": 1649.299374
+      "distance": 1100.292568
     },
     {
       "start": "B03-GF-G-20-approach",
       "end": "B03-GF-G-54-approach",
-      "distance": 1696.988935
+      "distance": 1147.982129
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-22-approach",
-      "distance": 1108.698933
+      "distance": 559.692128
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-23-approach",
-      "distance": 1012.708418
+      "distance": 467.944253
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-24-approach",
-      "distance": 1254.427461
+      "distance": 705.420655
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-25-approach",
-      "distance": 1383.059348
+      "distance": 834.052542
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-26-approach",
-      "distance": 1523.276865
+      "distance": 974.270059
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-27-approach",
-      "distance": 1477.330805
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-28-approach",
-      "distance": 1477.330805
+      "distance": 928.324
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-29-approach",
-      "distance": 1662.042872
+      "distance": 1113.036067
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-30-approach",
-      "distance": 1973.524101
+      "distance": 1424.517296
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-31-approach",
-      "distance": 2228.818888
+      "distance": 1679.812083
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 2206.603951
+      "distance": 1659.354505
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-33-approach",
-      "distance": 2278.443691
+      "distance": 1729.436886
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-34-approach",
-      "distance": 2265.851212
+      "distance": 1716.844407
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-35-approach",
-      "distance": 2095.358349
+      "distance": 1546.351544
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-36-approach",
-      "distance": 2119.534214
+      "distance": 1570.527409
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-37-approach",
-      "distance": 2365.79133
+      "distance": 1816.784525
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-38-approach",
-      "distance": 2413.189256
+      "distance": 1864.18245
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-39-approach",
-      "distance": 2575.867806
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-40-approach",
-      "distance": 2575.867806
+      "distance": 2026.861
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-41-approach",
-      "distance": 2543.419491
+      "distance": 1994.412686
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-42-approach",
-      "distance": 2334.799401
+      "distance": 1785.792596
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-43-approach",
-      "distance": 2617.762374
+      "distance": 2068.755569
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-44-approach",
-      "distance": 2634.499647
+      "distance": 2085.492841
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-45-approach",
-      "distance": 2373.252199
+      "distance": 1824.245394
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-46-approach",
-      "distance": 2152.712876
+      "distance": 1603.706071
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-47-approach",
-      "distance": 2153.712339
+      "distance": 1604.705533
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-48-approach",
-      "distance": 2074.644421
+      "distance": 1525.637616
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-49-approach",
-      "distance": 2000.240515
+      "distance": 1451.23371
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-50-approach",
-      "distance": 2083.702913
+      "distance": 1534.696108
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-51-approach",
-      "distance": 1800.989124
+      "distance": 1251.982319
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-52-approach",
-      "distance": 1869.20312
+      "distance": 1320.196314
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-53-approach",
-      "distance": 1649.299374
+      "distance": 1100.292568
     },
     {
       "start": "B03-GF-G-21-approach",
       "end": "B03-GF-G-54-approach",
-      "distance": 1696.988935
+      "distance": 1147.982129
     },
     {
       "start": "B03-GF-G-22-approach",
@@ -4569,7 +4569,7 @@
     {
       "start": "B03-GF-G-22-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1131.459833
+      "distance": 1133.217192
     },
     {
       "start": "B03-GF-G-22-approach",
@@ -4724,7 +4724,7 @@
     {
       "start": "B03-GF-G-23-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1299.042911
+      "distance": 1300.80027
     },
     {
       "start": "B03-GF-G-23-approach",
@@ -4874,7 +4874,7 @@
     {
       "start": "B03-GF-G-24-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 1022.401564
+      "distance": 1024.158923
     },
     {
       "start": "B03-GF-G-24-approach",
@@ -5019,7 +5019,7 @@
     {
       "start": "B03-GF-G-25-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 853.393841
+      "distance": 855.1512
     },
     {
       "start": "B03-GF-G-25-approach",
@@ -5159,7 +5159,7 @@
     {
       "start": "B03-GF-G-26-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 701.067202
+      "distance": 702.824561
     },
     {
       "start": "B03-GF-G-26-approach",
@@ -5294,7 +5294,7 @@
     {
       "start": "B03-GF-G-27-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 756.99625
+      "distance": 758.75361
     },
     {
       "start": "B03-GF-G-27-approach",
@@ -5424,7 +5424,7 @@
     {
       "start": "B03-GF-G-28-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 756.99625
+      "distance": 758.75361
     },
     {
       "start": "B03-GF-G-28-approach",
@@ -5549,7 +5549,7 @@
     {
       "start": "B03-GF-G-29-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 566.068707
+      "distance": 567.826066
     },
     {
       "start": "B03-GF-G-29-approach",
@@ -5669,7 +5669,7 @@
     {
       "start": "B03-GF-G-30-approach",
       "end": "B03-GF-G-32-approach",
-      "distance": 293.9692
+      "distance": 295.72656
     },
     {
       "start": "B03-GF-G-30-approach",
@@ -5899,112 +5899,112 @@
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-33-approach",
-      "distance": 379.852211
+      "distance": 381.60957
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-34-approach",
-      "distance": 367.259731
+      "distance": 369.017091
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-35-approach",
-      "distance": 331.377042
+      "distance": 333.134401
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-36-approach",
-      "distance": 355.552906
+      "distance": 357.310266
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-37-approach",
-      "distance": 601.810023
+      "distance": 603.567382
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-38-approach",
-      "distance": 649.207948
+      "distance": 650.965307
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-39-approach",
-      "distance": 811.886498
+      "distance": 813.643857
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-40-approach",
-      "distance": 811.886498
+      "distance": 813.643857
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-41-approach",
-      "distance": 779.438184
+      "distance": 781.195543
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-42-approach",
-      "distance": 570.818093
+      "distance": 572.575453
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-43-approach",
-      "distance": 838.442972
+      "distance": 840.200331
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-44-approach",
-      "distance": 857.842149
+      "distance": 859.599508
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-45-approach",
-      "distance": 992.366346
+      "distance": 994.123705
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-46-approach",
-      "distance": 1219.165118
+      "distance": 1220.922477
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-47-approach",
-      "distance": 1216.400079
+      "distance": 1218.157438
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-48-approach",
-      "distance": 1298.552507
+      "distance": 1300.309867
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-49-approach",
-      "distance": 1376.633882
+      "distance": 1378.391242
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-50-approach",
-      "distance": 1284.089138
+      "distance": 1285.846497
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-51-approach",
-      "distance": 1636.595695
+      "distance": 1638.353054
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-52-approach",
-      "distance": 1713.294972
+      "distance": 1715.052331
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-53-approach",
-      "distance": 1810.361789
+      "distance": 1812.119148
     },
     {
       "start": "B03-GF-G-32-approach",
       "end": "B03-GF-G-54-approach",
-      "distance": 1891.389445
+      "distance": 1893.146804
     },
     {
       "start": "B03-GF-G-33-approach",

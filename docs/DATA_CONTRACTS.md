@@ -13,6 +13,11 @@ Coordinates are `[x,y]`, x right and y down, in normalized master SVG drawing un
 
 Kiosk defaults: `nodeId: null`, `status: unknown`. An empty or candidate graph is valid and results in an explanatory unavailable state. Confirmed graph nodes/edges require source evidence, navigable containment and valid door intersections. `distance` always declares unit. Graph `walls` and `navigableAreas` provide geometry validation inputs.
 
+## Raised display geometry
+`Room.displayFootprint?: {polygon: Point[], geometryStatus: 'candidate', provenance: Provenance[]}` supplies a reviewed, source-derived display contour when the semantic `polygon` remains null. Unlike the semantic polygon, it need not contain the unchanged source-name anchor (small-room labels can sit outside their enclosure). It cannot override an accepted semantic polygon. The validator checks its ring, bounds, candidate status and nonempty evidence. The renderer and drawing thumbnail use the semantic polygon first, then this contour. It grants no route endpoint or access qualification; generators must exclude recovered room interiors from route geometry. `scripts/semantic-map/display-config.json` owns source-face selection windows, seeds and sub-unit drafting tolerances; window boundaries may never become contour boundaries.
+
+Both floors also carry seven `MapFeature` equipment envelopes: five source lift-cabin casings and two paired escalator rails. Their illustrative height matches room/stair blocks. `connectedFloorIds` remains empty and accessibility unknown. Corridors and lobbies remain ground-level circulation; the skylight remains a void.
+
 ## Search and localization (E)
 `packages/search/src/index.ts`: `normalizeSearch(text: string): string`; `searchRooms(rooms: Room[], query: string, language?: Language): Room[]` ordered best-first. Empty query returns stable inventory. Arabic diacritics/tatweel/alef/ya variations normalized.
 `packages/i18n/src/index.ts`: `getDirection(language): 'rtl'|'ltr'`; `resolveLanguage(value: unknown): Language`; `t(language: Language, key: string): string`; localized UI dictionary exported. Keys are agreed with UI agent through handoff.

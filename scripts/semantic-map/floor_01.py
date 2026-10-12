@@ -9,6 +9,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from floor_context import ROOT, read_json, write_json
 from source_geometry import load
 from floor_01_graph import derive
+from display_contours import display_contours
+from features import equipment_features
 
 CONFIG = 'scripts/semantic-map/floors/01.json'
 OUT = ROOT / 'data/buildings/B03'
@@ -93,10 +95,11 @@ def generate():
         for other, op in polygons[i+1:]:
             assert polygon.intersection(op).area < 1, (code, other)
     nodes, edges, areas, connections, missing, topology = derive(rooms, context, cfg)
+    display_review = display_contours(rooms, context['paths'], context['seals'], '01', read_json('scripts/semantic-map/display-config.json')['01'])
     segments = sorted({tuple(tuple(round(v, 5) for v in p) for p in (a, b)) for wall in context['walls'] for a, b in zip(wall.coords, list(wall.coords)[1:])})
     floor = dict(schemaVersion=1, building=read_json('scripts/semantic-map/buildings/B03.json'),
         floor=dict(id='01', buildingId='B03', name=cfg['name'], level=1, viewBox=context['align']['viewBox'], mapAsset='/maps/B03/01/master.svg', metersPerUnit=None, calibrationStatus='unknown'),
-        rooms=rooms, kiosks=[dict(id='B03-01-kiosk', buildingId='B03', floorId='01', name=dict(en='First Floor Kiosk', ar='كشك الدور الأول'), nodeId=None, status='unknown')], mapFeatures=cfg['mapFeatures'])
+        rooms=rooms, kiosks=[dict(id='B03-01-kiosk', buildingId='B03', floorId='01', name=dict(en='First Floor Kiosk', ar='كشك الدور الأول'), nodeId=None, status='unknown')], mapFeatures=equipment_features(context['paths'], '01'))
     if cfg['planningOrigin'] is not None:
         assert any(r['id'] == cfg['planningOrigin'] and r['doorNodeId'] for r in rooms)
         floor['navigationDefaults'] = dict(startRoomId=cfg['planningOrigin'])
@@ -104,7 +107,7 @@ def generate():
     write_json(OUT/'01.json', floor); write_json(OUT/'01.graph.json', graph); write_json(ROOT/'content/B03/01.json', contents)
     write_json(OUT/'01.shortest-paths.review.json', topology)
     write_json(OUT/'01.review.json', dict(schemaVersion=1, method='Affine source-vector free-space polygonization; source swing/leaf closure evidence; corridor-bounded safe grid network',
-        bufferTolerance=.20, simplificationTolerance=.18, scheduleCount=59, inventoryCount=len(rooms), directoryCount=sum(r['public'] for r in rooms),
+        bufferTolerance=.20, simplificationTolerance=.18, displayFootprints=display_review, scheduleCount=59, inventoryCount=len(rooms), directoryCount=sum(r['public'] for r in rooms),
         sourceStatusExceptionCount=59-len(rooms), candidatePolygonCount=len(polygons), confirmedPolygonCount=0, rooms=review,
         translationNotes=cfg['translationNotes'], physicalKiosk='unknown; no default planning origin configured',
         wallEvidence=context['wallEvidence'],

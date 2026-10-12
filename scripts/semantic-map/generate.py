@@ -20,9 +20,10 @@ if selected.floor != 'GF':
     generate()
     raise SystemExit(0)
 from shapely.geometry import Point, Polygon
-from explore import ROOT, read, labels, polys, walls, seals, align
+from explore import ROOT, read, labels, polys, walls, seals, align, paths
 from drawing_graph import derive
-from features import derive_features
+from features import equipment_features
+from display_contours import display_contours
 OUT=ROOT/'data/buildings/B03'; OUT.mkdir(parents=True,exist_ok=True)
 CONTENT=ROOT/'content/B03'; CONTENT.mkdir(parents=True,exist_ok=True)
 AVAILABILITY_CONFIG = ROOT/'scripts/semantic-map/availability.json'
@@ -99,8 +100,10 @@ for line in walls:
  coords=list(line.coords)
  for a,b in zip(coords,coords[1:]):segments.append([[round(v,3) for v in a],[round(v,3) for v in b]])
 segments=sorted({json.dumps(s):s for s in segments}.values())
+display_review=display_contours(rooms, paths, seals, 'GF', read('scripts/semantic-map/display-config.json')['GF'])
 nodes,edges,graph_evidence,nav_areas,missing_routes,topology_review=derive(rooms,walls,seals)
-floor['mapFeatures']=derive_features(read)
+floor['mapFeatures']=equipment_features(paths, 'GF')
+write(OUT/'GF.display-footprints.review.json', display_review)
 floor['building']=read_json('scripts/semantic-map/buildings/B03.json')
 write(OUT/'GF.shortest-paths.review.json',topology_review)
 floor["navigationDefaults"]={"startRoomId":"B03-GF-G-01"}

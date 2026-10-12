@@ -1,0 +1,552 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
+      "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/wayfinding.qa.spec.ts",
+      "--grep-invert",
+      "reviewed raised-scene visual baselines"
+    ],
+    "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
+    "rootDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/artifacts/block-heights/ground-browser/browser-tests",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/block-heights/ground-browser/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "wayfinding.qa.spec.ts",
+      "file": "wayfinding.qa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "route playback progressively reveals, pauses, stops, and resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7152,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:34:05.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-24e579dc1915fae58ef5",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "reduced motion completes route without progressive animation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5671,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:34:12.571Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-1b82ca72b3913ec20b13",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "unavailable destination remains discoverable but blocks route start (US2)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "fail",
+                  "description": "Known product gap: WayfindingApp does not gate route actions on Room.availability.status.",
+                  "location": {
+                    "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts",
+                    "line": 64,
+                    "column": 7
+                  }
+                }
+              ],
+              "expectedStatus": "failed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21090,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('room-details')\nExpected substring: \u001b[32m\"Temporarily unavailable\"\u001b[39m\nReceived string:    \u001b[31m\"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('room-details') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('room-details')\u001b[22m\n\u001b[2m    33 × locator resolved to <aside class=\"detail-card\" aria-label=\"Room details\" data-testid=\"room-details\">…</aside>\u001b[22m\n\u001b[2m       - unexpected value \"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('room-details')\nExpected substring: \u001b[32m\"Temporarily unavailable\"\u001b[39m\nReceived string:    \u001b[31m\"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('room-details') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('room-details')\u001b[22m\n\u001b[2m    33 × locator resolved to <aside class=\"detail-card\" aria-label=\"Room details\" data-testid=\"room-details\">…</aside>\u001b[22m\n\u001b[2m       - unexpected value \"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[22m\n\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts:71:49",
+                    "location": {
+                      "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts",
+                      "column": 49,
+                      "line": 71
+                    },
+                    "snippet": "  69 |  await room.click();\n  70 |  await expect(page.getByTestId('room-details')).toContainText('Clinic');\n> 71 |  await expect(page.getByTestId('room-details')).toContainText('Temporarily unavailable');\n     |                                                 ^\n  72 |  await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();\n  73 | });\n  74 | test('English actual entrance and cross-wing routes, keyboard, planning reset and map controls',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts",
+                        "column": 49,
+                        "line": 71
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('room-details')\nExpected substring: \u001b[32m\"Temporarily unavailable\"\u001b[39m\nReceived string:    \u001b[31m\"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('room-details') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('room-details')\u001b[22m\n\u001b[2m    33 × locator resolved to <aside class=\"detail-card\" aria-label=\"Room details\" data-testid=\"room-details\">…</aside>\u001b[22m\n\u001b[2m       - unexpected value \"DESTINATION DETAILSDrawing detailOtherG-28ClinicالعيادةBuilding B03·Ground FloorVerified room information has not been supplied. This is a placeholder; confirm the room use and access with academy staff.Candidate room outline — awaiting reviewRoute ends at Reception entrance; continue through Reception to Clinic.Go hereStart hereListen to description\"\u001b[22m\n\n\n  69 |  await room.click();\n  70 |  await expect(page.getByTestId('room-details')).toContainText('Clinic');\n> 71 |  await expect(page.getByTestId('room-details')).toContainText('Temporarily unavailable');\n     |                                                 ^\n  72 |  await expect(page.getByRole('button',{name:'Go here',exact:true})).toBeDisabled();\n  73 | });\n  74 | test('English actual entrance and cross-wing routes, keyboard, planning reset and map controls',async({page})=>{\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts:71:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:34:18.255Z",
+                  "annotations": [
+                    {
+                      "type": "fail",
+                      "description": "Known product gap: WayfindingApp does not gate route actions on Room.availability.status.",
+                      "location": {
+                        "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts",
+                        "line": 64,
+                        "column": 7
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\block-heights\\ground-browser\\browser-tests\\wayfinding.qa-unavailable--ac03e-but-blocks-route-start-US2-\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\wayfinding.qa.spec.ts",
+                    "column": 49,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-1edad5966e5a5aa96d54",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 63,
+          "column": 5
+        },
+        {
+          "title": "English actual entrance and cross-wing routes, keyboard, planning reset and map controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11877,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:34:39.366Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-a0f1f655352bf9b0633c",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 74,
+          "column": 5
+        },
+        {
+          "title": "Arabic actual route, popup and language switch preserve selected endpoints",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10104,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:34:51.270Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-dff7514fe5e9f2cc14b2",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 115,
+          "column": 5
+        },
+        {
+          "title": "destination labels lead with source room names in English and Arabic",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7786,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:01.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-f50e6a58f0a42f85bdd0",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 136,
+          "column": 5
+        },
+        {
+          "title": "browser speech autoplays details and replay/stop/mute honor current language",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8339,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:09.194Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-a2c5fd59a0dfc4a7558e",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 150,
+          "column": 5
+        },
+        {
+          "title": "WCAG AA contrast and semantics on English/Arabic default and popup states",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16497,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:17.548Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "axe-results",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJzdGF0ZSI6ICJlbi1kZWZhdWx0IiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJlbi1wb3B1cCIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAic3RhdGUiOiAiZW4tcm91dGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgInN0YXRlIjogImFyLXBvcHVwIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJhci1tb2JpbGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0KXQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-e9347334efbdf67c87dc",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 172,
+          "column": 5
+        },
+        {
+          "title": "mobile and 200 percent text retain usable controls without horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15205,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:34.062Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-0e2bb2a88d493f7315ed",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 189,
+          "column": 5
+        },
+        {
+          "title": "WebGL-unavailable fallback preserves source plan and usable keyboard directory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:49.280Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-99db34315cc28c75a52d",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 243,
+          "column": 5
+        },
+        {
+          "title": "forced colors and reduced motion preserve accessible directory and selection controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9328,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:35:53.925Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-e777c5540957c895d261",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 254,
+          "column": 5
+        },
+        {
+          "title": "three exterior destinations and reversed starts clearly retain partial source coverage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T22:36:03.263Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7662d3f3d01fd7d06a0d-9d88422398be22d5c18b",
+          "file": "wayfinding.qa.spec.ts",
+          "line": 272,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-11T22:34:04.655Z",
+    "duration": 129334.042,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

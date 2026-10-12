@@ -14,6 +14,7 @@ p=Path('data/buildings/B03');g=json.loads((p/'GF.graph.json').read_text());f=jso
 cfg=json.loads(Path('scripts/semantic-map/navigation-config.json').read_text(encoding='utf8'))
 foyer=Polygon(cfg['sharedAVFoyer']['polygon'])
 obstacles=[(r['code'],Polygon(r['polygon']).buffer(-.01).difference(foyer) if r['code']==cfg['sharedAVFoyer']['roomCode'] else Polygon(r['polygon']).buffer(-.01)) for r in f['rooms'] if r['polygon']]
+obstacles.extend((r['code'],Polygon(r['displayFootprint']['polygon'])) for r in f['rooms'] if r.get('displayFootprint'))
 walllines=[LineString(w) for w in g['walls']];tree=STRtree(walllines)
 areas=unary_union([Polygon(a) for a in g['navigableAreas']]);badwalls=[];badareas=[];badrooms=[]
 for e in g['edges']:

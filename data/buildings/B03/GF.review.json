@@ -3028,47 +3028,65 @@
       },
       {
         "roomId": "B03-GF-G-19",
-        "kind": "source-door-approach",
+        "kind": "approach",
         "point": [
-          2927.3369882083152,
-          1912.5395245801055
+          2637.982634446414,
+          1636.1950814022448
         ],
         "source": {
           "sourceId": "0002",
-          "arcPathId": "0002-path-08072",
-          "leafPathId": "0002-path-08070"
+          "arcPathId": "0002-path-08103",
+          "leafPathId": "0002-path-08105",
+          "kind": "approach",
+          "note": {
+            "en": "Route ends at the Cafeteria entrance. Service G-19 is reached through the Cafeteria; internal access is not mapped.",
+            "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى الخدمة G-19 عبر الكافتيريا؛ الوصول الداخلي غير مرسوم."
+          },
+          "finalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08072"
+          }
         },
         "sourceDoorSegment": [
           [
-            2924.3833014533157,
-            1927.3433443153745
+            2651.317210418577,
+            1640.638880165536
           ],
           [
-            2934.0750835281297,
-            1899.0311784318133
+            2623.9362624764026,
+            1635.6874414845092
           ]
         ]
       },
       {
         "roomId": "B03-GF-G-20",
-        "kind": "source-door-approach",
+        "kind": "approach",
         "point": [
-          3047.7045091479363,
-          1893.1388891943222
+          2637.982634446414,
+          1636.1950814022448
         ],
         "source": {
           "sourceId": "0002",
-          "arcPathId": "0002-path-08062",
-          "leafPathId": "0002-path-08060"
+          "arcPathId": "0002-path-08103",
+          "leafPathId": "0002-path-08105",
+          "kind": "approach",
+          "note": {
+            "en": "Route ends at the Cafeteria entrance. Kitchen G-20 is reached through the Cafeteria and Service room; internal access is not mapped.",
+            "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المطبخ G-20 عبر الكافتيريا وغرفة الخدمة؛ الوصول الداخلي غير مرسوم."
+          },
+          "finalDoorSource": {
+            "sourceId": "0002",
+            "arcPathId": "0002-path-08062"
+          }
         },
         "sourceDoorSegment": [
           [
-            3065.2795054823637,
-            1889.26635756227
+            2651.317210418577,
+            1640.638880165536
           ],
           [
-            3037.4043198080017,
-            1878.381413225923
+            2623.9362624764026,
+            1635.6874414845092
           ]
         ]
       },
@@ -3076,18 +3094,18 @@
         "roomId": "B03-GF-G-21",
         "kind": "approach",
         "point": [
-          3047.7045091479363,
-          1893.1388891943222
+          2637.982634446414,
+          1636.1950814022448
         ],
         "source": {
           "sourceId": "0002",
-          "arcPathId": "0002-path-08062",
-          "leafPathId": "0002-path-08060",
-          "note": {
-            "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
-            "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
-          },
+          "arcPathId": "0002-path-08103",
+          "leafPathId": "0002-path-08105",
           "kind": "approach",
+          "note": {
+            "en": "Route ends at the Cafeteria entrance. Storage G-21 is reached through the Cafeteria, Service room and Kitchen; internal access is not mapped.",
+            "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المخزن G-21 عبر الكافتيريا وغرفة الخدمة والمطبخ؛ الوصول الداخلي غير مرسوم."
+          },
           "finalDoorSource": {
             "sourceId": "0002",
             "arcPathId": "0002-path-08052"
@@ -3095,12 +3113,12 @@
         },
         "sourceDoorSegment": [
           [
-            3065.2795054823637,
-            1889.26635756227
+            2651.317210418577,
+            1640.638880165536
           ],
           [
-            3037.4043198080017,
-            1878.381413225923
+            2623.9362624764026,
+            1635.6874414845092
           ]
         ]
       },

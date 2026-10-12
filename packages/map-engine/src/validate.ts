@@ -130,6 +130,19 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     if(r.navigationNote!==undefined) localized(r.navigationNote,`${p}.navigationNote`);
     if(r.navigationPartial!==undefined) { bool(r.navigationPartial,`${p}.navigationPartial`); if(r.navigationPartial && !r.navigationNote) fail(p,'partial navigation requires an explanatory bilingual note'); }
     if(r.availability!==undefined) roomAvailability(r.availability,`${p}.availability`);
+    if(r.displayFootprint!==undefined) {
+      const display=object(r.displayFootprint,`${p}.displayFootprint`);
+      if(r.polygon!==null) fail(`${p}.displayFootprint`,'must not override an existing semantic footprint');
+      polygon(display.polygon,`${p}.displayFootprint.polygon`).forEach(v=>inBounds(v,`${p}.displayFootprint.polygon`));
+      choice(display.geometryStatus,['candidate'],`${p}.displayFootprint.geometryStatus`);
+      const evidence=array(display.provenance,`${p}.displayFootprint.provenance`);
+      if(!evidence.length) fail(`${p}.displayFootprint.provenance`,'source evidence required');
+      evidence.forEach((v,j)=>{
+        const path=`${p}.displayFootprint.provenance[${j}]`, e=object(v,path);
+        text(e.source,`${path}.source`); text(e.note,`${path}.note`);
+        number(e.page,`${path}.page`); choice(e.status,['candidate'],`${path}.status`);
+      });
+    }
     if(r.polygon!==null) {
       const poly=polygon(r.polygon,`${p}.polygon`); poly.forEach(v=>inBounds(v,`${p}.polygon`));
       if(!contains(center,poly)) fail(`${p}.centroid`,'source label must lie within its footprint');

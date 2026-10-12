@@ -1,0 +1,30 @@
+[
+  {
+    "code": "G-10",
+    "area": 1547.939,
+    "sourcePathCount": 56,
+    "sourceLabelInside": false,
+    "note": "The valve-room source label lies outside its small closed enclosure below the two lifts. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+  },
+  {
+    "code": "G-18",
+    "area": 97911.735,
+    "sourcePathCount": 131,
+    "sourceLabelInside": true,
+    "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+  },
+  {
+    "code": "G-19",
+    "area": 12016.67,
+    "sourcePathCount": 44,
+    "sourceLabelInside": true,
+    "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+  },
+  {
+    "code": "G-32",
+    "area": 12603.298,
+    "sourcePathCount": 153,
+    "sourceLabelInside": true,
+    "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+  }
+]

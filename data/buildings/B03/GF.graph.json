@@ -2839,17 +2839,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j189243",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2451.0,
-        1473.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j189800",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3125,17 +3114,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j196909",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2619.0,
-        1503.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j197258",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3180,17 +3158,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j197670",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2619.0,
-        1506.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j198077",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3229,17 +3196,6 @@
       "floorId": "GF",
       "point": [
         1959.0,
-        1509.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j198431",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2619.0,
         1509.0
       ],
       "type": "junction",
@@ -3323,17 +3279,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j199957",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2631.0,
-        1515.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j200329",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3361,17 +3306,6 @@
       "floorId": "GF",
       "point": [
         2364.0,
-        1518.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j200718",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2631.0,
         1518.0
       ],
       "type": "junction",
@@ -3587,17 +3521,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j203764",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2637.0,
-        1530.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j204129",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3620,12 +3543,23 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j204526",
+      "id": "B03-GF-j204525",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        2637.0,
+        1533.0
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
+      "id": "B03-GF-j205287",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
         2640.0,
-        1533.0
+        1536.0
       ],
       "type": "junction",
       "status": "candidate"
@@ -3653,28 +3587,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j207569",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2637.0,
-        1545.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j207574",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2652.0,
-        1545.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j208234",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3686,23 +3598,23 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j208329",
+      "id": "B03-GF-j208335",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2634.0,
+        2652.0,
         1548.0
       ],
       "type": "junction",
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j208336",
+      "id": "B03-GF-j209097",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
         2655.0,
-        1548.0
+        1551.0
       ],
       "type": "junction",
       "status": "candidate"
@@ -3719,33 +3631,11 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j209860",
+      "id": "B03-GF-j210621",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
         2661.0,
-        1554.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j210612",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2634.0,
-        1557.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j210622",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2664.0,
         1557.0
       ],
       "type": "junction",
@@ -3774,11 +3664,11 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j211372",
+      "id": "B03-GF-j211383",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2631.0,
+        2664.0,
         1560.0
       ],
       "type": "junction",
@@ -3796,22 +3686,22 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j212894",
+      "id": "B03-GF-j214417",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2631.0,
-        1566.0
+        2634.0,
+        1572.0
       ],
       "type": "junction",
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j214430",
+      "id": "B03-GF-j214431",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2673.0,
+        2676.0,
         1572.0
       ],
       "type": "junction",
@@ -3906,6 +3796,17 @@
       "status": "candidate"
     },
     {
+      "id": "B03-GF-j221267",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        2637.0,
+        1599.0
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
       "id": "B03-GF-j222789",
       "buildingId": "B03",
       "floorId": "GF",
@@ -3922,17 +3823,6 @@
       "floorId": "GF",
       "point": [
         1287.0,
-        1611.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j224309",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2631.0,
         1611.0
       ],
       "type": "junction",
@@ -3994,11 +3884,11 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j226611",
+      "id": "B03-GF-j226612",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2688.0,
+        2691.0,
         1620.0
       ],
       "type": "junction",
@@ -4033,17 +3923,6 @@
       "point": [
         2850.0,
         1626.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j228875",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2631.0,
-        1629.0
       ],
       "type": "junction",
       "status": "candidate"
@@ -4203,39 +4082,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-j241051",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2631.0,
-        1677.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j253243",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2679.0,
-        1725.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j254004",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2679.0,
-        1728.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-j254308",
       "buildingId": "B03",
       "floorId": "GF",
@@ -4247,56 +4093,23 @@
       "status": "candidate"
     },
     {
+      "id": "B03-GF-j255069",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        1308.0,
+        1734.0
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
       "id": "B03-GF-j265723",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
         1308.0,
         1776.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j277644",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2826.0,
-        1821.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j295982",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        3048.0,
-        1893.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j296740",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        3039.0,
-        1896.0
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-GF-j301269",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2928.0,
-        1914.0
       ],
       "type": "junction",
       "status": "candidate"
@@ -4522,8 +4335,8 @@
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        2927.337,
-        1912.5395
+        2637.9826,
+        1636.1951
       ],
       "type": "door",
       "roomId": "B03-GF-G-19",
@@ -4534,8 +4347,8 @@
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        3047.7045,
-        1893.1389
+        2637.9826,
+        1636.1951
       ],
       "type": "door",
       "roomId": "B03-GF-G-20",
@@ -4546,8 +4359,8 @@
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        3047.7045,
-        1893.1389
+        2637.9826,
+        1636.1951
       ],
       "type": "door",
       "roomId": "B03-GF-G-21",
@@ -13619,10 +13432,10 @@
     {
       "id": "B03-GF-e375",
       "from": "B03-GF-j187765",
-      "to": "B03-GF-j196909",
+      "to": "B03-GF-j200719",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 50.9117,
+      "distance": 72.1249,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -13634,8 +13447,8 @@
           1467.0
         ],
         [
-          2619.0,
-          1503.0
+          2634.0,
+          1518.0
         ]
       ]
     },
@@ -13803,10 +13616,10 @@
     {
       "id": "B03-GF-e383",
       "from": "B03-GF-j187792",
-      "to": "B03-GF-j210622",
+      "to": "B03-GF-j211383",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 90.0,
+      "distance": 93.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -13819,7 +13632,7 @@
         ],
         [
           2664.0,
-          1557.0
+          1560.0
         ]
       ]
     },
@@ -14378,10 +14191,10 @@
     {
       "id": "B03-GF-e408",
       "from": "B03-GF-j188483",
-      "to": "B03-GF-j189243",
+      "to": "B03-GF-j215083",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 4.2426,
+      "distance": 148.4924,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -14393,18 +14206,18 @@
           1470.0
         ],
         [
-          2451.0,
-          1473.0
+          2349.0,
+          1575.0
         ]
       ]
     },
     {
       "id": "B03-GF-e409",
       "from": "B03-GF-j188496",
-      "to": "B03-GF-j197670",
+      "to": "B03-GF-j201480",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 132.8029,
+      "distance": 154.0161,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -14420,8 +14233,8 @@
           1497.0
         ],
         [
-          2619.0,
-          1506.0
+          2634.0,
+          1521.0
         ]
       ]
     },
@@ -14451,10 +14264,10 @@
     {
       "id": "B03-GF-e411",
       "from": "B03-GF-j188552",
-      "to": "B03-GF-j208336",
+      "to": "B03-GF-j209097",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 78.2304,
+      "distance": 81.2219,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -14467,17 +14280,17 @@
         ],
         [
           2655.0,
-          1548.0
+          1551.0
         ]
       ]
     },
     {
       "id": "B03-GF-e412",
       "from": "B03-GF-j188552",
-      "to": "B03-GF-j209860",
+      "to": "B03-GF-j210621",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 84.0,
+      "distance": 87.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -14490,62 +14303,12 @@
         ],
         [
           2661.0,
-          1554.0
+          1557.0
         ]
       ]
     },
     {
       "id": "B03-GF-e413",
-      "from": "B03-GF-j189243",
-      "to": "B03-GF-j198431",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 176.532,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2451.0,
-          1473.0
-        ],
-        [
-          2601.0,
-          1491.0
-        ],
-        [
-          2619.0,
-          1509.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e414",
-      "from": "B03-GF-j189243",
-      "to": "B03-GF-j215083",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 144.2498,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2451.0,
-          1473.0
-        ],
-        [
-          2349.0,
-          1575.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e415",
       "from": "B03-GF-j189800",
       "to": "B03-GF-j190553",
       "floorId": "GF",
@@ -14568,7 +14331,7 @@
       ]
     },
     {
-      "id": "B03-GF-e416",
+      "id": "B03-GF-e414",
       "from": "B03-GF-j189800",
       "to": "B03-GF-j190562",
       "floorId": "GF",
@@ -14591,7 +14354,7 @@
       ]
     },
     {
-      "id": "B03-GF-e417",
+      "id": "B03-GF-e415",
       "from": "B03-GF-j190071",
       "to": "B03-GF-j193111",
       "floorId": "GF",
@@ -14614,12 +14377,12 @@
       ]
     },
     {
-      "id": "B03-GF-e418",
+      "id": "B03-GF-e416",
       "from": "B03-GF-j190071",
-      "to": "B03-GF-j207574",
+      "to": "B03-GF-j208335",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 69.0,
+      "distance": 72.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -14632,12 +14395,12 @@
         ],
         [
           2652.0,
-          1545.0
+          1548.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e419",
+      "id": "B03-GF-e417",
       "from": "B03-GF-j190553",
       "to": "B03-GF-j191300",
       "floorId": "GF",
@@ -14660,7 +14423,7 @@
       ]
     },
     {
-      "id": "B03-GF-e420",
+      "id": "B03-GF-e418",
       "from": "B03-GF-j190553",
       "to": "B03-GF-j190562",
       "floorId": "GF",
@@ -14683,7 +14446,7 @@
       ]
     },
     {
-      "id": "B03-GF-e421",
+      "id": "B03-GF-e419",
       "from": "B03-GF-j190562",
       "to": "B03-GF-j190581",
       "floorId": "GF",
@@ -14706,7 +14469,7 @@
       ]
     },
     {
-      "id": "B03-GF-e422",
+      "id": "B03-GF-e420",
       "from": "B03-GF-j190562",
       "to": "B03-GF-j198182",
       "floorId": "GF",
@@ -14729,7 +14492,7 @@
       ]
     },
     {
-      "id": "B03-GF-e423",
+      "id": "B03-GF-e421",
       "from": "B03-GF-j190581",
       "to": "B03-GF-j190582",
       "floorId": "GF",
@@ -14752,7 +14515,7 @@
       ]
     },
     {
-      "id": "B03-GF-e424",
+      "id": "B03-GF-e422",
       "from": "B03-GF-j190581",
       "to": "B03-GF-j198182",
       "floorId": "GF",
@@ -14775,7 +14538,7 @@
       ]
     },
     {
-      "id": "B03-GF-e425",
+      "id": "B03-GF-e423",
       "from": "B03-GF-j190582",
       "to": "B03-GF-j190593",
       "floorId": "GF",
@@ -14798,7 +14561,7 @@
       ]
     },
     {
-      "id": "B03-GF-e426",
+      "id": "B03-GF-e424",
       "from": "B03-GF-j190582",
       "to": "B03-GF-j193622",
       "floorId": "GF",
@@ -14821,7 +14584,7 @@
       ]
     },
     {
-      "id": "B03-GF-e427",
+      "id": "B03-GF-e425",
       "from": "B03-GF-j190593",
       "to": "B03-GF-j196689",
       "floorId": "GF",
@@ -14844,7 +14607,7 @@
       ]
     },
     {
-      "id": "B03-GF-e428",
+      "id": "B03-GF-e426",
       "from": "B03-GF-j191300",
       "to": "B03-GF-j192049",
       "floorId": "GF",
@@ -14867,7 +14630,7 @@
       ]
     },
     {
-      "id": "B03-GF-e429",
+      "id": "B03-GF-e427",
       "from": "B03-GF-j191887",
       "to": "B03-GF-j191888",
       "floorId": "GF",
@@ -14890,7 +14653,7 @@
       ]
     },
     {
-      "id": "B03-GF-e430",
+      "id": "B03-GF-e428",
       "from": "B03-GF-j191888",
       "to": "B03-GF-j191889",
       "floorId": "GF",
@@ -14913,7 +14676,7 @@
       ]
     },
     {
-      "id": "B03-GF-e431",
+      "id": "B03-GF-e429",
       "from": "B03-GF-j191889",
       "to": "B03-GF-j191895",
       "floorId": "GF",
@@ -14936,7 +14699,7 @@
       ]
     },
     {
-      "id": "B03-GF-e432",
+      "id": "B03-GF-e430",
       "from": "B03-GF-j191889",
       "to": "B03-GF-j201786",
       "floorId": "GF",
@@ -14959,7 +14722,7 @@
       ]
     },
     {
-      "id": "B03-GF-e433",
+      "id": "B03-GF-e431",
       "from": "B03-GF-j191895",
       "to": "B03-GF-j201043",
       "floorId": "GF",
@@ -14982,7 +14745,7 @@
       ]
     },
     {
-      "id": "B03-GF-e434",
+      "id": "B03-GF-e432",
       "from": "B03-GF-j191895",
       "to": "B03-GF-j201786",
       "floorId": "GF",
@@ -15005,7 +14768,7 @@
       ]
     },
     {
-      "id": "B03-GF-e435",
+      "id": "B03-GF-e433",
       "from": "B03-GF-j192049",
       "to": "B03-GF-j193561",
       "floorId": "GF",
@@ -15028,7 +14791,7 @@
       ]
     },
     {
-      "id": "B03-GF-e436",
+      "id": "B03-GF-e434",
       "from": "B03-GF-j192049",
       "to": "B03-GF-j193569",
       "floorId": "GF",
@@ -15051,7 +14814,7 @@
       ]
     },
     {
-      "id": "B03-GF-e437",
+      "id": "B03-GF-e435",
       "from": "B03-GF-j192432",
       "to": "B03-GF-j215254",
       "floorId": "GF",
@@ -15074,7 +14837,7 @@
       ]
     },
     {
-      "id": "B03-GF-e438",
+      "id": "B03-GF-e436",
       "from": "B03-GF-j192978",
       "to": "B03-GF-j208234",
       "floorId": "GF",
@@ -15101,7 +14864,7 @@
       ]
     },
     {
-      "id": "B03-GF-e439",
+      "id": "B03-GF-e437",
       "from": "B03-GF-j192978",
       "to": "B03-GF-j196018",
       "floorId": "GF",
@@ -15124,7 +14887,7 @@
       ]
     },
     {
-      "id": "B03-GF-e440",
+      "id": "B03-GF-e438",
       "from": "B03-GF-j193111",
       "to": "B03-GF-j193871",
       "floorId": "GF",
@@ -15147,12 +14910,12 @@
       ]
     },
     {
-      "id": "B03-GF-e441",
+      "id": "B03-GF-e439",
       "from": "B03-GF-j193111",
-      "to": "B03-GF-j204526",
+      "to": "B03-GF-j205287",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 45.0,
+      "distance": 48.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -15165,12 +14928,12 @@
         ],
         [
           2640.0,
-          1533.0
+          1536.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e442",
+      "id": "B03-GF-e440",
       "from": "B03-GF-j193561",
       "to": "B03-GF-j197322",
       "floorId": "GF",
@@ -15193,7 +14956,7 @@
       ]
     },
     {
-      "id": "B03-GF-e443",
+      "id": "B03-GF-e441",
       "from": "B03-GF-j193561",
       "to": "B03-GF-j193569",
       "floorId": "GF",
@@ -15216,7 +14979,7 @@
       ]
     },
     {
-      "id": "B03-GF-e444",
+      "id": "B03-GF-e442",
       "from": "B03-GF-j193569",
       "to": "B03-GF-j198943",
       "floorId": "GF",
@@ -15239,7 +15002,7 @@
       ]
     },
     {
-      "id": "B03-GF-e445",
+      "id": "B03-GF-e443",
       "from": "B03-GF-j193569",
       "to": "B03-GF-j204211",
       "floorId": "GF",
@@ -15262,7 +15025,7 @@
       ]
     },
     {
-      "id": "B03-GF-e446",
+      "id": "B03-GF-e444",
       "from": "B03-GF-j193622",
       "to": "B03-GF-j197450",
       "floorId": "GF",
@@ -15285,7 +15048,7 @@
       ]
     },
     {
-      "id": "B03-GF-e447",
+      "id": "B03-GF-e445",
       "from": "B03-GF-j193622",
       "to": "B03-GF-j198182",
       "floorId": "GF",
@@ -15308,7 +15071,7 @@
       ]
     },
     {
-      "id": "B03-GF-e448",
+      "id": "B03-GF-e446",
       "from": "B03-GF-j193871",
       "to": "B03-GF-j201481",
       "floorId": "GF",
@@ -15331,7 +15094,7 @@
       ]
     },
     {
-      "id": "B03-GF-e449",
+      "id": "B03-GF-e447",
       "from": "B03-GF-j195736",
       "to": "B03-GF-j196497",
       "floorId": "GF",
@@ -15354,7 +15117,7 @@
       ]
     },
     {
-      "id": "B03-GF-e450",
+      "id": "B03-GF-e448",
       "from": "B03-GF-j196018",
       "to": "B03-GF-j196779",
       "floorId": "GF",
@@ -15377,7 +15140,7 @@
       ]
     },
     {
-      "id": "B03-GF-e451",
+      "id": "B03-GF-e449",
       "from": "B03-GF-j196497",
       "to": "B03-GF-j197258",
       "floorId": "GF",
@@ -15400,7 +15163,7 @@
       ]
     },
     {
-      "id": "B03-GF-e452",
+      "id": "B03-GF-e450",
       "from": "B03-GF-j196497",
       "to": "B03-GF-j199545",
       "floorId": "GF",
@@ -15423,7 +15186,7 @@
       ]
     },
     {
-      "id": "B03-GF-e453",
+      "id": "B03-GF-e451",
       "from": "B03-GF-j196689",
       "to": "B03-GF-j197450",
       "floorId": "GF",
@@ -15446,53 +15209,7 @@
       ]
     },
     {
-      "id": "B03-GF-e454",
-      "from": "B03-GF-j196909",
-      "to": "B03-GF-j197670",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 3.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2619.0,
-          1503.0
-        ],
-        [
-          2619.0,
-          1506.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e455",
-      "from": "B03-GF-j196909",
-      "to": "B03-GF-j199957",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 16.9706,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2619.0,
-          1503.0
-        ],
-        [
-          2631.0,
-          1515.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e456",
+      "id": "B03-GF-e452",
       "from": "B03-GF-j197258",
       "to": "B03-GF-j201809",
       "floorId": "GF",
@@ -15515,7 +15232,7 @@
       ]
     },
     {
-      "id": "B03-GF-e457",
+      "id": "B03-GF-e453",
       "from": "B03-GF-j197258",
       "to": "B03-GF-j199541",
       "floorId": "GF",
@@ -15538,7 +15255,7 @@
       ]
     },
     {
-      "id": "B03-GF-e458",
+      "id": "B03-GF-e454",
       "from": "B03-GF-j197289",
       "to": "B03-GF-j197322",
       "floorId": "GF",
@@ -15561,7 +15278,7 @@
       ]
     },
     {
-      "id": "B03-GF-e459",
+      "id": "B03-GF-e455",
       "from": "B03-GF-j197289",
       "to": "B03-GF-j199569",
       "floorId": "GF",
@@ -15584,7 +15301,7 @@
       ]
     },
     {
-      "id": "B03-GF-e460",
+      "id": "B03-GF-e456",
       "from": "B03-GF-j197289",
       "to": "B03-GF-j198077",
       "floorId": "GF",
@@ -15607,7 +15324,7 @@
       ]
     },
     {
-      "id": "B03-GF-e461",
+      "id": "B03-GF-e457",
       "from": "B03-GF-j197322",
       "to": "B03-GF-j198082",
       "floorId": "GF",
@@ -15630,7 +15347,7 @@
       ]
     },
     {
-      "id": "B03-GF-e462",
+      "id": "B03-GF-e458",
       "from": "B03-GF-j197450",
       "to": "B03-GF-j198211",
       "floorId": "GF",
@@ -15653,53 +15370,7 @@
       ]
     },
     {
-      "id": "B03-GF-e463",
-      "from": "B03-GF-j197670",
-      "to": "B03-GF-j198431",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 3.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2619.0,
-          1506.0
-        ],
-        [
-          2619.0,
-          1509.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e464",
-      "from": "B03-GF-j197670",
-      "to": "B03-GF-j200718",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 16.9706,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2619.0,
-          1506.0
-        ],
-        [
-          2631.0,
-          1518.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e465",
+      "id": "B03-GF-e459",
       "from": "B03-GF-j198077",
       "to": "B03-GF-j198082",
       "floorId": "GF",
@@ -15722,7 +15393,7 @@
       ]
     },
     {
-      "id": "B03-GF-e466",
+      "id": "B03-GF-e460",
       "from": "B03-GF-j198077",
       "to": "B03-GF-j199595",
       "floorId": "GF",
@@ -15745,7 +15416,7 @@
       ]
     },
     {
-      "id": "B03-GF-e467",
+      "id": "B03-GF-e461",
       "from": "B03-GF-j198082",
       "to": "B03-GF-j199639",
       "floorId": "GF",
@@ -15768,7 +15439,7 @@
       ]
     },
     {
-      "id": "B03-GF-e468",
+      "id": "B03-GF-e462",
       "from": "B03-GF-j198182",
       "to": "B03-GF-j198943",
       "floorId": "GF",
@@ -15791,34 +15462,7 @@
       ]
     },
     {
-      "id": "B03-GF-e469",
-      "from": "B03-GF-j198431",
-      "to": "B03-GF-j254004",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 230.797,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2619.0,
-          1509.0
-        ],
-        [
-          2661.0,
-          1710.0
-        ],
-        [
-          2679.0,
-          1728.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e470",
+      "id": "B03-GF-e463",
       "from": "B03-GF-j198943",
       "to": "B03-GF-j199704",
       "floorId": "GF",
@@ -15841,7 +15485,7 @@
       ]
     },
     {
-      "id": "B03-GF-e471",
+      "id": "B03-GF-e464",
       "from": "B03-GF-j199541",
       "to": "B03-GF-j202581",
       "floorId": "GF",
@@ -15864,7 +15508,7 @@
       ]
     },
     {
-      "id": "B03-GF-e472",
+      "id": "B03-GF-e465",
       "from": "B03-GF-j199541",
       "to": "B03-GF-j202585",
       "floorId": "GF",
@@ -15887,7 +15531,7 @@
       ]
     },
     {
-      "id": "B03-GF-e473",
+      "id": "B03-GF-e466",
       "from": "B03-GF-j199545",
       "to": "B03-GF-j199569",
       "floorId": "GF",
@@ -15910,7 +15554,7 @@
       ]
     },
     {
-      "id": "B03-GF-e474",
+      "id": "B03-GF-e467",
       "from": "B03-GF-j199545",
       "to": "B03-GF-j200329",
       "floorId": "GF",
@@ -15933,7 +15577,7 @@
       ]
     },
     {
-      "id": "B03-GF-e475",
+      "id": "B03-GF-e468",
       "from": "B03-GF-j199569",
       "to": "B03-GF-j200329",
       "floorId": "GF",
@@ -15956,7 +15600,7 @@
       ]
     },
     {
-      "id": "B03-GF-e476",
+      "id": "B03-GF-e469",
       "from": "B03-GF-j199595",
       "to": "B03-GF-j200348",
       "floorId": "GF",
@@ -15979,7 +15623,7 @@
       ]
     },
     {
-      "id": "B03-GF-e477",
+      "id": "B03-GF-e470",
       "from": "B03-GF-j199595",
       "to": "B03-GF-j199639",
       "floorId": "GF",
@@ -16002,7 +15646,7 @@
       ]
     },
     {
-      "id": "B03-GF-e478",
+      "id": "B03-GF-e471",
       "from": "B03-GF-j199639",
       "to": "B03-GF-j204211",
       "floorId": "GF",
@@ -16025,53 +15669,7 @@
       ]
     },
     {
-      "id": "B03-GF-e479",
-      "from": "B03-GF-j199957",
-      "to": "B03-GF-j200718",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 3.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1515.0
-        ],
-        [
-          2631.0,
-          1518.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e480",
-      "from": "B03-GF-j199957",
-      "to": "B03-GF-j200719",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1515.0
-        ],
-        [
-          2634.0,
-          1518.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e481",
+      "id": "B03-GF-e472",
       "from": "B03-GF-j200329",
       "to": "B03-GF-j200348",
       "floorId": "GF",
@@ -16094,7 +15692,7 @@
       ]
     },
     {
-      "id": "B03-GF-e482",
+      "id": "B03-GF-e473",
       "from": "B03-GF-j200329",
       "to": "B03-GF-j202609",
       "floorId": "GF",
@@ -16117,7 +15715,7 @@
       ]
     },
     {
-      "id": "B03-GF-e483",
+      "id": "B03-GF-e474",
       "from": "B03-GF-j200348",
       "to": "B03-GF-j203370",
       "floorId": "GF",
@@ -16140,7 +15738,7 @@
       ]
     },
     {
-      "id": "B03-GF-e484",
+      "id": "B03-GF-e475",
       "from": "B03-GF-j200629",
       "to": "B03-GF-j206712",
       "floorId": "GF",
@@ -16163,53 +15761,7 @@
       ]
     },
     {
-      "id": "B03-GF-e485",
-      "from": "B03-GF-j200718",
-      "to": "B03-GF-j211372",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 42.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1518.0
-        ],
-        [
-          2631.0,
-          1560.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e486",
-      "from": "B03-GF-j200718",
-      "to": "B03-GF-j201480",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1518.0
-        ],
-        [
-          2634.0,
-          1521.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e487",
+      "id": "B03-GF-e476",
       "from": "B03-GF-j200719",
       "to": "B03-GF-j201480",
       "floorId": "GF",
@@ -16232,7 +15784,7 @@
       ]
     },
     {
-      "id": "B03-GF-e488",
+      "id": "B03-GF-e477",
       "from": "B03-GF-j200719",
       "to": "B03-GF-j201481",
       "floorId": "GF",
@@ -16255,7 +15807,7 @@
       ]
     },
     {
-      "id": "B03-GF-e489",
+      "id": "B03-GF-e478",
       "from": "B03-GF-j201043",
       "to": "B03-GF-j202546",
       "floorId": "GF",
@@ -16278,7 +15830,7 @@
       ]
     },
     {
-      "id": "B03-GF-e490",
+      "id": "B03-GF-e479",
       "from": "B03-GF-j201043",
       "to": "B03-GF-j201044",
       "floorId": "GF",
@@ -16301,7 +15853,7 @@
       ]
     },
     {
-      "id": "B03-GF-e491",
+      "id": "B03-GF-e480",
       "from": "B03-GF-j201044",
       "to": "B03-GF-j201807",
       "floorId": "GF",
@@ -16324,12 +15876,12 @@
       ]
     },
     {
-      "id": "B03-GF-e492",
+      "id": "B03-GF-e481",
       "from": "B03-GF-j201480",
-      "to": "B03-GF-j208329",
+      "to": "B03-GF-j214417",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 27.0,
+      "distance": 51.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -16342,12 +15894,12 @@
         ],
         [
           2634.0,
-          1548.0
+          1572.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e493",
+      "id": "B03-GF-e482",
       "from": "B03-GF-j201480",
       "to": "B03-GF-j202242",
       "floorId": "GF",
@@ -16370,7 +15922,7 @@
       ]
     },
     {
-      "id": "B03-GF-e494",
+      "id": "B03-GF-e483",
       "from": "B03-GF-j201481",
       "to": "B03-GF-j202242",
       "floorId": "GF",
@@ -16393,7 +15945,7 @@
       ]
     },
     {
-      "id": "B03-GF-e495",
+      "id": "B03-GF-e484",
       "from": "B03-GF-j201786",
       "to": "B03-GF-j202546",
       "floorId": "GF",
@@ -16416,7 +15968,7 @@
       ]
     },
     {
-      "id": "B03-GF-e496",
+      "id": "B03-GF-e485",
       "from": "B03-GF-j201807",
       "to": "B03-GF-j201809",
       "floorId": "GF",
@@ -16439,7 +15991,7 @@
       ]
     },
     {
-      "id": "B03-GF-e497",
+      "id": "B03-GF-e486",
       "from": "B03-GF-j201807",
       "to": "B03-GF-j209419",
       "floorId": "GF",
@@ -16462,7 +16014,7 @@
       ]
     },
     {
-      "id": "B03-GF-e498",
+      "id": "B03-GF-e487",
       "from": "B03-GF-j201809",
       "to": "B03-GF-j202572",
       "floorId": "GF",
@@ -16485,12 +16037,12 @@
       ]
     },
     {
-      "id": "B03-GF-e499",
+      "id": "B03-GF-e488",
       "from": "B03-GF-j202242",
-      "to": "B03-GF-j203764",
+      "to": "B03-GF-j204525",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 6.0,
+      "distance": 9.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -16503,12 +16055,12 @@
         ],
         [
           2637.0,
-          1530.0
+          1533.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e500",
+      "id": "B03-GF-e489",
       "from": "B03-GF-j202545",
       "to": "B03-GF-j202546",
       "floorId": "GF",
@@ -16531,7 +16083,7 @@
       ]
     },
     {
-      "id": "B03-GF-e501",
+      "id": "B03-GF-e490",
       "from": "B03-GF-j202572",
       "to": "B03-GF-j202581",
       "floorId": "GF",
@@ -16554,7 +16106,7 @@
       ]
     },
     {
-      "id": "B03-GF-e502",
+      "id": "B03-GF-e491",
       "from": "B03-GF-j202572",
       "to": "B03-GF-j203341",
       "floorId": "GF",
@@ -16577,7 +16129,7 @@
       ]
     },
     {
-      "id": "B03-GF-e503",
+      "id": "B03-GF-e492",
       "from": "B03-GF-j202581",
       "to": "B03-GF-j202585",
       "floorId": "GF",
@@ -16600,7 +16152,7 @@
       ]
     },
     {
-      "id": "B03-GF-e504",
+      "id": "B03-GF-e493",
       "from": "B03-GF-j202581",
       "to": "B03-GF-j203341",
       "floorId": "GF",
@@ -16623,7 +16175,7 @@
       ]
     },
     {
-      "id": "B03-GF-e505",
+      "id": "B03-GF-e494",
       "from": "B03-GF-j202585",
       "to": "B03-GF-j202609",
       "floorId": "GF",
@@ -16646,7 +16198,7 @@
       ]
     },
     {
-      "id": "B03-GF-e506",
+      "id": "B03-GF-e495",
       "from": "B03-GF-j202585",
       "to": "B03-GF-j203346",
       "floorId": "GF",
@@ -16669,7 +16221,7 @@
       ]
     },
     {
-      "id": "B03-GF-e507",
+      "id": "B03-GF-e496",
       "from": "B03-GF-j202609",
       "to": "B03-GF-j203369",
       "floorId": "GF",
@@ -16692,7 +16244,7 @@
       ]
     },
     {
-      "id": "B03-GF-e508",
+      "id": "B03-GF-e497",
       "from": "B03-GF-j203341",
       "to": "B03-GF-j203346",
       "floorId": "GF",
@@ -16715,7 +16267,7 @@
       ]
     },
     {
-      "id": "B03-GF-e509",
+      "id": "B03-GF-e498",
       "from": "B03-GF-j203341",
       "to": "B03-GF-j210941",
       "floorId": "GF",
@@ -16738,7 +16290,7 @@
       ]
     },
     {
-      "id": "B03-GF-e510",
+      "id": "B03-GF-e499",
       "from": "B03-GF-j203346",
       "to": "B03-GF-j203369",
       "floorId": "GF",
@@ -16761,7 +16313,7 @@
       ]
     },
     {
-      "id": "B03-GF-e511",
+      "id": "B03-GF-e500",
       "from": "B03-GF-j203346",
       "to": "B03-GF-j210950",
       "floorId": "GF",
@@ -16784,7 +16336,7 @@
       ]
     },
     {
-      "id": "B03-GF-e512",
+      "id": "B03-GF-e501",
       "from": "B03-GF-j203369",
       "to": "B03-GF-j203370",
       "floorId": "GF",
@@ -16807,7 +16359,7 @@
       ]
     },
     {
-      "id": "B03-GF-e513",
+      "id": "B03-GF-e502",
       "from": "B03-GF-j203369",
       "to": "B03-GF-j204129",
       "floorId": "GF",
@@ -16830,7 +16382,7 @@
       ]
     },
     {
-      "id": "B03-GF-e514",
+      "id": "B03-GF-e503",
       "from": "B03-GF-j203370",
       "to": "B03-GF-j204129",
       "floorId": "GF",
@@ -16853,53 +16405,7 @@
       ]
     },
     {
-      "id": "B03-GF-e515",
-      "from": "B03-GF-j203764",
-      "to": "B03-GF-j207569",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 15.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2637.0,
-          1530.0
-        ],
-        [
-          2637.0,
-          1545.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e516",
-      "from": "B03-GF-j203764",
-      "to": "B03-GF-j204526",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2637.0,
-          1530.0
-        ],
-        [
-          2640.0,
-          1533.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e517",
+      "id": "B03-GF-e504",
       "from": "B03-GF-j204129",
       "to": "B03-GF-j206398",
       "floorId": "GF",
@@ -16922,12 +16428,58 @@
       ]
     },
     {
-      "id": "B03-GF-e518",
-      "from": "B03-GF-j204526",
+      "id": "B03-GF-e505",
+      "from": "B03-GF-j204525",
+      "to": "B03-GF-j215179",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 42.0,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2637.0,
+          1533.0
+        ],
+        [
+          2637.0,
+          1575.0
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-e506",
+      "from": "B03-GF-j204525",
+      "to": "B03-GF-j205287",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 4.2426,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2637.0,
+          1533.0
+        ],
+        [
+          2640.0,
+          1536.0
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-e507",
+      "from": "B03-GF-j205287",
       "to": "B03-GF-j215941",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 45.0,
+      "distance": 42.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -16936,7 +16488,7 @@
       "geometry": [
         [
           2640.0,
-          1533.0
+          1536.0
         ],
         [
           2640.0,
@@ -16945,9 +16497,9 @@
       ]
     },
     {
-      "id": "B03-GF-e519",
-      "from": "B03-GF-j204526",
-      "to": "B03-GF-j207574",
+      "id": "B03-GF-e508",
+      "from": "B03-GF-j205287",
+      "to": "B03-GF-j208335",
       "floorId": "GF",
       "pathType": "corridor",
       "distance": 16.9706,
@@ -16959,16 +16511,16 @@
       "geometry": [
         [
           2640.0,
-          1533.0
+          1536.0
         ],
         [
           2652.0,
-          1545.0
+          1548.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e520",
+      "id": "B03-GF-e509",
       "from": "B03-GF-j206398",
       "to": "B03-GF-j210950",
       "floorId": "GF",
@@ -16991,7 +16543,7 @@
       ]
     },
     {
-      "id": "B03-GF-e521",
+      "id": "B03-GF-e510",
       "from": "B03-GF-j206398",
       "to": "B03-GF-j235296",
       "floorId": "GF",
@@ -17018,7 +16570,7 @@
       ]
     },
     {
-      "id": "B03-GF-e522",
+      "id": "B03-GF-e511",
       "from": "B03-GF-j206712",
       "to": "B03-GF-j208234",
       "floorId": "GF",
@@ -17041,99 +16593,7 @@
       ]
     },
     {
-      "id": "B03-GF-e523",
-      "from": "B03-GF-j207569",
-      "to": "B03-GF-j208329",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2637.0,
-          1545.0
-        ],
-        [
-          2634.0,
-          1548.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e524",
-      "from": "B03-GF-j207569",
-      "to": "B03-GF-j215179",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 30.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2637.0,
-          1545.0
-        ],
-        [
-          2637.0,
-          1575.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e525",
-      "from": "B03-GF-j207574",
-      "to": "B03-GF-j218989",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 45.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2652.0,
-          1545.0
-        ],
-        [
-          2652.0,
-          1590.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e526",
-      "from": "B03-GF-j207574",
-      "to": "B03-GF-j208336",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2652.0,
-          1545.0
-        ],
-        [
-          2655.0,
-          1548.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e527",
+      "id": "B03-GF-e512",
       "from": "B03-GF-j208234",
       "to": "B03-GF-j215083",
       "floorId": "GF",
@@ -17156,12 +16616,12 @@
       ]
     },
     {
-      "id": "B03-GF-e528",
-      "from": "B03-GF-j208329",
-      "to": "B03-GF-j210612",
+      "id": "B03-GF-e513",
+      "from": "B03-GF-j208335",
+      "to": "B03-GF-j218989",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 9.0,
+      "distance": 42.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17169,22 +16629,45 @@
       "bidirectional": true,
       "geometry": [
         [
-          2634.0,
+          2652.0,
           1548.0
         ],
         [
-          2634.0,
-          1557.0
+          2652.0,
+          1590.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e529",
-      "from": "B03-GF-j208336",
+      "id": "B03-GF-e514",
+      "from": "B03-GF-j208335",
+      "to": "B03-GF-j209097",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 4.2426,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2652.0,
+          1548.0
+        ],
+        [
+          2655.0,
+          1551.0
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-e515",
+      "from": "B03-GF-j209097",
       "to": "B03-GF-j218229",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 39.0,
+      "distance": 36.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17193,7 +16676,7 @@
       "geometry": [
         [
           2655.0,
-          1548.0
+          1551.0
         ],
         [
           2655.0,
@@ -17202,9 +16685,9 @@
       ]
     },
     {
-      "id": "B03-GF-e530",
-      "from": "B03-GF-j208336",
-      "to": "B03-GF-j209860",
+      "id": "B03-GF-e516",
+      "from": "B03-GF-j209097",
+      "to": "B03-GF-j210621",
       "floorId": "GF",
       "pathType": "corridor",
       "distance": 8.4853,
@@ -17216,16 +16699,16 @@
       "geometry": [
         [
           2655.0,
-          1548.0
+          1551.0
         ],
         [
           2661.0,
-          1554.0
+          1557.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e531",
+      "id": "B03-GF-e517",
       "from": "B03-GF-j209419",
       "to": "B03-GF-j225379",
       "floorId": "GF",
@@ -17248,7 +16731,7 @@
       ]
     },
     {
-      "id": "B03-GF-e532",
+      "id": "B03-GF-e518",
       "from": "B03-GF-j209419",
       "to": "B03-GF-j210941",
       "floorId": "GF",
@@ -17271,9 +16754,9 @@
       ]
     },
     {
-      "id": "B03-GF-e533",
-      "from": "B03-GF-j209860",
-      "to": "B03-GF-j210622",
+      "id": "B03-GF-e519",
+      "from": "B03-GF-j210621",
+      "to": "B03-GF-j211383",
       "floorId": "GF",
       "pathType": "corridor",
       "distance": 4.2426,
@@ -17285,85 +16768,16 @@
       "geometry": [
         [
           2661.0,
-          1554.0
+          1557.0
         ],
         [
           2664.0,
-          1557.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e534",
-      "from": "B03-GF-j210612",
-      "to": "B03-GF-j211372",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 4.2426,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2634.0,
-          1557.0
-        ],
-        [
-          2631.0,
           1560.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e535",
-      "from": "B03-GF-j210612",
-      "to": "B03-GF-j215179",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 18.2483,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2634.0,
-          1557.0
-        ],
-        [
-          2637.0,
-          1575.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e536",
-      "from": "B03-GF-j210622",
-      "to": "B03-GF-j214432",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 21.2132,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2664.0,
-          1557.0
-        ],
-        [
-          2679.0,
-          1572.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e537",
+      "id": "B03-GF-e520",
       "from": "B03-GF-j210941",
       "to": "B03-GF-j223861",
       "floorId": "GF",
@@ -17386,7 +16800,7 @@
       ]
     },
     {
-      "id": "B03-GF-e538",
+      "id": "B03-GF-e521",
       "from": "B03-GF-j210941",
       "to": "B03-GF-j214746",
       "floorId": "GF",
@@ -17409,7 +16823,7 @@
       ]
     },
     {
-      "id": "B03-GF-e539",
+      "id": "B03-GF-e522",
       "from": "B03-GF-j210950",
       "to": "B03-GF-j211710",
       "floorId": "GF",
@@ -17432,12 +16846,12 @@
       ]
     },
     {
-      "id": "B03-GF-e540",
-      "from": "B03-GF-j211372",
-      "to": "B03-GF-j212894",
+      "id": "B03-GF-e523",
+      "from": "B03-GF-j211383",
+      "to": "B03-GF-j214431",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 6.0,
+      "distance": 16.9706,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17445,17 +16859,17 @@
       "bidirectional": true,
       "geometry": [
         [
-          2631.0,
+          2664.0,
           1560.0
         ],
         [
-          2631.0,
-          1566.0
+          2676.0,
+          1572.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e541",
+      "id": "B03-GF-e524",
       "from": "B03-GF-j211710",
       "to": "B03-GF-j214746",
       "floorId": "GF",
@@ -17478,7 +16892,7 @@
       ]
     },
     {
-      "id": "B03-GF-e542",
+      "id": "B03-GF-e525",
       "from": "B03-GF-j211710",
       "to": "B03-GF-j233012",
       "floorId": "GF",
@@ -17501,12 +16915,12 @@
       ]
     },
     {
-      "id": "B03-GF-e543",
-      "from": "B03-GF-j212894",
-      "to": "B03-GF-j241051",
+      "id": "B03-GF-e526",
+      "from": "B03-GF-j214417",
+      "to": "B03-GF-j221267",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 111.0,
+      "distance": 27.1662,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17514,22 +16928,22 @@
       "bidirectional": true,
       "geometry": [
         [
-          2631.0,
-          1566.0
+          2634.0,
+          1572.0
         ],
         [
-          2631.0,
-          1677.0
+          2637.0,
+          1599.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e544",
-      "from": "B03-GF-j212894",
-      "to": "B03-GF-j224309",
+      "id": "B03-GF-e527",
+      "from": "B03-GF-j214417",
+      "to": "B03-GF-j215179",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 45.0,
+      "distance": 4.2426,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17537,22 +16951,22 @@
       "bidirectional": true,
       "geometry": [
         [
-          2631.0,
-          1566.0
+          2634.0,
+          1572.0
         ],
         [
-          2631.0,
-          1611.0
+          2637.0,
+          1575.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e545",
-      "from": "B03-GF-j214430",
+      "id": "B03-GF-e528",
+      "from": "B03-GF-j214431",
       "to": "B03-GF-j218229",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 23.4307,
+      "distance": 25.807,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17560,7 +16974,7 @@
       "bidirectional": true,
       "geometry": [
         [
-          2673.0,
+          2676.0,
           1572.0
         ],
         [
@@ -17570,12 +16984,12 @@
       ]
     },
     {
-      "id": "B03-GF-e546",
-      "from": "B03-GF-j214430",
+      "id": "B03-GF-e529",
+      "from": "B03-GF-j214431",
       "to": "B03-GF-j214432",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 6.0,
+      "distance": 3.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17583,7 +16997,7 @@
       "bidirectional": true,
       "geometry": [
         [
-          2673.0,
+          2676.0,
           1572.0
         ],
         [
@@ -17593,12 +17007,12 @@
       ]
     },
     {
-      "id": "B03-GF-e547",
-      "from": "B03-GF-j214430",
-      "to": "B03-GF-j226611",
+      "id": "B03-GF-e530",
+      "from": "B03-GF-j214431",
+      "to": "B03-GF-j226612",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 54.2132,
+      "distance": 57.3571,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17606,21 +17020,21 @@
       "bidirectional": true,
       "geometry": [
         [
-          2673.0,
+          2676.0,
           1572.0
         ],
         [
-          2673.0,
-          1605.0
+          2670.0,
+          1599.0
         ],
         [
-          2688.0,
+          2691.0,
           1620.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e548",
+      "id": "B03-GF-e531",
       "from": "B03-GF-j214746",
       "to": "B03-GF-j223861",
       "floorId": "GF",
@@ -17643,7 +17057,7 @@
       ]
     },
     {
-      "id": "B03-GF-e549",
+      "id": "B03-GF-e532",
       "from": "B03-GF-j214746",
       "to": "B03-GF-j232250",
       "floorId": "GF",
@@ -17666,12 +17080,12 @@
       ]
     },
     {
-      "id": "B03-GF-e550",
+      "id": "B03-GF-e533",
       "from": "B03-GF-j215179",
-      "to": "B03-GF-j222789",
+      "to": "B03-GF-j221267",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 30.0,
+      "distance": 24.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17684,12 +17098,12 @@
         ],
         [
           2637.0,
-          1605.0
+          1599.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e551",
+      "id": "B03-GF-e534",
       "from": "B03-GF-j215179",
       "to": "B03-GF-j215941",
       "floorId": "GF",
@@ -17712,7 +17126,7 @@
       ]
     },
     {
-      "id": "B03-GF-e552",
+      "id": "B03-GF-e535",
       "from": "B03-GF-j215254",
       "to": "B03-GF-j226665",
       "floorId": "GF",
@@ -17735,7 +17149,7 @@
       ]
     },
     {
-      "id": "B03-GF-e553",
+      "id": "B03-GF-e536",
       "from": "B03-GF-j215254",
       "to": "B03-GF-j224389",
       "floorId": "GF",
@@ -17758,7 +17172,7 @@
       ]
     },
     {
-      "id": "B03-GF-e554",
+      "id": "B03-GF-e537",
       "from": "B03-GF-j215941",
       "to": "B03-GF-j218989",
       "floorId": "GF",
@@ -17781,7 +17195,7 @@
       ]
     },
     {
-      "id": "B03-GF-e555",
+      "id": "B03-GF-e538",
       "from": "B03-GF-j218229",
       "to": "B03-GF-j218989",
       "floorId": "GF",
@@ -17804,7 +17218,7 @@
       ]
     },
     {
-      "id": "B03-GF-e556",
+      "id": "B03-GF-e539",
       "from": "B03-GF-j218229",
       "to": "B03-GF-j225848",
       "floorId": "GF",
@@ -17827,7 +17241,7 @@
       ]
     },
     {
-      "id": "B03-GF-e557",
+      "id": "B03-GF-e540",
       "from": "B03-GF-j218989",
       "to": "B03-GF-j222789",
       "floorId": "GF",
@@ -17850,7 +17264,7 @@
       ]
     },
     {
-      "id": "B03-GF-e558",
+      "id": "B03-GF-e541",
       "from": "B03-GF-j218989",
       "to": "B03-GF-j225848",
       "floorId": "GF",
@@ -17873,12 +17287,12 @@
       ]
     },
     {
-      "id": "B03-GF-e559",
-      "from": "B03-GF-j222789",
-      "to": "B03-GF-j224309",
+      "id": "B03-GF-e542",
+      "from": "B03-GF-j221267",
+      "to": "B03-GF-j222789",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 8.4853,
+      "distance": 6.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -17887,16 +17301,16 @@
       "geometry": [
         [
           2637.0,
-          1605.0
+          1599.0
         ],
         [
-          2631.0,
-          1611.0
+          2637.0,
+          1605.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e560",
+      "id": "B03-GF-e543",
       "from": "B03-GF-j222789",
       "to": "B03-GF-j230399",
       "floorId": "GF",
@@ -17919,7 +17333,7 @@
       ]
     },
     {
-      "id": "B03-GF-e561",
+      "id": "B03-GF-e544",
       "from": "B03-GF-j223861",
       "to": "B03-GF-j224621",
       "floorId": "GF",
@@ -17942,30 +17356,7 @@
       ]
     },
     {
-      "id": "B03-GF-e562",
-      "from": "B03-GF-j224309",
-      "to": "B03-GF-j228875",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 18.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1611.0
-        ],
-        [
-          2631.0,
-          1629.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e563",
+      "id": "B03-GF-e545",
       "from": "B03-GF-j224389",
       "to": "B03-GF-j228187",
       "floorId": "GF",
@@ -17988,7 +17379,7 @@
       ]
     },
     {
-      "id": "B03-GF-e564",
+      "id": "B03-GF-e546",
       "from": "B03-GF-j224389",
       "to": "B03-GF-j224390",
       "floorId": "GF",
@@ -18011,7 +17402,7 @@
       ]
     },
     {
-      "id": "B03-GF-e565",
+      "id": "B03-GF-e547",
       "from": "B03-GF-j224621",
       "to": "B03-GF-j225379",
       "floorId": "GF",
@@ -18034,7 +17425,7 @@
       ]
     },
     {
-      "id": "B03-GF-e566",
+      "id": "B03-GF-e548",
       "from": "B03-GF-j224621",
       "to": "B03-GF-j232250",
       "floorId": "GF",
@@ -18057,7 +17448,7 @@
       ]
     },
     {
-      "id": "B03-GF-e567",
+      "id": "B03-GF-e549",
       "from": "B03-GF-j225379",
       "to": "B03-GF-j233717",
       "floorId": "GF",
@@ -18080,12 +17471,12 @@
       ]
     },
     {
-      "id": "B03-GF-e568",
+      "id": "B03-GF-e550",
       "from": "B03-GF-j225848",
-      "to": "B03-GF-j226611",
+      "to": "B03-GF-j226612",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 6.7082,
+      "distance": 9.4868,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -18097,18 +17488,18 @@
           1617.0
         ],
         [
-          2688.0,
+          2691.0,
           1620.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e569",
-      "from": "B03-GF-j226611",
+      "id": "B03-GF-e551",
+      "from": "B03-GF-j226612",
       "to": "B03-GF-j227376",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 12.3693,
+      "distance": 9.4868,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -18116,7 +17507,7 @@
       "bidirectional": true,
       "geometry": [
         [
-          2688.0,
+          2691.0,
           1620.0
         ],
         [
@@ -18126,7 +17517,7 @@
       ]
     },
     {
-      "id": "B03-GF-e570",
+      "id": "B03-GF-e552",
       "from": "B03-GF-j226665",
       "to": "B03-GF-j231986",
       "floorId": "GF",
@@ -18149,7 +17540,7 @@
       ]
     },
     {
-      "id": "B03-GF-e571",
+      "id": "B03-GF-e553",
       "from": "B03-GF-j226665",
       "to": "B03-GF-j228187",
       "floorId": "GF",
@@ -18172,7 +17563,7 @@
       ]
     },
     {
-      "id": "B03-GF-e572",
+      "id": "B03-GF-e554",
       "from": "B03-GF-j227376",
       "to": "B03-GF-j230399",
       "floorId": "GF",
@@ -18195,7 +17586,7 @@
       ]
     },
     {
-      "id": "B03-GF-e573",
+      "id": "B03-GF-e555",
       "from": "B03-GF-j227376",
       "to": "B03-GF-j231971",
       "floorId": "GF",
@@ -18218,7 +17609,7 @@
       ]
     },
     {
-      "id": "B03-GF-e574",
+      "id": "B03-GF-e556",
       "from": "B03-GF-j228187",
       "to": "B03-GF-j231986",
       "floorId": "GF",
@@ -18241,7 +17632,7 @@
       ]
     },
     {
-      "id": "B03-GF-e575",
+      "id": "B03-GF-e557",
       "from": "B03-GF-j228187",
       "to": "B03-GF-j235800",
       "floorId": "GF",
@@ -18264,76 +17655,7 @@
       ]
     },
     {
-      "id": "B03-GF-e576",
-      "from": "B03-GF-j228875",
-      "to": "B03-GF-j241051",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 48.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1629.0
-        ],
-        [
-          2631.0,
-          1677.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e577",
-      "from": "B03-GF-j228875",
-      "to": "B03-GF-j230399",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 8.4853,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1629.0
-        ],
-        [
-          2637.0,
-          1635.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e578",
-      "from": "B03-GF-j230399",
-      "to": "B03-GF-j253243",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 99.3177,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2637.0,
-          1635.0
-        ],
-        [
-          2679.0,
-          1725.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e579",
+      "id": "B03-GF-e558",
       "from": "B03-GF-j230662",
       "to": "B03-GF-j231423",
       "floorId": "GF",
@@ -18356,7 +17678,7 @@
       ]
     },
     {
-      "id": "B03-GF-e580",
+      "id": "B03-GF-e559",
       "from": "B03-GF-j231423",
       "to": "B03-GF-j238269",
       "floorId": "GF",
@@ -18379,7 +17701,7 @@
       ]
     },
     {
-      "id": "B03-GF-e581",
+      "id": "B03-GF-e560",
       "from": "B03-GF-j231423",
       "to": "B03-GF-j233717",
       "floorId": "GF",
@@ -18402,7 +17724,7 @@
       ]
     },
     {
-      "id": "B03-GF-e582",
+      "id": "B03-GF-e561",
       "from": "B03-GF-j231971",
       "to": "B03-GF-j231986",
       "floorId": "GF",
@@ -18425,7 +17747,7 @@
       ]
     },
     {
-      "id": "B03-GF-e583",
+      "id": "B03-GF-e562",
       "from": "B03-GF-j231971",
       "to": "B03-GF-j235800",
       "floorId": "GF",
@@ -18448,7 +17770,7 @@
       ]
     },
     {
-      "id": "B03-GF-e584",
+      "id": "B03-GF-e563",
       "from": "B03-GF-j232250",
       "to": "B03-GF-j233012",
       "floorId": "GF",
@@ -18471,7 +17793,7 @@
       ]
     },
     {
-      "id": "B03-GF-e585",
+      "id": "B03-GF-e564",
       "from": "B03-GF-j233012",
       "to": "B03-GF-j235296",
       "floorId": "GF",
@@ -18494,7 +17816,7 @@
       ]
     },
     {
-      "id": "B03-GF-e586",
+      "id": "B03-GF-e565",
       "from": "B03-GF-j233717",
       "to": "B03-GF-j238269",
       "floorId": "GF",
@@ -18517,7 +17839,7 @@
       ]
     },
     {
-      "id": "B03-GF-e587",
+      "id": "B03-GF-e566",
       "from": "B03-GF-j235296",
       "to": "B03-GF-j239863",
       "floorId": "GF",
@@ -18540,7 +17862,7 @@
       ]
     },
     {
-      "id": "B03-GF-e588",
+      "id": "B03-GF-e567",
       "from": "B03-GF-j235800",
       "to": "B03-GF-j235801",
       "floorId": "GF",
@@ -18563,7 +17885,7 @@
       ]
     },
     {
-      "id": "B03-GF-e589",
+      "id": "B03-GF-e568",
       "from": "B03-GF-j238268",
       "to": "B03-GF-j238269",
       "floorId": "GF",
@@ -18586,12 +17908,12 @@
       ]
     },
     {
-      "id": "B03-GF-e590",
+      "id": "B03-GF-e569",
       "from": "B03-GF-j239863",
-      "to": "B03-GF-j254308",
+      "to": "B03-GF-j255069",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 90.2596,
+      "distance": 89.7078,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -18608,12 +17930,12 @@
         ],
         [
           1308.0,
-          1731.0
+          1734.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e591",
+      "id": "B03-GF-e570",
       "from": "B03-GF-j239863",
       "to": "B03-GF-j265723",
       "floorId": "GF",
@@ -18640,81 +17962,12 @@
       ]
     },
     {
-      "id": "B03-GF-e592",
-      "from": "B03-GF-j241051",
-      "to": "B03-GF-j253243",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 67.8823,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2631.0,
-          1677.0
-        ],
-        [
-          2679.0,
-          1725.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e593",
-      "from": "B03-GF-j253243",
-      "to": "B03-GF-j254004",
+      "id": "B03-GF-e571",
+      "from": "B03-GF-j254308",
+      "to": "B03-GF-j255069",
       "floorId": "GF",
       "pathType": "corridor",
       "distance": 3.0,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2679.0,
-          1725.0
-        ],
-        [
-          2679.0,
-          1728.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e594",
-      "from": "B03-GF-j254004",
-      "to": "B03-GF-j277644",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 173.9483,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2679.0,
-          1728.0
-        ],
-        [
-          2826.0,
-          1821.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e595",
-      "from": "B03-GF-j254308",
-      "to": "B03-GF-j265723",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 45.0,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -18727,104 +17980,35 @@
         ],
         [
           1308.0,
+          1734.0
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-e572",
+      "from": "B03-GF-j255069",
+      "to": "B03-GF-j265723",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 42.0,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1308.0,
+          1734.0
+        ],
+        [
+          1308.0,
           1776.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e596",
-      "from": "B03-GF-j277644",
-      "to": "B03-GF-j296740",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 225.8185,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2826.0,
-          1821.0
-        ],
-        [
-          3039.0,
-          1896.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e597",
-      "from": "B03-GF-j277644",
-      "to": "B03-GF-j301269",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 138.0326,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2826.0,
-          1821.0
-        ],
-        [
-          2928.0,
-          1914.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e598",
-      "from": "B03-GF-j295982",
-      "to": "B03-GF-j296740",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 9.4868,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          3048.0,
-          1893.0
-        ],
-        [
-          3039.0,
-          1896.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e599",
-      "from": "B03-GF-j296740",
-      "to": "B03-GF-j301269",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 112.45,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          3039.0,
-          1896.0
-        ],
-        [
-          2928.0,
-          1914.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-e600",
+      "id": "B03-GF-e573",
       "from": "B03-GF-G-01-approach",
       "to": "B03-GF-j115395",
       "floorId": "GF",
@@ -18847,7 +18031,7 @@
       ]
     },
     {
-      "id": "B03-GF-e601",
+      "id": "B03-GF-e574",
       "from": "B03-GF-G-02-approach",
       "to": "B03-GF-j197289",
       "floorId": "GF",
@@ -18870,7 +18054,7 @@
       ]
     },
     {
-      "id": "B03-GF-e602",
+      "id": "B03-GF-e575",
       "from": "B03-GF-G-03-approach",
       "to": "B03-GF-j138606",
       "floorId": "GF",
@@ -18893,7 +18077,7 @@
       ]
     },
     {
-      "id": "B03-GF-e603",
+      "id": "B03-GF-e576",
       "from": "B03-GF-G-04-approach",
       "to": "B03-GF-j73982",
       "floorId": "GF",
@@ -18916,7 +18100,7 @@
       ]
     },
     {
-      "id": "B03-GF-e604",
+      "id": "B03-GF-e577",
       "from": "B03-GF-G-05-approach",
       "to": "B03-GF-j60700",
       "floorId": "GF",
@@ -18939,7 +18123,7 @@
       ]
     },
     {
-      "id": "B03-GF-e605",
+      "id": "B03-GF-e578",
       "from": "B03-GF-G-06-approach",
       "to": "B03-GF-j60700",
       "floorId": "GF",
@@ -18962,7 +18146,7 @@
       ]
     },
     {
-      "id": "B03-GF-e606",
+      "id": "B03-GF-e579",
       "from": "B03-GF-G-07-approach",
       "to": "B03-GF-j166492",
       "floorId": "GF",
@@ -18985,7 +18169,7 @@
       ]
     },
     {
-      "id": "B03-GF-e607",
+      "id": "B03-GF-e580",
       "from": "B03-GF-G-08-approach",
       "to": "B03-GF-j180980",
       "floorId": "GF",
@@ -19008,7 +18192,7 @@
       ]
     },
     {
-      "id": "B03-GF-e608",
+      "id": "B03-GF-e581",
       "from": "B03-GF-G-09-approach",
       "to": "B03-GF-j187784",
       "floorId": "GF",
@@ -19031,7 +18215,7 @@
       ]
     },
     {
-      "id": "B03-GF-e609",
+      "id": "B03-GF-e582",
       "from": "B03-GF-G-10-approach",
       "to": "B03-GF-j214432",
       "floorId": "GF",
@@ -19054,7 +18238,7 @@
       ]
     },
     {
-      "id": "B03-GF-e610",
+      "id": "B03-GF-e583",
       "from": "B03-GF-G-11-approach",
       "to": "B03-GF-j235801",
       "floorId": "GF",
@@ -19077,7 +18261,7 @@
       ]
     },
     {
-      "id": "B03-GF-e611",
+      "id": "B03-GF-e584",
       "from": "B03-GF-G-12-approach",
       "to": "B03-GF-j224390",
       "floorId": "GF",
@@ -19100,7 +18284,7 @@
       ]
     },
     {
-      "id": "B03-GF-e612",
+      "id": "B03-GF-e585",
       "from": "B03-GF-G-13-approach",
       "to": "B03-GF-j187115",
       "floorId": "GF",
@@ -19123,7 +18307,7 @@
       ]
     },
     {
-      "id": "B03-GF-e613",
+      "id": "B03-GF-e586",
       "from": "B03-GF-G-14-approach",
       "to": "B03-GF-j175722",
       "floorId": "GF",
@@ -19146,7 +18330,7 @@
       ]
     },
     {
-      "id": "B03-GF-e614",
+      "id": "B03-GF-e587",
       "from": "B03-GF-G-15-approach",
       "to": "B03-GF-j170385",
       "floorId": "GF",
@@ -19169,7 +18353,7 @@
       ]
     },
     {
-      "id": "B03-GF-e615",
+      "id": "B03-GF-e588",
       "from": "B03-GF-G-16-approach",
       "to": "B03-GF-j180320",
       "floorId": "GF",
@@ -19192,7 +18376,7 @@
       ]
     },
     {
-      "id": "B03-GF-e616",
+      "id": "B03-GF-e589",
       "from": "B03-GF-G-17-approach",
       "to": "B03-GF-j175722",
       "floorId": "GF",
@@ -19215,7 +18399,7 @@
       ]
     },
     {
-      "id": "B03-GF-e617",
+      "id": "B03-GF-e590",
       "from": "B03-GF-G-18-approach",
       "to": "B03-GF-j230399",
       "floorId": "GF",
@@ -19238,12 +18422,12 @@
       ]
     },
     {
-      "id": "B03-GF-e618",
+      "id": "B03-GF-e591",
       "from": "B03-GF-G-19-approach",
-      "to": "B03-GF-j301269",
+      "to": "B03-GF-j230399",
       "floorId": "GF",
       "pathType": "door",
-      "distance": 1.6039,
+      "distance": 1.5472,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -19251,22 +18435,22 @@
       "bidirectional": true,
       "geometry": [
         [
-          2927.337,
-          1912.5395
+          2637.9826,
+          1636.1951
         ],
         [
-          2928.0,
-          1914.0
+          2637.0,
+          1635.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e619",
+      "id": "B03-GF-e592",
       "from": "B03-GF-G-20-approach",
-      "to": "B03-GF-j295982",
+      "to": "B03-GF-j230399",
       "floorId": "GF",
       "pathType": "door",
-      "distance": 0.3265,
+      "distance": 1.5472,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -19274,22 +18458,22 @@
       "bidirectional": true,
       "geometry": [
         [
-          3047.7045,
-          1893.1389
+          2637.9826,
+          1636.1951
         ],
         [
-          3048.0,
-          1893.0
+          2637.0,
+          1635.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e620",
+      "id": "B03-GF-e593",
       "from": "B03-GF-G-21-approach",
-      "to": "B03-GF-j295982",
+      "to": "B03-GF-j230399",
       "floorId": "GF",
       "pathType": "door",
-      "distance": 0.3265,
+      "distance": 1.5472,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -19297,17 +18481,17 @@
       "bidirectional": true,
       "geometry": [
         [
-          3047.7045,
-          1893.1389
+          2637.9826,
+          1636.1951
         ],
         [
-          3048.0,
-          1893.0
+          2637.0,
+          1635.0
         ]
       ]
     },
     {
-      "id": "B03-GF-e621",
+      "id": "B03-GF-e594",
       "from": "B03-GF-G-22-approach",
       "to": "B03-GF-j196779",
       "floorId": "GF",
@@ -19330,7 +18514,7 @@
       ]
     },
     {
-      "id": "B03-GF-e622",
+      "id": "B03-GF-e595",
       "from": "B03-GF-G-23-approach",
       "to": "B03-GF-j215083",
       "floorId": "GF",
@@ -19353,7 +18537,7 @@
       ]
     },
     {
-      "id": "B03-GF-e623",
+      "id": "B03-GF-e596",
       "from": "B03-GF-G-24-approach",
       "to": "B03-GF-j171627",
       "floorId": "GF",
@@ -19376,7 +18560,7 @@
       ]
     },
     {
-      "id": "B03-GF-e624",
+      "id": "B03-GF-e597",
       "from": "B03-GF-G-25-approach",
       "to": "B03-GF-j198211",
       "floorId": "GF",
@@ -19399,7 +18583,7 @@
       ]
     },
     {
-      "id": "B03-GF-e625",
+      "id": "B03-GF-e598",
       "from": "B03-GF-G-26-approach",
       "to": "B03-GF-j182180",
       "floorId": "GF",
@@ -19422,7 +18606,7 @@
       ]
     },
     {
-      "id": "B03-GF-e626",
+      "id": "B03-GF-e599",
       "from": "B03-GF-G-27-approach",
       "to": "B03-GF-j199704",
       "floorId": "GF",
@@ -19445,7 +18629,7 @@
       ]
     },
     {
-      "id": "B03-GF-e627",
+      "id": "B03-GF-e600",
       "from": "B03-GF-G-28-approach",
       "to": "B03-GF-j199704",
       "floorId": "GF",
@@ -19468,7 +18652,7 @@
       ]
     },
     {
-      "id": "B03-GF-e628",
+      "id": "B03-GF-e601",
       "from": "B03-GF-G-29-approach",
       "to": "B03-GF-j204211",
       "floorId": "GF",
@@ -19491,7 +18675,7 @@
       ]
     },
     {
-      "id": "B03-GF-e629",
+      "id": "B03-GF-e602",
       "from": "B03-GF-G-30-approach",
       "to": "B03-GF-j195736",
       "floorId": "GF",
@@ -19514,7 +18698,7 @@
       ]
     },
     {
-      "id": "B03-GF-e630",
+      "id": "B03-GF-e603",
       "from": "B03-GF-G-31-approach",
       "to": "B03-GF-j265723",
       "floorId": "GF",
@@ -19537,7 +18721,7 @@
       ]
     },
     {
-      "id": "B03-GF-e631",
+      "id": "B03-GF-e604",
       "from": "B03-GF-G-32-approach",
       "to": "B03-GF-j254308",
       "floorId": "GF",
@@ -19560,7 +18744,7 @@
       ]
     },
     {
-      "id": "B03-GF-e632",
+      "id": "B03-GF-e605",
       "from": "B03-GF-G-33-approach",
       "to": "B03-GF-j238268",
       "floorId": "GF",
@@ -19583,7 +18767,7 @@
       ]
     },
     {
-      "id": "B03-GF-e633",
+      "id": "B03-GF-e606",
       "from": "B03-GF-G-34-approach",
       "to": "B03-GF-j230662",
       "floorId": "GF",
@@ -19606,7 +18790,7 @@
       ]
     },
     {
-      "id": "B03-GF-e634",
+      "id": "B03-GF-e607",
       "from": "B03-GF-G-35-approach",
       "to": "B03-GF-j202545",
       "floorId": "GF",
@@ -19629,7 +18813,7 @@
       ]
     },
     {
-      "id": "B03-GF-e635",
+      "id": "B03-GF-e608",
       "from": "B03-GF-G-36-approach",
       "to": "B03-GF-j191887",
       "floorId": "GF",
@@ -19652,7 +18836,7 @@
       ]
     },
     {
-      "id": "B03-GF-e636",
+      "id": "B03-GF-e609",
       "from": "B03-GF-G-37-approach",
       "to": "B03-GF-j165209",
       "floorId": "GF",
@@ -19675,7 +18859,7 @@
       ]
     },
     {
-      "id": "B03-GF-e637",
+      "id": "B03-GF-e610",
       "from": "B03-GF-G-38-approach",
       "to": "B03-GF-j169001",
       "floorId": "GF",
@@ -19698,7 +18882,7 @@
       ]
     },
     {
-      "id": "B03-GF-e638",
+      "id": "B03-GF-e611",
       "from": "B03-GF-G-39-approach",
       "to": "B03-GF-j178081",
       "floorId": "GF",
@@ -19721,7 +18905,7 @@
       ]
     },
     {
-      "id": "B03-GF-e639",
+      "id": "B03-GF-e612",
       "from": "B03-GF-G-40-approach",
       "to": "B03-GF-j178081",
       "floorId": "GF",
@@ -19744,7 +18928,7 @@
       ]
     },
     {
-      "id": "B03-GF-e640",
+      "id": "B03-GF-e613",
       "from": "B03-GF-G-41-approach",
       "to": "B03-GF-j169718",
       "floorId": "GF",
@@ -19767,7 +18951,7 @@
       ]
     },
     {
-      "id": "B03-GF-e641",
+      "id": "B03-GF-e614",
       "from": "B03-GF-G-42-approach",
       "to": "B03-GF-j150756",
       "floorId": "GF",
@@ -19790,7 +18974,7 @@
       ]
     },
     {
-      "id": "B03-GF-e642",
+      "id": "B03-GF-e615",
       "from": "B03-GF-G-43-approach",
       "to": "B03-GF-j74668",
       "floorId": "GF",
@@ -19813,7 +18997,7 @@
       ]
     },
     {
-      "id": "B03-GF-e643",
+      "id": "B03-GF-e616",
       "from": "B03-GF-G-44-approach",
       "to": "B03-GF-j115031",
       "floorId": "GF",
@@ -19836,7 +19020,7 @@
       ]
     },
     {
-      "id": "B03-GF-e644",
+      "id": "B03-GF-e617",
       "from": "B03-GF-G-45-approach",
       "to": "B03-GF-j60284",
       "floorId": "GF",
@@ -19859,7 +19043,7 @@
       ]
     },
     {
-      "id": "B03-GF-e645",
+      "id": "B03-GF-e618",
       "from": "B03-GF-G-46-approach",
       "to": "B03-GF-j50461",
       "floorId": "GF",
@@ -19882,7 +19066,7 @@
       ]
     },
     {
-      "id": "B03-GF-e646",
+      "id": "B03-GF-e619",
       "from": "B03-GF-G-47-approach",
       "to": "B03-GF-j74820",
       "floorId": "GF",
@@ -19905,7 +19089,7 @@
       ]
     },
     {
-      "id": "B03-GF-e647",
+      "id": "B03-GF-e620",
       "from": "B03-GF-G-48-approach",
       "to": "B03-GF-j47442",
       "floorId": "GF",
@@ -19928,7 +19112,7 @@
       ]
     },
     {
-      "id": "B03-GF-e648",
+      "id": "B03-GF-e621",
       "from": "B03-GF-G-49-approach",
       "to": "B03-GF-j45945",
       "floorId": "GF",
@@ -19951,7 +19135,7 @@
       ]
     },
     {
-      "id": "B03-GF-e649",
+      "id": "B03-GF-e622",
       "from": "B03-GF-G-50-approach",
       "to": "B03-GF-j72559",
       "floorId": "GF",
@@ -19974,7 +19158,7 @@
       ]
     },
     {
-      "id": "B03-GF-e650",
+      "id": "B03-GF-e623",
       "from": "B03-GF-G-51-approach",
       "to": "B03-GF-j34601",
       "floorId": "GF",
@@ -19997,7 +19181,7 @@
       ]
     },
     {
-      "id": "B03-GF-e651",
+      "id": "B03-GF-e624",
       "from": "B03-GF-G-52-approach",
       "to": "B03-GF-j15580",
       "floorId": "GF",
@@ -20020,7 +19204,7 @@
       ]
     },
     {
-      "id": "B03-GF-e652",
+      "id": "B03-GF-e625",
       "from": "B03-GF-G-53-approach",
       "to": "B03-GF-j24767",
       "floorId": "GF",
@@ -20043,7 +19227,7 @@
       ]
     },
     {
-      "id": "B03-GF-e653",
+      "id": "B03-GF-e626",
       "from": "B03-GF-G-54-approach",
       "to": "B03-GF-j8801",
       "floorId": "GF",
@@ -21550,7 +20734,11 @@
       ],
       [
         1112.37,
-        1384.81
+        1384.95
+      ],
+      [
+        1112.38,
+        1384.78
       ],
       [
         1112.44,
@@ -21594,11 +20782,11 @@
       ],
       [
         1121.49,
-        1618.99
+        1618.98
       ],
       [
         1125.0,
-        1628.28
+        1628.27
       ],
       [
         1125.0,
@@ -21998,7 +21186,7 @@
       ],
       [
         1125.0,
-        1628.28
+        1628.27
       ],
       [
         1129.8,
@@ -22075,20 +21263,6 @@
       [
         1150.0,
         1633.79
-      ]
-    ],
-    [
-      [
-        1139.22,
-        1696.12
-      ],
-      [
-        1150.0,
-        1726.67
-      ],
-      [
-        1150.0,
-        1691.99
       ]
     ],
     [
@@ -22489,32 +21663,6 @@
       [
         1175.0,
         1631.21
-      ]
-    ],
-    [
-      [
-        1157.36,
-        1689.17
-      ],
-      [
-        1150.0,
-        1691.99
-      ],
-      [
-        1150.0,
-        1726.67
-      ],
-      [
-        1151.63,
-        1731.29
-      ],
-      [
-        1175.0,
-        1723.04
-      ],
-      [
-        1175.0,
-        1682.54
       ]
     ],
     [
@@ -23017,12 +22165,8 @@
         1347.73
       ],
       [
-        1193.13,
-        1347.76
-      ],
-      [
-        1193.27,
-        1347.83
+        1193.2,
+        1347.79
       ],
       [
         1193.43,
@@ -23099,28 +22243,6 @@
       [
         1200.0,
         1622.23
-      ]
-    ],
-    [
-      [
-        1192.96,
-        1675.94
-      ],
-      [
-        1175.0,
-        1682.54
-      ],
-      [
-        1175.0,
-        1723.04
-      ],
-      [
-        1200.0,
-        1714.22
-      ],
-      [
-        1200.0,
-        1673.41
       ]
     ],
     [
@@ -23625,28 +22747,6 @@
     ],
     [
       [
-        1210.81,
-        1669.52
-      ],
-      [
-        1200.0,
-        1673.41
-      ],
-      [
-        1200.0,
-        1714.22
-      ],
-      [
-        1225.0,
-        1705.4
-      ],
-      [
-        1225.0,
-        1664.53
-      ]
-    ],
-    [
-      [
         1200.0,
         1382.83
       ],
@@ -24025,44 +23125,6 @@
       [
         1250.0,
         1605.09
-      ]
-    ],
-    [
-      [
-        1246.65,
-        1657.05
-      ],
-      [
-        1228.71,
-        1663.23
-      ],
-      [
-        1225.0,
-        1664.53
-      ],
-      [
-        1225.0,
-        1705.4
-      ],
-      [
-        1245.0,
-        1698.34
-      ],
-      [
-        1245.0,
-        1709.19
-      ],
-      [
-        1244.19,
-        1741.73
-      ],
-      [
-        1250.0,
-        1739.67
-      ],
-      [
-        1250.0,
-        1655.92
       ]
     ],
     [
@@ -24619,36 +23681,6 @@
     ],
     [
       [
-        1264.64,
-        1650.99
-      ],
-      [
-        1250.0,
-        1655.92
-      ],
-      [
-        1250.0,
-        1739.67
-      ],
-      [
-        1254.65,
-        1738.03
-      ],
-      [
-        1272.02,
-        1732.06
-      ],
-      [
-        1275.0,
-        1731.06
-      ],
-      [
-        1275.0,
-        1647.59
-      ]
-    ],
-    [
-      [
         1258.56,
         1747.38
       ],
@@ -25189,116 +24221,8 @@
     ],
     [
       [
-        1299.9,
-        1667.56
-      ],
-      [
-        1300.0,
-        1667.53
-      ],
-      [
-        1300.0,
-        1639.64
-      ],
-      [
-        1299.96,
-        1639.51
-      ],
-      [
-        1296.09,
-        1640.76
-      ],
-      [
-        1297.76,
-        1646.14
-      ],
-      [
-        1293.53,
-        1647.45
-      ],
-      [
-        1291.87,
-        1642.12
-      ],
-      [
-        1282.67,
-        1645.08
-      ],
-      [
-        1275.0,
-        1647.59
-      ],
-      [
-        1275.0,
-        1731.06
-      ],
-      [
-        1289.16,
-        1726.3
-      ],
-      [
-        1289.29,
-        1726.21
-      ],
-      [
-        1289.5,
-        1726.13
-      ],
-      [
-        1289.66,
-        1726.11
-      ],
-      [
-        1289.82,
-        1726.12
-      ],
-      [
-        1289.97,
-        1726.16
-      ],
-      [
-        1290.11,
-        1726.23
-      ],
-      [
-        1290.29,
-        1726.39
-      ],
-      [
-        1290.38,
-        1726.52
-      ],
-      [
-        1290.44,
-        1726.66
-      ],
-      [
-        1292.88,
-        1734.03
-      ],
-      [
-        1293.01,
-        1733.99
-      ],
-      [
-        1293.25,
-        1733.97
-      ],
-      [
-        1293.47,
-        1734.02
-      ],
-      [
-        1293.62,
-        1734.09
-      ],
-      [
-        1293.79,
-        1734.24
-      ],
-      [
         1293.92,
-        1734.44
+        1734.45
       ],
       [
         1293.97,
@@ -25309,8 +24233,8 @@
         1734.83
       ],
       [
-        1293.94,
-        1735.05
+        1293.91,
+        1735.13
       ],
       [
         1293.87,
@@ -25346,7 +24270,7 @@
       ],
       [
         1300.0,
-        1667.89
+        1732.47
       ]
     ],
     [
@@ -25389,6 +24313,44 @@
       [
         1275.0,
         1645.91
+      ]
+    ],
+    [
+      [
+        1292.89,
+        1733.56
+      ],
+      [
+        1292.93,
+        1733.48
+      ],
+      [
+        1293.28,
+        1733.11
+      ],
+      [
+        1292.9,
+        1731.95
+      ],
+      [
+        1292.75,
+        1731.87
+      ],
+      [
+        1292.22,
+        1732.04
+      ],
+      [
+        1292.88,
+        1734.03
+      ],
+      [
+        1292.99,
+        1734.0
+      ],
+      [
+        1292.89,
+        1733.71
       ]
     ],
     [
@@ -25771,20 +24733,16 @@
         1627.02
       ],
       [
-        1306.18,
-        1627.03
-      ],
-      [
-        1306.36,
-        1627.09
+        1306.29,
+        1627.06
       ],
       [
         1306.53,
         1627.19
       ],
       [
-        1306.64,
-        1627.3
+        1306.67,
+        1627.34
       ],
       [
         1306.77,
@@ -25813,8 +24771,12 @@
         1726.41
       ],
       [
-        1320.84,
-        1726.33
+        1320.91,
+        1726.36
+      ],
+      [
+        1320.77,
+        1726.29
       ],
       [
         1320.65,
@@ -25829,92 +24791,12 @@
         1725.93
       ],
       [
-        1320.41,
-        1725.71
-      ],
-      [
-        1320.41,
-        1725.55
-      ],
-      [
-        1320.44,
-        1725.4
-      ],
-      [
-        1320.5,
-        1725.25
-      ],
-      [
-        1320.64,
-        1725.06
-      ],
-      [
-        1320.76,
-        1724.96
-      ],
-      [
-        1320.9,
-        1724.88
-      ],
-      [
-        1321.01,
-        1724.84
-      ],
-      [
-        1318.56,
-        1717.53
-      ],
-      [
-        1318.54,
-        1717.46
-      ],
-      [
-        1318.52,
-        1717.22
-      ],
-      [
-        1318.57,
-        1716.99
-      ],
-      [
-        1318.64,
-        1716.85
-      ],
-      [
-        1318.74,
-        1716.73
-      ],
-      [
-        1318.92,
-        1716.59
-      ],
-      [
-        1319.07,
-        1716.52
-      ],
-      [
-        1319.35,
-        1716.48
-      ],
-      [
-        1319.55,
-        1716.36
-      ],
-      [
-        1323.75,
-        1715.05
-      ],
-      [
-        1309.32,
-        1669.24
-      ],
-      [
-        1301.21,
-        1671.82
+        1320.43,
+        1725.8
       ],
       [
         1300.0,
-        1667.89
+        1732.47
       ],
       [
         1300.0,
@@ -25923,20 +24805,6 @@
       [
         1325.0,
         1790.43
-      ]
-    ],
-    [
-      [
-        1307.99,
-        1665.01
-      ],
-      [
-        1300.0,
-        1639.64
-      ],
-      [
-        1300.0,
-        1667.53
       ]
     ],
     [
@@ -26251,6 +25119,44 @@
     ],
     [
       [
+        1320.15,
+        1724.35
+      ],
+      [
+        1320.67,
+        1724.44
+      ],
+      [
+        1320.72,
+        1724.47
+      ],
+      [
+        1320.8,
+        1724.56
+      ],
+      [
+        1320.91,
+        1724.88
+      ],
+      [
+        1321.01,
+        1724.84
+      ],
+      [
+        1320.34,
+        1722.86
+      ],
+      [
+        1319.85,
+        1723.04
+      ],
+      [
+        1319.78,
+        1723.19
+      ]
+    ],
+    [
+      [
         1323.83,
         1153.04
       ],
@@ -26443,12 +25349,16 @@
         1721.03
       ],
       [
-        1336.22,
-        1721.27
+        1336.23,
+        1721.19
       ],
       [
-        1336.16,
-        1721.45
+        1336.19,
+        1721.38
+      ],
+      [
+        1336.1,
+        1721.56
       ],
       [
         1336.03,
@@ -26459,8 +25369,8 @@
         1721.76
       ],
       [
-        1335.71,
-        1721.87
+        1335.74,
+        1721.86
       ],
       [
         1325.0,
@@ -27007,8 +25917,12 @@
         1610.61
       ],
       [
-        1362.42,
-        1610.41
+        1362.41,
+        1610.49
+      ],
+      [
+        1362.44,
+        1610.33
       ],
       [
         1362.49,
@@ -27021,6 +25935,10 @@
       [
         1362.71,
         1609.91
+      ],
+      [
+        1362.84,
+        1609.83
       ],
       [
         1362.95,
@@ -30959,16 +29877,16 @@
         1514.43
       ],
       [
-        1855.52,
-        1514.49
+        1855.4,
+        1514.45
       ],
       [
         1855.59,
         1514.52
       ],
       [
-        1855.72,
-        1514.61
+        1855.65,
+        1514.56
       ],
       [
         1855.83,
@@ -31161,6 +30079,10 @@
     ],
     [
       [
+        1884.04,
+        1515.23
+      ],
+      [
         1884.1,
         1515.23
       ],
@@ -31241,8 +30163,8 @@
         1511.78
       ],
       [
-        1885.76,
-        1511.66
+        1885.82,
+        1511.62
       ],
       [
         1885.92,
@@ -31711,28 +30633,24 @@
         1507.0
       ],
       [
-        1944.39,
-        1507.11
+        1944.42,
+        1507.13
       ],
       [
-        1944.51,
-        1507.21
+        1944.56,
+        1507.27
       ],
       [
         1944.64,
         1507.4
       ],
       [
-        1944.71,
-        1507.63
+        1944.68,
+        1507.51
       ],
       [
-        1944.79,
-        1508.85
-      ],
-      [
-        1944.81,
-        1508.96
+        1944.72,
+        1507.7
       ],
       [
         1944.9,
@@ -31955,20 +30873,24 @@
         1508.7
       ],
       [
-        1974.23,
-        1505.89
+        1974.34,
+        1507.56
       ],
       [
-        1974.24,
-        1505.69
+        1974.32,
+        1507.44
+      ],
+      [
+        1974.23,
+        1505.77
+      ],
+      [
+        1974.25,
+        1505.65
       ],
       [
         1974.3,
         1505.5
-      ],
-      [
-        1974.34,
-        1505.43
       ],
       [
         1974.43,
@@ -35425,12 +34347,12 @@
         1501.24
       ],
       [
-        2168.36,
-        1501.07
+        2168.3,
+        1501.12
       ],
       [
-        2168.53,
-        1500.97
+        2168.49,
+        1500.99
       ],
       [
         2168.71,
@@ -36045,8 +34967,8 @@
         1506.38
       ],
       [
-        2239.96,
-        1506.44
+        2239.99,
+        1506.49
       ],
       [
         2240.02,
@@ -36571,8 +35493,8 @@
         1504.52
       ],
       [
-        2276.96,
-        1504.56
+        2277.06,
+        1504.61
       ],
       [
         2277.16,
@@ -37433,92 +36355,6 @@
     ],
     [
       [
-        2540.66,
-        1624.75
-      ],
-      [
-        2539.37,
-        1633.07
-      ],
-      [
-        2539.32,
-        1633.26
-      ],
-      [
-        2539.26,
-        1633.37
-      ],
-      [
-        2539.11,
-        1633.55
-      ],
-      [
-        2538.92,
-        1633.68
-      ],
-      [
-        2538.77,
-        1633.73
-      ],
-      [
-        2538.54,
-        1633.75
-      ],
-      [
-        2535.37,
-        1633.26
-      ],
-      [
-        2536.49,
-        1634.66
-      ],
-      [
-        2538.33,
-        1634.96
-      ],
-      [
-        2538.54,
-        1635.05
-      ],
-      [
-        2538.62,
-        1635.1
-      ],
-      [
-        2538.68,
-        1635.16
-      ],
-      [
-        2538.9,
-        1635.19
-      ],
-      [
-        2538.86,
-        1635.42
-      ],
-      [
-        2538.91,
-        1635.55
-      ],
-      [
-        2538.93,
-        1635.79
-      ],
-      [
-        2538.69,
-        1637.41
-      ],
-      [
-        2550.0,
-        1651.55
-      ],
-      [
-        2550.0,
-        1626.24
-      ]
-    ],
-    [
-      [
         2537.76,
         1041.61
       ],
@@ -37801,6 +36637,24 @@
     ],
     [
       [
+        2538.34,
+        1633.72
+      ],
+      [
+        2535.37,
+        1633.26
+      ],
+      [
+        2536.49,
+        1634.66
+      ],
+      [
+        2538.15,
+        1634.93
+      ]
+    ],
+    [
+      [
         2525.0,
         1041.65
       ],
@@ -37865,80 +36719,48 @@
         1620.55
       ],
       [
-        2560.83,
-        1620.62
+        2560.79,
+        1620.6
       ],
       [
-        2561.02,
-        1620.75
+        2560.96,
+        1620.7
       ],
       [
-        2561.17,
-        1620.93
+        2561.13,
+        1620.87
       ],
       [
         2561.21,
         1621.0
       ],
       [
-        2561.27,
-        1621.19
+        2561.26,
+        1621.15
       ],
       [
         2561.28,
-        1621.39
+        1621.27
       ],
       [
-        2560.37,
-        1627.08
+        2561.27,
+        1621.47
       ],
       [
-        2560.32,
-        1627.26
+        2560.83,
+        1624.24
       ],
       [
-        2560.26,
-        1627.37
+        2560.91,
+        1624.21
       ],
       [
-        2560.17,
-        1627.49
-      ],
-      [
-        2560.05,
-        1627.6
-      ],
-      [
-        2559.92,
-        1627.68
-      ],
-      [
-        2559.73,
-        1627.74
-      ],
-      [
-        2559.53,
-        1627.75
-      ],
-      [
-        2553.09,
-        1626.75
-      ],
-      [
-        2553.09,
-        1626.73
-      ],
-      [
-        2550.0,
-        1626.24
-      ],
-      [
-        2550.0,
-        1651.55
+        2560.97,
+        1624.21
       ],
       [
         2575.0,
-        1682.8
+        1626.75
       ],
       [
         2575.0,
@@ -37983,6 +36805,24 @@
     ],
     [
       [
+        2560.58,
+        1625.76
+      ],
+      [
+        2560.38,
+        1626.98
+      ],
+      [
+        2560.63,
+        1627.02
+      ],
+      [
+        2560.93,
+        1625.95
+      ]
+    ],
+    [
+      [
         2558.92,
         1626.03
       ],
@@ -38014,11 +36854,11 @@
       ],
       [
         2575.0,
-        1682.8
+        1626.75
       ],
       [
         2600.0,
-        1714.05
+        1631.27
       ],
       [
         2600.0,
@@ -38101,8 +36941,92 @@
     ],
     [
       [
+        2603.62,
+        1631.93
+      ],
+      [
+        2603.74,
+        1632.02
+      ],
+      [
+        2603.81,
+        1632.18
+      ],
+      [
+        2603.63,
+        1633.3
+      ],
+      [
+        2603.61,
+        1633.36
+      ],
+      [
+        2603.57,
+        1633.41
+      ],
+      [
+        2603.51,
+        1633.47
+      ],
+      [
+        2603.43,
+        1633.51
+      ],
+      [
+        2603.03,
+        1633.55
+      ],
+      [
+        2602.97,
+        1634.69
+      ],
+      [
+        2605.37,
+        1635.04
+      ],
+      [
+        2605.58,
+        1634.02
+      ],
+      [
+        2605.18,
+        1633.82
+      ],
+      [
+        2605.11,
+        1633.72
+      ],
+      [
+        2605.09,
+        1633.66
+      ],
+      [
+        2605.09,
+        1633.54
+      ],
+      [
+        2605.3,
+        1632.47
+      ],
+      [
+        2605.36,
+        1632.38
+      ],
+      [
+        2605.43,
+        1632.32
+      ],
+      [
+        2605.52,
+        1632.29
+      ],
+      [
+        2605.63,
+        1632.29
+      ],
+      [
         2625.0,
-        1745.3
+        1635.79
       ],
       [
         2625.0,
@@ -38118,7 +37042,7 @@
       ],
       [
         2600.0,
-        1714.05
+        1631.27
       ]
     ],
     [
@@ -38235,44 +37159,28 @@
     ],
     [
       [
-        2650.0,
-        1776.55
+        2648.23,
+        1639.99
       ],
       [
-        2650.0,
-        1644.14
+        2648.31,
+        1640.03
       ],
       [
-        2648.48,
-        1643.83
+        2648.39,
+        1640.11
       ],
       [
-        2648.3,
-        1643.75
+        2648.43,
+        1640.2
       ],
       [
-        2648.2,
-        1643.68
+        2648.97,
+        1637.33
       ],
       [
-        2648.04,
-        1643.5
-      ],
-      [
-        2647.94,
-        1643.29
-      ],
-      [
-        2647.91,
-        1643.15
-      ],
-      [
-        2647.91,
-        1642.98
-      ],
-      [
-        2648.99,
-        1637.25
+        2649.02,
+        1637.17
       ],
       [
         2649.05,
@@ -38291,16 +37199,12 @@
         1636.77
       ],
       [
-        2649.53,
-        1636.71
-      ],
-      [
-        2649.67,
-        1636.68
-      ],
-      [
-        2649.91,
+        2649.61,
         1636.69
+      ],
+      [
+        2649.84,
+        1636.68
       ],
       [
         2650.0,
@@ -38324,7 +37228,7 @@
       ],
       [
         2625.0,
-        1745.3
+        1635.79
       ]
     ],
     [
@@ -38463,6 +37367,32 @@
       [
         2625.0,
         1045.0
+      ]
+    ],
+    [
+      [
+        2648.04,
+        1641.58
+      ],
+      [
+        2647.66,
+        1641.62
+      ],
+      [
+        2647.56,
+        1642.77
+      ],
+      [
+        2647.94,
+        1642.85
+      ],
+      [
+        2648.2,
+        1641.46
+      ],
+      [
+        2648.17,
+        1641.5
       ]
     ],
     [
@@ -38757,28 +37687,6 @@
     ],
     [
       [
-        2675.0,
-        1807.8
-      ],
-      [
-        2675.0,
-        1649.25
-      ],
-      [
-        2666.49,
-        1647.47
-      ],
-      [
-        2650.0,
-        1644.14
-      ],
-      [
-        2650.0,
-        1776.55
-      ]
-    ],
-    [
-      [
         2650.0,
         1636.71
       ],
@@ -38828,7 +37736,7 @@
       ],
       [
         2675.0,
-        1585.75
+        1585.74
       ],
       [
         2675.0,
@@ -39009,32 +37917,6 @@
     ],
     [
       [
-        2677.13,
-        1810.46
-      ],
-      [
-        2700.0,
-        1823.32
-      ],
-      [
-        2700.0,
-        1654.6
-      ],
-      [
-        2684.39,
-        1651.22
-      ],
-      [
-        2675.0,
-        1649.25
-      ],
-      [
-        2675.0,
-        1807.8
-      ]
-    ],
-    [
-      [
         2683.8,
         1643.66
       ],
@@ -39061,24 +37943,24 @@
     ],
     [
       [
-        2675.79,
-        1581.92
+        2675.77,
+        1582.0
       ],
       [
-        2675.83,
-        1581.81
+        2675.81,
+        1581.85
       ],
       [
-        2675.93,
-        1581.65
+        2675.89,
+        1581.71
       ],
       [
-        2676.14,
-        1581.47
+        2676.02,
+        1581.56
       ],
       [
-        2676.32,
-        1581.39
+        2676.18,
+        1581.45
       ],
       [
         2676.4,
@@ -39089,52 +37971,32 @@
         1581.36
       ],
       [
-        2682.26,
-        1582.52
+        2679.45,
+        1581.94
       ],
       [
-        2682.41,
-        1582.56
+        2679.4,
+        1581.84
       ],
       [
-        2682.61,
-        1582.68
+        2679.39,
+        1581.72
       ],
       [
-        2682.77,
-        1582.86
+        2683.23,
+        1562.83
       ],
       [
-        2682.87,
-        1583.07
+        2683.53,
+        1561.49
       ],
       [
-        2682.9,
-        1583.23
+        2683.59,
+        1561.38
       ],
       [
-        2682.9,
-        1583.38
-      ],
-      [
-        2682.47,
-        1585.47
-      ],
-      [
-        2700.0,
-        1589.13
-      ],
-      [
-        2700.0,
-        1561.8
-      ],
-      [
-        2687.88,
-        1559.28
-      ],
-      [
-        2687.31,
-        1562.04
+        2683.7,
+        1561.3
       ],
       [
         2680.17,
@@ -39290,7 +38152,7 @@
       ],
       [
         2675.0,
-        1585.75
+        1585.74
       ]
     ],
     [
@@ -39375,6 +38237,58 @@
       [
         2700.0,
         1553.12
+      ]
+    ],
+    [
+      [
+        2680.97,
+        1582.12
+      ],
+      [
+        2680.91,
+        1582.19
+      ],
+      [
+        2680.85,
+        1582.23
+      ],
+      [
+        2682.12,
+        1582.49
+      ],
+      [
+        2682.2,
+        1582.05
+      ],
+      [
+        2681.15,
+        1581.77
+      ]
+    ],
+    [
+      [
+        2685.08,
+        1561.65
+      ],
+      [
+        2685.11,
+        1561.74
+      ],
+      [
+        2685.15,
+        1562.12
+      ],
+      [
+        2686.13,
+        1562.33
+      ],
+      [
+        2686.26,
+        1561.83
+      ],
+      [
+        2685.02,
+        1561.58
       ]
     ],
     [
@@ -39491,32 +38405,6 @@
     ],
     [
       [
-        2725.0,
-        1837.39
-      ],
-      [
-        2725.0,
-        1660.21
-      ],
-      [
-        2720.11,
-        1659.08
-      ],
-      [
-        2702.27,
-        1655.09
-      ],
-      [
-        2700.0,
-        1654.6
-      ],
-      [
-        2700.0,
-        1823.32
-      ]
-    ],
-    [
-      [
         2700.0,
         1647.14
       ],
@@ -39539,36 +38427,6 @@
       [
         2700.0,
         1596.59
-      ]
-    ],
-    [
-      [
-        2716.78,
-        1592.75
-      ],
-      [
-        2725.0,
-        1594.61
-      ],
-      [
-        2725.0,
-        1567.22
-      ],
-      [
-        2720.69,
-        1566.26
-      ],
-      [
-        2701.13,
-        1562.03
-      ],
-      [
-        2700.0,
-        1561.8
-      ],
-      [
-        2700.0,
-        1589.13
       ]
     ],
     [
@@ -39627,16 +38485,20 @@
     ],
     [
       [
-        2703.75,
-        1445.87
+        2703.73,
+        1445.95
       ],
       [
-        2703.79,
-        1445.76
+        2703.77,
+        1445.8
       ],
       [
-        2703.89,
-        1445.6
+        2703.83,
+        1445.69
+      ],
+      [
+        2703.95,
+        1445.54
       ],
       [
         2704.1,
@@ -39855,6 +38717,32 @@
     ],
     [
       [
+        2724.7,
+        1584.14
+      ],
+      [
+        2724.41,
+        1584.67
+      ],
+      [
+        2724.44,
+        1585.21
+      ],
+      [
+        2724.8,
+        1585.7
+      ],
+      [
+        2725.0,
+        1585.78
+      ],
+      [
+        2725.0,
+        1583.98
+      ]
+    ],
+    [
+      [
         2713.68,
         1597.91
       ],
@@ -39917,124 +38805,6 @@
     ],
     [
       [
-        2750.0,
-        1851.45
-      ],
-      [
-        2750.0,
-        1741.95
-      ],
-      [
-        2746.84,
-        1754.88
-      ],
-      [
-        2746.79,
-        1755.03
-      ],
-      [
-        2746.71,
-        1755.16
-      ],
-      [
-        2746.54,
-        1755.33
-      ],
-      [
-        2746.37,
-        1755.43
-      ],
-      [
-        2746.1,
-        1755.49
-      ],
-      [
-        2745.87,
-        1755.47
-      ],
-      [
-        2729.33,
-        1751.44
-      ],
-      [
-        2729.22,
-        1751.4
-      ],
-      [
-        2729.09,
-        1751.32
-      ],
-      [
-        2728.92,
-        1751.15
-      ],
-      [
-        2728.82,
-        1750.98
-      ],
-      [
-        2728.77,
-        1750.79
-      ],
-      [
-        2728.76,
-        1750.6
-      ],
-      [
-        2739.52,
-        1706.41
-      ],
-      [
-        2739.57,
-        1706.26
-      ],
-      [
-        2739.65,
-        1706.13
-      ],
-      [
-        2739.82,
-        1705.96
-      ],
-      [
-        2739.99,
-        1705.86
-      ],
-      [
-        2740.25,
-        1705.8
-      ],
-      [
-        2740.49,
-        1705.82
-      ],
-      [
-        2743.25,
-        1706.48
-      ],
-      [
-        2750.0,
-        1708.14
-      ],
-      [
-        2750.0,
-        1666.05
-      ],
-      [
-        2737.96,
-        1663.19
-      ],
-      [
-        2725.0,
-        1660.21
-      ],
-      [
-        2725.0,
-        1837.39
-      ]
-    ],
-    [
-      [
         2734.42,
         1654.91
       ],
@@ -40057,24 +38827,6 @@
       [
         2725.0,
         1652.74
-      ]
-    ],
-    [
-      [
-        2733.49,
-        1596.53
-      ],
-      [
-        2739.43,
-        1570.44
-      ],
-      [
-        2725.0,
-        1567.22
-      ],
-      [
-        2725.0,
-        1594.61
       ]
     ],
     [
@@ -40285,6 +39037,44 @@
     ],
     [
       [
+        2726.08,
+        1585.79
+      ],
+      [
+        2726.47,
+        1584.94
+      ],
+      [
+        2726.25,
+        1584.23
+      ],
+      [
+        2725.77,
+        1583.88
+      ],
+      [
+        2725.23,
+        1583.85
+      ],
+      [
+        2725.0,
+        1583.98
+      ],
+      [
+        2725.0,
+        1585.78
+      ],
+      [
+        2725.34,
+        1585.92
+      ],
+      [
+        2726.02,
+        1585.79
+      ]
+    ],
+    [
+      [
         2732.23,
         1602.06
       ],
@@ -40325,282 +39115,6 @@
       [
         2740.26,
         1394.84
-      ]
-    ],
-    [
-      [
-        2749.48,
-        1732.17
-      ],
-      [
-        2749.43,
-        1732.32
-      ],
-      [
-        2749.3,
-        1732.51
-      ],
-      [
-        2749.12,
-        1732.66
-      ],
-      [
-        2749.01,
-        1732.72
-      ],
-      [
-        2748.83,
-        1732.77
-      ],
-      [
-        2748.63,
-        1732.78
-      ],
-      [
-        2746.53,
-        1732.28
-      ],
-      [
-        2742.69,
-        1748.08
-      ],
-      [
-        2742.65,
-        1748.19
-      ],
-      [
-        2742.57,
-        1748.32
-      ],
-      [
-        2742.46,
-        1748.44
-      ],
-      [
-        2742.34,
-        1748.53
-      ],
-      [
-        2742.23,
-        1748.59
-      ],
-      [
-        2742.04,
-        1748.64
-      ],
-      [
-        2741.85,
-        1748.65
-      ],
-      [
-        2741.73,
-        1748.63
-      ],
-      [
-        2736.14,
-        1747.26
-      ],
-      [
-        2736.06,
-        1747.23
-      ],
-      [
-        2735.93,
-        1747.15
-      ],
-      [
-        2735.76,
-        1746.98
-      ],
-      [
-        2735.66,
-        1746.81
-      ],
-      [
-        2735.6,
-        1746.54
-      ],
-      [
-        2735.62,
-        1746.31
-      ],
-      [
-        2739.45,
-        1730.56
-      ],
-      [
-        2737.5,
-        1730.09
-      ],
-      [
-        2737.35,
-        1730.04
-      ],
-      [
-        2737.16,
-        1729.91
-      ],
-      [
-        2737.01,
-        1729.73
-      ],
-      [
-        2736.95,
-        1729.62
-      ],
-      [
-        2736.9,
-        1729.43
-      ],
-      [
-        2736.89,
-        1729.24
-      ],
-      [
-        2742.09,
-        1707.85
-      ],
-      [
-        2740.89,
-        1707.56
-      ],
-      [
-        2730.53,
-        1750.08
-      ],
-      [
-        2745.47,
-        1753.72
-      ],
-      [
-        2750.0,
-        1735.19
-      ],
-      [
-        2750.0,
-        1730.04
-      ]
-    ],
-    [
-      [
-        2748.11,
-        1731.01
-      ],
-      [
-        2750.0,
-        1723.26
-      ],
-      [
-        2750.0,
-        1709.79
-      ],
-      [
-        2743.65,
-        1708.23
-      ],
-      [
-        2738.66,
-        1728.72
-      ]
-    ],
-    [
-      [
-        2741.01,
-        1730.94
-      ],
-      [
-        2737.37,
-        1745.91
-      ],
-      [
-        2741.33,
-        1746.88
-      ],
-      [
-        2744.98,
-        1731.9
-      ]
-    ],
-    [
-      [
-        2775.0,
-        1865.51
-      ],
-      [
-        2775.0,
-        1716.36
-      ],
-      [
-        2762.87,
-        1709.54
-      ],
-      [
-        2755.24,
-        1700.0
-      ],
-      [
-        2775.0,
-        1705.27
-      ],
-      [
-        2775.0,
-        1672.18
-      ],
-      [
-        2773.5,
-        1671.8
-      ],
-      [
-        2755.74,
-        1667.42
-      ],
-      [
-        2750.0,
-        1666.05
-      ],
-      [
-        2750.0,
-        1708.14
-      ],
-      [
-        2754.26,
-        1709.18
-      ],
-      [
-        2757.02,
-        1709.84
-      ],
-      [
-        2757.17,
-        1709.89
-      ],
-      [
-        2757.3,
-        1709.97
-      ],
-      [
-        2757.47,
-        1710.14
-      ],
-      [
-        2757.57,
-        1710.31
-      ],
-      [
-        2757.63,
-        1710.57
-      ],
-      [
-        2757.61,
-        1710.81
-      ],
-      [
-        2750.0,
-        1741.95
-      ],
-      [
-        2750.0,
-        1851.45
       ]
     ],
     [
@@ -40895,78 +39409,6 @@
     ],
     [
       [
-        2754.66,
-        1710.92
-      ],
-      [
-        2750.0,
-        1730.04
-      ],
-      [
-        2750.0,
-        1735.19
-      ],
-      [
-        2755.86,
-        1711.21
-      ]
-    ],
-    [
-      [
-        2753.1,
-        1710.55
-      ],
-      [
-        2750.0,
-        1709.79
-      ],
-      [
-        2750.0,
-        1723.26
-      ]
-    ],
-    [
-      [
-        2800.0,
-        1879.57
-      ],
-      [
-        2800.0,
-        1730.43
-      ],
-      [
-        2775.0,
-        1716.36
-      ],
-      [
-        2775.0,
-        1865.51
-      ]
-    ],
-    [
-      [
-        2800.0,
-        1711.94
-      ],
-      [
-        2800.0,
-        1678.54
-      ],
-      [
-        2791.25,
-        1676.26
-      ],
-      [
-        2775.0,
-        1672.18
-      ],
-      [
-        2775.0,
-        1705.27
-      ]
-    ],
-    [
-      [
         2784.84,
         1667.12
       ],
@@ -41227,46 +39669,6 @@
     ],
     [
       [
-        2825.0,
-        1893.63
-      ],
-      [
-        2825.0,
-        1744.49
-      ],
-      [
-        2800.0,
-        1730.43
-      ],
-      [
-        2800.0,
-        1879.57
-      ]
-    ],
-    [
-      [
-        2825.0,
-        1718.61
-      ],
-      [
-        2825.0,
-        1685.15
-      ],
-      [
-        2808.95,
-        1680.88
-      ],
-      [
-        2800.0,
-        1678.54
-      ],
-      [
-        2800.0,
-        1711.94
-      ]
-    ],
-    [
-      [
         2800.0,
         1671.04
       ],
@@ -41395,58 +39797,6 @@
       [
         2825.0,
         1410.06
-      ]
-    ],
-    [
-      [
-        2845.35,
-        1905.08
-      ],
-      [
-        2850.0,
-        1908.34
-      ],
-      [
-        2850.0,
-        1758.55
-      ],
-      [
-        2825.0,
-        1744.49
-      ],
-      [
-        2825.0,
-        1893.63
-      ]
-    ],
-    [
-      [
-        2827.04,
-        1719.15
-      ],
-      [
-        2850.0,
-        1707.67
-      ],
-      [
-        2850.0,
-        1692.06
-      ],
-      [
-        2844.28,
-        1690.45
-      ],
-      [
-        2826.64,
-        1685.59
-      ],
-      [
-        2825.0,
-        1685.15
-      ],
-      [
-        2825.0,
-        1718.61
       ]
     ],
     [
@@ -41633,42 +39983,6 @@
       [
         2831.02,
         1622.21
-      ]
-    ],
-    [
-      [
-        2875.0,
-        1925.84
-      ],
-      [
-        2875.0,
-        1772.62
-      ],
-      [
-        2850.0,
-        1758.55
-      ],
-      [
-        2850.0,
-        1908.34
-      ]
-    ],
-    [
-      [
-        2869.9,
-        1697.72
-      ],
-      [
-        2861.88,
-        1695.4
-      ],
-      [
-        2850.0,
-        1692.06
-      ],
-      [
-        2850.0,
-        1707.67
       ]
     ],
     [
@@ -42427,24 +40741,6 @@
     ],
     [
       [
-        2900.0,
-        1943.34
-      ],
-      [
-        2900.0,
-        1786.68
-      ],
-      [
-        2875.0,
-        1772.62
-      ],
-      [
-        2875.0,
-        1925.84
-      ]
-    ],
-    [
-      [
         2891.35,
         1652.08
       ],
@@ -43097,86 +41393,6 @@
     ],
     [
       [
-        2905.05,
-        1946.88
-      ],
-      [
-        2911.86,
-        1926.72
-      ],
-      [
-        2911.97,
-        1926.51
-      ],
-      [
-        2912.02,
-        1926.45
-      ],
-      [
-        2912.2,
-        1926.3
-      ],
-      [
-        2912.34,
-        1926.23
-      ],
-      [
-        2912.57,
-        1926.18
-      ],
-      [
-        2912.8,
-        1926.2
-      ],
-      [
-        2917.49,
-        1927.78
-      ],
-      [
-        2919.32,
-        1922.43
-      ],
-      [
-        2925.0,
-        1924.33
-      ],
-      [
-        2925.0,
-        1802.16
-      ],
-      [
-        2914.65,
-        1794.92
-      ],
-      [
-        2900.0,
-        1786.68
-      ],
-      [
-        2900.0,
-        1943.34
-      ]
-    ],
-    [
-      [
-        2924.12,
-        1930.87
-      ],
-      [
-        2916.44,
-        1953.58
-      ],
-      [
-        2925.0,
-        1956.53
-      ],
-      [
-        2925.0,
-        1928.29
-      ]
-    ],
-    [
-      [
         2908.25,
         1547.79
       ],
@@ -43351,16 +41567,20 @@
         1432.41
       ],
       [
-        2915.25,
-        1432.25
+        2915.19,
+        1432.3
+      ],
+      [
+        2915.31,
+        1432.21
       ],
       [
         2915.42,
         1432.16
       ],
       [
-        2915.57,
-        1432.12
+        2915.65,
+        1432.11
       ],
       [
         2915.77,
@@ -43393,76 +41613,6 @@
       [
         2900.0,
         1510.09
-      ]
-    ],
-    [
-      [
-        2910.99,
-        1949.5
-      ],
-      [
-        2911.12,
-        1949.56
-      ],
-      [
-        2915.6,
-        1951.08
-      ],
-      [
-        2922.35,
-        1931.11
-      ],
-      [
-        2916.97,
-        1929.31
-      ],
-      [
-        2916.98,
-        1929.3
-      ],
-      [
-        2913.12,
-        1927.99
-      ],
-      [
-        2906.42,
-        1947.83
-      ],
-      [
-        2906.8,
-        1948.1
-      ],
-      [
-        2910.84,
-        1949.47
-      ]
-    ],
-    [
-      [
-        2911.46,
-        1951.37
-      ],
-      [
-        2914.72,
-        1953.65
-      ],
-      [
-        2915.08,
-        1952.59
-      ]
-    ],
-    [
-      [
-        2917.63,
-        1955.68
-      ],
-      [
-        2925.0,
-        1960.84
-      ],
-      [
-        2925.0,
-        1958.23
       ]
     ],
     [
@@ -43663,6 +41813,102 @@
     ],
     [
       [
+        2911.46,
+        1951.37
+      ],
+      [
+        2914.72,
+        1953.65
+      ],
+      [
+        2915.08,
+        1952.59
+      ]
+    ],
+    [
+      [
+        2924.09,
+        1923.99
+      ],
+      [
+        2924.06,
+        1923.87
+      ],
+      [
+        2924.08,
+        1923.48
+      ],
+      [
+        2923.12,
+        1923.16
+      ],
+      [
+        2922.91,
+        1923.63
+      ],
+      [
+        2924.12,
+        1924.04
+      ]
+    ],
+    [
+      [
+        2910.99,
+        1949.5
+      ],
+      [
+        2911.12,
+        1949.56
+      ],
+      [
+        2915.6,
+        1951.08
+      ],
+      [
+        2922.35,
+        1931.11
+      ],
+      [
+        2916.97,
+        1929.31
+      ],
+      [
+        2916.98,
+        1929.3
+      ],
+      [
+        2913.12,
+        1927.99
+      ],
+      [
+        2906.42,
+        1947.83
+      ],
+      [
+        2906.8,
+        1948.1
+      ],
+      [
+        2910.84,
+        1949.47
+      ]
+    ],
+    [
+      [
+        2917.63,
+        1955.68
+      ],
+      [
+        2925.0,
+        1960.84
+      ],
+      [
+        2925.0,
+        1958.23
+      ]
+    ],
+    [
+      [
         2922.86,
         1929.6
       ],
@@ -43759,412 +42005,6 @@
       [
         2915.19,
         1437.81
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.95,
-        1924.99
-      ],
-      [
-        2925.99,
-        1925.18
-      ]
-    ],
-    [
-      [
-        2925.0,
-        1924.33
-      ],
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2926.96,
-        1899.76
-      ]
-    ],
-    [
-      [
-        2931.66,
-        1958.83
-      ],
-      [
-        2925.0,
-        1928.29
-      ],
-      [
-        2925.0,
-        1956.53
-      ]
-    ],
-    [
-      [
-        2931.66,
-        1958.83
-      ],
-      [
-        2948.63,
-        1964.81
-      ],
-      [
-        2950.0,
-        1962.85
-      ]
-    ],
-    [
-      [
-        2936.2,
-        1895.22
-      ],
-      [
-        2950.0,
-        1853.71
-      ],
-      [
-        2944.1,
-        1851.69
-      ]
-    ],
-    [
-      [
-        2925.0,
-        1802.16
-      ],
-      [
-        2950.0,
-        1831.78
-      ],
-      [
-        2950.0,
-        1819.66
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.0,
-        1924.33
-      ],
-      [
-        2925.45,
-        1924.48
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.91,
-        1924.88
-      ],
-      [
-        2925.95,
-        1924.99
-      ]
-    ],
-    [
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2925.99,
-        1925.18
-      ],
-      [
-        2925.98,
-        1925.38
-      ]
-    ],
-    [
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2925.0,
-        1928.29
-      ],
-      [
-        2931.66,
-        1958.83
-      ]
-    ],
-    [
-      [
-        2925.0,
-        1928.29
-      ],
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2925.95,
-        1925.5
-      ]
-    ],
-    [
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2944.1,
-        1851.69
-      ],
-      [
-        2943.89,
-        1851.58
-      ]
-    ],
-    [
-      [
-        2950.0,
-        1831.78
-      ],
-      [
-        2925.0,
-        1802.16
-      ],
-      [
-        2943.6,
-        1850.67
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.45,
-        1924.48
-      ],
-      [
-        2925.66,
-        1924.59
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.83,
-        1924.75
-      ],
-      [
-        2925.91,
-        1924.88
-      ]
-    ],
-    [
-      [
-        2925.99,
-        1925.18
-      ],
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2933.85,
-        1902.11
-      ]
-    ],
-    [
-      [
-        2925.95,
-        1925.5
-      ],
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2925.98,
-        1925.38
-      ]
-    ],
-    [
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2943.89,
-        1851.58
-      ],
-      [
-        2943.72,
-        1851.42
-      ]
-    ],
-    [
-      [
-        2943.6,
-        1850.67
-      ],
-      [
-        2925.0,
-        1802.16
-      ],
-      [
-        2943.56,
-        1850.86
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2925.66,
-        1924.59
-      ],
-      [
-        2925.83,
-        1924.75
-      ]
-    ],
-    [
-      [
-        2933.85,
-        1902.11
-      ],
-      [
-        2950.0,
-        1962.85
-      ],
-      [
-        2936.2,
-        1895.22
-      ]
-    ],
-    [
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2943.72,
-        1851.42
-      ],
-      [
-        2943.61,
-        1851.21
-      ]
-    ],
-    [
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2943.56,
-        1850.86
-      ],
-      [
-        2925.0,
-        1802.16
-      ]
-    ],
-    [
-      [
-        2925.0,
-        1924.33
-      ],
-      [
-        2926.96,
-        1899.76
-      ],
-      [
-        2925.0,
-        1802.16
-      ]
-    ],
-    [
-      [
-        2950.0,
-        1853.71
-      ],
-      [
-        2936.2,
-        1895.22
-      ],
-      [
-        2950.0,
-        1962.85
-      ]
-    ],
-    [
-      [
-        2943.56,
-        1850.86
-      ],
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2943.56,
-        1850.98
-      ]
-    ],
-    [
-      [
-        2925.0,
-        1802.16
-      ],
-      [
-        2926.96,
-        1899.76
-      ],
-      [
-        2929.31,
-        1892.87
-      ]
-    ],
-    [
-      [
-        2944.1,
-        1851.69
-      ],
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2936.2,
-        1895.22
-      ]
-    ],
-    [
-      [
-        2943.56,
-        1850.98
-      ],
-      [
-        2929.31,
-        1892.87
-      ],
-      [
-        2943.61,
-        1851.21
       ]
     ],
     [
@@ -44307,64 +42147,6 @@
     ],
     [
       [
-        2943.79,
-        1971.73
-      ],
-      [
-        2947.68,
-        1966.17
-      ],
-      [
-        2947.09,
-        1965.95
-      ],
-      [
-        2931.14,
-        1960.35
-      ],
-      [
-        2925.0,
-        1958.23
-      ],
-      [
-        2925.0,
-        1960.84
-      ],
-      [
-        2937.18,
-        1969.37
-      ]
-    ],
-    [
-      [
-        2942.13,
-        1972.83
-      ],
-      [
-        2942.72,
-        1973.25
-      ],
-      [
-        2942.84,
-        1973.09
-      ]
-    ],
-    [
-      [
-        2950.0,
-        1852.02
-      ],
-      [
-        2950.0,
-        1836.75
-      ],
-      [
-        2945.37,
-        1850.43
-      ]
-    ],
-    [
-      [
         2925.0,
         1554.36
       ],
@@ -44419,6 +42201,166 @@
       [
         2925.0,
         1390.54
+      ]
+    ],
+    [
+      [
+        2925.51,
+        1924.39
+      ],
+      [
+        2925.65,
+        1924.39
+      ],
+      [
+        2947.95,
+        1931.82
+      ],
+      [
+        2948.18,
+        1930.81
+      ],
+      [
+        2925.94,
+        1923.22
+      ],
+      [
+        2925.92,
+        1923.2
+      ],
+      [
+        2925.53,
+        1924.28
+      ],
+      [
+        2925.47,
+        1924.37
+      ],
+      [
+        2925.42,
+        1924.41
+      ],
+      [
+        2925.34,
+        1924.44
+      ],
+      [
+        2925.38,
+        1924.46
+      ]
+    ],
+    [
+      [
+        2942.72,
+        1973.25
+      ],
+      [
+        2942.84,
+        1973.09
+      ],
+      [
+        2942.13,
+        1972.83
+      ]
+    ],
+    [
+      [
+        2931.14,
+        1960.35
+      ],
+      [
+        2925.0,
+        1958.23
+      ],
+      [
+        2925.0,
+        1960.84
+      ],
+      [
+        2937.18,
+        1969.37
+      ],
+      [
+        2943.79,
+        1971.73
+      ],
+      [
+        2947.68,
+        1966.17
+      ],
+      [
+        2947.09,
+        1965.95
+      ]
+    ],
+    [
+      [
+        2935.97,
+        1895.87
+      ],
+      [
+        2945.86,
+        1899.22
+      ],
+      [
+        2950.0,
+        1887.0
+      ],
+      [
+        2950.0,
+        1853.71
+      ],
+      [
+        2944.19,
+        1851.72
+      ],
+      [
+        2930.15,
+        1893.16
+      ],
+      [
+        2936.2,
+        1895.22
+      ]
+    ],
+    [
+      [
+        2931.67,
+        1901.53
+      ],
+      [
+        2931.75,
+        1901.45
+      ],
+      [
+        2931.83,
+        1901.42
+      ],
+      [
+        2930.62,
+        1901.0
+      ],
+      [
+        2930.51,
+        1901.51
+      ],
+      [
+        2931.46,
+        1901.83
+      ]
+    ],
+    [
+      [
+        2950.0,
+        1852.02
+      ],
+      [
+        2950.0,
+        1836.75
+      ],
+      [
+        2945.37,
+        1850.43
       ]
     ],
     [
@@ -44489,54 +42431,6 @@
     ],
     [
       [
-        2953.75,
-        1957.5
-      ],
-      [
-        2954.7,
-        1967.01
-      ],
-      [
-        2963.54,
-        1970.21
-      ],
-      [
-        2975.0,
-        1974.43
-      ],
-      [
-        2975.0,
-        1862.38
-      ],
-      [
-        2959.67,
-        1857.03
-      ],
-      [
-        2950.0,
-        1853.71
-      ],
-      [
-        2950.0,
-        1962.85
-      ]
-    ],
-    [
-      [
-        2953.32,
-        1821.98
-      ],
-      [
-        2950.0,
-        1819.66
-      ],
-      [
-        2950.0,
-        1831.78
-      ]
-    ],
-    [
-      [
         2953.65,
         1442.91
       ],
@@ -44599,17 +42493,45 @@
     ],
     [
       [
-        2974.46,
-        1982.88
+        2956.47,
+        1984.68
       ],
       [
-        2975.0,
-        1982.83
+        2964.34,
+        1983.89
       ],
       [
-        2975.0,
-        1976.14
+        2956.09,
+        1980.88
+      ]
+    ],
+    [
+      [
+        2955.77,
+        1977.72
       ],
+      [
+        2955.8,
+        1978.02
+      ],
+      [
+        2968.85,
+        1982.78
+      ],
+      [
+        2970.24,
+        1983.3
+      ],
+      [
+        2970.86,
+        1983.24
+      ],
+      [
+        2968.11,
+        1982.21
+      ]
+    ],
+    [
       [
         2962.99,
         1971.71
@@ -44623,44 +42545,34 @@
         1975.96
       ],
       [
-        2968.66,
+        2968.67,
         1980.71
+      ],
+      [
+        2974.46,
+        1982.88
+      ],
+      [
+        2975.0,
+        1982.83
+      ],
+      [
+        2975.0,
+        1976.14
       ]
     ],
     [
       [
-        2970.24,
-        1983.3
+        2960.1,
+        1857.18
       ],
       [
-        2970.86,
-        1983.24
+        2950.0,
+        1853.71
       ],
       [
-        2968.11,
-        1982.21
-      ],
-      [
-        2955.77,
-        1977.72
-      ],
-      [
-        2955.8,
-        1978.02
-      ]
-    ],
-    [
-      [
-        2956.09,
-        1980.88
-      ],
-      [
-        2956.47,
-        1984.68
-      ],
-      [
-        2964.34,
-        1983.89
+        2950.0,
+        1887.0
       ]
     ],
     [
@@ -44841,36 +42753,6 @@
     ],
     [
       [
-        2979.41,
-        1976.06
-      ],
-      [
-        2992.72,
-        1981.05
-      ],
-      [
-        3000.0,
-        1980.32
-      ],
-      [
-        3000.0,
-        1871.36
-      ],
-      [
-        2990.71,
-        1867.97
-      ],
-      [
-        2975.0,
-        1862.38
-      ],
-      [
-        2975.0,
-        1974.43
-      ]
-    ],
-    [
-      [
         2991.87,
         1454.4
       ],
@@ -44897,20 +42779,20 @@
     ],
     [
       [
-        2989.12,
-        1981.41
-      ],
-      [
-        2978.85,
-        1977.56
-      ],
-      [
         2975.0,
         1976.14
       ],
       [
         2975.0,
         1982.83
+      ],
+      [
+        2989.12,
+        1981.41
+      ],
+      [
+        2978.85,
+        1977.56
       ]
     ],
     [
@@ -45007,32 +42889,6 @@
       [
         3000.0,
         1408.16
-      ]
-    ],
-    [
-      [
-        3025.0,
-        1977.83
-      ],
-      [
-        3025.0,
-        1880.64
-      ],
-      [
-        3021.57,
-        1879.34
-      ],
-      [
-        3006.15,
-        1873.61
-      ],
-      [
-        3000.0,
-        1871.36
-      ],
-      [
-        3000.0,
-        1980.32
       ]
     ],
     [
@@ -45185,108 +43041,6 @@
     ],
     [
       [
-        3026.37,
-        1977.69
-      ],
-      [
-        3029.58,
-        1969.58
-      ],
-      [
-        3029.68,
-        1969.41
-      ],
-      [
-        3029.85,
-        1969.25
-      ],
-      [
-        3030.03,
-        1969.16
-      ],
-      [
-        3030.26,
-        1969.11
-      ],
-      [
-        3030.38,
-        1969.11
-      ],
-      [
-        3030.57,
-        1969.15
-      ],
-      [
-        3041.91,
-        1973.63
-      ],
-      [
-        3040.88,
-        1976.24
-      ],
-      [
-        3041.58,
-        1976.17
-      ],
-      [
-        3050.0,
-        1955.04
-      ],
-      [
-        3050.0,
-        1910.02
-      ],
-      [
-        3047.23,
-        1882.33
-      ],
-      [
-        3040.14,
-        1879.56
-      ],
-      [
-        3037.96,
-        1884.8
-      ],
-      [
-        3037.86,
-        1884.95
-      ],
-      [
-        3037.75,
-        1885.06
-      ],
-      [
-        3037.62,
-        1885.15
-      ],
-      [
-        3037.47,
-        1885.21
-      ],
-      [
-        3037.32,
-        1885.24
-      ],
-      [
-        3037.16,
-        1885.24
-      ],
-      [
-        3036.98,
-        1885.2
-      ],
-      [
-        3025.0,
-        1880.64
-      ],
-      [
-        3025.0,
-        1977.83
-      ]
-    ],
-    [
-      [
         3029.96,
         1466.38
       ],
@@ -45321,56 +43075,6 @@
     ],
     [
       [
-        3030.76,
-        1970.95
-      ],
-      [
-        3028.17,
-        1977.51
-      ],
-      [
-        3039.09,
-        1976.42
-      ],
-      [
-        3039.83,
-        1974.53
-      ]
-    ],
-    [
-      [
-        3044.49,
-        1975.88
-      ],
-      [
-        3050.0,
-        1975.33
-      ],
-      [
-        3050.0,
-        1962.03
-      ]
-    ],
-    [
-      [
-        3036.8,
-        1883.42
-      ],
-      [
-        3038.37,
-        1879.65
-      ],
-      [
-        3025.0,
-        1874.58
-      ],
-      [
-        3025.0,
-        1878.93
-      ]
-    ],
-    [
-      [
         3038.53,
         1420.2
       ],
@@ -45393,6 +43097,108 @@
       [
         3050.0,
         1423.91
+      ]
+    ],
+    [
+      [
+        3030.76,
+        1970.95
+      ],
+      [
+        3028.17,
+        1977.51
+      ],
+      [
+        3039.09,
+        1976.42
+      ],
+      [
+        3039.83,
+        1974.53
+      ]
+    ],
+    [
+      [
+        3050.0,
+        1975.33
+      ],
+      [
+        3050.0,
+        1962.03
+      ],
+      [
+        3044.49,
+        1975.88
+      ]
+    ],
+    [
+      [
+        3041.91,
+        1973.63
+      ],
+      [
+        3040.88,
+        1976.24
+      ],
+      [
+        3041.58,
+        1976.17
+      ],
+      [
+        3050.0,
+        1955.04
+      ],
+      [
+        3050.0,
+        1952.53
+      ],
+      [
+        3041.64,
+        1973.52
+      ]
+    ],
+    [
+      [
+        3039.73,
+        1880.9
+      ],
+      [
+        3039.67,
+        1880.79
+      ],
+      [
+        3039.66,
+        1880.73
+      ],
+      [
+        3039.15,
+        1881.95
+      ],
+      [
+        3039.69,
+        1882.09
+      ],
+      [
+        3040.07,
+        1881.16
+      ]
+    ],
+    [
+      [
+        3036.8,
+        1883.42
+      ],
+      [
+        3038.37,
+        1879.65
+      ],
+      [
+        3025.0,
+        1874.58
+      ],
+      [
+        3025.0,
+        1878.93
       ]
     ],
     [
@@ -45463,20 +43269,6 @@
       [
         3025.0,
         1420.17
-      ]
-    ],
-    [
-      [
-        3053.6,
-        1946.01
-      ],
-      [
-        3050.0,
-        1910.02
-      ],
-      [
-        3050.0,
-        1955.04
       ]
     ],
     [
@@ -45575,24 +43367,6 @@
       [
         3050.0,
         1472.95
-      ]
-    ],
-    [
-      [
-        3050.0,
-        1962.03
-      ],
-      [
-        3050.0,
-        1975.33
-      ],
-      [
-        3056.47,
-        1974.68
-      ],
-      [
-        3054.16,
-        1951.58
       ]
     ],
     [
@@ -45733,6 +43507,42 @@
       [
         3057.05,
         1425.36
+      ]
+    ],
+    [
+      [
+        3056.47,
+        1974.68
+      ],
+      [
+        3054.16,
+        1951.58
+      ],
+      [
+        3050.0,
+        1962.03
+      ],
+      [
+        3050.0,
+        1975.33
+      ]
+    ],
+    [
+      [
+        3053.6,
+        1946.01
+      ],
+      [
+        3053.4,
+        1943.99
+      ],
+      [
+        3050.0,
+        1952.53
+      ],
+      [
+        3050.0,
+        1955.04
       ]
     ],
     [

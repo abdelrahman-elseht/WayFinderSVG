@@ -3,8 +3,8 @@
   "orderedPairs": 2862,
   "maximumExportedToFullGridCostRatio": 1.000014,
   "roundingTolerance": 0.05,
-  "independentCycles": 210,
-  "entranceRootedTreeNegativeControlRejectedPairs": 1061,
+  "independentCycles": 200,
+  "entranceRootedTreeNegativeControlRejectedPairs": 1062,
   "mechanicalLabToPrayerRoom": {
     "distance": 813.9312,
     "viaMainEntrance": 2903.8034,

@@ -20,6 +20,9 @@ def derive(rooms,walls,seals,*,context=None,config=None):
  regions=unary_union([LineString(p).buffer(cfg['corridorHalfWidth'],cap_style=2,join_style=2) for p in cfg['corridorSpines']])
  foyer=Polygon(cfg['sharedAVFoyer']['polygon'])
  blocked=[(Polygon(r['polygon']).buffer(.3).difference(foyer) if r['code']==cfg['sharedAVFoyer']['roomCode'] else Polygon(r['polygon']).buffer(.3)) for r in rooms if r['polygon']]
+ # Display-only outlines still identify physical solids. A displaced source
+ # label does not grant permission to route through the recovered enclosure.
+ blocked.extend(Polygon(r['displayFootprint']['polygon']).buffer(.3) for r in rooms if r.get('displayFootprint'))
  # AV suite is a source face with two labels: it is not common circulation.
  from explore import polys
  av=next(p for p in polys if p.contains(Point(next(r['centroid'] for r in rooms if r['code']=='G-47'))))

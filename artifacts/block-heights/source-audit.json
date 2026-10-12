@@ -1,0 +1,18 @@
+[
+  {
+    "floor": "GF",
+    "displayFootprints": 4,
+    "equipmentBlocks": 7,
+    "sourceBoundary": "passed",
+    "roomOverlap": "passed",
+    "routeOcclusion": "passed"
+  },
+  {
+    "floor": "01",
+    "displayFootprints": 6,
+    "equipmentBlocks": 7,
+    "sourceBoundary": "passed",
+    "roomOverlap": "passed",
+    "routeOcclusion": "passed"
+  }
+]

@@ -45,7 +45,7 @@ test('configured floor, prepared vector asset, private sources and clean applica
   await shot(page, 'default-en');
 });
 
-test('all mapped entries, code and Arabic search, keyboard and unresolved source marker', async ({ page }) => {
+test('all mapped entries, code and Arabic search, keyboard and candidate source footprint', async ({ page }) => {
   await ready(page); await browse(page);
   await page.getByRole('searchbox').fill('F-31');
   const library = page.getByRole('button', { name: 'LIBRARY F-31 · Other', exact: true });
@@ -63,7 +63,8 @@ test('all mapped entries, code and Arabic search, keyboard and unresolved source
   await page.getByRole('searchbox').fill('F-11');
   await page.getByTestId('room-directory').locator('[data-room-id="B03-01-F-11"]').click();
   await expect(page.getByTestId('room-details')).toContainText('Room outline not yet verified');
-  await expect(page.getByTestId('room-details').locator('.room-preview svg circle')).toHaveCount(1);
+  await expect(page.getByTestId('room-details').locator('.room-preview svg polygon')).toHaveCount(1);
+  await expect(page.getByTestId('room-details').locator('.room-preview svg circle')).toHaveCount(0);
   for (const code of ['F-10', 'F-18', 'F-28', 'F-29', 'F-45']) {
     await page.getByRole('searchbox').fill(code);
     await expect(page.getByTestId('room-directory').locator(`[data-room-id="B03-01-${code}"]`)).toHaveCount(0);

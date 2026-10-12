@@ -24,6 +24,12 @@ export interface Room {
   name: Localized;
   category: RoomCategory;
   polygon: Point[] | null;
+  /** Source-derived display only; preserves displaced labels and route evidence. */
+  displayFootprint?: {
+    polygon: Point[];
+    geometryStatus: 'candidate';
+    provenance: Provenance[];
+  };
   geometryRef: string | null;
   centroid: Point;
   doorNodeId: string | null;

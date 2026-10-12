@@ -415,23 +415,41 @@
     },
     "G-19": {
       "sourceId": "0002",
-      "arcPathId": "0002-path-08072",
-      "leafPathId": "0002-path-08070"
+      "arcPathId": "0002-path-08103",
+      "leafPathId": "0002-path-08105",
+      "kind": "approach",
+      "note": {
+        "en": "Route ends at the Cafeteria entrance. Service G-19 is reached through the Cafeteria; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى الخدمة G-19 عبر الكافتيريا؛ الوصول الداخلي غير مرسوم."
+      },
+      "finalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08072"
+      }
     },
     "G-20": {
       "sourceId": "0002",
-      "arcPathId": "0002-path-08062",
-      "leafPathId": "0002-path-08060"
+      "arcPathId": "0002-path-08103",
+      "leafPathId": "0002-path-08105",
+      "kind": "approach",
+      "note": {
+        "en": "Route ends at the Cafeteria entrance. Kitchen G-20 is reached through the Cafeteria and Service room; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المطبخ G-20 عبر الكافتيريا وغرفة الخدمة؛ الوصول الداخلي غير مرسوم."
+      },
+      "finalDoorSource": {
+        "sourceId": "0002",
+        "arcPathId": "0002-path-08062"
+      }
     },
     "G-21": {
       "sourceId": "0002",
-      "arcPathId": "0002-path-08062",
-      "leafPathId": "0002-path-08060",
-      "note": {
-        "en": "Route ends at the Kitchen entrance. Storage G-21 is reached through the Kitchen.",
-        "ar": "ينتهي المسار عند مدخل المطبخ. يُوصَل إلى المخزن G-21 عبر المطبخ."
-      },
+      "arcPathId": "0002-path-08103",
+      "leafPathId": "0002-path-08105",
       "kind": "approach",
+      "note": {
+        "en": "Route ends at the Cafeteria entrance. Storage G-21 is reached through the Cafeteria, Service room and Kitchen; internal access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل الكافتيريا. يُوصَل إلى المخزن G-21 عبر الكافتيريا وغرفة الخدمة والمطبخ؛ الوصول الداخلي غير مرسوم."
+      },
       "finalDoorSource": {
         "sourceId": "0002",
         "arcPathId": "0002-path-08052"

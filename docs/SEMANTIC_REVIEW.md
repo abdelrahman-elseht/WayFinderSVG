@@ -1,5 +1,13 @@
 # B03 ground floor semantic review
 
+## Complete raised blocks (2026-10-12)
+
+`display-config.json`, `display_contours.py`, `display_closures.py` and `features.py` now generate candidate display geometry separately from label-containing semantic polygons. This retains every original source anchor and route qualification. Floor 01 adds F-11/F-12/F-13 (complete compound door swings), F-35 (0.35-unit drafting gap tolerance), F-19 and F-23 (source labels displaced from the enclosed face). GF adds G-10, G-18, G-19 and G-32. GF cafeteria/service closure requires source A-HPL boundaries and the A-STAGE & STEP return `0002-path-11503`; the stair face is separated from its lift by source handrails. Investigation seeds/windows select closed faces and cannot create a boundary.
+
+Each floor adds five candidate lift-cabin envelopes and two source escalator rail envelopes. Rooms, stairs and equipment use the same illustrative height; open corridors/lobbies remain low and the skylight remains a void. No surveyed height, physical accessibility or inter-floor connection is asserted. The five Floor 01 schedule-only exceptions still lack source positions and remain unplaced.
+
+Recovered GF cafeteria/service solids exposed old graph paths through those rooms. They are now excluded from the navigable union; G-19/G-20/G-21 end at the source cafeteria entrance with bilingual suite qualifications and preserved final-door evidence. All 54 GF approaches remain connected in the regenerated 428-node / 627-edge graph. First Floor's 323-node / 452-edge graph is unchanged. `tests/qa/display_footprints.py` independently checks dense source-boundary support, room overlap and every graph edge against new room/equipment solids. Generated overlays mark display-only outlines with `D`.
+
 ## First Floor phase 2 bundle
 
 ### Southern corridor and rendering correction (2026-10-12)

@@ -1,0 +1,18 @@
+{
+  "01": {
+    "extraBoundaryPaths": [],
+    "groups": [
+      {"window": [2480, 740, 3300, 1350], "buffer": 0.2, "rooms": {"F-11": null, "F-12": null, "F-13": null}, "note": "Complete two-piece source door swings 0002-path-16239 and 0002-path-16126 partition the Bionics suite."},
+      {"window": [1100, 1300, 1650, 1660], "buffer": 0.35, "rooms": {"F-35": null}, "note": "The VR Lab enclosure closes at 0.35 drawing units; the previous 0.20 tolerance left a sub-unit drafting gap."},
+      {"window": [2450, 1200, 3000, 1510], "buffer": 0.2, "rooms": {"F-19": [2555, 1360], "F-23": [2780, 1430]}, "note": "Source name anchors fall outside the valve room or on a toilet partition. Seed points identify existing closed source faces; they do not define corners or move directory anchors."}
+    ]
+  },
+  "GF": {
+    "extraBoundaryPaths": ["0002-path-11503"],
+    "groups": [
+      {"window": [2610, 1450, 2800, 1660], "buffer": 0.2, "rooms": {"G-10": [2710, 1575]}, "note": "The valve-room source label lies outside its small closed enclosure below the two lifts."},
+      {"window": [2400, 1520, 3270, 2040], "buffer": 0.2, "rooms": {"G-18": null, "G-19": null}, "note": "Source path 0002-path-11503, on A-STAGE & STEP, supplies the drawn return beside the service doorway."},
+      {"window": [1050, 1580, 1400, 1930], "buffer": 0.35, "rooms": {"G-32": null}, "note": "Source handrails separate the stair enclosure from its adjacent elevator; the original semantic face remains rejected for navigation."}
+    ]
+  }
+}

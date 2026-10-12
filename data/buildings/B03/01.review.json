@@ -3,6 +3,50 @@
   "method": "Affine source-vector free-space polygonization; source swing/leaf closure evidence; corridor-bounded safe grid network",
   "bufferTolerance": 0.2,
   "simplificationTolerance": 0.18,
+  "displayFootprints": [
+    {
+      "code": "F-11",
+      "area": 125623.908,
+      "sourcePathCount": 39,
+      "sourceLabelInside": true,
+      "note": "Complete two-piece source door swings 0002-path-16239 and 0002-path-16126 partition the Bionics suite. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    },
+    {
+      "code": "F-12",
+      "area": 18585.618,
+      "sourcePathCount": 113,
+      "sourceLabelInside": true,
+      "note": "Complete two-piece source door swings 0002-path-16239 and 0002-path-16126 partition the Bionics suite. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    },
+    {
+      "code": "F-13",
+      "area": 19591.221,
+      "sourcePathCount": 108,
+      "sourceLabelInside": true,
+      "note": "Complete two-piece source door swings 0002-path-16239 and 0002-path-16126 partition the Bionics suite. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    },
+    {
+      "code": "F-35",
+      "area": 34736.861,
+      "sourcePathCount": 15,
+      "sourceLabelInside": true,
+      "note": "The VR Lab enclosure closes at 0.35 drawing units; the previous 0.20 tolerance left a sub-unit drafting gap. Source-vector face with 0.35-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    },
+    {
+      "code": "F-19",
+      "area": 1504.001,
+      "sourcePathCount": 10,
+      "sourceLabelInside": false,
+      "note": "Source name anchors fall outside the valve room or on a toilet partition. Seed points identify existing closed source faces; they do not define corners or move directory anchors. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    },
+    {
+      "code": "F-23",
+      "area": 12157.024,
+      "sourcePathCount": 233,
+      "sourceLabelInside": false,
+      "note": "Source name anchors fall outside the valve room or on a toilet partition. Seed points identify existing closed source faces; they do not define corners or move directory anchors. Source-vector face with 0.20-unit drafting tolerance and 0.18 simplification. Display only; no new route, access, height measurement or floor connection."
+    }
+  ],
   "scheduleCount": 59,
   "inventoryCount": 54,
   "directoryCount": 54,
