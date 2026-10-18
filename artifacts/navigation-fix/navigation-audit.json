@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "branch": "fix/b03-first-floor01",
+  "floor": "B03/01",
+  "status": "verified",
+  "before": {
+    "nodes": 307,
+    "edges": 420,
+    "components": 2,
+    "isolatedNodes": [
+      "B03-01-F-57-approach"
+    ],
+    "invalidEdges": "not recorded in baseline artifact",
+    "evidence": "artifacts/navigation-fix/before"
+  },
+  "after": {
+    "nodes": 138,
+    "edges": 137,
+    "components": 1,
+    "largestComponent": 138,
+    "isolatedNodes": [],
+    "nodeReasons": {
+      "dead-end": 41,
+      "door": 51,
+      "junction": 46
+    },
+    "unsupportedEndpoints": [
+      "F-17",
+      "F-49",
+      "F-57"
+    ],
+    "invalidEdges": [],
+    "navigationValidation": {
+      "nodes": 138,
+      "edges": 137,
+      "navAreas": 638,
+      "walls": 22226,
+      "roomApproaches": 51,
+      "scheduleEntries": 59,
+      "orderedSchedulePairs": 3481,
+      "wallContacts": [],
+      "areaFailures": [],
+      "roomInteriorCrossings": []
+    }
+  },
+  "regressions": {
+    "F30_to_F20": "ok",
+    "F32_to_F20": "ok",
+    "F01_to_F20": "ok",
+    "unsupported": [
+      "F-17",
+      "F-49",
+      "F-57"
+    ],
+    "routeMatrix": "artifacts/qa/floor-01/route-matrix.json"
+  },
+  "verification": {
+    "data": [
+      "npm.cmd run validate:data",
+      "npm.cmd run test:data"
+    ],
+    "typecheck": "npm.cmd run typecheck",
+    "unitIntegration": [
+      "floor-01.qa.test.ts: 4 passed (3,481 ordered pairs)",
+      "floor-01-safety.qa.test.ts: 15 passed",
+      "full Vitest suite: 14 files, 150 passed"
+    ],
+    "playwright": "tests/e2e/floor-01.qa.spec.ts: 10 passed",
+    "chromeDevTools": {
+      "url": "http://localhost:5100",
+      "route": "F30 to F20 observed as Route on floor plan",
+      "consoleErrors": 0,
+      "networkFailures": 0,
+      "screenshot": "artifacts/navigation-fix/after/devtools-f30-to-f20-final.png",
+      "knownIssue": "Chrome reported one form-field id/name issue; no runtime exception.",
+      "routes": {
+        "F30_to_F20": "observed Route on floor plan",
+        "F32_to_F20": "observed Route on floor plan",
+        "F01_to_F20": "observed Route on floor plan"
+      }
+    }
+  },
+  "screenshots": {
+    "before": [
+      "artifacts/navigation-fix/before/2.5d-default.png",
+      "artifacts/navigation-fix/before/f30-connected.png",
+      "artifacts/navigation-fix/before/route-f32-to-f20.png"
+    ],
+    "after": [
+      "artifacts/qa/floor-01/route-f30-to-f20.png",
+      "artifacts/qa/floor-01/route-f32-to-f20.png",
+      "artifacts/qa/floor-01/route-f01-to-f20.png",
+      "artifacts/navigation-fix/after/devtools-f30-to-f20.png",
+      "artifacts/navigation-fix/after/devtools-f30-to-f20-final.png",
+      "artifacts/navigation-fix/after/devtools-f32-to-f20.png",
+      "artifacts/navigation-fix/after/devtools-f01-to-f20.png"
+    ]
+  },
+  "rootCauses": [
+    "Raw pairwise/grid retention produced dense redundant node and edge topology.",
+    "Door landings were omitted or left disconnected when reviewed spines stopped short of source thresholds.",
+    "Exported navigable polygons could lose rounded edge boundary slivers; generation now verifies and source-safely snaps only sub-0.05-unit numerical residue."
+  ],
+  "limitations": [
+    "F-17 and F-57 retain unresolved source identity/conflicting enclosure evidence; F-49 has no source-safe interior walking surface.",
+    "Accessibility and physical doorway access remain unknown; accessible-only routes fail closed.",
+    "Vertical cross-floor routing and kiosk location remain out of scope."
+  ]
+}

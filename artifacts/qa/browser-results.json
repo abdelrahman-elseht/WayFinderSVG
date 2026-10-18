@@ -2,11 +2,12 @@
   "config": {
     "argv": [
       "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
-      "F:\\projects\\WFSVG\\node_modules\\@playwright\\test\\cli.js",
-      "test"
+      "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/floor-01.qa.spec.ts"
     ],
-    "configFile": "F:\\projects\\WFSVG\\playwright.config.ts",
-    "rootDir": "F:/projects/WFSVG/tests/e2e",
+    "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
+    "rootDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -22,7 +23,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "F:/projects/WFSVG/artifacts/qa/browser-tests",
+        "outputDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/artifacts/qa/browser-tests",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -30,7 +31,7 @@
         },
         "id": "",
         "name": "",
-        "testDir": "F:/projects/WFSVG/tests/e2e",
+        "testDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -65,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "wayfinding.qa.spec.ts",
-      "file": "wayfinding.qa.spec.ts",
+      "title": "floor-01.qa.spec.ts",
+      "file": "floor-01.qa.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "English actual entrance and cross-wing routes, keyboard, planning reset and map controls",
+          "title": "configured floor, prepared vector asset, private sources and clean application requests",
           "ok": true,
           "tags": [],
           "tests": [
@@ -86,12 +87,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8418,
+                  "duration": 6466,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:15:55.181Z",
+                  "startTime": "2026-10-11T20:07:38.588Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -99,13 +100,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-a0f1f655352bf9b0633c",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 11,
+          "id": "668b98be570a80d3b07f-f9c2c0d3bbec1eff97bd",
+          "file": "floor-01.qa.spec.ts",
+          "line": 26,
           "column": 5
         },
         {
-          "title": "Arabic actual route, popup and language switch preserve selected endpoints",
+          "title": "all mapped entries, code and Arabic search, keyboard and unresolved source marker",
           "ok": true,
           "tags": [],
           "tests": [
@@ -120,12 +121,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6443,
+                  "duration": 10117,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:04.072Z",
+                  "startTime": "2026-10-11T20:07:45.195Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -133,13 +134,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-dff7514fe5e9f2cc14b2",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 51,
+          "id": "668b98be570a80d3b07f-95f9178156f977dce014",
+          "file": "floor-01.qa.spec.ts",
+          "line": 48,
           "column": 5
         },
         {
-          "title": "browser speech autoplays details and replay/stop/mute honor current language",
+          "title": "cross-seam route and reverse preserve qualifications, RTL and no metric claims",
           "ok": true,
           "tags": [],
           "tests": [
@@ -154,12 +155,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5602,
+                  "duration": 10323,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:10.529Z",
+                  "startTime": "2026-10-11T20:07:55.325Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -167,13 +168,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-a2c5fd59a0dfc4a7558e",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 71,
+          "id": "668b98be570a80d3b07f-828a100ccc5e95799c15",
+          "file": "floor-01.qa.spec.ts",
+          "line": 73,
           "column": 5
         },
         {
-          "title": "WCAG AA contrast and semantics on English/Arabic default and popup states",
+          "title": "repaired First Floor endpoints route through the shared corridor graph",
           "ok": true,
           "tags": [],
           "tests": [
@@ -188,52 +189,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 13725,
+                  "duration": 10791,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:16.144Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "axe-results",
-                      "contentType": "application/json",
-                      "body": "WwogIHsKICAgICJzdGF0ZSI6ICJlbi1kZWZhdWx0IiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJlbi1wb3B1cCIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAic3RhdGUiOiAiZW4tcm91dGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgInN0YXRlIjogImFyLXBvcHVwIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJzdGF0ZSI6ICJhci1tb2JpbGUiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0KXQ=="
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "7662d3f3d01fd7d06a0d-e9347334efbdf67c87dc",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 93,
-          "column": 5
-        },
-        {
-          "title": "mobile and 200 percent text retain usable controls without horizontal overflow",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10548,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-09-20T17:16:29.884Z",
+                  "startTime": "2026-10-11T20:08:05.662Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -241,13 +202,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-0e2bb2a88d493f7315ed",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 109,
+          "id": "668b98be570a80d3b07f-eb4592eb69932b89687b",
+          "file": "floor-01.qa.spec.ts",
+          "line": 90,
           "column": 5
         },
         {
-          "title": "reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile",
+          "title": "missing start, unsupported destinations and unknown accessibility fail closed; reset restores no origin",
           "ok": true,
           "tags": [],
           "tests": [
@@ -262,12 +223,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 14943,
+                  "duration": 9786,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:40.446Z",
+                  "startTime": "2026-10-11T20:08:16.469Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -275,13 +236,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-7399270c3e803fb3b0b6",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 136,
+          "id": "668b98be570a80d3b07f-9e0792d376a559f2a97a",
+          "file": "floor-01.qa.spec.ts",
+          "line": 103,
           "column": 5
         },
         {
-          "title": "WebGL-unavailable fallback preserves source plan and usable keyboard directory",
+          "title": "shared suite approach has explicit bilingual changing-room qualification",
           "ok": true,
           "tags": [],
           "tests": [
@@ -296,12 +257,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2321,
+                  "duration": 9570,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:55.403Z",
+                  "startTime": "2026-10-11T20:08:26.268Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -309,13 +270,13 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-99db34315cc28c75a52d",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 160,
+          "id": "668b98be570a80d3b07f-157bf7cd9b4e0e8ebb95",
+          "file": "floor-01.qa.spec.ts",
+          "line": 126,
           "column": 5
         },
         {
-          "title": "forced colors and reduced motion preserve accessible directory and selection controls",
+          "title": "route playback pause, stop and reset; reduced motion completes immediately",
           "ok": true,
           "tags": [],
           "tests": [
@@ -330,12 +291,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5431,
+                  "duration": 10955,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:16:57.737Z",
+                  "startTime": "2026-10-11T20:08:35.852Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -343,13 +304,47 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-e777c5540957c895d261",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 170,
+          "id": "668b98be570a80d3b07f-2c5a116434e6158c0e7c",
+          "file": "floor-01.qa.spec.ts",
+          "line": 138,
           "column": 5
         },
         {
-          "title": "three exterior destinations and reversed starts clearly retain partial source coverage",
+          "title": "five English/Arabic directory, selection and route states pass axe WCAG AA",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17829,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T20:08:46.839Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "668b98be570a80d3b07f-cc3326fd8262d6bffa85",
+          "file": "floor-01.qa.spec.ts",
+          "line": 156,
+          "column": 5
+        },
+        {
+          "title": "Arabic mobile, forced colors and 200% text retain usable controls without overflow",
           "ok": true,
           "tags": [],
           "tests": [
@@ -364,12 +359,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6556,
+                  "duration": 10036,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-20T17:17:03.181Z",
+                  "startTime": "2026-10-11T20:09:04.683Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -377,9 +372,43 @@
               "status": "expected"
             }
           ],
-          "id": "7662d3f3d01fd7d06a0d-9d88422398be22d5c18b",
-          "file": "wayfinding.qa.spec.ts",
-          "line": 187,
+          "id": "668b98be570a80d3b07f-340d7d4c2f4d60035dbb",
+          "file": "floor-01.qa.spec.ts",
+          "line": 177,
+          "column": 5
+        },
+        {
+          "title": "WebGL-disabled fallback retains all source-label destinations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-11T20:09:14.734Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "668b98be570a80d3b07f-ea960dc0d7a50017c9a4",
+          "file": "floor-01.qa.spec.ts",
+          "line": 194,
           "column": 5
         }
       ]
@@ -387,9 +416,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-20T17:15:54.526Z",
-    "duration": 75600.646,
-    "expected": 9,
+    "startTime": "2026-10-11T20:07:38.011Z",
+    "duration": 105895.075,
+    "expected": 10,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
