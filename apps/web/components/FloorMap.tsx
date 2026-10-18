@@ -127,7 +127,7 @@ function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { rout
   </group>;
 }
 function Scene(props: Props) {
-  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
+  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, followCamera = false, zoom, reset } = props;
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
   const forcedColors = useForcedColors();
@@ -147,9 +147,9 @@ function Scene(props: Props) {
     const horizontal = projected.map(point => point.dot(right)); const vertical = projected.map(point => point.dot(up));
     return { x, z, width: Math.max(...horizontal.map(Math.abs)) * 2 + 4, height: Math.max(...vertical.map(Math.abs)) * 2 + 4 };
   }, [route, center]);
-  // During playback, pause, stop, and reset the overlay is the clipped render-time
-  // segment. Only completion (including reduced-motion completion) uses the full route.
-  const renderRoute = playbackPhase === 'complete' ? route : visibleRoute;
+  // The parent reveals one cached, validated visual route, including at completion.
+  // Raw route remains available for framing and exact endpoint markers only.
+  const renderRoute = visibleRoute;
   useEffect(() => {
     const orthographic = camera as THREE.OrthographicCamera;
     orthographic.zoom = Math.min(size.width / (routeFrame?.width ?? width * 1.13), size.height / (routeFrame?.height ?? depth * 1.26)) * zoom;

@@ -7,7 +7,8 @@ import { searchRooms } from '@wayfinding/search';
 import { getDirection, t } from '@wayfinding/i18n';
 import { createBrowserTTS, type TTSService } from '@wayfinding/audio';
 import { findRoute } from '@wayfinding/routing';
-import { clipRouteAtProgress, playbackDuration, type PlaybackPhase } from './routePlayback';
+import { createRouteSmoother } from '../../../packages/routing/src/visual-route';
+import { clipVisualRouteAtProgress, playbackDuration, type PlaybackPhase } from './routePlayback';
 import { categorySwatchColors } from './palette';
 import { roomFootprint } from './mapBlocks';
 const FloorMap = dynamic(() => import('./FloorMap'), { ssr: false });
@@ -52,10 +53,15 @@ export function WayfindingApp({ floorData, graph, contents, audioService, config
   const destinationNode = destinationRoom?.doorNodeId ?? null;
   const partialRoute = Boolean(startRoom?.navigationPartial || destinationRoom?.navigationPartial);
   const route = useMemo(() => destinationId ? findRoute(graph, startNode, destinationNode, { accessibleOnly }) : null, [graph, startNode, destinationNode, accessibleOnly, destinationId]);
+  const smoothRoute = useMemo(() => createRouteSmoother(graph), [graph]);
+  const visualRoute = useMemo(() => smoothRoute(route?.status === 'ok' ? route.points : []), [smoothRoute, route]);
   const routeInstructions = route?.status === 'ok' ? route.instructions : [];
   const routeKey = route?.status === 'ok' ? route.points.map(point => `${point[0]},${point[1]}`).join(';') : '';
   const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const visibleRoute = route?.status === 'ok' ? (reducedMotion || (playbackPhase === 'complete' && playbackRouteKey === routeKey) ? route.points : clipRouteAtProgress(route.points, playbackProgress)) : [];
+  const visibleRoute = useMemo(() => clipVisualRouteAtProgress(visualRoute,
+    reducedMotion || (playbackPhase === 'complete' && playbackRouteKey === routeKey) ? 1
+      : playbackRouteKey === routeKey ? playbackProgress : 0),
+  [visualRoute, reducedMotion, playbackPhase, playbackRouteKey, routeKey, playbackProgress]);
   const currentInstruction = routeInstructions[journeyStep] ?? routeInstructions[routeInstructions.length - 1] ?? null;
 
   useEffect(() => { const service = audioService ?? createBrowserTTS(); audio.current = service; setAudioSupported(service.isSupported()); return () => service.stop(); }, [audioService]);

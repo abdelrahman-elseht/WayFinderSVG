@@ -6,6 +6,40 @@ Branch `fix/Bo3-first-floor-Gf-blocks` adds ten recovered candidate room display
 
 Validation: both floor pipelines and deterministic regeneration passed; `validate:data`, `test:data` (21 rejection checks), TypeScript and the 155-test Vitest suite passed. After GF graph correction, the relevant live-data/route-safety suites passed (11 tests), as did block/route unit checks. First Floor browser suite: 12 passed. GF functional browser suite: 12 expected outcomes, including the existing expected unavailable-room failure; no unexpected failures. Existing GF screenshot baselines were excluded because the raised geometry intentionally changes them; replacement screenshots were visually inspected. English/Arabic, axe, mobile, 200% text, forced colors, reduced motion and fallback checks passed. First Floor production build passed. The inherited favicon 404 remains.
 
+## Adaptive visual route corners (2026-10-18)
+
+The visual smoother now rounds ordinary branching corridor nodes while keeping
+door/approach, accessibility, restriction and floor transitions exact. Both
+rendered strokes already consumed the cached visual polyline; the root cause was
+over-protection of graph junctions, with small trim caps and retained short
+segments as secondary limits. No routing, instructions, graph JSON, distance,
+selection, accessibility policy or playback timing changes were made.
+
+Matched route diagnostics show rounded-corner counts increasing from 0 to 8 on
+GF G-01 to G-50, 0 to 4 on GF G-01 to G-05, 0 to 14 on 01 F-01 to F-50, and
+1 to 6 on 01 F-01 to F-34. The entrance corridor accepts 48 drawing units;
+the constrained First Floor turn at [2376,1209] rejects larger candidates and
+accepts 35.90625. All accepted chords and connectors pass the existing complete
+navigable-union/no-wall-contact validator. Protected/tight corners remain
+constrained; stroke width is not a physical clearance guarantee.
+
+Validation: `validate:data`, all 21 `test:data` rejection checks, typecheck,
+and production builds configured for both GF and 01 pass. All 177 Vitest tests
+have passing results. The initial two-worker run had one timeout in the unchanged
+GF all-pairs test under concurrent browser/build load (2,916 routes still had zero
+failures); its isolated rerun passed all five file tests in 71 seconds. The
+First Floor 3,481-pair matrix passed in the full run.
+The relevant browser checks passed: 11 GF functional checks, two GF matched-view
+route captures, and 14 First Floor production checks (12 existing plus two route
+captures). These include playback, reduced motion, RTL, accessibility exclusion,
+keyboard, mobile, forced colors, axe states and WebGL fallback.
+
+Diagnostics, fixed-view before/after captures, current browser reports and the
+isolated GF matrix are in `artifacts/corner-rounding/`. The route-free legacy GF
+golden image still differs by exactly 22,356 pixels, matching the already-recorded
+baseline failure below; no goldens were rewritten. Operational availability
+gating remains the existing expected failure.
+
 ## First Floor southern-route correction (2026-10-12)
 
 The F-20 to F-34 regression first failed at 3,175.7521 drawing units and now passes at 1,184.432 (62.7% shorter). F-21 to F-34 is 1,318.7796. The corrected southern corridor and distance-preserving graph reduction produce 323 nodes, 452 edges, 130 cycles and one connected component for all 51 supported approaches. All 1,275 endpoint pairs pass the existing 0.05-unit grid-reference tolerance; the rooted-tree negative control rejects 975 detours. The production router classifies all 3,481 schedule pairs without unexpected failures.
