@@ -9,3 +9,4 @@
 @media(max-width:600px){.sign-language-backdrop{padding:12px}.sign-language-dialog{max-height:calc(100dvh - 24px);border-radius:12px}.sign-language-dialog-header{padding:16px 16px 13px}.sign-language-dialog-header h2{font-size:19px}.sign-language-player-wrap{margin:0 16px}.sign-language-dialog-footer{padding:13px 16px 18px;flex-direction:column;gap:11px}.sign-language-transcript{width:100%}}
 @media(max-width:800px){.detail-card{position:fixed;top:75px;bottom:0;inset-inline-end:15px;max-height:none;z-index:45}}
 @media(min-width:801px){.detail-card{bottom:0;max-height:none}}
+.floor-select{position:relative}.floor-select select:focus-visible{outline:none}.floor-select:focus-within{outline:3px solid #087965;outline-offset:3px}
