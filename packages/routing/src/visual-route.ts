@@ -157,6 +157,109 @@ export function createRouteSmoother(input: NavigationGraph) {
         i = Math.max(1, i - 1);
       } else i++;
     }
+
+    // Fit connected cubic pieces over runs of corridor turns. Each piece has
+    // explicit endpoint tangents, so the turn entry, inter-turn connector and
+    // turn exit share the same direction (C1 continuity). This is a visual
+    // candidate only; every rendered chord is still checked by `safe`.
+    const cubic = (p0: Point, p1: Point, p2: Point, p3: Point, count: number): Point[] => {
+      const points: Point[] = [];
+      for (let index = 0; index <= count; index++) {
+        const t = index / count, u = 1 - t;
+        points.push([
+          u ** 3 * p0[0] + 3 * u ** 2 * t * p1[0] + 3 * u * t ** 2 * p2[0] + t ** 3 * p3[0],
+          u ** 3 * p0[1] + 3 * u ** 2 * t * p1[1] + 3 * u * t ** 2 * p2[1] + t ** 3 * p3[1],
+        ]);
+      }
+      return points;
+    };
+    const unit = (a: Point, b: Point): Point => {
+      const length = distance(a, b);
+      return length ? [(b[0] - a[0]) / length, (b[1] - a[1]) / length] : [0, 0];
+    };
+    const grouped: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
+    const appendGrouped = (point: Point, station: number) => {
+      const previous = grouped.points.at(-1);
+      if (previous && equal(previous, point)) return;
+      grouped.points.push(copy(point));
+      const previousStation = grouped.sourceDistances.at(-1);
+      grouped.sourceDistances.push(previousStation === undefined ? station : Math.max(station, previousStation + 1e-9));
+    };
+    let groupedApplied = false;
+    for (let start = 1; start < vertices.length - 1;) {
+      const first = vertices[start];
+      const firstAngle = turn(vertices[start - 1].point, first.point, vertices[start + 1].point);
+      if (first.locked || firstAngle < config.minTurnDegrees || firstAngle > config.maxTurnDegrees) { start++; continue; }
+      let end = start;
+      while (end + 1 < vertices.length - 1) {
+        const vertex = vertices[end + 1];
+        const angle = turn(vertices[end].point, vertex.point, vertices[end + 2].point);
+        if (vertex.locked || angle < config.minTurnDegrees || angle > config.maxTurnDegrees) break;
+        end++;
+      }
+      if (end === start) { start++; continue; }
+      const entries: Point[] = [], exits: Point[] = [];
+      for (let index = start; index <= end; index++) {
+        const before = distance(vertices[index - 1].point, vertices[index].point);
+        const after = distance(vertices[index].point, vertices[index + 1].point);
+        const radius = Math.min(config.radius, before * config.segmentFraction, after * config.segmentFraction);
+        if (radius < config.minRadius) { entries.length = 0; break; }
+        entries.push(lerp(vertices[index].point, vertices[index - 1].point, radius / before));
+        exits.push(lerp(vertices[index].point, vertices[index + 1].point, radius / after));
+      }
+      if (!entries.length) { start = end + 1; continue; }
+      const candidate: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
+      const append = (point: Point, station: number) => {
+        const previous = candidate.points.at(-1);
+        if (previous && equal(previous, point)) return;
+        const previousStation = candidate.sourceDistances.at(-1);
+        candidate.points.push(copy(point));
+        candidate.sourceDistances.push(previousStation === undefined ? station : Math.max(station, previousStation + 1e-9));
+      };
+      append(vertices[start - 1].point, vertices[start - 1].station);
+      for (let index = 0; index < entries.length; index++) {
+        const vertex = vertices[start + index];
+        const before = vertices[start + index - 1].point;
+        const after = vertices[start + index + 1].point;
+        const entry = entries[index], exit = exits[index];
+        const incoming = unit(before, entry), outgoing = unit(exit, after);
+        const turnChord = distance(entry, exit);
+        const handle = Math.min(turnChord / 3, config.radius * 0.8);
+        const curve = cubic(entry, [entry[0] + incoming[0] * handle, entry[1] + incoming[1] * handle],
+          [exit[0] - outgoing[0] * handle, exit[1] - outgoing[1] * handle], exit,
+          Math.max(8, Math.ceil(turnChord / config.maxSegmentLength)));
+        const entryStation = vertex.station - (vertex.station - vertices[start + index - 1].station)
+          * distance(vertex.point, entry) / distance(vertex.point, before);
+        const exitStation = vertex.station + (vertices[start + index + 1].station - vertex.station)
+          * distance(vertex.point, exit) / distance(vertex.point, after);
+        curve.forEach((point, sample) => append(point, entryStation + (exitStation - entryStation) * sample / (curve.length - 1)));
+        if (index + 1 < entries.length) {
+          const nextEntry = entries[index + 1], connectorLength = distance(exit, nextEntry);
+          const connectorIn = unit(exit, nextEntry), connectorOut = unit(vertex.point, nextEntry);
+          const connector = cubic(exit, [exit[0] + connectorIn[0] * connectorLength / 3, exit[1] + connectorIn[1] * connectorLength / 3],
+            [nextEntry[0] - connectorOut[0] * connectorLength / 3, nextEntry[1] - connectorOut[1] * connectorLength / 3], nextEntry,
+            Math.max(4, Math.ceil(connectorLength / config.maxSegmentLength)));
+          const fromStation = exitStation;
+          const nextVertex = vertices[start + index + 1];
+          const nextStation = nextVertex.station - (nextVertex.station - vertex.station)
+            * distance(nextVertex.point, nextEntry) / distance(nextVertex.point, vertex.point);
+          connector.slice(1).forEach((point, sample) => append(point, fromStation + (nextStation - fromStation) * sample / (connector.length - 1)));
+        }
+      }
+      append(vertices[end + 1].point, vertices[end + 1].station);
+      if (safe(candidate.points)) {
+        // Keep all route geometry outside the grouped run as exact source
+        // stations, then splice the validated visual candidate into it.
+        groupedApplied = true;
+        for (let index = 0; index < start - 1; index++) appendGrouped(vertices[index].point, vertices[index].station);
+        appendGrouped(candidate.points[0], candidate.sourceDistances[0]);
+        candidate.points.slice(1).forEach((point, index) => appendGrouped(point, candidate.sourceDistances[index + 1]));
+        for (let index = end + 2; index < vertices.length; index++) appendGrouped(vertices[index].point, vertices[index].station);
+      }
+      start = end + 1;
+      if (groupedApplied) break;
+    }
+    if (groupedApplied && safe(grouped.points)) return grouped;
     const result: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
     const append = (point: Point, station: number) => {
       result.points.push(copy(point));
