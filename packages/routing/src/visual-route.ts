@@ -247,6 +247,43 @@ export function createRouteSmoother(input: NavigationGraph) {
         }
       }
       append(vertices[end + 1].point, vertices[end + 1].station);
+      // Prefer one broad sweep for the whole bending region. The offset is
+      // intentionally modest and is retained only when the sampled curve is
+      // fully contained by the existing visual safety validator.
+      const sweepEntry = entries[0], sweepExit = exits.at(-1)!;
+      const sweepIncoming = unit(vertices[start - 1].point, sweepEntry);
+      const sweepOutgoing = unit(sweepExit, vertices[end + 1].point);
+      const sweepChord = distance(sweepEntry, sweepExit);
+      const signedBend = vertices.slice(start, end + 1).reduce((sum, vertex, index) => {
+        const before = vertices[start + index - 1].point, after = vertices[start + index + 1].point;
+        return sum + (after[0] - vertex.point[0]) * (vertex.point[1] - before[1])
+          - (after[1] - vertex.point[1]) * (vertex.point[0] - before[0]);
+      }, 0);
+      const normal: Point = signedBend >= 0 ? [-sweepIncoming[1], sweepIncoming[0]] : [sweepIncoming[1], -sweepIncoming[0]];
+      const sweepHandle = Math.min(sweepChord / 2, config.radius * 2.2);
+      const sweepOffset = 0;
+      const sweep = cubic(sweepEntry,
+        [sweepEntry[0] + sweepIncoming[0] * sweepHandle + normal[0] * sweepOffset, sweepEntry[1] + sweepIncoming[1] * sweepHandle + normal[1] * sweepOffset],
+        [sweepExit[0] - sweepOutgoing[0] * sweepHandle + normal[0] * sweepOffset, sweepExit[1] - sweepOutgoing[1] * sweepHandle + normal[1] * sweepOffset], sweepExit,
+        Math.max(80, Math.ceil(sweepChord / config.maxSegmentLength)));
+      const sweepCandidate: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
+      const appendSweep = (point: Point, station: number) => {
+        if (sweepCandidate.points.at(-1) && equal(sweepCandidate.points.at(-1)!, point)) return;
+        const previousStation = sweepCandidate.sourceDistances.at(-1);
+        sweepCandidate.points.push(copy(point));
+        sweepCandidate.sourceDistances.push(previousStation === undefined ? station : Math.max(station, previousStation + 1e-9));
+      };
+      appendSweep(vertices[start - 1].point, vertices[start - 1].station);
+      const sweepStartStation = vertices[start].station - (vertices[start].station - vertices[start - 1].station)
+        * distance(vertices[start].point, sweepEntry) / distance(vertices[start].point, vertices[start - 1].point);
+      const sweepEndStation = vertices[end].station + (vertices[end + 1].station - vertices[end].station)
+        * distance(vertices[end].point, sweepExit) / distance(vertices[end].point, vertices[end + 1].point);
+      sweep.forEach((point, index) => appendSweep(point, sweepStartStation + (sweepEndStation - sweepStartStation) * index / (sweep.length - 1)));
+      appendSweep(vertices[end + 1].point, vertices[end + 1].station);
+      if (safe(sweepCandidate.points)) {
+        candidate.points.splice(0, candidate.points.length, ...sweepCandidate.points);
+        candidate.sourceDistances.splice(0, candidate.sourceDistances.length, ...sweepCandidate.sourceDistances);
+      }
       if (safe(candidate.points)) {
         // Keep all route geometry outside the grouped run as exact source
         // stations, then splice the validated visual candidate into it.

@@ -111,15 +111,24 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${roomFootprint(room) ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{room.name[language]}</span><span className="map-label-code">{room.code}</span></button>
   </Html>)}</>;
 }
+const routeArrowShape = (() => { const shape = new THREE.Shape(); shape.moveTo(.16, 0); shape.lineTo(-.12, -.12); shape.lineTo(-.12, .12); shape.closePath(); return shape; })();
 function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
   const points = useMemo(() => route.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [route, center]);
   const endpointPoints = useMemo(() => fullRoute.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [fullRoute, center]);
   if (points.length < 2) return null;
   const routeColor = forcedColors ? highContrastMapPalette.route : mapPalette.route;
   const destinationColor = forcedColors ? highContrastMapPalette.routeDestination : mapPalette.routeDestination;
+  const tip = points.at(-1)!;
+  const previous = points.at(-2)!;
+  const tangent = new THREE.Vector2(tip[0] - previous[0], tip[2] - previous[2]);
+  const angle = Math.atan2(-tangent.y, tangent.x);
   return <group renderOrder={20}>
     <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} depthTest depthWrite={false} renderOrder={20} />
     <Line points={points} color={routeColor} lineWidth={5} depthTest depthWrite={false} renderOrder={21} />
+    <mesh position={[tip[0] - Math.cos(angle) * .06, .105, tip[2] + Math.sin(angle) * .06]} rotation={[-Math.PI / 2, 0, angle]} renderOrder={22}>
+      <shapeGeometry args={[routeArrowShape]} />
+      <meshBasicMaterial color={routeColor} depthTest depthWrite={false} />
+    </mesh>
     {[endpointPoints[0], endpointPoints[endpointPoints.length - 1]].map((point, index) => <group key={index} position={point}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color={forcedColors ? highContrastMapPalette.endpointUnderlay : mapPalette.endpointUnderlay} depthTest /></mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? destinationColor : routeColor} depthTest /></mesh>
