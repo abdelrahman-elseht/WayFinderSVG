@@ -13,9 +13,10 @@ const registry = createMapRegistry([
   { floorData: floor, graph, contents: content },
   { floorData: firstFloor, graph: firstGraph, contents: firstContent },
 ]);
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ floor?: string }> }) {
   const buildingId = process.env.WAYFINDING_BUILDING_ID ?? floor.building.id;
-  const floorId = process.env.WAYFINDING_FLOOR_ID ?? floor.floor.id;
+  const params = await searchParams;
+  const floorId = params.floor ?? process.env.WAYFINDING_FLOOR_ID ?? floor.floor.id;
   const bundle = registry.getFloor(buildingId, floorId);
   if (!bundle) throw new Error(`Unregistered kiosk floor: ${buildingId}/${floorId}`);
   const kioskId = process.env.WAYFINDING_KIOSK_ID || undefined;
@@ -23,5 +24,5 @@ export default function Page() {
     const kiosk = registry.getKiosk(kioskId);
     if (!kiosk || kiosk.buildingId !== buildingId || kiosk.floorId !== floorId) throw new Error(`Kiosk ${kioskId} is not registered on ${buildingId}/${floorId}`);
   }
-  return <WayfindingApp {...bundle} configuredKioskId={kioskId} />;
+  return <WayfindingApp {...bundle} floorOptions={registry.floors.filter(item => item.floorData.building.id === buildingId).map(item => item.floorData.floor)} configuredKioskId={kioskId} />;
 }
