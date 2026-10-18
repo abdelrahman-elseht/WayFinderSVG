@@ -4,7 +4,7 @@
       "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
       "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/e2e/floor-01.qa.spec.ts"
+      "tests/e2e/route-smoothing.qa.spec.ts"
     ],
     "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
     "rootDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
@@ -66,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "floor-01.qa.spec.ts",
-      "file": "floor-01.qa.spec.ts",
+      "title": "route-smoothing.qa.spec.ts",
+      "file": "route-smoothing.qa.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "configured floor, prepared vector asset, private sources and clean application requests",
+          "title": "fixed-view rounded route GF G-01 to G-50",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,12 +87,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6466,
+                  "duration": 22363,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-11T20:07:38.588Z",
+                  "startTime": "2026-10-18T16:45:41.597Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -100,13 +100,13 @@
               "status": "expected"
             }
           ],
-          "id": "668b98be570a80d3b07f-f9c2c0d3bbec1eff97bd",
-          "file": "floor-01.qa.spec.ts",
-          "line": 26,
-          "column": 5
+          "id": "3f64cc271c7b190ccd05-cee8e15a911f4d97652d",
+          "file": "route-smoothing.qa.spec.ts",
+          "line": 10,
+          "column": 7
         },
         {
-          "title": "all mapped entries, code and Arabic search, keyboard and unresolved source marker",
+          "title": "fixed-view rounded route GF G-01 to G-05",
           "ok": true,
           "tags": [],
           "tests": [
@@ -121,12 +121,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 10117,
+                  "duration": 8722,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-11T20:07:45.195Z",
+                  "startTime": "2026-10-18T16:46:04.381Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -134,291 +134,19 @@
               "status": "expected"
             }
           ],
-          "id": "668b98be570a80d3b07f-95f9178156f977dce014",
-          "file": "floor-01.qa.spec.ts",
-          "line": 48,
-          "column": 5
-        },
-        {
-          "title": "cross-seam route and reverse preserve qualifications, RTL and no metric claims",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10323,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:07:55.325Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-828a100ccc5e95799c15",
-          "file": "floor-01.qa.spec.ts",
-          "line": 73,
-          "column": 5
-        },
-        {
-          "title": "repaired First Floor endpoints route through the shared corridor graph",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10791,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:08:05.662Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-eb4592eb69932b89687b",
-          "file": "floor-01.qa.spec.ts",
-          "line": 90,
-          "column": 5
-        },
-        {
-          "title": "missing start, unsupported destinations and unknown accessibility fail closed; reset restores no origin",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 9786,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:08:16.469Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-9e0792d376a559f2a97a",
-          "file": "floor-01.qa.spec.ts",
-          "line": 103,
-          "column": 5
-        },
-        {
-          "title": "shared suite approach has explicit bilingual changing-room qualification",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 9570,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:08:26.268Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-157bf7cd9b4e0e8ebb95",
-          "file": "floor-01.qa.spec.ts",
-          "line": 126,
-          "column": 5
-        },
-        {
-          "title": "route playback pause, stop and reset; reduced motion completes immediately",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10955,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:08:35.852Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-2c5a116434e6158c0e7c",
-          "file": "floor-01.qa.spec.ts",
-          "line": 138,
-          "column": 5
-        },
-        {
-          "title": "five English/Arabic directory, selection and route states pass axe WCAG AA",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 17829,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:08:46.839Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-cc3326fd8262d6bffa85",
-          "file": "floor-01.qa.spec.ts",
-          "line": 156,
-          "column": 5
-        },
-        {
-          "title": "Arabic mobile, forced colors and 200% text retain usable controls without overflow",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10036,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:09:04.683Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-340d7d4c2f4d60035dbb",
-          "file": "floor-01.qa.spec.ts",
-          "line": 177,
-          "column": 5
-        },
-        {
-          "title": "WebGL-disabled fallback retains all source-label destinations",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3911,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-11T20:09:14.734Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "668b98be570a80d3b07f-ea960dc0d7a50017c9a4",
-          "file": "floor-01.qa.spec.ts",
-          "line": 194,
-          "column": 5
+          "id": "3f64cc271c7b190ccd05-c28edb402ec2be29e22f",
+          "file": "route-smoothing.qa.spec.ts",
+          "line": 10,
+          "column": 7
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-11T20:07:38.011Z",
-    "duration": 105895.075,
-    "expected": 10,
+    "startTime": "2026-10-18T16:45:40.885Z",
+    "duration": 33381.344,
+    "expected": 2,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

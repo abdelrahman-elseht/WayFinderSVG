@@ -1,12 +1,10 @@
 # Local agent guide
 
-This file is the repository-local contract. Keep it short. Start with [README.md](README.md), then open only the owning document for the task. For floor expansion or routing work, use [memory.md](memory.md) and then the targeted runbook [docs/FLOOR_ONBOARDING.md](docs/FLOOR_ONBOARDING.md). For parallel Floor 01/02 spec planning, use [the handoff](docs/handoffs/B03_FLOOR_01_02_SPEC_PLANS_HANDOFF.md).
+This file is the repository-local contract. Keep it short. Start with [README.md](README.md), then open only the owning document for the task. For floor expansion or routing work, use [memory.md](memory.md) when you need mapping to other files
 
-If `.codegraph/` contains a usable index, query it before text search; otherwise use `rg`. Complete the requested scope rather than silently replacing it with a prototype or first slice.
 
-## Work in the pipeline order
 
-Source PDFs and audit -> aligned vectors -> semantic rooms/content -> validated graph -> shared services -> web UI -> integration -> independent QA -> build/deployment docs. Generated files under `maps/`, `data/`, `content/`, and `apps/web/public/maps/` are outputs; change their source/configuration and regenerate them.
+
 
 ## Open documents by trigger
 
