@@ -12,9 +12,9 @@ vi.mock('next/dynamic', () => ({default:()=>()=> <div data-testid="isolated-map-
 afterEach(cleanup);
 const floor=floorJson as unknown as FloorData, graph=graphJson as unknown as NavigationGraph;
 const contents=contentJson as RoomContent[];
-function mount(data=floor, navigation=graph) {
+function mount(data=floor, navigation=graph, dataContents=contents) {
  const audio={speak:vi.fn(), stop:vi.fn(), setMuted:vi.fn(), isSupported:()=>true};
- render(<WayfindingApp floorData={data} graph={navigation} contents={contents} audioService={audio}/>);
+ render(<WayfindingApp floorData={data} graph={navigation} contents={dataContents} audioService={audio}/>);
  return audio;
 }
 describe('independent React UI state with real data and isolated map rendering',()=>{
@@ -81,6 +81,45 @@ describe('independent React UI state with real data and isolated map rendering',
   expect(screen.getByTestId('route-status').textContent).toContain('Your destination is on the right');
   fireEvent.click(screen.getByTestId('language-toggle'));
   expect(screen.getByTestId('route-status').textContent).toContain('وجهتك على اليمين');
+ });
+ it('shows sign language media only when configured and restores focus after closing',()=>{
+  const videoContents=structuredClone(contents);
+  const clinic=videoContents.find(item=>item.id==='B03-GF-G-28')!;
+  clinic.signLanguageVideo={url:'/media/clinic-sign-language.mp4',language:'ase',transcript:{en:'A signed explanation of the clinic.',ar:'شرح بلغة الإشارة عن العيادة.'}};
+  mount(floor,graph,videoContents);
+  fireEvent.click(screen.getByText('Browse'));
+  const roomButton=screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!;
+  fireEvent.click(roomButton);
+  expect(screen.getByTestId('sign-language-action').textContent).toContain('Sign language description');
+  const actionButton=screen.getByTestId('sign-language-action');
+  fireEvent.click(actionButton);
+  expect(screen.getByRole('dialog').textContent).toContain('Clinic');
+  expect(screen.getByRole('dialog').textContent).toContain('A signed explanation of the clinic.');
+  expect(document.activeElement).toBe(screen.getByRole('dialog').querySelector('button'));
+  fireEvent.keyDown(document, {key:'Escape'});
+  expect(screen.queryByRole('dialog')).toBeNull();
+  expect(document.activeElement).toBe(actionButton);
+ });
+ it('localizes and reports failed sign language playback without autoplay',()=>{
+  const videoContents=structuredClone(contents);
+  videoContents.find(item=>item.id==='B03-GF-G-28')!.signLanguageVideo={url:'/media/clinic-sign-language.mp4'};
+  mount(floor,graph,videoContents);
+  fireEvent.click(screen.getByText('Browse'));
+  fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
+  fireEvent.click(screen.getByTestId('sign-language-action'));
+  const video=screen.getByRole('dialog').querySelector('video')!;
+  expect(video.autoplay).toBe(false);
+  fireEvent.error(video);
+  expect(screen.getByRole('alert').textContent).toContain('This sign language video could not be loaded');
+  fireEvent.click(screen.getByTestId('language-toggle'));
+  expect(screen.getByTestId('sign-language-action').textContent).toContain('شرح بلغة الإشارة');
+  expect(screen.getByRole('dialog').textContent).toContain('تعذر تحميل فيديو بلغة الإشارة');
+ });
+ it('keeps the action hidden when a destination has no recording',()=>{
+  mount();
+  fireEvent.click(screen.getByText('Browse'));
+  fireEvent.click(screen.getByTestId('room-directory').querySelector('[data-room-id="B03-GF-G-28"]')!);
+  expect(screen.queryByTestId('sign-language-action')).toBeNull();
  });
 });
 

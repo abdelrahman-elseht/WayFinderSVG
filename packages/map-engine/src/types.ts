@@ -10,6 +10,20 @@ export interface RoomAvailability {
   /** Optional operator/configuration reference; it does not imply physical access. */
   configurationId?: string;
 }
+export interface SignLanguageCaption {
+  src: string;
+  language: string;
+  label: Localized;
+  default?: boolean;
+}
+export interface SignLanguageVideo {
+  /** A supplied recording URL; absent until a room-specific video is available. */
+  url: string;
+  language?: string;
+  poster?: string;
+  captions?: SignLanguageCaption[];
+  transcript?: Localized;
+}
 export interface Provenance {
   source: string;
   page: number;
@@ -51,6 +65,7 @@ export interface RoomContent {
   placeholder: boolean;
   image: string | null;
   imageAlt: Localized;
+  signLanguageVideo?: SignLanguageVideo;
 }
 export interface Building { id: string; name: Localized; floorIds: string[] }
 export interface Floor {

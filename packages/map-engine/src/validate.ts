@@ -39,6 +39,10 @@ function roomAvailability(value: unknown, path: string) {
   if (v.roomId !== undefined) fail(`${path}.roomId`, 'availability must be attached to its room record');
 }
 function nullableText(value: unknown, path: string) { if (value !== null) text(value, path); }
+function mediaUrl(value: unknown, path: string) {
+  const source = text(value, path);
+  if (!(source.startsWith('/') || /^https?:\/\//i.test(source)) || source.startsWith('//') || source.includes('..') || source.includes('\\')) fail(path, 'expected a safe local or http(s) media URL');
+}
 const statuses = ['confirmed', 'candidate', 'unknown'];
 function point(value: unknown, path: string): Point {
   const v = array(value, path); if (v.length !== 2) fail(path, 'expected [x, y]');
@@ -155,7 +159,27 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     evidence.forEach((v,j)=> {const e=object(v,`${p}.provenance[${j}]`); text(e.source,`${p}.provenance.source`); text(e.note,`${p}.provenance.note`); choice(e.status,statuses,`${p}.provenance.status`); if(!Number.isInteger(number(e.page,`${p}.provenance.page`)) || (e.page as number)<1) fail(p,'source page must be a positive integer');});
   });
   const usedContent=new Set(roomValues.map(v=>v.contentRef));
-  contents.forEach((c,i)=> {const p=`contents[${i}]`; localized(c.description,`${p}.description`); localized(c.imageAlt,`${p}.imageAlt`); bool(c.placeholder,`${p}.placeholder`); nullableText(c.image,`${p}.image`); if(!usedContent.has(c.id)) fail(p,'orphan content');});
+  contents.forEach((c,i)=> {
+    const p=`contents[${i}]`;
+    localized(c.description,`${p}.description`); localized(c.imageAlt,`${p}.imageAlt`); bool(c.placeholder,`${p}.placeholder`); nullableText(c.image,`${p}.image`);
+    if (c.signLanguageVideo !== undefined) {
+      const video = object(c.signLanguageVideo, `${p}.signLanguageVideo`);
+      mediaUrl(video.url, `${p}.signLanguageVideo.url`);
+      if (video.language !== undefined) text(video.language, `${p}.signLanguageVideo.language`);
+      if (video.poster !== undefined) mediaUrl(video.poster, `${p}.signLanguageVideo.poster`);
+      if (video.transcript !== undefined) localized(video.transcript, `${p}.signLanguageVideo.transcript`);
+      if (video.captions !== undefined) {
+        array(video.captions, `${p}.signLanguageVideo.captions`).forEach((caption, j) => {
+          const value = object(caption, `${p}.signLanguageVideo.captions[${j}]`);
+          mediaUrl(value.src, `${p}.signLanguageVideo.captions[${j}].src`);
+          text(value.language, `${p}.signLanguageVideo.captions[${j}].language`);
+          localized(value.label, `${p}.signLanguageVideo.captions[${j}].label`);
+          if (value.default !== undefined) bool(value.default, `${p}.signLanguageVideo.captions[${j}].default`);
+        });
+      }
+    }
+    if(!usedContent.has(c.id)) fail(p,'orphan content');
+  });
   const graph=object(graphInput,'graph'); scale(graph,'graph'); choice(graph.status,statuses,'graph.status');
   if(graph.routingPolicy!==undefined) choice(graph.routingPolicy,['verified-only','drawing-based'],'graph.routingPolicy');
   const drawing=graph.routingPolicy==='drawing-based';

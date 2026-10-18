@@ -11,6 +11,11 @@ function validate(mutator: (floor: Record<string, any>) => void) {
   mutator(floor);
   return () => validateFloorBundle(floor, structuredClone(canonicalGraph), structuredClone(canonicalContent));
 }
+function validateContent(mutator: (content: any[]) => void) {
+  const content = structuredClone(canonicalContent);
+  mutator(content);
+  return () => validateFloorBundle(structuredClone(canonicalFloor), structuredClone(canonicalGraph), content);
+}
 
 describe('room availability contract', () => {
   it('keeps omitted availability backward compatible for unconfigured rooms', () => {
@@ -27,5 +32,14 @@ describe('room availability contract', () => {
     ['contradictory destination state', (room: any) => { room.availability = { status: 'unavailable', reason: { en: '', ar: 'متاحة' } }; }],
   ])('rejects %s', (_name, mutator) => {
     expect(validate(floor => mutator(floor.rooms[0]))).toThrow(DataContractError);
+  });
+
+  it('accepts a room-specific sign language video and rejects unsafe media paths', () => {
+    expect(validateContent(content => {
+      content[0].signLanguageVideo = { url: '/media/room.mp4', poster: '/media/room.jpg' };
+    })).not.toThrow();
+    expect(validateContent(content => {
+      content[0].signLanguageVideo = { url: '../untrusted.mp4' };
+    })).toThrow(DataContractError);
   });
 });

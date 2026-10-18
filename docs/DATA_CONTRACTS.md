@@ -11,6 +11,8 @@ Coordinates are `[x,y]`, x right and y down, in normalized master SVG drawing un
 ## Semantic map (B)
 `data/buildings/B03/GF.json`: FloorData. `data/buildings/B03/GF.graph.json`: NavigationGraph. `content/B03/GF.json`: RoomContent[]. Geometry and content are separate. A nullable polygon or door means unknown, never a guessed rectangle. Candidate polygons must carry provenance. Codes/names must be associated through label position and enclosing evidence. Arabic translations of clear English source names may be supplied with documented translation provenance; missing names use localized 'Room [code]' rather than invented uses. Public flag is a directory presentation choice and cannot imply route access.
 
+Room content may include an optional `signLanguageVideo` object. Its `url` must be a supplied local or HTTP(S) media URL; optional `poster`, caption tracks (`src`, language and bilingual label), and a bilingual `transcript` are validated with the content bundle. The destination details action is rendered only when this object has a URL. Do not add placeholder or unrelated recordings to production room content.
+
 Kiosk defaults: `nodeId: null`, `status: unknown`. An empty or candidate graph is valid and results in an explanatory unavailable state. Confirmed graph nodes/edges require source evidence, navigable containment and valid door intersections. `distance` always declares unit. Graph `walls` and `navigableAreas` provide geometry validation inputs.
 
 ## Raised display geometry
