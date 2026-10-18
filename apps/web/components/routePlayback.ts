@@ -1,4 +1,28 @@
 import type { Point } from '@wayfinding/map-engine';
+import type { VisualRoute } from '../../../packages/routing/src/visual-route';
+
+/** Reveal cached geometry using original route distance, without rebuilding corners. */
+export function clipVisualRouteAtProgress(route: VisualRoute, progress: number): Point[] {
+  const normalized = clampProgress(progress);
+  if (!route.points.length) return [];
+  if (normalized === 1) return route.points;
+  const target = normalized * route.sourceLength;
+  const visible: Point[] = [route.points[0]];
+  for (let i = 1; i < route.points.length; i++) {
+    const from = route.sourceDistances[i - 1], to = route.sourceDistances[i];
+    if (to <= target) {
+      visible.push(route.points[i]);
+      continue;
+    }
+    if (target > from && to > from) {
+      const t = (target - from) / (to - from);
+      const a = route.points[i - 1], b = route.points[i];
+      visible.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
+    }
+    break;
+  }
+  return visible;
+}
 
 /** Lifecycle for the render-time route playback overlay. */
 export type PlaybackPhase = 'idle' | 'ready' | 'playing' | 'paused' | 'complete' | 'stopped';

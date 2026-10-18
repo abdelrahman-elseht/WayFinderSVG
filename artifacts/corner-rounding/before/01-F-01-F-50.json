@@ -1,0 +1,1360 @@
+{
+  "route": [
+    [
+      2427,
+      918
+    ],
+    [
+      2421,
+      897
+    ],
+    [
+      2418,
+      894
+    ],
+    [
+      2418,
+      834
+    ],
+    [
+      2382,
+      777
+    ],
+    [
+      2088,
+      750
+    ],
+    [
+      2046,
+      744
+    ],
+    [
+      2016,
+      741
+    ],
+    [
+      1965,
+      741
+    ],
+    [
+      1953,
+      741
+    ],
+    [
+      1920,
+      741
+    ],
+    [
+      1878,
+      741
+    ],
+    [
+      1737,
+      741
+    ],
+    [
+      1683,
+      741
+    ],
+    [
+      1680,
+      744
+    ],
+    [
+      1659,
+      747
+    ],
+    [
+      1599,
+      756
+    ],
+    [
+      1596,
+      756
+    ],
+    [
+      1551,
+      771
+    ],
+    [
+      1518,
+      774
+    ],
+    [
+      1494,
+      774
+    ],
+    [
+      1440,
+      780
+    ],
+    [
+      1404,
+      789
+    ],
+    [
+      1389,
+      789
+    ],
+    [
+      1386,
+      792
+    ],
+    [
+      1374,
+      792
+    ],
+    [
+      1230,
+      822
+    ],
+    [
+      1185,
+      831
+    ],
+    [
+      1161,
+      837
+    ],
+    [
+      1062,
+      825
+    ],
+    [
+      1062,
+      822
+    ],
+    [
+      1062.9939,
+      822.0382
+    ]
+  ],
+  "visual": {
+    "points": [
+      [
+        2427,
+        918
+      ],
+      [
+        2421,
+        897
+      ],
+      [
+        2418,
+        894
+      ],
+      [
+        2418,
+        834
+      ],
+      [
+        2382,
+        777
+      ],
+      [
+        2088,
+        750
+      ],
+      [
+        2046,
+        744
+      ],
+      [
+        2016,
+        741
+      ],
+      [
+        1965,
+        741
+      ],
+      [
+        1953,
+        741
+      ],
+      [
+        1920,
+        741
+      ],
+      [
+        1878,
+        741
+      ],
+      [
+        1737,
+        741
+      ],
+      [
+        1683,
+        741
+      ],
+      [
+        1680,
+        744
+      ],
+      [
+        1659,
+        747
+      ],
+      [
+        1599,
+        756
+      ],
+      [
+        1596,
+        756
+      ],
+      [
+        1551,
+        771
+      ],
+      [
+        1518,
+        774
+      ],
+      [
+        1494,
+        774
+      ],
+      [
+        1440,
+        780
+      ],
+      [
+        1404,
+        789
+      ],
+      [
+        1389,
+        789
+      ],
+      [
+        1386,
+        792
+      ],
+      [
+        1374,
+        792
+      ],
+      [
+        1230,
+        822
+      ],
+      [
+        1185,
+        831
+      ],
+      [
+        1161,
+        837
+      ],
+      [
+        1062,
+        825
+      ],
+      [
+        1062,
+        822
+      ],
+      [
+        1062.9939,
+        822.0382
+      ]
+    ],
+    "sourceDistances": [
+      0,
+      21.840329667841555,
+      26.082970354960842,
+      86.08297035496085,
+      153.49958551769356,
+      448.73677829665223,
+      491.1631851678451,
+      521.3128120312077,
+      572.3128120312077,
+      584.3128120312077,
+      617.3128120312077,
+      659.3128120312077,
+      800.3128120312077,
+      854.3128120312077,
+      858.555452718327,
+      879.7686561539235,
+      940.4399014023936,
+      943.4399014023936,
+      990.8740663049193,
+      1024.0101493564812,
+      1048.0101493564812,
+      1102.3424601853058,
+      1139.4504108158646,
+      1154.4504108158646,
+      1158.693051502984,
+      1170.693051502984,
+      1317.784859568559,
+      1363.6760351908943,
+      1388.4146689446002,
+      1488.1392897761682,
+      1491.1392897761682,
+      1492.1339236032622
+    ],
+    "sourceLength": 1492.1339236032622
+  },
+  "corners": [
+    {
+      "sourceIndex": 1,
+      "point": [
+        2421,
+        897
+      ],
+      "angleDegrees": 29.054604099077164,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j84910",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 2,
+      "point": [
+        2418,
+        894
+      ],
+      "angleDegrees": 45.00000000000001,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j84194",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 3,
+      "point": [
+        2418,
+        834
+      ],
+      "angleDegrees": 32.27564431457765,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j69894",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 4,
+      "point": [
+        2382,
+        777
+      ],
+      "angleDegrees": 52.477216783805936,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j56297",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 5,
+      "point": [
+        2088,
+        750
+      ],
+      "angleDegrees": 2.8829634525397143,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j49764",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 6,
+      "point": [
+        2046,
+        744
+      ],
+      "angleDegrees": 2.4195092166562997,
+      "requestedRadius": 12,
+      "availableRadius": 10.552369402176934,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j48320",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 7,
+      "point": [
+        2016,
+        741
+      ],
+      "angleDegrees": 5.710593137499633,
+      "requestedRadius": 12,
+      "availableRadius": 10.552369402176934,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47595",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 8,
+      "point": [
+        1965,
+        741
+      ],
+      "angleDegrees": 0,
+      "requestedRadius": 12,
+      "availableRadius": 4.199999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47578",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 9,
+      "point": [
+        1953,
+        741
+      ],
+      "angleDegrees": 0,
+      "requestedRadius": 12,
+      "availableRadius": 4.199999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47574",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 10,
+      "point": [
+        1920,
+        741
+      ],
+      "angleDegrees": 0,
+      "requestedRadius": 12,
+      "availableRadius": 11.549999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47563",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 11,
+      "point": [
+        1878,
+        741
+      ],
+      "angleDegrees": 0,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47549",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 12,
+      "point": [
+        1737,
+        741
+      ],
+      "angleDegrees": 0,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47502",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 13,
+      "point": [
+        1683,
+        741
+      ],
+      "angleDegrees": 45.00000000000001,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j47484",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 14,
+      "point": [
+        1680,
+        744
+      ],
+      "angleDegrees": 36.86989764584404,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j48198",
+          "type": "junction",
+          "roomId": "B03-01-F-04",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 15,
+      "point": [
+        1659,
+        747
+      ],
+      "angleDegrees": 0.40066325579230433,
+      "requestedRadius": 12,
+      "availableRadius": 7.424621202458749,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j48906",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 16,
+      "point": [
+        1599,
+        756
+      ],
+      "angleDegrees": 8.530765609948096,
+      "requestedRadius": 12,
+      "availableRadius": 1.0499999999999998,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j51031",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 17,
+      "point": [
+        1596,
+        756
+      ],
+      "angleDegrees": 18.434948822922017,
+      "requestedRadius": 12,
+      "availableRadius": 1.0499999999999998,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j51030",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 18,
+      "point": [
+        1551,
+        771
+      ],
+      "angleDegrees": 13.240519915187239,
+      "requestedRadius": 12,
+      "availableRadius": 11.597629068046624,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j54590",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 19,
+      "point": [
+        1518,
+        774
+      ],
+      "angleDegrees": 5.1944289077348,
+      "requestedRadius": 12,
+      "availableRadius": 8.399999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j55294",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 20,
+      "point": [
+        1494,
+        774
+      ],
+      "angleDegrees": 6.340191745909908,
+      "requestedRadius": 12,
+      "availableRadius": 8.399999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j55286",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 21,
+      "point": [
+        1440,
+        780
+      ],
+      "angleDegrees": 7.6960517220165565,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j56698",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 22,
+      "point": [
+        1404,
+        789
+      ],
+      "angleDegrees": 14.036243467926509,
+      "requestedRadius": 12,
+      "availableRadius": 5.25,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j58831",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 23,
+      "point": [
+        1389,
+        789
+      ],
+      "angleDegrees": 45.00000000000001,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j58826",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 24,
+      "point": [
+        1386,
+        792
+      ],
+      "angleDegrees": 45.00000000000001,
+      "requestedRadius": 12,
+      "availableRadius": 1.48492424049175,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j59540",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 25,
+      "point": [
+        1374,
+        792
+      ],
+      "angleDegrees": 11.76828893202063,
+      "requestedRadius": 12,
+      "availableRadius": 4.199999999999999,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j59536",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 26,
+      "point": [
+        1230,
+        822
+      ],
+      "angleDegrees": 0.45835645800163627,
+      "requestedRadius": 12,
+      "availableRadius": 12,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j66638",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 27,
+      "point": [
+        1185,
+        831
+      ],
+      "angleDegrees": 2.7263109939063455,
+      "requestedRadius": 12,
+      "availableRadius": 8.658521813797085,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j68768",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 28,
+      "point": [
+        1161,
+        837
+      ],
+      "angleDegrees": 20.947470586951138,
+      "requestedRadius": 12,
+      "availableRadius": 8.658521813797085,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j70190",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 29,
+      "point": [
+        1062,
+        825
+      ],
+      "angleDegrees": 83.08877288097531,
+      "requestedRadius": 12,
+      "availableRadius": 1.0499999999999998,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j67297",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceIndex": 30,
+      "point": [
+        1062,
+        822
+      ],
+      "angleDegrees": 92.201048406526,
+      "requestedRadius": 12,
+      "availableRadius": 0.3481218394829387,
+      "acceptedRadius": 0,
+      "applied": false,
+      "protected": true,
+      "rejectedCandidates": 0,
+      "reason": "protected-anchor",
+      "nodes": [
+        {
+          "id": "B03-01-j66582",
+          "type": "junction",
+          "edges": [
+            {
+              "type": "corridor",
+              "accessibility": "unknown"
+            },
+            {
+              "type": "door",
+              "accessibility": "unknown"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

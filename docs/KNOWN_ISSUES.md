@@ -1,5 +1,15 @@
 # Known issues
 
+## Visual route rounding limits (2026-10-18)
+
+Safe visual rounding now includes ordinary branching corridor junctions on GF
+and configured Floor 01. Door/approach landings and accessibility/restriction
+transitions remain exact, so those corners can remain angular. Curves shrink or
+fall back when supplied wall/enclosure evidence disallows them. The validator
+checks rendered centerline chords, not the pixel-wide stroke's physical clearance;
+no metre scale or accessibility evidence is inferred. See `docs/ROUTE_SMOOTHING.md`
+and `artifacts/corner-rounding/` for parameters, diagnostics and matched captures.
+
 ## First Floor phase 1–2 limits
 
 The complete source/semantic bundle is available as configured floor `01`; interactive GF↔01 selection and renderer refinements belong to phase 3. Building metadata and server imports are shared prerequisites for validating and previewing the bundle. The client still receives one configured floor.
