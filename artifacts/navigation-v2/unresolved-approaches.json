@@ -1,0 +1,22 @@
+{
+  "unresolvedApproaches": [
+    {
+      "room": "G-39",
+      "point": [
+        926.4935,
+        1431.457
+      ],
+      "reason": "no direct or bounded local-A* connector covered by walkable areas and clear of walls"
+    },
+    {
+      "room": "G-40",
+      "point": [
+        926.4935,
+        1431.457
+      ],
+      "reason": "no direct or bounded local-A* connector covered by walkable areas and clear of walls"
+    }
+  ],
+  "candidateSpineLinks": 237,
+  "acceptedSpineLinks": 162
+}
