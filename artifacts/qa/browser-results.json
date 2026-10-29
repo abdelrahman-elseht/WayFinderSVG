@@ -4,7 +4,8 @@
       "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
       "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/e2e/route-smoothing.qa.spec.ts"
+      "--list",
+      "tests/e2e/navigation-v2-diagnostic.qa.spec.ts"
     ],
     "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
     "rootDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
@@ -17,18 +18,14 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/artifacts/qa/browser-tests",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
+        "metadata": {},
         "id": "",
         "name": "",
         "testDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
@@ -66,13 +63,13 @@
   },
   "suites": [
     {
-      "title": "route-smoothing.qa.spec.ts",
-      "file": "route-smoothing.qa.spec.ts",
+      "title": "navigation-v2-diagnostic.qa.spec.ts",
+      "file": "navigation-v2-diagnostic.qa.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "fixed-view rounded route GF G-01 to G-50",
+          "title": "V2 diagnostic is visibly isolated and reports disconnected G-39/G-40 approaches",
           "ok": true,
           "tags": [],
           "tests": [
@@ -82,72 +79,24 @@
               "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 22363,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-18T16:45:41.597Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
+              "results": [],
+              "status": "skipped"
             }
           ],
-          "id": "3f64cc271c7b190ccd05-cee8e15a911f4d97652d",
-          "file": "route-smoothing.qa.spec.ts",
-          "line": 10,
-          "column": 7
-        },
-        {
-          "title": "fixed-view rounded route GF G-01 to G-05",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 8722,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-10-18T16:46:04.381Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "3f64cc271c7b190ccd05-c28edb402ec2be29e22f",
-          "file": "route-smoothing.qa.spec.ts",
-          "line": 10,
-          "column": 7
+          "id": "629f84310cc4640c9efd-90a0f12647e4b9321c1a",
+          "file": "navigation-v2-diagnostic.qa.spec.ts",
+          "line": 3,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T16:45:40.885Z",
-    "duration": 33381.344,
-    "expected": 2,
-    "skipped": 0,
+    "startTime": "2026-10-29T08:37:52.678Z",
+    "duration": 47.678,
+    "expected": 0,
+    "skipped": 1,
     "unexpected": 0,
     "flaky": 0
   }

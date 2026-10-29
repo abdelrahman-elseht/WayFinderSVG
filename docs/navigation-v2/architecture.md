@@ -1,37 +1,25 @@
-# Navigation V2 architecture (diagnostic stage)
+# Navigation V2 architecture
 
-## Status
+## Status and boundary
 
-The V2 work currently produces an **offline candidate graph only**. It is not imported by the application and must not be used for visitor routing. The latest strict verifier finds 115 disconnected components and only 46 of 54 expected approach node IDs; G-06, G-17, G-19, G-20, G-21, G-28, G-39, and G-40 are missing. G-39 and G-40 additionally have no validated connector in the reconstruction report. The canonical runtime graph remains `data/buildings/B03/GF.graph.json`.
+Navigation V2 is an offline diagnostic candidate. `apps/web/app/page.tsx` continues to import only the canonical `data/buildings/B03/GF.graph.json`; no V2 runtime option or production data promotion was made. The candidate is written to `artifacts/navigation-v2/GF.v2.graph.diagnostic.json`.
 
-The diagnostic graph is `artifacts/navigation-v2/GF.v2.graph.diagnostic.json`; the summary is `artifacts/navigation-v2/reconstruction-report.json`. These generated files describe a partial candidate result, not a release artifact.
+The generator consumes configured corridor spines and source approach identities/coordinates. At the legacy graph boundary it immediately drops nodes other than source room approaches and drops every legacy edge. It reads only the validated navigable-area polygons, supplied wall segments, calibration/routing metadata, and the 54 approach records. Room directory data and endpoint qualification come from `GF.json` plus `navigation-config.json`.
 
-## Data flow
+## Coordinates and safety
 
-`scripts/semantic-map/navigation-config.json` supplies the manually reviewed GF corridor spines, corridor half-width and endpoint evidence. `data/buildings/B03/GF.graph.json` supplies the walkable-area union, wall segments, and the coordinates and IDs of the existing 54 approach nodes. `data/buildings/B03/GF.json` supplies room identities and their `doorNodeId` references. `scripts/semantic-map/reconstruct_centerline_graph.py` clips the spines to the walkable union, constructs candidate corridor connections, attaches room approach points, nodes and merges the linework, then writes the diagnostic graph and report under `artifacts/navigation-v2/`.
+All coordinates are the shared Ground Floor master drawing frame documented in `docs/SOURCE_AUDIT.md`; the viewBox is `650 500 3100 1550`. Calibration is null. Distances and tolerances are map-coordinate units, never metres or physical clearances.
 
-The legacy graph contributes no path or edge geometry to that process. It is read only for evidence coordinates and the geometric safety constraints. This keeps the reconstruction independent while retaining reviewed source-derived endpoint identities and the safety domain already used by the current runtime contract.
+`centerline_common.py` shrinks the exact union of navigable areas inward by 0.0001 map units to avoid introducing boundary contacts from connectors. It never buffers outward. Every emitted segment is independently checked with exact polygon coverage, supplied-wall intersection, and room-interior obstacles (including display-only footprints and the bounded AV foyer exception). Output coordinates are kept at full precision and rechecked after serialization. Unknown access restrictions and accessibility remain unknown.
 
-The separate `scripts/semantic-map/diagnose_centerlines.py` script records the raw clipped-spine connectivity and writes a colored component visualization and endpoint-pair report. It is a diagnostic aid; its endpoint pair candidates are not accepted connections.
+## Graph construction
 
-## Geometry and topology
+The manually reviewed corridor spines form the independent network. Their clipped pieces are noded at geometric intersections. Source approach coordinates connect by a covered direct segment or bounded, cached local A* with an 8-unit bound of four targets, 4-unit grid, 100-unit local padding, and 20,000-cell visit ceiling. Every result is checked again against exact source geometry. Search grid points are not exported as routing nodes.
 
-Coordinates are the drawing/map coordinate system from the source-derived GF data. The data has no confirmed metre calibration (`metersPerUnit` is `null`), so lengths in the candidate graph are `map-unit`, not metres. Shapely represents spines and edge paths as `LineString`s and the navigable union as a union of polygons. The current strict safety helper accepts a line only if the exact unbuffered walkable union covers it (`domain.covers(line)`) and no indexed supplied wall intersects it. A separate 0.02 inset is used for bounded local A*; it does not relax final edge validation.
+The topology builder cuts each source segment at true intersections and protected approach/attachment points. It compresses degree-two runs into polyline edges while preserving intermediate bends. Each of the 54 stable approach IDs is emitted; shared source coordinates keep their separate room identities. Unsupported attachments remain isolated and are reported. No endpoint chord is selected merely to reduce the component count.
 
-The generator uses `unary_union` to node crossings and `linemerge` to preserve long corridor geometry as polylines. Endpoints of merged lines, room approach coordinates, and connector attachment points become graph nodes. Intermediate coordinates remain in edge geometry. Candidate connections between disconnected spine components are direct endpoint chords admitted only when they pass the geometric safety helper. A Kruskal-style pass selects connections that join component groups and also retains short safe alternatives within the configured threshold. This is a pragmatic reconstruction stage; the component joining policy still requires review against the rendered source drawing and does not establish a physical passage by itself.
+The graph is adapted to the existing TypeScript `NavigationGraph` shape in integration tests and validated by `validateFloorBundle`. The same `findRoute` implementation and route safety validator are used for legacy and candidate OD comparisons. The app continues to use legacy.
 
-Room approach nodes retain their legacy IDs. For each room, the script projects the approach point to nearby skeleton linework; safe direct joins are preferred. A bounded local A* search is attempted only for an approach join when direct candidates fail. The local grid exists only during preprocessing; its vertices are not emitted as graph nodes. G-39 and G-40 currently share the coordinate `[926.4935, 1431.457]` and both fail this connector stage.
+## Limits
 
-## Routing contract and limits
-
-The candidate graph has node and edge fields shaped for the existing graph contract, but it remains candidate data and does not prove full compatibility with runtime validation. Edges carry their polyline length as `distance`, `distanceUnit: "map-unit"`, `accessibility: "unknown"`, `restriction: "unknown"`, `status: "candidate"`, and bidirectional directionality. Room approach nodes are also marked candidate. Existing routing policy, partial-route notes, and access classifications remain in the canonical runtime bundle; this candidate generator does not promote or rewrite them.
-
-Before runtime adoption, the candidate needs complete approach connectivity, route-level regression against legacy, review of all selected component links and alternatives, and validation through the actual TypeScript graph validator and router. See [benchmark](benchmark.md) for measured current results.
-
-## Decisions and trade-offs
-
-- Manually configured spines are the source network. Automatic medial-axis extraction is not used; the previous experiment fragmented the geometry and did not resolve source connectivity.
-- Geometric checks reject unsafe candidate joins. They cannot authorize a passage absent supporting source geometry.
-- Multiple safe alternatives are retained rather than reducing the result to a spanning tree, but the current short-alternative threshold is heuristic and requires semantic review.
-- There is no arbitrary node-count target. The latest strict result has 172 nodes and 57 edges but 115 disconnected components, with only four room approaches in its largest component. Its lower count reflects severe fragmentation, not successful simplification.
-- No projection/rendering changes are part of this reconstruction stage.
+The current candidate has 198 nodes, 155 edges, and 43 connected components. Fifty-two approaches have incident edges; G-39 and G-40 remain isolated at `[926.4935,1431.457]`. Exact edge checks pass, but route coverage and source topology do not. This is a diagnostic graph, not a validated navigation network. See `benchmark.md` and the machine-readable artifact reports for current evidence.

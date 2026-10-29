@@ -1,22 +1,272 @@
-{
-  "unresolvedApproaches": [
-    {
-      "room": "G-39",
-      "point": [
-        926.4935,
-        1431.457
-      ],
-      "reason": "no direct or bounded local-A* connector covered by walkable areas and clear of walls"
+[
+  {
+    "id": "B03-GF-G-39-approach",
+    "room": "G-39",
+    "point": [
+      926.4935,
+      1431.457
+    ],
+    "source": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07560",
+      "leafPathId": "0001-path-07558"
     },
-    {
-      "room": "G-40",
-      "point": [
-        926.4935,
-        1431.457
-      ],
-      "reason": "no direct or bounded local-A* connector covered by walkable areas and clear of walls"
-    }
-  ],
-  "candidateSpineLinks": 237,
-  "acceptedSpineLinks": 162
-}
+    "provenance": [
+      {
+        "source": "maps/B03/GF/source/0002.json#0002-text-0242",
+        "page": 1,
+        "note": "Authoritative G-01…G-54 room schedule; name retained despite conflicting plan uses.",
+        "status": "confirmed"
+      },
+      {
+        "source": "maps/B03/GF/source/0001.json#0001-text-0151",
+        "page": 1,
+        "note": "Plan label SERVICES; tag 39. Centroid field is the source name-label bounding-box center, not a computed room centroid. ",
+        "status": "confirmed"
+      },
+      {
+        "source": "scripts/semantic-map/generate.py",
+        "page": 1,
+        "note": "Arabic name is an editorial translation of the English schedule, pending facility terminology review. Public=true means directory-visible only; no physical access is asserted.",
+        "status": "candidate"
+      },
+      {
+        "source": "scripts/semantic-map/explore.py",
+        "page": 1,
+        "note": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+        "status": "candidate"
+      },
+      {
+        "source": "scripts/semantic-map/navigation-config.json#roomEndpoints/G-39",
+        "page": 1,
+        "status": "candidate",
+        "note": "Drawing-based endpoint source doorway approach. Door approach derived from source swing and leaf geometry; access and accessibility unknown."
+      }
+    ],
+    "navigationPartial": false,
+    "navigationNote": null,
+    "sharedApproachIds": [
+      "B03-GF-G-39-approach",
+      "B03-GF-G-40-approach"
+    ],
+    "reason": "No direct or bounded local connector to a reviewed spine passes exact geometry.",
+    "nearestSpines": [
+      {
+        "distance": 18.608760710754492,
+        "point": [
+          932.9442295218298,
+          1448.9119151767152
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 1.5999723638072807,
+          "wallIndices": [
+            367
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 18.788286693922224,
+        "point": [
+          935.3746566587562,
+          1448.0137138435032
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 3.9201436414162054,
+          "wallIndices": [],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 114.16541014591337,
+        "point": [
+          1038.5986195449339,
+          1409.865727559481
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 9.111209928434576,
+          "wallIndices": [
+            564,
+            537
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 117.49619239710854,
+        "point": [
+          1041.7639999115718,
+          1408.6959130761581
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 9.683795025427374,
+          "wallIndices": [
+            564,
+            535,
+            544
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      }
+    ],
+    "incidentEdgeCount": 0,
+    "componentIndex": 36
+  },
+  {
+    "id": "B03-GF-G-40-approach",
+    "room": "G-40",
+    "point": [
+      926.4935,
+      1431.457
+    ],
+    "source": {
+      "sourceId": "0001",
+      "arcPathId": "0001-path-07560",
+      "leafPathId": "0001-path-07558",
+      "note": {
+        "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
+        "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
+      },
+      "kind": "approach",
+      "finalDoorSource": {
+        "sourceId": "0001",
+        "arcPathId": "0001-path-07585"
+      }
+    },
+    "provenance": [
+      {
+        "source": "maps/B03/GF/source/0002.json#0002-text-0244",
+        "page": 1,
+        "note": "Authoritative G-01…G-54 room schedule; name retained despite conflicting plan uses.",
+        "status": "confirmed"
+      },
+      {
+        "source": "maps/B03/GF/source/0001.json#0001-text-0154",
+        "page": 1,
+        "note": "Plan label STORAGE; tag 40. Centroid field is the source name-label bounding-box center, not a computed room centroid. ",
+        "status": "confirmed"
+      },
+      {
+        "source": "scripts/semantic-map/generate.py",
+        "page": 1,
+        "note": "Arabic name is an editorial translation of the English schedule, pending facility terminology review. Public=true means directory-visible only; no physical access is asserted.",
+        "status": "candidate"
+      },
+      {
+        "source": "scripts/semantic-map/explore.py",
+        "page": 1,
+        "note": "Source wall/glazing/door linework face; 0.20 drawing-unit line buffer and 0.18 simplification tolerance. 0 interior obstruction rings omitted from outer footprint; not navigable area. Swing/leaf gap closures are candidate evidence.",
+        "status": "candidate"
+      },
+      {
+        "source": "scripts/semantic-map/navigation-config.json#roomEndpoints/G-40",
+        "page": 1,
+        "status": "candidate",
+        "note": "Drawing-based endpoint approach. Route ends at Services entrance; Storage G-40 is reached through Services."
+      }
+    ],
+    "navigationPartial": false,
+    "navigationNote": {
+      "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
+      "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
+    },
+    "sharedApproachIds": [
+      "B03-GF-G-39-approach",
+      "B03-GF-G-40-approach"
+    ],
+    "reason": "No direct or bounded local connector to a reviewed spine passes exact geometry.",
+    "nearestSpines": [
+      {
+        "distance": 18.608760710754492,
+        "point": [
+          932.9442295218298,
+          1448.9119151767152
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 1.5999723638072807,
+          "wallIndices": [
+            367
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 18.788286693922224,
+        "point": [
+          935.3746566587562,
+          1448.0137138435032
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 3.9201436414162054,
+          "wallIndices": [],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 114.16541014591337,
+        "point": [
+          1038.5986195449339,
+          1409.865727559481
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 9.111209928434576,
+          "wallIndices": [
+            564,
+            537
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      },
+      {
+        "distance": 117.49619239710854,
+        "point": [
+          1041.7639999115718,
+          1408.6959130761581
+        ],
+        "tests": {
+          "areaCovered": false,
+          "outsideLength": 9.683795025427374,
+          "wallIndices": [
+            564,
+            535,
+            544
+          ],
+          "roomInteriors": [],
+          "restriction": "unknown",
+          "accessibility": "unknown",
+          "safe": false
+        }
+      }
+    ],
+    "incidentEdgeCount": 0,
+    "componentIndex": 37
+  }
+]

@@ -1,0 +1,7198 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Diagnostic review only; canonical runtime unchanged",
+  "browser": "153.0.8010.12",
+  "engine": "Playwright Chromium",
+  "captureCommand": "node scripts/semantic-map/capture_navigation_v2.mjs --port=4771",
+  "indexRebuiltAt": "2026-10-28T15:14:53.929Z",
+  "sourceFiles": {
+    "maps/B03/GF/master.svg": {
+      "sha256": "3d86edacd2126b8c708c848ae5bb3e4ef6fc67637dd98b0b717b0e03a8b39107"
+    },
+    "data/buildings/B03/GF.graph.json": {
+      "sha256": "7b338747ecfdfeeb4ae1d99fcbc3f29d40337e0acba35414eb45fcdbc6d74750"
+    },
+    "artifacts/navigation-v2/GF.v2.graph.diagnostic.json": {
+      "sha256": "67b7eaf73b8074f82737fe0eebadd75f45e097874201436d2e0e7db9f85eb7a8"
+    },
+    "artifacts/navigation-v2/route-benchmark.json": {
+      "sha256": "99cb2d14caee735cfaeeb5cbb1b5357a71dad7a0d5c355046c047b817a2a8dbb"
+    },
+    "artifacts/navigation-v2/unresolved-approaches.json": {
+      "sha256": "9e58537ea0e0b8d93f8efd372a7e064f451a4115ec075baaf285e6ee2f6ada7f"
+    },
+    "artifacts/navigation-v2/connectivity-diagnostics.json": {
+      "sha256": "5fb3b30a8d359d7ac34a2411a2ca7bc83e722fedac4c6a65c6eaa650d31a4c73"
+    },
+    "scripts/semantic-map/capture_navigation_v2.mjs": {
+      "sha256": "ce5def63bd59c55d134153f8e841a7a35ca86a7b79f1a718f18e42c4caeaf395"
+    }
+  },
+  "diagnosticCounts": {
+    "gaps": 40,
+    "candidates": 847,
+    "candidateDecisions": {
+      "existing-junction": 43,
+      "not-authorized": 804
+    },
+    "capturedGapIds": [
+      "GAP-267f8ded8f6a",
+      "GAP-868104c618cb",
+      "GAP-6c3ee40df4d4",
+      "GAP-5771768e2b8e",
+      "GAP-b3f9f716258f",
+      "GAP-367199daf9a9",
+      "GAP-03e8cdf102d3",
+      "GAP-5b8d7abbbadd",
+      "GAP-a5305cb40eee",
+      "GAP-3cda3e8ae5de",
+      "GAP-d2785c9f8404",
+      "GAP-8162690f3c46",
+      "GAP-3d3cd8f6972b",
+      "GAP-757472eb1a63",
+      "GAP-1491c63e102c",
+      "GAP-31137c84c327",
+      "GAP-fbb3706d7f45",
+      "GAP-41d08079e176",
+      "GAP-e96ed258bf82",
+      "GAP-e35571ecf34c",
+      "GAP-a4a1d0de0b10",
+      "GAP-ce48d70ca659",
+      "GAP-5d09b1f8f7a4",
+      "GAP-4187c9feefa3",
+      "GAP-844add8c7c9f",
+      "GAP-999de889fa6e",
+      "GAP-91233c0790f0",
+      "GAP-9861c96b980a",
+      "GAP-cfbec12fca77",
+      "GAP-e072dc26f8cc",
+      "GAP-ec7f72fbf670",
+      "GAP-3281a54ba91d",
+      "GAP-36156f4fc058",
+      "GAP-a06e0bba1062",
+      "GAP-65c755cfff51",
+      "GAP-1c95fdbf395e",
+      "GAP-2fa60f648ea0",
+      "GAP-246248ffabfb",
+      "GAP-f1236892ab9f",
+      "GAP-ecb86a684f6b"
+    ],
+    "capturedRejectedCandidateIds": [
+      "J-fa83d58718e6",
+      "J-3c8ced26a39a",
+      "J-9cceb8c3bd27",
+      "J-b79148a66c58",
+      "J-19625f33b227",
+      "J-3c49846d60d3",
+      "J-3a68886d2c79",
+      "J-71f4d327df00",
+      "J-7b313fdbbdce",
+      "J-e8173cff8604",
+      "J-2a70c75b3f89",
+      "J-49377b769726",
+      "J-d2caab63c06a",
+      "J-8f4d23a43e90",
+      "J-e7a6909872cf",
+      "J-e841cba28e49",
+      "J-90b548937bf1",
+      "J-63036fbd3a3d",
+      "J-61c8d5be1f84",
+      "J-a1e313de1d43",
+      "J-43f1f5d6275d",
+      "J-991621fb188d",
+      "J-ef2acb8a99fe",
+      "J-17a8defbb526",
+      "J-90c511ad314c",
+      "J-73370bb9abae",
+      "J-b79b0e404502",
+      "J-71641560f6c4",
+      "J-e9f822244327",
+      "J-7fe59ad68438",
+      "J-506f42bd68c9",
+      "J-5f13df84c1a3",
+      "J-9dd176b51501",
+      "J-651d4cac257d",
+      "J-c0c8d733305e",
+      "J-a39df83d512c",
+      "J-b8b450fa4343",
+      "J-62fde455ef77",
+      "J-2e2cdbe750f1",
+      "J-413783b8dd65",
+      "J-f7d7174c1745",
+      "J-edee1ea17606",
+      "J-6502da3ca876",
+      "J-70c568e2502f",
+      "J-6305a7aa2c46",
+      "J-b848e1b53a4a",
+      "J-e3ad06a642bf",
+      "J-ec91ea95eddb",
+      "J-38bb550de0e5",
+      "J-4f3a5d313e4c",
+      "J-5e14c7947490",
+      "J-85c9e8981250",
+      "J-68c0651d6c12",
+      "J-5e9ba65a28bb",
+      "J-1bf9d7bc8238",
+      "J-6c14389931c1",
+      "J-58230a3e68d3",
+      "J-3c7112e07da3",
+      "J-853360cfcde6",
+      "J-d2e5d0f63695",
+      "J-e27f3ed56e57",
+      "J-408adc9acee9",
+      "J-81ce17aa6874",
+      "J-787514e9c6b4",
+      "J-91238423b38b",
+      "J-dab33e8c7a16",
+      "J-00ce4b4f835d",
+      "J-d8d09e2dc708",
+      "J-c81502062655",
+      "J-bf7e9df35ed3",
+      "J-4e6e60c9da94",
+      "J-1cf7e9b05621",
+      "J-d6b2bf8f1863",
+      "J-e0bdcee8d621",
+      "J-7f105e1ebfaa",
+      "J-62b856ca6b77",
+      "J-0e426bbe39a2",
+      "J-0126fb01a45a",
+      "J-220210092bf1",
+      "J-4f53591ef51c",
+      "J-f04e0c5be4ad",
+      "J-052a4f8de6b2",
+      "J-63103de4ef6c",
+      "J-f26a7087c4b7",
+      "J-b62b881ab31e",
+      "J-55bbb37941db",
+      "J-558cb828684b",
+      "J-f0d73d63eec2",
+      "J-72afe886ae95",
+      "J-21ca353fad05",
+      "J-91668d25a9fe",
+      "J-fa137067ba59",
+      "J-084293d5ab64",
+      "J-5eea4fa381b6",
+      "J-692fffaf21c7",
+      "J-a5d81922f709",
+      "J-060c2576e7bd",
+      "J-d1c5b83f089c",
+      "J-7fa2a645ef80",
+      "J-6957cdb44434",
+      "J-a10d009303ea",
+      "J-e776df263995",
+      "J-c83bf14349cc",
+      "J-d0b89a0a88f9",
+      "J-33ed760d8ccd",
+      "J-73d162a53b20",
+      "J-6576d984ac9c",
+      "J-c516d66ffafe",
+      "J-2c7731ad31a0",
+      "J-a28793ebc7df",
+      "J-c50cd34074f7",
+      "J-f0b671873e86",
+      "J-e362c72aac8a",
+      "J-5991e71e68c8",
+      "J-dcbe1cff8bf2",
+      "J-d6dfc232bbb9",
+      "J-e2808bd7b9f4",
+      "J-0570e8969b06",
+      "J-05f3dda9cf54",
+      "J-12ca4a19fdbb",
+      "J-1d58159eca6c",
+      "J-212c1cfc117f",
+      "J-378618f0bda4",
+      "J-3a7cb4b186a1",
+      "J-3c4ca5af27f4",
+      "J-4bee675a2fe6",
+      "J-5e494b7d57a6",
+      "J-6c3ff42a2a20",
+      "J-75f317b3471f",
+      "J-7f04b73b354d",
+      "J-d66e3eaae51f",
+      "J-f9e22c59c1c3",
+      "J-ad4b8f3da881",
+      "J-55948d3d4ff2",
+      "J-3aa644ed562b",
+      "J-6013f14e700a",
+      "J-44080eff1e47",
+      "J-b084c48db97c",
+      "J-ec6b8842480e",
+      "J-1ba8be6b2bb0",
+      "J-20cdaeabd391",
+      "J-541416190268",
+      "J-c95fd1670ce9",
+      "J-c8649ac7e57b",
+      "J-04a20fa0cffe",
+      "J-82e74e4e6b63",
+      "J-363fbc4beea4",
+      "J-9099391b6ffb",
+      "J-b785a4ee7530",
+      "J-708d5bec52ec",
+      "J-eb08df0c4aa9",
+      "J-fdfb456f11ca",
+      "J-e6363d91b841",
+      "J-832c560fb4d5",
+      "J-9dc11a12e981",
+      "J-b1ce049d4b03",
+      "J-722789be415d",
+      "J-4f9fcd0b10bf",
+      "J-91499680ff4c",
+      "J-4eb16cdd71b8",
+      "J-16e90371e960",
+      "J-4301ac284028",
+      "J-5cbeab98f9cc",
+      "J-6b7d92507acc",
+      "J-4d39323679b6",
+      "J-5b3f7d798b7c",
+      "J-64df59e70afc",
+      "J-78e1afc65dab",
+      "J-f7be21445fe4",
+      "J-6da1752808bb",
+      "J-9b0e58525fdf",
+      "J-8243352e70aa",
+      "J-cffaa99c0ef5",
+      "J-bfaead2b02c8",
+      "J-5d6c09ecc6ba",
+      "J-12ee1c54ff46",
+      "J-3d5531fd5238",
+      "J-dfd38ec7d2ba",
+      "J-1d1335789027",
+      "J-1fe96d740a17",
+      "J-37ccd818fd71",
+      "J-cc7707479282",
+      "J-4a0f1000324a",
+      "J-fbd10d9b4a1b",
+      "J-36d63c385264",
+      "J-3ae1a295cfd9",
+      "J-3c12a7c828ed",
+      "J-81e71a781e7e",
+      "J-f7bdb0b43cbd",
+      "J-f7fbe9112e74",
+      "J-0ac02c6f841b",
+      "J-186b6ad4acb8",
+      "J-5b2369b82e32",
+      "J-8234cb07eeba",
+      "J-99bc777682e6",
+      "J-c6bf0b19fedf",
+      "J-62779468d4bb",
+      "J-6e1caf25bd88",
+      "J-aa2021609c75",
+      "J-df6c8e947b07",
+      "J-c7f816b9b870",
+      "J-366754baba07",
+      "J-56984266320b",
+      "J-83673dca263c",
+      "J-a9e56993b4f6",
+      "J-1f2653b6f894",
+      "J-71046f4da621",
+      "J-ef0ee1af3a7a",
+      "J-fd8847afc406",
+      "J-2afdfdb69e9f",
+      "J-5d49918f2001",
+      "J-7ecffb5fb34b",
+      "J-b93209569eac",
+      "J-b73158f59136",
+      "J-396232442920",
+      "J-87c5ac25dd1a",
+      "J-b99a0e3a30a0",
+      "J-cbe601629788",
+      "J-7940f7e4f9ed",
+      "J-defc8d1622ea",
+      "J-40f349bc46c5",
+      "J-774c3eef00be",
+      "J-2f987c0c4384",
+      "J-678b093bdd6a",
+      "J-74ce31ee7ae4",
+      "J-762894992993",
+      "J-f02366a28fd7",
+      "J-4c5fb0eadf6c",
+      "J-46cb601f16fc",
+      "J-306f0e4f5aa0",
+      "J-83636aa35dc3",
+      "J-88a1436cfa02",
+      "J-da39a5f1f0e9",
+      "J-fb16d2bc8782",
+      "J-2e41d40eb3f8",
+      "J-bebe42c5dbae",
+      "J-cb29f5990d81",
+      "J-fcffb6f9c8a7",
+      "J-2b4438ab2d8d",
+      "J-093344318798",
+      "J-aa32dd4defb9",
+      "J-aef9d796e633",
+      "J-b58671843b5d",
+      "J-21708eee8469",
+      "J-4f6d05309232",
+      "J-900cbb20e86f",
+      "J-9b2c734070a2",
+      "J-e13191f345c8",
+      "J-fede2b60149e",
+      "J-d05d386c193d",
+      "J-f35bf2ef677a",
+      "J-296f4511ae34",
+      "J-c07d0a9dffe9",
+      "J-95f52f797f3e",
+      "J-6128abb810a2",
+      "J-6a13435eff02",
+      "J-945037305e64",
+      "J-a890d7947afb",
+      "J-3eb7f254237d",
+      "J-00671a20010c",
+      "J-7a38f393734d",
+      "J-e5bce3026cfb",
+      "J-93eca9b0a52b",
+      "J-a89405297e75",
+      "J-bfd5f4acc050",
+      "J-fd85a129e034",
+      "J-7e6fa4b586cb",
+      "J-36a1128eb407",
+      "J-aa8b76efb14b",
+      "J-bfcd4a5a0956",
+      "J-d959631bfbc9",
+      "J-22a6de803899",
+      "J-23c290a9d6ed",
+      "J-b03e66f77324",
+      "J-c84badb75f40",
+      "J-ab621f57fc1c",
+      "J-3313dcf81111",
+      "J-334bac5e8462",
+      "J-b8225cc66256",
+      "J-caada2d13230",
+      "J-a74d72527ddc",
+      "J-474e00e91b67",
+      "J-719b123b0459",
+      "J-3dda9e005d9c",
+      "J-13a3b5390609",
+      "J-8a004aa7563a",
+      "J-9556ff27525b",
+      "J-cda55dc8c2e2",
+      "J-4f0ab00394b6",
+      "J-5d573905445c",
+      "J-82c9dcc64bc4",
+      "J-a4437c3fa988",
+      "J-f5be711fe721",
+      "J-a0219f47013c",
+      "J-2c70061a87bf",
+      "J-7af77a8666e2",
+      "J-a139ae2d534d",
+      "J-c38480e533b3",
+      "J-d395705e1aa5",
+      "J-e663f2d2e609",
+      "J-464804c18af6",
+      "J-578fbb3c2724",
+      "J-de412437e0f5",
+      "J-736736f9d5e4",
+      "J-5987f2c38059",
+      "J-8b9976cd1a8d",
+      "J-8d8a6128035d",
+      "J-5e1ebda2b6a4",
+      "J-48b33f77e804",
+      "J-c5481dc800b8",
+      "J-d0e7238626bb",
+      "J-e8ff09610d6d",
+      "J-ce37ea22cf78",
+      "J-c0ed2f927a2c",
+      "J-c0304e2f6bc5",
+      "J-13d98ebddbd2",
+      "J-c8d7add7a252",
+      "J-7f0dc48f2f02",
+      "J-3db5ad82ea07",
+      "J-372b48e72234",
+      "J-1778fec2b64d",
+      "J-2297c4fc7643",
+      "J-4073511f78dc",
+      "J-cec522a2ed4e",
+      "J-e78de51baf1c",
+      "J-05ed7deb3114",
+      "J-042eab7e2b87",
+      "J-4266555b8892",
+      "J-5d1960411e71",
+      "J-f292f3fa80f7",
+      "J-656fd15e684f",
+      "J-96f38549c6c5",
+      "J-cef3c328ba00",
+      "J-a3d55351ec88",
+      "J-60ba51babce0",
+      "J-18890e4f21d6",
+      "J-37d37a4a670f",
+      "J-7016b23407dc",
+      "J-00f3dcb71a79",
+      "J-91e60edfd990",
+      "J-a868c0203cd8",
+      "J-bd022a7f80a3",
+      "J-23fc917b6308",
+      "J-b51d8d241e0e",
+      "J-bcc684e836a9",
+      "J-f202f6aa1ada",
+      "J-410cc53d278b",
+      "J-82d25adde1b4",
+      "J-957302f71de5",
+      "J-f877230deb1b",
+      "J-6a615c08c695",
+      "J-4533f01e5217",
+      "J-aa1bf57c6210",
+      "J-7e4652738d99",
+      "J-9dac4c0b280e",
+      "J-e1e54860d631",
+      "J-034e5ceb9fd3",
+      "J-642863eda1ef",
+      "J-33897a1c1491",
+      "J-096a30565127",
+      "J-28e891c3a1d1",
+      "J-455b88b15087",
+      "J-a13151764e08",
+      "J-c58fd7e2294a",
+      "J-0c14d697d2e8",
+      "J-12205f54daa6",
+      "J-dfa3b5e9dd3b",
+      "J-f75f9b9ea878",
+      "J-cd8508d65a53",
+      "J-7bbf49acec9f",
+      "J-96a4dc3d201b",
+      "J-b2347559f38c",
+      "J-d278796ce970",
+      "J-9d48ceb9d370",
+      "J-0c0029911455",
+      "J-9ea1fc06f976",
+      "J-c30bad48784c",
+      "J-c29f1d678c30",
+      "J-570a15e50d42",
+      "J-251a3dabc168",
+      "J-6d0376336043",
+      "J-a2155cff744a",
+      "J-e5a8fce9f4ec",
+      "J-2d8f2c50658e",
+      "J-8225d4742365",
+      "J-8deb9b251230",
+      "J-e76c070e0e51",
+      "J-2e93068ace77",
+      "J-5d16a2c21bee",
+      "J-7bbe98fd432a",
+      "J-ba5e4ebe9111",
+      "J-254e0bc5e26e",
+      "J-b488523726d3",
+      "J-bded1e9a6080",
+      "J-c64061dd5203",
+      "J-930b42c1481a",
+      "J-b9d5a2ae800b",
+      "J-65bf7bb01eb4",
+      "J-7a55ed5aabdc",
+      "J-9d535481ccd9",
+      "J-7d0deafcfaad",
+      "J-ba6da87af679",
+      "J-e021ffe0c8d5",
+      "J-e7e34243409c",
+      "J-04f011bb4e2b",
+      "J-90d33b8707fd",
+      "J-43279bc2e89a",
+      "J-4f69d5ae688b",
+      "J-6c55e7c39562",
+      "J-8b2cdab75d58",
+      "J-77e56f761203",
+      "J-000950058c44",
+      "J-ceec429d5d9b",
+      "J-5e81177c4fba",
+      "J-0ee2f202b58f",
+      "J-d7ae75783031",
+      "J-87330186fda4",
+      "J-cf7e5a4092ac",
+      "J-889b03249761",
+      "J-46291914f9f0",
+      "J-59d0c3892eb2",
+      "J-f6edbc46b230",
+      "J-feff859fe272",
+      "J-d719ce36f391",
+      "J-ce752e06a40c",
+      "J-ce8ebe7fd8b5",
+      "J-a06e6cb783c7",
+      "J-aeb57623a55b",
+      "J-b59ea2ad6e94",
+      "J-c2b310482021",
+      "J-20ab3830b8f5",
+      "J-338439ff79f3",
+      "J-8137beec43bd",
+      "J-bb1782edd911",
+      "J-0fe0a8fbe33c",
+      "J-c52d42f4c7b4",
+      "J-f56773e28702",
+      "J-770efe9f1809",
+      "J-bab475468626",
+      "J-143dbc406b83",
+      "J-7f654ed87b54",
+      "J-05a3d9ed96b0",
+      "J-6d748f388743",
+      "J-8541de7598c1",
+      "J-ac7514c4fc1f",
+      "J-6e547ee46218",
+      "J-d86a5f733f3d",
+      "J-54a748295280",
+      "J-fc358c16a3d1",
+      "J-e578902e595c",
+      "J-67582ee75bf1",
+      "J-c2c02a6de880",
+      "J-2eb38c57982a",
+      "J-705f423b9ccd",
+      "J-328bf1fa3733",
+      "J-84fbd792c6f0",
+      "J-8a570f36e8b8",
+      "J-6ca06a31f3d2",
+      "J-32fd2ff51910",
+      "J-922ae7063543",
+      "J-656d09094d72",
+      "J-805504a2a4bd",
+      "J-a567febaf322",
+      "J-745af761e0b2",
+      "J-28ca33e5a8a1",
+      "J-fc0f756639fc",
+      "J-337b71aee231",
+      "J-1a9f209683dd",
+      "J-2cd5fb69f0c2",
+      "J-dfe6bc46ae08",
+      "J-af7d5c3e9da7",
+      "J-f3bdd8fc20f0",
+      "J-350f812862d5",
+      "J-540f111f364c",
+      "J-9a1b4ddd68df",
+      "J-b0d9c09ced0c",
+      "J-edcb7dd028ee",
+      "J-35a4bda131d6",
+      "J-f3952a424799",
+      "J-99b53eb656c6",
+      "J-102691bf891a",
+      "J-a88388a33c6e",
+      "J-3daa3d4a994c",
+      "J-abe889bb0a52",
+      "J-6ed9731d1804",
+      "J-72ac7031f161",
+      "J-753681e081d5",
+      "J-b1fdc99d466a",
+      "J-71fec671d0ce",
+      "J-ab9730d0339d",
+      "J-8e06420bc56e",
+      "J-600dd5eb36f2",
+      "J-d202435c5c63",
+      "J-5eb40ea93207",
+      "J-28379b2a7a91",
+      "J-1cba8f66c5dc",
+      "J-f8f9232e7d98",
+      "J-ef70fdcc2ba5",
+      "J-4622bd60a024",
+      "J-cb5767178c31",
+      "J-0b6edc9851f6",
+      "J-d44bdb2d4181",
+      "J-05d3d67d2a35",
+      "J-51e7b4e981c7",
+      "J-d13b6605ec91",
+      "J-dd8a278d7755",
+      "J-21c3b3f40a48",
+      "J-9c175642a9cc",
+      "J-4905d1090bc1",
+      "J-d2371401492b",
+      "J-7cff62ab7257",
+      "J-f1b66c02f0b5",
+      "J-c27c63fe75a3",
+      "J-bd91f9afb0eb",
+      "J-d490fbab8f7c",
+      "J-016c86812f7c",
+      "J-39ca6599492e",
+      "J-dfc682d9b8d1",
+      "J-c538a2a6fb66",
+      "J-97826adad069",
+      "J-a434d77cd74e",
+      "J-2a80841f8bff",
+      "J-8a65c0e0e82c",
+      "J-f3831b3b45b5",
+      "J-5f70d05837b8",
+      "J-4495722b2a14",
+      "J-be2789deb6cb",
+      "J-88c2a7d3c3d9",
+      "J-6693db13c188",
+      "J-79154169c97c",
+      "J-63c446dbf511",
+      "J-5ee87aa246eb",
+      "J-c9baa32e4737",
+      "J-91ce3c018bef",
+      "J-acb5e4d52fab",
+      "J-5544dbdf7150",
+      "J-00181a47845e",
+      "J-57e994fecd6a",
+      "J-0c4805a05fd0",
+      "J-de22068e4508",
+      "J-b67cbc99d897",
+      "J-b8a232d5398b",
+      "J-0b992e1e351e",
+      "J-adf3fddc4502",
+      "J-2dca1bdf502a",
+      "J-9c6e71d7d8d6",
+      "J-46ff401907b5",
+      "J-6386203cd4aa",
+      "J-f0876da67614",
+      "J-860ce8e13e05",
+      "J-2d82f92f0a5b",
+      "J-8c691dbc1ae9",
+      "J-8a618e61d69b",
+      "J-0a9f29c81604",
+      "J-7642e861441d",
+      "J-d6ba5baf305e",
+      "J-9c119e1f778d",
+      "J-d036ee5c893b",
+      "J-0207abd3c608",
+      "J-ab97675ebb79",
+      "J-ec7e94e80c21",
+      "J-e6293a5a17b0",
+      "J-fa74070e2b5a",
+      "J-122ff5dbd5ac",
+      "J-bcacda1e8229",
+      "J-75454118b44f",
+      "J-9a5a71bf03e9",
+      "J-c355f1ab0eff",
+      "J-e751bb993887",
+      "J-45a47f991f80",
+      "J-e63e5145c76c",
+      "J-326ee82c90e9",
+      "J-ee8317cda085",
+      "J-05e075e445b5",
+      "J-8fd8917c7684",
+      "J-99d6d09048f1",
+      "J-b68b06cb6e42",
+      "J-be9c1f15757b",
+      "J-0a95cb397343",
+      "J-4c904c53895e",
+      "J-174a934558e5",
+      "J-cda8a85c91e4",
+      "J-d7c627f8714d",
+      "J-ed63b54e4121",
+      "J-efa98868b4be",
+      "J-4b96adf79829",
+      "J-8fa74262bf8a",
+      "J-b5e52c120c21",
+      "J-ef7887ee573e",
+      "J-3b0208bf501f",
+      "J-c8d2c7e0accb",
+      "J-6a2792ccc9f6",
+      "J-0767d2f80bac",
+      "J-dbb878e1c8ca",
+      "J-0aecb633dd43",
+      "J-7d6c8a57bc56",
+      "J-2742af3a7b32",
+      "J-797c0ce95470",
+      "J-7a1bb3400c52",
+      "J-d28aec2f6d03",
+      "J-39c0f350d7c2",
+      "J-369208e898ec",
+      "J-935956377703",
+      "J-52a64b5334fc",
+      "J-303896df23ad",
+      "J-bc04272dd455",
+      "J-13acec184b4b",
+      "J-e34224332c1a",
+      "J-677dd9c523f0",
+      "J-b462864ed21f",
+      "J-ffbb3228bf36",
+      "J-1907a97412a7",
+      "J-e931bb0af658",
+      "J-24f82c713df1",
+      "J-326a32053bdd",
+      "J-fa892033e94c",
+      "J-ff95530e8212",
+      "J-bfcad6507f68",
+      "J-8aaaedcd35de",
+      "J-e529aab2ef3b",
+      "J-4dd391806c08",
+      "J-083bc48a7745",
+      "J-f8dc50f0b7de",
+      "J-a039c8d32341",
+      "J-a1b1f219e9f3",
+      "J-82bcc19a0700",
+      "J-d09048be6e43",
+      "J-9eb2e27f0261",
+      "J-8c93f2ad1435",
+      "J-caf50422ab32",
+      "J-d95f9c293931",
+      "J-55992bbc2a27",
+      "J-eda2acb72a53",
+      "J-13041bbe5f31",
+      "J-f77afa88fbc8",
+      "J-ad35f03e13b9",
+      "J-290ae87d454d",
+      "J-723588d8eadb",
+      "J-7ca0fa64aeda",
+      "J-68587ad539d9",
+      "J-a457db1301c1",
+      "J-135131632ae9",
+      "J-62f34871d202",
+      "J-8c347b4173c4",
+      "J-f9da88baa398",
+      "J-2d3d08ec3a05",
+      "J-b9021b8614cf",
+      "J-3b5949472719",
+      "J-1080f6d60bac",
+      "J-f1944fde5cac",
+      "J-022088d019c8",
+      "J-9e763358e36d",
+      "J-1eb3393ea8dc",
+      "J-887041c151b0",
+      "J-f83757df9d89",
+      "J-84fbbe57b6bf",
+      "J-e27da818be3e",
+      "J-484b65b67ecc",
+      "J-09a2a87e7295",
+      "J-711961c31916",
+      "J-e2822d4bed08",
+      "J-f5cb9bacb6fa",
+      "J-03d8f562b345",
+      "J-f52a220e96df",
+      "J-d2bae454fb32",
+      "J-5751544f5d98",
+      "J-4eed7b74654b",
+      "J-f0a1d36dd2c2",
+      "J-8e1b92359af8",
+      "J-77f6b2841faa",
+      "J-8475591a588b",
+      "J-a14c17ed3e0d",
+      "J-ebaf612f64c2",
+      "J-cad67e401c6b",
+      "J-e1ce4da69489",
+      "J-9e5ccaf6f378",
+      "J-591e62ed7ad9",
+      "J-85ee35c985f3",
+      "J-8da3d01a6919",
+      "J-8bd5c788b481",
+      "J-5fbc8d27e3f6",
+      "J-d83ed48d5dbc",
+      "J-2fbdc12ca896",
+      "J-38396f7ebcd2",
+      "J-15a2a63acec6",
+      "J-0b7d00b2ce9e",
+      "J-1afe7d3c1496",
+      "J-25d5c23e5655",
+      "J-74b4e7c5d573",
+      "J-14ae6eb37cf3",
+      "J-bd05e11e0db5",
+      "J-3d3866ad4007",
+      "J-b4f88b2880ad",
+      "J-f08dd227b2ea",
+      "J-8e5b7682bbeb",
+      "J-54a87745395f",
+      "J-0451a1345108",
+      "J-0916b0f03504",
+      "J-a497dc06c827",
+      "J-cb4b0a9e1993",
+      "J-4c07514ca576",
+      "J-a444b645accd",
+      "J-790d12387b5f",
+      "J-840df5e82979",
+      "J-b6b2c5f92339",
+      "J-a1165efa7d9b",
+      "J-0ac68daa85a6",
+      "J-5826e5e5097c",
+      "J-b17a58bb95b1",
+      "J-115b8cde4e0b",
+      "J-1c1a3c084ac7",
+      "J-8ca2634018de",
+      "J-f40eb1c54fe6",
+      "J-8a7824372ac3",
+      "J-661d2b2b1a5d",
+      "J-df1f91f24e2d",
+      "J-5a69e14a7351",
+      "J-9db834c631e9",
+      "J-9c8196bab41b",
+      "J-fd559d50bea8",
+      "J-6d6abe905dcc",
+      "J-0a349a61a0b3",
+      "J-1d2e6a0d9e97",
+      "J-506ffcc3932d",
+      "J-cc4212569838",
+      "J-9bb12ef30613",
+      "J-3240ed796fcf",
+      "J-3727cc3b74c2",
+      "J-4efdeb9637db",
+      "J-ffa5aea2d704",
+      "J-522bfc74f59e",
+      "J-660c7c3190e1",
+      "J-2fd0b61495a3",
+      "J-ad26c706cb82",
+      "J-e5a938449519",
+      "J-f209ebf9bbc1",
+      "J-282935e406ed",
+      "J-78d56fa7ebad",
+      "J-bb2e3f7f898c",
+      "J-315304eca237",
+      "J-89748162c81d",
+      "J-92e372fba980",
+      "J-a0ce8aca5a5e",
+      "J-d0a4119b4d26",
+      "J-1f332b1a3c17",
+      "J-20c404f67d99",
+      "J-6b373b0923e4",
+      "J-00795be2aac2",
+      "J-51e0f204fb4c",
+      "J-5ad8842d99dd",
+      "J-5cc89e44893d",
+      "J-7034519448cf",
+      "J-d8d8aed15880",
+      "J-d7a4f07ff766",
+      "J-143301cc0f7b",
+      "J-571494e40df3",
+      "J-baff1113c0c0",
+      "J-f5e4999f7f89",
+      "J-12f32474e924",
+      "J-4765af6b1bc3",
+      "J-4b7da6c2ca42",
+      "J-577881a56521",
+      "J-68f4b11a72f7",
+      "J-e9884dad1b0d",
+      "J-5e61b9ed7dca",
+      "J-30f010ae30fc",
+      "J-4d6a95b6df04",
+      "J-8241ba203aff",
+      "J-d2b2340ee483",
+      "J-f4ba0a213a88",
+      "J-88da4ae623fe",
+      "J-4dfd6f7b36cf",
+      "J-a63c0d7117d8",
+      "J-e36a8050f1a6",
+      "J-e3818d451c49",
+      "J-0804e46ae5b3",
+      "J-50e21b0f0e05",
+      "J-a54c5b7422dc",
+      "J-3850e51e0770",
+      "J-0aee87644400",
+      "J-09a889cc9758",
+      "J-2905f4a9bf36",
+      "J-3853cdce5744",
+      "J-23af4395bd66",
+      "J-cd1749eeb6e8",
+      "J-4e13f92e3942",
+      "J-00d8ee13b0f0",
+      "J-01217ec1ee71",
+      "J-ed9e93b05072",
+      "J-d5dd3bc43216",
+      "J-c0832e50b30f",
+      "J-341925dc53b6",
+      "J-ceae61255d86",
+      "J-3aab1e711080",
+      "J-77d0ae19df2c",
+      "J-517cc6ab9601",
+      "J-ac41ed04fbf5",
+      "J-48fe143a597f",
+      "J-52898cf4fe04",
+      "J-903531f961c4",
+      "J-9ddf1504e331",
+      "J-9f33e6842a7f",
+      "J-fd8f600c1dbc",
+      "J-874991e9710b"
+    ]
+  },
+  "images": [
+    {
+      "id": "full-floor-legacy",
+      "file": "full-floor-legacy.png",
+      "title": "Ground Floor ? canonical legacy graph",
+      "url": "http://127.0.0.1:4771/?view=full-floor-legacy",
+      "viewport": {
+        "width": 3400,
+        "height": 1900
+      },
+      "sha256": "eed8617b72772004f1718a661cf0a352803f9178e2ab819cd7d2cb1880ac66ee",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ]
+    },
+    {
+      "id": "full-floor-v2",
+      "file": "full-floor-v2.png",
+      "title": "Ground Floor ? V2 diagnostic candidate graph",
+      "url": "http://127.0.0.1:4771/?view=full-floor-v2",
+      "viewport": {
+        "width": 3400,
+        "height": 1900
+      },
+      "sha256": "aaf0ff24c99b41a584f767eb2cbba1015b64d6618124ea655f0dffd738d150b8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ]
+    },
+    {
+      "id": "side-by-side",
+      "file": "side-by-side.png",
+      "title": "Legacy / V2 identical plan projection",
+      "url": "http://127.0.0.1:4771/?view=side-by-side",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "3540a7d3a4fd76d7b131d37e1fdb319a4bf92416b2f099697f1a4ed7c67f6498",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ]
+    },
+    {
+      "id": "route-same-wing-near",
+      "file": "route-same-wing-near.png",
+      "title": "same-wing-near: B03-GF-G-01-approach to B03-GF-G-05-approach",
+      "url": "http://127.0.0.1:4771/?view=route-same-wing-near",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "fcf93da264de5d1a6e9eedff29804b8e87280e44b57dd69aa1a68e13b08704e9",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "same-wing-near",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-05-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "unavailable"
+      }
+    },
+    {
+      "id": "route-same-wing-far",
+      "file": "route-same-wing-far.png",
+      "title": "same-wing-far: B03-GF-G-01-approach to B03-GF-G-50-approach",
+      "url": "http://127.0.0.1:4771/?view=route-same-wing-far",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "964592d85974bf4b70f91e7a44bb30c208a40b01fae2519b5e048fd376382de2",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "same-wing-far",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-50-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "ok"
+      }
+    },
+    {
+      "id": "route-cross-wing",
+      "file": "route-cross-wing.png",
+      "title": "cross-wing: B03-GF-G-50-approach to B03-GF-G-05-approach",
+      "url": "http://127.0.0.1:4771/?view=route-cross-wing",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "fb64491a955ec31a9a808a57a6652f0bec91fd930318d78f8e142714755a1069",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "cross-wing",
+      "from": "B03-GF-G-50-approach",
+      "to": "B03-GF-G-05-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "unavailable"
+      }
+    },
+    {
+      "id": "route-previously-disconnected-area",
+      "file": "route-previously-disconnected-area.png",
+      "title": "previously-disconnected-area: B03-GF-G-39-approach to B03-GF-G-02-approach",
+      "url": "http://127.0.0.1:4771/?view=route-previously-disconnected-area",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "122b3c4a4b59633fb4091ea7f4d8110920aecfea1f3c877c79a7ea5942a82c85",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "previously-disconnected-area",
+      "from": "B03-GF-G-39-approach",
+      "to": "B03-GF-G-02-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "unavailable"
+      }
+    },
+    {
+      "id": "route-shared-approach",
+      "file": "route-shared-approach.png",
+      "title": "shared-approach: B03-GF-G-39-approach to B03-GF-G-40-approach",
+      "url": "http://127.0.0.1:4771/?view=route-shared-approach",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "7ab98437b5709633d363a3f97f8da6961bd1ed9f9be22af719ccc99375b6ee89",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "shared-approach",
+      "from": "B03-GF-G-39-approach",
+      "to": "B03-GF-G-40-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "unavailable"
+      }
+    },
+    {
+      "id": "route-qualified-partial",
+      "file": "route-qualified-partial.png",
+      "title": "qualified-partial: B03-GF-G-01-approach to B03-GF-G-06-approach",
+      "url": "http://127.0.0.1:4771/?view=route-qualified-partial",
+      "viewport": {
+        "width": 4200,
+        "height": 1500
+      },
+      "sha256": "42a9f542f86f2a768ff0681860b895a1ce828a8fb75b0df024696583851290b8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "caseId": "qualified-partial",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-06-approach",
+      "routeStatuses": {
+        "legacy": "ok",
+        "v2": "unavailable"
+      }
+    },
+    {
+      "id": "unresolved-001",
+      "file": "unresolved-001.png",
+      "title": "Shared unresolved G-39 / G-40 approach",
+      "url": "http://127.0.0.1:4771/?view=unresolved-001",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "ab3c8babc46718fe7d83944132d078119052e1492130340a18aaa7a8593f9402",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        926.4935,
+        1431.457
+      ]
+    },
+    {
+      "id": "gap-GAP-267f8ded8f6a",
+      "file": "gap-GAP-267f8ded8f6a.png",
+      "title": "GAP-267f8ded8f6a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-267f8ded8f6a",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "bb5b3eb5c1ef1ae9db7d448f951aee71f43371a4f0208a1a3a922657d4304894",
+      "sourceViewBox": [
+        2738.82849353605,
+        1386.4375421184056,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2778.82849353605,
+          1426.4375421184056
+        ],
+        [
+          2810,
+          1430
+        ],
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 88.95647347148055,
+      "viewBox": [
+        2738.82849353605,
+        1386.4375421184056,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-868104c618cb",
+      "file": "gap-GAP-868104c618cb.png",
+      "title": "GAP-868104c618cb unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-868104c618cb",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "b6bd75ab51f564085fe02b7882a8c924333b3ddae7070bf586d03ef1cbda32f3",
+      "sourceViewBox": [
+        2830.1900091614943,
+        1403.375557591443,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6003220657181356,
+      "viewBox": [
+        2830.1900091614943,
+        1403.375557591443,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-6c3ee40df4d4",
+      "file": "gap-GAP-6c3ee40df4d4.png",
+      "title": "GAP-6c3ee40df4d4 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-6c3ee40df4d4",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "71de5ed3f9d2a4ce7d1fea4b74fcd32d555e31f5266f8ef35b1cda8df4ccccdc",
+      "sourceViewBox": [
+        2879.3345452068656,
+        1414.2965656015258,
+        246.23665110420598,
+        150
+      ],
+      "coordinates": [
+        [
+          2919.3345452068656,
+          1454.2965656015258
+        ],
+        [
+          3080,
+          1490
+        ],
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 170.29179947630152,
+      "viewBox": [
+        2879.3345452068656,
+        1414.2965656015258,
+        246.23665110420598,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-5771768e2b8e",
+      "file": "gap-GAP-5771768e2b8e.png",
+      "title": "GAP-5771768e2b8e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-5771768e2b8e",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "d966d4bf8f46cd248eb4ae49755e1fab2c17597cdd43db3da78a91a556351445",
+      "sourceViewBox": [
+        3055.1391016413813,
+        1453.364244809196,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6117181820999864,
+      "viewBox": [
+        3055.1391016413813,
+        1453.364244809196,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-b3f9f716258f",
+      "file": "gap-GAP-b3f9f716258f.png",
+      "title": "GAP-b3f9f716258f unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-b3f9f716258f",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "087a4686d51a143c64e954fe467be27490a4b2651c649e33b5d0db5b237c2557",
+      "sourceViewBox": [
+        3080.743467243511,
+        1459.0541038318913,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 12.384877000167087,
+      "viewBox": [
+        3080.743467243511,
+        1459.0541038318913,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-367199daf9a9",
+      "file": "gap-GAP-367199daf9a9.png",
+      "title": "GAP-367199daf9a9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-367199daf9a9",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "eda06ee4e81c9b86ebfb6fabbc91e1306e8906aec2e45a2e55ed5d1652717de6",
+      "sourceViewBox": [
+        3102.3688439801335,
+        1463.8597431066964,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6143656513411035,
+      "viewBox": [
+        3102.3688439801335,
+        1463.8597431066964,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-03e8cdf102d3",
+      "file": "gap-GAP-03e8cdf102d3.png",
+      "title": "GAP-03e8cdf102d3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-03e8cdf102d3",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "7fdae534750f39bef4dfcaa9fa2cb192c74380204864b72d15eff22508185ca0",
+      "sourceViewBox": [
+        3107.959862590175,
+        1465.1021916867055,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6162785657736798,
+      "viewBox": [
+        3107.959862590175,
+        1465.1021916867055,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-5b8d7abbbadd",
+      "file": "gap-GAP-5b8d7abbbadd.png",
+      "title": "GAP-5b8d7abbbadd unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-5b8d7abbbadd",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "fbd2963e1915ceced4a3caf6e9114f6038cab825812888afb82a64600a9c09b5",
+      "sourceViewBox": [
+        3129.996156559074,
+        1469.9991459020164,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3169.996156559074,
+          1509.9991459020164
+        ],
+        [
+          3170,
+          1510
+        ]
+      ],
+      "sourceSpineIds": [
+        2
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 0.003937197165322475,
+      "viewBox": [
+        3129.996156559074,
+        1469.9991459020164,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-a5305cb40eee",
+      "file": "gap-GAP-a5305cb40eee.png",
+      "title": "GAP-a5305cb40eee unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-a5305cb40eee",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "32f4443317d99f8db39d4df16b28bfb7193fe279a0461e2979f84ffa33e57631",
+      "sourceViewBox": [
+        1246.1147544065063,
+        1310,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1290,
+          1350
+        ],
+        [
+          1286.1147544065063,
+          1350.44829756848
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 3.9110233995294688,
+      "viewBox": [
+        1246.1147544065063,
+        1310,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-3cda3e8ae5de",
+      "file": "gap-GAP-3cda3e8ae5de.png",
+      "title": "GAP-3cda3e8ae5de unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-3cda3e8ae5de",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "7f25f8f903e026ef053e295f90cf19e7cea98d247fd7ae7835680972ed71177a",
+      "sourceViewBox": [
+        1155.9955914657753,
+        1320.6595520670667,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1197.6172154187557,
+          1360.6595520670667
+        ],
+        [
+          1195.9955914657753,
+          1360.8466625231797
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6323830946400153,
+      "viewBox": [
+        1155.9955914657753,
+        1320.6595520670667,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-d2785c9f8404",
+      "file": "gap-GAP-d2785c9f8404.png",
+      "title": "GAP-d2785c9f8404 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-d2785c9f8404",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "884b5949746f4ca862b4d92a9b28a33a284c32d5925de445be34c8472f4b41b9",
+      "sourceViewBox": [
+        1132.9629380993897,
+        1322.6486511905978,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1180.3783563481534,
+          1362.6486511905978
+        ],
+        [
+          1172.9629380993897,
+          1363.5042763731474
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 7.464618024863048,
+      "viewBox": [
+        1132.9629380993897,
+        1322.6486511905978,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-8162690f3c46",
+      "file": "gap-GAP-8162690f3c46.png",
+      "title": "GAP-8162690f3c46 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-8162690f3c46",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "fae7050a96e6a44c50013ce1da852533e7a0d3ce4e6864a7de6a3cd3d6ea8d0d",
+      "sourceViewBox": [
+        1095.4816504509622,
+        1327.8812174823345,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1152.2037644595657,
+          1367.8812174823345
+        ],
+        [
+          1135.4816504509622,
+          1374.061129181166
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 17.827518209837542,
+      "viewBox": [
+        1095.4816504509622,
+        1327.8812174823345,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-3d3cd8f6972b",
+      "file": "gap-GAP-3d3cd8f6972b.png",
+      "title": "GAP-3d3cd8f6972b unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-3d3cd8f6972b",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "32d12b2b030d8957aa1eb6e13cb2a1f943b97f60a33c1548b6b46b106616e7f6",
+      "sourceViewBox": [
+        1068.8724194681383,
+        1343.3408447344418,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1110.3718318950396,
+          1383.3408447344418
+        ],
+        [
+          1108.8724194681383,
+          1383.894975413949
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.598530086021814,
+      "viewBox": [
+        1068.8724194681383,
+        1343.3408447344418,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-757472eb1a63",
+      "file": "gap-GAP-757472eb1a63.png",
+      "title": "GAP-757472eb1a63 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-757472eb1a63",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "f299ef72adf6536264aa0f6831f5cd3ad4a99a62efa026e9901bcc6b6d2b37b7",
+      "sourceViewBox": [
+        1052.8866771473488,
+        1349.2467090324526,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1094.3912579121873,
+          1389.2467090324526
+        ],
+        [
+          1092.8866771473488,
+          1389.8027497498929
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.604040073493616,
+      "viewBox": [
+        1052.8866771473488,
+        1349.2467090324526,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-1491c63e102c",
+      "file": "gap-GAP-1491c63e102c.png",
+      "title": "GAP-1491c63e102c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-1491c63e102c",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "b672a7bc94aebd79942d3e00ff87885479759a2773ecb29788821cc858c28be7",
+      "sourceViewBox": [
+        1028.9448186476438,
+        1358.09916433942,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1070.4375553168636,
+          1398.09916433942
+        ],
+        [
+          1068.9448186476438,
+          1398.650827891088
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.591413031828115,
+      "viewBox": [
+        1028.9448186476438,
+        1358.09916433942,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-31137c84c327",
+      "file": "gap-GAP-31137c84c327.png",
+      "title": "GAP-31137c84c327 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-31137c84c327",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "1fb7679c4c9aa315a440d7b7ced9955a571a8ed22147947a6c52c2db3ab57253",
+      "sourceViewBox": [
+        1000.2673477604428,
+        1368.6959477451323,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1041.7639061014065,
+          1408.6959477451323
+        ],
+        [
+          1040.2673477604428,
+          1409.2490236537494
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.5954873326355903,
+      "viewBox": [
+        1000.2673477604428,
+        1368.6959477451323,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-fbb3706d7f45",
+      "file": "gap-GAP-fbb3706d7f45.png",
+      "title": "GAP-fbb3706d7f45 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-fbb3706d7f45",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "7a472aff52180247ae2781c099abd92b34d48304106a24662837cfe97ec02a73",
+      "sourceViewBox": [
+        935.2558823529437,
+        1369.8687665198227,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1038.590396475774,
+          1409.8687665198227
+        ],
+        [
+          975.2558823529437,
+          1433.274999999999
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 67.52119996640701,
+      "viewBox": [
+        935.2558823529437,
+        1369.8687665198227,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-41d08079e176",
+      "file": "gap-GAP-41d08079e176.png",
+      "title": "GAP-41d08079e176 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-41d08079e176",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "3567c3e12490e3a9e9d0d518e4cf8dd60ceac821e66b4c6827939c9b1099dd65",
+      "sourceViewBox": [
+        893.8685291452733,
+        1408.013748561565,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          935.3745627157653,
+          1448.013748561565
+        ],
+        [
+          933.8685291452733,
+          1448.5703261854424
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.605588915896445,
+      "viewBox": [
+        893.8685291452733,
+        1408.013748561565,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-e96ed258bf82",
+      "file": "gap-GAP-e96ed258bf82.png",
+      "title": "GAP-e96ed258bf82 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-e96ed258bf82",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "8844ff46ba2ed15187f5eae9ff00334eb52cfdd36853612fe29868145a7100e1",
+      "sourceViewBox": [
+        890,
+        1409.9804021447721,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          930.0530294906166,
+          1449.9804021447721
+        ],
+        [
+          930,
+          1450
+        ]
+      ],
+      "sourceSpineIds": [
+        4
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 0.05653496974960803,
+      "viewBox": [
+        890,
+        1409.9804021447721,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-e35571ecf34c",
+      "file": "gap-GAP-e35571ecf34c.png",
+      "title": "GAP-e35571ecf34c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-e35571ecf34c",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "e7f17f8444577507c86eef0b0464ec155369bcfb1ec05e6182f560b3c3b8495a",
+      "sourceViewBox": [
+        1973.9663346757445,
+        758.9622715859314,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2015.5659262110298,
+          798.9622715859314
+        ],
+        [
+          2013.9663346757445,
+          799.068911021617
+        ]
+      ],
+      "sourceSpineIds": [
+        6
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6031422422853625,
+      "viewBox": [
+        1973.9663346757445,
+        758.9622715859314,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-a4a1d0de0b10",
+      "file": "gap-GAP-a4a1d0de0b10.png",
+      "title": "GAP-a4a1d0de0b10 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-a4a1d0de0b10",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "cbdca8cc06c19a8968a72f1ef428ad3d553bda4861e0d8898bb497d7ae484505",
+      "sourceViewBox": [
+        1965.4519711588339,
+        759.528668650492,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2007.0699702426202,
+          799.528668650492
+        ],
+        [
+          2005.4519711588339,
+          799.6365352560778
+        ]
+      ],
+      "sourceSpineIds": [
+        6
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6215906510997278,
+      "viewBox": [
+        1965.4519711588339,
+        759.528668650492,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-ce48d70ca659",
+      "file": "gap-GAP-ce48d70ca659.png",
+      "title": "GAP-ce48d70ca659 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-ce48d70ca659",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "11a03b52b79ab45b59694836c4d1bf7dfdf01b28a481391889780ab40a32b579",
+      "sourceViewBox": [
+        2579.8938949909475,
+        1594.8673687386843,
+        392.4620073262877,
+        331.7817628833802
+      ],
+      "coordinates": [
+        [
+          2619.8938949909475,
+          1634.8673687386843
+        ],
+        [
+          2720,
+          1760
+        ],
+        [
+          2880,
+          1850
+        ],
+        [
+          2932.355902317235,
+          1886.6491316220645
+        ]
+      ],
+      "sourceSpineIds": [
+        7
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 407.7320776761989,
+      "viewBox": [
+        2579.8938949909475,
+        1594.8673687386843,
+        392.4620073262877,
+        331.7817628833802
+      ]
+    },
+    {
+      "id": "gap-GAP-5d09b1f8f7a4",
+      "file": "gap-GAP-5d09b1f8f7a4.png",
+      "title": "GAP-5d09b1f8f7a4 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-5d09b1f8f7a4",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "4cba95deb7aedbf1982b861896370e8487152ef74296de92cb44afd48825c7dd",
+      "sourceViewBox": [
+        2906.713851038497,
+        1856.699695726948,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2946.713851038497,
+          1896.699695726948
+        ],
+        [
+          2980,
+          1920
+        ]
+      ],
+      "sourceSpineIds": [
+        7
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 40.63092285321819,
+      "viewBox": [
+        2906.713851038497,
+        1856.699695726948,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-4187c9feefa3",
+      "file": "gap-GAP-4187c9feefa3.png",
+      "title": "GAP-4187c9feefa3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-4187c9feefa3",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "c2b96e572d4e63b47b84f592cda7fabee6b2890ccd04fc87c6eb27e0ade51a5a",
+      "sourceViewBox": [
+        2736.3263295099064,
+        1381.6266270011654,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2776.3263295099064,
+          1421.6266270011654
+        ],
+        [
+          2777.921206341023,
+          1421.8142595695322
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6058761120164882,
+      "viewBox": [
+        2736.3263295099064,
+        1381.6266270011654,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-844add8c7c9f",
+      "file": "gap-GAP-844add8c7c9f.png",
+      "title": "GAP-844add8c7c9f unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-844add8c7c9f",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "2aa27dd2bc8b201beb34c2acd917a8bae49ae48e488b05f8ba9002a39dca1a36",
+      "sourceViewBox": [
+        2741.9775106328134,
+        1382.2914718391546,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2781.9775106328134,
+          1422.2914718391546
+        ],
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 81.77165975286302,
+      "viewBox": [
+        2741.9775106328134,
+        1382.2914718391546,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-999de889fa6e",
+      "file": "gap-GAP-999de889fa6e.png",
+      "title": "GAP-999de889fa6e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-999de889fa6e",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "8813091b37bc0ef597aa98f4ad388fd9f43878ad63c0aa03711afa59ce028a72",
+      "sourceViewBox": [
+        2826.5373584905656,
+        1392.2396892341842,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 2.3189444347387713,
+      "viewBox": [
+        2826.5373584905656,
+        1392.2396892341842,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-91233c0790f0",
+      "file": "gap-GAP-91233c0790f0.png",
+      "title": "GAP-91233c0790f0 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-91233c0790f0",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "2bb5bef8740af90719f86badd9b9b21d7a0cb62703f882b5bad004e79571034d",
+      "sourceViewBox": [
+        2832.924891005291,
+        1392.9911636476813,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6126242065928376,
+      "viewBox": [
+        2832.924891005291,
+        1392.9911636476813,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-9861c96b980a",
+      "file": "gap-GAP-9861c96b980a.png",
+      "title": "GAP-9861c96b980a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-9861c96b980a",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "7446b2439e433699a2cbdc2cc991828e641247bd74d0479fa3d8fb33a958c40a",
+      "sourceViewBox": [
+        2878.8650374441772,
+        1403.0180659567159,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2918.8650374441772,
+          1443.0180659567159
+        ],
+        [
+          2920.4079273577768,
+          1443.4466464882714
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6013090137495731,
+      "viewBox": [
+        2878.8650374441772,
+        1403.0180659567159,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-cfbec12fca77",
+      "file": "gap-GAP-cfbec12fca77.png",
+      "title": "GAP-cfbec12fca77 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-cfbec12fca77",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "0695dc5ccfb7bc5e0b51e37df41e4c1210b643ec075a8afcdf51bcc406e2fa89",
+      "sourceViewBox": [
+        2881.599983381803,
+        1403.777773161612,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2921.599983381803,
+          1443.777773161612
+        ],
+        [
+          2935.3927085714286,
+          1447.6090857142856
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 14.31496503777776,
+      "viewBox": [
+        2881.599983381803,
+        1403.777773161612,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-e072dc26f8cc",
+      "file": "gap-GAP-e072dc26f8cc.png",
+      "title": "GAP-e072dc26f8cc unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-e072dc26f8cc",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "b8d086f5066b2178beba0cd92c527cd98dba1f2a76566074cd39fac9aa0c6586",
+      "sourceViewBox": [
+        2910.2344269279934,
+        1411.731785257776,
+        189.10639532109917,
+        150
+      ],
+      "coordinates": [
+        [
+          2950.2344269279934,
+          1451.731785257776
+        ],
+        [
+          3059.3408222490925,
+          1482.0391172914146
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 113.23753739357454,
+      "viewBox": [
+        2910.2344269279934,
+        1411.731785257776,
+        189.10639532109917,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-ec7f72fbf670",
+      "file": "gap-GAP-ec7f72fbf670.png",
+      "title": "GAP-ec7f72fbf670 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-ec7f72fbf670",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "bcc470dfe62ddcb42474e0beb3052bc0a3edb5871e74bb6ee1d4b68197037e5d",
+      "sourceViewBox": [
+        3044.6343881465805,
+        1449.0651078184944,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6006627608225417,
+      "viewBox": [
+        3044.6343881465805,
+        1449.0651078184944,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-3281a54ba91d",
+      "file": "gap-GAP-3281a54ba91d.png",
+      "title": "GAP-3281a54ba91d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-3281a54ba91d",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "b4374e956b02f56d493b9fc9e9b4ddcb57605c7223cd57458550118675a53fd6",
+      "sourceViewBox": [
+        3055.574170524495,
+        1452.1039362568042,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6066253553252754,
+      "viewBox": [
+        3055.574170524495,
+        1452.1039362568042,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-36156f4fc058",
+      "file": "gap-GAP-36156f4fc058.png",
+      "title": "GAP-36156f4fc058 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-36156f4fc058",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "805c04a87ebecdd902ce3b277406ca0ef13f79ea97c3c3df7efbbf9517a2b595",
+      "sourceViewBox": [
+        3081.240773594637,
+        1459.2335482207325,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ],
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 20.48709145934468,
+      "viewBox": [
+        3081.240773594637,
+        1459.2335482207325,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-a06e0bba1062",
+      "file": "gap-GAP-a06e0bba1062.png",
+      "title": "GAP-a06e0bba1062 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-a06e0bba1062",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "adc814a1e7b6cce3f4625ecd7ebbce36d08c445e1e488e8d2645a5c85d00237c",
+      "sourceViewBox": [
+        3101.947854142161,
+        1464.9855150394892,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.605058640888121,
+      "viewBox": [
+        3101.947854142161,
+        1464.9855150394892,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-65c755cfff51",
+      "file": "gap-GAP-65c755cfff51.png",
+      "title": "GAP-65c755cfff51 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-65c755cfff51",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "9a447dbd184b0ae930c11f532c10fac3383cb7fb04ebd0e73999d47eaac2cc9f",
+      "sourceViewBox": [
+        3107.441389076197,
+        1466.5114969656101,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "sourceSpineIds": [
+        9
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 1.6055469606492974,
+      "viewBox": [
+        3107.441389076197,
+        1466.5114969656101,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-1c95fdbf395e",
+      "file": "gap-GAP-1c95fdbf395e.png",
+      "title": "GAP-1c95fdbf395e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-1c95fdbf395e",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "05ec9149e23ee4f9423c4a5820488270c167ad361e55df87ba5e57735dc6a6f7",
+      "sourceViewBox": [
+        1270,
+        1597.751662095447,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1310,
+          1637.751662095447
+        ],
+        [
+          1310,
+          1643.078665982555
+        ]
+      ],
+      "sourceSpineIds": [
+        10
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 5.327003887108049,
+      "viewBox": [
+        1270,
+        1597.751662095447,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-2fa60f648ea0",
+      "file": "gap-GAP-2fa60f648ea0.png",
+      "title": "GAP-2fa60f648ea0 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-2fa60f648ea0",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "1335c3842c1d4f0397a56b290e113d2687b5f90d299b6e74071d6cb0be509ed2",
+      "sourceViewBox": [
+        1269.515919089978,
+        1626.0447540983607,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1310,
+          1666.0447540983607
+        ],
+        [
+          1310,
+          1710
+        ],
+        [
+          1309.515919089978,
+          1729.3632364008736
+        ]
+      ],
+      "sourceSpineIds": [
+        10
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 63.32453236871294,
+      "viewBox": [
+        1269.515919089978,
+        1626.0447540983607,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-246248ffabfb",
+      "file": "gap-GAP-246248ffabfb.png",
+      "title": "GAP-246248ffabfb unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-246248ffabfb",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "ee6931b7008bf872f5040b47698a71c72de78a1e2248b75be678c4c38fb6b409",
+      "sourceViewBox": [
+        1090,
+        1629.9996307692309,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1130.0010461538461,
+          1669.9996307692309
+        ],
+        [
+          1130,
+          1670
+        ]
+      ],
+      "sourceSpineIds": [
+        11
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 0.001109400392386387,
+      "viewBox": [
+        1090,
+        1629.9996307692309,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-f1236892ab9f",
+      "file": "gap-GAP-f1236892ab9f.png",
+      "title": "GAP-f1236892ab9f unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-f1236892ab9f",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "e405fd0764f9e3e5639221351a688120a75c0898cff70aca2435167ab4b82671",
+      "sourceViewBox": [
+        1110,
+        1020,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          1150.003447848503,
+          1060.0013791394013
+        ],
+        [
+          1150,
+          1060
+        ]
+      ],
+      "sourceSpineIds": [
+        13
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 0.0037134464836648196,
+      "viewBox": [
+        1110,
+        1020,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "gap-GAP-ecb86a684f6b",
+      "file": "gap-GAP-ecb86a684f6b.png",
+      "title": "GAP-ecb86a684f6b unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=gap-GAP-ecb86a684f6b",
+      "viewport": {
+        "width": 2600,
+        "height": 1500
+      },
+      "sha256": "42d1c08faa4b00e3c8e733eb30e844042de5544257d0b9db0f7e00b62afe45a6",
+      "sourceViewBox": [
+        2910,
+        1870,
+        180,
+        150
+      ],
+      "coordinates": [
+        [
+          2950,
+          1920
+        ],
+        [
+          3050,
+          1910
+        ]
+      ],
+      "sourceSpineIds": [
+        14
+      ],
+      "classification": "unresolved-source-evidence",
+      "distance": 100.4987562112089,
+      "viewBox": [
+        2910,
+        1870,
+        180,
+        150
+      ]
+    },
+    {
+      "id": "junction-J-fa83d58718e6",
+      "file": "junction-J-fa83d58718e6.png",
+      "title": "Rejected J-fa83d58718e6 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-fa83d58718e6",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "4da85e072f2abd9d663b337e224484fe080f3802eb42cdd30fe55051d90f4462",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ],
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3c8ced26a39a",
+      "file": "junction-J-3c8ced26a39a.png",
+      "title": "Rejected J-3c8ced26a39a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3c8ced26a39a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2511524b785585a7d8293b6321de9be4f72390facd23491fdbd30deb30678c60",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-9cceb8c3bd27",
+      "file": "junction-J-9cceb8c3bd27.png",
+      "title": "Rejected J-9cceb8c3bd27 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-9cceb8c3bd27",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "34895b8f8db6be01ad38837120cba5704b12ed491a33f4fafe3276e35b4f7201",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b79148a66c58",
+      "file": "junction-J-b79148a66c58.png",
+      "title": "Rejected J-b79148a66c58 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b79148a66c58",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "c7df072832b31b21a3839f993793e37f2c84d99a3e5a0bda79619790eebf883f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ],
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-19625f33b227",
+      "file": "junction-J-19625f33b227.png",
+      "title": "Rejected J-19625f33b227 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-19625f33b227",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "80fe7e7beabe0982113a3df7fd6e0dbd274a42752c7e1d2c8f08a5eca141c40f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3c49846d60d3",
+      "file": "junction-J-3c49846d60d3.png",
+      "title": "Rejected J-3c49846d60d3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3c49846d60d3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "958e87f1408c5e0b94712a3fc0d22d31ed90c7886baba3498bf3ef04a2c2040e",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3a68886d2c79",
+      "file": "junction-J-3a68886d2c79.png",
+      "title": "Rejected J-3a68886d2c79 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3a68886d2c79",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "7190ef71ca0e9b3d6df9554aebe99f739212e9fe80ea4f33465be1191ea3295e",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-71f4d327df00",
+      "file": "junction-J-71f4d327df00.png",
+      "title": "Rejected J-71f4d327df00 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-71f4d327df00",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "bb6f1b1921d3a4602f3f657b0d67386c19faa2e646c7cb2acdbb4f87eaaeabf1",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-7b313fdbbdce",
+      "file": "junction-J-7b313fdbbdce.png",
+      "title": "Rejected J-7b313fdbbdce unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-7b313fdbbdce",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "f3000ad176a65b47cb092c891b0e88b7eed99cb4ce1275a9ed83bcc1058111f2",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e8173cff8604",
+      "file": "junction-J-e8173cff8604.png",
+      "title": "Rejected J-e8173cff8604 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e8173cff8604",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "fceb5212b603b44ade90f6d64dd58619cc45996ba64a532d221e7d6ca768d29c",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-2a70c75b3f89",
+      "file": "junction-J-2a70c75b3f89.png",
+      "title": "Rejected J-2a70c75b3f89 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-2a70c75b3f89",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "1da5ac8fabe5cbee3cf40ae66435b7609341ab6d5b06c3edd5b3557cdf51c004",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ],
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-49377b769726",
+      "file": "junction-J-49377b769726.png",
+      "title": "Rejected J-49377b769726 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-49377b769726",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "63af133161512ac5676ad76b9d81d4089d3a78d52ed7cc82d0d6214eaa3d03d4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d2caab63c06a",
+      "file": "junction-J-d2caab63c06a.png",
+      "title": "Rejected J-d2caab63c06a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d2caab63c06a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0223a54a23d1194496689186941b9413e95433b615be90a225cd24195ae6efb4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-8f4d23a43e90",
+      "file": "junction-J-8f4d23a43e90.png",
+      "title": "Rejected J-8f4d23a43e90 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-8f4d23a43e90",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "1a4f03ca82b3b45bf3322798a86eba0d8a6689be3d266583b9a95834df9e41b6",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1068.9448186476438,
+          1398.650827891088
+        ],
+        [
+          1070.4375553168636,
+          1398.09916433942
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e7a6909872cf",
+      "file": "junction-J-e7a6909872cf.png",
+      "title": "Rejected J-e7a6909872cf unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e7a6909872cf",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "5f35d8f64ca10b270aaa6f94bcd7fe78443378251d909ff46c9a459f63d50758",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1040.2673477604428,
+          1409.2490236537494
+        ],
+        [
+          1041.7639061014065,
+          1408.6959477451323
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e841cba28e49",
+      "file": "junction-J-e841cba28e49.png",
+      "title": "Rejected J-e841cba28e49 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e841cba28e49",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "238552b53253cd2a4fe9a864312d19c71f5ab5153c70b1c178086da35ff649fe",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1108.8724194681383,
+          1383.894975413949
+        ],
+        [
+          1110.3718318950396,
+          1383.3408447344418
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-90b548937bf1",
+      "file": "junction-J-90b548937bf1.png",
+      "title": "Rejected J-90b548937bf1 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-90b548937bf1",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "4c3366a1c0713c5d0b14ec3c4703ed8e273b1f9f9c154bad07f4028897689417",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-63036fbd3a3d",
+      "file": "junction-J-63036fbd3a3d.png",
+      "title": "Rejected J-63036fbd3a3d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-63036fbd3a3d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2fdb96f6c6f44a6c798b51fd9eb4c7d5bbc95c16027fad64ee3f3f9fe0ffe711",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-61c8d5be1f84",
+      "file": "junction-J-61c8d5be1f84.png",
+      "title": "Rejected J-61c8d5be1f84 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-61c8d5be1f84",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "38f6eb62caaf3992e94b1598e29394ddc66facea5062e68b1f74367fa8e009cb",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2918.8650374441772,
+          1443.0180659567159
+        ],
+        [
+          2920.4079273577768,
+          1443.4466464882714
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-a1e313de1d43",
+      "file": "junction-J-a1e313de1d43.png",
+      "title": "Rejected J-a1e313de1d43 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-a1e313de1d43",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e55848b85d43851452aa61dcc0f2813f84e366774ee4c383d710784a9093ef6e",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2013.9663346757445,
+          799.068911021617
+        ],
+        [
+          2015.5659262110298,
+          798.9622715859314
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-43f1f5d6275d",
+      "file": "junction-J-43f1f5d6275d.png",
+      "title": "Rejected J-43f1f5d6275d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-43f1f5d6275d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "93f2cf4a26ab166205001d42aa1c98ee8a9efa95ee238b7bf3533405e3ae8074",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1092.8866771473488,
+          1389.8027497498929
+        ],
+        [
+          1094.3912579121873,
+          1389.2467090324526
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-991621fb188d",
+      "file": "junction-J-991621fb188d.png",
+      "title": "Rejected J-991621fb188d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-991621fb188d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9e6259d619bb150bc9abd72b766b0127c03e150e3122bc0d185b10e82c5ba8e4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-ef2acb8a99fe",
+      "file": "junction-J-ef2acb8a99fe.png",
+      "title": "Rejected J-ef2acb8a99fe unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-ef2acb8a99fe",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0f15523c3be37b0e19d2e27bd16ced9052fae9925b08a9d781ad865c4037796a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-17a8defbb526",
+      "file": "junction-J-17a8defbb526.png",
+      "title": "Rejected J-17a8defbb526 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-17a8defbb526",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ec58ee343fc9f08e305cf08deae00e4d2b0b89d66e2a03671837a62426c89729",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          933.8685291452733,
+          1448.5703261854424
+        ],
+        [
+          935.3745627157653,
+          1448.013748561565
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-90c511ad314c",
+      "file": "junction-J-90c511ad314c.png",
+      "title": "Rejected J-90c511ad314c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-90c511ad314c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "d7a89decb43b500aeee7c766895aee2b5a0709c2d818690f8b8653ac19dc4cbd",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2776.3263295099064,
+          1421.6266270011654
+        ],
+        [
+          2777.921206341023,
+          1421.8142595695322
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-73370bb9abae",
+      "file": "junction-J-73370bb9abae.png",
+      "title": "Rejected J-73370bb9abae unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-73370bb9abae",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "50f5d8dbe2d3aa3035b34f49660846ba7af2a67ebffec8f0680a7545dd145359",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b79b0e404502",
+      "file": "junction-J-b79b0e404502.png",
+      "title": "Rejected J-b79b0e404502 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b79b0e404502",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e30b0e4c78a4d3a6baf48a6ae131f255a8ae7f8c25f2029010afd8a53d6d6a7b",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-71641560f6c4",
+      "file": "junction-J-71641560f6c4.png",
+      "title": "Rejected J-71641560f6c4 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-71641560f6c4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "7c91cee6217e4f8325e3a8687b723de7efb8f5dca446f866877be302104d2b14",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e9f822244327",
+      "file": "junction-J-e9f822244327.png",
+      "title": "Rejected J-e9f822244327 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e9f822244327",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a968726e53db670fef9245c4eb355e21f80a0bd2ad3991c47a87fc4574ea2c7d",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-7fe59ad68438",
+      "file": "junction-J-7fe59ad68438.png",
+      "title": "Rejected J-7fe59ad68438 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-7fe59ad68438",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "bf834c65392cd9aacd86d1ebbeffe6d6ca4a50f01a33f08cf0eacbd8f562fc11",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-506f42bd68c9",
+      "file": "junction-J-506f42bd68c9.png",
+      "title": "Rejected J-506f42bd68c9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-506f42bd68c9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2363d8f03c9865557b00a0e44f049bfe8f8f19cec6a5ccd6fe5af7b73f4db10f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2005.4519711588339,
+          799.6365352560778
+        ],
+        [
+          2007.0699702426202,
+          799.528668650492
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5f13df84c1a3",
+      "file": "junction-J-5f13df84c1a3.png",
+      "title": "Rejected J-5f13df84c1a3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5f13df84c1a3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "acb5787aad88322a1b2eda7b271caade2f2d6c5c3fc120e85b6d2c8c34e90319",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-9dd176b51501",
+      "file": "junction-J-9dd176b51501.png",
+      "title": "Rejected J-9dd176b51501 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-9dd176b51501",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "11f8d7cdc7a9135207b74755d16c40bb8e2faad786f018444c16847a377267ed",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1195.9955914657753,
+          1360.8466625231797
+        ],
+        [
+          1197.6172154187557,
+          1360.6595520670667
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-651d4cac257d",
+      "file": "junction-J-651d4cac257d.png",
+      "title": "Rejected J-651d4cac257d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-651d4cac257d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e3cacaade73969b759d77f451f460db8179e7a8c6af6a489fdc859ad4c07f988",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ],
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c0c8d733305e",
+      "file": "junction-J-c0c8d733305e.png",
+      "title": "Rejected J-c0c8d733305e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c0c8d733305e",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "f1a567ebd85b1827d4aefd2f1b7164e209aa3cb0981e7c216c492f18b8b97853",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-a39df83d512c",
+      "file": "junction-J-a39df83d512c.png",
+      "title": "Rejected J-a39df83d512c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-a39df83d512c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "60546b373ad0b6539faa8d08c1e8af0b959eef16d70f10466285c11d48d83f40",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b8b450fa4343",
+      "file": "junction-J-b8b450fa4343.png",
+      "title": "Rejected J-b8b450fa4343 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b8b450fa4343",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "47636292e7c006553f4fc75fa60fa22343545afbd9394600f8d4fbfb66f3cb1f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-62fde455ef77",
+      "file": "junction-J-62fde455ef77.png",
+      "title": "Rejected J-62fde455ef77 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-62fde455ef77",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b78de2560134126318bb2025a9e99f0c9a286000e1bf040acbe1e56284ff8a80",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-2e2cdbe750f1",
+      "file": "junction-J-2e2cdbe750f1.png",
+      "title": "Rejected J-2e2cdbe750f1 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-2e2cdbe750f1",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b1330b4c7e517484ba2040aceff52f4a8d42c6f24b0d19d3242acfaf1047f167",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-413783b8dd65",
+      "file": "junction-J-413783b8dd65.png",
+      "title": "Rejected J-413783b8dd65 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-413783b8dd65",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "fac9e825eb33950afd46212b370e7ef8fe3e9f07eb12e3de50db9a0a33e4c478",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f7d7174c1745",
+      "file": "junction-J-f7d7174c1745.png",
+      "title": "Rejected J-f7d7174c1745 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f7d7174c1745",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "3900353cf77f394d1d8509852cd8105b654849bb434b0b98838b033b5c22d9de",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-edee1ea17606",
+      "file": "junction-J-edee1ea17606.png",
+      "title": "Rejected J-edee1ea17606 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-edee1ea17606",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9554270cfcf9b8f85394e1fd1cae328f1db80c4303f26f59ae173bc9c52f2b8b",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6502da3ca876",
+      "file": "junction-J-6502da3ca876.png",
+      "title": "Rejected J-6502da3ca876 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6502da3ca876",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "fa9afb7c6e21dd1dcc07302e425b6e3c749a77458bd49a8cec3a7fdd4398a2db",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-70c568e2502f",
+      "file": "junction-J-70c568e2502f.png",
+      "title": "Rejected J-70c568e2502f unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-70c568e2502f",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "45c78e4165ee757c2a03e814cd8801df7a5aef06428ec98c4998d3524ff35a7d",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2918.8650374441772,
+          1443.0180659567159
+        ],
+        [
+          2921.599983381803,
+          1443.777773161612
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6305a7aa2c46",
+      "file": "junction-J-6305a7aa2c46.png",
+      "title": "Rejected J-6305a7aa2c46 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6305a7aa2c46",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0a92ba8a126ac76fd89610dc965261bfeb8240d4e2b5cbcdb8fd24693094c69f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b848e1b53a4a",
+      "file": "junction-J-b848e1b53a4a.png",
+      "title": "Rejected J-b848e1b53a4a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b848e1b53a4a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e8c8bf15189b638a160f06d6db91accd56354231e9b40aaf945cd69a087bd764",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1038.590396475774,
+          1409.8687665198227
+        ],
+        [
+          1041.7639061014065,
+          1408.6959477451323
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e3ad06a642bf",
+      "file": "junction-J-e3ad06a642bf.png",
+      "title": "Rejected J-e3ad06a642bf unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e3ad06a642bf",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "22b059b4dcd9d2a0950f5698f51df2a46220f9efae2610f7825c275402fe5bb3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-ec91ea95eddb",
+      "file": "junction-J-ec91ea95eddb.png",
+      "title": "Rejected J-ec91ea95eddb unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-ec91ea95eddb",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "85d32ae6b8199681e22b107ffd970bedce8619590a45be20219c82e2d6384695",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-38bb550de0e5",
+      "file": "junction-J-38bb550de0e5.png",
+      "title": "Rejected J-38bb550de0e5 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-38bb550de0e5",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "cab0dff7d09b370fea6e20804ae48371ce643559d4530522c5cf6d35280c8a97",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2778.82849353605,
+          1426.4375421184056
+        ],
+        [
+          2777.921206341023,
+          1421.8142595695322
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-4f3a5d313e4c",
+      "file": "junction-J-4f3a5d313e4c.png",
+      "title": "Rejected J-4f3a5d313e4c missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-4f3a5d313e4c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "70c529f869db04fac9725464c622c59b28bc6603b7662ee8efebcb84c0fe3553",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2890,
+          1430
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5e14c7947490",
+      "file": "junction-J-5e14c7947490.png",
+      "title": "Rejected J-5e14c7947490 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5e14c7947490",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "062add7ea1fe5429d643f1e2d2224c9fb98b05fbbd2a8803dbee396886eebb9e",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2890,
+          1430
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-85c9e8981250",
+      "file": "junction-J-85c9e8981250.png",
+      "title": "Rejected J-85c9e8981250 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-85c9e8981250",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "79a820e2acc892e1a6beae7b1835ef635f45c74d5ac64fc6c80f8a25d66d2bb4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2890,
+          1430
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-68c0651d6c12",
+      "file": "junction-J-68c0651d6c12.png",
+      "title": "Rejected J-68c0651d6c12 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-68c0651d6c12",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "528a43d01cdd2bc3b8262c7927f65dcd95d3dc3cb8021ef0e250600a8a67a8f0",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2778.82849353605,
+          1426.4375421184056
+        ],
+        [
+          2781.9775106328134,
+          1422.2914718391546
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5e9ba65a28bb",
+      "file": "junction-J-5e9ba65a28bb.png",
+      "title": "Rejected J-5e9ba65a28bb unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5e9ba65a28bb",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9c8fd02fbe3bd5afe3bc0a8c565d962e1353cf3a7720e501a7e3ff440e26f972",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1310,
+          1637.751662095447
+        ],
+        [
+          1310,
+          1643.078665982555
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-1bf9d7bc8238",
+      "file": "junction-J-1bf9d7bc8238.png",
+      "title": "Rejected J-1bf9d7bc8238 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-1bf9d7bc8238",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e6ec5dbdab001027b29676c0eba6f9d37b0f42b2f4b981c55c5f68854f0c716a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2778.82849353605,
+          1426.4375421184056
+        ],
+        [
+          2776.3263295099064,
+          1421.6266270011654
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6c14389931c1",
+      "file": "junction-J-6c14389931c1.png",
+      "title": "Rejected J-6c14389931c1 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6c14389931c1",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "f2d14b665b2b4f01de9f249019f4043be6de9529fa61045fdc050b7e32709880",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          930.0530294906166,
+          1449.9804021447721
+        ],
+        [
+          935.3745627157653,
+          1448.013748561565
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-58230a3e68d3",
+      "file": "junction-J-58230a3e68d3.png",
+      "title": "Rejected J-58230a3e68d3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-58230a3e68d3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2a188efef20fee72423b288b698d0b4a4cce895feb67d988e849ed18f9cbaec3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3c7112e07da3",
+      "file": "junction-J-3c7112e07da3.png",
+      "title": "Rejected J-3c7112e07da3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3c7112e07da3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "34486c5e67dc8176b4ec6c62c30f49d23235575e6f9feb21c3b28d903151b558",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2776.3263295099064,
+          1421.6266270011654
+        ],
+        [
+          2781.9775106328134,
+          1422.2914718391546
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-853360cfcde6",
+      "file": "junction-J-853360cfcde6.png",
+      "title": "Rejected J-853360cfcde6 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-853360cfcde6",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "8d4106a495468d7e35384755b66c155c9dca1ed024eab78da132e788566b2fc0",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d2e5d0f63695",
+      "file": "junction-J-d2e5d0f63695.png",
+      "title": "Rejected J-d2e5d0f63695 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d2e5d0f63695",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "70f9b1f056d95629d5e9c1fa3b770eabbdc9797ea51c2ceabf1a7ff3c4939aaf",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e27f3ed56e57",
+      "file": "junction-J-e27f3ed56e57.png",
+      "title": "Rejected J-e27f3ed56e57 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e27f3ed56e57",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b2df48b05d2ddd7ed7178a0319b88d6dd00738352351649c32e9bc69af321ce1",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-408adc9acee9",
+      "file": "junction-J-408adc9acee9.png",
+      "title": "Rejected J-408adc9acee9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-408adc9acee9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "10874e44a414c6e16247a9b1d1a77104af00f69b23a5e321e2747a73c05dc037",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-81ce17aa6874",
+      "file": "junction-J-81ce17aa6874.png",
+      "title": "Rejected J-81ce17aa6874 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-81ce17aa6874",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "986fce3d6c9d43b5ab059e28d53d6f0ab7d9340156b61d5d98b1a16cafcd0cc8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-787514e9c6b4",
+      "file": "junction-J-787514e9c6b4.png",
+      "title": "Rejected J-787514e9c6b4 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-787514e9c6b4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ee4bde17313f877d45bc391d5437df7c4b6740ad5cf70462268c59f2b12ca3d9",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-91238423b38b",
+      "file": "junction-J-91238423b38b.png",
+      "title": "Rejected J-91238423b38b unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-91238423b38b",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0c553f02591ce5f410b48dfb1e328fd670c11bfa6534d5fd2611998bc31b5f52",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-dab33e8c7a16",
+      "file": "junction-J-dab33e8c7a16.png",
+      "title": "Rejected J-dab33e8c7a16 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-dab33e8c7a16",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ad12382018d2ff405663104c79b32a84cfe464584c905a0e4759d9380138ab7a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-00ce4b4f835d",
+      "file": "junction-J-00ce4b4f835d.png",
+      "title": "Rejected J-00ce4b4f835d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-00ce4b4f835d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ff24ecbf966c5ad171b631680bf83c3d4f523e09230f5845d2dd1fc6b7164e68",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d8d09e2dc708",
+      "file": "junction-J-d8d09e2dc708.png",
+      "title": "Rejected J-d8d09e2dc708 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d8d09e2dc708",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "771297ae1b8bd1d55e467eac7cb237b5097cc368441c6241344030ea68b5fbd3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c81502062655",
+      "file": "junction-J-c81502062655.png",
+      "title": "Rejected J-c81502062655 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c81502062655",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "32080d349c102688a81c4e45e7292d9fa3a4c35b980bf296b979ad0acf4fe671",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-bf7e9df35ed3",
+      "file": "junction-J-bf7e9df35ed3.png",
+      "title": "Rejected J-bf7e9df35ed3 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-bf7e9df35ed3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "c036853f85aac6842d09519662aedeeaf32737c68eaeb909582fead38e264587",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-4e6e60c9da94",
+      "file": "junction-J-4e6e60c9da94.png",
+      "title": "Rejected J-4e6e60c9da94 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-4e6e60c9da94",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "cee747a8f11ca9ecf093039a791fd31e65554f9ca2689cd63e3d6c15e65cd4d4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-1cf7e9b05621",
+      "file": "junction-J-1cf7e9b05621.png",
+      "title": "Rejected J-1cf7e9b05621 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-1cf7e9b05621",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "772759514bbaf5d0555c833d2f551187bdc2512c8964c955a9428c58718fc947",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2000,
+          800
+        ],
+        [
+          2007.0699702426202,
+          799.528668650492
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d6b2bf8f1863",
+      "file": "junction-J-d6b2bf8f1863.png",
+      "title": "Rejected J-d6b2bf8f1863 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d6b2bf8f1863",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "71c728ae421dbefc8356fa16ea0230327029d329728a0136d351ba3a81b9278a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e0bdcee8d621",
+      "file": "junction-J-e0bdcee8d621.png",
+      "title": "Rejected J-e0bdcee8d621 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e0bdcee8d621",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "7d290cf80cfdf54e3eee074cc001068ec6eeb856e011695026e4a492b59a4140",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-7f105e1ebfaa",
+      "file": "junction-J-7f105e1ebfaa.png",
+      "title": "Rejected J-7f105e1ebfaa unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-7f105e1ebfaa",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "1d47437a5feb6d01ebba6c8ea86a1df489d9735a9dfa89859209ead88e22bcb2",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3142.3688439801335,
+          1503.8597431066964
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-62b856ca6b77",
+      "file": "junction-J-62b856ca6b77.png",
+      "title": "Rejected J-62b856ca6b77 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-62b856ca6b77",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b1087371457d687088c63ee6d6ef3bd9d40f09a4aae73676f23b732b9f114706",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1172.9629380993897,
+          1363.5042763731474
+        ],
+        [
+          1180.3783563481534,
+          1362.6486511905978
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-0e426bbe39a2",
+      "file": "junction-J-0e426bbe39a2.png",
+      "title": "Rejected J-0e426bbe39a2 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-0e426bbe39a2",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9fe40c16e3ec39958db26bc6b23c18c1291ee95b9d96c66ed3e14f2b5222f501",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-0126fb01a45a",
+      "file": "junction-J-0126fb01a45a.png",
+      "title": "Rejected J-0126fb01a45a missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-0126fb01a45a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "4367dacff33e0eb9e067dd81a8c3a2aab3defcd9434ada71c4539729b36e30dc",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1278.4014869888476,
+          1351.3382899628252
+        ],
+        [
+          1286.1147544065063,
+          1350.44829756848
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-220210092bf1",
+      "file": "junction-J-220210092bf1.png",
+      "title": "Rejected J-220210092bf1 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-220210092bf1",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "999b018bb31a26c318e4bfeaed0ea4af62c283b5493e8e937366ce7379338056",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1278.4014869888476,
+          1351.3382899628252
+        ],
+        [
+          1286.1147544065063,
+          1350.44829756848
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-4f53591ef51c",
+      "file": "junction-J-4f53591ef51c.png",
+      "title": "Rejected J-4f53591ef51c missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-4f53591ef51c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "eca481db2e39eef7c14a46bfba1a7d37007f2ebf0d8abcd2d8a8fc489fe9fd57",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1278.4014869888476,
+          1351.3382899628252
+        ],
+        [
+          1286.1147544065063,
+          1350.44829756848
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f04e0c5be4ad",
+      "file": "junction-J-f04e0c5be4ad.png",
+      "title": "Rejected J-f04e0c5be4ad unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f04e0c5be4ad",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a2333b64a7e3389960bcc75467bdee2d6e5f2dc771b484b021606bbc073f4ca1",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-052a4f8de6b2",
+      "file": "junction-J-052a4f8de6b2.png",
+      "title": "Rejected J-052a4f8de6b2 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-052a4f8de6b2",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "82d3cdd02277443ae5c7e29b877e8fdb2ac41f40f89f6a32ebada987a13efb26",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3148.9883623275346,
+          1506.9412117576485
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-63103de4ef6c",
+      "file": "junction-J-63103de4ef6c.png",
+      "title": "Rejected J-63103de4ef6c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-63103de4ef6c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9bae5607aafc34d509982954cae4ad8b72f33d616dcf407c02a17fc5dd2cad6a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2007.0699702426202,
+          799.528668650492
+        ],
+        [
+          2015.5659262110298,
+          798.9622715859314
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f26a7087c4b7",
+      "file": "junction-J-f26a7087c4b7.png",
+      "title": "Rejected J-f26a7087c4b7 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f26a7087c4b7",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "baafe3e526f78d375b3dbfa52573054a7116534eecb370a80c32933fb6decbf3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2005.4519711588339,
+          799.6365352560778
+        ],
+        [
+          2013.9663346757445,
+          799.068911021617
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b62b881ab31e",
+      "file": "junction-J-b62b881ab31e.png",
+      "title": "Rejected J-b62b881ab31e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b62b881ab31e",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "af6aec075eaa7d64df64a5e2b3cb9150f3ee6f3fa403280dbad521874a5971e5",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-55bbb37941db",
+      "file": "junction-J-55bbb37941db.png",
+      "title": "Rejected J-55bbb37941db unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-55bbb37941db",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "32d6784d4f18ccbabb1c2e5a0e73704ed9547c58147447fed921f12febbca6b4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3140.9804531319423,
+          1504.7167925366507
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-558cb828684b",
+      "file": "junction-J-558cb828684b.png",
+      "title": "Rejected J-558cb828684b missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-558cb828684b",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "face4a3650a821ef1a3ef084ed677658bf95d6e566d7d4f403bd9b15a3ec1cbd",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3141.947854142161,
+          1504.9855150394892
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f0d73d63eec2",
+      "file": "junction-J-f0d73d63eec2.png",
+      "title": "Rejected J-f0d73d63eec2 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f0d73d63eec2",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a0db8fd4500b41e036d1549b29f6c269b0ac59b72cc2ca88c0cb107ecb21ff86",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ],
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-72afe886ae95",
+      "file": "junction-J-72afe886ae95.png",
+      "title": "Rejected J-72afe886ae95 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-72afe886ae95",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a2c25f858b7af0083b4e401a81f67abd58e709f6423b06532bd71e3324fd8c1f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-21ca353fad05",
+      "file": "junction-J-21ca353fad05.png",
+      "title": "Rejected J-21ca353fad05 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-21ca353fad05",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "882c6ede97cc9cd39bb36a861aa0bec35f4bc0a9716ed191da1445653ef6dbde",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3160,
+          1510
+        ],
+        [
+          3169.996156559074,
+          1509.9991459020164
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-91668d25a9fe",
+      "file": "junction-J-91668d25a9fe.png",
+      "title": "Rejected J-91668d25a9fe unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-91668d25a9fe",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "61b69e6fc555ce122e2ef2c1d74772d93b008e0a6328148560906ab362f53e3b",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ],
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-fa137067ba59",
+      "file": "junction-J-fa137067ba59.png",
+      "title": "Rejected J-fa137067ba59 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-fa137067ba59",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "fa853ead8c9dff3360f7a33330c1d21b31f98723feea0962a4af0924e129b2fe",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2005.4519711588339,
+          799.6365352560778
+        ],
+        [
+          2015.5659262110298,
+          798.9622715859314
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-084293d5ab64",
+      "file": "junction-J-084293d5ab64.png",
+      "title": "Rejected J-084293d5ab64 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-084293d5ab64",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "700a93eeb89b369932f6967184fedc9161495a2d46fa6429c9509ec93971b9a5",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5eea4fa381b6",
+      "file": "junction-J-5eea4fa381b6.png",
+      "title": "Rejected J-5eea4fa381b6 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5eea4fa381b6",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "536f6464eb0e63bb936aeb59c3919100577253c2f8b3477b823692ba20a0bb02",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ],
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-692fffaf21c7",
+      "file": "junction-J-692fffaf21c7.png",
+      "title": "Rejected J-692fffaf21c7 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-692fffaf21c7",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e93048d9be3e455a94f0c44ecaac999a7aee8370621ffbcbecd4508da9cca412",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ],
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-a5d81922f709",
+      "file": "junction-J-a5d81922f709.png",
+      "title": "Rejected J-a5d81922f709 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-a5d81922f709",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e5ba9d2c76e1732f42708fa018b5e63018f36677045c8046f7897c92454ce93b",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2919.3345452068656,
+          1454.2965656015258
+        ],
+        [
+          2921.599983381803,
+          1443.777773161612
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-060c2576e7bd",
+      "file": "junction-J-060c2576e7bd.png",
+      "title": "Rejected J-060c2576e7bd unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-060c2576e7bd",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "34aa2ac2309647bd86397ea56937a46e19d37102a774844abfd62f9aa938d043",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d1c5b83f089c",
+      "file": "junction-J-d1c5b83f089c.png",
+      "title": "Rejected J-d1c5b83f089c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d1c5b83f089c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0af29069a67e1e90ad0aa3b37e2b11bb733e87cde5b437e8f5575f8a80c09a56",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-7fa2a645ef80",
+      "file": "junction-J-7fa2a645ef80.png",
+      "title": "Rejected J-7fa2a645ef80 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-7fa2a645ef80",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "629238f3f162b31e1117e9f2402d2743b3a749d1ebcf3097734271d0113cd7cc",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2919.3345452068656,
+          1454.2965656015258
+        ],
+        [
+          2920.4079273577768,
+          1443.4466464882714
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6957cdb44434",
+      "file": "junction-J-6957cdb44434.png",
+      "title": "Rejected J-6957cdb44434 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6957cdb44434",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2eff5cb91eb792975993f1dc7fbc75b766c23b1e4024a1a19862b1c5b3c72ead",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ],
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-a10d009303ea",
+      "file": "junction-J-a10d009303ea.png",
+      "title": "Rejected J-a10d009303ea unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-a10d009303ea",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "2459b609729ad7801a30e19e484f5dab1e247c36d3726e66dd67a7916efe3870",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e776df263995",
+      "file": "junction-J-e776df263995.png",
+      "title": "Rejected J-e776df263995 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e776df263995",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "66778eed97a49c4b71b3d3d087497a545453150cee08419053a5dd9019fe3915",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c83bf14349cc",
+      "file": "junction-J-c83bf14349cc.png",
+      "title": "Rejected J-c83bf14349cc unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c83bf14349cc",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0ba7ba753e7faadd3c7d6437d9bd894a84fccbb85def9c9b133ae46c6e338403",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3143.494356888663,
+          1505.4150991357396
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d0b89a0a88f9",
+      "file": "junction-J-d0b89a0a88f9.png",
+      "title": "Rejected J-d0b89a0a88f9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d0b89a0a88f9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "5b432a85e668c21100817c3c484e46c3254238eb04b528ff02ef01cff9922c9f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2919.3345452068656,
+          1454.2965656015258
+        ],
+        [
+          2918.8650374441772,
+          1443.0180659567159
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-33ed760d8ccd",
+      "file": "junction-J-33ed760d8ccd.png",
+      "title": "Rejected J-33ed760d8ccd unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-33ed760d8ccd",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "3f40d3b03953afc0f9e3bc4e3532e0ac027662f1f584e102c384575d3e6e617e",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-73d162a53b20",
+      "file": "junction-J-73d162a53b20.png",
+      "title": "Rejected J-73d162a53b20 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-73d162a53b20",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "7ba756dbf84b2e9e2f5bc7447ef8812825443d611ee21a002da25578c3475da4",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3095.1391016413813,
+          1493.364244809196
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6576d984ac9c",
+      "file": "junction-J-6576d984ac9c.png",
+      "title": "Rejected J-6576d984ac9c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6576d984ac9c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9f2aeff3e5fe38b7b6912f3aec677836296b8f19b2b315209283a38051443d76",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3095.574170524495,
+          1492.1039362568042
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c516d66ffafe",
+      "file": "junction-J-c516d66ffafe.png",
+      "title": "Rejected J-c516d66ffafe unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c516d66ffafe",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "6a11d4ddb27ede7482957c8a5754772fcafdbad7c966d06690f69eb71bbdb392",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3086.1766553839107,
+          1489.4935153844197
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-2c7731ad31a0",
+      "file": "junction-J-2c7731ad31a0.png",
+      "title": "Rejected J-2c7731ad31a0 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-2c7731ad31a0",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ea0660a4f32c101089a5e138146a6c28add2904f291c9c1e0a88ab0dc97a5b2a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3143.944766839378,
+          1504.2099481865284
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-a28793ebc7df",
+      "file": "junction-J-a28793ebc7df.png",
+      "title": "Rejected J-a28793ebc7df unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-a28793ebc7df",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "8789dc880de8a8b8faa4f6363688faf739a624924faf5d5c0110fe0b39564bdd",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3160,
+          1510
+        ],
+        [
+          3149.537652811736,
+          1505.4528117359414
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c50cd34074f7",
+      "file": "junction-J-c50cd34074f7.png",
+      "title": "Rejected J-c50cd34074f7 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c50cd34074f7",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b6f5c42b1abca880144a0fd3c2d7660e6ef0b57ac0059e0d50f9d380a1e19120",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f0b671873e86",
+      "file": "junction-J-f0b671873e86.png",
+      "title": "Rejected J-f0b671873e86 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f0b671873e86",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "5281e0eac02289f4be23bb29bbed025730107008c00b529a77f97995bdfbae71",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e362c72aac8a",
+      "file": "junction-J-e362c72aac8a.png",
+      "title": "Rejected J-e362c72aac8a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e362c72aac8a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "b0091a93ab2b471d4ee52b558192fc68227b2fc882cbefba0d21d22c5e2835f0",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2868.8404195573175,
+          1432.5106375949786
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5991e71e68c8",
+      "file": "junction-J-5991e71e68c8.png",
+      "title": "Rejected J-5991e71e68c8 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5991e71e68c8",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "ebd3a6f0970485a342c7c483d70d0c14edaa94c3d4040ebcc7154436c0f66f43",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3085.5711963110716,
+          1491.2380436246826
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-dcbe1cff8bf2",
+      "file": "junction-J-dcbe1cff8bf2.png",
+      "title": "Rejected J-dcbe1cff8bf2 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-dcbe1cff8bf2",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "83d5e867f0432840e265bc76809323f15e092aed6c419eeb9e14b4b5c99c629a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ],
+        [
+          2872.924891005291,
+          1432.9911636476813
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d6dfc232bbb9",
+      "file": "junction-J-d6dfc232bbb9.png",
+      "title": "Rejected J-d6dfc232bbb9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d6dfc232bbb9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "bcbb53f661f43107892e958167581b3254af3544f81b8f5bf863a10f9c244e68",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e2808bd7b9f4",
+      "file": "junction-J-e2808bd7b9f4.png",
+      "title": "Rejected J-e2808bd7b9f4 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e2808bd7b9f4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "28680252cb1a01def580d7e3e0853534deb27e8f4df7df93442bbffc38608952",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3121.240773594637,
+          1499.2335482207325
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-0570e8969b06",
+      "file": "junction-J-0570e8969b06.png",
+      "title": "Rejected J-0570e8969b06 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-0570e8969b06",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "96b2baa118a62e6375673a9dce23c1109dde183eae26ca058ad72872241f7588",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-05f3dda9cf54",
+      "file": "junction-J-05f3dda9cf54.png",
+      "title": "Rejected J-05f3dda9cf54 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-05f3dda9cf54",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "19d5513ff78a6f9906b442f4ed57bc4e134f5f70d53e2c03739f4c05eb870911",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-12ca4a19fdbb",
+      "file": "junction-J-12ca4a19fdbb.png",
+      "title": "Rejected J-12ca4a19fdbb missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-12ca4a19fdbb",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e836d7658b960f8e71f6f3e25a450b2bed34a58af0133a21127485ea65685c12",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-1d58159eca6c",
+      "file": "junction-J-1d58159eca6c.png",
+      "title": "Rejected J-1d58159eca6c missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-1d58159eca6c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "699f200b7e54fce16ebac02884096cfbf9a20fb60a4c85ff51aa747d38923f0b",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-212c1cfc117f",
+      "file": "junction-J-212c1cfc117f.png",
+      "title": "Rejected J-212c1cfc117f missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-212c1cfc117f",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "c86d3b5a4b47ae2609e4674d54537edc53994c327397eee32945b5e3a58e42a3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-378618f0bda4",
+      "file": "junction-J-378618f0bda4.png",
+      "title": "Rejected J-378618f0bda4 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-378618f0bda4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "cbdf0cc47f2a31f169a7804383b341369fe616a7fb1e708e9a677f926460db21",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3a7cb4b186a1",
+      "file": "junction-J-3a7cb4b186a1.png",
+      "title": "Rejected J-3a7cb4b186a1 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3a7cb4b186a1",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "17b6a2776b905a75037467c4c25f1fd0d21d27c0ec72f45518db12f891294f46",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3c4ca5af27f4",
+      "file": "junction-J-3c4ca5af27f4.png",
+      "title": "Rejected J-3c4ca5af27f4 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3c4ca5af27f4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "c01008b5d147ce611c6d896073cb063a908b3954e842794b5b076caea4fedfef",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-4bee675a2fe6",
+      "file": "junction-J-4bee675a2fe6.png",
+      "title": "Rejected J-4bee675a2fe6 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-4bee675a2fe6",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0516871767e4d8ebc21fd9b302df14c36938f66504f50698fb49c28a85d7b4d9",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-5e494b7d57a6",
+      "file": "junction-J-5e494b7d57a6.png",
+      "title": "Rejected J-5e494b7d57a6 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-5e494b7d57a6",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "71a56e808bb744100a2d0ed2d42a65550d97688a1e7d8f2e9b2648d6a362aa1a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6c3ff42a2a20",
+      "file": "junction-J-6c3ff42a2a20.png",
+      "title": "Rejected J-6c3ff42a2a20 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6c3ff42a2a20",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "fc44eca6d85ea4f473b1b9e80e0ec94366409b463a5ad2a3191a371ed1ae2cb7",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-75f317b3471f",
+      "file": "junction-J-75f317b3471f.png",
+      "title": "Rejected J-75f317b3471f missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-75f317b3471f",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "964973ece9e9315335a2c2730ffb1bce8a4db52db4c32ead624c33a3c257176c",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-7f04b73b354d",
+      "file": "junction-J-7f04b73b354d.png",
+      "title": "Rejected J-7f04b73b354d missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-7f04b73b354d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "bb636ac48938db9db2051b3ddb945e5ad3ec13af91a5a73cca53e8082f4ffb21",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-d66e3eaae51f",
+      "file": "junction-J-d66e3eaae51f.png",
+      "title": "Rejected J-d66e3eaae51f missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-d66e3eaae51f",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "36d00646046f326e114da6fbf871d3e63a1ea406c7519c9d6b0c5c9587f82fd3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-f9e22c59c1c3",
+      "file": "junction-J-f9e22c59c1c3.png",
+      "title": "Rejected J-f9e22c59c1c3 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-f9e22c59c1c3",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "399a452c241b0d303f25bc1f30b8fece7543fa78642a4991280e0cf9bcc1b354",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-ad4b8f3da881",
+      "file": "junction-J-ad4b8f3da881.png",
+      "title": "Rejected J-ad4b8f3da881 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-ad4b8f3da881",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a2a13f7061abffba118b57c6acb5507d8f1a7073b9afcce0280d25dc21496350",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.743467243511,
+          1499.0541038318913
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-55948d3d4ff2",
+      "file": "junction-J-55948d3d4ff2.png",
+      "title": "Rejected J-55948d3d4ff2 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-55948d3d4ff2",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "825fd30ba95673afa37de5e593878e8245563ea1151fba77abbde7d45e89e6f0",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.2108603039724,
+          1442.4913022897715
+        ],
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-3aa644ed562b",
+      "file": "junction-J-3aa644ed562b.png",
+      "title": "Rejected J-3aa644ed562b unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-3aa644ed562b",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "67eb3db25f8b675fa5999f9416954343a7b3d8d3d4e1b7a7b7e00df5bb4998d2",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2866.5373584905656,
+          1432.2396892341842
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-6013f14e700a",
+      "file": "junction-J-6013f14e700a.png",
+      "title": "Rejected J-6013f14e700a unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-6013f14e700a",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "77540da7b8307d52ae04146cfd6858da037df5e7dda45a37f1399375ca5cc8d8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3096.7124400754105,
+          1493.7138755723136
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-44080eff1e47",
+      "file": "junction-J-44080eff1e47.png",
+      "title": "Rejected J-44080eff1e47 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-44080eff1e47",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a23b3744a198ca7c9036e30255140b980fd86e07cde4ed808736ea0e560a2d35",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3084.6343881465805,
+          1489.0651078184944
+        ],
+        [
+          3097.1221828284165,
+          1492.53393967456
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b084c48db97c",
+      "file": "junction-J-b084c48db97c.png",
+      "title": "Rejected J-b084c48db97c unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b084c48db97c",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "5fab4ded073fc2c8d944a89e8a2bd66da254b57d8c6f39e784c698d530396a50",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ],
+        [
+          3160,
+          1510
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-ec6b8842480e",
+      "file": "junction-J-ec6b8842480e.png",
+      "title": "Rejected J-ec6b8842480e unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-ec6b8842480e",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "34d40792dd776e41c462f07019dec7136992cd4654af0589b40ff0500e23c227",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ],
+        [
+          3160,
+          1510
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-1ba8be6b2bb0",
+      "file": "junction-J-1ba8be6b2bb0.png",
+      "title": "Rejected J-1ba8be6b2bb0 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-1ba8be6b2bb0",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "f86c3d472d8f7caec2e2834a5a8d79c829dff3c36164659bf0d2c31b9eacd994",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-20cdaeabd391",
+      "file": "junction-J-20cdaeabd391.png",
+      "title": "Rejected J-20cdaeabd391 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-20cdaeabd391",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "a9b4d546f5ce388edfe1650b48f8d3210134f4d7ca72ea63bb7c549f06af0303",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-541416190268",
+      "file": "junction-J-541416190268.png",
+      "title": "Rejected J-541416190268 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-541416190268",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e91c21ed6659c933f287ec6b75dda699750d4869c8cb0d8007218f8da919343a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c95fd1670ce9",
+      "file": "junction-J-c95fd1670ce9.png",
+      "title": "Rejected J-c95fd1670ce9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c95fd1670ce9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "9bc8bdd63adb71c07ea5bc4248ff3ddfd6c7fd202868b9ff11dda8752007d176",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3120.000000000001,
+          1498.8888888888891
+        ],
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-c8649ac7e57b",
+      "file": "junction-J-c8649ac7e57b.png",
+      "title": "Rejected J-c8649ac7e57b unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-c8649ac7e57b",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "6f89ece03cd55d5c71dbaa84a3bca62db4d840603d3ec12be933ea52608e52b0",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2870.1900091614943,
+          1443.375557591443
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-04a20fa0cffe",
+      "file": "junction-J-04a20fa0cffe.png",
+      "title": "Rejected J-04a20fa0cffe unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-04a20fa0cffe",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "c5d94a0a633b4961777c8faadadaad0050dae1889692e5dc01f0e53a9fc03ef3",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2000,
+          800
+        ],
+        [
+          2013.9663346757445,
+          799.068911021617
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-82e74e4e6b63",
+      "file": "junction-J-82e74e4e6b63.png",
+      "title": "Rejected J-82e74e4e6b63 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-82e74e4e6b63",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "f0743c74d37793ffcafe8e63c16d640e10e1544f234eb6994747bdcaa3ff4099",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2921.599983381803,
+          1443.777773161612
+        ],
+        [
+          2935.3927085714286,
+          1447.6090857142856
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-363fbc4beea4",
+      "file": "junction-J-363fbc4beea4.png",
+      "title": "Rejected J-363fbc4beea4 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-363fbc4beea4",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "7df98503761bc5717a8ac5cabb2378b3a79d6013b08907c0011fa747dd3d68f8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-9099391b6ffb",
+      "file": "junction-J-9099391b6ffb.png",
+      "title": "Rejected J-9099391b6ffb missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-9099391b6ffb",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "0f62ecdd901a4da42f102202fdfb9bcf35bbc1141601510cc01c9d329d0f6148",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b785a4ee7530",
+      "file": "junction-J-b785a4ee7530.png",
+      "title": "Rejected J-b785a4ee7530 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b785a4ee7530",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "484166e841feb2d97bc58e993aea041d97bc045151bf1a81bf3815d2d2901467",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2874.5264697106145,
+          1433.179584671837
+        ],
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-708d5bec52ec",
+      "file": "junction-J-708d5bec52ec.png",
+      "title": "Rejected J-708d5bec52ec unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-708d5bec52ec",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "3c48938ad1fd96d98f442fdd6f814b83bed9c56afee85835de1514bfa5e3d1a5",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ],
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-eb08df0c4aa9",
+      "file": "junction-J-eb08df0c4aa9.png",
+      "title": "Rejected J-eb08df0c4aa9 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-eb08df0c4aa9",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "56e4ddf137bba89db3e681f0d8794ad2020318e8e219feb68feca828c864a035",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-fdfb456f11ca",
+      "file": "junction-J-fdfb456f11ca.png",
+      "title": "Rejected J-fdfb456f11ca unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-fdfb456f11ca",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "e2c0f9444f4ec6ac62e69d03871e0b9140f33ffe0137585529f9e5939190d0a8",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ],
+        [
+          2885.9798994974876,
+          1446.8844221105528
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-e6363d91b841",
+      "file": "junction-J-e6363d91b841.png",
+      "title": "Rejected J-e6363d91b841 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-e6363d91b841",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "6ec9c81d47c1e9aadaa61dd103c9458822cb2eb2287f8fe4e15e0f0cc4e574e7",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2863.189083932854,
+          1431.8457745803357
+        ],
+        [
+          2871.752222854175,
+          1443.7227161898168
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-832c560fb4d5",
+      "file": "junction-J-832c560fb4d5.png",
+      "title": "Rejected J-832c560fb4d5 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-832c560fb4d5",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "d4dbada955b5c4c0bd34b479edd01e3f8b71ca61d3a2f6ac4ce142aa755c4c0f",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          1308,
+          1790
+        ],
+        [
+          1310,
+          1775
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-9dc11a12e981",
+      "file": "junction-J-9dc11a12e981.png",
+      "title": "Rejected J-9dc11a12e981 missing-corridor-connection",
+      "url": "http://127.0.0.1:4771/?view=junction-J-9dc11a12e981",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "5915edab86962e99854d5672913da92b2fabe8fe61ce3698b93d2433d88a460d",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          2000,
+          800
+        ],
+        [
+          1997,
+          785
+        ]
+      ],
+      "classification": "missing-corridor-connection",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-b1ce049d4b03",
+      "file": "junction-J-b1ce049d4b03.png",
+      "title": "Rejected J-b1ce049d4b03 unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-b1ce049d4b03",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "330e64f67c6aa74f9829f01a0359dbd7530ba7e197d8ba09446ff33ef61cd53a",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3147.441389076197,
+          1506.5114969656101
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    },
+    {
+      "id": "junction-J-722789be415d",
+      "file": "junction-J-722789be415d.png",
+      "title": "Rejected J-722789be415d unresolved-source-evidence",
+      "url": "http://127.0.0.1:4771/?view=junction-J-722789be415d",
+      "viewport": {
+        "width": 1800,
+        "height": 1100
+      },
+      "sha256": "68f3d64373671edd083824e5242d00aa02799537177ecd41a5676cab0658b559",
+      "sourceViewBox": [
+        650,
+        500,
+        3100,
+        1550
+      ],
+      "coordinates": [
+        [
+          3132.833423913044,
+          1501.7407608695653
+        ],
+        [
+          3147.959862590175,
+          1505.1021916867055
+        ]
+      ],
+      "classification": "unresolved-source-evidence",
+      "decision": "not-authorized"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Navigation V2 diagnostic browser baseline and review captures; V2 is not runtime-promoted.",
+  "sourceCommit": "0223812",
+  "application": {
+    "url": "http://localhost:4666/",
+    "title": "B03 · Academy wayfinding",
+    "floor": "GF",
+    "e2eCommand": "$env:QA_BASE_URL='http://localhost:4666'; $env:QA_ARTIFACT_DIR='artifacts/navigation-v2/browser-baseline'; npm.cmd exec -- playwright test tests/e2e/wayfinding.qa.spec.ts tests/e2e/floor-picker.qa.spec.ts",
+    "result": {
+      "passed": 10,
+      "failed": 4,
+      "skipped": 0,
+      "total": 14
+    },
+    "failures": [
+      {
+        "test": "unavailable destination remains discoverable but blocks route start (US2)",
+        "result": "expected known product behavior failure",
+        "evidence": "artifacts/navigation-v2/browser-baseline/browser-tests/wayfinding.qa-unavailable--ac03e-but-blocks-route-start-US2-/error-context.md"
+      },
+      {
+        "test": "English actual entrance and cross-wing routes, keyboard, planning reset and map controls",
+        "result": "timeout: detail card intercepts reset-kiosk click",
+        "evidence": "artifacts/navigation-v2/browser-baseline/browser-tests/wayfinding.qa-English-actu-8ecf8-ning-reset-and-map-controls/error-context.md"
+      },
+      {
+        "test": "mobile and 200 percent text retain usable controls without horizontal overflow",
+        "result": "timeout: Go here button outside viewport",
+        "evidence": "artifacts/navigation-v2/browser-baseline/browser-tests/wayfinding.qa-mobile-and-2-92344-without-horizontal-overflow/error-context.md"
+      },
+      {
+        "test": "reviewed raised-scene visual baselines: default, popup, successful route, Arabic, mobile",
+        "result": "existing screenshot snapshot mismatch",
+        "evidence": "artifacts/navigation-v2/browser-baseline/browser-tests/wayfinding.qa-reviewed-rai-997e4-cessful-route-Arabic-mobile/error-context.md"
+      }
+    ],
+    "passingCoverage": [
+      "floor picker registered Ground/First Floor navigation",
+      "route playback pause, stop, reset and reduced-motion behavior",
+      "Arabic routes, RTL, language switching and endpoint preservation",
+      "bilingual destination labels and speech behavior",
+      "axe-backed WCAG AA contrast/semantics states",
+      "WebGL-unavailable fallback",
+      "partial-route behavior"
+    ],
+    "applicationViewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "runtimePromotion": false
+  },
+  "liveV2Test": {
+    "url": "http://127.0.0.1:5250/",
+    "environment": "WAYFINDING_GRAPH_MODE=navigation-v2-diagnostic; development-only graph selector",
+    "testCommand": "QA_BASE_URL=http://127.0.0.1:5250 QA_ARTIFACT_DIR=artifacts/navigation-v2/port-5250-e2e npm.cmd exec -- playwright test tests/e2e/navigation-v2-diagnostic.qa.spec.ts",
+    "result": { "passed": 1, "failed": 0, "total": 1 },
+    "screenshot": "artifacts/navigation-v2/port-5250-e2e/g39-g40-unavailable.png",
+    "assertions": [
+      "A visible development-only banner identifies the diagnostic candidate and disconnected approaches.",
+      "G-39 to G-40 reports unavailable / no confirmed open route.",
+      "G-40 to G-39 reports unavailable.",
+      "Main Entrance to G-50 remains routable in the candidate graph."
+    ],
+    "runtimePromotion": false
+  },
+  "diagnosticCapture": {
+    "command": "node scripts/semantic-map/capture_navigation_v2.mjs --port=4771",
+    "browser": "Playwright Chromium 153.0.8010.12",
+    "reviewUrl": "http://127.0.0.1:4771/?view=side-by-side",
+    "sourceViewBox": [
+      650,
+      500,
+      3100,
+      1550
+    ],
+    "viewportGroups": {
+      "fullFloor": {
+        "width": 3400,
+        "height": 1900
+      },
+      "sideBySideAndRoutes": {
+        "width": 4200,
+        "height": 1500
+      },
+      "gapDetails": {
+        "width": 2600,
+        "height": 1500
+      },
+      "candidateJunctionDetails": {
+        "width": 1800,
+        "height": 1100
+      }
+    },
+    "screenshots": "artifacts/navigation-v2/screenshots/",
+    "index": "artifacts/navigation-v2/screenshots/index.json",
+    "captured": {
+      "fullFloorLegacyAndV2": 2,
+      "sideBySide": 1,
+      "identicalRouteComparisons": 6,
+      "allExcludedGapAreas": 40,
+      "rejectedOrUnauthorizedJunctionDetails": 804,
+      "additionalSharedApproachDetail": 1,
+      "totalImages": 207
+    },
+    "candidateDiagnostics": {
+      "configuredSpines": 17,
+      "rawNodedLinePieces": 32,
+      "clippedSpineParts": 49,
+      "clippedNodedLinePieces": 62,
+      "candidateConnections": 847,
+      "excludedGaps": 40,
+      "safeCandidateConnections": 119,
+      "rejectedOrUnauthorizedCandidates": 804
+    },
+    "visualInspection": "Full-floor legacy and V2 overlays align to the source plan under identical viewBox and projection. Every gap has a local paired legacy/V2 source detail. Route images clearly distinguish successful legacy paths from unavailable V2 cases; no geometry or physical scale claim is made."
+  }
+}

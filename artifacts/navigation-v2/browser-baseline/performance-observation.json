@@ -1,0 +1,167 @@
+{
+  "baseURL": "http://localhost:4666",
+  "mapAndFontsReadyMs": 2455,
+  "navigation": [
+    {
+      "name": "http://localhost:4666/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 648.7000000476837,
+      "navigationId": 1053,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.2999999523162842,
+      "domainLookupStart": 1.3999998569488525,
+      "domainLookupEnd": 4.5,
+      "connectStart": 4.5,
+      "secureConnectionStart": 0,
+      "connectEnd": 6.700000047683716,
+      "requestStart": 6.8999998569488525,
+      "responseStart": 263.89999985694885,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 263.89999985694885,
+      "responseEnd": 308.89999985694885,
+      "transferSize": 147613,
+      "encodedBodySize": 147313,
+      "decodedBodySize": 991890,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 438.89999985694885,
+      "domContentLoadedEventStart": 438.89999985694885,
+      "domContentLoadedEventEnd": 438.89999985694885,
+      "domComplete": 648.7000000476837,
+      "loadEventStart": 648.7000000476837,
+      "loadEventEnd": 648.7000000476837,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "high"
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_090k2jm.js",
+      "transferSize": 250289,
+      "duration": 108.5
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_compiled_1amofcm._.js",
+      "transferSize": 27306,
+      "duration": 56.59999990463257
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_164kp-6._.js",
+      "transferSize": 32489,
+      "duration": 57.59999990463257
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js",
+      "transferSize": 184806,
+      "duration": 107.69999980926514
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js",
+      "transferSize": 33343,
+      "duration": 88.70000004768372
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js",
+      "transferSize": 194125,
+      "duration": 114.29999995231628
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/apps_web_1anvha4._.js",
+      "transferSize": 1134,
+      "duration": 77.80000019073486
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_%40swc_helpers_cjs_1r9vbqw._.js",
+      "transferSize": 1040,
+      "duration": 79.40000009536743
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/apps_web_219uq1s._.js",
+      "transferSize": 1089,
+      "duration": 87.80000019073486
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/turbopack-apps_web_08bm286._.js",
+      "transferSize": 26375,
+      "duration": 95.40000009536743
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_next_dist_20wefz_._.js",
+      "transferSize": 14893,
+      "duration": 101.70000004768372
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/apps_web_components_FloorMap_tsx_0kck25f._.js",
+      "transferSize": 1222,
+      "duration": 96.60000014305115
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_0862hy1._.js",
+      "transferSize": 10579,
+      "duration": 108.10000014305115
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/_1p60333._.js",
+      "transferSize": 36946,
+      "duration": 112.10000014305115
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1mojsay._.js",
+      "transferSize": 4176,
+      "duration": 3.6000001430511475
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_three_build_three_core_18d0oq6.js",
+      "transferSize": 283290,
+      "duration": 49.200000047683716
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_three_build_three_module_03rsyo6.js",
+      "transferSize": 119919,
+      "duration": 26.40000009536743
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_three_build_three_module_1_wgwg8.js",
+      "transferSize": 4660,
+      "duration": 8
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_%40react-three_fiber_dist_0sjpx1_._.js",
+      "transferSize": 154847,
+      "duration": 30
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/node_modules_1qe7at6._.js",
+      "transferSize": 29227,
+      "duration": 11.900000095367432
+    },
+    {
+      "name": "http://localhost:4666/_next/static/chunks/apps_web_components_FloorMap_tsx_1pmiht6._.js",
+      "transferSize": 9213,
+      "duration": 7.900000095367432
+    }
+  ],
+  "scope": "One local headless Edge observation, not a kiosk hardware benchmark"
+}

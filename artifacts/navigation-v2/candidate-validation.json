@@ -1,13 +1,20 @@
 {
-  "graph": "diagnostic-only; not runtime data",
-  "nodes": 172,
-  "edges": 57,
-  "connectedComponents": 115,
+  "graph": "diagnostic-only",
+  "nodes": 196,
+  "edges": 162,
+  "connectedComponents": 38,
   "componentNodeCounts": [
-    14,
+    97,
+    6,
+    6,
+    6,
+    5,
+    5,
+    4,
+    4,
+    4,
+    4,
     3,
-    3,
-    3,
     2,
     2,
     2,
@@ -33,313 +40,28 @@
     2,
     2,
     2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
     1,
     1
   ],
   "approachCount": 54,
-  "approachesAttachedToGraph": 46,
-  "approachesMissingFromGraph": [
-    "G-06",
-    "G-17",
-    "G-19",
-    "G-20",
-    "G-21",
-    "G-28",
-    "G-39",
-    "G-40"
+  "approachNodesMissing": [],
+  "approachesWithoutEdges": [
+    "B03-GF-G-39-approach",
+    "B03-GF-G-40-approach"
   ],
-  "approachesInLargestComponent": 4,
-  "approachComponents": [
-    [
-      "G-01",
-      "G-05",
-      "G-53",
-      "G-54"
-    ],
-    [
-      "G-14",
-      "G-15"
-    ],
-    [
-      "G-02"
-    ],
-    [
-      "G-03"
-    ],
-    [
-      "G-04"
-    ],
-    [
-      "G-07"
-    ],
-    [
-      "G-08"
-    ],
-    [
-      "G-09"
-    ],
-    [
-      "G-10"
-    ],
-    [
-      "G-11"
-    ],
-    [
-      "G-12"
-    ],
-    [
-      "G-13"
-    ],
-    [
-      "G-16"
-    ],
-    [
-      "G-18"
-    ],
-    [
-      "G-22"
-    ],
-    [
-      "G-23"
-    ],
-    [
-      "G-24"
-    ],
-    [
-      "G-25"
-    ],
-    [
-      "G-26"
-    ],
-    [
-      "G-27"
-    ],
-    [
-      "G-29"
-    ],
-    [
-      "G-30"
-    ],
-    [
-      "G-31"
-    ],
-    [
-      "G-32"
-    ],
-    [
-      "G-33"
-    ],
-    [
-      "G-34"
-    ],
-    [
-      "G-35"
-    ],
-    [
-      "G-36"
-    ],
-    [
-      "G-37"
-    ],
-    [
-      "G-38"
-    ],
-    [
-      "G-41"
-    ],
-    [
-      "G-42"
-    ],
-    [
-      "G-43"
-    ],
-    [
-      "G-44"
-    ],
-    [
-      "G-45"
-    ],
-    [
-      "G-46"
-    ],
-    [
-      "G-47"
-    ],
-    [
-      "G-48"
-    ],
-    [
-      "G-49"
-    ],
-    [
-      "G-50"
-    ],
-    [
-      "G-51"
-    ],
-    [
-      "G-52"
-    ],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-  ],
+  "approachNodesWithEdges": 52,
+  "approachesInLargestComponent": 39,
   "strictWalkableAreaFailures": [],
   "wallContacts": [],
   "roomInteriorCrossings": [],
-  "acceptance": "FAIL"
+  "endpointMismatches": [],
+  "distanceMismatches": [],
+  "candidateMetadataFailures": [],
+  "duplicateUndirectedEdges": [],
+  "isolatedApproachRooms": [
+    "B03-GF-G-39",
+    "B03-GF-G-40"
+  ],
+  "acceptance": "FAIL",
+  "reason": "Complete connectivity is source-unsupported; candidate must remain diagnostic-only."
 }

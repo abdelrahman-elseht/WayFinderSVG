@@ -1,0 +1,46 @@
+
+> academy-wayfinding@0.1.0 test
+> vitest run tests/integration/visual-corners.qa.test.ts
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding
+
+ ❯ tests/integration/visual-corners.qa.test.ts (4 tests | 4 failed) 5217ms
+   × diagnoses safe corridor rounding: GF G-01 to G-50 1300ms
+   × diagnoses safe corridor rounding: GF G-01 to G-05 558ms
+   × diagnoses safe corridor rounding: 01 F-01 to F-50 2094ms
+   × diagnoses safe corridor rounding: 01 F-01 to F-34 1263ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/visual-corners.qa.test.ts > diagnoses safe corridor rounding: GF G-01 to G-50
+ FAIL  tests/integration/visual-corners.qa.test.ts > diagnoses safe corridor rounding: GF G-01 to G-05
+ FAIL  tests/integration/visual-corners.qa.test.ts > diagnoses safe corridor rounding: 01 F-01 to F-50
+ FAIL  tests/integration/visual-corners.qa.test.ts > diagnoses safe corridor rounding: 01 F-01 to F-34
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/integration/visual-corners.qa.test.ts:22:65
+     20|   expect(visual.points[0]).toEqual(route.points[0]);
+     21|   expect(visual.points.at(-1)).toEqual(route.points.at(-1));
+     22|   expect(corners.some(c => c.applied && c.acceptedRadius > 12)).toBe(t…
+       |                                                                 ^
+     23|   expect(corners.some(c => c.reason === 'safe-simplification')).toBe(t…
+     24|   expect(new Set(corners.map(c => c.sourceIndex)).size).toBe(corners.l…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  17:51:41
+   Duration  6.09s (transform 486ms, setup 0ms, import 550ms, tests 5.22s, environment 0ms)
+

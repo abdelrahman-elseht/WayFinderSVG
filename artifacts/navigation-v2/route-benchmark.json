@@ -1,0 +1,2742 @@
+{
+  "methodology": {
+    "turnThresholdDegrees": 30,
+    "distanceUnit": "map-unit",
+    "clearance": "minimum Euclidean distance to supplied wall segments; not physical clearance"
+  },
+  "cases": [
+    {
+      "id": "same-wing-near",
+      "category": "same-wing-near",
+      "fromCode": "G-01",
+      "toCode": "G-05",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-05-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j113115",
+          "B03-GF-j111595",
+          "B03-GF-j110075",
+          "B03-GF-j90289",
+          "B03-GF-j86489",
+          "B03-GF-j60683",
+          "B03-GF-j60700",
+          "B03-GF-G-05-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e187",
+          "B03-GF-e185",
+          "B03-GF-e183",
+          "B03-GF-e179",
+          "B03-GF-e175",
+          "B03-GF-e100",
+          "B03-GF-e099",
+          "B03-GF-e577"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2367,
+            1173
+          ],
+          [
+            2373,
+            1167
+          ],
+          [
+            2379,
+            1161
+          ],
+          [
+            2379,
+            1083
+          ],
+          [
+            2394,
+            1068
+          ],
+          [
+            2598,
+            966
+          ],
+          [
+            2649,
+            966
+          ],
+          [
+            2649.0562,
+            964.5723
+          ]
+        ],
+        "distance": 410.6793,
+        "distanceUnit": "map-unit",
+        "turns": 4,
+        "minimumWallClearance": 13.440061286562202,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 293.39599999999996
+      },
+      "v2": {
+        "status": "unavailable",
+        "nodeIds": [],
+        "edgeIds": [],
+        "points": [],
+        "distance": 0,
+        "distanceUnit": "map-unit",
+        "turns": 0,
+        "minimumWallClearance": null,
+        "routeSafety": false,
+        "dijkstraMilliseconds": 148.02150000000006
+      },
+      "comparison": null
+    },
+    {
+      "id": "same-wing-far",
+      "category": "same-wing-far",
+      "fromCode": "G-01",
+      "toCode": "G-50",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-50-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j73540",
+          "B03-GF-j52966",
+          "B03-GF-j50675",
+          "B03-GF-j52894",
+          "B03-GF-j53621",
+          "B03-GF-j54376",
+          "B03-GF-j54375",
+          "B03-GF-j54365",
+          "B03-GF-j56612",
+          "B03-GF-j58877",
+          "B03-GF-j71037",
+          "B03-GF-j71798",
+          "B03-GF-j72559",
+          "B03-GF-G-50-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e157",
+          "B03-GF-e051",
+          "B03-GF-e036",
+          "B03-GF-e035",
+          "B03-GF-e049",
+          "B03-GF-e057",
+          "B03-GF-e066",
+          "B03-GF-e064",
+          "B03-GF-e065",
+          "B03-GF-e088",
+          "B03-GF-e092",
+          "B03-GF-e150",
+          "B03-GF-e151",
+          "B03-GF-e622"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2358,
+            1017
+          ],
+          [
+            2277,
+            936
+          ],
+          [
+            2253,
+            927
+          ],
+          [
+            2061,
+            936
+          ],
+          [
+            1959,
+            939
+          ],
+          [
+            1941,
+            942
+          ],
+          [
+            1938,
+            942
+          ],
+          [
+            1908,
+            942
+          ],
+          [
+            1800,
+            951
+          ],
+          [
+            1746,
+            960
+          ],
+          [
+            1698,
+            1008
+          ],
+          [
+            1698,
+            1011
+          ],
+          [
+            1698,
+            1014
+          ],
+          [
+            1698.3087,
+            1015.2064
+          ]
+        ],
+        "distance": 890.1933,
+        "distanceUnit": "map-unit",
+        "turns": 4,
+        "minimumWallClearance": 11.688475093013611,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 35.05020000000013
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-4eee13756224",
+          "B03-GF-v2-j-603e31b6f237",
+          "B03-GF-v2-j-348e11aaf1ed",
+          "B03-GF-v2-j-1bfa34226a50",
+          "B03-GF-v2-j-2e14d639b88b",
+          "B03-GF-G-50-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-4e27d89d2807",
+          "B03-GF-v2-e-7f853dcae769",
+          "B03-GF-v2-e-5f3d4caec2ae",
+          "B03-GF-v2-e-145e68e08901",
+          "B03-GF-v2-e-2817ddaa4bef",
+          "B03-GF-v2-e-91b707c2f33c"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1150
+          ],
+          [
+            2380,
+            940
+          ],
+          [
+            2130,
+            930
+          ],
+          [
+            1880,
+            938
+          ],
+          [
+            1768.3020698941252,
+            953.5955600525184
+          ],
+          [
+            1692.2828153197195,
+            964.209569181775
+          ],
+          [
+            1691.209315103221,
+            964.3594541176635
+          ],
+          [
+            1698.3087,
+            1015.2064
+          ]
+        ],
+        "distance": 1006.4670496307436,
+        "distanceUnit": "map-unit",
+        "turns": 3,
+        "minimumWallClearance": 11.75603751554828,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 35.41899999999987
+      },
+      "comparison": {
+        "distanceRatio": 1.1306162938215145,
+        "turnDifference": -1
+      }
+    },
+    {
+      "id": "cross-wing",
+      "category": "cross-wing",
+      "fromCode": "G-50",
+      "toCode": "G-05",
+      "from": "B03-GF-G-50-approach",
+      "to": "B03-GF-G-05-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-50-approach",
+          "B03-GF-j72559",
+          "B03-GF-j71798",
+          "B03-GF-j71037",
+          "B03-GF-j58877",
+          "B03-GF-j56612",
+          "B03-GF-j54365",
+          "B03-GF-j54375",
+          "B03-GF-j54376",
+          "B03-GF-j53621",
+          "B03-GF-j52894",
+          "B03-GF-j50675",
+          "B03-GF-j52966",
+          "B03-GF-j60683",
+          "B03-GF-j60700",
+          "B03-GF-G-05-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e622",
+          "B03-GF-e151",
+          "B03-GF-e150",
+          "B03-GF-e092",
+          "B03-GF-e088",
+          "B03-GF-e065",
+          "B03-GF-e064",
+          "B03-GF-e066",
+          "B03-GF-e057",
+          "B03-GF-e049",
+          "B03-GF-e035",
+          "B03-GF-e036",
+          "B03-GF-e050",
+          "B03-GF-e099",
+          "B03-GF-e577"
+        ],
+        "points": [
+          [
+            1698.3087,
+            1015.2064
+          ],
+          [
+            1698,
+            1014
+          ],
+          [
+            1698,
+            1011
+          ],
+          [
+            1698,
+            1008
+          ],
+          [
+            1746,
+            960
+          ],
+          [
+            1800,
+            951
+          ],
+          [
+            1908,
+            942
+          ],
+          [
+            1938,
+            942
+          ],
+          [
+            1941,
+            942
+          ],
+          [
+            1959,
+            939
+          ],
+          [
+            2061,
+            936
+          ],
+          [
+            2253,
+            927
+          ],
+          [
+            2277,
+            936
+          ],
+          [
+            2598,
+            966
+          ],
+          [
+            2649,
+            966
+          ],
+          [
+            2649.0562,
+            964.5723
+          ]
+        ],
+        "distance": 984.2097,
+        "distanceUnit": "map-unit",
+        "turns": 3,
+        "minimumWallClearance": 11.688475093013611,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 36.280300000000125
+      },
+      "v2": {
+        "status": "unavailable",
+        "nodeIds": [],
+        "edgeIds": [],
+        "points": [],
+        "distance": 0,
+        "distanceUnit": "map-unit",
+        "turns": 0,
+        "minimumWallClearance": null,
+        "routeSafety": false,
+        "dijkstraMilliseconds": 35.565000000000055
+      },
+      "comparison": null
+    },
+    {
+      "id": "previously-disconnected-area",
+      "category": "previously-disconnected-area",
+      "fromCode": "G-39",
+      "toCode": "G-02",
+      "from": "B03-GF-G-39-approach",
+      "to": "B03-GF-G-02-approach",
+      "destinationPartial": false,
+      "destinationNote": {
+        "en": "Route ends at the source label approach in this open circulation space. No physical doorway is implied.",
+        "ar": "ينتهي المسار عند موضع الاقتراب من تسمية هذه المساحة المفتوحة للحركة، ولا يشير إلى باب فعلي."
+      },
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-39-approach",
+          "B03-GF-j178081",
+          "B03-GF-j178082",
+          "B03-GF-j171253",
+          "B03-GF-j166704",
+          "B03-GF-j162913",
+          "B03-GF-j160637",
+          "B03-GF-j159121",
+          "B03-GF-j158363",
+          "B03-GF-j156086",
+          "B03-GF-j154574",
+          "B03-GF-j169821",
+          "B03-GF-j171344",
+          "B03-GF-j182002",
+          "B03-GF-j201044",
+          "B03-GF-j201807",
+          "B03-GF-j201809",
+          "B03-GF-j202572",
+          "B03-GF-j202581",
+          "B03-GF-j202585",
+          "B03-GF-j202609",
+          "B03-GF-j200329",
+          "B03-GF-j199569",
+          "B03-GF-j197289",
+          "B03-GF-G-02-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e611",
+          "B03-GF-e302",
+          "B03-GF-e265",
+          "B03-GF-e251",
+          "B03-GF-e232",
+          "B03-GF-e223",
+          "B03-GF-e222",
+          "B03-GF-e220",
+          "B03-GF-e218",
+          "B03-GF-e216",
+          "B03-GF-e217",
+          "B03-GF-e261",
+          "B03-GF-e267",
+          "B03-GF-e315",
+          "B03-GF-e480",
+          "B03-GF-e485",
+          "B03-GF-e487",
+          "B03-GF-e490",
+          "B03-GF-e492",
+          "B03-GF-e494",
+          "B03-GF-e473",
+          "B03-GF-e468",
+          "B03-GF-e455",
+          "B03-GF-e574"
+        ],
+        "points": [
+          [
+            926.4935,
+            1431.457
+          ],
+          [
+            927,
+            1431
+          ],
+          [
+            930,
+            1431
+          ],
+          [
+            990,
+            1404
+          ],
+          [
+            1041,
+            1386
+          ],
+          [
+            1083,
+            1371
+          ],
+          [
+            1104,
+            1362
+          ],
+          [
+            1122,
+            1356
+          ],
+          [
+            1131,
+            1353
+          ],
+          [
+            1149,
+            1344
+          ],
+          [
+            1179,
+            1338
+          ],
+          [
+            1245,
+            1383
+          ],
+          [
+            1260,
+            1398
+          ],
+          [
+            1263,
+            1404
+          ],
+          [
+            1275,
+            1446
+          ],
+          [
+            1326,
+            1521
+          ],
+          [
+            1332,
+            1524
+          ],
+          [
+            1338,
+            1524
+          ],
+          [
+            1344,
+            1527
+          ],
+          [
+            1371,
+            1527
+          ],
+          [
+            1383,
+            1527
+          ],
+          [
+            1455,
+            1527
+          ],
+          [
+            1464,
+            1518
+          ],
+          [
+            1467,
+            1515
+          ],
+          [
+            1476,
+            1506
+          ],
+          [
+            1474.874,
+            1506.192
+          ]
+        ],
+        "distance": 673.623,
+        "distanceUnit": "map-unit",
+        "turns": 4,
+        "minimumWallClearance": 0.8784298885577076,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 42.1721
+      },
+      "v2": {
+        "status": "unavailable",
+        "nodeIds": [],
+        "edgeIds": [],
+        "points": [],
+        "distance": 0,
+        "distanceUnit": "map-unit",
+        "turns": 0,
+        "minimumWallClearance": null,
+        "routeSafety": false,
+        "dijkstraMilliseconds": 60.711700000000064
+      },
+      "comparison": null
+    },
+    {
+      "id": "shared-approach",
+      "category": "shared-approach",
+      "fromCode": "G-39",
+      "toCode": "G-40",
+      "from": "B03-GF-G-39-approach",
+      "to": "B03-GF-G-40-approach",
+      "destinationPartial": false,
+      "destinationNote": {
+        "en": "Route ends at Services entrance; Storage G-40 is reached through Services.",
+        "ar": "ينتهي المسار عند مدخل الخدمات؛ الوصول إلى المخزن G-40 عبر الخدمات."
+      },
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-39-approach",
+          "B03-GF-j178081",
+          "B03-GF-G-40-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e611",
+          "B03-GF-e612"
+        ],
+        "points": [
+          [
+            926.4935,
+            1431.457
+          ],
+          [
+            927,
+            1431
+          ],
+          [
+            926.4935,
+            1431.457
+          ]
+        ],
+        "distance": 1.3644,
+        "distanceUnit": "map-unit",
+        "turns": 1,
+        "minimumWallClearance": 15.368104901901923,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 37.075799999999845
+      },
+      "v2": {
+        "status": "unavailable",
+        "nodeIds": [],
+        "edgeIds": [],
+        "points": [],
+        "distance": 0,
+        "distanceUnit": "map-unit",
+        "turns": 0,
+        "minimumWallClearance": null,
+        "routeSafety": false,
+        "dijkstraMilliseconds": 31.386200000000144
+      },
+      "comparison": null
+    },
+    {
+      "id": "qualified-partial",
+      "category": "qualified-partial",
+      "fromCode": "G-01",
+      "toCode": "G-06",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-06-approach",
+      "destinationPartial": true,
+      "destinationNote": {
+        "en": "Route ends at the Auditorium entrance. Storage G-06 is accessed from the exterior auditorium landing; that final access is not mapped.",
+        "ar": "ينتهي المسار عند مدخل قاعة المحاضرات. الوصول النهائي إلى المخزن من البسطة الخارجية غير مرسوم في المسار."
+      },
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j113115",
+          "B03-GF-j111595",
+          "B03-GF-j110075",
+          "B03-GF-j90289",
+          "B03-GF-j86489",
+          "B03-GF-j60683",
+          "B03-GF-j60700",
+          "B03-GF-G-06-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e187",
+          "B03-GF-e185",
+          "B03-GF-e183",
+          "B03-GF-e179",
+          "B03-GF-e175",
+          "B03-GF-e100",
+          "B03-GF-e099",
+          "B03-GF-e578"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2367,
+            1173
+          ],
+          [
+            2373,
+            1167
+          ],
+          [
+            2379,
+            1161
+          ],
+          [
+            2379,
+            1083
+          ],
+          [
+            2394,
+            1068
+          ],
+          [
+            2598,
+            966
+          ],
+          [
+            2649,
+            966
+          ],
+          [
+            2649.0562,
+            964.5723
+          ]
+        ],
+        "distance": 410.6793,
+        "distanceUnit": "map-unit",
+        "turns": 4,
+        "minimumWallClearance": 13.440061286562202,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 43.029599999999846
+      },
+      "v2": {
+        "status": "unavailable",
+        "nodeIds": [],
+        "edgeIds": [],
+        "points": [],
+        "distance": 0,
+        "distanceUnit": "map-unit",
+        "turns": 0,
+        "minimumWallClearance": null,
+        "routeSafety": false,
+        "dijkstraMilliseconds": 39.821300000000065
+      },
+      "comparison": null
+    },
+    {
+      "id": "g01-to-g10",
+      "category": "g01-to-g10",
+      "fromCode": "G-01",
+      "toCode": "G-10",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-10-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j116919",
+          "B03-GF-j117681",
+          "B03-GF-j119205",
+          "B03-GF-j120729",
+          "B03-GF-j161062",
+          "B03-GF-j162584",
+          "B03-GF-j166394",
+          "B03-GF-j184682",
+          "B03-GF-j186221",
+          "B03-GF-j186222",
+          "B03-GF-j187765",
+          "B03-GF-j200719",
+          "B03-GF-j201480",
+          "B03-GF-j202242",
+          "B03-GF-j204525",
+          "B03-GF-j205287",
+          "B03-GF-j208335",
+          "B03-GF-j209097",
+          "B03-GF-j210621",
+          "B03-GF-j211383",
+          "B03-GF-j214431",
+          "B03-GF-j214432",
+          "B03-GF-G-10-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e191",
+          "B03-GF-e193",
+          "B03-GF-e195",
+          "B03-GF-e198",
+          "B03-GF-e199",
+          "B03-GF-e226",
+          "B03-GF-e231",
+          "B03-GF-e249",
+          "B03-GF-e327",
+          "B03-GF-e347",
+          "B03-GF-e349",
+          "B03-GF-e375",
+          "B03-GF-e476",
+          "B03-GF-e482",
+          "B03-GF-e488",
+          "B03-GF-e506",
+          "B03-GF-e508",
+          "B03-GF-e514",
+          "B03-GF-e516",
+          "B03-GF-e519",
+          "B03-GF-e523",
+          "B03-GF-e529",
+          "B03-GF-e582"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2364,
+            1188
+          ],
+          [
+            2367,
+            1191
+          ],
+          [
+            2373,
+            1197
+          ],
+          [
+            2379,
+            1203
+          ],
+          [
+            2379,
+            1362
+          ],
+          [
+            2379,
+            1368
+          ],
+          [
+            2394,
+            1383
+          ],
+          [
+            2466,
+            1455
+          ],
+          [
+            2517,
+            1461
+          ],
+          [
+            2520,
+            1461
+          ],
+          [
+            2583,
+            1467
+          ],
+          [
+            2634,
+            1518
+          ],
+          [
+            2634,
+            1521
+          ],
+          [
+            2637,
+            1524
+          ],
+          [
+            2637,
+            1533
+          ],
+          [
+            2640,
+            1536
+          ],
+          [
+            2652,
+            1548
+          ],
+          [
+            2655,
+            1551
+          ],
+          [
+            2661,
+            1557
+          ],
+          [
+            2664,
+            1560
+          ],
+          [
+            2676,
+            1572
+          ],
+          [
+            2679,
+            1572
+          ],
+          [
+            2679.5938,
+            1571.2083
+          ]
+        ],
+        "distance": 584.1432000000002,
+        "distanceUnit": "map-unit",
+        "turns": 10,
+        "minimumWallClearance": 10.160000000000082,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 48.535699999999906
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-cccef55d6a84",
+          "B03-GF-v2-j-b25a72d49c37",
+          "B03-GF-v2-j-7dceaf7f4a2a",
+          "B03-GF-v2-j-9e511ecb3437",
+          "B03-GF-G-10-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-426a3deb5ed9",
+          "B03-GF-v2-e-c4d69849e203",
+          "B03-GF-v2-e-f6849444b158",
+          "B03-GF-v2-e-2a06f48730e6",
+          "B03-GF-v2-e-152f71fdeb82"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1380
+          ],
+          [
+            2483.153846153846,
+            1448.7692307692307
+          ],
+          [
+            2500,
+            1460
+          ],
+          [
+            2635,
+            1470
+          ],
+          [
+            2660,
+            1570
+          ],
+          [
+            2661.436882352941,
+            1575.7475294117648
+          ],
+          [
+            2679.5938,
+            1571.2083
+          ]
+        ],
+        "distance": 629.0826954021888,
+        "distanceUnit": "map-unit",
+        "turns": 4,
+        "minimumWallClearance": 9.886479683356098,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 39.12220000000025
+      },
+      "comparison": {
+        "distanceRatio": 1.0769323265291604,
+        "turnDifference": -6
+      }
+    },
+    {
+      "id": "g07-to-g10",
+      "category": "g07-to-g10",
+      "fromCode": "G-07",
+      "toCode": "G-10",
+      "from": "B03-GF-G-07-approach",
+      "to": "B03-GF-G-10-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-07-approach",
+          "B03-GF-j166492",
+          "B03-GF-j168014",
+          "B03-GF-j171819",
+          "B03-GF-j177140",
+          "B03-GF-j182464",
+          "B03-GF-j187791",
+          "B03-GF-j188552",
+          "B03-GF-j210621",
+          "B03-GF-j211383",
+          "B03-GF-j214431",
+          "B03-GF-j214432",
+          "B03-GF-G-10-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e579",
+          "B03-GF-e250",
+          "B03-GF-e256",
+          "B03-GF-e270",
+          "B03-GF-e293",
+          "B03-GF-e319",
+          "B03-GF-e381",
+          "B03-GF-e412",
+          "B03-GF-e519",
+          "B03-GF-e523",
+          "B03-GF-e529",
+          "B03-GF-e582"
+        ],
+        "points": [
+          [
+            2686.8824,
+            1383.9936
+          ],
+          [
+            2688,
+            1383
+          ],
+          [
+            2688,
+            1389
+          ],
+          [
+            2688,
+            1404
+          ],
+          [
+            2670,
+            1425
+          ],
+          [
+            2661,
+            1446
+          ],
+          [
+            2661,
+            1467
+          ],
+          [
+            2661,
+            1470
+          ],
+          [
+            2661,
+            1557
+          ],
+          [
+            2664,
+            1560
+          ],
+          [
+            2676,
+            1572
+          ],
+          [
+            2679,
+            1572
+          ],
+          [
+            2679.5938,
+            1571.2083
+          ]
+        ],
+        "distance": 209.2041,
+        "distanceUnit": "map-unit",
+        "turns": 5,
+        "minimumWallClearance": 10.160000000000082,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 31.932999999999993
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-07-approach",
+          "B03-GF-v2-j-d55f7189ee83",
+          "B03-GF-v2-j-de925df8482a",
+          "B03-GF-v2-j-9b013a41491c",
+          "B03-GF-v2-j-7dceaf7f4a2a",
+          "B03-GF-v2-j-9e511ecb3437",
+          "B03-GF-G-10-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-91e498c841e9",
+          "B03-GF-v2-e-bec85767648b",
+          "B03-GF-v2-e-0db32654eed0",
+          "B03-GF-v2-e-8235c247f721",
+          "B03-GF-v2-e-2a06f48730e6",
+          "B03-GF-v2-e-152f71fdeb82"
+        ],
+        "points": [
+          [
+            2686.8824,
+            1383.9936
+          ],
+          [
+            2680.816975737705,
+            1397.8574268852458
+          ],
+          [
+            2640,
+            1380
+          ],
+          [
+            2635,
+            1410
+          ],
+          [
+            2643.8075977121066,
+            1466.3686253574833
+          ],
+          [
+            2660,
+            1570
+          ],
+          [
+            2661.436882352941,
+            1575.7475294117648
+          ],
+          [
+            2679.5938,
+            1571.2083
+          ]
+        ],
+        "distance": 276.68024779962604,
+        "distanceUnit": "map-unit",
+        "turns": 3,
+        "minimumWallClearance": 3.8424574992391354,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 31.775500000000193
+      },
+      "comparison": {
+        "distanceRatio": 1.3225374062918749,
+        "turnDifference": -2
+      }
+    },
+    {
+      "id": "mechanical-lab",
+      "category": "mechanical-lab",
+      "fromCode": "G-01",
+      "toCode": "G-43",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-43-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j73540",
+          "B03-GF-j52966",
+          "B03-GF-j50675",
+          "B03-GF-j52894",
+          "B03-GF-j53621",
+          "B03-GF-j54376",
+          "B03-GF-j54375",
+          "B03-GF-j54365",
+          "B03-GF-j56612",
+          "B03-GF-j58877",
+          "B03-GF-j58872",
+          "B03-GF-j59627",
+          "B03-GF-j60380",
+          "B03-GF-j61138",
+          "B03-GF-j61131",
+          "B03-GF-j61884",
+          "B03-GF-j62639",
+          "B03-GF-j64903",
+          "B03-GF-j65663",
+          "B03-GF-j65659",
+          "B03-GF-j67174",
+          "B03-GF-j67170",
+          "B03-GF-j69442",
+          "B03-GF-j72462",
+          "B03-GF-j72460",
+          "B03-GF-j73978",
+          "B03-GF-j77006",
+          "B03-GF-j77761",
+          "B03-GF-j77760",
+          "B03-GF-j76957",
+          "B03-GF-j75429",
+          "B03-GF-j74668",
+          "B03-GF-G-43-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e157",
+          "B03-GF-e051",
+          "B03-GF-e036",
+          "B03-GF-e035",
+          "B03-GF-e049",
+          "B03-GF-e057",
+          "B03-GF-e066",
+          "B03-GF-e064",
+          "B03-GF-e065",
+          "B03-GF-e088",
+          "B03-GF-e090",
+          "B03-GF-e089",
+          "B03-GF-e095",
+          "B03-GF-e097",
+          "B03-GF-e104",
+          "B03-GF-e103",
+          "B03-GF-e109",
+          "B03-GF-e112",
+          "B03-GF-e118",
+          "B03-GF-e121",
+          "B03-GF-e122",
+          "B03-GF-e130",
+          "B03-GF-e131",
+          "B03-GF-e144",
+          "B03-GF-e152",
+          "B03-GF-e153",
+          "B03-GF-e159",
+          "B03-GF-e169",
+          "B03-GF-e172",
+          "B03-GF-e167",
+          "B03-GF-e164",
+          "B03-GF-e162",
+          "B03-GF-e615"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2358,
+            1017
+          ],
+          [
+            2277,
+            936
+          ],
+          [
+            2253,
+            927
+          ],
+          [
+            2061,
+            936
+          ],
+          [
+            1959,
+            939
+          ],
+          [
+            1941,
+            942
+          ],
+          [
+            1938,
+            942
+          ],
+          [
+            1908,
+            942
+          ],
+          [
+            1800,
+            951
+          ],
+          [
+            1746,
+            960
+          ],
+          [
+            1731,
+            960
+          ],
+          [
+            1713,
+            963
+          ],
+          [
+            1689,
+            966
+          ],
+          [
+            1680,
+            969
+          ],
+          [
+            1659,
+            969
+          ],
+          [
+            1635,
+            972
+          ],
+          [
+            1617,
+            975
+          ],
+          [
+            1560,
+            984
+          ],
+          [
+            1557,
+            987
+          ],
+          [
+            1545,
+            987
+          ],
+          [
+            1524,
+            993
+          ],
+          [
+            1512,
+            993
+          ],
+          [
+            1479,
+            1002
+          ],
+          [
+            1407,
+            1014
+          ],
+          [
+            1401,
+            1014
+          ],
+          [
+            1389,
+            1020
+          ],
+          [
+            1341,
+            1032
+          ],
+          [
+            1323,
+            1035
+          ],
+          [
+            1320,
+            1035
+          ],
+          [
+            1194,
+            1032
+          ],
+          [
+            1176,
+            1026
+          ],
+          [
+            1176,
+            1023
+          ],
+          [
+            1174.9539,
+            1023.9199
+          ]
+        ],
+        "distance": 1399.9547,
+        "distanceUnit": "map-unit",
+        "turns": 6,
+        "minimumWallClearance": 7.725444323791335,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 34.488200000000234
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-4eee13756224",
+          "B03-GF-v2-j-603e31b6f237",
+          "B03-GF-v2-j-348e11aaf1ed",
+          "B03-GF-v2-j-1bfa34226a50",
+          "B03-GF-v2-j-2e14d639b88b",
+          "B03-GF-v2-j-f213ce098839",
+          "B03-GF-v2-j-9c61b281595a",
+          "B03-GF-v2-j-be950c233a17",
+          "B03-GF-v2-j-72e61f3de9fd",
+          "B03-GF-v2-j-2e0cd9379a67",
+          "B03-GF-G-43-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-4e27d89d2807",
+          "B03-GF-v2-e-7f853dcae769",
+          "B03-GF-v2-e-5f3d4caec2ae",
+          "B03-GF-v2-e-145e68e08901",
+          "B03-GF-v2-e-2817ddaa4bef",
+          "B03-GF-v2-e-f69e33bedfaf",
+          "B03-GF-v2-e-b59c2d62293f",
+          "B03-GF-v2-e-bc20301a3b7d",
+          "B03-GF-v2-e-f9973052c717",
+          "B03-GF-v2-e-87024f9770a9",
+          "B03-GF-v2-e-ccf60dab9ac8"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1150
+          ],
+          [
+            2380,
+            940
+          ],
+          [
+            2130,
+            930
+          ],
+          [
+            1880,
+            938
+          ],
+          [
+            1768.3020698941252,
+            953.5955600525184
+          ],
+          [
+            1692.2828153197195,
+            964.209569181775
+          ],
+          [
+            1691.209315103221,
+            964.3594541176635
+          ],
+          [
+            1623.8460049235969,
+            973.7648974257619
+          ],
+          [
+            1617.5149785875913,
+            974.6488520462608
+          ],
+          [
+            1615,
+            975
+          ],
+          [
+            1410.509067277937,
+            1014.900669799427
+          ],
+          [
+            1410,
+            1015
+          ],
+          [
+            1401.1980964467004,
+            1017.2516497461929
+          ],
+          [
+            1219.7239781776325,
+            1063.6752613964195
+          ],
+          [
+            1174.9539,
+            1023.9199
+          ]
+        ],
+        "distance": 1497.2183029653138,
+        "distanceUnit": "map-unit",
+        "turns": 3,
+        "minimumWallClearance": 9.562376077479476,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 33.29280000000017
+      },
+      "comparison": {
+        "distanceRatio": 1.0694762501710333,
+        "turnDifference": -3
+      }
+    },
+    {
+      "id": "av-control",
+      "category": "av-control",
+      "fromCode": "G-01",
+      "toCode": "G-44",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-44-approach",
+      "destinationPartial": false,
+      "destinationNote": {
+        "en": "AV Control Room is approached through the shared AV suite foyer.",
+        "ar": "الوصول إلى غرفة التحكم عبر الردهة المشتركة لجناح الوسائط."
+      },
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j73540",
+          "B03-GF-j52966",
+          "B03-GF-j50675",
+          "B03-GF-j52894",
+          "B03-GF-j53621",
+          "B03-GF-j54376",
+          "B03-GF-j54375",
+          "B03-GF-j54365",
+          "B03-GF-j56612",
+          "B03-GF-j58877",
+          "B03-GF-j58872",
+          "B03-GF-j59627",
+          "B03-GF-j60380",
+          "B03-GF-j61138",
+          "B03-GF-j61131",
+          "B03-GF-j61884",
+          "B03-GF-j62639",
+          "B03-GF-j64903",
+          "B03-GF-j65663",
+          "B03-GF-j65659",
+          "B03-GF-j67174",
+          "B03-GF-j67170",
+          "B03-GF-j69442",
+          "B03-GF-j72462",
+          "B03-GF-j72460",
+          "B03-GF-j73978",
+          "B03-GF-j77006",
+          "B03-GF-j77761",
+          "B03-GF-j101333",
+          "B03-GF-j115031",
+          "B03-GF-G-44-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e157",
+          "B03-GF-e051",
+          "B03-GF-e036",
+          "B03-GF-e035",
+          "B03-GF-e049",
+          "B03-GF-e057",
+          "B03-GF-e066",
+          "B03-GF-e064",
+          "B03-GF-e065",
+          "B03-GF-e088",
+          "B03-GF-e090",
+          "B03-GF-e089",
+          "B03-GF-e095",
+          "B03-GF-e097",
+          "B03-GF-e104",
+          "B03-GF-e103",
+          "B03-GF-e109",
+          "B03-GF-e112",
+          "B03-GF-e118",
+          "B03-GF-e121",
+          "B03-GF-e122",
+          "B03-GF-e130",
+          "B03-GF-e131",
+          "B03-GF-e144",
+          "B03-GF-e152",
+          "B03-GF-e153",
+          "B03-GF-e159",
+          "B03-GF-e169",
+          "B03-GF-e174",
+          "B03-GF-e182",
+          "B03-GF-e616"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2358,
+            1017
+          ],
+          [
+            2277,
+            936
+          ],
+          [
+            2253,
+            927
+          ],
+          [
+            2061,
+            936
+          ],
+          [
+            1959,
+            939
+          ],
+          [
+            1941,
+            942
+          ],
+          [
+            1938,
+            942
+          ],
+          [
+            1908,
+            942
+          ],
+          [
+            1800,
+            951
+          ],
+          [
+            1746,
+            960
+          ],
+          [
+            1731,
+            960
+          ],
+          [
+            1713,
+            963
+          ],
+          [
+            1689,
+            966
+          ],
+          [
+            1680,
+            969
+          ],
+          [
+            1659,
+            969
+          ],
+          [
+            1635,
+            972
+          ],
+          [
+            1617,
+            975
+          ],
+          [
+            1560,
+            984
+          ],
+          [
+            1557,
+            987
+          ],
+          [
+            1545,
+            987
+          ],
+          [
+            1524,
+            993
+          ],
+          [
+            1512,
+            993
+          ],
+          [
+            1479,
+            1002
+          ],
+          [
+            1407,
+            1014
+          ],
+          [
+            1401,
+            1014
+          ],
+          [
+            1389,
+            1020
+          ],
+          [
+            1341,
+            1032
+          ],
+          [
+            1323,
+            1035
+          ],
+          [
+            1266,
+            1113
+          ],
+          [
+            1266,
+            1128
+          ],
+          [
+            1266,
+            1182
+          ],
+          [
+            1267.1948,
+            1181.6394
+          ]
+        ],
+        "distance": 1414.4078000000002,
+        "distanceUnit": "map-unit",
+        "turns": 7,
+        "minimumWallClearance": 1.6259615062085147,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 38.518699999999626
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-4eee13756224",
+          "B03-GF-v2-j-603e31b6f237",
+          "B03-GF-v2-j-348e11aaf1ed",
+          "B03-GF-v2-j-1bfa34226a50",
+          "B03-GF-v2-j-2e14d639b88b",
+          "B03-GF-v2-j-f213ce098839",
+          "B03-GF-v2-j-9c61b281595a",
+          "B03-GF-v2-j-be950c233a17",
+          "B03-GF-v2-j-72e61f3de9fd",
+          "B03-GF-v2-j-2e0cd9379a67",
+          "B03-GF-v2-j-b5e84bea75a0",
+          "B03-GF-v2-j-97d77a08a835",
+          "B03-GF-G-44-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-4e27d89d2807",
+          "B03-GF-v2-e-7f853dcae769",
+          "B03-GF-v2-e-5f3d4caec2ae",
+          "B03-GF-v2-e-145e68e08901",
+          "B03-GF-v2-e-2817ddaa4bef",
+          "B03-GF-v2-e-f69e33bedfaf",
+          "B03-GF-v2-e-b59c2d62293f",
+          "B03-GF-v2-e-bc20301a3b7d",
+          "B03-GF-v2-e-f9973052c717",
+          "B03-GF-v2-e-87024f9770a9",
+          "B03-GF-v2-e-5146705b8003",
+          "B03-GF-v2-e-e64268bbe9d5",
+          "B03-GF-v2-e-df09ee34587f"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1150
+          ],
+          [
+            2380,
+            940
+          ],
+          [
+            2130,
+            930
+          ],
+          [
+            1880,
+            938
+          ],
+          [
+            1768.3020698941252,
+            953.5955600525184
+          ],
+          [
+            1692.2828153197195,
+            964.209569181775
+          ],
+          [
+            1691.209315103221,
+            964.3594541176635
+          ],
+          [
+            1623.8460049235969,
+            973.7648974257619
+          ],
+          [
+            1617.5149785875913,
+            974.6488520462608
+          ],
+          [
+            1615,
+            975
+          ],
+          [
+            1410.509067277937,
+            1014.900669799427
+          ],
+          [
+            1410,
+            1015
+          ],
+          [
+            1401.1980964467004,
+            1017.2516497461929
+          ],
+          [
+            1219.7239781776325,
+            1063.6752613964195
+          ],
+          [
+            1255,
+            1095
+          ],
+          [
+            1280,
+            1150
+          ],
+          [
+            1270,
+            1180
+          ],
+          [
+            1267.1948,
+            1181.6394
+          ]
+        ],
+        "distance": 1579.8084805052874,
+        "distanceUnit": "map-unit",
+        "turns": 5,
+        "minimumWallClearance": 8.12389130897251,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 34.13229999999976
+      },
+      "comparison": {
+        "distanceRatio": 1.116939881486292,
+        "turnDifference": -2
+      }
+    },
+    {
+      "id": "female-toilets",
+      "category": "female-toilets",
+      "fromCode": "G-01",
+      "toCode": "G-12",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-12-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j116919",
+          "B03-GF-j117681",
+          "B03-GF-j119205",
+          "B03-GF-j120729",
+          "B03-GF-j161062",
+          "B03-GF-j162584",
+          "B03-GF-j166394",
+          "B03-GF-j184682",
+          "B03-GF-j186221",
+          "B03-GF-j186222",
+          "B03-GF-j187765",
+          "B03-GF-j200719",
+          "B03-GF-j201480",
+          "B03-GF-j202242",
+          "B03-GF-j204525",
+          "B03-GF-j205287",
+          "B03-GF-j208335",
+          "B03-GF-j209097",
+          "B03-GF-j218229",
+          "B03-GF-j225848",
+          "B03-GF-j226612",
+          "B03-GF-j227376",
+          "B03-GF-j231971",
+          "B03-GF-j231986",
+          "B03-GF-j228187",
+          "B03-GF-j224389",
+          "B03-GF-j224390",
+          "B03-GF-G-12-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e191",
+          "B03-GF-e193",
+          "B03-GF-e195",
+          "B03-GF-e198",
+          "B03-GF-e199",
+          "B03-GF-e226",
+          "B03-GF-e231",
+          "B03-GF-e249",
+          "B03-GF-e327",
+          "B03-GF-e347",
+          "B03-GF-e349",
+          "B03-GF-e375",
+          "B03-GF-e476",
+          "B03-GF-e482",
+          "B03-GF-e488",
+          "B03-GF-e506",
+          "B03-GF-e508",
+          "B03-GF-e514",
+          "B03-GF-e515",
+          "B03-GF-e539",
+          "B03-GF-e550",
+          "B03-GF-e551",
+          "B03-GF-e555",
+          "B03-GF-e561",
+          "B03-GF-e556",
+          "B03-GF-e545",
+          "B03-GF-e546",
+          "B03-GF-e584"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2364,
+            1188
+          ],
+          [
+            2367,
+            1191
+          ],
+          [
+            2373,
+            1197
+          ],
+          [
+            2379,
+            1203
+          ],
+          [
+            2379,
+            1362
+          ],
+          [
+            2379,
+            1368
+          ],
+          [
+            2394,
+            1383
+          ],
+          [
+            2466,
+            1455
+          ],
+          [
+            2517,
+            1461
+          ],
+          [
+            2520,
+            1461
+          ],
+          [
+            2583,
+            1467
+          ],
+          [
+            2634,
+            1518
+          ],
+          [
+            2634,
+            1521
+          ],
+          [
+            2637,
+            1524
+          ],
+          [
+            2637,
+            1533
+          ],
+          [
+            2640,
+            1536
+          ],
+          [
+            2652,
+            1548
+          ],
+          [
+            2655,
+            1551
+          ],
+          [
+            2655,
+            1587
+          ],
+          [
+            2682,
+            1617
+          ],
+          [
+            2691,
+            1620
+          ],
+          [
+            2700,
+            1623
+          ],
+          [
+            2787,
+            1641
+          ],
+          [
+            2832,
+            1641
+          ],
+          [
+            2850,
+            1626
+          ],
+          [
+            2871,
+            1611
+          ],
+          [
+            2874,
+            1611
+          ],
+          [
+            2873.1203,
+            1611.6366
+          ]
+        ],
+        "distance": 832.9558000000003,
+        "distanceUnit": "map-unit",
+        "turns": 13,
+        "minimumWallClearance": 10.149581338722749,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 36.11920000000009
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-cccef55d6a84",
+          "B03-GF-v2-j-b25a72d49c37",
+          "B03-GF-v2-j-7dceaf7f4a2a",
+          "B03-GF-v2-j-9e511ecb3437",
+          "B03-GF-v2-j-1a8114cf51f6",
+          "B03-GF-v2-j-199d2ae231c5",
+          "B03-GF-G-12-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-426a3deb5ed9",
+          "B03-GF-v2-e-c4d69849e203",
+          "B03-GF-v2-e-f6849444b158",
+          "B03-GF-v2-e-2a06f48730e6",
+          "B03-GF-v2-e-dba09b6a109c",
+          "B03-GF-v2-e-dc57897416da",
+          "B03-GF-v2-e-fb0b7c93da95"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1380
+          ],
+          [
+            2483.153846153846,
+            1448.7692307692307
+          ],
+          [
+            2500,
+            1460
+          ],
+          [
+            2635,
+            1470
+          ],
+          [
+            2660,
+            1570
+          ],
+          [
+            2661.436882352941,
+            1575.7475294117648
+          ],
+          [
+            2670,
+            1610
+          ],
+          [
+            2820,
+            1650
+          ],
+          [
+            2840,
+            1640
+          ],
+          [
+            2848.167734978541,
+            1605.6955130901288
+          ],
+          [
+            2873.1203,
+            1611.6366
+          ]
+        ],
+        "distance": 884.1895595077773,
+        "distanceUnit": "map-unit",
+        "turns": 7,
+        "minimumWallClearance": 9.424934388912039,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 32.29549999999972
+      },
+      "comparison": {
+        "distanceRatio": 1.061508377164523,
+        "turnDifference": -6
+      }
+    },
+    {
+      "id": "male-toilets",
+      "category": "male-toilets",
+      "fromCode": "G-01",
+      "toCode": "G-13",
+      "from": "B03-GF-G-01-approach",
+      "to": "B03-GF-G-13-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-j115395",
+          "B03-GF-j116919",
+          "B03-GF-j117681",
+          "B03-GF-j119205",
+          "B03-GF-j120729",
+          "B03-GF-j161062",
+          "B03-GF-j162584",
+          "B03-GF-j166394",
+          "B03-GF-j184682",
+          "B03-GF-j186221",
+          "B03-GF-j186222",
+          "B03-GF-j187765",
+          "B03-GF-j200719",
+          "B03-GF-j201480",
+          "B03-GF-j202242",
+          "B03-GF-j204525",
+          "B03-GF-j205287",
+          "B03-GF-j208335",
+          "B03-GF-j209097",
+          "B03-GF-j218229",
+          "B03-GF-j225848",
+          "B03-GF-j226612",
+          "B03-GF-j227376",
+          "B03-GF-j231971",
+          "B03-GF-j231986",
+          "B03-GF-j226665",
+          "B03-GF-j215254",
+          "B03-GF-j192432",
+          "B03-GF-j187114",
+          "B03-GF-j187115",
+          "B03-GF-G-13-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e573",
+          "B03-GF-e191",
+          "B03-GF-e193",
+          "B03-GF-e195",
+          "B03-GF-e198",
+          "B03-GF-e199",
+          "B03-GF-e226",
+          "B03-GF-e231",
+          "B03-GF-e249",
+          "B03-GF-e327",
+          "B03-GF-e347",
+          "B03-GF-e349",
+          "B03-GF-e375",
+          "B03-GF-e476",
+          "B03-GF-e482",
+          "B03-GF-e488",
+          "B03-GF-e506",
+          "B03-GF-e508",
+          "B03-GF-e514",
+          "B03-GF-e515",
+          "B03-GF-e539",
+          "B03-GF-e550",
+          "B03-GF-e551",
+          "B03-GF-e555",
+          "B03-GF-e561",
+          "B03-GF-e552",
+          "B03-GF-e535",
+          "B03-GF-e435",
+          "B03-GF-e361",
+          "B03-GF-e362",
+          "B03-GF-e585"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2358,
+            1182
+          ],
+          [
+            2364,
+            1188
+          ],
+          [
+            2367,
+            1191
+          ],
+          [
+            2373,
+            1197
+          ],
+          [
+            2379,
+            1203
+          ],
+          [
+            2379,
+            1362
+          ],
+          [
+            2379,
+            1368
+          ],
+          [
+            2394,
+            1383
+          ],
+          [
+            2466,
+            1455
+          ],
+          [
+            2517,
+            1461
+          ],
+          [
+            2520,
+            1461
+          ],
+          [
+            2583,
+            1467
+          ],
+          [
+            2634,
+            1518
+          ],
+          [
+            2634,
+            1521
+          ],
+          [
+            2637,
+            1524
+          ],
+          [
+            2637,
+            1533
+          ],
+          [
+            2640,
+            1536
+          ],
+          [
+            2652,
+            1548
+          ],
+          [
+            2655,
+            1551
+          ],
+          [
+            2655,
+            1587
+          ],
+          [
+            2682,
+            1617
+          ],
+          [
+            2691,
+            1620
+          ],
+          [
+            2700,
+            1623
+          ],
+          [
+            2787,
+            1641
+          ],
+          [
+            2832,
+            1641
+          ],
+          [
+            2850,
+            1620
+          ],
+          [
+            2862,
+            1575
+          ],
+          [
+            2886,
+            1485
+          ],
+          [
+            2913,
+            1464
+          ],
+          [
+            2916,
+            1464
+          ],
+          [
+            2914.7606,
+            1463.5509
+          ]
+        ],
+        "distance": 985.5319000000002,
+        "distanceUnit": "map-unit",
+        "turns": 14,
+        "minimumWallClearance": 9.328389093349495,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 32.82250000000022
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-01-approach",
+          "B03-GF-v2-j-81ec2eb08e3f",
+          "B03-GF-v2-j-cccef55d6a84",
+          "B03-GF-v2-j-b25a72d49c37",
+          "B03-GF-v2-j-7dceaf7f4a2a",
+          "B03-GF-v2-j-9e511ecb3437",
+          "B03-GF-v2-j-1a8114cf51f6",
+          "B03-GF-v2-j-199d2ae231c5",
+          "B03-GF-v2-j-a7e2a7db6794",
+          "B03-GF-v2-j-ebdca8f143d5",
+          "B03-GF-G-13-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-1f99680a731b",
+          "B03-GF-v2-e-426a3deb5ed9",
+          "B03-GF-v2-e-c4d69849e203",
+          "B03-GF-v2-e-f6849444b158",
+          "B03-GF-v2-e-2a06f48730e6",
+          "B03-GF-v2-e-dba09b6a109c",
+          "B03-GF-v2-e-dc57897416da",
+          "B03-GF-v2-e-d544c4792a5e",
+          "B03-GF-v2-e-dfcebf0ad005",
+          "B03-GF-v2-e-fff69d23fa42"
+        ],
+        "points": [
+          [
+            2357.025,
+            1181.202
+          ],
+          [
+            2380,
+            1181.202
+          ],
+          [
+            2380,
+            1380
+          ],
+          [
+            2483.153846153846,
+            1448.7692307692307
+          ],
+          [
+            2500,
+            1460
+          ],
+          [
+            2635,
+            1470
+          ],
+          [
+            2660,
+            1570
+          ],
+          [
+            2661.436882352941,
+            1575.7475294117648
+          ],
+          [
+            2670,
+            1610
+          ],
+          [
+            2820,
+            1650
+          ],
+          [
+            2840,
+            1640
+          ],
+          [
+            2848.167734978541,
+            1605.6955130901288
+          ],
+          [
+            2885.9798994974876,
+            1446.8844221105528
+          ],
+          [
+            2916.935585882353,
+            1453.7634635294119
+          ],
+          [
+            2914.7606,
+            1463.5509
+          ]
+        ],
+        "distance": 1063.5269648606147,
+        "distanceUnit": "map-unit",
+        "turns": 8,
+        "minimumWallClearance": 5.574298848738158,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 41.61569999999983
+      },
+      "comparison": {
+        "distanceRatio": 1.0791400713265746,
+        "turnDifference": -6
+      }
+    },
+    {
+      "id": "av-to-meeting",
+      "category": "av-to-meeting",
+      "fromCode": "G-44",
+      "toCode": "G-30",
+      "from": "B03-GF-G-44-approach",
+      "to": "B03-GF-G-30-approach",
+      "destinationPartial": false,
+      "destinationNote": null,
+      "legacy": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-44-approach",
+          "B03-GF-j115031",
+          "B03-GF-j101333",
+          "B03-GF-j99810",
+          "B03-GF-j118054",
+          "B03-GF-j127189",
+          "B03-GF-j132518",
+          "B03-GF-j141654",
+          "B03-GF-j166774",
+          "B03-GF-j169821",
+          "B03-GF-j171344",
+          "B03-GF-j182002",
+          "B03-GF-j201044",
+          "B03-GF-j201807",
+          "B03-GF-j201809",
+          "B03-GF-j197258",
+          "B03-GF-j196497",
+          "B03-GF-j195736",
+          "B03-GF-G-30-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-e616",
+          "B03-GF-e182",
+          "B03-GF-e181",
+          "B03-GF-e180",
+          "B03-GF-e196",
+          "B03-GF-e201",
+          "B03-GF-e203",
+          "B03-GF-e206",
+          "B03-GF-e254",
+          "B03-GF-e261",
+          "B03-GF-e267",
+          "B03-GF-e315",
+          "B03-GF-e480",
+          "B03-GF-e485",
+          "B03-GF-e452",
+          "B03-GF-e449",
+          "B03-GF-e447",
+          "B03-GF-e602"
+        ],
+        "points": [
+          [
+            1267.1948,
+            1181.6394
+          ],
+          [
+            1266,
+            1182
+          ],
+          [
+            1266,
+            1128
+          ],
+          [
+            1263,
+            1122
+          ],
+          [
+            1218,
+            1101
+          ],
+          [
+            1203,
+            1194
+          ],
+          [
+            1212,
+            1230
+          ],
+          [
+            1218,
+            1251
+          ],
+          [
+            1230,
+            1287
+          ],
+          [
+            1251,
+            1386
+          ],
+          [
+            1260,
+            1398
+          ],
+          [
+            1263,
+            1404
+          ],
+          [
+            1275,
+            1446
+          ],
+          [
+            1326,
+            1521
+          ],
+          [
+            1332,
+            1524
+          ],
+          [
+            1338,
+            1524
+          ],
+          [
+            1383,
+            1506
+          ],
+          [
+            1383,
+            1503
+          ],
+          [
+            1383,
+            1500
+          ],
+          [
+            1382.1522,
+            1501.2815
+          ]
+        ],
+        "distance": 628.7128,
+        "distanceUnit": "map-unit",
+        "turns": 5,
+        "minimumWallClearance": 1.597902936858361,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 35.702400000000125
+      },
+      "v2": {
+        "status": "ok",
+        "nodeIds": [
+          "B03-GF-G-44-approach",
+          "B03-GF-v2-j-97d77a08a835",
+          "B03-GF-v2-j-b5e84bea75a0",
+          "B03-GF-v2-j-758861f4ec4b",
+          "B03-GF-v2-j-46e6253de7a9",
+          "B03-GF-v2-j-140b9506ac3c",
+          "B03-GF-v2-j-06e261b5987c",
+          "B03-GF-v2-j-0e6d84087c38",
+          "B03-GF-v2-j-3eb048920b86",
+          "B03-GF-v2-j-34bfa5c374a5",
+          "B03-GF-G-30-approach"
+        ],
+        "edgeIds": [
+          "B03-GF-v2-e-df09ee34587f",
+          "B03-GF-v2-e-e64268bbe9d5",
+          "B03-GF-v2-e-d3b96842a549",
+          "B03-GF-v2-e-159f704a9c2c",
+          "B03-GF-v2-e-937573efa7c0",
+          "B03-GF-v2-e-ecfd8f4360cf",
+          "B03-GF-v2-e-55ce7d0ba161",
+          "B03-GF-v2-e-7bfcb4d0d11b",
+          "B03-GF-v2-e-87f27a03c64a",
+          "B03-GF-v2-e-44c22c335c34"
+        ],
+        "points": [
+          [
+            1267.1948,
+            1181.6394
+          ],
+          [
+            1270,
+            1180
+          ],
+          [
+            1280,
+            1150
+          ],
+          [
+            1255,
+            1095
+          ],
+          [
+            1195,
+            1070
+          ],
+          [
+            1230,
+            1190
+          ],
+          [
+            1252.7664770642202,
+            1265.888256880734
+          ],
+          [
+            1278.4014869888476,
+            1351.3382899628252
+          ],
+          [
+            1290,
+            1390
+          ],
+          [
+            1312.060245283019,
+            1467.2108584905661
+          ],
+          [
+            1324.512520754717,
+            1510.7938226415095
+          ],
+          [
+            1330,
+            1530
+          ],
+          [
+            1385.129746,
+            1522.124322
+          ],
+          [
+            1382.1522,
+            1501.2815
+          ]
+        ],
+        "distance": 716.4393371033403,
+        "distanceUnit": "map-unit",
+        "turns": 6,
+        "minimumWallClearance": 7.997642668042836,
+        "routeSafety": true,
+        "dijkstraMilliseconds": 33.22469999999976
+      },
+      "comparison": {
+        "distanceRatio": 1.1395335630248666,
+        "turnDifference": 1
+      }
+    }
+  ]
+}

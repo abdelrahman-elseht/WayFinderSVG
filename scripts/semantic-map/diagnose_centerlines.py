@@ -1,74 +1,73 @@
-"""Write deterministic diagnostics for reviewed GF corridor-spine components."""
+"""Account for every configured spine, clipped descendant and proposed join."""
 import json
-import math
-from pathlib import Path
-
-from shapely.geometry import LineString, Point, Polygon
-from shapely.ops import linemerge, unary_union
+from shapely.geometry import LineString, Point
+from shapely.ops import unary_union
 from shapely.strtree import STRtree
+from centerline_common import Evidence, OUT, parts, stable_id, write
 
-from explore import ROOT, walls
+def diagnose():
+    e = Evidence()
+    raw_network = unary_union(e.raw)
+    clipped = e.spine_pieces()
+    lines = sorted(parts(unary_union([line for _, line in clipped])), key=lambda line: tuple(line.coords))
+    components = []
+    for line in lines:
+        owners = [i for i, raw in enumerate(e.raw) if raw.buffer(1e-8).covers(line)]
+        coordinates = list(map(list, line.coords))
+        components.append({'id': stable_id('C-', coordinates), 'sourceSpineIds': owners,
+            'coordinates': coordinates, 'length': line.length, 'tests': e.tests(line), 'sourceReferences': e.references(owners)})
+    raw_components = []
+    for line in parts(raw_network):
+        coordinates = list(map(list, line.coords))
+        owners = [i for i, raw in enumerate(e.raw) if raw.buffer(1e-8).covers(line)]
+        raw_components.append({'id': stable_id('R-', coordinates), 'sourceSpineIds': owners,
+            'coordinates': coordinates, 'length': line.length,
+            'clippedDescendantIds': [c['id'] for c in components if line.buffer(1e-8).intersection(LineString(c['coordinates'])).length > 1e-8]})
+    endpoints = [(c, p) for c in components for p in (c['coordinates'][0], c['coordinates'][-1])]
+    radius = e.cfg['corridorHalfWidth'] * 2
+    tree = STRtree([Point(p) for _, p in endpoints])
+    candidates = []
+    for i, (a, p) in enumerate(endpoints):
+        for j in sorted(map(int, tree.query(Point(p).buffer(radius)))):
+            b, q = endpoints[j]
+            if j <= i or a['id'] == b['id'] or Point(p).distance(Point(q)) > radius: continue
+            line = LineString([p, q]); tests = e.tests(line); same_point = p == q
+            classification = ('existing-source-junction' if same_point else 'numerical-near-miss' if line.length <= .0001
+                else 'missing-corridor-connection' if tests['safe'] else 'unresolved-source-evidence')
+            owners = sorted(set(a['sourceSpineIds'] + b['sourceSpineIds']))
+            candidates.append({'id': stable_id('J-', [a['id'], b['id'], p, q]), 'componentA': a['id'], 'componentB': b['id'],
+                'endpointA': p, 'endpointB': q, 'distance': line.length, 'classification': classification, 'tests': tests,
+                'validation': 'safe' if tests['safe'] else 'rejected-geometry',
+                'decision': 'existing-junction' if same_point and tests['safe'] else 'not-authorized',
+                'reason': 'Configured spines already share this point.' if same_point else 'Source review required; containment alone does not establish a passage.',
+                'sourceReferences': e.references(owners)})
+    candidates.sort(key=lambda c: (c['distance'], c['id']))
+    gaps, spines = [], []
+    for i, raw in enumerate(e.raw):
+        ids = []
+        for line in parts(raw.difference(e.domain)):
+            coords = list(map(list, line.coords)); tests = e.tests(line)
+            gap = {'id': stable_id('GAP-', [i, coords]), 'sourceSpineIds': [i], 'coordinates': coords, 'distance': line.length, 'tests': tests,
+                'classification': 'numerical-near-miss' if line.length <= .0001 and not tests['wallIndices'] and not tests['roomInteriors'] else 'unresolved-source-evidence',
+                'decision': 'excluded', 'reason': 'Configured spine leaves exact navigable union; no replacement connection is inferred.', 'sourceReferences': e.references([i])}
+            gaps.append(gap); ids.append(gap['id'])
+        spines.append({'id': f'S-{i:02}', 'index': i, 'coordinates': list(map(list, raw.coords)), 'length': raw.length,
+            'clippedDescendantIds': [c['id'] for c in components if i in c['sourceSpineIds']], 'excludedGapIds': ids, 'sourceReferences': e.references([i])})
+    report = {'schemaVersion': 2, 'floor': 'B03/GF', 'configuredSpines': spines, 'rawNodedLinePieces': raw_components,
+        'components': components, 'gaps': gaps, 'candidateRadiusMapUnits': radius, 'pairCandidateCount': len(candidates), 'candidates': candidates,
+        'counts': {'configuredSpines': len(spines), 'rawNodedLinePieces': len(raw_components), 'clippedSpineParts': len(clipped),
+            'clippedNodedLinePieces': len(components), 'excludedGaps': len(gaps), 'safeCandidateConnections': sum(c['tests']['safe'] for c in candidates)},
+        'restrictionPolicy': 'Unknown access/accessibility preserved; no automatic cross-component chord approval.',
+        'terminology': 'Line pieces are not connected components. Previous hardcoded 31 raw count was incorrect.'}
+    write('connectivity-diagnostics.json', report)
+    svg = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="650 500 3100 1550">', '<rect x="650" y="500" width="3100" height="1550" fill="white"/>']
+    for i, c in enumerate(components):
+        color = f'hsl({i * 137.508 % 360:.2f} 70% 35%)'; points = ' '.join(f'{x},{y}' for x, y in c['coordinates'])
+        svg.append(f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="3"><title>{c["id"]}</title></polyline>')
+        for x, y in (c['coordinates'][0], c['coordinates'][-1]): svg.append(f'<circle cx="{x}" cy="{y}" r="3" fill="{color}"/>')
+        x, y = LineString(c['coordinates']).interpolate(.5, normalized=True).coords[0]
+        svg.append(f'<text x="{x}" y="{y}" font-size="9" fill="{color}">{c["id"]}</text>')
+    svg.append('</svg>'); (OUT / 'spine-components.svg').write_text('\n'.join(svg), encoding='utf-8')
+    print(json.dumps(report['counts'])); return report
 
-cfg = json.loads((ROOT / 'scripts/semantic-map/navigation-config.json').read_text(encoding='utf-8'))
-floor = json.loads((ROOT / 'data/buildings/B03/GF.json').read_text(encoding='utf-8'))
-graph = json.loads((ROOT / 'data/buildings/B03/GF.graph.json').read_text(encoding='utf-8'))
-domain = unary_union([Polygon(area) for area in graph['navigableAreas']])
-spines = [LineString(spine).intersection(domain) for spine in cfg['corridorSpines']]
-pieces = []
-def add_lines(geom, owner):
-    if geom.geom_type == 'LineString':
-        if geom.length > .5: pieces.append((owner, geom))
-    elif hasattr(geom, 'geoms'):
-        for part in geom.geoms: add_lines(part, owner)
-for i, geom in enumerate(spines): add_lines(geom, i)
-network = unary_union([line for _, line in pieces])
-components = list(network.geoms) if hasattr(network, 'geoms') else [network]
-wall_lines = [LineString(wall.coords) for wall in walls]
-wall_tree = STRtree(wall_lines)
-endpoints = []
-for component_id, component in enumerate(components):
-    coords = list(component.coords)
-    endpoints.extend([(component_id, tuple(coords[0])), (component_id, tuple(coords[-1]))])
-
-def classify(line):
-    if not domain.covers(line): return 'outside-walkable-domain'
-    hits = wall_tree.query(line)
-    if any(line.intersects(wall_lines[i]) for i in hits): return 'wall-contact'
-    return 'safe-within-reviewed-corridor-domain'
-
-candidates = []
-endpoint_geoms = [Point(point).buffer(cfg['corridorHalfWidth'] * 2) for _, point in endpoints]
-endpoint_tree = STRtree(endpoint_geoms)
-for i, (a_component, a) in enumerate(endpoints):
-    nearby = endpoint_tree.query(Point(a).buffer(cfg['corridorHalfWidth'] * 2))
-    for j in nearby:
-        if j <= i: continue
-        b_component, b = endpoints[int(j)]
-        if a_component == b_component: continue
-        line = LineString([a,b]); reason = classify(line)
-        candidates.append(dict(componentA=a_component, endpointA=[round(v,3) for v in a],
-            componentB=b_component, endpointB=[round(v,3) for v in b], distance=round(line.length,3),
-            classification=('geometric-tolerance-or-intersection' if line.length <= 3 and reason.startswith('safe')
-                else 'missing-corridor-connection' if line.length <= cfg['corridorHalfWidth'] and reason.startswith('safe')
-                else 'unresolved-or-intentional-separation' if not reason.startswith('safe') else 'long-safe-candidate'),
-            validation=reason))
-candidates.sort(key=lambda row:(row['distance'],row['componentA'],row['componentB'],row['endpointA']))
-out = ROOT / 'artifacts/navigation-v2'; out.mkdir(parents=True, exist_ok=True)
-report = dict(schemaVersion=1, floor='B03/GF', method='Configured corridor spines clipped to walkable regions; unary_union nodes intersections',
-    components=len(components), componentLengths=[round(c.length,3) for c in components],
-    clippedSpineParts=len(pieces), pairCandidateCount=len(candidates), candidates=candidates,
-    roomApproaches=len([r for r in floor['rooms'] if r.get('doorNodeId')]),
-    restrictions='No connection accepted unless complete line is covered by the walkable domain and wall-clear.')
-(out/'connectivity-diagnostics.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-minx,miny,maxx,maxy=domain.bounds; width=maxx-minx;height=maxy-miny
-svg=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{minx} {miny} {width} {height}"><rect x="{minx}" y="{miny}" width="{width}" height="{height}" fill="#f9fafb"/>']
-for index,component in enumerate(components):
-    color=f'hsl({(index*137.508)%360:.2f} 72% 42%)'; pts=' '.join(f'{x},{y}' for x,y in component.coords)
-    svg.append(f'<polyline points="{pts}" fill="none" stroke="{color}" stroke-width="4"/><text x="{component.coords[0][0]}" y="{component.coords[0][1]}" fill="{color}" font-size="20">C{index}</text>')
-for rank,item in enumerate(candidates[:250]):
-    x,y=item['endpointA']; x2,y2=item['endpointB']; color='#159447' if item['validation'].startswith('safe') else '#d62728'
-    svg.append(f'<line x1="{x}" y1="{y}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-opacity=".3" stroke-width="1"/>')
-svg.append('</svg>')
-(out/'spine-components.svg').write_text('\n'.join(svg),encoding='utf-8')
-print(json.dumps(dict(components=len(components),pieces=len(pieces),candidates=len(candidates),
-    safe=sum(c['validation'].startswith('safe') for c in candidates),report=str(out/'connectivity-diagnostics.json'),visual=str(out/'spine-components.svg'))))
+if __name__ == '__main__': diagnose()

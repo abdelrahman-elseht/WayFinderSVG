@@ -1,0 +1,211 @@
+# Navigation V2 review captures
+
+Diagnostic only. Index rebuilt over all persisted PNGs; route statuses, local gap IDs, coordinates, and source spine IDs are indexed in [index.json](index.json).
+
+- [full-floor-legacy](full-floor-legacy.png): Ground Floor ? canonical legacy graph
+- [full-floor-v2](full-floor-v2.png): Ground Floor ? V2 diagnostic candidate graph
+- [side-by-side](side-by-side.png): Legacy / V2 identical plan projection
+- [route-same-wing-near](route-same-wing-near.png): same-wing-near: B03-GF-G-01-approach to B03-GF-G-05-approach (legacy ok, V2 unavailable)
+- [route-same-wing-far](route-same-wing-far.png): same-wing-far: B03-GF-G-01-approach to B03-GF-G-50-approach (legacy ok, V2 ok)
+- [route-cross-wing](route-cross-wing.png): cross-wing: B03-GF-G-50-approach to B03-GF-G-05-approach (legacy ok, V2 unavailable)
+- [route-previously-disconnected-area](route-previously-disconnected-area.png): previously-disconnected-area: B03-GF-G-39-approach to B03-GF-G-02-approach (legacy ok, V2 unavailable)
+- [route-shared-approach](route-shared-approach.png): shared-approach: B03-GF-G-39-approach to B03-GF-G-40-approach (legacy ok, V2 unavailable)
+- [route-qualified-partial](route-qualified-partial.png): qualified-partial: B03-GF-G-01-approach to B03-GF-G-06-approach (legacy ok, V2 unavailable)
+- [unresolved-001](unresolved-001.png): Shared unresolved G-39 / G-40 approach
+- [gap-GAP-267f8ded8f6a](gap-GAP-267f8ded8f6a.png): GAP-267f8ded8f6a unresolved-source-evidence
+- [gap-GAP-868104c618cb](gap-GAP-868104c618cb.png): GAP-868104c618cb unresolved-source-evidence
+- [gap-GAP-6c3ee40df4d4](gap-GAP-6c3ee40df4d4.png): GAP-6c3ee40df4d4 unresolved-source-evidence
+- [gap-GAP-5771768e2b8e](gap-GAP-5771768e2b8e.png): GAP-5771768e2b8e unresolved-source-evidence
+- [gap-GAP-b3f9f716258f](gap-GAP-b3f9f716258f.png): GAP-b3f9f716258f unresolved-source-evidence
+- [gap-GAP-367199daf9a9](gap-GAP-367199daf9a9.png): GAP-367199daf9a9 unresolved-source-evidence
+- [gap-GAP-03e8cdf102d3](gap-GAP-03e8cdf102d3.png): GAP-03e8cdf102d3 unresolved-source-evidence
+- [gap-GAP-5b8d7abbbadd](gap-GAP-5b8d7abbbadd.png): GAP-5b8d7abbbadd unresolved-source-evidence
+- [gap-GAP-a5305cb40eee](gap-GAP-a5305cb40eee.png): GAP-a5305cb40eee unresolved-source-evidence
+- [gap-GAP-3cda3e8ae5de](gap-GAP-3cda3e8ae5de.png): GAP-3cda3e8ae5de unresolved-source-evidence
+- [gap-GAP-d2785c9f8404](gap-GAP-d2785c9f8404.png): GAP-d2785c9f8404 unresolved-source-evidence
+- [gap-GAP-8162690f3c46](gap-GAP-8162690f3c46.png): GAP-8162690f3c46 unresolved-source-evidence
+- [gap-GAP-3d3cd8f6972b](gap-GAP-3d3cd8f6972b.png): GAP-3d3cd8f6972b unresolved-source-evidence
+- [gap-GAP-757472eb1a63](gap-GAP-757472eb1a63.png): GAP-757472eb1a63 unresolved-source-evidence
+- [gap-GAP-1491c63e102c](gap-GAP-1491c63e102c.png): GAP-1491c63e102c unresolved-source-evidence
+- [gap-GAP-31137c84c327](gap-GAP-31137c84c327.png): GAP-31137c84c327 unresolved-source-evidence
+- [gap-GAP-fbb3706d7f45](gap-GAP-fbb3706d7f45.png): GAP-fbb3706d7f45 unresolved-source-evidence
+- [gap-GAP-41d08079e176](gap-GAP-41d08079e176.png): GAP-41d08079e176 unresolved-source-evidence
+- [gap-GAP-e96ed258bf82](gap-GAP-e96ed258bf82.png): GAP-e96ed258bf82 unresolved-source-evidence
+- [gap-GAP-e35571ecf34c](gap-GAP-e35571ecf34c.png): GAP-e35571ecf34c unresolved-source-evidence
+- [gap-GAP-a4a1d0de0b10](gap-GAP-a4a1d0de0b10.png): GAP-a4a1d0de0b10 unresolved-source-evidence
+- [gap-GAP-ce48d70ca659](gap-GAP-ce48d70ca659.png): GAP-ce48d70ca659 unresolved-source-evidence
+- [gap-GAP-5d09b1f8f7a4](gap-GAP-5d09b1f8f7a4.png): GAP-5d09b1f8f7a4 unresolved-source-evidence
+- [gap-GAP-4187c9feefa3](gap-GAP-4187c9feefa3.png): GAP-4187c9feefa3 unresolved-source-evidence
+- [gap-GAP-844add8c7c9f](gap-GAP-844add8c7c9f.png): GAP-844add8c7c9f unresolved-source-evidence
+- [gap-GAP-999de889fa6e](gap-GAP-999de889fa6e.png): GAP-999de889fa6e unresolved-source-evidence
+- [gap-GAP-91233c0790f0](gap-GAP-91233c0790f0.png): GAP-91233c0790f0 unresolved-source-evidence
+- [gap-GAP-9861c96b980a](gap-GAP-9861c96b980a.png): GAP-9861c96b980a unresolved-source-evidence
+- [gap-GAP-cfbec12fca77](gap-GAP-cfbec12fca77.png): GAP-cfbec12fca77 unresolved-source-evidence
+- [gap-GAP-e072dc26f8cc](gap-GAP-e072dc26f8cc.png): GAP-e072dc26f8cc unresolved-source-evidence
+- [gap-GAP-ec7f72fbf670](gap-GAP-ec7f72fbf670.png): GAP-ec7f72fbf670 unresolved-source-evidence
+- [gap-GAP-3281a54ba91d](gap-GAP-3281a54ba91d.png): GAP-3281a54ba91d unresolved-source-evidence
+- [gap-GAP-36156f4fc058](gap-GAP-36156f4fc058.png): GAP-36156f4fc058 unresolved-source-evidence
+- [gap-GAP-a06e0bba1062](gap-GAP-a06e0bba1062.png): GAP-a06e0bba1062 unresolved-source-evidence
+- [gap-GAP-65c755cfff51](gap-GAP-65c755cfff51.png): GAP-65c755cfff51 unresolved-source-evidence
+- [gap-GAP-1c95fdbf395e](gap-GAP-1c95fdbf395e.png): GAP-1c95fdbf395e unresolved-source-evidence
+- [gap-GAP-2fa60f648ea0](gap-GAP-2fa60f648ea0.png): GAP-2fa60f648ea0 unresolved-source-evidence
+- [gap-GAP-246248ffabfb](gap-GAP-246248ffabfb.png): GAP-246248ffabfb unresolved-source-evidence
+- [gap-GAP-f1236892ab9f](gap-GAP-f1236892ab9f.png): GAP-f1236892ab9f unresolved-source-evidence
+- [gap-GAP-ecb86a684f6b](gap-GAP-ecb86a684f6b.png): GAP-ecb86a684f6b unresolved-source-evidence
+- [junction-J-fa83d58718e6](junction-J-fa83d58718e6.png): Rejected J-fa83d58718e6 unresolved-source-evidence
+- [junction-J-3c8ced26a39a](junction-J-3c8ced26a39a.png): Rejected J-3c8ced26a39a unresolved-source-evidence
+- [junction-J-9cceb8c3bd27](junction-J-9cceb8c3bd27.png): Rejected J-9cceb8c3bd27 unresolved-source-evidence
+- [junction-J-b79148a66c58](junction-J-b79148a66c58.png): Rejected J-b79148a66c58 unresolved-source-evidence
+- [junction-J-19625f33b227](junction-J-19625f33b227.png): Rejected J-19625f33b227 missing-corridor-connection
+- [junction-J-3c49846d60d3](junction-J-3c49846d60d3.png): Rejected J-3c49846d60d3 unresolved-source-evidence
+- [junction-J-3a68886d2c79](junction-J-3a68886d2c79.png): Rejected J-3a68886d2c79 unresolved-source-evidence
+- [junction-J-71f4d327df00](junction-J-71f4d327df00.png): Rejected J-71f4d327df00 unresolved-source-evidence
+- [junction-J-7b313fdbbdce](junction-J-7b313fdbbdce.png): Rejected J-7b313fdbbdce unresolved-source-evidence
+- [junction-J-e8173cff8604](junction-J-e8173cff8604.png): Rejected J-e8173cff8604 unresolved-source-evidence
+- [junction-J-2a70c75b3f89](junction-J-2a70c75b3f89.png): Rejected J-2a70c75b3f89 missing-corridor-connection
+- [junction-J-49377b769726](junction-J-49377b769726.png): Rejected J-49377b769726 unresolved-source-evidence
+- [junction-J-d2caab63c06a](junction-J-d2caab63c06a.png): Rejected J-d2caab63c06a unresolved-source-evidence
+- [junction-J-8f4d23a43e90](junction-J-8f4d23a43e90.png): Rejected J-8f4d23a43e90 unresolved-source-evidence
+- [junction-J-e7a6909872cf](junction-J-e7a6909872cf.png): Rejected J-e7a6909872cf unresolved-source-evidence
+- [junction-J-e841cba28e49](junction-J-e841cba28e49.png): Rejected J-e841cba28e49 unresolved-source-evidence
+- [junction-J-90b548937bf1](junction-J-90b548937bf1.png): Rejected J-90b548937bf1 unresolved-source-evidence
+- [junction-J-63036fbd3a3d](junction-J-63036fbd3a3d.png): Rejected J-63036fbd3a3d unresolved-source-evidence
+- [junction-J-61c8d5be1f84](junction-J-61c8d5be1f84.png): Rejected J-61c8d5be1f84 unresolved-source-evidence
+- [junction-J-a1e313de1d43](junction-J-a1e313de1d43.png): Rejected J-a1e313de1d43 unresolved-source-evidence
+- [junction-J-43f1f5d6275d](junction-J-43f1f5d6275d.png): Rejected J-43f1f5d6275d unresolved-source-evidence
+- [junction-J-991621fb188d](junction-J-991621fb188d.png): Rejected J-991621fb188d unresolved-source-evidence
+- [junction-J-ef2acb8a99fe](junction-J-ef2acb8a99fe.png): Rejected J-ef2acb8a99fe unresolved-source-evidence
+- [junction-J-17a8defbb526](junction-J-17a8defbb526.png): Rejected J-17a8defbb526 unresolved-source-evidence
+- [junction-J-90c511ad314c](junction-J-90c511ad314c.png): Rejected J-90c511ad314c unresolved-source-evidence
+- [junction-J-73370bb9abae](junction-J-73370bb9abae.png): Rejected J-73370bb9abae unresolved-source-evidence
+- [junction-J-b79b0e404502](junction-J-b79b0e404502.png): Rejected J-b79b0e404502 unresolved-source-evidence
+- [junction-J-71641560f6c4](junction-J-71641560f6c4.png): Rejected J-71641560f6c4 unresolved-source-evidence
+- [junction-J-e9f822244327](junction-J-e9f822244327.png): Rejected J-e9f822244327 unresolved-source-evidence
+- [junction-J-7fe59ad68438](junction-J-7fe59ad68438.png): Rejected J-7fe59ad68438 unresolved-source-evidence
+- [junction-J-506f42bd68c9](junction-J-506f42bd68c9.png): Rejected J-506f42bd68c9 unresolved-source-evidence
+- [junction-J-5f13df84c1a3](junction-J-5f13df84c1a3.png): Rejected J-5f13df84c1a3 unresolved-source-evidence
+- [junction-J-9dd176b51501](junction-J-9dd176b51501.png): Rejected J-9dd176b51501 unresolved-source-evidence
+- [junction-J-651d4cac257d](junction-J-651d4cac257d.png): Rejected J-651d4cac257d unresolved-source-evidence
+- [junction-J-c0c8d733305e](junction-J-c0c8d733305e.png): Rejected J-c0c8d733305e unresolved-source-evidence
+- [junction-J-a39df83d512c](junction-J-a39df83d512c.png): Rejected J-a39df83d512c unresolved-source-evidence
+- [junction-J-b8b450fa4343](junction-J-b8b450fa4343.png): Rejected J-b8b450fa4343 unresolved-source-evidence
+- [junction-J-62fde455ef77](junction-J-62fde455ef77.png): Rejected J-62fde455ef77 unresolved-source-evidence
+- [junction-J-2e2cdbe750f1](junction-J-2e2cdbe750f1.png): Rejected J-2e2cdbe750f1 unresolved-source-evidence
+- [junction-J-413783b8dd65](junction-J-413783b8dd65.png): Rejected J-413783b8dd65 unresolved-source-evidence
+- [junction-J-f7d7174c1745](junction-J-f7d7174c1745.png): Rejected J-f7d7174c1745 unresolved-source-evidence
+- [junction-J-edee1ea17606](junction-J-edee1ea17606.png): Rejected J-edee1ea17606 unresolved-source-evidence
+- [junction-J-6502da3ca876](junction-J-6502da3ca876.png): Rejected J-6502da3ca876 unresolved-source-evidence
+- [junction-J-70c568e2502f](junction-J-70c568e2502f.png): Rejected J-70c568e2502f unresolved-source-evidence
+- [junction-J-6305a7aa2c46](junction-J-6305a7aa2c46.png): Rejected J-6305a7aa2c46 unresolved-source-evidence
+- [junction-J-b848e1b53a4a](junction-J-b848e1b53a4a.png): Rejected J-b848e1b53a4a unresolved-source-evidence
+- [junction-J-e3ad06a642bf](junction-J-e3ad06a642bf.png): Rejected J-e3ad06a642bf unresolved-source-evidence
+- [junction-J-ec91ea95eddb](junction-J-ec91ea95eddb.png): Rejected J-ec91ea95eddb unresolved-source-evidence
+- [junction-J-38bb550de0e5](junction-J-38bb550de0e5.png): Rejected J-38bb550de0e5 unresolved-source-evidence
+- [junction-J-4f3a5d313e4c](junction-J-4f3a5d313e4c.png): Rejected J-4f3a5d313e4c missing-corridor-connection
+- [junction-J-5e14c7947490](junction-J-5e14c7947490.png): Rejected J-5e14c7947490 missing-corridor-connection
+- [junction-J-85c9e8981250](junction-J-85c9e8981250.png): Rejected J-85c9e8981250 missing-corridor-connection
+- [junction-J-68c0651d6c12](junction-J-68c0651d6c12.png): Rejected J-68c0651d6c12 unresolved-source-evidence
+- [junction-J-5e9ba65a28bb](junction-J-5e9ba65a28bb.png): Rejected J-5e9ba65a28bb unresolved-source-evidence
+- [junction-J-1bf9d7bc8238](junction-J-1bf9d7bc8238.png): Rejected J-1bf9d7bc8238 unresolved-source-evidence
+- [junction-J-6c14389931c1](junction-J-6c14389931c1.png): Rejected J-6c14389931c1 unresolved-source-evidence
+- [junction-J-58230a3e68d3](junction-J-58230a3e68d3.png): Rejected J-58230a3e68d3 unresolved-source-evidence
+- [junction-J-3c7112e07da3](junction-J-3c7112e07da3.png): Rejected J-3c7112e07da3 unresolved-source-evidence
+- [junction-J-853360cfcde6](junction-J-853360cfcde6.png): Rejected J-853360cfcde6 unresolved-source-evidence
+- [junction-J-d2e5d0f63695](junction-J-d2e5d0f63695.png): Rejected J-d2e5d0f63695 unresolved-source-evidence
+- [junction-J-e27f3ed56e57](junction-J-e27f3ed56e57.png): Rejected J-e27f3ed56e57 unresolved-source-evidence
+- [junction-J-408adc9acee9](junction-J-408adc9acee9.png): Rejected J-408adc9acee9 unresolved-source-evidence
+- [junction-J-81ce17aa6874](junction-J-81ce17aa6874.png): Rejected J-81ce17aa6874 unresolved-source-evidence
+- [junction-J-787514e9c6b4](junction-J-787514e9c6b4.png): Rejected J-787514e9c6b4 unresolved-source-evidence
+- [junction-J-91238423b38b](junction-J-91238423b38b.png): Rejected J-91238423b38b unresolved-source-evidence
+- [junction-J-dab33e8c7a16](junction-J-dab33e8c7a16.png): Rejected J-dab33e8c7a16 unresolved-source-evidence
+- [junction-J-00ce4b4f835d](junction-J-00ce4b4f835d.png): Rejected J-00ce4b4f835d unresolved-source-evidence
+- [junction-J-d8d09e2dc708](junction-J-d8d09e2dc708.png): Rejected J-d8d09e2dc708 unresolved-source-evidence
+- [junction-J-c81502062655](junction-J-c81502062655.png): Rejected J-c81502062655 unresolved-source-evidence
+- [junction-J-bf7e9df35ed3](junction-J-bf7e9df35ed3.png): Rejected J-bf7e9df35ed3 unresolved-source-evidence
+- [junction-J-4e6e60c9da94](junction-J-4e6e60c9da94.png): Rejected J-4e6e60c9da94 unresolved-source-evidence
+- [junction-J-1cf7e9b05621](junction-J-1cf7e9b05621.png): Rejected J-1cf7e9b05621 unresolved-source-evidence
+- [junction-J-d6b2bf8f1863](junction-J-d6b2bf8f1863.png): Rejected J-d6b2bf8f1863 unresolved-source-evidence
+- [junction-J-e0bdcee8d621](junction-J-e0bdcee8d621.png): Rejected J-e0bdcee8d621 unresolved-source-evidence
+- [junction-J-7f105e1ebfaa](junction-J-7f105e1ebfaa.png): Rejected J-7f105e1ebfaa unresolved-source-evidence
+- [junction-J-62b856ca6b77](junction-J-62b856ca6b77.png): Rejected J-62b856ca6b77 unresolved-source-evidence
+- [junction-J-0e426bbe39a2](junction-J-0e426bbe39a2.png): Rejected J-0e426bbe39a2 unresolved-source-evidence
+- [junction-J-0126fb01a45a](junction-J-0126fb01a45a.png): Rejected J-0126fb01a45a missing-corridor-connection
+- [junction-J-220210092bf1](junction-J-220210092bf1.png): Rejected J-220210092bf1 missing-corridor-connection
+- [junction-J-4f53591ef51c](junction-J-4f53591ef51c.png): Rejected J-4f53591ef51c missing-corridor-connection
+- [junction-J-f04e0c5be4ad](junction-J-f04e0c5be4ad.png): Rejected J-f04e0c5be4ad unresolved-source-evidence
+- [junction-J-052a4f8de6b2](junction-J-052a4f8de6b2.png): Rejected J-052a4f8de6b2 unresolved-source-evidence
+- [junction-J-63103de4ef6c](junction-J-63103de4ef6c.png): Rejected J-63103de4ef6c unresolved-source-evidence
+- [junction-J-f26a7087c4b7](junction-J-f26a7087c4b7.png): Rejected J-f26a7087c4b7 unresolved-source-evidence
+- [junction-J-b62b881ab31e](junction-J-b62b881ab31e.png): Rejected J-b62b881ab31e unresolved-source-evidence
+- [junction-J-55bbb37941db](junction-J-55bbb37941db.png): Rejected J-55bbb37941db unresolved-source-evidence
+- [junction-J-558cb828684b](junction-J-558cb828684b.png): Rejected J-558cb828684b missing-corridor-connection
+- [junction-J-f0d73d63eec2](junction-J-f0d73d63eec2.png): Rejected J-f0d73d63eec2 missing-corridor-connection
+- [junction-J-72afe886ae95](junction-J-72afe886ae95.png): Rejected J-72afe886ae95 unresolved-source-evidence
+- [junction-J-21ca353fad05](junction-J-21ca353fad05.png): Rejected J-21ca353fad05 missing-corridor-connection
+- [junction-J-91668d25a9fe](junction-J-91668d25a9fe.png): Rejected J-91668d25a9fe unresolved-source-evidence
+- [junction-J-fa137067ba59](junction-J-fa137067ba59.png): Rejected J-fa137067ba59 unresolved-source-evidence
+- [junction-J-084293d5ab64](junction-J-084293d5ab64.png): Rejected J-084293d5ab64 unresolved-source-evidence
+- [junction-J-5eea4fa381b6](junction-J-5eea4fa381b6.png): Rejected J-5eea4fa381b6 unresolved-source-evidence
+- [junction-J-692fffaf21c7](junction-J-692fffaf21c7.png): Rejected J-692fffaf21c7 unresolved-source-evidence
+- [junction-J-a5d81922f709](junction-J-a5d81922f709.png): Rejected J-a5d81922f709 unresolved-source-evidence
+- [junction-J-060c2576e7bd](junction-J-060c2576e7bd.png): Rejected J-060c2576e7bd unresolved-source-evidence
+- [junction-J-d1c5b83f089c](junction-J-d1c5b83f089c.png): Rejected J-d1c5b83f089c unresolved-source-evidence
+- [junction-J-7fa2a645ef80](junction-J-7fa2a645ef80.png): Rejected J-7fa2a645ef80 unresolved-source-evidence
+- [junction-J-6957cdb44434](junction-J-6957cdb44434.png): Rejected J-6957cdb44434 unresolved-source-evidence
+- [junction-J-a10d009303ea](junction-J-a10d009303ea.png): Rejected J-a10d009303ea unresolved-source-evidence
+- [junction-J-e776df263995](junction-J-e776df263995.png): Rejected J-e776df263995 unresolved-source-evidence
+- [junction-J-c83bf14349cc](junction-J-c83bf14349cc.png): Rejected J-c83bf14349cc unresolved-source-evidence
+- [junction-J-d0b89a0a88f9](junction-J-d0b89a0a88f9.png): Rejected J-d0b89a0a88f9 unresolved-source-evidence
+- [junction-J-33ed760d8ccd](junction-J-33ed760d8ccd.png): Rejected J-33ed760d8ccd unresolved-source-evidence
+- [junction-J-73d162a53b20](junction-J-73d162a53b20.png): Rejected J-73d162a53b20 unresolved-source-evidence
+- [junction-J-6576d984ac9c](junction-J-6576d984ac9c.png): Rejected J-6576d984ac9c unresolved-source-evidence
+- [junction-J-c516d66ffafe](junction-J-c516d66ffafe.png): Rejected J-c516d66ffafe unresolved-source-evidence
+- [junction-J-2c7731ad31a0](junction-J-2c7731ad31a0.png): Rejected J-2c7731ad31a0 unresolved-source-evidence
+- [junction-J-a28793ebc7df](junction-J-a28793ebc7df.png): Rejected J-a28793ebc7df unresolved-source-evidence
+- [junction-J-c50cd34074f7](junction-J-c50cd34074f7.png): Rejected J-c50cd34074f7 unresolved-source-evidence
+- [junction-J-f0b671873e86](junction-J-f0b671873e86.png): Rejected J-f0b671873e86 unresolved-source-evidence
+- [junction-J-e362c72aac8a](junction-J-e362c72aac8a.png): Rejected J-e362c72aac8a unresolved-source-evidence
+- [junction-J-5991e71e68c8](junction-J-5991e71e68c8.png): Rejected J-5991e71e68c8 unresolved-source-evidence
+- [junction-J-dcbe1cff8bf2](junction-J-dcbe1cff8bf2.png): Rejected J-dcbe1cff8bf2 unresolved-source-evidence
+- [junction-J-d6dfc232bbb9](junction-J-d6dfc232bbb9.png): Rejected J-d6dfc232bbb9 unresolved-source-evidence
+- [junction-J-e2808bd7b9f4](junction-J-e2808bd7b9f4.png): Rejected J-e2808bd7b9f4 unresolved-source-evidence
+- [junction-J-0570e8969b06](junction-J-0570e8969b06.png): Rejected J-0570e8969b06 missing-corridor-connection
+- [junction-J-05f3dda9cf54](junction-J-05f3dda9cf54.png): Rejected J-05f3dda9cf54 missing-corridor-connection
+- [junction-J-12ca4a19fdbb](junction-J-12ca4a19fdbb.png): Rejected J-12ca4a19fdbb missing-corridor-connection
+- [junction-J-1d58159eca6c](junction-J-1d58159eca6c.png): Rejected J-1d58159eca6c missing-corridor-connection
+- [junction-J-212c1cfc117f](junction-J-212c1cfc117f.png): Rejected J-212c1cfc117f missing-corridor-connection
+- [junction-J-378618f0bda4](junction-J-378618f0bda4.png): Rejected J-378618f0bda4 missing-corridor-connection
+- [junction-J-3a7cb4b186a1](junction-J-3a7cb4b186a1.png): Rejected J-3a7cb4b186a1 missing-corridor-connection
+- [junction-J-3c4ca5af27f4](junction-J-3c4ca5af27f4.png): Rejected J-3c4ca5af27f4 missing-corridor-connection
+- [junction-J-4bee675a2fe6](junction-J-4bee675a2fe6.png): Rejected J-4bee675a2fe6 missing-corridor-connection
+- [junction-J-5e494b7d57a6](junction-J-5e494b7d57a6.png): Rejected J-5e494b7d57a6 missing-corridor-connection
+- [junction-J-6c3ff42a2a20](junction-J-6c3ff42a2a20.png): Rejected J-6c3ff42a2a20 missing-corridor-connection
+- [junction-J-75f317b3471f](junction-J-75f317b3471f.png): Rejected J-75f317b3471f missing-corridor-connection
+- [junction-J-7f04b73b354d](junction-J-7f04b73b354d.png): Rejected J-7f04b73b354d missing-corridor-connection
+- [junction-J-d66e3eaae51f](junction-J-d66e3eaae51f.png): Rejected J-d66e3eaae51f missing-corridor-connection
+- [junction-J-f9e22c59c1c3](junction-J-f9e22c59c1c3.png): Rejected J-f9e22c59c1c3 missing-corridor-connection
+- [junction-J-ad4b8f3da881](junction-J-ad4b8f3da881.png): Rejected J-ad4b8f3da881 unresolved-source-evidence
+- [junction-J-55948d3d4ff2](junction-J-55948d3d4ff2.png): Rejected J-55948d3d4ff2 unresolved-source-evidence
+- [junction-J-3aa644ed562b](junction-J-3aa644ed562b.png): Rejected J-3aa644ed562b unresolved-source-evidence
+- [junction-J-6013f14e700a](junction-J-6013f14e700a.png): Rejected J-6013f14e700a unresolved-source-evidence
+- [junction-J-44080eff1e47](junction-J-44080eff1e47.png): Rejected J-44080eff1e47 unresolved-source-evidence
+- [junction-J-b084c48db97c](junction-J-b084c48db97c.png): Rejected J-b084c48db97c unresolved-source-evidence
+- [junction-J-ec6b8842480e](junction-J-ec6b8842480e.png): Rejected J-ec6b8842480e unresolved-source-evidence
+- [junction-J-1ba8be6b2bb0](junction-J-1ba8be6b2bb0.png): Rejected J-1ba8be6b2bb0 unresolved-source-evidence
+- [junction-J-20cdaeabd391](junction-J-20cdaeabd391.png): Rejected J-20cdaeabd391 unresolved-source-evidence
+- [junction-J-541416190268](junction-J-541416190268.png): Rejected J-541416190268 unresolved-source-evidence
+- [junction-J-c95fd1670ce9](junction-J-c95fd1670ce9.png): Rejected J-c95fd1670ce9 unresolved-source-evidence
+- [junction-J-c8649ac7e57b](junction-J-c8649ac7e57b.png): Rejected J-c8649ac7e57b unresolved-source-evidence
+- [junction-J-04a20fa0cffe](junction-J-04a20fa0cffe.png): Rejected J-04a20fa0cffe unresolved-source-evidence
+- [junction-J-82e74e4e6b63](junction-J-82e74e4e6b63.png): Rejected J-82e74e4e6b63 unresolved-source-evidence
+- [junction-J-363fbc4beea4](junction-J-363fbc4beea4.png): Rejected J-363fbc4beea4 missing-corridor-connection
+- [junction-J-9099391b6ffb](junction-J-9099391b6ffb.png): Rejected J-9099391b6ffb missing-corridor-connection
+- [junction-J-b785a4ee7530](junction-J-b785a4ee7530.png): Rejected J-b785a4ee7530 missing-corridor-connection
+- [junction-J-708d5bec52ec](junction-J-708d5bec52ec.png): Rejected J-708d5bec52ec unresolved-source-evidence
+- [junction-J-eb08df0c4aa9](junction-J-eb08df0c4aa9.png): Rejected J-eb08df0c4aa9 unresolved-source-evidence
+- [junction-J-fdfb456f11ca](junction-J-fdfb456f11ca.png): Rejected J-fdfb456f11ca unresolved-source-evidence
+- [junction-J-e6363d91b841](junction-J-e6363d91b841.png): Rejected J-e6363d91b841 unresolved-source-evidence
+- [junction-J-832c560fb4d5](junction-J-832c560fb4d5.png): Rejected J-832c560fb4d5 missing-corridor-connection
+- [junction-J-9dc11a12e981](junction-J-9dc11a12e981.png): Rejected J-9dc11a12e981 missing-corridor-connection
+- [junction-J-b1ce049d4b03](junction-J-b1ce049d4b03.png): Rejected J-b1ce049d4b03 unresolved-source-evidence
+- [junction-J-722789be415d](junction-J-722789be415d.png): Rejected J-722789be415d unresolved-source-evidence

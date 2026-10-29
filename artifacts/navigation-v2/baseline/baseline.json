@@ -1,0 +1,35 @@
+{
+  "commit": "0223812ae6b1afe05df0527e76ce728b4a8892ba",
+  "branch": "feature/centerline-routing-v2",
+  "initialStatus": " M apps/web/next-env.d.ts\n M apps/web/qa-desktop.png\n M artifacts/qa/r2-all-pairs.json\n?? .playwright-mcp/\n?? apps/web/.next-blocks-build/\n?? apps/web/.next-blocks-first/\n?? apps/web/.next-blocks-ground/\n?? apps/web/.next-dev-4666/\n?? apps/web/.next-first/\n?? apps/web/.next-floor-picker/\n?? apps/web/.next-ground/\n?? apps/web/.next-hearing-build/\n?? apps/web/.next-route-smoothing/\n?? artifacts/block-heights/ground-browser/browser-tests/wayfinding.qa-unavailable--ac03e-but-blocks-route-start-US2-/\n?? artifacts/corner-rounding/after-arrow/\n?? artifacts/corner-rounding/after-current/\n?? docs/handoffs/NAVIGATION_V2_COMPLETION_HANDOFF.md\n",
+  "environmentNotes": [
+    "No .venv present; system Python 3.12.10 has Shapely 2.1.2",
+    "PowerShell blocks npm.ps1; use npm.cmd"
+  ],
+  "commands": [
+    {
+      "command": "python -X utf8 scripts/semantic-map/diagnose_centerlines.py",
+      "exitCode": 0,
+      "seconds": 59.26780469994992,
+      "log": "command-1.log"
+    },
+    {
+      "command": "python -X utf8 scripts/semantic-map/reconstruct_centerline_graph.py",
+      "exitCode": 0,
+      "seconds": 1.1301062998827547,
+      "log": "command-2.log"
+    },
+    {
+      "command": "python -X utf8 scripts/semantic-map/verify_centerline_candidate.py",
+      "exitCode": 0,
+      "seconds": 0.4632178999017924,
+      "log": "command-3.log"
+    },
+    {
+      "command": "npm.cmd test -- tests/integration/visual-corners.qa.test.ts",
+      "exitCode": 1,
+      "seconds": 8.021206700010225,
+      "log": "command-4.log"
+    }
+  ]
+}
