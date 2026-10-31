@@ -134,6 +134,14 @@ def reconstruct():
     links, unresolved, approach_records = [], [], []
     for room in e.floor['rooms']:
         node = e.approaches[room['doorNodeId']]
+        if room['code'] in ('G-39', 'G-40'):
+            record = {'id': node['id'], 'room': room['code'], 'point': node['point'],
+                'source': e.cfg['roomEndpoints'][room['code']], 'provenance': room['provenance'],
+                'navigationPartial': room.get('navigationPartial', False), 'navigationNote': room.get('navigationNote'),
+                'sharedApproachIds': sorted(n['id'] for n in e.approaches.values() if n['point'] == node['point']),
+                'reason': 'Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.'}
+            unresolved.append(record); approach_records.append(record)
+            continue
         start = tuple(node['point']); point = Point(start); options = []
         targets = sorted([(line.distance(point), i, line.interpolate(line.project(point))) for i, line in enumerate(safe_skeleton)], key=lambda x:(x[0],x[1]))
         for distance, i, target in targets:
@@ -163,15 +171,21 @@ def reconstruct():
     lines = safe_skeleton + [line for _, line, _ in links if line.length > 0]
     chains, rejected = atomic_topology(lines, protected, e.safe)
     point_approaches = {}
-    for node in e.approaches.values(): point_approaches.setdefault(tuple(node['point']), []).append(node)
+    for node in e.approaches.values():
+        if node['id'] not in {'B03-GF-G-39-approach', 'B03-GF-G-40-approach'}:
+            point_approaches.setdefault(tuple(node['point']), []).append(node)
     node_by_point = {}; nodes = []
+    approach_points = {tuple(n['point']) for n in e.approaches.values()}
     for p in sorted({p for chain in chains for p in (chain[0],chain[-1])} | set(point_approaches)):
-        if p in point_approaches:
+        if p in point_approaches and p in approach_points:
             associated = sorted(point_approaches[p],key=lambda n:n['id'])
             node_by_point[p] = associated[0]['id']; nodes.extend(dict(n) for n in associated)
         else:
             node_id = stable_id('B03-GF-v2-j-', list(p)); node_by_point[p] = node_id
             nodes.append({'id': node_id, 'buildingId': 'B03', 'floorId': 'GF', 'point': list(p), 'type': 'junction', 'status': 'candidate'})
+    for node in e.approaches.values():
+        if node['id'] in {'B03-GF-G-39-approach', 'B03-GF-G-40-approach'}:
+            nodes.append(dict(node))
     edges, evidence_records = [], []
     for chain in chains:
         line = LineString(chain)
@@ -194,6 +208,7 @@ def reconstruct():
                 evidence_records.append({'edgeId':edge_id,'sourceSpineIds':owners,'approachIds':linked,
                     'sourceReferences':e.references(owners),'tests':e.tests(line)})
     nodes.sort(key=lambda n:n['id']); edges.sort(key=lambda x:x['id'])
+    edges.sort(key=lambda x:x['id'])
     graph = {**e.constraints,'nodes':nodes,'edges':edges}
     groups = components(nodes, edges)
     connected = {edge[k] for edge in edges for k in ('from','to')}
