@@ -49,84 +49,9 @@
       "B03-GF-G-39-approach",
       "B03-GF-G-40-approach"
     ],
-    "reason": "No direct or bounded local connector to a reviewed spine passes exact geometry.",
-    "nearestSpines": [
-      {
-        "distance": 18.608760710754492,
-        "point": [
-          932.9442295218298,
-          1448.9119151767152
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 1.5999723638072807,
-          "wallIndices": [
-            367
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 18.788286693922224,
-        "point": [
-          935.3746566587562,
-          1448.0137138435032
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 3.9201436414162054,
-          "wallIndices": [],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 114.16541014591337,
-        "point": [
-          1038.5986195449339,
-          1409.865727559481
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 9.111209928434576,
-          "wallIndices": [
-            564,
-            537
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 117.49619239710854,
-        "point": [
-          1041.7639999115718,
-          1408.6959130761581
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 9.683795025427374,
-          "wallIndices": [
-            564,
-            535,
-            544
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      }
-    ],
+    "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
     "incidentEdgeCount": 0,
-    "componentIndex": 41
+    "componentIndex": 23
   },
   {
     "id": "B03-GF-G-40-approach",
@@ -190,83 +115,8 @@
       "B03-GF-G-39-approach",
       "B03-GF-G-40-approach"
     ],
-    "reason": "No direct or bounded local connector to a reviewed spine passes exact geometry.",
-    "nearestSpines": [
-      {
-        "distance": 18.608760710754492,
-        "point": [
-          932.9442295218298,
-          1448.9119151767152
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 1.5999723638072807,
-          "wallIndices": [
-            367
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 18.788286693922224,
-        "point": [
-          935.3746566587562,
-          1448.0137138435032
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 3.9201436414162054,
-          "wallIndices": [],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 114.16541014591337,
-        "point": [
-          1038.5986195449339,
-          1409.865727559481
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 9.111209928434576,
-          "wallIndices": [
-            564,
-            537
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      },
-      {
-        "distance": 117.49619239710854,
-        "point": [
-          1041.7639999115718,
-          1408.6959130761581
-        ],
-        "tests": {
-          "areaCovered": false,
-          "outsideLength": 9.683795025427374,
-          "wallIndices": [
-            564,
-            535,
-            544
-          ],
-          "roomInteriors": [],
-          "restriction": "unknown",
-          "accessibility": "unknown",
-          "safe": false
-        }
-      }
-    ],
+    "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
     "incidentEdgeCount": 0,
-    "componentIndex": 42
+    "componentIndex": 24
   }
 ]

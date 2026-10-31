@@ -4,7 +4,6 @@
       "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
       "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "--list",
       "tests/e2e/navigation-v2-diagnostic.qa.spec.ts"
     ],
     "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
@@ -18,14 +17,18 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/artifacts/qa/browser-tests",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "",
         "name": "",
         "testDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
@@ -69,7 +72,81 @@
       "line": 0,
       "specs": [
         {
-          "title": "V2 diagnostic is visibly isolated and reports disconnected G-39/G-40 approaches",
+          "title": "V2 diagnostic agrees with the full legacy-connected coverage matrix",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 18103,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:35:69",
+                    "location": {
+                      "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                      "column": 69,
+                      "line": 35
+                    },
+                    "snippet": "  33 |   expect(matrix.cases).toHaveLength(baseline.cases.length);\n  34 |   await page.goto('/');\n> 35 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toContainText('G-39 and G-40 have no incident edges');\n     |                                                                     ^\n  36 |\n  37 |   const failures: string[] = [];\n  38 |   for (const pair of matrix.cases) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                        "column": 69,
+                        "line": 35
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n\n  33 |   expect(matrix.cases).toHaveLength(baseline.cases.length);\n  34 |   await page.goto('/');\n> 35 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toContainText('G-39 and G-40 have no incident edges');\n     |                                                                     ^\n  36 |\n  37 |   const failures: string[] = [];\n  38 |   for (const pair of matrix.cases) {\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:35:69"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T12:57:59.326Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-bf588-y-connected-coverage-matrix\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-bf588-y-connected-coverage-matrix\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-bf588-y-connected-coverage-matrix\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                    "column": 69,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "629f84310cc4640c9efd-4fdedcf795b8e0f934f5",
+          "file": "navigation-v2-diagnostic.qa.spec.ts",
+          "line": 29,
+          "column": 5
+        },
+        {
+          "title": "restored destinations and Meeting Room approach render on the source plan",
           "ok": true,
           "tags": [],
           "tests": [
@@ -79,13 +156,175 @@
               "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
-              "results": [],
-              "status": "skipped"
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15297,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T12:58:20.369Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
             }
           ],
-          "id": "629f84310cc4640c9efd-90a0f12647e4b9321c1a",
+          "id": "629f84310cc4640c9efd-4962fe074da5c2034d5c",
           "file": "navigation-v2-diagnostic.qa.spec.ts",
-          "line": 3,
+          "line": 65,
+          "column": 5
+        },
+        {
+          "title": "G-39/G-40 stay disconnected in both directions",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19375,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:85:69",
+                    "location": {
+                      "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                      "column": 69,
+                      "line": 85
+                    },
+                    "snippet": "  83 | test('G-39/G-40 stay disconnected in both directions', async ({ page }) => {\n  84 |   await page.goto('/');\n> 85 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toContainText('G-39 and G-40 have no incident edges');\n     |                                                                     ^\n  86 |   const status = page.getByTestId('route-status');\n  87 |   for (const [from, to] of [['G-39', 'G-40'], ['G-40', 'G-39']]) {\n  88 |     await page.getByTestId('start-select').selectOption(`B03-GF-${from}`);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                        "column": 69,
+                        "line": 85
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected substring: \u001b[32m\"G-39 and G-40 have no incident edges\"\u001b[39m\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n\n  83 | test('G-39/G-40 stay disconnected in both directions', async ({ page }) => {\n  84 |   await page.goto('/');\n> 85 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toContainText('G-39 and G-40 have no incident edges');\n     |                                                                     ^\n  86 |   const status = page.getByTestId('route-status');\n  87 |   for (const [from, to] of [['G-39', 'G-40'], ['G-40', 'G-39']]) {\n  88 |     await page.getByTestId('start-select').selectOption(`B03-GF-${from}`);\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:85:69"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T12:58:35.825Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-adaef-onnected-in-both-directions\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-adaef-onnected-in-both-directions\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-adaef-onnected-in-both-directions\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                    "column": 69,
+                    "line": 85
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "629f84310cc4640c9efd-2567dbdf5cb571b18913",
+          "file": "navigation-v2-diagnostic.qa.spec.ts",
+          "line": 83,
+          "column": 5
+        },
+        {
+          "title": "Arabic RTL, keyboard route selection, reduced motion and accessible-only filtering remain usable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19097,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:100:69",
+                    "location": {
+                      "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                      "column": 69,
+                      "line": 100
+                    },
+                    "snippet": "   98 |   await page.getByTestId('language-toggle').click();\n   99 |   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');\n> 100 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toBeVisible();\n      |                                                                     ^\n  101 |   await page.screenshot({ path: `${artifactDirectory}/arabic-rtl-default.png`, fullPage: true });\n  102 |\n  103 |   await page.getByTestId('start-select').focus();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                        "column": 69,
+                        "line": 100
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('navigation-v2-diagnostic-banner')\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('navigation-v2-diagnostic-banner') with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('navigation-v2-diagnostic-banner')\u001b[22m\n\n\n   98 |   await page.getByTestId('language-toggle').click();\n   99 |   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');\n> 100 |   await expect(page.getByTestId('navigation-v2-diagnostic-banner')).toBeVisible();\n      |                                                                     ^\n  101 |   await page.screenshot({ path: `${artifactDirectory}/arabic-rtl-default.png`, fullPage: true });\n  102 |\n  103 |   await page.getByTestId('start-select').focus();\n    at F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts:100:69"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-29T12:58:57.455Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-0c9be-nly-filtering-remain-usable\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-0c9be-nly-filtering-remain-usable\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\artifacts\\qa\\browser-tests\\navigation-v2-diagnostic.q-0c9be-nly-filtering-remain-usable\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\tests\\e2e\\navigation-v2-diagnostic.qa.spec.ts",
+                    "column": 69,
+                    "line": 100
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "629f84310cc4640c9efd-18b5aa16f4c5fea127d4",
+          "file": "navigation-v2-diagnostic.qa.spec.ts",
+          "line": 96,
           "column": 5
         }
       ]
@@ -93,11 +332,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-29T08:37:52.678Z",
-    "duration": 47.678,
-    "expected": 0,
-    "skipped": 1,
-    "unexpected": 0,
+    "startTime": "2026-10-29T12:57:58.784Z",
+    "duration": 79823.76400000001,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 3,
     "flaky": 0
   }
 }

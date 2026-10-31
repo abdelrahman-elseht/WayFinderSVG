@@ -4,7 +4,9 @@
       "C:\\Users\\elseh\\AppData\\Local\\pi-node\\current\\node.exe",
       "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "tests/e2e/navigation-v2-diagnostic.qa.spec.ts"
+      "tests/e2e/navigation-v2-diagnostic.qa.spec.ts",
+      "--grep",
+      "restored destinations"
     ],
     "configFile": "F:\\projects\\WFSVG-worktrees\\b03-first-floor-wayfinding\\playwright.config.ts",
     "rootDir": "F:/projects/WFSVG-worktrees/b03-first-floor-wayfinding/tests/e2e",
@@ -72,7 +74,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "V2 diagnostic is visibly isolated and reports disconnected G-39/G-40 approaches",
+          "title": "restored destinations and Meeting Room approach render on the source plan",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,12 +89,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8682,
+                  "duration": 17247,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-28T15:36:03.747Z",
+                  "startTime": "2026-10-29T13:06:21.050Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -100,9 +102,9 @@
               "status": "expected"
             }
           ],
-          "id": "629f84310cc4640c9efd-90a0f12647e4b9321c1a",
+          "id": "629f84310cc4640c9efd-4962fe074da5c2034d5c",
           "file": "navigation-v2-diagnostic.qa.spec.ts",
-          "line": 3,
+          "line": 66,
           "column": 5
         }
       ]
@@ -110,8 +112,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-28T15:36:03.056Z",
-    "duration": 11246.553,
+    "startTime": "2026-10-29T13:06:20.248Z",
+    "duration": 19609.346,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
