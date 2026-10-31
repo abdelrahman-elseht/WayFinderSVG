@@ -78,12 +78,6 @@ class Evidence:
                 self.obstacles.append((room['code'], Polygon(room['displayFootprint']['polygon'])))
         self.obstacle_tree = STRtree([p for _, p in self.obstacles])
         self.raw = [LineString(p) for p in self.cfg['corridorSpines']]
-        self.reviewed_connections = read('scripts/semantic-map/navigation-v2-config.json')['reviewedConnections']
-        for connection in self.reviewed_connections:
-            line = LineString(connection['coordinates'])
-            if not self.safe(line):
-                raise ValueError(f"Unsafe reviewed connection: {connection['id']}: {self.tests(line)}")
-            self.raw.append(line)
 
     def tests(self, line):
         wall_hits = [int(i) for i in self.wall_tree.query(line) if line.intersects(self.walls[int(i)])]
@@ -101,30 +95,11 @@ class Evidence:
 
     def references(self, spine_ids):
         # These are configuration provenance, not invented drawing primitive IDs.
-        references = []
-        base_count = len(self.cfg['corridorSpines'])
-        for i in spine_ids:
-            if i < base_count:
-                references.append(f'scripts/semantic-map/navigation-config.json#/corridorSpines/{i}')
-            else:
-                connection = self.reviewed_connections[i-base_count]
-                references.append(f'scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/{i-base_count}')
-                references.extend(connection['sourceReferences'])
-        return references + [
+        return [f'scripts/semantic-map/navigation-config.json#/corridorSpines/{i}' for i in spine_ids] + [
             'maps/B03/GF/master.svg', 'maps/B03/GF/alignment.json',
             '2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1',
             '2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1']
 
     def spine_pieces(self, inset=False):
         domain = self.interior if inset else self.domain
-        # Preserve an already-safe source polyline intact. Insetting its shared
-        # endpoint can sever a real junction at a navigable polygon boundary.
-        # Unsafe/clipped lines still use the inward margin, and every emitted
-        # segment is independently checked against the original exact domain.
-        result = []
-        for i, raw in enumerate(self.raw):
-            for a, b in zip(raw.coords, list(raw.coords)[1:]):
-                segment = LineString([a, b])
-                result.extend((i, line) for line in (
-                    [segment] if inset and self.safe(segment) else parts(segment.intersection(domain))))
-        return result
+        return [(i, line) for i, raw in enumerate(self.raw) for line in parts(raw.intersection(domain))]

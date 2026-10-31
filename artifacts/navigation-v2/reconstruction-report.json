@@ -1,11 +1,13 @@
 {
-  "configuredSpines": 22,
-  "clippedSpineComponents": 97,
-  "nodes": 196,
-  "edges": 162,
-  "resultingGraphComponents": 38,
+  "configuredSpines": 17,
+  "clippedSpineComponents": 62,
+  "nodes": 198,
+  "edges": 155,
+  "resultingGraphComponents": 43,
   "componentSizes": [
-    97,
+    60,
+    17,
+    11,
     6,
     6,
     6,
@@ -15,6 +17,9 @@
     4,
     4,
     4,
+    4,
+    4,
+    3,
     3,
     2,
     2,
@@ -50,18 +55,10 @@
     [
       "G-01",
       "G-02",
-      "G-03",
       "G-04",
-      "G-07",
       "G-08",
       "G-09",
       "G-10",
-      "G-11",
-      "G-12",
-      "G-13",
-      "G-14",
-      "G-15",
-      "G-17",
       "G-18",
       "G-19",
       "G-20",
@@ -75,10 +72,6 @@
       "G-28",
       "G-29",
       "G-30",
-      "G-35",
-      "G-36",
-      "G-43",
-      "G-44",
       "G-45",
       "G-46",
       "G-47",
@@ -87,6 +80,19 @@
       "G-50",
       "G-53",
       "G-54"
+    ],
+    [
+      "G-11",
+      "G-12",
+      "G-13",
+      "G-14",
+      "G-15",
+      "G-17"
+    ],
+    [
+      "G-03",
+      "G-35",
+      "G-36"
     ],
     [
       "G-31",
@@ -106,6 +112,9 @@
     ],
     [],
     [
+      "G-07"
+    ],
+    [
       "G-37"
     ],
     [
@@ -118,7 +127,13 @@
       "G-42"
     ],
     [
+      "G-43"
+    ],
+    [
       "G-16"
+    ],
+    [
+      "G-44"
     ],
     [],
     [],
@@ -152,7 +167,7 @@
       "G-40"
     ]
   ],
-  "cycleRank": 4,
+  "cycleRank": 0,
   "excludedSpinePieces": [],
   "rejectedSerializedEdges": [],
   "unresolved": [
@@ -283,7 +298,7 @@
         }
       ],
       "incidentEdgeCount": 0,
-      "componentIndex": 36
+      "componentIndex": 41
     },
     {
       "id": "B03-GF-G-40-approach",
@@ -424,7 +439,7 @@
         }
       ],
       "incidentEdgeCount": 0,
-      "componentIndex": 37
+      "componentIndex": 42
     }
   ],
   "approaches": [
@@ -639,7 +654,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 2
     },
     {
       "id": "B03-GF-G-04-approach",
@@ -778,7 +793,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 4
+      "componentIndex": 6
     },
     {
       "id": "B03-GF-G-06-approach",
@@ -859,7 +874,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 4
+      "componentIndex": 6
     },
     {
       "id": "B03-GF-G-07-approach",
@@ -926,7 +941,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 8
     },
     {
       "id": "B03-GF-G-08-approach",
@@ -1116,11 +1131,11 @@
         "B03-GF-G-10-approach"
       ],
       "attachment": [
-        2661.436882352941,
-        1575.7475294117648
+        2660.0,
+        1570.0
       ],
       "method": "direct",
-      "length": 18.715722323616298,
+      "length": 19.631021046547833,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -1198,7 +1213,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-12-approach",
@@ -1265,7 +1280,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-13-approach",
@@ -1332,7 +1347,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-14-approach",
@@ -1404,7 +1419,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-15-approach",
@@ -1471,7 +1486,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-16-approach",
@@ -1538,7 +1553,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 10
+      "componentIndex": 14
     },
     {
       "id": "B03-GF-G-17-approach",
@@ -1621,7 +1636,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 1
     },
     {
       "id": "B03-GF-G-18-approach",
@@ -1989,11 +2004,11 @@
         "B03-GF-G-22-approach"
       ],
       "attachment": [
-        2233.176396039604,
-        1453.3176396039603
+        2233.1763960396042,
+        1453.3176396039605
       ],
       "method": "direct",
-      "length": 50.94880964734694,
+      "length": 50.94880964734676,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -2647,7 +2662,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 1
+      "componentIndex": 3
     },
     {
       "id": "B03-GF-G-32-approach",
@@ -2714,7 +2729,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 1
+      "componentIndex": 3
     },
     {
       "id": "B03-GF-G-33-approach",
@@ -2781,7 +2796,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 2
+      "componentIndex": 4
     },
     {
       "id": "B03-GF-G-34-approach",
@@ -2848,7 +2863,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 2
+      "componentIndex": 4
     },
     {
       "id": "B03-GF-G-35-approach",
@@ -2915,7 +2930,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 2
     },
     {
       "id": "B03-GF-G-36-approach",
@@ -2982,7 +2997,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 2
     },
     {
       "id": "B03-GF-G-37-approach",
@@ -3049,7 +3064,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 6
+      "componentIndex": 9
     },
     {
       "id": "B03-GF-G-38-approach",
@@ -3116,7 +3131,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 7
+      "componentIndex": 10
     },
     {
       "id": "B03-GF-G-39-approach",
@@ -3245,7 +3260,7 @@
         }
       ],
       "incidentEdgeCount": 0,
-      "componentIndex": 36
+      "componentIndex": 41
     },
     {
       "id": "B03-GF-G-40-approach",
@@ -3386,7 +3401,7 @@
         }
       ],
       "incidentEdgeCount": 0,
-      "componentIndex": 37
+      "componentIndex": 42
     },
     {
       "id": "B03-GF-G-41-approach",
@@ -3453,7 +3468,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 8
+      "componentIndex": 11
     },
     {
       "id": "B03-GF-G-42-approach",
@@ -3520,7 +3535,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 9
+      "componentIndex": 12
     },
     {
       "id": "B03-GF-G-43-approach",
@@ -3572,11 +3587,11 @@
         "B03-GF-G-43-approach"
       ],
       "attachment": [
-        1174.9539,
-        1023.9199
+        1159.0705689655174,
+        1063.628227586207
       ],
       "method": "direct",
-      "length": 0.0,
+      "length": 42.76717765348196,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -3587,7 +3602,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 13
     },
     {
       "id": "B03-GF-G-44-approach",
@@ -3671,7 +3686,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 0
+      "componentIndex": 15
     },
     {
       "id": "B03-GF-G-45-approach",
@@ -3858,10 +3873,10 @@
       ],
       "attachment": [
         1623.8460049235969,
-        973.7648974257619
+        973.764897425762
       ],
       "method": "direct",
-      "length": 49.0384148374803,
+      "length": 49.03841483748019,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -4140,7 +4155,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 3
+      "componentIndex": 5
     },
     {
       "id": "B03-GF-G-52-approach",
@@ -4207,7 +4222,7 @@
         "safe": true
       },
       "incidentEdgeCount": 1,
-      "componentIndex": 3
+      "componentIndex": 5
     },
     {
       "id": "B03-GF-G-53-approach",
@@ -4771,11 +4786,13 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-994dd8c00017",
+      "edgeId": "B03-GF-v2-e-2c1d787e224b",
       "sourceSpineIds": [
         13
       ],
-      "approachIds": [],
+      "approachIds": [
+        "B03-GF-G-43-approach"
+      ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/13",
         "maps/B03/GF/master.svg",
@@ -4863,18 +4880,40 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-ccf60dab9ac8",
+      "edgeId": "B03-GF-v2-e-14de24882c44",
       "sourceSpineIds": [
-        0,
-        18
+        13
       ],
-      "approachIds": [],
+      "approachIds": [
+        "B03-GF-G-43-approach"
+      ],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/1",
-        "docs/SEMANTIC_REVIEW.md",
-        "0001-path-07715",
-        "0001-path-07716",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/13",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
+      "edgeId": "B03-GF-v2-e-2008a117ef5d",
+      "sourceSpineIds": [
+        13
+      ],
+      "approachIds": [
+        "B03-GF-G-43-approach"
+      ],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/13",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -4914,57 +4953,15 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-5cf783aaf80e",
+      "edgeId": "B03-GF-v2-e-9eade94e0524",
       "sourceSpineIds": [
-        0,
-        1,
-        17,
-        18
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/1",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/0",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0001-path-11645",
-        "0001-path-11655",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/1",
-        "docs/SEMANTIC_REVIEW.md",
-        "0001-path-07715",
-        "0001-path-07716",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-159f704a9c2c",
-      "sourceSpineIds": [
-        0,
-        1,
-        17
+        1
       ],
       "approachIds": [
         "B03-GF-G-03-approach"
       ],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/1",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/0",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0001-path-11645",
-        "0001-path-11655",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -4981,25 +4978,13 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-d3b96842a549",
+      "edgeId": "B03-GF-v2-e-c3727b4f3586",
       "sourceSpineIds": [
-        0,
-        1,
-        17,
-        18
+        0
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/1",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/0",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0001-path-11645",
-        "0001-path-11655",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/1",
-        "docs/SEMANTIC_REVIEW.md",
-        "0001-path-07715",
-        "0001-path-07716",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5050,67 +5035,6 @@
       ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/1",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-5146705b8003",
-      "sourceSpineIds": [
-        0,
-        17,
-        18
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/0",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0001-path-11645",
-        "0001-path-11655",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/1",
-        "docs/SEMANTIC_REVIEW.md",
-        "0001-path-07715",
-        "0001-path-07716",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-87024f9770a9",
-      "sourceSpineIds": [
-        0,
-        18
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/1",
-        "docs/SEMANTIC_REVIEW.md",
-        "0001-path-07715",
-        "0001-path-07716",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5465,14 +5389,12 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-174f4b5ff936",
+      "edgeId": "B03-GF-v2-e-778c02379075",
       "sourceSpineIds": [
-        2,
         5
       ],
       "approachIds": [],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -5513,7 +5435,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-7bfcb4d0d11b",
+      "edgeId": "B03-GF-v2-e-0b97c10750f7",
       "sourceSpineIds": [
         1
       ],
@@ -5536,15 +5458,13 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-87f27a03c64a",
+      "edgeId": "B03-GF-v2-e-548fe4aaa1f1",
       "sourceSpineIds": [
-        2,
-        5
+        2
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5774,7 +5694,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-b59c2d62293f",
+      "edgeId": "B03-GF-v2-e-186c5b3a8419",
       "sourceSpineIds": [
         0
       ],
@@ -5800,7 +5720,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-9eea9acc35f0",
+      "edgeId": "B03-GF-v2-e-42a0b6a9a468",
       "sourceSpineIds": [
         0
       ],
@@ -5825,7 +5745,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-f69e33bedfaf",
+      "edgeId": "B03-GF-v2-e-a0b8b751495e",
       "sourceSpineIds": [
         0
       ],
@@ -6417,7 +6337,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-0f6d2701e629",
+      "edgeId": "B03-GF-v2-e-730efb2db3b6",
       "sourceSpineIds": [
         2
       ],
@@ -6563,15 +6483,12 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-c3a4b63695a8",
-      "sourceSpineIds": [
-        2
-      ],
+      "edgeId": "B03-GF-v2-e-9c262bb6f587",
+      "sourceSpineIds": [],
       "approachIds": [
         "B03-GF-G-22-approach"
       ],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -6588,7 +6505,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-7c58fa2ddceb",
+      "edgeId": "B03-GF-v2-e-1eef6a01ec0d",
       "sourceSpineIds": [
         2,
         3
@@ -6635,7 +6552,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-c581bf14e248",
+      "edgeId": "B03-GF-v2-e-eee4391f7936",
       "sourceSpineIds": [
         3
       ],
@@ -6753,12 +6670,14 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-426a3deb5ed9",
+      "edgeId": "B03-GF-v2-e-bac016daf812",
       "sourceSpineIds": [
+        2,
         3
       ],
       "approachIds": [],
       "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -6776,80 +6695,17 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-737b4b04db85",
+      "edgeId": "B03-GF-v2-e-fede2ded3b70",
       "sourceSpineIds": [
         2,
         3,
-        19
+        7
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-c4d69849e203",
-      "sourceSpineIds": [
-        2,
-        3,
-        19
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-5096aa72e26f",
-      "sourceSpineIds": [
-        2,
-        3,
-        19
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -6889,78 +6745,13 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-f6849444b158",
-      "sourceSpineIds": [
-        2,
-        7,
-        19
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-1713d9e1a695",
-      "sourceSpineIds": [
-        2,
-        7,
-        19
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
       "edgeId": "B03-GF-v2-e-e840731bb916",
       "sourceSpineIds": [
-        7,
-        20
+        7
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0002-path-06039",
-        "0002-path-06040",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7089,38 +6880,6 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-bec85767648b",
-      "sourceSpineIds": [
-        2,
-        9,
-        21
-      ],
-      "approachIds": [
-        "B03-GF-G-07-approach"
-      ],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/4",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-11149",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
       "edgeId": "B03-GF-v2-e-0db32654eed0",
       "sourceSpineIds": [
         2,
@@ -7149,17 +6908,12 @@
       "edgeId": "B03-GF-v2-e-5d1937f7d3db",
       "sourceSpineIds": [
         2,
-        7,
-        21
+        7
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/4",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-11149",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7201,18 +6955,38 @@
       }
     },
     {
+      "edgeId": "B03-GF-v2-e-e78dd3378d68",
+      "sourceSpineIds": [
+        9
+      ],
+      "approachIds": [
+        "B03-GF-G-07-approach"
+      ],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
       "edgeId": "B03-GF-v2-e-8235c247f721",
       "sourceSpineIds": [
-        7,
-        19
+        7
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
-        "maps/B03/GF/master.svg",
-        "docs/SEMANTIC_REVIEW.md",
-        "0002-path-08090",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7281,7 +7055,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-03d4e1689519",
+      "edgeId": "B03-GF-v2-e-46f34ea48065",
       "sourceSpineIds": [
         8
       ],
@@ -7304,74 +7078,35 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-2a06f48730e6",
-      "sourceSpineIds": [
-        7,
-        20
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0002-path-06039",
-        "0002-path-06040",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-dba09b6a109c",
-      "sourceSpineIds": [
-        15,
-        20
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0002-path-06039",
-        "0002-path-06040",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-152f71fdeb82",
-      "sourceSpineIds": [
-        20
-      ],
+      "edgeId": "B03-GF-v2-e-3efc255343dd",
+      "sourceSpineIds": [],
       "approachIds": [
         "B03-GF-G-10-approach"
       ],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0002-path-06039",
-        "0002-path-06040",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
+      "edgeId": "B03-GF-v2-e-2d8b36f46e44",
+      "sourceSpineIds": [
+        15
+      ],
+      "approachIds": [],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",

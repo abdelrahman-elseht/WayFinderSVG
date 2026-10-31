@@ -14,10 +14,6 @@ const cases = [
   ['same-wing-near', 'G-01', 'G-05'], ['same-wing-far', 'G-01', 'G-50'],
   ['cross-wing', 'G-50', 'G-05'], ['previously-disconnected-area', 'G-39', 'G-02'],
   ['shared-approach', 'G-39', 'G-40'], ['qualified-partial', 'G-01', 'G-06'],
-  ['g01-to-g10', 'G-01', 'G-10'], ['g07-to-g10', 'G-07', 'G-10'],
-  ['mechanical-lab', 'G-01', 'G-43'], ['av-control', 'G-01', 'G-44'],
-  ['female-toilets', 'G-01', 'G-12'], ['male-toilets', 'G-01', 'G-13'],
-  ['av-to-meeting', 'G-44', 'G-30'],
 ] as const;
 
 const cross = (a: number[], b: number[]) => a[0] * b[1] - a[1] * b[0];
@@ -82,43 +78,6 @@ describe('Navigation V2 diagnostic route comparison', () => {
       cases: results,
     }, null, 2) + '\n');
     expect(results.every(result => result.legacy.routeSafety && (result.v2.status !== 'ok' || result.v2.routeSafety))).toBe(true);
-  });
-
-  it('keeps requested Ground Floor routes connected and avoids the G-01 to G-10 return bend', () => {
-    const route = (fromCode: string, toCode: string, graph: NavigationGraph) => {
-      const from = floor.rooms.find(room => room.code === fromCode)!.doorNodeId!;
-      const to = floor.rooms.find(room => room.code === toCode)!.doorNodeId!;
-      return findRoute(graph, from, to);
-    };
-
-    const directDestinations = ['G-43', 'G-44', 'G-12', 'G-13'];
-    for (const destination of directDestinations) {
-      const result = route('G-01', destination, candidate);
-      expect(result.status, `G-01 to ${destination}`).toBe('ok');
-      if (result.status === 'ok') expect(validate(result.points), `G-01 to ${destination} geometry`).toBe(true);
-    }
-
-    const g01ToG10 = route('G-01', 'G-10', candidate);
-    const legacyG01ToG10 = route('G-01', 'G-10', legacy);
-    expect(g01ToG10.status).toBe('ok');
-    expect(legacyG01ToG10.status).toBe('ok');
-    if (g01ToG10.status === 'ok' && legacyG01ToG10.status === 'ok') {
-      expect(g01ToG10.distance).toBeLessThan(legacyG01ToG10.distance * 1.1);
-      expect(validate(g01ToG10.points)).toBe(true);
-    }
-
-    const avToMeeting = route('G-44', 'G-30', candidate);
-    const legacyAvToMeeting = route('G-44', 'G-30', legacy);
-    expect(avToMeeting.status).toBe('ok');
-    expect(legacyAvToMeeting.status).toBe('ok');
-    if (avToMeeting.status === 'ok' && legacyAvToMeeting.status === 'ok') {
-      expect(avToMeeting.distance).toBeLessThan(legacyAvToMeeting.distance * 1.2);
-      expect(validate(avToMeeting.points)).toBe(true);
-    }
-
-    const g07ToG10 = route('G-07', 'G-10', candidate);
-    expect(g07ToG10.status).toBe('ok');
-    if (g07ToG10.status === 'ok') expect(validate(g07ToG10.points)).toBe(true);
   });
 
   it('keeps shared approach identities and candidate/unknown semantics', () => {

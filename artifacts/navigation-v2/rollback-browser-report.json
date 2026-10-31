@@ -1,0 +1,18 @@
+{
+  "url": "http://localhost:5250",
+  "floor": "GF",
+  "diagnostic_banner": "DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges",
+  "routes": {
+    "G-01_to_G-10": {
+      "status": "routed",
+      "evidence": "Route panel displayed turn-by-turn directions ending at destination."
+    },
+    "G-39_to_G-40": {
+      "status": "unavailable",
+      "evidence": "No confirmed open route connects these points."
+    }
+  },
+  "screenshots": [
+    "artifacts/navigation-v2/rollback-g01-g10.png"
+  ]
+}
