@@ -94810,17 +94810,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-v2-j-34bfa5c374a5",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        1385.129746,
-        1522.124322
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-v2-j-38cb49eb623e",
       "buildingId": "B03",
       "floorId": "GF",
@@ -95173,6 +95162,17 @@
       "status": "candidate"
     },
     {
+      "id": "B03-GF-v2-j-7d0052fb512c",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        2957.824563925675,
+        1422.541912425934
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
       "id": "B03-GF-v2-j-7dceaf7f4a2a",
       "buildingId": "B03",
       "floorId": "GF",
@@ -95360,17 +95360,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-v2-j-9e511ecb3437",
-      "buildingId": "B03",
-      "floorId": "GF",
-      "point": [
-        2661.436882352941,
-        1575.7475294117648
-      ],
-      "type": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-GF-v2-j-9e740d515839",
       "buildingId": "B03",
       "floorId": "GF",
@@ -95525,12 +95514,12 @@
       "status": "candidate"
     },
     {
-      "id": "B03-GF-v2-j-c072a815683b",
+      "id": "B03-GF-v2-j-c62be6cebacf",
       "buildingId": "B03",
       "floorId": "GF",
       "point": [
-        1475.30964,
-        1509.24148
+        1387.5054674496644,
+        1531.6166822147652
       ],
       "type": "junction",
       "status": "candidate"
@@ -95613,6 +95602,17 @@
       "status": "candidate"
     },
     {
+      "id": "B03-GF-v2-j-d9e8fb298cc5",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        2890.0,
+        1435.0
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
       "id": "B03-GF-v2-j-dac92b6f0a2e",
       "buildingId": "B03",
       "floorId": "GF",
@@ -95630,6 +95630,17 @@
       "point": [
         2635.0,
         1410.0
+      ],
+      "type": "junction",
+      "status": "candidate"
+    },
+    {
+      "id": "B03-GF-v2-j-e2329f1a36ca",
+      "buildingId": "B03",
+      "floorId": "GF",
+      "point": [
+        1476.58655704698,
+        1515.896489932886
       ],
       "type": "junction",
       "status": "candidate"
@@ -95792,6 +95803,29 @@
       ]
     },
     {
+      "id": "B03-GF-v2-e-03d805bf8bcb",
+      "from": "B03-GF-v2-j-5c4c5d5c2c6d",
+      "to": "B03-GF-v2-j-d9e8fb298cc5",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 1.166024711759149,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2888.841961852861,
+          1434.8637602179836
+        ],
+        [
+          2890.0,
+          1435.0
+        ]
+      ]
+    },
+    {
       "id": "B03-GF-v2-e-0bd34159f086",
       "from": "B03-GF-G-31-approach",
       "to": "B03-GF-v2-j-0ad9c111e3ce",
@@ -95861,6 +95895,37 @@
         [
           2233.176396039604,
           1453.3176396039603
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-121b460d9aee",
+      "from": "B03-GF-v2-j-7dceaf7f4a2a",
+      "to": "B03-GF-v2-j-1a8114cf51f6",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 218.83348299377474,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2660.0,
+          1570.0
+        ],
+        [
+          2670.0,
+          1610.0
+        ],
+        [
+          2820.0,
+          1650.0
+        ],
+        [
+          2840.0,
+          1640.0
         ]
       ]
     },
@@ -95980,29 +96045,6 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-152f71fdeb82",
-      "from": "B03-GF-v2-j-9e511ecb3437",
-      "to": "B03-GF-G-10-approach",
-      "floorId": "GF",
-      "pathType": "door",
-      "distance": 18.715722323616298,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2661.436882352941,
-          1575.7475294117648
-        ],
-        [
-          2679.5938,
-          1571.2083
-        ]
-      ]
-    },
-    {
       "id": "B03-GF-v2-e-154a83848a84",
       "from": "B03-GF-v2-j-20df1a6948b8",
       "to": "B03-GF-v2-j-5c4c5d5c2c6d",
@@ -96022,6 +96064,29 @@
         [
           2888.841961852861,
           1434.8637602179836
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-1611cc477b3b",
+      "from": "B03-GF-v2-j-d9e8fb298cc5",
+      "to": "B03-GF-v2-j-7d0052fb512c",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 68.95923011251719,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2890.0,
+          1435.0
+        ],
+        [
+          2957.824563925675,
+          1422.541912425934
         ]
       ]
     },
@@ -96214,29 +96279,6 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-2a06f48730e6",
-      "from": "B03-GF-v2-j-7dceaf7f4a2a",
-      "to": "B03-GF-v2-j-9e511ecb3437",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 5.924417712762648,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2660.0,
-          1570.0
-        ],
-        [
-          2661.436882352941,
-          1575.7475294117648
-        ]
-      ]
-    },
-    {
       "id": "B03-GF-v2-e-2c78d51afe07",
       "from": "B03-GF-v2-j-7a73603e1143",
       "to": "B03-GF-v2-j-4eee13756224",
@@ -96310,12 +96352,12 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-3fa852e54957",
-      "from": "B03-GF-G-15-approach",
-      "to": "B03-GF-G-17-approach",
+      "id": "B03-GF-v2-e-3efc255343dd",
+      "from": "B03-GF-v2-j-7dceaf7f4a2a",
+      "to": "B03-GF-G-10-approach",
       "floorId": "GF",
       "pathType": "door",
-      "distance": 34.237873498948595,
+      "distance": 19.631021046547833,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -96323,12 +96365,58 @@
       "bidirectional": true,
       "geometry": [
         [
-          2953.4173,
-          1398.5478
+          2660.0,
+          1570.0
+        ],
+        [
+          2679.5938,
+          1571.2083
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-4001d01de864",
+      "from": "B03-GF-v2-j-7d0052fb512c",
+      "to": "B03-GF-G-14-approach",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 24.022709574714764,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2957.824563925675,
+          1422.541912425934
         ],
         [
           2981.452,
           1418.202
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-40b0d6d52198",
+      "from": "B03-GF-v2-j-c62be6cebacf",
+      "to": "B03-GF-v2-j-e2329f1a36ca",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 90.45753130184482,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1387.5054674496644,
+          1531.6166822147652
+        ],
+        [
+          1476.58655704698,
+          1515.896489932886
         ]
       ]
     },
@@ -96398,52 +96486,6 @@
         [
           2380.0,
           1380.0
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-v2-e-44c22c335c34",
-      "from": "B03-GF-G-30-approach",
-      "to": "B03-GF-v2-j-34bfa5c374a5",
-      "floorId": "GF",
-      "pathType": "door",
-      "distance": 21.05442967894865,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1382.1522,
-          1501.2815
-        ],
-        [
-          1385.129746,
-          1522.124322
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-v2-e-452d4c2a563d",
-      "from": "B03-GF-G-02-approach",
-      "to": "B03-GF-v2-j-c072a815683b",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 3.0804399815609687,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1474.874,
-          1506.192
-        ],
-        [
-          1475.30964,
-          1509.24148
         ]
       ]
     },
@@ -96667,33 +96709,6 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-5847ccce3028",
-      "from": "B03-GF-v2-j-5c4c5d5c2c6d",
-      "to": "B03-GF-v2-j-8309db71e1e0",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 31.12389140356627,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2888.841961852861,
-          1434.8637602179836
-        ],
-        [
-          2890.0,
-          1435.0
-        ],
-        [
-          2918.8649410918624,
-          1443.018039192184
-        ]
-      ]
-    },
-    {
       "id": "B03-GF-v2-e-59b0a7d9feb2",
       "from": "B03-GF-v2-j-28aed836d5fd",
       "to": "B03-GF-v2-j-edae1d401986",
@@ -96909,56 +96924,6 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-61e47a42a18e",
-      "from": "B03-GF-G-15-approach",
-      "to": "B03-GF-G-14-approach",
-      "floorId": "GF",
-      "pathType": "door",
-      "distance": 34.237873498948595,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2953.4173,
-          1398.5478
-        ],
-        [
-          2981.452,
-          1418.202
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-v2-e-661c20592e50",
-      "from": "B03-GF-v2-j-3eb048920b86",
-      "to": "B03-GF-v2-j-95364b961a98",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 64.72094082176066,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1330.0,
-          1530.0
-        ],
-        [
-          1350.0,
-          1590.0
-        ],
-        [
-          1348.6301369863013,
-          1590.5479452054794
-        ]
-      ]
-    },
-    {
       "id": "B03-GF-v2-e-6718dd940f3c",
       "from": "B03-GF-v2-j-3eb048920b86",
       "to": "B03-GF-v2-j-95364b961a98",
@@ -97070,33 +97035,6 @@
         [
           1309.447050905684,
           1732.117963772642
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-v2-e-6c4417a294e4",
-      "from": "B03-GF-v2-j-c072a815683b",
-      "to": "B03-GF-v2-j-dac92b6f0a2e",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 216.14638220224742,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1475.30964,
-          1509.24148
-        ],
-        [
-          1680.0,
-          1480.0
-        ],
-        [
-          1689.3426388367732,
-          1479.1875966228893
         ]
       ]
     },
@@ -97573,12 +97511,12 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-87f27a03c64a",
-      "from": "B03-GF-v2-j-3eb048920b86",
-      "to": "B03-GF-v2-j-34bfa5c374a5",
+      "id": "B03-GF-v2-e-87f1f8c4c81f",
+      "from": "B03-GF-G-30-approach",
+      "to": "B03-GF-v2-j-c62be6cebacf",
       "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 55.68945320241714,
+      "pathType": "door",
+      "distance": 30.803908070091367,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -97586,12 +97524,39 @@
       "bidirectional": true,
       "geometry": [
         [
-          1330.0,
-          1530.0
+          1382.1522,
+          1501.2815
         ],
         [
-          1385.129746,
-          1522.124322
+          1387.5054674496644,
+          1531.6166822147652
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-88e0272e1492",
+      "from": "B03-GF-v2-j-e2329f1a36ca",
+      "to": "B03-GF-v2-j-dac92b6f0a2e",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 215.9343919547731,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1476.58655704698,
+          1515.896489932886
+        ],
+        [
+          1680.0,
+          1480.0
+        ],
+        [
+          1689.3426388367732,
+          1479.1875966228893
         ]
       ]
     },
@@ -97799,6 +97764,29 @@
         [
           1174.999907152331,
           1069.9999628609323
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-9a347d621301",
+      "from": "B03-GF-v2-j-d9e8fb298cc5",
+      "to": "B03-GF-v2-j-8309db71e1e0",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 29.95786669180712,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2890.0,
+          1435.0
+        ],
+        [
+          2918.8649410918624,
+          1443.018039192184
         ]
       ]
     },
@@ -98233,6 +98221,29 @@
       ]
     },
     {
+      "id": "B03-GF-v2-e-b969902a74bb",
+      "from": "B03-GF-G-02-approach",
+      "to": "B03-GF-v2-j-e2329f1a36ca",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 9.854439430867993,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1474.874,
+          1506.192
+        ],
+        [
+          1476.58655704698,
+          1515.896489932886
+        ]
+      ]
+    },
+    {
       "id": "B03-GF-v2-e-b9a84d9edaed",
       "from": "B03-GF-v2-j-72e61f3de9fd",
       "to": "B03-GF-G-04-approach",
@@ -98252,6 +98263,33 @@
         [
           1401.674,
           1019.112
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-ba1642c1a0cf",
+      "from": "B03-GF-v2-j-3eb048920b86",
+      "to": "B03-GF-v2-j-c62be6cebacf",
+      "floorId": "GF",
+      "pathType": "corridor",
+      "distance": 62.381636602693774,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1330.0,
+          1530.0
+        ],
+        [
+          1340.0,
+          1540.0
+        ],
+        [
+          1387.5054674496644,
+          1531.6166822147652
         ]
       ]
     },
@@ -98709,12 +98747,12 @@
       ]
     },
     {
-      "id": "B03-GF-v2-e-dba09b6a109c",
-      "from": "B03-GF-v2-j-9e511ecb3437",
-      "to": "B03-GF-v2-j-1a8114cf51f6",
+      "id": "B03-GF-v2-e-d8567022ea29",
+      "from": "B03-GF-v2-j-7d0052fb512c",
+      "to": "B03-GF-G-17-approach",
       "floorId": "GF",
       "pathType": "corridor",
-      "distance": 212.9090652810121,
+      "distance": 24.022709574714764,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -98722,20 +98760,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2661.436882352941,
-          1575.7475294117648
+          2957.824563925675,
+          1422.541912425934
         ],
         [
-          2670.0,
-          1610.0
-        ],
-        [
-          2820.0,
-          1650.0
-        ],
-        [
-          2840.0,
-          1640.0
+          2981.452,
+          1418.202
         ]
       ]
     },
@@ -98997,6 +99027,29 @@
         [
           2660.0,
           1570.0
+        ]
+      ]
+    },
+    {
+      "id": "B03-GF-v2-e-e9bf5370c6a8",
+      "from": "B03-GF-G-15-approach",
+      "to": "B03-GF-v2-j-7d0052fb512c",
+      "floorId": "GF",
+      "pathType": "door",
+      "distance": 24.395520212098695,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2953.4173,
+          1398.5478
+        ],
+        [
+          2957.824563925675,
+          1422.541912425934
         ]
       ]
     },
@@ -99320,29 +99373,6 @@
         [
           1410.509067277937,
           1014.900669799427
-        ]
-      ]
-    },
-    {
-      "id": "B03-GF-v2-e-faba3fec0d77",
-      "from": "B03-GF-v2-j-34bfa5c374a5",
-      "to": "B03-GF-v2-j-c072a815683b",
-      "floorId": "GF",
-      "pathType": "corridor",
-      "distance": 91.09544939154851,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1385.129746,
-          1522.124322
-        ],
-        [
-          1475.30964,
-          1509.24148
         ]
       ]
     },

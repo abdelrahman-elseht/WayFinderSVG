@@ -1,5 +1,23 @@
 {
   "floorId": "GF",
+  "intentionalEdgeFreeApproaches": [
+    {
+      "nodeId": "B03-GF-G-39-approach",
+      "reason": "No source-supported incident circulation edge is established for Services G-39.",
+      "sourceReferences": [
+        "docs/handoffs/GF_NAVIGATION_V2_ROUTE_COVERAGE_HANDOFF.md",
+        "docs/navigation-v2/route-coverage-source-review.md"
+      ]
+    },
+    {
+      "nodeId": "B03-GF-G-40-approach",
+      "reason": "Storage G-40 shares the Services approach, but the available source does not establish a separate internal route.",
+      "sourceReferences": [
+        "docs/handoffs/GF_NAVIGATION_V2_ROUTE_COVERAGE_HANDOFF.md",
+        "docs/navigation-v2/route-coverage-source-review.md"
+      ]
+    }
+  ],
   "reviewedConnections": [
     {
       "id": "av-foyer-north-door",
@@ -22,6 +40,7 @@
     },
     {
       "id": "mechanical-corridor-approach",
+      "doorApproachNodeId": "B03-GF-G-43-approach",
       "coordinates": [
         [
           1174.9539,
@@ -189,8 +208,34 @@
       "note": "Connects the open southern circulation to the lift/storage approach corridor without cutting through Stair 1."
     },
     {
-      "id": "east-electrical-approach",
+      "id": "g10-main-lobby-door-approach",
+      "doorApproachNodeId": "B03-GF-G-10-approach",
       "coordinates": [
+        [
+          2679.5938,
+          1571.2083
+        ],
+        [
+          2660,
+          1570
+        ]
+      ],
+      "sourceReferences": [
+        "0002-path-08090",
+        "0002-path-08089",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
+        "docs/SEMANTIC_REVIEW.md"
+      ],
+      "note": "Joins the G-10 source door approach to the existing main-lobby spine endpoint, avoiding a separate nearby helper junction."
+    },
+    {
+      "id": "east-electrical-approach",
+      "doorApproachNodeId": "B03-GF-G-16-approach",
+      "coordinates": [
+        [
+          2890,
+          1435
+        ],
         [
           2981.452,
           1418.202
@@ -280,6 +325,34 @@
         "docs/navigation-v2/route-coverage-source-review.md"
       ],
       "note": "Source-bounded circulation north of west service-room facades and south of toilet walls. Replaces the old diagonal which clipped multiple jambs; no G39/G40 connection."
+    }
+  ],
+  "reviewedSegmentOverrides": [
+    {
+      "spineIndex": 2,
+      "segmentIndex": 0,
+      "coordinates": [
+        [
+          1330,
+          1530
+        ],
+        [
+          1340,
+          1540
+        ],
+        [
+          1680,
+          1480
+        ]
+      ],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md"
+      ],
+      "note": "Adds a small in-domain bend to increase separation from the adjacent raised block while preserving the configured west-to-lobby corridor. Candidate map geometry; exact area, wall, and room checks remain required."
     }
   ]
 }

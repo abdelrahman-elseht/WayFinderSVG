@@ -25,6 +25,9 @@ def verify():
         pair_counts[tuple(sorted((edge['from'],edge['to'])))] += 1
     missing_nodes = sorted(nid for nid in e.approaches if nid not in node_map)
     missing_edges = sorted(nid for nid in e.approaches if not any(x['from']==nid or x['to']==nid for x in graph['edges']))
+    door_nodes = {nid for nid, node in e.approaches.items() if node.get('type') == 'door'}
+    door_entries_missing = sorted(nid for nid in door_nodes - set(e.intentional_edge_free_approaches) if not any(
+        edge.get('pathType') == 'door' and (edge['from'] == nid or edge['to'] == nid) for edge in graph['edges']))
     groups = components(graph['nodes'],graph['edges'])
     largest_approaches = [node_map[nid]['roomId'] for nid in groups[0] if node_map[nid].get('roomId')] if groups else []
     source_isolation = sorted({n.get('roomId') for n in graph['nodes'] if n.get('roomId')} -
@@ -32,11 +35,13 @@ def verify():
     result = {'graph':'diagnostic-only','nodes':len(graph['nodes']),'edges':len(graph['edges']),
         'connectedComponents':len(groups),'componentNodeCounts':list(map(len,groups)),
         'approachCount':len(e.approaches),'approachNodesMissing':missing_nodes,'approachesWithoutEdges':missing_edges,
+        'doorApproachNodesWithoutDoorEdges':door_entries_missing,
+        'intentionallyEdgeFreeApproaches':sorted(e.intentional_edge_free_approaches),
         'approachNodesWithEdges':len(e.approaches)-len(missing_edges),'approachesInLargestComponent':len(largest_approaches),
         'strictWalkableAreaFailures':bad_area,'wallContacts':bad_walls,'roomInteriorCrossings':bad_rooms,
         'endpointMismatches':bad_endpoints,'distanceMismatches':bad_distances,'candidateMetadataFailures':metadata,
         'duplicateUndirectedEdges':[list(k) for k,v in pair_counts.items() if v>1],
-        'isolatedApproachRooms':source_isolation,'acceptance':'PASS' if not any([bad_area,bad_walls,bad_rooms,bad_endpoints,bad_distances,metadata,missing_nodes,missing_edges]) and len(groups)==1 else 'FAIL',
+        'isolatedApproachRooms':source_isolation,'acceptance':'PASS' if not any([bad_area,bad_walls,bad_rooms,bad_endpoints,bad_distances,metadata,missing_nodes,missing_edges,door_entries_missing]) and len(groups)==1 else 'FAIL',
         'reason':'Complete connectivity is source-unsupported; candidate must remain diagnostic-only.'}
     write('candidate-validation.json',result); print(result); return result
 

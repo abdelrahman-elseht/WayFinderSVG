@@ -123,8 +123,8 @@ function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { rout
   const tangent = new THREE.Vector2(tip[0] - previous[0], tip[2] - previous[2]);
   const angle = Math.atan2(-tangent.y, tangent.x);
   return <group renderOrder={20}>
-    <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} depthTest depthWrite={false} renderOrder={20} />
-    <Line points={points} color={routeColor} lineWidth={5} depthTest depthWrite={false} renderOrder={21} />
+    <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={14} depthTest depthWrite={false} renderOrder={20} />
+    <Line points={points} color={routeColor} lineWidth={7} depthTest depthWrite={false} renderOrder={21} />
     <mesh position={[tip[0] - Math.cos(angle) * .06, .105, tip[2] + Math.sin(angle) * .06]} rotation={[-Math.PI / 2, 0, angle]} renderOrder={22}>
       <shapeGeometry args={[routeArrowShape]} />
       <meshBasicMaterial color={routeColor} depthTest depthWrite={false} />

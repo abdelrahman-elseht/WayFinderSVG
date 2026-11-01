@@ -14,6 +14,8 @@ const cases = [
   ['same-wing-near', 'G-01', 'G-05'], ['same-wing-far', 'G-01', 'G-50'],
   ['cross-wing', 'G-50', 'G-05'], ['previously-disconnected-area', 'G-39', 'G-02'],
   ['shared-approach', 'G-39', 'G-40'], ['qualified-partial', 'G-01', 'G-06'],
+  ['northwest-door', 'G-01', 'G-43'], ['east-lobby-door', 'G-01', 'G-16'],
+  ['main-lobby-door', 'G-01', 'G-10'], ['west-facade-clearance', 'G-44', 'G-30'],
 ] as const;
 
 const cross = (a: number[], b: number[]) => a[0] * b[1] - a[1] * b[0];
@@ -90,5 +92,15 @@ describe('Navigation V2 diagnostic route comparison', () => {
     expect(candidate.nodes.filter(node => node.point[0] === 926.4935 && node.point[1] === 1431.457)).toHaveLength(2);
     expect(candidate.edges.every(edge => edge.status === 'candidate' && edge.restriction === 'unknown'
       && edge.accessibility === 'unknown')).toBe(true);
+  });
+
+  it('keeps reviewed door entries and the west-corridor bend in the generated topology', () => {
+    const g10 = floor.rooms.find(room => room.code === 'G-10')!.doorNodeId!;
+    expect(candidate.edges.some(edge => edge.pathType === 'door'
+      && (edge.from === g10 || edge.to === g10)
+      && edge.geometry.some(point => point[0] === 2660 && point[1] === 1570))).toBe(true);
+    expect(candidate.nodes.some(node => node.point[0] === 2661.436882352941
+      && node.point[1] === 1575.7475294117648)).toBe(false);
+    expect(candidate.edges.some(edge => edge.geometry.some(point => point[0] === 1340 && point[1] === 1540))).toBe(true);
   });
 });

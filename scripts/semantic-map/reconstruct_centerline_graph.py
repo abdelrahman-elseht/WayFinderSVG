@@ -125,11 +125,21 @@ class ConnectorSearch:
 def reconstruct():
     e = Evidence()
     clipped = e.spine_pieces(inset=True)
-    skeleton = parts(unary_union([line for _, line in clipped]))
-    safe_skeleton, excluded = [], []
-    for line in skeleton:
-        if e.safe(line): safe_skeleton.append(line)
-        else: excluded.append({'coordinates': list(map(list, line.coords)), 'tests': e.tests(line)})
+    base_count = len(e.cfg['corridorSpines'])
+    approved_segments, excluded = [], []
+    for owner, line in clipped:
+        connection = e.reviewed_connections[owner - base_count] if owner >= base_count else None
+        door_id = connection.get('doorApproachNodeId') if connection else None
+        door_point = tuple(e.approaches[door_id]['point']) if door_id else None
+        segment_door_id = door_id if door_point in (tuple(line.coords[0]), tuple(line.coords[-1])) else None
+        safe_segment = e.safe_corridor(line, segment_door_id) if connection else e.safe(line)
+        if safe_segment:
+            approved_segments.append(line)
+        else:
+            excluded.append({'coordinates': list(map(list, line.coords)), 'tests': e.tests(line),
+                'sourceIndex': owner, 'doorApproachNodeId': door_id})
+    skeleton = parts(unary_union(approved_segments))
+    safe_skeleton = skeleton
     search = ConnectorSearch(e)
     links, unresolved, approach_records = [], [], []
     for room in e.floor['rooms']:
@@ -187,6 +197,7 @@ def reconstruct():
         if node['id'] in {'B03-GF-G-39-approach', 'B03-GF-G-40-approach'}:
             nodes.append(dict(node))
     edges, evidence_records = [], []
+    emitted_pairs = set()
     for chain in chains:
         line = LineString(chain)
         if line.length <= 0: continue
@@ -197,6 +208,10 @@ def reconstruct():
                 geometry = list(map(list, chain))
                 edge_id = stable_id('B03-GF-v2-e-', [start['id'],end['id'],geometry])
                 is_door = start.get('type') == 'door' or end.get('type') == 'door'
+                pair_key = tuple(sorted((start['id'], end['id'])))
+                if pair_key in emitted_pairs:
+                    continue
+                emitted_pairs.add(pair_key)
                 edge = {'id':edge_id,'from':start['id'],'to':end['id'],'floorId':'GF',
                     'pathType':'door' if is_door else 'corridor','distance':line.length,'distanceUnit':'map-unit',
                     'accessibility':'unknown','restriction':'unknown','status':'candidate','bidirectional':True,'geometry':geometry}

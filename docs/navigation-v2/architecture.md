@@ -22,4 +22,4 @@ The graph is adapted to the existing TypeScript `NavigationGraph` shape in integ
 
 ## Limits
 
-The current candidate has 198 nodes, 155 edges, and 43 connected components. Fifty-two approaches have incident edges; G-39 and G-40 remain isolated at `[926.4935,1431.457]`. Exact edge checks pass, but route coverage and source topology do not. This is a diagnostic graph, not a validated navigation network. See `benchmark.md` and the machine-readable artifact reports for current evidence.
+The current candidate has 175 nodes, 156 edges, and 24 connected components. Fifty-two approaches have incident edges; G-39 and G-40 remain isolated at `[926.4935,1431.457]`. Exact edge checks pass, including zero duplicate undirected edge pairs, but route coverage and source topology do not. This is a diagnostic graph, not a validated navigation network. See `benchmark.md` and the machine-readable artifact reports for current evidence.

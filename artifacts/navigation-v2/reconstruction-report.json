@@ -1,13 +1,12 @@
 {
-  "configuredSpines": 27,
-  "clippedSpineComponents": 101,
-  "nodes": 174,
-  "edges": 155,
-  "resultingGraphComponents": 25,
+  "configuredSpines": 28,
+  "clippedSpineComponents": 104,
+  "nodes": 175,
+  "edges": 156,
+  "resultingGraphComponents": 24,
   "componentSizes": [
-    123,
+    128,
     5,
-    4,
     2,
     2,
     2,
@@ -48,6 +47,10 @@
       "G-11",
       "G-12",
       "G-13",
+      "G-14",
+      "G-15",
+      "G-16",
+      "G-17",
       "G-18",
       "G-19",
       "G-20",
@@ -85,12 +88,6 @@
       "G-54"
     ],
     [],
-    [
-      "G-14",
-      "G-15",
-      "G-16",
-      "G-17"
-    ],
     [],
     [],
     [],
@@ -118,7 +115,7 @@
       "G-40"
     ]
   ],
-  "cycleRank": 6,
+  "cycleRank": 5,
   "excludedSpinePieces": [],
   "rejectedSerializedEdges": [],
   "unresolved": [
@@ -174,7 +171,7 @@
       ],
       "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
       "incidentEdgeCount": 0,
-      "componentIndex": 23
+      "componentIndex": 22
     },
     {
       "id": "B03-GF-G-40-approach",
@@ -240,7 +237,7 @@
       ],
       "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
       "incidentEdgeCount": 0,
-      "componentIndex": 24
+      "componentIndex": 23
     }
   ],
   "approaches": [
@@ -369,11 +366,11 @@
         "B03-GF-G-02-approach"
       ],
       "attachment": [
-        1475.30964,
-        1509.24148
+        1476.58655704698,
+        1515.896489932886
       ],
       "method": "direct",
-      "length": 3.0804399815609687,
+      "length": 9.854439430867993,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -932,11 +929,11 @@
         "B03-GF-G-10-approach"
       ],
       "attachment": [
-        2661.436882352941,
-        1575.7475294117648
+        2679.5938,
+        1571.2083
       ],
       "method": "direct",
-      "length": 18.715722323616298,
+      "length": 0.0,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -1220,7 +1217,7 @@
         "safe": true
       },
       "incidentEdgeCount": 2,
-      "componentIndex": 2
+      "componentIndex": 0
     },
     {
       "id": "B03-GF-G-15-approach",
@@ -1272,11 +1269,11 @@
         "B03-GF-G-15-approach"
       ],
       "attachment": [
-        2981.452,
-        1418.202
+        2957.824563925675,
+        1422.541912425934
       ],
       "method": "direct",
-      "length": 34.237873498948595,
+      "length": 24.395520212098695,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -1286,8 +1283,8 @@
         "accessibility": "unknown",
         "safe": true
       },
-      "incidentEdgeCount": 2,
-      "componentIndex": 2
+      "incidentEdgeCount": 1,
+      "componentIndex": 0
     },
     {
       "id": "B03-GF-G-16-approach",
@@ -1354,7 +1351,7 @@
         "safe": true
       },
       "incidentEdgeCount": 2,
-      "componentIndex": 2
+      "componentIndex": 0
     },
     {
       "id": "B03-GF-G-17-approach",
@@ -1437,7 +1434,7 @@
         "safe": true
       },
       "incidentEdgeCount": 2,
-      "componentIndex": 2
+      "componentIndex": 0
     },
     {
       "id": "B03-GF-G-18-approach",
@@ -2377,11 +2374,11 @@
         "B03-GF-G-30-approach"
       ],
       "attachment": [
-        1385.129746,
-        1522.124322
+        1387.5054674496644,
+        1531.6166822147652
       ],
       "method": "direct",
-      "length": 21.05442967894865,
+      "length": 30.803908070091367,
       "tests": {
         "areaCovered": true,
         "outsideLength": 0.0,
@@ -2986,7 +2983,7 @@
       ],
       "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
       "incidentEdgeCount": 0,
-      "componentIndex": 23
+      "componentIndex": 22
     },
     {
       "id": "B03-GF-G-40-approach",
@@ -3052,7 +3049,7 @@
       ],
       "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
       "incidentEdgeCount": 0,
-      "componentIndex": 24
+      "componentIndex": 23
     },
     {
       "id": "B03-GF-G-41-approach",
@@ -4988,7 +4985,8 @@
     {
       "edgeId": "B03-GF-v2-e-9d44af61d9ee",
       "sourceSpineIds": [
-        1
+        1,
+        2
       ],
       "approachIds": [],
       "sourceReferences": [
@@ -5001,6 +4999,13 @@
         "0001-path-07526",
         "docs/navigation-v2/route-coverage-source-review.md",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedSpineOverrides",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5132,6 +5137,54 @@
       }
     },
     {
+      "edgeId": "B03-GF-v2-e-ba1642c1a0cf",
+      "sourceSpineIds": [
+        1,
+        2,
+        5,
+        25
+      ],
+      "approachIds": [],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/1",
+        "0001-path-06396",
+        "0001-path-07233",
+        "0001-path-10829",
+        "0001-path-10915",
+        "0001-path-10916",
+        "0001-path-07526",
+        "docs/navigation-v2/route-coverage-source-review.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSpineOverrides",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/8",
+        "0001-path-06396",
+        "0001-path-07485",
+        "0001-path-07499",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
       "edgeId": "B03-GF-v2-e-6718dd940f3c",
       "sourceSpineIds": [
         2,
@@ -5141,38 +5194,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/8",
-        "0001-path-06396",
-        "0001-path-07485",
-        "0001-path-07499",
-        "docs/SEMANTIC_REVIEW.md",
-        "docs/navigation-v2/route-coverage-source-review.md",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-661c20592e50",
-      "sourceSpineIds": [
-        2,
-        5,
-        25
-      ],
-      "approachIds": [],
-      "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/8",
         "0001-path-06396",
@@ -5196,39 +5223,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-87f27a03c64a",
-      "sourceSpineIds": [
-        2,
-        5,
-        25
-      ],
-      "approachIds": [],
-      "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/8",
-        "0001-path-06396",
-        "0001-path-07485",
-        "0001-path-07499",
-        "docs/SEMANTIC_REVIEW.md",
-        "docs/navigation-v2/route-coverage-source-review.md",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-44c22c335c34",
+      "edgeId": "B03-GF-v2-e-87f1f8c4c81f",
       "sourceSpineIds": [],
       "approachIds": [
         "B03-GF-G-30-approach"
@@ -5250,13 +5245,19 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-faba3fec0d77",
+      "edgeId": "B03-GF-v2-e-40b0d6d52198",
       "sourceSpineIds": [
         2
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5371,7 +5372,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-452d4c2a563d",
+      "edgeId": "B03-GF-v2-e-b969902a74bb",
       "sourceSpineIds": [],
       "approachIds": [
         "B03-GF-G-02-approach"
@@ -5393,13 +5394,19 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-6c4417a294e4",
+      "edgeId": "B03-GF-v2-e-88e0272e1492",
       "sourceSpineIds": [
         2
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5544,11 +5551,20 @@
     },
     {
       "edgeId": "B03-GF-v2-e-5ae3085fe199",
-      "sourceSpineIds": [],
+      "sourceSpineIds": [
+        2
+      ],
       "approachIds": [
         "B03-GF-G-29-approach"
       ],
       "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5572,6 +5588,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5750,6 +5772,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5819,6 +5847,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -5864,6 +5898,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -6107,6 +6147,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -6261,6 +6307,12 @@
       ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -6285,6 +6337,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -6355,6 +6413,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -6538,6 +6602,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
         "maps/B03/GF/master.svg",
@@ -6568,6 +6638,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
         "maps/B03/GF/master.svg",
@@ -6598,6 +6674,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/3",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
         "maps/B03/GF/master.svg",
@@ -6628,6 +6710,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
         "maps/B03/GF/master.svg",
@@ -6658,6 +6746,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/2",
         "maps/B03/GF/master.svg",
@@ -6830,6 +6924,12 @@
       ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/4",
         "maps/B03/GF/master.svg",
@@ -6859,6 +6959,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -6885,6 +6991,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/4",
         "maps/B03/GF/master.svg",
@@ -7034,46 +7146,26 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-2a06f48730e6",
+      "edgeId": "B03-GF-v2-e-121b460d9aee",
       "sourceSpineIds": [
         7,
-        20
+        15,
+        20,
+        26
       ],
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
-        "docs/EXTERIOR_ACCESS_REVIEW.md",
-        "0002-path-06039",
-        "0002-path-06040",
-        "maps/B03/GF/master.svg",
-        "maps/B03/GF/alignment.json",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
-        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
-      ],
-      "tests": {
-        "areaCovered": true,
-        "outsideLength": 0.0,
-        "wallIndices": [],
-        "roomInteriors": [],
-        "restriction": "unknown",
-        "accessibility": "unknown",
-        "safe": true
-      }
-    },
-    {
-      "edgeId": "B03-GF-v2-e-dba09b6a109c",
-      "sourceSpineIds": [
-        15,
-        20
-      ],
-      "approachIds": [],
-      "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
         "docs/EXTERIOR_ACCESS_REVIEW.md",
         "0002-path-06039",
         "0002-path-06040",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/9",
+        "0002-path-08090",
+        "0002-path-08089",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
+        "docs/SEMANTIC_REVIEW.md",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7090,18 +7182,22 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-152f71fdeb82",
+      "edgeId": "B03-GF-v2-e-3efc255343dd",
       "sourceSpineIds": [
-        20
+        20,
+        26
       ],
-      "approachIds": [
-        "B03-GF-G-10-approach"
-      ],
+      "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/3",
         "docs/EXTERIOR_ACCESS_REVIEW.md",
         "0002-path-06039",
         "0002-path-06040",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/9",
+        "0002-path-08090",
+        "0002-path-08089",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/7",
+        "docs/SEMANTIC_REVIEW.md",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7194,6 +7290,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7308,6 +7410,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7355,6 +7463,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7402,6 +7516,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7453,6 +7573,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "maps/B03/GF/master.svg",
@@ -7481,6 +7607,12 @@
       ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7523,7 +7655,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-5847ccce3028",
+      "edgeId": "B03-GF-v2-e-03d805bf8bcb",
       "sourceSpineIds": [
         9,
         15
@@ -7532,6 +7664,64 @@
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/15",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
+      "edgeId": "B03-GF-v2-e-9a347d621301",
+      "sourceSpineIds": [
+        9,
+        27
+      ],
+      "approachIds": [],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
+        "0002-path-11071",
+        "0002-path-11073",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
+      "edgeId": "B03-GF-v2-e-1611cc477b3b",
+      "sourceSpineIds": [
+        9,
+        27
+      ],
+      "approachIds": [],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
+        "0002-path-11071",
+        "0002-path-11073",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7579,6 +7769,12 @@
       ],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7664,12 +7860,19 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-61e47a42a18e",
-      "sourceSpineIds": [],
+      "edgeId": "B03-GF-v2-e-e9bf5370c6a8",
+      "sourceSpineIds": [
+        27
+      ],
       "approachIds": [
         "B03-GF-G-15-approach"
       ],
       "sourceReferences": [
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
+        "0002-path-11071",
+        "0002-path-11073",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7686,12 +7889,44 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-3fa852e54957",
-      "sourceSpineIds": [],
-      "approachIds": [
-        "B03-GF-G-15-approach"
+      "edgeId": "B03-GF-v2-e-4001d01de864",
+      "sourceSpineIds": [
+        27
       ],
+      "approachIds": [],
       "sourceReferences": [
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
+        "0002-path-11071",
+        "0002-path-11073",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "tests": {
+        "areaCovered": true,
+        "outsideLength": 0.0,
+        "wallIndices": [],
+        "roomInteriors": [],
+        "restriction": "unknown",
+        "accessibility": "unknown",
+        "safe": true
+      }
+    },
+    {
+      "edgeId": "B03-GF-v2-e-d8567022ea29",
+      "sourceSpineIds": [
+        27
+      ],
+      "approachIds": [],
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
+        "0002-path-11071",
+        "0002-path-11073",
+        "docs/SEMANTIC_REVIEW.md",
+        "docs/navigation-v2/route-coverage-source-review.md",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7710,11 +7945,11 @@
     {
       "edgeId": "B03-GF-v2-e-530751518926",
       "sourceSpineIds": [
-        26
+        27
       ],
       "approachIds": [],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/9",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
         "0002-path-11071",
         "0002-path-11073",
         "docs/SEMANTIC_REVIEW.md",
@@ -7737,11 +7972,11 @@
     {
       "edgeId": "B03-GF-v2-e-c4310cd37177",
       "sourceSpineIds": [
-        26
+        27
       ],
       "approachIds": [],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/9",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/10",
         "0002-path-11071",
         "0002-path-11073",
         "docs/SEMANTIC_REVIEW.md",
@@ -7792,6 +8027,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -7839,6 +8080,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7864,6 +8111,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7889,6 +8142,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7914,6 +8173,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "scripts/semantic-map/navigation-config.json#/corridorSpines/9",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
@@ -7938,6 +8203,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -8007,6 +8278,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -8053,6 +8330,12 @@
       "approachIds": [],
       "sourceReferences": [
         "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "docs/SEMANTIC_REVIEW.md",
+        "scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",

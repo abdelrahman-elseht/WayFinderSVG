@@ -5,6 +5,7 @@ Legacy edges are deliberately removed at the input boundary.
 """
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from shapely.geometry import LineString, Point, Polygon
@@ -21,8 +22,16 @@ def read(relative):
 
 
 def write(name, value):
+    def json_safe(item):
+        if isinstance(item, float) and not math.isfinite(item):
+            return None
+        if isinstance(item, dict):
+            return {key: json_safe(child) for key, child in item.items()}
+        if isinstance(item, (list, tuple)):
+            return [json_safe(child) for child in item]
+        return item
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    (OUT / name).write_text(json.dumps(json_safe(value), indent=2, ensure_ascii=False, allow_nan=False) + '\n', encoding='utf-8')
 
 
 def parts(geometry):
@@ -78,18 +87,33 @@ class Evidence:
                 self.obstacles.append((room['code'], Polygon(room['displayFootprint']['polygon'])))
         self.obstacle_tree = STRtree([p for _, p in self.obstacles])
         v2 = read('scripts/semantic-map/navigation-v2-config.json')
+        self.intentional_edge_free_approaches = {item['nodeId']: item for item in v2.get('intentionalEdgeFreeApproaches', [])}
         self.spine_overrides = {item['spineIndex']: item for item in v2.get('reviewedSpineOverrides', [])}
+        self.spine_segment_overrides = {
+            (item['spineIndex'], item['segmentIndex']): item
+            for item in v2.get('reviewedSegmentOverrides', [])
+        }
         self.raw = []
         for i, original in enumerate(self.cfg['corridorSpines']):
             override = self.spine_overrides.get(i)
-            line = LineString(override['coordinates'] if override else original)
-            if override and not self.safe(line):
+            source_points = override['coordinates'] if override else original
+            coordinates = []
+            for segment_index, (start, end) in enumerate(zip(source_points, source_points[1:])):
+                segment_override = self.spine_segment_overrides.get((i, segment_index))
+                segment_coordinates = segment_override['coordinates'] if segment_override else [start, end]
+                if segment_coordinates[0] != start or segment_coordinates[-1] != end:
+                    raise ValueError(f'Invalid reviewed segment override {i}:{segment_index}: endpoints do not match')
+                if segment_override and not self.safe_corridor(LineString(segment_coordinates)):
+                    raise ValueError(f'Unsafe reviewed segment override {i}:{segment_index}: {self.tests(LineString(segment_coordinates))}')
+                coordinates.extend(segment_coordinates if not coordinates else segment_coordinates[1:])
+            line = LineString(coordinates)
+            if override and not self.safe_corridor(line):
                 raise ValueError(f'Unsafe reviewed spine override {i}: {self.tests(line)}')
             self.raw.append(line)
         self.reviewed_connections = v2['reviewedConnections']
         for connection in self.reviewed_connections:
             line = LineString(connection['coordinates'])
-            if not self.safe(line):
+            if not self.safe_corridor(line, connection.get('doorApproachNodeId')):
                 raise ValueError(f"Unsafe reviewed connection: {connection['id']}: {self.tests(line)}")
             self.raw.append(line)
 
@@ -107,6 +131,14 @@ class Evidence:
     def safe(self, line):
         return self.tests(line)['safe']
 
+    def safe_corridor(self, line, door_approach_node_id=None):
+        result = self.tests(line)
+        if door_approach_node_id:
+            node = self.approaches.get(door_approach_node_id)
+            if not node or node.get('type') != 'door' or tuple(node['point']) not in (tuple(line.coords[0]), tuple(line.coords[-1])):
+                return False
+        return result['safe']
+
     def references(self, spine_ids):
         # These are configuration provenance, not invented drawing primitive IDs.
         references = []
@@ -117,6 +149,10 @@ class Evidence:
                 if i in self.spine_overrides:
                     references.extend(self.spine_overrides[i]['sourceReferences'])
                     references.append('scripts/semantic-map/navigation-v2-config.json#/reviewedSpineOverrides')
+                for (spine_index, _), override in sorted(self.spine_segment_overrides.items()):
+                    if spine_index == i:
+                        references.extend(override['sourceReferences'])
+                        references.append('scripts/semantic-map/navigation-v2-config.json#/reviewedSegmentOverrides')
             else:
                 connection = self.reviewed_connections[i-base_count]
                 references.append(f'scripts/semantic-map/navigation-v2-config.json#/reviewedConnections/{i-base_count}')

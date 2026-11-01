@@ -2,13 +2,13 @@
 
 ## Acceptance
 
-**FAIL: diagnostic-only; not suitable for runtime promotion.** The restored candidate is independently generated from 17 configured Ground Floor corridor spines and source approach points. It does not use legacy route edges. Its 198 nodes and 155 edges pass exact walkable-area, supplied-wall, room-interior, endpoint, distance, and metadata checks. However, the graph has 43 components, only 52 of 54 approach nodes have incident edges, it retains no alternate cycles, and five of six comparison routes are unavailable. G-39/G-40 remain isolated at their shared source approach. The canonical 428-node/627-edge graph remains active.
+**FAIL: diagnostic-only; not suitable for runtime promotion.** The candidate is independently generated from 28 configured Ground Floor corridor spines and source approach points. It does not use legacy route edges. Its 175 nodes and 156 edges pass exact walkable-area, supplied-wall, room-interior, endpoint, distance, metadata, and duplicate-pair checks. However, the graph has 24 components, only 52 of 54 approach nodes have incident edges, and G-39/G-40 remain isolated at their shared source approach. The canonical 428-node/627-edge graph remains active.
 
 | Measure | Legacy | V2 diagnostic | Result |
 | --- | ---: | ---: | --- |
-| Nodes / edges | 428 / 627 | 198 / 155 | Smaller candidate is fragmented, not a demonstrated simplification. |
+| Nodes / edges | 428 / 627 | 175 / 156 | Smaller candidate is fragmented, not a demonstrated simplification. |
 | Approaches represented / attached | 54 / 54 | 54 / 52 | G-39 and G-40 have no incident edges. |
-| Connected components | connected | 43 | Acceptance failure; largest candidate component includes 27 approaches. |
+| Connected components | connected | 24 | Acceptance failure; largest candidate component includes 52 approaches. |
 | Cycle rank | not compared | 0 | No alternate cycle has been demonstrated. |
 | Exact area failures / wall contacts / room crossings | 0 / 0 / 0 | 0 / 0 / 0 | All emitted edges pass strict geometry checks. |
 
@@ -29,7 +29,7 @@ Exact route geometry and safety results are in `artifacts/navigation-v2/route-be
 
 ## Source topology diagnostics
 
-The configuration contains 17 source polylines and 32 raw noded pieces. Clipping produces 49 parts and 62 clipped noded pieces, with 40 excluded segments outside the exact navigable union. Diagnosis records 119 geometrically safe endpoint candidates; candidates remain unauthorized unless the source drawing supports the connection. `connectivity-diagnostics.json` records stable IDs, coordinates, and geometry tests. `spine-components.svg` is a locator view, not a route screenshot.
+The configuration contains 28 source polylines and 54 raw noded pieces. Clipping produces 84 parts and 104 clipped noded pieces, with 29 excluded segments outside the exact navigable union. Diagnosis records 806 geometrically safe endpoint candidates; candidates remain unauthorized unless the source drawing supports the connection. `connectivity-diagnostics.json` records stable IDs, coordinates, and geometry tests. `spine-components.svg` is a locator view, not a route screenshot.
 
 G-39 and G-40 both retain their distinct approach IDs at `[926.4935,1431.457]` and have no incident edges. The shared coordinate does not establish a passage. Other unsupported or disconnected source cases remain in the generated reports.
 
@@ -40,8 +40,8 @@ Port `5250` runs the development-only diagnostic mode when available. Browser ca
 ## Validation
 
 - `python -X utf8 scripts/semantic-map/diagnose_centerlines.py`: passed; 17 spines, 32 raw pieces, 49 clipped parts, 62 clipped pieces, 40 excluded gaps.
-- `python -X utf8 scripts/semantic-map/reconstruct_centerline_graph.py`: passed; 198 nodes, 155 edges, 43 components.
-- `python -X utf8 scripts/semantic-map/verify_centerline_candidate.py`: expected acceptance failure; zero geometry failures, two unattached approaches, 43 components.
-- `npm.cmd test -- tests/integration/navigation-v2-routing.qa.test.ts`: passed; three existing tests, including contract, route comparisons, and shared-approach semantics.
+- `python -X utf8 scripts/semantic-map/reconstruct_centerline_graph.py`: passed; 175 nodes, 156 edges, 24 components.
+- `python -X utf8 scripts/semantic-map/verify_centerline_candidate.py`: expected acceptance failure; zero geometry failures, zero duplicate pairs, two intentionally unattached approaches, 24 components.
+- `npm.cmd test -- tests/integration/navigation-v2-routing.qa.test.ts`: passed; four tests, including reviewed door entries and west-corridor clearance.
 
 V2 remains diagnostic-only. Runtime graph imports were not changed.

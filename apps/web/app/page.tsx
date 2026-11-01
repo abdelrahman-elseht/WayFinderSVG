@@ -28,10 +28,6 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
     if (!kiosk || kiosk.buildingId !== buildingId || kiosk.floorId !== floorId) throw new Error(`Kiosk ${kioskId} is not registered on ${buildingId}/${floorId}`);
   }
   return <>
-    {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
-      position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
-      background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
-    }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
     <WayfindingApp {...bundle} floorOptions={registry.floors.filter(item => item.floorData.building.id === buildingId).map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

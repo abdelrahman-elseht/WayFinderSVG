@@ -51,7 +51,7 @@
     ],
     "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
     "incidentEdgeCount": 0,
-    "componentIndex": 23
+    "componentIndex": 22
   },
   {
     "id": "B03-GF-G-40-approach",
@@ -117,6 +117,6 @@
     ],
     "reason": "Intentionally edge-free per GF route coverage handoff; shared coordinates do not authorize access.",
     "incidentEdgeCount": 0,
-    "componentIndex": 24
+    "componentIndex": 23
   }
 ]

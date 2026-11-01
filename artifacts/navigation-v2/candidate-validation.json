@@ -1,12 +1,11 @@
 {
   "graph": "diagnostic-only",
-  "nodes": 174,
-  "edges": 155,
-  "connectedComponents": 25,
+  "nodes": 175,
+  "edges": 156,
+  "connectedComponents": 24,
   "componentNodeCounts": [
-    123,
+    128,
     5,
-    4,
     2,
     2,
     2,
@@ -36,20 +35,20 @@
     "B03-GF-G-39-approach",
     "B03-GF-G-40-approach"
   ],
+  "doorApproachNodesWithoutDoorEdges": [],
+  "intentionallyEdgeFreeApproaches": [
+    "B03-GF-G-39-approach",
+    "B03-GF-G-40-approach"
+  ],
   "approachNodesWithEdges": 52,
-  "approachesInLargestComponent": 48,
+  "approachesInLargestComponent": 52,
   "strictWalkableAreaFailures": [],
   "wallContacts": [],
   "roomInteriorCrossings": [],
   "endpointMismatches": [],
   "distanceMismatches": [],
   "candidateMetadataFailures": [],
-  "duplicateUndirectedEdges": [
-    [
-      "B03-GF-v2-j-3eb048920b86",
-      "B03-GF-v2-j-95364b961a98"
-    ]
-  ],
+  "duplicateUndirectedEdges": [],
   "isolatedApproachRooms": [
     "B03-GF-G-39",
     "B03-GF-G-40"
