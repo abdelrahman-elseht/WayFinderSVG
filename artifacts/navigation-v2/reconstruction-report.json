@@ -4249,21 +4249,11 @@
     },
     {
       "edgeId": "B03-GF-v2-e-e1b3b93969c7",
-      "sourceSpineIds": [
-        4
-      ],
+      "sourceSpineIds": [],
       "approachIds": [
         "B03-GF-G-42-approach"
       ],
       "sourceReferences": [
-        "scripts/semantic-map/navigation-config.json#/corridorSpines/4",
-        "0001-path-06396",
-        "0001-path-07539",
-        "0001-path-07553",
-        "0001-path-07571",
-        "0001-path-07702",
-        "docs/navigation-v2/route-coverage-source-review.md",
-        "scripts/semantic-map/navigation-v2-config.json#/reviewedSpineOverrides",
         "maps/B03/GF/master.svg",
         "maps/B03/GF/alignment.json",
         "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
@@ -4305,7 +4295,7 @@
       }
     },
     {
-      "edgeId": "B03-GF-v2-e-4ee5d6a81c97",
+      "edgeId": "B03-GF-v2-e-385624705254",
       "sourceSpineIds": [
         1,
         4

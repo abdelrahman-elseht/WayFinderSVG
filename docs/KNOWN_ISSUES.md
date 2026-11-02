@@ -47,3 +47,35 @@ Browser speech depends on installed voices and browser playback policy. The adap
 The initial wall-crossing, enclosure-escape and floor-consistency findings are fixed. R2 independently checked all 148 graph edges against the wall evidence and full enclosure union, preserved source hashes/coordinate checks, and passed 1,296 assertions. Positive room-to-room browser journeys and full route-matrix tests replace the previous unavailable-only acceptance tests. Final run details are maintained in `QA_REPORT.md`.
 
 Visual volume height is an illustrative wayfinding convention, not a measured ceiling/wall height. Physical access restrictions and wheelchair suitability remain unknown even when a source drawing route can be calculated.
+# Navigation Graph Editor (2026-11-02)
+
+`/admin` now has an authenticated, source-backed GF corridor editor. Configure
+`WAYFINDING_ADMIN_USER` and `WAYFINDING_ADMIN_PASSWORD` (5+ characters) in the
+deployment secret store before use. Access fails closed until the server
+restarts with both values. See [editor operations](navigation-editor-admin.md).
+
+Source spine controls and reviewed V2 connections edit the source candidate.
+Graph nodes can be moved or deleted in a separate admin simulation; connected
+edge endpoints update with node moves, and deleted nodes remove incident
+simulation edges. These node edits are stored only in preview drafts and do not
+change source configuration or normal wayfinding. `Run in admin` skips geometry
+validation for route simulation; `Build source candidate` retains the existing
+geometry and connectivity gates. Undo/redo, group translation, numeric editing,
+snap, box/lasso selection and draft export/restore are available.
+Rotation/scaling and independent wall offsets are not implemented because the
+source schema/evidence does not define safe semantics for them.
+
+No verified building envelope is present in the current floor contract. The
+editor reports structural wall and walkable-domain boundary distances, but
+building/facade clearance is explicitly unavailable. It does not infer
+building edges from the SVG viewBox.
+
+Baseline reproduction from the current V2 source config produces 174 nodes,
+155 edges, 25 components and 52 edged room approaches. This differs from the
+edited, uncommitted diagnostic artifact in this worktree; the editor regenerates
+from authoritative config, not that generated artifact. Geometry tests pass;
+full acceptance remains FAIL because the source graph is disconnected and
+contains a pre-existing duplicate undirected edge pair. G-39/G-40 stay
+edge-free; G-35/G-01 and G-37/G-42 pair connectivity is retained. Saves remain
+diagnostic-only and cannot promote the graph.
+
