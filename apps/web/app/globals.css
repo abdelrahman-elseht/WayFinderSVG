@@ -60,3 +60,14 @@ button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-
   .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:20px;inset-inline-end:auto}
   [dir=rtl] .details-toggle,[dir=rtl] .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:auto;inset-inline-end:20px;transform:translate(0,-50%)}
 }
+/* Final details rail geometry: card edge plus full tab width centers the control. */
+.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:314px;transform:translate(50%,-50%)}
+@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:338px}}
+@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:273px}}
+.details-collapsed .details-toggle{inset-inline-end:0;transform:translate(0,-50%)}
+@media(max-width:800px){
+  .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:20px;inset-inline-end:auto;transform:translate(0,-50%)}
+  [dir=rtl] .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:auto;inset-inline-end:20px}
+  .details-collapsed .details-toggle{inset-inline-end:0;inset-inline-start:auto;transform:translate(0,-50%)}
+  [dir=rtl] .details-collapsed .details-toggle{inset-inline-start:0;inset-inline-end:auto}
+}
