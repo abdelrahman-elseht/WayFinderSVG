@@ -35,6 +35,21 @@ describe('safe visual route smoothing', () => {
     });
   });
 
+  it('uses the grouped cubic path for isolated eligible turns and continues after a locked turn', () => {
+    const smooth = createRouteSmoother(graph());
+    const isolated: Point[] = [[0, 0], [20, 0], [20, 20]];
+    const isolatedVisual = smooth(isolated);
+    expect(isolatedVisual.points.length).toBeGreaterThan(80);
+    expect(isolatedVisual.sourceDistances[0]).toBe(0);
+    expect(isolatedVisual.sourceDistances.at(-1)).toBe(isolatedVisual.sourceLength);
+
+    const withLocked: Point[] = [[0, 0], [20, 0], [20, 20], [40, 20], [40, 40]];
+    const laterVisual = smooth(withLocked, { protectedIndices: [2] });
+    expect(laterVisual.points).toContainEqual(withLocked[2]);
+    expect(laterVisual.points.length).toBeGreaterThan(withLocked.length);
+    expect(safePolyline(laterVisual.points, graph())).toBe(true);
+  });
+
   it('keeps straight lines and safely removes collinear/duplicate vertices', () => {
     const smooth = createRouteSmoother(graph());
     expect(smooth([[0, 0], [5, 0], [5, 0], [10, 0]]).points).toEqual([[0, 0], [10, 0]]);

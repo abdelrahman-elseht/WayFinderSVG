@@ -64,6 +64,7 @@ export default function NavigationEditor() {
   const [accessible, setAccessible] = useState(false), [candidate, setCandidate] = useState('');
   const [savedRouteNotice, setSavedRouteNotice] = useState(false);
   const [showNearbyWalls, setShowNearbyWalls] = useState(true);
+  const [leftPanelOpen, setLeftPanelOpen] = useState(true), [rightPanelOpen, setRightPanelOpen] = useState(true);
   const [language, setLanguage] = useState<'en' | 'ar'>('en');
   const [connectionStart, setConnectionStart] = useState(''), [connectionEnd, setConnectionEnd] = useState('');
   const [connectionEvidence, setConnectionEvidence] = useState(''), [connectionNote, setConnectionNote] = useState('');
@@ -183,7 +184,7 @@ export default function NavigationEditor() {
         setCursor(0);
         setSelection(new Set());
         setNodeSelection(new Set());
-        setSession(s => s ? { ...s, revision: result.revision!, spines, graph: result.graph!, runtimeGraph: result.graph!, evidence: result.report?.edgeEvidence || s.evidence, config: exportConfig(s, spines) } : s);
+        setSession(s => s ? { ...s, revision: result.revision!, spines, graph: result.graph!, runtimeGraph: result.runtimeGraph || result.graph!, evidence: result.report?.edgeEvidence || s.evidence, config: exportConfig(s, spines) } : s);
         setSavedRouteNotice(true);
       }
       return result;
@@ -366,8 +367,10 @@ export default function NavigationEditor() {
       <button onClick={undo} disabled={!cursor || busy}>Undo</button><button onClick={redo} disabled={cursor >= frames.length - 1 || busy}>Redo</button>
       <button onClick={() => void run('draft')} disabled={busy || !changed}>Save preview draft</button><button onClick={() => void run('preview')} disabled={busy}>Run in admin</button><button className="primary" onClick={() => void saveReview()} disabled={busy}>Build source candidate</button>
     </nav>
-    <div className="editor-workspace">
-      <aside className="editor-left" aria-label="Navigation layers">
+    <div className={`editor-workspace${leftPanelOpen ? '' : ' left-collapsed'}${rightPanelOpen ? '' : ' right-collapsed'}`}>
+      <aside className={`editor-left${leftPanelOpen ? '' : ' collapsed'}`} aria-label="Navigation layers">
+        <button className="panel-toggle" type="button" aria-expanded={leftPanelOpen} aria-controls="navigation-layers-panel" onClick={() => setLeftPanelOpen(open => !open)}>{leftPanelOpen ? '‹' : '›'}<span className="panel-toggle-label">{leftPanelOpen ? 'Collapse layers' : 'Expand layers'}</span></button>
+        <div id="navigation-layers-panel">
         <h2>{t('Navigation layers', 'طبقات الملاحة')}</h2><p className="muted">Source-aligned · Y increases downward</p>
         {layers.map((layer, i) => <div className="layer-row" key={layer.name}>
           <input type="checkbox" aria-label={`${layer.name} visibility`} checked={layer.visible} disabled={i === 5} onChange={e => setLayers(current => current.map((l, j) => j === i ? { ...l, visible: e.target.checked } : l))} />
@@ -394,6 +397,7 @@ export default function NavigationEditor() {
         <button disabled={!spineFilter || busy} onClick={() => { commit(spines.map(s => s.id === spineFilter ? session.spines.find(o => o.id === s.id)! : s), `Reset ${spineFilter}`); setSelection(new Set()); }}>Reset selected spine</button>
         <label><input type="checkbox" checked={compare} onChange={e => setCompare(e.target.checked)} /> Original geometry overlay</label>
         <button onClick={() => setView(session.floor.floor.viewBox)}>Fit architectural drawing</button>
+        </div>
       </aside>
       <section className="editor-stage" aria-label="Architectural drawing workspace">
         <div className="canvas-heading"><span>{mode} / {selection.size + nodeSelection.size} selected</span><span>{changed ? 'Unsaved preview edits' : 'Source unchanged'} · {isGraphCurrent ? 'Graph current' : 'Graph preview required'}</span></div>
@@ -415,7 +419,9 @@ export default function NavigationEditor() {
         </div>
         <div className="canvas-footer"><span>Shift / Ctrl + click: toggle · Space + drag: pan · Wheel: zoom</span><span>{t('Drawing units, not metres', 'وحدات الرسم وليست أمتاراً')}</span></div>
       </section>
-      <aside className="editor-right" aria-label="Properties inspector">
+      <aside className={`editor-right${rightPanelOpen ? '' : ' collapsed'}`} aria-label="Properties inspector">
+        <button className="panel-toggle" type="button" aria-expanded={rightPanelOpen} aria-controls="properties-inspector-panel" onClick={() => setRightPanelOpen(open => !open)}>{rightPanelOpen ? '›' : '‹'}<span className="panel-toggle-label">{rightPanelOpen ? 'Collapse inspector' : 'Expand inspector'}</span></button>
+        <div id="properties-inspector-panel">
         <h2>{t('Properties inspector', 'خصائص التحديد')}</h2>
         {stats ? <><div className="selection-count">{stats.count}<span> source controls selected</span></div><dl><dt>Bounding box</dt><dd>{stats.bounds.map(fmt).join(', ')}</dd><dt>Average X / Y</dt><dd>{stats.average.map(fmt).join(' / ')}</dd><dt>Drag displacement</dt><dd>{delta.map(v => fmt(grid ? Math.round(v / grid) * grid : v)).join(' / ')}</dd><dt>Editable controls</dt><dd>{selectedIds.size}</dd></dl>
           {selected.length === 1 && <><code>{selected[0].id}</code><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Node ${axis ? 'Y' : 'X'}`} type="number" step="any" value={selected[0].point[axis]} disabled={busy || !editable} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); move(axis === 0 ? value - selected[0].point[0] : 0, axis === 1 ? value - selected[0].point[1] : 0); }} /></label>)}</div><p className="muted">Editable source point · {selected[0].spine}</p></>}
@@ -442,6 +448,7 @@ export default function NavigationEditor() {
         <button disabled={busy} onClick={() => { commit(session.spines, 'Restore loaded source configuration', {}, []); setSelection(new Set()); setNodeSelection(new Set()); }}>Restore loaded configuration</button><button onClick={exportDraft}>Export configuration JSON</button><button onClick={() => void run('draft')} disabled={busy}>Save preview draft</button>
         <label>Saved candidate<select value={candidate} onChange={e => setCandidate(e.target.value)}><option value="">Choose candidate</option>{session.candidates.map(c => <option key={c}>{c}</option>)}</select></label>
         <button disabled={!candidate || busy} onClick={async () => { try { const result = await api('restore', { revision: session.revision, candidate }); commit(result.spines, `Restore ${candidate}`, result.nodeMoves || {}, result.deletedNodes || []); setMessage('Saved visual draft restored. Graph-node moves and removals apply only to the admin simulation.'); } catch (error) { setMessage(String(error)); } }}>Restore candidate into draft</button>
+        </div>
       </aside>
     </div>
     <footer className="editor-status" role="status"><span className={busy ? 'status-dot busy' : 'status-dot'} />{message}</footer>

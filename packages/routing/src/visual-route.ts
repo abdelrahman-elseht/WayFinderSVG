@@ -186,6 +186,7 @@ export function createRouteSmoother(input: NavigationGraph) {
       grouped.sourceDistances.push(previousStation === undefined ? station : Math.max(station, previousStation + 1e-9));
     };
     let groupedApplied = false;
+    let groupedCursor = 0;
     for (let start = 1; start < vertices.length - 1;) {
       const first = vertices[start];
       const firstAngle = turn(vertices[start - 1].point, first.point, vertices[start + 1].point);
@@ -197,7 +198,6 @@ export function createRouteSmoother(input: NavigationGraph) {
         if (vertex.locked || angle < config.minTurnDegrees || angle > config.maxTurnDegrees) break;
         end++;
       }
-      if (end === start) { start++; continue; }
       const entries: Point[] = [], exits: Point[] = [];
       for (let index = start; index <= end; index++) {
         const before = distance(vertices[index - 1].point, vertices[index].point);
@@ -265,7 +265,9 @@ export function createRouteSmoother(input: NavigationGraph) {
       const sweep = cubic(sweepEntry,
         [sweepEntry[0] + sweepIncoming[0] * sweepHandle + normal[0] * sweepOffset, sweepEntry[1] + sweepIncoming[1] * sweepHandle + normal[1] * sweepOffset],
         [sweepExit[0] - sweepOutgoing[0] * sweepHandle + normal[0] * sweepOffset, sweepExit[1] - sweepOutgoing[1] * sweepHandle + normal[1] * sweepOffset], sweepExit,
-        Math.max(80, Math.ceil(sweepChord / config.maxSegmentLength)));
+        // Keep source-distance stations dense enough that playback clipping
+        // cannot jump farther than one source sample between animation ticks.
+        Math.max(256, Math.ceil(sweepChord / config.maxSegmentLength)));
       const sweepCandidate: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
       const appendSweep = (point: Point, station: number) => {
         if (sweepCandidate.points.at(-1) && equal(sweepCandidate.points.at(-1)!, point)) return;
@@ -278,7 +280,12 @@ export function createRouteSmoother(input: NavigationGraph) {
         * distance(vertices[start].point, sweepEntry) / distance(vertices[start].point, vertices[start - 1].point);
       const sweepEndStation = vertices[end].station + (vertices[end + 1].station - vertices[end].station)
         * distance(vertices[end].point, sweepExit) / distance(vertices[end].point, vertices[end + 1].point);
-      sweep.forEach((point, index) => appendSweep(point, sweepStartStation + (sweepEndStation - sweepStartStation) * index / (sweep.length - 1)));
+      // Parameter t is not arc length for a cubic. Map stations by sampled
+      // chord length so playback advances at a bounded visual speed.
+      const sweepLengths = [0];
+      for (let index = 1; index < sweep.length; index++) sweepLengths.push(sweepLengths[index - 1] + distance(sweep[index - 1], sweep[index]));
+      const sweepTotal = sweepLengths.at(-1)!;
+      sweep.forEach((point, index) => appendSweep(point, sweepStartStation + (sweepEndStation - sweepStartStation) * (sweepTotal ? sweepLengths[index] / sweepTotal : index / (sweep.length - 1))));
       appendSweep(vertices[end + 1].point, vertices[end + 1].station);
       if (safe(sweepCandidate.points)) {
         candidate.points.splice(0, candidate.points.length, ...sweepCandidate.points);
@@ -288,15 +295,20 @@ export function createRouteSmoother(input: NavigationGraph) {
         // Keep all route geometry outside the grouped run as exact source
         // stations, then splice the validated visual candidate into it.
         groupedApplied = true;
-        for (let index = 0; index < start - 1; index++) appendGrouped(vertices[index].point, vertices[index].station);
+        for (let index = groupedCursor; index < start - 1; index++) appendGrouped(vertices[index].point, vertices[index].station);
         appendGrouped(candidate.points[0], candidate.sourceDistances[0]);
         candidate.points.slice(1).forEach((point, index) => appendGrouped(point, candidate.sourceDistances[index + 1]));
-        for (let index = end + 2; index < vertices.length; index++) appendGrouped(vertices[index].point, vertices[index].station);
+        groupedCursor = end + 1;
       }
       start = end + 1;
-      if (groupedApplied) break;
     }
-    if (groupedApplied && safe(grouped.points)) return grouped;
+    if (groupedApplied) {
+      for (let index = groupedCursor; index < vertices.length; index++) appendGrouped(vertices[index].point, vertices[index].station);
+      if (safe(grouped.points)) {
+        options.onDiagnostics?.(diagnostics.sort((a, b) => a.sourceIndex - b.sourceIndex));
+        return grouped;
+      }
+    }
     const result: VisualRoute = { points: [], sourceDistances: [], sourceLength: length };
     const append = (point: Point, station: number) => {
       result.points.push(copy(point));

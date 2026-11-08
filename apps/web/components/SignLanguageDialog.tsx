@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Accessibility, AlertTriangle, FileText, Play, X } from 'lucide-react';
+import { AlertTriangle, FileText, Hand, Play, X } from 'lucide-react';
 import type { Language, Room, SignLanguageVideo } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 
@@ -86,7 +86,7 @@ export function SignLanguageDialog({ room, video, language, onClose }: Props) {
           </video>
         </div>
         <div className="sign-language-dialog-footer">
-          {video.language && <span className="sign-language-language"><Accessibility size={16} />{video.language}</span>}
+          {video.language && <span className="sign-language-language"><Hand size={16} />{video.language}</span>}
           {transcript && <details className="sign-language-transcript"><summary><FileText size={15} />{t(language, 'signLanguageTranscript')}</summary><p>{transcript}</p></details>}
         </div>
       </section>
@@ -98,7 +98,7 @@ export function SignLanguageAction({ language, onClick }: { language: Language; 
   const alternateLanguage = language === 'en' ? 'ar' : 'en';
   return (
     <button type="button" className="sign-language-action" onClick={event => { event.currentTarget.focus(); onClick(); }} aria-haspopup="dialog" data-testid="sign-language-action">
-      <span className="sign-language-action-icon"><Accessibility size={18} /></span>
+      <span className="sign-language-action-icon"><Hand size={18} /></span>
       <span className="sign-language-action-copy">
         <strong>{t(language, 'signLanguageDescription')}</strong>
         <small lang={alternateLanguage} dir={alternateLanguage === 'ar' ? 'rtl' : 'ltr'}>{t(alternateLanguage, 'signLanguageDescription')}</small>

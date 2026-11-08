@@ -208,6 +208,32 @@ def connectivity_pairs(graph):
         pairs.update((a, b) for i, a in enumerate(rooms) for b in rooms[i + 1:])
     return pairs
 
+def graph_edit_impact(graph, moves=None, deleted=None):
+    """Return non-blocking impact diagnostics for node edits."""
+    moves = moves or {}
+    deleted = set(deleted or [])
+    nodes = {n['id']: n for n in graph.get('nodes', [])}
+    affected, incident = set(), set()
+    for edge in graph.get('edges', []):
+        if edge.get('from') in moves or edge.get('to') in moves or edge.get('from') in deleted or edge.get('to') in deleted:
+            incident.add(edge.get('id'))
+            for endpoint in (edge.get('from'), edge.get('to')):
+                node = nodes.get(endpoint)
+                if node and node.get('roomId'):
+                    affected.add(node['id'])
+    for node_id in moves:
+        if nodes.get(node_id, {}).get('roomId'):
+            affected.add(node_id)
+    edited = move_nodes(graph, moves, list(deleted)) if (moves or deleted) else graph
+    unresolved = sorted({n['id'] for n in edited.get('nodes', []) if n.get('roomId')} -
+                        {x for e in edited.get('edges', []) for x in (e.get('from'), e.get('to'))})
+    return {'affectedRoomEndpointIds': sorted(affected),
+            'incidentEdgeIds': sorted(x for x in incident if x),
+            'disconnectedRoomPairs': [list(x) for x in sorted(connectivity_pairs(graph) - connectivity_pairs(edited))],
+            'requiredRoomPairs': [list(x) for x in sorted(connectivity_pairs(edited))],
+            'unresolvedDanglingEndpointCount': len(unresolved),
+            'unresolvedDanglingEndpointIds': unresolved}
+
 def move_nodes(graph, moves, deleted):
     result = json.loads(json.dumps(graph))
     by_id = {node['id']: node for node in result['nodes']}
@@ -221,6 +247,40 @@ def move_nodes(graph, moves, deleted):
         edge['distance'] = sum(math.dist(a, b) for a, b in zip(edge['geometry'], edge['geometry'][1:]))
     result['edges'] = [edge for edge in result['edges'] if edge['from'] not in deleted and edge['to'] not in deleted]
     return result
+
+
+def runtime_safe_graph(graph):
+    """Drop malformed generated edges from the visitor runtime snapshot.
+
+    The editor keeps the original graph for diagnostics and continued editing,
+    but a node move can collapse an edge to zero length.  Persisting that edge
+    makes map-engine validation reject the whole runtime bundle, so filter only
+    edges whose geometry has no finite positive polyline length.
+    """
+    result = json.loads(json.dumps(graph))
+    safe_edges = []
+    excluded = []
+    for edge in result.get('edges', []):
+        geometry = edge.get('geometry')
+        length = 0.0
+        valid = isinstance(geometry, list) and len(geometry) >= 2
+        if valid:
+            try:
+                for a, b in zip(geometry, geometry[1:]):
+                    if (not isinstance(a, list) or not isinstance(b, list) or
+                            len(a) != 2 or len(b) != 2 or
+                            not all(isinstance(v, (int, float)) and math.isfinite(v) for p in (a, b) for v in p)):
+                        valid = False
+                        break
+                    length += math.dist(a, b)
+            except (TypeError, ValueError):
+                valid = False
+        if valid and math.isfinite(length) and length > 0:
+            safe_edges.append(edge)
+        else:
+            excluded.append(edge.get('id', '<unknown>'))
+    result['edges'] = safe_edges
+    return result, excluded
 
 
 def atomic(path, data):
@@ -293,6 +353,8 @@ def execute(payload):
     result = {'valid': not errors, 'diagnostics': diagnostics, 'changes': changes, 'errors': errors,
               'staleNodeMoves': stale_moves, 'staleDeletedNodes': stale_deleted,
               'buildingClearance': None, 'buildingClearanceNote': 'No independent verified building-envelope polygon is supplied; walkable boundary is not a facade measurement.'}
+    if payload['nodeMoves'] or payload['deletedNodes']:
+        result['graphEditImpact'] = graph_edit_impact(common.read(GRAPH), payload['nodeMoves'], payload['deletedNodes'])
     if action == 'validate':
         return result
     # Geometry failures are diagnostic findings; they do not prevent preview, candidate,
@@ -387,10 +449,14 @@ def execute(payload):
                     if payload['revision'] != revision():
                         raise ValueError('Source changed during reconstruction; no files written')
                     graph = move_nodes(graph, payload['nodeMoves'], payload['deletedNodes'])
+                    result['graphEditImpact'] = graph_edit_impact(original_read(GRAPH), payload['nodeMoves'], payload['deletedNodes'])
+                    runtime_graph, excluded_runtime_edges = runtime_safe_graph(graph)
                     # Reconstruction diagnostics are computed before the optional
                     # graph-node edits. Return the exact graph that is persisted so
                     # the admin UI cannot render a stale pre-move simulation.
                     result.update({'graph': graph,
+                                   'runtimeGraph': runtime_graph,
+                                   'runtimeExcludedEdges': excluded_runtime_edges,
                                    'nodeMoves': payload['nodeMoves'],
                                    'deletedNodes': payload['deletedNodes']})
                     candidate_id = save_candidate(payload, config, changes, diagnostics,
@@ -411,7 +477,7 @@ def execute(payload):
                             for name in OUTPUTS:
                                 atomic(ROOT / 'artifacts/navigation-v2' / name, (Path(work) / name).read_bytes())
                             atomic(ROOT / CONFIG, encoded(config))
-                            atomic(ROOT / RUNTIME_GRAPH, encoded(graph))
+                            atomic(ROOT / RUNTIME_GRAPH, encoded(runtime_graph))
                         except BaseException:
                             for name, data in before.items():
                                 if data is not None:
