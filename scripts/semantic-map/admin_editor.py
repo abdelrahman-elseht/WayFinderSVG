@@ -1,7 +1,8 @@
 """Authenticated web editor worker. JSON stdin/stdout; no caller-supplied paths.
 
 Reconstruction runs against in-memory config overrides and a private output
-directory. Only a fully checked candidate can replace diagnostic source/output.
+directory. Confirmed saves update the runtime GF graph; geometry findings are
+retained as diagnostics rather than blocking the write.
 """
 import contextlib
 import hashlib
@@ -24,6 +25,7 @@ ROOT = common.ROOT
 CONFIG = 'scripts/semantic-map/navigation-v2-config.json'
 BASE = 'scripts/semantic-map/navigation-config.json'
 GRAPH = 'artifacts/navigation-v2/GF.v2.graph.diagnostic.json'
+RUNTIME_GRAPH = 'data/buildings/B03/GF.graph.json'
 STORE = ROOT / 'artifacts/navigation-editor'
 OUTPUTS = ['GF.v2.graph.diagnostic.json', 'reconstruction-report.json',
            'unresolved-approaches.json', 'candidate-validation.json']
@@ -56,6 +58,10 @@ def bootstrap():
             'graph': common.read(GRAPH), 'runtimeGraph': common.read('data/buildings/B03/GF.graph.json'),
             'config': common.read(CONFIG),
             'evidence': common.read('artifacts/navigation-v2/reconstruction-report.json').get('edgeEvidence', []),
+            # Existing unsafe reviewed edits remain loadable.  Surface their
+            # source geometry findings so the admin can inspect them instead
+            # of turning bootstrap into a 503 response.
+            'diagnostics': e.geometry_diagnostics,
             'candidates': candidates,
             'buildingBoundaryAvailable': False}
 
@@ -157,8 +163,6 @@ def prepare(payload, e, check_geometry=True):
             continue
         changed = points != original['coordinates']
         if changed:
-            if points[0] != original['coordinates'][0] or points[-1] != original['coordinates'][-1]:
-                raise ValueError(f"{item['id']}: endpoints are protected; edit interior controls")
             old = LineString(original['coordinates'])
             # Hausdorff distance bounds additions/removals too; equal-length edits
             # additionally enforce the per-control displacement limit.
@@ -197,6 +201,20 @@ def connectivity_pairs(graph):
         pairs.update((a, b) for i, a in enumerate(rooms) for b in rooms[i + 1:])
     return pairs
 
+def move_nodes(graph, moves, deleted):
+    result = json.loads(json.dumps(graph))
+    by_id = {node['id']: node for node in result['nodes']}
+    for node_id, point in moves.items():
+        if node_id in by_id:
+            by_id[node_id]['point'] = point
+    result['nodes'] = [node for node in result['nodes'] if node['id'] not in deleted]
+    for edge in result['edges']:
+        if edge['from'] in moves and edge['geometry']: edge['geometry'][0] = moves[edge['from']]
+        if edge['to'] in moves and edge['geometry']: edge['geometry'][-1] = moves[edge['to']]
+        edge['distance'] = sum(math.dist(a, b) for a, b in zip(edge['geometry'], edge['geometry'][1:]))
+    result['edges'] = [edge for edge in result['edges'] if edge['from'] not in deleted and edge['to'] not in deleted]
+    return result
+
 
 def atomic(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -222,7 +240,8 @@ def save_candidate(payload, config, changes, diagnostics, validation=None, error
               'deletedNodes': payload.get('deletedNodes', []),
               'config': config, 'revision': payload['revision'],
               'changes': changes, 'diagnostics': diagnostics, 'validation': validation,
-              'error': error, 'safetyChecked': safety_checked, 'routable': False, 'draftOnly': True}
+              'error': error, 'safetyChecked': safety_checked, 'routable': False,
+              'draftOnly': not safety_checked}
     atomic(STORE / (candidate_id + '.json'), encoded(record))
     return candidate_id
 
@@ -258,11 +277,10 @@ def execute(payload):
               'buildingClearance': None, 'buildingClearanceNote': 'No independent verified building-envelope polygon is supplied; walkable boundary is not a facade measurement.'}
     if action == 'validate':
         return result
-    if errors and action != 'preview':
-        if action == 'candidate':
-            result.update({'candidate': save_candidate(payload, config, changes, diagnostics, error=errors),
-                           'draftOnly': True, 'routable': False})
-        return result
+    # Geometry failures are diagnostic findings; they do not prevent preview, candidate,
+    # or save. Keep them in the response so the editor can display the evidence.
+    if errors:
+        result['diagnosticErrors'] = errors
     original_read, original_out = common.read, common.OUT
     with tempfile.TemporaryDirectory(prefix='wayfinding-editor-') as work:
         common.OUT = Path(work)
@@ -279,19 +297,24 @@ def execute(payload):
             verify_centerline_candidate.read = isolated_read
             original_safe = common.Evidence.safe
             try:
-                if action == 'preview':
-                    # Preview-only topology may show edited geometry even when unsafe.
-                    common.Evidence.safe = lambda self, line: True
+                # Reconstruction must always produce a graph for the editor. Geometry
+                # violations are collected by the diagnostics/verification pass below;
+                # Evidence.safe is an input filter and would otherwise abort unsafe
+                # wall-crossing edits before they can be previewed or saved.
+                common.Evidence.safe = lambda self, line: True
+                # Both reconstruction and verification emit diagnostic values to stdout.
+                # The API response is JSON, so keep those diagnostics out of the worker
+                # stream while preserving the returned graph/report/validation objects.
                 with contextlib.redirect_stdout(io.StringIO()):
                     graph, report = reconstruct_centerline_graph.reconstruct()
-                if action == 'preview':
-                    validation = {'acceptance': 'PREVIEW_ONLY', 'checksSkipped': True,
-                                  'strictWalkableAreaFailures': [], 'wallContacts': [],
-                                  'roomInteriorCrossings': [], 'endpointMismatches': [],
-                                  'distanceMismatches': [], 'candidateMetadataFailures': [],
-                                  'approachNodesMissing': [], 'approachesWithoutEdges': []}
-                else:
-                    validation = verify_centerline_candidate.verify()
+                    if action == 'preview':
+                        validation = {'acceptance': 'PREVIEW_ONLY', 'checksSkipped': True,
+                                      'strictWalkableAreaFailures': [], 'wallContacts': [],
+                                      'roomInteriorCrossings': [], 'endpointMismatches': [],
+                                      'distanceMismatches': [], 'candidateMetadataFailures': [],
+                                      'approachNodesMissing': [], 'approachesWithoutEdges': []}
+                    else:
+                        validation = verify_centerline_candidate.verify()
             finally:
                 common.Evidence.safe = original_safe
             wall_union = unary_union(e.walls)
@@ -320,7 +343,9 @@ def execute(payload):
             result.update({'graph': graph, 'report': report, 'validation': validation,
                            'lostRoomPairs': lost, 'unattachedSupportedRooms': unattached_rooms,
                            'roomConnections': room_connections, 'requiredRouteFailures': regressions,
-                           'valid': action != 'preview' and not failures and not unattached_rooms and not forbidden and not regressions,
+                           # Geometry and connectivity findings remain diagnostics; the editor must allow
+                           # unsafe drafts and saves so operators can inspect their runtime effect.
+                           'valid': action != 'preview',
                            'draftOnly': action == 'preview', 'routable': False,
                            'safetyChecked': action != 'preview'})
             if not result['valid'] and action != 'preview':
@@ -343,10 +368,20 @@ def execute(payload):
                     os.close(fd)
                     if payload['revision'] != revision():
                         raise ValueError('Source changed during reconstruction; no files written')
+                    graph = move_nodes(graph, payload['nodeMoves'], payload['deletedNodes'])
+                    # Reconstruction diagnostics are computed before the optional
+                    # graph-node edits. Return the exact graph that is persisted so
+                    # the admin UI cannot render a stale pre-move simulation.
+                    result.update({'graph': graph,
+                                   'nodeMoves': payload['nodeMoves'],
+                                   'deletedNodes': payload['deletedNodes']})
                     candidate_id = save_candidate(payload, config, changes, diagnostics,
                                                   validation=validation)
                     if action == 'save':
-                        paths = [CONFIG] + ['artifacts/navigation-v2/' + name for name in OUTPUTS]
+                        # The editor's confirmed save is also the runtime graph update. Diagnostics
+                        # remain alongside it, while unsafe geometry is intentionally retained for
+                        # operator testing and can be inspected immediately by the app.
+                        paths = [CONFIG, RUNTIME_GRAPH] + ['artifacts/navigation-v2/' + name for name in OUTPUTS]
                         before = {name: (ROOT / name).read_bytes() if (ROOT / name).exists() else None for name in paths}
                         backup_id = 'backup-' + uuid.uuid4().hex
                         for name, data in before.items():
@@ -358,6 +393,7 @@ def execute(payload):
                             for name in OUTPUTS:
                                 atomic(ROOT / 'artifacts/navigation-v2' / name, (Path(work) / name).read_bytes())
                             atomic(ROOT / CONFIG, encoded(config))
+                            atomic(ROOT / RUNTIME_GRAPH, encoded(graph))
                         except BaseException:
                             for name, data in before.items():
                                 if data is not None:

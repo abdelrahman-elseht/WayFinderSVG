@@ -32,7 +32,7 @@ test('select and group-nudge source controls with shared geometry delta and undo
   await page.getByRole('button', { name: 'Clear selection' }).click();
   await page.getByLabel('Navigation graph canvas').press('Control+a');
   await expect(page.getByText(/\d+ source controls selected/)).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Build source candidate' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Build source candidate' })).toBeEnabled();
   await page.close();
 });
 

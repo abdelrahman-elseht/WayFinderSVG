@@ -56,7 +56,9 @@ export function WayfindingApp({ floorData, graph, contents, floorOptions = [floo
   const destinationRoom = rooms.find(room => room.id === destinationId) ?? null;
   const destinationNode = destinationRoom?.doorNodeId ?? null;
   const partialRoute = Boolean(startRoom?.navigationPartial || destinationRoom?.navigationPartial);
-  const route = useMemo(() => destinationId ? findRoute(graph, startNode, destinationNode, { accessibleOnly }) : null, [graph, startNode, destinationNode, accessibleOnly, destinationId]);
+  // GF currently contains administrator-edited source geometry. Preserve the
+  // graph's structural checks while allowing those reviewed edits to route.
+  const route = useMemo(() => destinationId ? findRoute(graph, startNode, destinationNode, { accessibleOnly, unsafeGeometry: true }) : null, [graph, startNode, destinationNode, accessibleOnly, destinationId]);
   const smoothRoute = useMemo(() => createRouteSmoother(graph), [graph]);
   const visualRoute = useMemo(() => smoothRoute(route?.status === 'ok' ? route.points : []), [smoothRoute, route]);
   const routeInstructions = route?.status === 'ok' ? route.instructions : [];

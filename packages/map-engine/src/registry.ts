@@ -2,12 +2,19 @@ import type { Building, Kiosk } from './types';
 import { validateFloorBundle, type FloorBundle } from './validate';
 
 /** Data-driven catalog; adding a real floor requires its own validated source bundle. */
-export function createMapRegistry(inputs: { floorData: unknown; graph: unknown; contents: unknown }[]) {
+export function createMapRegistry(inputs: {
+  floorData: unknown;
+  graph: unknown;
+  contents: unknown;
+  /** Explicitly opt this loaded runtime graph into diagnostic geometry mode. */
+  allowUnsafeGeometry?: boolean;
+}[]) {
   const floors = new Map<string, FloorBundle>();
   const buildings = new Map<string, Building>();
   const kiosks = new Map<string, Kiosk>();
   for (const input of inputs) {
-    const bundle = validateFloorBundle(input.floorData, input.graph, input.contents);
+    const bundle = validateFloorBundle(input.floorData, input.graph, input.contents,
+      { allowUnsafeGeometry: input.allowUnsafeGeometry === true });
     const { building, floor } = bundle.floorData;
     const key = `${building.id}/${floor.id}`;
     if (floors.has(key)) throw new Error(`Duplicate floor: ${key}`);

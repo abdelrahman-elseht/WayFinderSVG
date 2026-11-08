@@ -54,6 +54,10 @@ Visual volume height is an illustrative wayfinding convention, not a measured ce
 deployment secret store before use. Access fails closed until the server
 restarts with both values. See [editor operations](navigation-editor-admin.md).
 
+Local development is configured with the ignored `apps/web/.env.local` pair
+`admin`/`admin`; this five-character password is intentionally unsuitable for
+shared or production environments.
+
 Source spine controls and reviewed V2 connections edit the source candidate.
 Graph nodes can be moved or deleted in a separate admin simulation; connected
 edge endpoints update with node moves, and deleted nodes remove incident
@@ -76,6 +80,7 @@ edited, uncommitted diagnostic artifact in this worktree; the editor regenerates
 from authoritative config, not that generated artifact. Geometry tests pass;
 full acceptance remains FAIL because the source graph is disconnected and
 contains a pre-existing duplicate undirected edge pair. G-39/G-40 stay
-edge-free; G-35/G-01 and G-37/G-42 pair connectivity is retained. Saves remain
-diagnostic-only and cannot promote the graph.
+edge-free; G-35/G-01 and G-37/G-42 pair connectivity is retained. Confirmed
+admin saves replace `data/buildings/B03/GF.graph.json`, used by the runtime app.
+Geometry/connectivity findings remain diagnostics and do not block saving.
 

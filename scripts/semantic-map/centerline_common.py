@@ -80,17 +80,23 @@ class Evidence:
         v2 = read('scripts/semantic-map/navigation-v2-config.json')
         self.spine_overrides = {item['spineIndex']: item for item in v2.get('reviewedSpineOverrides', [])}
         self.raw = []
+        # Geometry safety is evidence reported to operators, not a reason to
+        # make the authenticated editor unloadable.  In particular, an admin
+        # may intentionally inspect an unsafe edit in the runtime renderer.
+        self.geometry_diagnostics = []
         for i, original in enumerate(self.cfg['corridorSpines']):
             override = self.spine_overrides.get(i)
             line = LineString(override['coordinates'] if override else original)
             if override and not self.safe(line):
-                raise ValueError(f'Unsafe reviewed spine override {i}: {self.tests(line)}')
+                self.geometry_diagnostics.append({'id': f'spine:{i}', 'kind': 'spine',
+                                                  'index': i, 'tests': self.tests(line)})
             self.raw.append(line)
         self.reviewed_connections = v2['reviewedConnections']
         for connection in self.reviewed_connections:
             line = LineString(connection['coordinates'])
             if not self.safe(line):
-                raise ValueError(f"Unsafe reviewed connection: {connection['id']}: {self.tests(line)}")
+                self.geometry_diagnostics.append({'id': f"connection:{connection['id']}",
+                                                  'kind': 'connection', 'tests': self.tests(line)})
             self.raw.append(line)
 
     def tests(self, line):

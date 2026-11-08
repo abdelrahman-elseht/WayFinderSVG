@@ -101,7 +101,17 @@ function safeAsset(value: unknown,path: string) {
 }
 
 /** Validate structure, references, calibration and geometry before narrowing JSON types. */
-export function validateFloorBundle(floorInput: unknown, graphInput: unknown, contentInput: unknown): FloorBundle {
+export interface ValidationOptions {
+  /**
+   * Allow a deliberately edited runtime graph to render while retaining all
+   * structural and shape checks.  Safety findings remain available to the
+   * editor and are only bypassed for this explicitly opted-in load path.
+   */
+  allowUnsafeGeometry?: boolean;
+}
+
+export function validateFloorBundle(floorInput: unknown, graphInput: unknown, contentInput: unknown,
+  options: ValidationOptions = {}): FloorBundle {
   const data=object(floorInput,'floorData'), building=object(data.building,'building'), floor=object(data.floor,'floor');
   if(data.schemaVersion!==1) fail('schemaVersion','expected 1');
   const buildingId=text(building.id,'building.id'), floorId=text(floor.id,'floor.id');
@@ -234,10 +244,10 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
       if(drawing && (from.status==='unknown' || to.status==='unknown')) fail(p,'drawing-based edge requires known source endpoints');
       if(from.floorId!==to.floorId && (walls.length || areas.length)) fail(p,'v1 constraints lack floor scope for vertical-edge validation');
       if(from.floorId===to.floorId && !areas.length) fail(p,'confirmed floor edge requires verified navigable areas');
-      if(areas.length && !geometry.every(v=>areas.some(a=>contains(v,a)))) fail(p,'edge leaves navigable areas');
+      if(!options.allowUnsafeGeometry && areas.length && !geometry.every(v=>areas.some(a=>contains(v,a)))) fail(p,'edge leaves navigable areas');
       for(let j=1;j<geometry.length;j++) {
         const a=geometry[j-1],b=geometry[j];
-        if(walls.some(([c,d])=>intersects(a,b,c,d))) fail(p,'routable edge intersects a wall');
+        if(!options.allowUnsafeGeometry && walls.some(([c,d])=>intersects(a,b,c,d))) fail(p,'routable edge intersects a wall');
         // Split at every enclosure boundary; membership must hold through the whole segment.
         const cuts=[0,1];
         for(const area of areas) for(let k=0;k<area.length;k++) {
@@ -246,7 +256,7 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
           cuts.push(((c[0]-a[0])*(d[1]-c[1])-(c[1]-a[1])*(d[0]-c[0]))/den);
         }
         cuts.sort((a,b)=>a-b);
-        for(let k=1;k<cuts.length;k++) {const t=(cuts[k-1]+cuts[k])/2; if(areas.length && !areas.some(poly=>contains([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t],poly))) fail(p,'edge crosses outside navigable areas');}
+        if(!options.allowUnsafeGeometry) for(let k=1;k<cuts.length;k++) {const t=(cuts[k-1]+cuts[k])/2; if(areas.length && !areas.some(poly=>contains([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t],poly))) fail(p,'edge crosses outside navigable areas');}
       }
     }
   });

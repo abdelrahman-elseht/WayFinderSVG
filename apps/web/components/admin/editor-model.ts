@@ -10,7 +10,7 @@ export type RoomConnection = { nodeId: string; room: string; point: Point; attac
 export type Session = { revision: string; spines: Spine[]; floor: FloorData; graph: NavigationGraph; runtimeGraph: NavigationGraph; config: Record<string, unknown>; evidence: EdgeEvidence[]; candidates: string[] };
 export type Report = { valid: boolean; draftOnly?: boolean; safetyChecked?: boolean; previewError?: string; diagnostics: Diagnostic[]; changes: { id: string; before: Point[]; after: Point[]; displacement: number }[]; errors: unknown[]; graph?: NavigationGraph; report?: { edgeEvidence: EdgeEvidence[] }; validation?: Record<string, unknown>; revision?: string; candidate?: string; saved?: boolean; backup?: string; lostRoomPairs?: [string, string][]; requiredRouteFailures?: [string, string][]; unattachedSupportedRooms?: string[]; roomConnections?: RoomConnection[] };
 export const controls = (spines: Spine[]): Control[] => spines.flatMap(s => s.coordinates.map((point, index) => ({
-  id: `${s.id}/${index}`, spine: s.id, index, point, protected: index === 0 || index === s.coordinates.length - 1,
+  id: `${s.id}/${index}`, spine: s.id, index, point, protected: false,
 })));
 
 export function moveGraphNodes(graph: NavigationGraph, moves: NodeMoves): NavigationGraph {
@@ -29,11 +29,63 @@ export function moveGraphNodes(graph: NavigationGraph, moves: NodeMoves): Naviga
   };
 }
 
+function projectAlong(point: Point, line: Point[]): number {
+  let total = 0, best = 0, bestDistance = Infinity;
+  for (let i = 1; i < line.length; i++) {
+    const a = line[i - 1], b = line[i], dx = b[0] - a[0], dy = b[1] - a[1];
+    const length = Math.hypot(dx, dy), t = length ? Math.max(0, Math.min(1, ((point[0] - a[0]) * dx + (point[1] - a[1]) * dy) / (length * length))) : 0;
+    const q: Point = [a[0] + dx * t, a[1] + dy * t], distance = Math.hypot(point[0] - q[0], point[1] - q[1]);
+    if (distance < bestDistance) { bestDistance = distance; best = total + length * t; }
+    total += length;
+  }
+  return total ? best / total : 0;
+}
+
+function pointAlong(line: Point[], fraction: number): Point {
+  const lengths = line.slice(1).map((p, i) => Math.hypot(p[0] - line[i][0], p[1] - line[i][1]));
+  const target = lengths.reduce((a, b) => a + b, 0) * Math.max(0, Math.min(1, fraction));
+  let walked = 0;
+  for (let i = 1; i < line.length; i++) {
+    const length = lengths[i - 1];
+    if (walked + length >= target) { const t = length ? (target - walked) / length : 0; return [line[i - 1][0] + (line[i][0] - line[i - 1][0]) * t, line[i - 1][1] + (line[i][1] - line[i - 1][1]) * t]; }
+    walked += length;
+  }
+  return [...line.at(-1)!];
+}
+
+/** Propagate edited source spines to evidence-linked junction nodes and edges. */
+export function propagateSourceLinks(graph: NavigationGraph, original: Spine[], edited: Spine[], evidence: EdgeEvidence[]): NavigationGraph {
+  const byIndex = new Map(original.map(spine => [spine.index, spine]));
+  const changed = new Map<number, Spine>();
+  for (const spine of edited) if (JSON.stringify(spine.coordinates) !== JSON.stringify(byIndex.get(spine.index)?.coordinates)) changed.set(spine.index, spine);
+  if (!changed.size) return graph;
+  const moves: NodeMoves = {};
+  for (const item of evidence) {
+    const owners = item.sourceSpineIds.filter(index => changed.has(index));
+    if (!owners.length) continue;
+    const edge = graph.edges.find(candidate => candidate.id === item.edgeId); if (!edge) continue;
+    for (const id of [edge.from, edge.to]) {
+      const node = graph.nodes.find(candidate => candidate.id === id);
+      // Room approach points are independent evidence; only move junction/attachment nodes.
+      if (!node || node.roomId || moves[id]) continue;
+      let best: Point | undefined, distance = Infinity;
+      for (const index of owners) {
+        const before = byIndex.get(index), after = changed.get(index)!; if (!before) continue;
+        const fraction = projectAlong(node.point, before.coordinates), point = pointAlong(after.coordinates, fraction);
+        const d = Math.hypot(node.point[0] - point[0], node.point[1] - point[1]);
+        if (d < distance) { distance = d; best = point; }
+      }
+      if (best) moves[id] = best;
+    }
+  }
+  return moveGraphNodes(graph, moves);
+}
+
 /** One snapped delta for the entire group, never independently round its points. */
 export function translate(spines: Spine[], ids: Set<string>, delta: Point, grid = 0): Spine[] {
   if (!delta.every(Number.isFinite)) return spines;
   const offset = delta.map(v => grid > 0 ? Math.round(v / grid) * grid : v) as Point;
-  return spines.map(s => ({ ...s, coordinates: s.coordinates.map((p, i) => ids.has(`${s.id}/${i}`) && i > 0 && i < s.coordinates.length - 1 ? [p[0] + offset[0], p[1] + offset[1]] : p) }));
+  return spines.map(s => ({ ...s, coordinates: s.coordinates.map((p, i) => ids.has(`${s.id}/${i}`) ? [p[0] + offset[0], p[1] + offset[1]] : p) }));
 }
 
 export function inside(point: Point, polygon: Point[]): boolean {

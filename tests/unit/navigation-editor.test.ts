@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { controls, deleteControls, inside, moveGraphNodes, rectangleSelection, selectionStats, translate, type Spine } from '../../apps/web/components/admin/editor-model';
+import { controls, deleteControls, inside, moveGraphNodes, propagateSourceLinks, rectangleSelection, selectionStats, translate, type Spine } from '../../apps/web/components/admin/editor-model';
 import { adminAuthorized } from '../../apps/web/lib/admin-auth';
 import type { NavigationGraph } from '@wayfinding/map-engine';
 
 const spines: Spine[] = [{ id: 'spine:0', index: 0, kind: 'spine', coordinates: [[0, 0], [10.3, 10.7], [20.8, 15.2], [30, 30]], sourceReferences: ['source'] }];
 describe('navigation source editor', () => {
-  it('moves an entire selection by the same snapped delta and preserves endpoints', () => {
+  it('moves an entire selection by the same snapped delta, including endpoints', () => {
     const result = translate(spines, new Set(controls(spines).map(c => c.id)), [12, -12], 5);
-    expect(result[0].coordinates).toEqual([[0, 0], [20.3, .6999999999999993], [30.8, 5.199999999999999], [30, 30]]);
+    expect(result[0].coordinates).toEqual([[10, -10], [20.3, .6999999999999993], [30.8, 5.199999999999999], [40, 20]]);
     expect(result[0].coordinates[2][0] - result[0].coordinates[1][0]).toBeCloseTo(10.5);
     expect(spines[0].coordinates[1]).toEqual([10.3, 10.7]);
   });
@@ -25,7 +25,7 @@ describe('navigation source editor', () => {
     expect(inside([8, 2], [[0, 0], [5, 0], [5, 5], [0, 5]])).toBe(false);
     expect(selectionStats(controls(spines).slice(1, 3))?.average[0]).toBeCloseTo(15.55);
   });
-  it('never deletes protected endpoints', () => {
+  it('still retains endpoints when deleting a full selection', () => {
     expect(deleteControls(spines, new Set(controls(spines).map(c => c.id)))[0].coordinates).toEqual([[0, 0], [30, 30]]);
   });
   it('moves graph nodes together with connected edge endpoints for preview', () => {
@@ -43,7 +43,23 @@ describe('navigation source editor', () => {
     expect(moved.edges[0].distance).toBeCloseTo(Math.hypot(3, -1) + Math.hypot(7, 1));
     expect(graph.nodes[0].point).toEqual([0, 0]);
   });
-  it('requires configured admin credentials and accepts passwords of at least five characters', () => {
+  it('propagates edited source spines to linked junctions while preserving room approaches', () => {
+    const graph: NavigationGraph = {
+      nodes: [
+        { id: 'j', buildingId: 'B03', floorId: 'GF', point: [5, 0], type: 'junction', status: 'candidate' },
+        { id: 'room', buildingId: 'B03', floorId: 'GF', point: [10, 0], roomId: 'G-1', type: 'door', status: 'candidate' },
+      ],
+      edges: [{ id: 'e', from: 'j', to: 'room', floorId: 'GF', pathType: 'corridor', distance: 5, distanceUnit: 'map-unit', accessibility: 'unknown', restriction: 'unknown', status: 'candidate', bidirectional: true, geometry: [[5, 0], [10, 0]] }],
+      metersPerUnit: null, calibrationStatus: 'unknown', navigableAreas: [], walls: [], status: 'candidate',
+    };
+    const original: Spine[] = [{ ...spines[0], coordinates: [[0, 0], [10, 0]] }];
+    const edited: Spine[] = [{ ...spines[0], coordinates: [[0, 10], [10, 10]] }];
+    const moved = propagateSourceLinks(graph, original, edited, [{ edgeId: 'e', sourceSpineIds: [0], sourceReferences: [], tests: {} }]);
+    expect(moved.nodes.find(node => node.id === 'j')?.point).toEqual([5, 10]);
+    expect(moved.nodes.find(node => node.id === 'room')?.point).toEqual([10, 0]);
+    expect(moved.edges[0].geometry[0]).toEqual([5, 10]);
+  });
+  it('requires configured admin credentials and accepts five-character passwords such as admin', () => {
     const previous = [process.env.WAYFINDING_ADMIN_USER, process.env.WAYFINDING_ADMIN_PASSWORD];
     try {
       process.env.WAYFINDING_ADMIN_USER = 'test-admin'; process.env.WAYFINDING_ADMIN_PASSWORD = 'local-test-password-123';
@@ -52,6 +68,8 @@ describe('navigation source editor', () => {
       expect(adminAuthorized(new Headers({ authorization: 'Basic ' + Buffer.from('test-admin:local-test-password-123').toString('base64') }))).toBe(true);
       process.env.WAYFINDING_ADMIN_PASSWORD = 'abcde';
       expect(adminAuthorized(new Headers({ authorization: 'Basic ' + Buffer.from('test-admin:abcde').toString('base64') }))).toBe(true);
+      process.env.WAYFINDING_ADMIN_USER = 'admin'; process.env.WAYFINDING_ADMIN_PASSWORD = 'admin';
+      expect(adminAuthorized(new Headers({ authorization: 'Basic ' + Buffer.from('admin:admin').toString('base64') }))).toBe(true);
       process.env.WAYFINDING_ADMIN_PASSWORD = 'abcd';
       expect(adminAuthorized(new Headers({ authorization: 'Basic ' + Buffer.from('test-admin:abcd').toString('base64') }))).toBe(false);
       delete process.env.WAYFINDING_ADMIN_PASSWORD;

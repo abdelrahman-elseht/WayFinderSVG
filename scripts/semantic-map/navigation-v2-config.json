@@ -5,8 +5,8 @@
       "id": "av-foyer-north-door",
       "coordinates": [
         [
-          1195,
-          1070
+          1170.3312759234623,
+          1066.4758965604944
         ],
         [
           1255,
@@ -167,8 +167,8 @@
       "id": "south-west-elevator-junction",
       "coordinates": [
         [
-          1330,
-          1530
+          1319.279689030166,
+          1555.8759182500612
         ],
         [
           1350,
@@ -215,24 +215,24 @@
       "id": "west-corridor-clearance",
       "coordinates": [
         [
-          1195,
-          1070
+          1170.3312759234623,
+          1066.4758965604944
         ],
         [
-          1210,
+          1196.7846121018547,
           1190
         ],
         [
-          1270,
-          1390
+          1259.7738063590741,
+          1375.054024678647
         ],
         [
-          1310,
-          1510
+          1299.7738063590743,
+          1513.146521120285
         ],
         [
-          1330,
-          1530
+          1319.279689030166,
+          1555.8759182500612
         ]
       ],
       "sourceReferences": [
@@ -251,10 +251,13 @@
       "id": "west-toilets-continuous-circulation",
       "coordinates": [
         [
-          1255,
-          1340
+          1244.7738063590741,
+          1325.054024678647
         ],
-        [1183, 1333],
+        [
+          1183,
+          1333
+        ],
         [
           1155,
           1345
@@ -277,6 +280,142 @@
         "docs/navigation-v2/route-coverage-source-review.md"
       ],
       "note": "Source-bounded circulation north of west service-room facades and south of toilet walls. Replaces the old diagonal which clipped multiple jambs; no G39/G40 connection."
+    },
+    {
+      "spineIndex": 2,
+      "id": "admin-spine-2",
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/2",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "note": "Administrator-edited source spine; diagnostic candidate only.",
+      "coordinates": [
+        [
+          1319.279689030166,
+          1555.8759182500612
+        ],
+        [
+          1680.6198207741918,
+          1462.645018322633
+        ],
+        [
+          1915.5783869677248,
+          1434.5873482581412
+        ],
+        [
+          2176.5450416123163,
+          1434.4325056379814
+        ],
+        [
+          2376.4010915978633,
+          1436.1748979569377
+        ],
+        [
+          2635,
+          1410
+        ],
+        [
+          2810,
+          1430
+        ],
+        [
+          3080,
+          1490
+        ],
+        [
+          3170,
+          1510
+        ]
+      ]
+    },
+    {
+      "spineIndex": 5,
+      "id": "admin-spine-5",
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/5",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "note": "Administrator-edited source spine; diagnostic candidate only.",
+      "coordinates": [
+        [
+          1319.279689030166,
+          1555.8759182500612
+        ],
+        [
+          1370,
+          1660
+        ],
+        [
+          1310,
+          1775
+        ]
+      ]
+    },
+    {
+      "spineIndex": 0,
+      "id": "admin-spine-0",
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/0",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "note": "Administrator-edited source spine; diagnostic candidate only.",
+      "coordinates": [
+        [
+          1170.3312759234623,
+          1066.4758965604944
+        ],
+        [
+          1410,
+          1015
+        ],
+        [
+          1615,
+          975
+        ],
+        [
+          1880,
+          938
+        ],
+        [
+          2130,
+          930
+        ],
+        [
+          2380,
+          940
+        ]
+      ]
+    },
+    {
+      "spineIndex": 13,
+      "id": "admin-spine-13",
+      "sourceReferences": [
+        "scripts/semantic-map/navigation-config.json#/corridorSpines/13",
+        "maps/B03/GF/master.svg",
+        "maps/B03/GF/alignment.json",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0001-01.pdf#page=1",
+        "2761-SOD-B03-DWG-AAR-15-GF-Z-0002-01.pdf#page=1"
+      ],
+      "note": "Administrator-edited source spine; diagnostic candidate only.",
+      "coordinates": [
+        [
+          1025.2256038210205,
+          1069.1189741401238
+        ],
+        [
+          1000.2256038210205,
+          1059.1189741401238
+        ]
+      ]
     }
   ]
 }

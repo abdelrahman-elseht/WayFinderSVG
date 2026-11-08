@@ -10,7 +10,7 @@ type Prepared = { nodes: Map<string, NavigationNode>; adjacency: Map<string, Ste
 const EPSILON = 1e-7;
 const supported = (graph: NavigationGraph, status: NavigationNode['status']) => status === 'confirmed' || (graph.routingPolicy === 'drawing-based' && status === 'candidate');
 // Content signatures invalidate on mutation; preparations own detached snapshots.
-const preparedCache = new WeakMap<NavigationGraph, { signature: string; values: Map<boolean, Prepared | null> }>();
+const preparedCache = new WeakMap<NavigationGraph, { signature: string; values: Map<string, Prepared | null> }>();
 const validPoint = (point: Point) => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite);
 const equalPoint = (a: Point, b: Point) => Math.hypot(a[0] - b[0], a[1] - b[1]) <= EPSILON;
 const calibrated = (graph: NavigationGraph) => graph.calibrationStatus === 'confirmed'
@@ -36,18 +36,19 @@ function failure(status: Exclude<RouteResult['status'], 'ok'>, reason: Localized
   return { status, reason, nodeIds: [], edgeIds: [], points: [], distance: 0, distanceUnit: unit, instructions: [] };
 }
 
-function prepare(input: NavigationGraph, accessibleOnly = false): Prepared | null {
+function prepare(input: NavigationGraph, accessibleOnly = false, unsafeGeometry = false): Prepared | null {
   let signature: string;
   try { signature = JSON.stringify(input, (_key, value) => typeof value === 'number' && !Number.isFinite(value) ? { invalidNumber: String(value) } : value); } catch { return null; }
   let cached = preparedCache.get(input);
   if (!cached || cached.signature !== signature) { cached = { signature, values: new Map() }; preparedCache.set(input, cached); }
-  if (cached.values.has(accessibleOnly)) return cached.values.get(accessibleOnly)!;
-  const prepared = prepareSnapshot(structuredClone(input), accessibleOnly);
-  cached.values.set(accessibleOnly, prepared);
+  const key = `${accessibleOnly}:${unsafeGeometry}`;
+  if (cached.values.has(key)) return cached.values.get(key)!;
+  const prepared = prepareSnapshot(structuredClone(input), accessibleOnly, unsafeGeometry);
+  cached.values.set(key, prepared);
   return prepared;
 }
 
-function prepareSnapshot(graph: NavigationGraph, accessibleOnly: boolean): Prepared | null {
+function prepareSnapshot(graph: NavigationGraph, accessibleOnly: boolean, unsafeGeometry = false): Prepared | null {
   if (graph.routingPolicy !== undefined && !['verified-only', 'drawing-based'].includes(graph.routingPolicy)) return null;
   const drawing = graph.routingPolicy === 'drawing-based';
   if (!Array.isArray(graph.nodes) || !Array.isArray(graph.edges)) return null;
@@ -83,7 +84,10 @@ function prepareSnapshot(graph: NavigationGraph, accessibleOnly: boolean): Prepa
     if (!vertical && edge.floorId !== from.floorId) return null;
     if (vertical && edge.floorId !== from.floorId && edge.floorId !== to.floorId) return null;
     if (from.buildingId !== to.buildingId) return null;
-    if (!safe(edge.geometry)) return null;
+    // Admin-edited drawing graphs may intentionally cross supplied wall evidence.
+    // Keep all structural checks above, but allow those edges in the runtime route
+    // calculation when explicitly requested by the host application.
+    if (!unsafeGeometry && !safe(edge.geometry)) return null;
     if (drawing && !vertical) {
       const length = polylineLength(edge.geometry) * (edge.distanceUnit === 'meter' ? graph.metersPerUnit! : 1);
       if (length <= 0 || Math.abs(edge.distance - length) > Math.max(.01, length * 1e-5)) return null;
@@ -104,18 +108,18 @@ export function findRoute(
   graph: NavigationGraph,
   startId: string | null,
   endId: string | null,
-  options: { accessibleOnly?: boolean } = {},
+  options: { accessibleOnly?: boolean; unsafeGeometry?: boolean } = {},
 ): RouteResult {
   const unit: Unit = calibrated(graph) ? 'meter' : 'map-unit';
   if (startId === null) return failure('unavailable', messages.start, unit);
   if (endId === null) return failure('unavailable', messages.destination, unit);
-  const prepared = prepare(graph, options.accessibleOnly);
+  const prepared = prepare(graph, options.accessibleOnly, options.unsafeGeometry);
   if (!prepared) return failure('invalid', messages.invalid, unit);
   const start = prepared.nodes.get(startId), end = prepared.nodes.get(endId);
   if (!start || !end) return graph.status === 'confirmed'
     ? failure('invalid', messages.missing, unit) : failure('unconfirmed', messages.unconfirmed, unit);
   if (!supported(graph, start.status) || !supported(graph, end.status)) return failure('unconfirmed', messages.unconfirmed, unit);
-  if (!safePolyline([start.point, start.point], graph) || !safePolyline([end.point, end.point], graph)) return failure('invalid', messages.invalid, unit);
+  if (!options.unsafeGeometry && (!safePolyline([start.point, start.point], graph) || !safePolyline([end.point, end.point], graph))) return failure('invalid', messages.invalid, unit);
   const distances = new Map<string, number>([[startId, 0]]);
   const previous = new Map<string, Step>();
   const open = new Set([startId]);

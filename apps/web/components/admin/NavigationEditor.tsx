@@ -3,7 +3,7 @@
 import { memo, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import type { NavigationGraph, Point, RouteResult } from '@wayfinding/map-engine';
 import { findRoute } from '@wayfinding/routing';
-import { controls, deleteControls, exportConfig, inside, moveGraphNodes, pointSegmentDistance, rectangleSelection, selectionStats, translate, type Control, type NodeMoves, type Report, type Session, type Settings, type Spine } from './editor-model';
+import { controls, deleteControls, exportConfig, inside, moveGraphNodes, pointSegmentDistance, propagateSourceLinks, rectangleSelection, selectionStats, translate, type Control, type NodeMoves, type Report, type Session, type Settings, type Spine } from './editor-model';
 import './editor.css';
 
 type Layer = { name: string; visible: boolean; locked: boolean; selectable: boolean; color: string };
@@ -58,7 +58,7 @@ export default function NavigationEditor() {
   const [report, setReport] = useState<Report | null>(null), [live, setLive] = useState<Report | null>(null);
   const [reportKey, setReportKey] = useState(''), [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('Loading source configuration and architectural evidence...');
-  const [compare, setCompare] = useState(true), [split, setSplit] = useState(false), [confirmSave, setConfirmSave] = useState(false);
+  const [compare, setCompare] = useState(true), [split, setSplit] = useState(false);
   const [routeStart, setRouteStart] = useState('B03-GF-G-35'), [routeEnd, setRouteEnd] = useState('B03-GF-G-01');
   const [routes, setRoutes] = useState<{ original: RouteResult; edited: RouteResult; key: string } | null>(null);
   const [accessible, setAccessible] = useState(false), [candidate, setCandidate] = useState('');
@@ -76,7 +76,7 @@ export default function NavigationEditor() {
   const sourceChanged = session ? JSON.stringify(spines) !== JSON.stringify(session.spines) : false;
   const changed = sourceChanged || Object.keys(nodeMoves).length > 0 || deletedNodes.length > 0;
   const editable = layers[1].visible && !layers[1].locked && layers[1].selectable;
-  const editableIds = new Set(controls(spines).filter(c => !c.protected && editable).map(c => c.id));
+  const editableIds = new Set(controls(spines).filter(c => editable).map(c => c.id));
   const selectedIds = new Set([...selection].filter(id => editableIds.has(id)));
   const delta: Point = gesture?.kind === 'move' ? [gesture.current[0] - gesture.start[0], gesture.current[1] - gesture.start[1]] : [0, 0];
   const preview = gesture?.kind === 'move' ? translate(spines, gesture.selected, delta, grid) : spines;
@@ -90,9 +90,11 @@ export default function NavigationEditor() {
       return [id, [current[0] + delta[0], current[1] + delta[1]] as Point];
     }))
     : {};
-  const movedGraph = baseGraph ? moveGraphNodes(baseGraph, { ...nodeMoves, ...gestureNodeMoves }) : undefined;
-  const graph = movedGraph ? { ...movedGraph, nodes: movedGraph.nodes.filter(n => !deletedNodeSet.has(n.id)), edges: movedGraph.edges.filter(e => !deletedNodeSet.has(e.from) && !deletedNodeSet.has(e.to)) } : undefined;
   const evidence = reportKey === draftKey && report?.report ? report.report.edgeEvidence : session?.evidence;
+  const sourceGraph = baseGraph && session ? propagateSourceLinks(baseGraph, session.spines, preview, evidence || session.evidence) : baseGraph;
+  const propagatedMoves = baseGraph && sourceGraph ? Object.fromEntries(sourceGraph.nodes.filter(node => baseGraph.nodes.find(original => original.id === node.id)?.point.some((value, index) => value !== node.point[index])).map(node => [node.id, node.point])) : {};
+  const movedGraph = sourceGraph ? moveGraphNodes(sourceGraph, { ...propagatedMoves, ...nodeMoves, ...gestureNodeMoves }) : undefined;
+  const graph = movedGraph ? { ...movedGraph, nodes: movedGraph.nodes.filter(n => !deletedNodeSet.has(n.id)), edges: movedGraph.edges.filter(e => !deletedNodeSet.has(e.from) && !deletedNodeSet.has(e.to)) } : undefined;
   const isGraphCurrent = !changed || (reportKey === draftKey && !!report?.graph);
   const edge = graph?.edges.find(e => e.id === inspect), node = graph?.nodes.find(n => n.id === inspect);
   const edgeEvidence = evidence?.find(e => e.edgeId === inspect);
@@ -104,7 +106,7 @@ export default function NavigationEditor() {
   useEffect(() => {
     fetch('/api/admin/navigation').then(async response => { const data = await response.json(); if (!response.ok) throw new Error(data.error); return data as Session; }).then(data => {
       setSession(data); setFrames([{ spines: data.spines, nodeMoves: {}, deletedNodes: [], label: 'Loaded source configuration' }]); setView(data.floor.floor.viewBox);
-      setMessage('Ready. Drag graph nodes or corridor control points. Node moves are preview-only; corridor controls are source edits.');
+      setMessage('Ready. Drag graph nodes or any corridor point, including endpoints. Unsafe geometry remains previewable.');
     }).catch(error => setMessage(String(error)));
   }, []);
 
@@ -116,7 +118,7 @@ export default function NavigationEditor() {
 
   function commit(next: Spine[], label: string, nextNodeMoves = nodeMoves, nextDeletedNodes = deletedNodes) {
     if (busy || JSON.stringify(next) === JSON.stringify(spines) && JSON.stringify(nextNodeMoves) === JSON.stringify(nodeMoves) && JSON.stringify(nextDeletedNodes) === JSON.stringify(deletedNodes)) return;
-    setFrames([...frames.slice(0, cursor + 1), { spines: next, nodeMoves: nextNodeMoves, deletedNodes: nextDeletedNodes, label }]); setCursor(cursor + 1); setConfirmSave(false);
+    setFrames([...frames.slice(0, cursor + 1), { spines: next, nodeMoves: nextNodeMoves, deletedNodes: nextDeletedNodes, label }]); setCursor(cursor + 1);
   }
   function move(x: number, y: number) { commit(translate(spines, selectedIds, [x, y], grid), `Translate ${selectedIds.size} controls (${x}, ${y})`); }
   function moveSelectedNodes(x: number, y: number, moves = nodeMoves) {
@@ -137,23 +139,25 @@ export default function NavigationEditor() {
     commit(deleteControls(spines, selectedIds), `Delete ${parts.join(' and ') || 'selection'}`, nodeMoves, nextDeleted);
     setSelection(new Set()); setNodeSelection(new Set()); setInspect(null);
   }
-  function undo() { if (!busy) { setCursor(Math.max(0, cursor - 1)); setSelection(new Set()); setNodeSelection(new Set()); setConfirmSave(false); } }
-  function redo() { if (!busy) { setCursor(Math.min(frames.length - 1, cursor + 1)); setSelection(new Set()); setNodeSelection(new Set()); setConfirmSave(false); } }
+  function undo() { if (!busy) { setCursor(Math.max(0, cursor - 1)); setSelection(new Set()); setNodeSelection(new Set()); } }
+  function redo() { if (!busy) { setCursor(Math.min(frames.length - 1, cursor + 1)); setSelection(new Set()); setNodeSelection(new Set()); } }
   function selectAll() { setSelection(new Set(visibleControls.filter(c => editableIds.has(c.id)).map(c => c.id))); setNodeSelection(new Set(filteredNodes?.map(n => n.id) || [])); setInspect(null); }
   async function run(action: 'reconstruct' | 'preview' | 'draft' | 'save' | 'candidate') {
     if (!session || busy) return;
     setBusy(true); setMessage(action === 'preview' ? 'Generating an isolated admin preview; checks will be reported but will not block the preview...' : action === 'draft' ? 'Saving visual preview draft only...' : 'Reconstructing and validating source spines...');
     try {
-      const result: Report = await api(action, { revision: session.revision, spines, nodeMoves, deletedNodes, settings });
+      const effectiveGraph = propagateSourceLinks(session.graph, session.spines, spines, session.evidence);
+      const linkedMoves = Object.fromEntries(effectiveGraph.nodes.filter(node => session.graph.nodes.find(original => original.id === node.id)?.point.some((value, index) => value !== node.point[index])).map(node => [node.id, node.point]));
+      const result: Report = await api(action, { revision: session.revision, spines, nodeMoves: { ...linkedMoves, ...nodeMoves }, deletedNodes, settings });
       setReport(result); setReportKey(draftKey);
       if (action !== 'draft') setLive(result);
       const rejected = result.diagnostics.filter(d => d.changed && d.tests && !d.tests.safe).map(d => d.id);
       const details = [
-        rejected.length ? `Geometry rejected: ${rejected.join(', ')}` : '',
+        rejected.length ? `Geometry diagnostics: ${rejected.join(', ')}` : '',
         result.unattachedSupportedRooms?.length ? `Room approaches lost: ${result.unattachedSupportedRooms.join(', ')}` : '',
         result.requiredRouteFailures?.length ? `Required routes disconnected: ${result.requiredRouteFailures.map(pair => pair.join(' ↔ ')).join(', ')}` : '',
         (result.errors?.[0] as { validationFailures?: string[] } | undefined)?.validationFailures?.length
-          ? `Graph checks failed: ${(result.errors[0] as { validationFailures: string[] }).validationFailures.join(', ')}` : '',
+          ? `Graph diagnostics: ${(result.errors[0] as { validationFailures: string[] }).validationFailures.join(', ')}` : '',
       ].filter(Boolean).join('. ');
       setMessage(action === 'draft' && result.candidate
         ? `Preview draft ${result.candidate} saved. Geometry was not checked; this does not change navigation. Use Run in admin to inspect it, or keep editing and save another draft.`
@@ -163,13 +167,12 @@ export default function NavigationEditor() {
             : `Admin preview generated. It is isolated and not saved to navigation; checks are informational only. ${details || 'Inspect the generated line and test its route.'}`
         : action === 'candidate' && result.candidate
         ? `Visual-only candidate ${result.candidate} saved. It is not a routable graph and did not change source config or navigation. ${details ? `${details}. ` : ''}Restore it later to continue editing.`
-        : result.valid
-          ? result.saved ? 'Saved source overrides and diagnostic graph. Room approaches were reattached to the edited spine; backup created. Runtime promotion remains blocked.' : 'Reconstruction passed geometry and required-room checks. Room approaches were regenerated from the edited spine; candidate remains diagnostic-only.'
-          : `Validation failed; draft retained and nothing saved. ${details || 'Inspect the connectivity report.'}${result.lostRoomPairs?.length ? ` ${result.lostRoomPairs.length} other room-pair connections changed; see the report.` : ''}`);
+          : result.valid
+          ? result.saved ? 'Saved source overrides and replaced the runtime GF graph. Graph node moves/deletions were applied; geometry findings are diagnostic. Backup created.' : 'Graph reconstructed; review diagnostics.'
+          : `Reconstruction completed with diagnostics; the edited graph remains available for review. ${details || 'Inspect the connectivity report.'}${result.lostRoomPairs?.length ? ` ${result.lostRoomPairs.length} other room-pair connections changed; see the report.` : ''}`);
       if (result.candidate) setSession(s => s ? { ...s, candidates: [...new Set([...s.candidates, result.candidate!])] } : s);
       if (result.saved && result.graph && result.revision) {
-        setSession(s => s ? { ...s, revision: result.revision!, spines, graph: result.graph!, evidence: result.report?.edgeEvidence || s.evidence, config: exportConfig(s, spines) } : s);
-        setConfirmSave(false);
+        setSession(s => s ? { ...s, revision: result.revision!, spines, graph: result.graph!, runtimeGraph: result.graph!, evidence: result.report?.edgeEvidence || s.evidence, config: exportConfig(s, spines) } : s);
         setSavedRouteNotice(true);
       }
       return result;
@@ -178,7 +181,7 @@ export default function NavigationEditor() {
   }
   async function testRoute(editedGraph?: NavigationGraph) {
     if (!session) return;
-    const rebuilt = editedGraph || (await run('preview'))?.graph;
+    const rebuilt = editedGraph || (reportKey === draftKey ? report?.graph : undefined) || session.graph;
     if (!rebuilt) return;
     const start = session.floor.rooms.find(r => r.id === routeStart)?.doorNodeId || null;
     const end = session.floor.rooms.find(r => r.id === routeEnd)?.doorNodeId || null;
@@ -191,8 +194,10 @@ export default function NavigationEditor() {
     });
   }
   async function saveReview() {
-    const result = await run('reconstruct');
-    if (result?.valid) setConfirmSave(true);
+    // Build source candidate is the explicit publish action. Use the same
+    // transactional runtime save path so source edits and graph-node moves or
+    // deletions are persisted together; geometry findings remain diagnostics.
+    await run('save');
   }
   const shortcuts = useRef<(e: KeyboardEvent) => void>(() => {});
   shortcuts.current = event => {
@@ -332,7 +337,7 @@ export default function NavigationEditor() {
     if (!a || !b || !source || connectionNote.trim().length < 20 || a.id === b.id) { setMessage('Choose distinct source anchors, evidence, and a source-review justification (20+ characters).'); return; }
     const id = `connection:admin-${crypto.randomUUID().replaceAll('-', '')}`;
     commit([...spines, { id, index: Math.max(...spines.map(s => s.index)) + 1, kind: 'connection', coordinates: [a.point, ...drawPoints, b.point], sourceReferences: source.sourceReferences, note: connectionNote.trim() }], 'Add source-reviewed connection');
-    setDrawPoints([]); setSpineFilter(id); setMode('Select'); setMessage('Connection added to draft only. Rebuild validates geometry, anchors, evidence and connectivity before saving.');
+    setDrawPoints([]); setSpineFilter(id); setMode('Select'); setMessage('Connection added to the editable source set. Build Source Candidate writes the graph to runtime; geometry and connectivity findings remain diagnostic.');
   }
   const t = (en: string, ar: string) => language === 'ar' ? ar : en;
   if (!session) return <main className="nav-editor"><div className="editor-loading" role="status">{message}</div></main>;
@@ -340,7 +345,7 @@ export default function NavigationEditor() {
   return <main className="nav-editor" dir={language === 'ar' ? 'rtl' : 'ltr'}>
     <header className="editor-header"><div><span className="editor-brand">B03 / GF</span><strong>{t('Navigation workshop', 'محرر مسارات الملاحة')}</strong><span className="editor-badge">V2 · DIAGNOSTIC ONLY</span></div><div><button onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}>{language === 'en' ? 'العربية' : 'English'}</button><a href="/">{t('Wayfinding', 'دليل المبنى')}</a></div></header>
     {savedRouteNotice && <div className="editor-route-notice" role="status">
-      <span><strong>V2 diagnostic graph saved.</strong> The normal wayfinding page still uses the legacy graph; this candidate is disconnected and has not passed promotion checks.</span>
+      <span><strong>Runtime graph editor.</strong> Confirmed saves replace the GF graph used by the normal wayfinding page; geometry and connectivity findings remain visible as diagnostics.</span>
       <button onClick={() => { document.getElementById('editor-route-regression')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); void testRoute(report?.graph); }}>Preview edited route here</button>
       <button aria-label="Dismiss saved route notice" onClick={() => setSavedRouteNotice(false)}>Dismiss</button>
     </div>}
@@ -348,7 +353,7 @@ export default function NavigationEditor() {
       {(['Select', 'Multi-select', 'Move', 'Lasso', 'Draw corridor', 'Add node', 'Measure clearance'] as Mode[]).map(tool => <button key={tool} aria-pressed={mode === tool} onClick={() => setMode(tool)}>{tool}</button>)}
       <button onClick={remove} disabled={(!selectedIds.size && !nodeSelection.size) || busy}>Delete</button><span className="toolbar-divider" />
       <button onClick={undo} disabled={!cursor || busy}>Undo</button><button onClick={redo} disabled={cursor >= frames.length - 1 || busy}>Redo</button>
-      <button onClick={() => void run('draft')} disabled={busy || !changed}>Save preview draft</button><button onClick={() => void run('preview')} disabled={busy}>Run in admin</button><button className="primary" onClick={() => void saveReview()} disabled={busy || !sourceChanged || Object.keys(nodeMoves).length > 0 || deletedNodes.length > 0}>Build source candidate</button>
+      <button onClick={() => void run('draft')} disabled={busy || !changed}>Save preview draft</button><button onClick={() => void run('preview')} disabled={busy}>Run in admin</button><button className="primary" onClick={() => void saveReview()} disabled={busy}>Build source candidate</button>
     </nav>
     <div className="editor-workspace">
       <aside className="editor-left" aria-label="Navigation layers">
@@ -391,7 +396,7 @@ export default function NavigationEditor() {
             {layers[3].visible && graph?.edges.map(e => <polyline key={e.id} data-edge={e.id} points={pointsString(e.geometry)} fill="none" stroke={inspect === e.id ? '#ec9513' : layers[3].color} opacity={isGraphCurrent ? .6 : .2} strokeWidth={inspect === e.id ? 4 : 1.5} pointerEvents="none" />)}
             {layers[1].visible && preview.filter(s => !spineFilter || s.id === spineFilter).map(s => { const diagnostic = live?.diagnostics.find(d => d.id === s.id); const color = diagnostic?.changed ? diagnostic.state === 'red' ? '#cc3b43' : diagnostic.state === 'orange' ? '#d98918' : diagnostic.state === 'green' ? '#25804b' : '#7b8790' : layers[1].color; return <g key={s.id}>{s.coordinates.slice(1).map((p, i) => <line key={i} data-spine={s.id} data-segment={i} x1={s.coordinates[i][0]} y1={s.coordinates[i][1]} x2={p[0]} y2={p[1]} stroke={color} strokeWidth={mode === 'Add node' ? 5 : 2.5} />)}{mode === 'Measure clearance' && <polyline points={pointsString(s.coordinates)} fill="none" stroke={color} strokeOpacity=".1" strokeWidth={settings.preferred * 2} pointerEvents="none" />}</g>; })}
             {filteredNodes?.map(n => { const layer = n.roomId ? layers[0] : layers[2]; return layer.visible ? <circle key={n.id} data-node={n.id} data-testid={`graph-node-${n.id}`} cx={n.point[0]} cy={n.point[1]} r={view[2] / 800} fill={nodeSelection.has(n.id) ? '#ffe7a0' : inspect === n.id ? '#ffd36a' : 'white'} stroke={layer.color} strokeWidth={nodeSelection.has(n.id) ? 2 : 1.3} style={{ cursor: 'grab' }}><title>{n.id} · {n.type} · draggable admin preview node</title></circle> : null; })}
-            {layers[1].visible && visibleControls.map(c => <circle key={c.id} data-control={c.id} data-testid={`control-${c.id}`} cx={c.point[0]} cy={c.point[1]} r={Math.max(view[2] / 520, 8)} fill={selection.has(c.id) ? '#ffe7a0' : c.protected ? '#a8b0b8' : '#fff'} stroke={selection.has(c.id) ? '#a96500' : layers[1].color} strokeWidth={selection.has(c.id) ? 2 : 1.2} style={{ cursor: editable && !c.protected ? 'grab' : 'default' }}><title>{c.id}{c.protected ? ' · protected endpoint' : ' · editable source control'}</title></circle>)}
+            {layers[1].visible && visibleControls.map(c => <circle key={c.id} data-control={c.id} data-testid={`control-${c.id}`} cx={c.point[0]} cy={c.point[1]} r={Math.max(view[2] / 520, 8)} fill={selection.has(c.id) ? '#ffe7a0' : '#fff'} stroke={selection.has(c.id) ? '#a96500' : layers[1].color} strokeWidth={selection.has(c.id) ? 2 : 1.2} style={{ cursor: editable ? 'grab' : 'default' }}><title>{c.id} · editable source control</title></circle>)}
             {routes && routes.key === draftKey && <g pointerEvents="none">{compare && <polyline points={pointsString(routes.original.points)} fill="none" stroke="#c97525" strokeDasharray="6 3" strokeWidth="4" />}<polyline points={pointsString(routes.edited.points)} fill="none" stroke="#166aca" strokeWidth="4" /></g>}
             {gesture?.kind === 'box' && <rect x={Math.min(gesture.start[0], gesture.current[0])} y={Math.min(gesture.start[1], gesture.current[1])} width={Math.abs(delta[0] || gesture.current[0] - gesture.start[0])} height={Math.abs(delta[1] || gesture.current[1] - gesture.start[1])} fill={gesture.current[0] < gesture.start[0] ? '#2ba17b' : '#2877c3'} fillOpacity=".12" stroke="#2877c3" strokeWidth="1" strokeDasharray={gesture.current[0] < gesture.start[0] ? '4 3' : undefined} pointerEvents="none" />}
             {gesture?.kind === 'lasso' && <polygon points={pointsString(gesture.path)} fill="#2877c3" fillOpacity=".1" stroke="#2877c3" strokeWidth="1" pointerEvents="none" />}
@@ -402,7 +407,7 @@ export default function NavigationEditor() {
       <aside className="editor-right" aria-label="Properties inspector">
         <h2>{t('Properties inspector', 'خصائص التحديد')}</h2>
         {stats ? <><div className="selection-count">{stats.count}<span> source controls selected</span></div><dl><dt>Bounding box</dt><dd>{stats.bounds.map(fmt).join(', ')}</dd><dt>Average X / Y</dt><dd>{stats.average.map(fmt).join(' / ')}</dd><dt>Drag displacement</dt><dd>{delta.map(v => fmt(grid ? Math.round(v / grid) * grid : v)).join(' / ')}</dd><dt>Editable controls</dt><dd>{selectedIds.size}</dd></dl>
-          {selected.length === 1 && <><code>{selected[0].id}</code><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Node ${axis ? 'Y' : 'X'}`} type="number" step="any" value={selected[0].point[axis]} disabled={selected[0].protected || busy || !editable} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); move(axis === 0 ? value - selected[0].point[0] : 0, axis === 1 ? value - selected[0].point[1] : 0); }} /></label>)}</div><p className="muted">{selected[0].protected ? 'Protected source endpoint' : 'Source corridor control'} · {selected[0].spine}</p></>}
+          {selected.length === 1 && <><code>{selected[0].id}</code><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Node ${axis ? 'Y' : 'X'}`} type="number" step="any" value={selected[0].point[axis]} disabled={busy || !editable} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); move(axis === 0 ? value - selected[0].point[0] : 0, axis === 1 ? value - selected[0].point[1] : 0); }} /></label>)}</div><p className="muted">Editable source point · {selected[0].spine}</p></>}
           <div className="button-pair"><label>Move X<input type="number" value={dx} onChange={e => setDx(Number(e.target.value))} /></label><label>Move Y<input type="number" value={dy} onChange={e => setDy(Number(e.target.value))} /></label></div><button disabled={!selectedIds.size || busy} onClick={() => move(dx, dy)}>Translate selection</button>
           <div className="nudge-buttons"><button onClick={() => move(-nudge, 0)}>Left</button><button onClick={() => move(0, -nudge)}>Up</button><button onClick={() => move(0, nudge)}>Down</button><button onClick={() => move(nudge, 0)}>Right</button></div><button onClick={resetSelected} disabled={!selectedIds.size}>Reset selected nodes</button>
           {selectedDiagnostic?.map(d => <div className={`diagnostic ${d.state}`} key={d.id}><strong>{d.id}</strong><div>Wall: {fmt(d.wallClearance ?? undefined)} du</div><div>Walkable boundary: {fmt(d.walkableBoundaryClearance ?? undefined)} du</div><div>Geometry status: {d.tests ? d.tests.safe ? 'checked' : 'issues reported' : 'not checked'}</div>{d.tests && !d.tests.safe && <pre>{JSON.stringify(d.tests, null, 2)}</pre>}</div>)}
@@ -429,12 +434,11 @@ export default function NavigationEditor() {
       </aside>
     </div>
     <footer className="editor-status" role="status"><span className={busy ? 'status-dot busy' : 'status-dot'} />{message}</footer>
-    {report && <details className="editor-report" open={!report.valid}><summary>{report.draftOnly && report.safetyChecked === false ? 'Admin simulation only · safety checks skipped' : report.valid ? 'Geometry and required room checks passed' : 'Validation errors'} · {report.changes.length} changed source lines · {report.lostRoomPairs?.length || 0} other room-pair changes · Diagnostic only</summary>
+    {report && <details className="editor-report" open={!report.valid}><summary>{report.draftOnly && report.safetyChecked === false ? 'Admin simulation only · safety checks skipped' : report.valid ? 'Reconstruction complete · review diagnostics' : 'Reconstruction diagnostics'} · {report.changes.length} changed source lines · {report.lostRoomPairs?.length || 0} other room-pair changes</summary>
       {report.lostRoomPairs?.length ? <p>Room-pair connectivity changes are reported for review; every supported room approach and the required G-35/G-01 and G-37/G-42 routes must remain connected.</p> : null}
       {report.unattachedSupportedRooms?.length ? <p className="diagnostic red">No regenerated corridor connection for: {report.unattachedSupportedRooms.join(', ')}</p> : null}
       {report.roomConnections?.length ? <details><summary>Regenerated room-to-spine connections ({report.roomConnections.filter(c => c.connected).length}/{report.roomConnections.length})</summary><pre>{JSON.stringify(report.roomConnections.map(({ room, nodeId, attachment, method, incidentEdgeCount, connected }) => ({ room, nodeId, attachment, method, incidentEdgeCount, connected })), null, 2)}</pre></details> : null}
       <pre>{JSON.stringify({ changes: report.changes, errors: report.errors, validation: report.validation, backup: report.backup, candidate: report.candidate }, null, 2)}</pre>
     </details>}
-    {confirmSave && <div className="editor-modal-backdrop"><section className="editor-modal" role="dialog" aria-modal="true" aria-label="Review source changes"><h2>Review source changes</h2><p>{report?.changes.length} source lines will be written to navigation-v2-config.json. Original references are preserved. A backup is created before replacing diagnostic artifacts.</p><pre>{JSON.stringify(report?.changes, null, 2)}</pre><p>This does not promote the graph to normal wayfinding.</p><div className="button-pair"><button autoFocus onClick={() => setConfirmSave(false)}>Keep editing</button><button className="primary" disabled={busy || reportKey !== draftKey} onClick={() => void run('save')}>Confirm save + regenerate</button></div></section></div>}
   </main>;
 }

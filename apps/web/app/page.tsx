@@ -13,7 +13,10 @@ import { WayfindingApp } from '../components/WayfindingApp';
 const diagnosticMode = process.env.NODE_ENV === 'development'
   && process.env.WAYFINDING_GRAPH_MODE === 'navigation-v2-diagnostic';
 const registry = createMapRegistry([
-  { floorData: floor, graph: diagnosticMode ? diagnosticGraph : graph, contents: content },
+  // The admin may intentionally persist unsafe edits to the runtime GF graph.
+  // Keep structural validation, but let this explicitly loaded runtime bundle
+  // render so those edits can be inspected in the public app.
+  { floorData: floor, graph: diagnosticMode ? diagnosticGraph : graph, contents: content, allowUnsafeGeometry: true },
   { floorData: firstFloor, graph: firstGraph, contents: firstContent },
 ]);
 export default async function Page({ searchParams }: { searchParams: Promise<{ floor?: string }> }) {

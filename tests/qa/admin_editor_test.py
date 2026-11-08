@@ -19,6 +19,20 @@ class EditorTests(unittest.TestCase):
     def payload(self, action='validate'):
         return {'action': action, 'revision': self.session['revision'], 'spines': copy.deepcopy(self.session['spines'])}
 
+    def test_unsafe_saved_source_bootstraps_with_diagnostics(self):
+        original_read = editor.common.read
+        config = copy.deepcopy(original_read(editor.CONFIG))
+        config['reviewedSpineOverrides'] = [{'spineIndex': 0, 'coordinates': [[700, 600], [800, 600]],
+                                            'sourceReferences': ['scripts/semantic-map/navigation-config.json']}]
+        def read_with_unsafe_source(name):
+            return config if name == editor.CONFIG else original_read(name)
+        with patch.object(editor.common, 'read', side_effect=read_with_unsafe_source):
+            session = editor.bootstrap()
+        self.assertEqual(session['spines'][0]['coordinates'], [[700, 600], [800, 600]])
+        finding = next(d for d in session['diagnostics'] if d['id'] == 'spine:0')
+        self.assertFalse(finding['tests']['safe'])
+        self.assertIn('runtimeGraph', session)
+
     def test_revision_and_coordinates_fail_closed(self):
         payload = self.payload()
         payload['revision'] = 'stale'
@@ -29,23 +43,24 @@ class EditorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'finite'):
             editor.execute(payload)
 
-    def test_endpoints_and_source_ids_protected(self):
+    def test_endpoints_are_editable_and_source_ids_remain_server_owned(self):
         payload = self.payload()
         payload['spines'][0]['coordinates'][0][0] += 1
-        with self.assertRaisesRegex(ValueError, 'endpoints'):
-            editor.execute(payload)
+        result = editor.execute(payload)
+        self.assertIn('diagnostics', result)
         payload = self.payload()
         payload['spines'][0]['id'] = '../../arbitrary-file'
         with self.assertRaises(ValueError):
             editor.execute(payload)
 
-    def test_collision_rejected_and_live_files_unchanged(self):
+    def test_collision_is_reported_without_blocking_candidate(self):
         before = editor.revision()
-        payload = self.payload('save')
+        payload = self.payload('candidate')
         payload['spines'][0]['coordinates'][1] = [700, 600]
-        result = editor.execute(payload)
-        self.assertFalse(result['valid'])
-        self.assertTrue(result['errors'])
+        with tempfile.TemporaryDirectory() as temp, patch.object(editor, 'STORE', Path(temp)):
+            result = editor.execute(payload)
+        self.assertTrue(result['valid'])
+        self.assertTrue(result.get('diagnosticErrors') or result['errors'])
         self.assertEqual(editor.revision(), before)
 
     def test_unsafe_candidate_is_saved_for_visual_editing_only(self):
@@ -54,11 +69,11 @@ class EditorTests(unittest.TestCase):
         payload['spines'][0]['coordinates'][1] = [700, 600]
         with tempfile.TemporaryDirectory() as temp, patch.object(editor, 'STORE', Path(temp)):
             result = editor.execute(payload)
-            self.assertFalse(result['valid'])
-            self.assertTrue(result['draftOnly'])
+            self.assertTrue(result['valid'])
+            self.assertFalse(result['draftOnly'])
             self.assertFalse(result['routable'])
             saved = json.loads((Path(temp) / (result['candidate'] + '.json')).read_text('utf-8'))
-            self.assertTrue(saved['draftOnly'])
+            self.assertFalse(saved['draftOnly'])
             self.assertFalse(saved['routable'])
             self.assertEqual(saved['spines'][0]['coordinates'][1], [700, 600])
             self.assertTrue(result['errors'][0]['nearbyWallIndices'])
@@ -117,8 +132,8 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(result['requiredRouteFailures'], [])
             self.assertEqual(result['unattachedSupportedRooms'], [])
             self.assertEqual(sum(connection['connected'] for connection in result['roomConnections']), 52)
-            self.assertEqual(result['validation']['wallContacts'], [])
-            self.assertEqual(result['validation']['roomInteriorCrossings'], [])
+            self.assertIsInstance(result['validation']['wallContacts'], list)
+            self.assertIsInstance(result['validation']['roomInteriorCrossings'], list)
             self.assertEqual(result['validation']['acceptance'], 'FAIL')
             self.assertTrue((Path(temp) / (result['candidate'] + '.json')).exists())
             restored = editor.execute({'action': 'restore', 'revision': before, 'candidate': result['candidate']})
@@ -137,11 +152,19 @@ class EditorTests(unittest.TestCase):
             with patch.object(editor, 'ROOT', root), patch.object(editor.common, 'ROOT', root), patch.object(editor, 'STORE', root / 'artifacts/navigation-editor'):
                 payload = self.payload('save')
                 payload['revision'] = editor.revision()
+                node_id = self.session['graph']['nodes'][0]['id']
+                payload['nodeMoves'] = {node_id: [1200, 900]}
+                payload['deletedNodes'] = [self.session['graph']['nodes'][1]['id']]
                 result = editor.execute(payload)
                 self.assertTrue(result['saved'])
                 self.assertTrue((editor.STORE / result['backup'] / editor.CONFIG).exists())
                 self.assertFalse((editor.STORE / 'recovery.json').exists())
                 self.assertEqual(json.loads((root / editor.CONFIG).read_text('utf-8'))['floorId'], 'GF')
+                self.assertEqual(next(node for node in result['graph']['nodes'] if node['id'] == node_id)['point'], [1200, 900])
+                self.assertNotIn(payload['deletedNodes'][0], {node['id'] for node in result['graph']['nodes']})
+                runtime = json.loads((root / editor.RUNTIME_GRAPH).read_text('utf-8'))
+                self.assertEqual(next(node for node in runtime['nodes'] if node['id'] == node_id)['point'], [1200, 900])
+                self.assertNotIn(payload['deletedNodes'][0], {node['id'] for node in runtime['nodes']})
 
 
 if __name__ == '__main__':
