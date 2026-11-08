@@ -12,9 +12,23 @@
 .floor-select{position:relative}.floor-select select{position:absolute;inset:0;width:100%;height:100%;max-width:none;opacity:0;cursor:pointer;z-index:1}.floor-select select:focus-visible{outline:none}.floor-select:focus-within{outline:3px solid #087965;outline-offset:3px}
 button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-shadow .15s,filter .15s,scale .15s}button:not(.map-label):not(:disabled):hover{filter:brightness(1.025)}button:not(.map-label):not(:disabled):active{scale:.98}
 
-.panel-collapse-control{position:absolute;z-index:60;display:grid;place-items:center;width:40px;height:40px;min-height:40px;border:1px solid #dce4d8;background:#fff;border-radius:8px;box-shadow:0 3px 12px #344f3118;color:#5b7565}.panel-collapse-control:hover{background:var(--mint)}.directory-toggle{inset-inline-end:-20px;top:18px}.details-toggle{top:102px;inset-inline-end:28px}.directory-toggle svg,.details-toggle svg{transition:transform .15s}.directory-panel.is-collapsed{width:0;padding:0;border:0;overflow:visible}.directory-panel.is-collapsed>*:not(.directory-toggle){display:none}.directory-panel.is-collapsed .directory-toggle{inset-inline-end:-48px}.details-collapsed .details-toggle svg,.directory-panel.is-collapsed .directory-toggle svg{transform:rotate(-90deg)}
+/* Public panel rails: each control is owned by its panel wrapper. */
+.directory-shell{position:relative;flex:0 0 350px;min-width:0;display:flex;transition:flex-basis .18s ease;background:#fff}
+.directory-shell.is-collapsed{flex-basis:34px}
+.directory-shell .directory-panel{width:100%;min-width:0;transition:opacity .12s ease}
+.directory-shell.is-collapsed .directory-panel{visibility:hidden;pointer-events:none}
+.panel-collapse-control{width:34px;height:86px;min-height:86px;border-radius:9px;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 4px;position:absolute;top:50%;z-index:60;background:#fff;border:1px solid #dce4d8;box-shadow:0 3px 12px #344f3118;color:#5b7565;transform:translateY(-50%)}
+.directory-toggle{inset-inline-end:-17px}
+.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}
+.details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}
+.details-collapsed .details-toggle{inset-inline-end:0}
+.panel-collapse-control svg{transform:rotate(90deg);transition:transform .15s}
+.directory-shell.is-collapsed .directory-toggle svg,.details-collapsed .details-toggle svg{transform:rotate(-90deg)}
+.detail-card.is-collapsed{visibility:hidden;pointer-events:none}
+@media(max-width:1100px){.directory-shell{flex-basis:305px}.directory-shell.is-collapsed{flex-basis:34px}.directory-toggle{inset-inline-end:-17px}}
+@media(max-width:800px){.main-layout{display:flex;flex-direction:column}.directory-shell,.directory-shell.is-collapsed{flex:0 0 auto;width:100%;min-height:34px}.directory-shell.is-collapsed{height:34px}.directory-shell.is-collapsed .directory-panel{display:none}.directory-toggle{inset-inline-end:0;inset-inline-start:auto;top:17px;transform:translateY(-50%);height:68px}.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}.details-toggle,.details-collapsed .details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}[dir=rtl] .directory-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(-50%,-50%)}[dir=rtl] .details-toggle{inset-inline-end:auto;inset-inline-start:0;transform:translate(-50%,-50%)}}
 
-.main-layout{position:relative}.directory-toggle{position:absolute;inset-inline-start:330px;inset-inline-end:auto;top:18px}.directory-panel.is-collapsed + .map-workspace{min-width:0}.directory-panel.is-collapsed ~ .map-workspace .details-toggle{z-index:65}@media(max-width:1100px){.directory-toggle{inset-inline-start:285px}}@media(max-width:800px){.directory-toggle{inset-inline-start:calc(100% - 58px);top:18px}.directory-panel.is-collapsed + .map-workspace{width:100%}.details-toggle{top:94px;inset-inline-end:14px}}
-
-/* The directory toggle is a main-layout sibling, so anchor its collapsed state to the map edge. */
-.directory-toggle{inset-inline-start:330px;inset-inline-end:auto;top:18px;pointer-events:auto}.main-layout.directory-collapsed .directory-toggle{inset-inline-start:0;transform:translateX(-50%)}[dir=rtl] .main-layout.directory-collapsed .directory-toggle{transform:translateX(50%)}@media(max-width:1100px){.directory-toggle{inset-inline-start:285px}.main-layout.directory-collapsed .directory-toggle{inset-inline-start:0}}@media(max-width:800px){.directory-toggle{inset-inline-start:auto;inset-inline-end:calc(100% - 58px);top:18px}.main-layout.directory-collapsed .directory-toggle{inset-inline-end:auto;inset-inline-start:50%;transform:translateX(-50%)}[dir=rtl] .main-layout.directory-collapsed .directory-toggle{transform:translateX(50%)}}
+.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:286px}
+@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
+@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
+@media(max-width:800px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:270px}}
