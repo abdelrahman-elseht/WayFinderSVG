@@ -43,6 +43,24 @@ class EditorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'finite'):
             editor.execute(payload)
 
+    def test_source_rebuild_drops_stale_graph_edits(self):
+        # A prior rebuild can replace junction IDs while the browser still has
+        # the old move/delete draft. The stale edits are reported and ignored;
+        # they must not make the next build fail or attach to another node.
+        payload = self.payload('candidate')
+        current_id = self.session['graph']['nodes'][0]['id']
+        payload['nodeMoves'] = {
+            'junction-from-previous-build': [1200, 900], current_id: [1200, 900]}
+        payload['deletedNodes'] = ['junction-from-previous-build']
+        with tempfile.TemporaryDirectory() as temp, patch.object(editor, 'STORE', Path(temp)):
+            result = editor.execute(payload)
+            self.assertTrue(result['valid'], result.get('errors'))
+            self.assertEqual(result['staleNodeMoves'], ['junction-from-previous-build'])
+            self.assertEqual(result['staleDeletedNodes'], ['junction-from-previous-build'])
+            saved = json.loads((Path(temp) / (result['candidate'] + '.json')).read_text('utf-8'))
+            self.assertNotIn('junction-from-previous-build', saved['nodeMoves'])
+            self.assertNotIn('junction-from-previous-build', saved['deletedNodes'])
+
     def test_endpoints_are_editable_and_source_ids_remain_server_owned(self):
         payload = self.payload()
         payload['spines'][0]['coordinates'][0][0] += 1

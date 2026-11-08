@@ -87,8 +87,15 @@ def validated_node_moves(value):
     allowed = {node['id'] for node in common.read(GRAPH)['nodes']}
     result = {}
     for node_id, point in value.items():
-        if node_id not in allowed or not isinstance(point, list) or len(point) != 2:
-            raise ValueError('Node moves must reference existing graph nodes')
+        # Source reconstruction can legitimately regenerate junction IDs.  The
+        # client rebases edits after a build, but tolerate a stale draft here so
+        # one old ID cannot make an otherwise valid source build return 422.
+        # Unknown IDs are discarded by execute() and are never applied to a
+        # different node.
+        if node_id not in allowed:
+            continue
+        if not isinstance(point, list) or len(point) != 2:
+            raise ValueError('Node move coordinates must be a point')
         if not finite(point[0], 650, 3750) or not finite(point[1], 500, 2050):
             raise ValueError('Node coordinates must be within the canonical GF viewBox')
         result[node_id] = point
@@ -99,9 +106,9 @@ def validated_deleted_nodes(value):
     if not isinstance(value, list) or len(value) > 1000:
         raise ValueError('Invalid deleted-node collection')
     allowed = {node['id'] for node in common.read(GRAPH)['nodes']}
-    if any(node_id not in allowed for node_id in value) or len(set(value)) != len(value):
+    if len(set(value)) != len(value):
         raise ValueError('Deleted nodes must reference unique existing graph nodes')
-    return value
+    return [node_id for node_id in value if node_id in allowed]
 
 
 def prepare(payload, e, check_geometry=True):
@@ -264,16 +271,27 @@ def execute(payload):
         return {'spines': saved['spines'], 'nodeMoves': validated_node_moves(saved.get('nodeMoves', {})),
                 'deletedNodes': validated_deleted_nodes(saved.get('deletedNodes', [])), 'restored': candidate,
                 'routable': saved.get('routable', True), 'diagnostics': saved.get('diagnostics', [])}
-    payload['nodeMoves'] = validated_node_moves(payload.get('nodeMoves', {}))
-    payload['deletedNodes'] = validated_deleted_nodes(payload.get('deletedNodes', []))
+    raw_moves = payload.get('nodeMoves', {})
+    raw_deleted = payload.get('deletedNodes', [])
+    if not isinstance(raw_moves, dict) or not isinstance(raw_deleted, list):
+        # Let the validators provide the established shape errors.
+        payload['nodeMoves'] = validated_node_moves(raw_moves)
+        payload['deletedNodes'] = validated_deleted_nodes(raw_deleted)
+    allowed_ids = {node['id'] for node in common.read(GRAPH)['nodes']}
+    stale_moves = sorted(set(raw_moves) - allowed_ids)
+    stale_deleted = sorted({node_id for node_id in raw_deleted if isinstance(node_id, str)} - allowed_ids)
+    payload['nodeMoves'] = validated_node_moves(raw_moves)
+    payload['deletedNodes'] = validated_deleted_nodes(raw_deleted)
     config, changes, diagnostics = prepare(payload, e, check_geometry=action != 'draft')
     if action == 'draft':
         candidate = save_candidate(payload, config, changes, diagnostics, safety_checked=False)
         return {'candidate': candidate, 'revision': payload['revision'], 'saved': False,
                 'valid': False, 'draftOnly': True, 'routable': False, 'safetyChecked': False,
-                'diagnostics': diagnostics, 'changes': changes, 'errors': []}
+                'diagnostics': diagnostics, 'changes': changes, 'errors': [],
+                'staleNodeMoves': stale_moves, 'staleDeletedNodes': stale_deleted}
     errors = [d for d in diagnostics if d['changed'] and d['tests'] and not d['tests']['safe']]
     result = {'valid': not errors, 'diagnostics': diagnostics, 'changes': changes, 'errors': errors,
+              'staleNodeMoves': stale_moves, 'staleDeletedNodes': stale_deleted,
               'buildingClearance': None, 'buildingClearanceNote': 'No independent verified building-envelope polygon is supplied; walkable boundary is not a facade measurement.'}
     if action == 'validate':
         return result

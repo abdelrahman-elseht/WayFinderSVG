@@ -172,6 +172,17 @@ export default function NavigationEditor() {
           : `Reconstruction completed with diagnostics; the edited graph remains available for review. ${details || 'Inspect the connectivity report.'}${result.lostRoomPairs?.length ? ` ${result.lostRoomPairs.length} other room-pair connections changed; see the report.` : ''}`);
       if (result.candidate) setSession(s => s ? { ...s, candidates: [...new Set([...s.candidates, result.candidate!])] } : s);
       if (result.saved && result.graph && result.revision) {
+        // A source rebuild may regenerate junction IDs. Rebase the editor
+        // history to the returned graph so a subsequent build cannot submit
+        // moves/deletions for nodes that no longer exist. Only IDs present in
+        // the rebuilt graph are retained; no edit is transferred by position.
+        const graphIds = new Set(result.graph.nodes.map(node => node.id));
+        const currentMoves = Object.fromEntries(Object.entries(nodeMoves).filter(([id]) => graphIds.has(id)));
+        const currentDeleted = deletedNodes.filter(id => graphIds.has(id));
+        setFrames([{ spines, nodeMoves: currentMoves, deletedNodes: currentDeleted, label: 'Loaded rebuilt source graph' }]);
+        setCursor(0);
+        setSelection(new Set());
+        setNodeSelection(new Set());
         setSession(s => s ? { ...s, revision: result.revision!, spines, graph: result.graph!, runtimeGraph: result.graph!, evidence: result.report?.edgeEvidence || s.evidence, config: exportConfig(s, spines) } : s);
         setSavedRouteNotice(true);
       }
