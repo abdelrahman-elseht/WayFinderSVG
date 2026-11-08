@@ -32,3 +32,21 @@ button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-
 @media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
 @media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
 @media(max-width:800px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:270px}}
+/* Canonical public panel rails (controls stay owned by their wrappers). */
+.main-layout{position:relative}
+.directory-shell{position:relative;flex:0 0 350px;min-width:0;display:flex;background:#fff;transition:flex-basis .18s ease}
+.directory-shell.is-collapsed{flex-basis:34px}
+.directory-shell .directory-panel{width:350px;min-width:0;transition:opacity .12s ease}
+.directory-shell.is-collapsed .directory-panel{visibility:hidden;pointer-events:none}
+.panel-collapse-control{position:absolute;z-index:60;display:flex;align-items:center;justify-content:center;gap:6px;width:34px;height:86px;min-height:86px;padding:8px 4px;writing-mode:vertical-rl;border:1px solid #dce4d8;border-radius:9px;background:#fff;box-shadow:0 3px 12px #344f3118;color:#5b7565;transform:translateY(-50%)}
+.panel-collapse-control:hover{background:var(--mint)}
+.directory-toggle{inset-inline-end:-17px;top:50%}
+.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}
+.details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}
+.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:286px}
+.panel-collapse-control svg{transform:rotate(90deg);transition:transform .15s}
+.directory-shell.is-collapsed .directory-toggle svg,.details-collapsed .details-toggle svg{transform:rotate(-90deg)}
+.detail-card.is-collapsed{visibility:hidden;pointer-events:none}
+@media(min-width:1600px){.directory-shell{flex-basis:380px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:380px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
+@media(max-width:1100px) and (min-width:801px){.directory-shell{flex-basis:305px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:305px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
+@media(max-width:800px){.main-layout{flex-direction:column}.directory-shell,.directory-shell.is-collapsed{width:100%;flex:0 0 auto;min-height:34px}.directory-shell.is-collapsed{height:34px}.directory-shell .directory-panel{width:100%}.directory-shell.is-collapsed .directory-panel{display:none}.directory-toggle{inset-inline-end:0;top:17px;height:68px;transform:translateY(-50%)}.details-toggle,.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}[dir=rtl] .directory-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(-50%,-50%)}[dir=rtl] .details-toggle{inset-inline-end:auto;inset-inline-start:0;transform:translate(-50%,-50%)}}
