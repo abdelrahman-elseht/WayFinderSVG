@@ -50,3 +50,13 @@ button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-
 @media(min-width:1600px){.directory-shell{flex-basis:380px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:380px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
 @media(max-width:1100px) and (min-width:801px){.directory-shell{flex-basis:305px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:305px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
 @media(max-width:800px){.main-layout{flex-direction:column}.directory-shell,.directory-shell.is-collapsed{width:100%;flex:0 0 auto;min-height:34px}.directory-shell.is-collapsed{height:34px}.directory-shell .directory-panel{width:100%}.directory-shell.is-collapsed .directory-panel{display:none}.directory-toggle{inset-inline-end:0;top:17px;height:68px;transform:translateY(-50%)}.details-toggle,.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}[dir=rtl] .directory-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(-50%,-50%)}[dir=rtl] .details-toggle{inset-inline-end:auto;inset-inline-start:0;transform:translate(-50%,-50%)}}
+/* Details rail geometry: centered on the card's map-facing edge. */
+.details-toggle{inset-inline-end:0;transform:translate(50%,-50%)}
+.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:297px}
+@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:321px}}
+@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:271px}}
+@media(max-width:800px){
+  .details-toggle,.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:0;transform:translate(0,-50%)}
+  .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:20px;inset-inline-end:auto}
+  [dir=rtl] .details-toggle,[dir=rtl] .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:auto;inset-inline-end:20px;transform:translate(0,-50%)}
+}
