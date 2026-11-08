@@ -71,3 +71,6 @@ button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-
   .details-collapsed .details-toggle{inset-inline-end:0;inset-inline-start:auto;transform:translate(0,-50%)}
   [dir=rtl] .details-collapsed .details-toggle{inset-inline-start:0;inset-inline-end:auto}
 }
+/* No-selection details control remains on the map's outer edge. */
+.map-workspace:not(.has-selection) .details-toggle{inset-inline-start:auto;inset-inline-end:0;transform:translate(0,-50%)}
+[dir=rtl] .map-workspace:not(.has-selection) .details-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(0,-50%)}
