@@ -3,7 +3,8 @@
 @media(max-width:1100px){.app-header{padding:0 22px;gap:18px}.campus-tag{display:none}.directory-panel{width:305px;padding:25px 17px 0}.directory-intro h1{font-size:25px}.map-topline{inset-inline-start:24px;inset-inline-end:20px}.map-topline h2{font-size:17px}.floor-select{gap:6px;padding:0 9px}.floor-select select{font-size:10px;max-width:125px}.map-evidence{inset-inline-start:24px}.map-legend{gap:12px}.map-legend .legend-pan{display:none}.map-bottom{inset-inline:22px}.map-welcome{inset-inline-start:22px;max-width:340px;inset-inline-end:85px}.detail-card{width:255px;inset-inline-end:18px}.detail-body{padding:16px}.has-selection .map-canvas{inset-inline-end:230px}.has-selection .map-control-stack{inset-inline-end:287px}.room-preview{height:110px}.map-label{font-size:7px;min-width:20px}}
 @media(max-width:800px){.wayfinding-app{height:auto;min-height:100dvh}.app-header{height:75px;padding:0 18px;gap:12px}.brand-icon{width:36px;height:40px}.brand strong{font-size:15px}.brand small{font-size:6px;letter-spacing:1.4px}.brand{gap:9px}.header-divider{display:none}.building-heading{font-size:12px}.building-heading small{font-size:9px}.header-actions{gap:4px}.header-audio{display:none}.language-button{font-size:10px;padding:0 9px;gap:8px}.main-layout{flex-direction:column;min-height:0}.directory-panel{width:100%;padding:25px 20px 0;border-inline-end:0;border-bottom:1px solid var(--line)}.directory-intro h1{font-size:25px;max-width:none}.directory-intro .eyebrow{margin-bottom:9px}.directory-intro>p:last-child{margin-bottom:18px}.mode-tabs{margin-bottom:15px}.room-directory{display:flex;flex-direction:row;gap:8px;max-height:155px;min-height:92px;padding:10px 5px;overflow:auto}.directory-room{min-width:205px;width:205px;max-height:90px;border:1px solid #e7ece1;border-radius:9px;gap:8px;padding:10px}.category-row{padding:9px 3px;border-bottom:0}.directory-footer{display:none}.map-workspace{min-height:560px}.map-topline{top:22px;inset-inline:21px}.map-topline h2{font-size:19px}.map-canvas{inset:110px 10px 110px}.map-evidence{top:112px;inset-inline-start:20px}.map-welcome{bottom:85px}.detail-card{width:270px;top:102px;bottom:75px;inset-inline-end:15px}.has-selection .map-canvas{inset-inline-end:170px;inset-inline-start:-100px}.has-selection .map-control-stack{inset-inline-end:auto;inset-inline-start:15px;bottom:97px}.has-selection .map-evidence{display:none}.map-bottom{bottom:18px}.map-legend{gap:10px}.map-legend>span{font-size:8px}.reset-kiosk{font-size:9px;padding:0 8px}.app-footer{height:auto;min-height:34px;padding:10px 18px;flex-wrap:wrap;font-size:7px}.app-footer>span:last-child{display:none}.navigation-panel{max-height:440px;padding-bottom:20px}.journey-fields{grid-template-columns:1fr 1fr;gap:8px 14px}.journey-fields label{grid-row:1}.journey-fields label:not(:first-child){margin:0}.journey-fields select{grid-row:2}.route-result{padding:14px}.route-result p{font-size:11px}.route-status-icon{display:none}.clear-route{max-width:200px}.checkbox-label{font-size:11px}.map-control-stack{inset-inline-end:18px}.map-label{font-size:7px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-@media(prefers-contrast:more){:root{--muted:#415344;--line:#7c8e7c}.room-text small,.directory-footer p,.eyebrow,.map-legend>span,.detail-location,.room-description,.geometry-note,.app-footer,.map-topline p:last-child,.alternate-name{color:#43533b}.map-label{border-color:#223735;color:#163621}.map-evidence{color:#594b1e;border-color:#837039}.directory-room.active{outline:2px solid #145845}}
+@media(prefers-contrast:more){:root{--muted:#415344;--line:#7c8e7c}.room-text small,.directory-footer p,.eyebrow,.map-legend>span,.detail-location,.room-description,.geometry-note,.app-footer,.map-topline p:last-child,.alternate-name{color:#43533b}.map-label{border-color:#223735;color:#163621}.map-evidence{color:#594b1e;border-color:#837039}.directory-room.active{outline:2px solid #145845}.panel-collapse-control{background:#fff;border-color:currentColor;color:#003e70;box-shadow:0 0 0 1px #003e70}.panel-collapse-control:hover{background:#dbeeff}}
+@media(forced-colors:active){.panel-collapse-control{forced-color-adjust:auto;border:2px solid ButtonText;background:ButtonFace;color:ButtonText}.panel-collapse-control:focus-visible{outline:3px solid Highlight}}
 .map-label.compact-marker{min-width:14px;min-height:14px;width:14px;height:14px;padding:3px!important;border-radius:50%;justify-content:center}.compact-marker .map-label-code{display:none}.map-label{transition:background .18s,color .18s,box-shadow .18s}.room-text small,.directory-footer p,.eyebrow,.map-legend>span,.detail-location,.room-description,.app-footer,.map-topline p:last-child,.alternate-name{color:#657362}.directory-footer p{font-size:10px}.room-text small{font-size:10px}.eyebrow{font-size:10px}.map-legend>span{font-size:10px}.app-footer{font-size:9px}.geometry-note{color:#77633d;font-size:9px}.map-evidence{color:#77633d;font-size:10px}.category-row>span{color:#657362}.audio-controls{color:#607b54}.map-topline p:last-child{font-size:11px}
 .sign-language-action{width:100%;display:flex;align-items:center;gap:10px;min-height:58px;margin:16px 0 15px;padding:9px 12px;border:1px solid #d9e5dc;border-radius:9px;background:#f8fbf8;color:#176e5e;text-align:start}.sign-language-action:hover{background:#edf6ef;border-color:#b9d4c4}.sign-language-action-icon{display:grid;place-items:center;width:32px;height:32px;flex-shrink:0;border-radius:7px;background:#e2f0e7;color:#176e5e}.sign-language-action-copy{display:grid;gap:2px;min-width:0;flex:1}.sign-language-action-copy strong{font-size:11px;font-weight:700;line-height:1.35}.sign-language-action-copy small{font-size:10px;line-height:1.5;color:#718476}.sign-language-action>svg{margin-inline-start:auto}.sign-language-backdrop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;background:#19332c99}.sign-language-dialog{width:min(760px,100%);max-height:min(90dvh,760px);overflow:auto;background:#fff;border:1px solid #dce7df;border-radius:14px;box-shadow:0 20px 60px #183b2d45}.sign-language-dialog-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 24px 16px}.sign-language-dialog-header h2{margin:3px 0 4px;font-size:22px;line-height:1.25;font-weight:600}.sign-language-dialog-code{margin:0;color:#738479;font-size:11px}.sign-language-player-wrap{position:relative;margin:0 24px;background:#14221e;border-radius:10px;overflow:hidden;aspect-ratio:16/9;display:grid;place-items:center}.sign-language-player{width:100%;height:100%;display:block;object-fit:contain}.sign-language-status{position:absolute;z-index:1;color:#dcece2;font-size:12px}.sign-language-error{position:absolute;z-index:2;inset:0;display:grid;place-content:center;justify-items:center;gap:9px;padding:24px;color:#f6d9c6;text-align:center;background:#14221eed}.sign-language-error p{margin:0;font-size:12px;line-height:1.6}.sign-language-dialog-footer{display:flex;align-items:flex-start;gap:18px;padding:15px 24px 22px;color:#66796e;font-size:11px}.sign-language-language{display:flex;align-items:center;gap:7px;white-space:nowrap}.sign-language-transcript{flex:1;min-width:0}.sign-language-transcript summary{display:flex;align-items:center;gap:7px;cursor:pointer;color:#176e5e;font-weight:600}.sign-language-transcript p{margin:9px 0 0;line-height:1.7;color:#657362}.sign-language-dialog .eyebrow{margin:0;font-size:9px}.sign-language-dialog .icon-button{flex-shrink:0}.sign-language-dialog .icon-button:hover{background:#edf6ef}
 @media(max-width:600px){.sign-language-backdrop{padding:12px}.sign-language-dialog{max-height:calc(100dvh - 24px);border-radius:12px}.sign-language-dialog-header{padding:16px 16px 13px}.sign-language-dialog-header h2{font-size:19px}.sign-language-player-wrap{margin:0 16px}.sign-language-dialog-footer{padding:13px 16px 18px;flex-direction:column;gap:11px}.sign-language-transcript{width:100%}}
@@ -12,65 +13,55 @@
 .floor-select{position:relative}.floor-select select{position:absolute;inset:0;width:100%;height:100%;max-width:none;opacity:0;cursor:pointer;z-index:1}.floor-select select:focus-visible{outline:none}.floor-select:focus-within{outline:3px solid #087965;outline-offset:3px}
 button:not(.map-label):not(:disabled){transition:background .15s,color .15s,box-shadow .15s,filter .15s,scale .15s}button:not(.map-label):not(:disabled):hover{filter:brightness(1.025)}button:not(.map-label):not(:disabled):active{scale:.98}
 
-/* Public panel rails: each control is owned by its panel wrapper. */
-.directory-shell{position:relative;flex:0 0 350px;min-width:0;display:flex;transition:flex-basis .18s ease;background:#fff}
-.directory-shell.is-collapsed{flex-basis:34px}
-.directory-shell .directory-panel{width:100%;min-width:0;transition:opacity .12s ease}
-.directory-shell.is-collapsed .directory-panel{visibility:hidden;pointer-events:none}
-.panel-collapse-control{width:34px;height:86px;min-height:86px;border-radius:9px;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 4px;position:absolute;top:50%;z-index:60;background:#fff;border:1px solid #dce4d8;box-shadow:0 3px 12px #344f3118;color:#5b7565;transform:translateY(-50%)}
-.directory-toggle{inset-inline-end:-17px}
-.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}
-.details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}
-.details-collapsed .details-toggle{inset-inline-end:0}
-.panel-collapse-control svg{transform:rotate(90deg);transition:transform .15s}
-.directory-shell.is-collapsed .directory-toggle svg,.details-collapsed .details-toggle svg{transform:rotate(-90deg)}
-.detail-card.is-collapsed{visibility:hidden;pointer-events:none}
-@media(max-width:1100px){.directory-shell{flex-basis:305px}.directory-shell.is-collapsed{flex-basis:34px}.directory-toggle{inset-inline-end:-17px}}
-@media(max-width:800px){.main-layout{display:flex;flex-direction:column}.directory-shell,.directory-shell.is-collapsed{flex:0 0 auto;width:100%;min-height:34px}.directory-shell.is-collapsed{height:34px}.directory-shell.is-collapsed .directory-panel{display:none}.directory-toggle{inset-inline-end:0;inset-inline-start:auto;top:17px;transform:translateY(-50%);height:68px}.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}.details-toggle,.details-collapsed .details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}[dir=rtl] .directory-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(-50%,-50%)}[dir=rtl] .details-toggle{inset-inline-end:auto;inset-inline-start:0;transform:translate(-50%,-50%)}}
-
-.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:286px}
-@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
-@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
-@media(max-width:800px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:270px}}
-/* Canonical public panel rails (controls stay owned by their wrappers). */
+/* Each collapse tab stays attached to the edge of its own panel. */
 .main-layout{position:relative}
-.directory-shell{position:relative;flex:0 0 350px;min-width:0;display:flex;background:#fff;transition:flex-basis .18s ease}
-.directory-shell.is-collapsed{flex-basis:34px}
+.directory-shell{--directory-expanded-width:350px;position:relative;flex:0 0 var(--directory-expanded-width);min-width:0;display:flex;background:#eaf4ff;transition:flex-basis .18s ease}
+.directory-shell.is-collapsed{flex-basis:calc(var(--directory-expanded-width) * .2);overflow:hidden}
 .directory-shell .directory-panel{width:350px;min-width:0;transition:opacity .12s ease}
-.directory-shell.is-collapsed .directory-panel{visibility:hidden;pointer-events:none}
-.panel-collapse-control{position:absolute;z-index:60;display:flex;align-items:center;justify-content:center;gap:6px;width:34px;height:86px;min-height:86px;padding:8px 4px;writing-mode:vertical-rl;border:1px solid #dce4d8;border-radius:9px;background:#fff;box-shadow:0 3px 12px #344f3118;color:#5b7565;transform:translateY(-50%)}
-.panel-collapse-control:hover{background:var(--mint)}
-.directory-toggle{inset-inline-end:-17px;top:50%}
-.directory-shell.is-collapsed .directory-toggle{inset-inline-end:0}
-.details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}
-.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:286px}
+.directory-shell .directory-panel{background:#eaf4ff}
+.directory-shell.is-collapsed .directory-panel{width:0;visibility:hidden;pointer-events:none}
+.panel-collapse-control{position:absolute;top:50%;z-index:60;display:flex;align-items:center;justify-content:center;gap:6px;width:34px;height:86px;min-height:86px;padding:8px 4px;border:1px solid #033b6c;border-radius:9px;background:#064b87;box-shadow:0 3px 12px #174a7630;color:#fff;transform:translateY(-50%)}
+.panel-collapse-control:hover{background:#033b6c;border-color:#022e54}
+.panel-collapse-control:focus-visible{outline:3px solid #39a8ff;outline-offset:3px}
+.directory-shell>.directory-toggle{left:auto;right:auto;inset-inline-start:auto;inset-inline-end:-17px}
+.directory-shell.is-collapsed>.directory-toggle{left:auto;right:0;inset-inline-start:auto;inset-inline-end:0}
+.map-control-stack{width:46px}
+.map-control-stack button{width:44px}
+.map-workspace{--details-card-width:306px;--details-card-inset:28px}
+.details-toggle{display:none;left:auto;right:auto;inset-inline-start:auto;inset-inline-end:calc(var(--details-card-width) + var(--details-card-inset) - 17px);transform:translateY(-50%)}
+.map-workspace.has-room-details .details-toggle{display:flex}
 .panel-collapse-control svg{transform:rotate(90deg);transition:transform .15s}
 .directory-shell.is-collapsed .directory-toggle svg,.details-collapsed .details-toggle svg{transform:rotate(-90deg)}
-.detail-card.is-collapsed{visibility:hidden;pointer-events:none}
-@media(min-width:1600px){.directory-shell{flex-basis:380px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:380px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:310px}}
-@media(max-width:1100px) and (min-width:801px){.directory-shell{flex-basis:305px}.directory-shell.is-collapsed{flex-basis:34px}.directory-shell .directory-panel{width:305px}.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:255px}}
-@media(max-width:800px){.main-layout{flex-direction:column}.directory-shell,.directory-shell.is-collapsed{width:100%;flex:0 0 auto;min-height:34px}.directory-shell.is-collapsed{height:34px}.directory-shell .directory-panel{width:100%}.directory-shell.is-collapsed .directory-panel{display:none}.directory-toggle{inset-inline-end:0;top:17px;height:68px;transform:translateY(-50%)}.details-toggle,.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:0;top:50%;transform:translate(50%,-50%)}[dir=rtl] .directory-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(-50%,-50%)}[dir=rtl] .details-toggle{inset-inline-end:auto;inset-inline-start:0;transform:translate(-50%,-50%)}}
-/* Details rail geometry: centered on the card's map-facing edge. */
-.details-toggle{inset-inline-end:0;transform:translate(50%,-50%)}
-.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:297px}
-@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:321px}}
-@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:271px}}
-@media(max-width:800px){
-  .details-toggle,.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:0;transform:translate(0,-50%)}
-  .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:20px;inset-inline-end:auto}
-  [dir=rtl] .details-toggle,[dir=rtl] .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:auto;inset-inline-end:20px;transform:translate(0,-50%)}
+.detail-card.is-collapsed{visibility:visible;pointer-events:none;clip-path:inset(0 80% 0 0)}
+[dir=rtl] .detail-card.is-collapsed{clip-path:inset(0 0 0 80%)}
+@media(min-width:801px){
+  .detail-card{background:#eaf4ff}
+  .detail-card.is-collapsed{width:calc(var(--details-card-width) * .2);inset-inline-end:0;overflow:hidden;clip-path:none}
+  .details-collapsed .details-toggle{inset-inline-end:calc(var(--details-card-width) * .2 - 17px)}
+.details-collapsed .map-control-stack{inset-inline-end:calc(var(--details-card-width) * .2 + 26px)}
 }
-/* Final details rail geometry: card edge plus full tab width centers the control. */
-.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:314px;transform:translate(50%,-50%)}
-@media(min-width:1600px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:338px}}
-@media(max-width:1100px) and (min-width:801px){.map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-end:273px}}
-.details-collapsed .details-toggle{inset-inline-end:0;transform:translate(0,-50%)}
-@media(max-width:800px){
-  .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:20px;inset-inline-end:auto;transform:translate(0,-50%)}
-  [dir=rtl] .map-workspace.has-selection:not(.details-collapsed) .details-toggle{inset-inline-start:auto;inset-inline-end:20px}
-  .details-collapsed .details-toggle{inset-inline-end:0;inset-inline-start:auto;transform:translate(0,-50%)}
-  [dir=rtl] .details-collapsed .details-toggle{inset-inline-start:0;inset-inline-end:auto}
+@media(min-width:1600px){
+  .directory-shell{--directory-expanded-width:380px}
+  .directory-shell{flex-basis:380px}
+  .directory-shell .directory-panel{width:380px}
+  .map-workspace{--details-card-width:310px}
 }
-/* No-selection details control remains on the map's outer edge. */
-.map-workspace:not(.has-selection) .details-toggle{inset-inline-start:auto;inset-inline-end:0;transform:translate(0,-50%)}
-[dir=rtl] .map-workspace:not(.has-selection) .details-toggle{inset-inline-start:0;inset-inline-end:auto;transform:translate(0,-50%)}
+@media(max-width:1100px) and (min-width:801px){
+  .directory-shell{--directory-expanded-width:305px}
+  .directory-shell{flex-basis:305px}
+  .directory-shell .directory-panel{width:305px}
+  .map-workspace{--details-card-width:280px;--details-card-inset:18px}
+}
+@media(max-width:800px){
+  .map-workspace{--mobile-details-width:270px;--mobile-details-inset:15px}
+  .detail-card{width:min(var(--mobile-details-width),calc(100vw - 2 * var(--mobile-details-inset)));inset-inline-end:var(--mobile-details-inset)}
+  [dir=rtl] .detail-card{inset-inline-start:var(--mobile-details-inset)!important;inset-inline-end:auto!important}
+  .main-layout{flex-direction:column}
+  .directory-shell,.directory-shell.is-collapsed{width:100%;flex:0 0 auto;min-height:34px}
+  .directory-shell.is-collapsed{height:34px}
+  .directory-shell .directory-panel{width:100%}
+  .directory-shell.is-collapsed .directory-panel{display:none}
+  .directory-shell>.directory-toggle{left:auto;right:auto;inset-inline-end:0;top:17px;height:68px;transform:translateY(-50%)}
+  .map-workspace.has-room-details .details-toggle{position:fixed;top:50%;left:calc(100vw - var(--mobile-details-width) - var(--mobile-details-inset) - 17px);right:auto;inset-inline-start:auto;inset-inline-end:auto;transform:translateY(-50%)}
+  [dir=rtl] .map-workspace.has-room-details .details-toggle{left:calc(var(--mobile-details-width) + var(--mobile-details-inset) - 17px);right:auto}
+}

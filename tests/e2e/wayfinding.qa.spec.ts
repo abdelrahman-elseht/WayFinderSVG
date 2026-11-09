@@ -60,6 +60,129 @@ test('reduced motion completes route without progressive animation', async ({pag
  await expect(page.getByTestId('route-status').locator('progress')).toHaveAttribute('value','1');
 });
 
+test('directory collapse tab stays attached to its logical panel edge in all layouts',async({page})=>{
+ const toggle=page.getByRole('button',{name:'Collapse directory'});
+ const shell=page.locator('.directory-shell');
+ const setEnglish=async()=>{
+  if(await page.locator('.wayfinding-app').getAttribute('dir')==='rtl') await page.getByTestId('language-toggle').click();
+  await expect(page.locator('.wayfinding-app')).toHaveAttribute('dir','ltr');
+ };
+ const expectExpandedAttachment=async()=>{
+  const panel=await shell.boundingBox(),tab=await toggle.boundingBox();
+  expect(panel&&tab).toBeTruthy();
+  const rtl=await page.locator('.wayfinding-app').getAttribute('dir')==='rtl';
+  const edge=rtl?panel!.x:panel!.x+panel!.width;
+  expect(Math.abs(tab!.x+tab!.width/2-edge)).toBeLessThanOrEqual(1);
+ };
+ await page.setViewportSize({width:1440,height:1000});
+ await ready(page);
+ await setEnglish();
+ await expectExpandedAttachment();
+ await toggle.click();
+ const collapsedShell=await shell.boundingBox(),collapsedTab=await page.getByRole('button',{name:'Expand directory'}).boundingBox();
+ expect(collapsedShell&&collapsedTab).toBeTruthy();
+ expect(Math.abs(collapsedTab!.x+collapsedTab!.width-(collapsedShell!.x+collapsedShell!.width))).toBeLessThanOrEqual(1);
+ await page.getByRole('button',{name:'Expand directory'}).click();
+ await page.getByTestId('language-toggle').click();
+ await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+ const rtlToggle=page.getByRole('button',{name:'إخفاء الدليل'});
+ const expectRtlRightEdge=async()=>{
+  await expect(page.locator('html')).toHaveAttribute('dir','rtl');
+  const panel=await shell.boundingBox(),tab=await rtlToggle.boundingBox();
+  expect(panel&&tab).toBeTruthy();
+  const collapsed=await shell.evaluate(e=>e.classList.contains('is-collapsed'));
+  const mobile=await page.evaluate(()=>innerWidth<=800);
+  const actual=collapsed||mobile?tab!.x:tab!.x+tab!.width/2;
+  expect(Math.abs(actual-panel!.x)).toBeLessThanOrEqual(1);
+ };
+ await expectRtlRightEdge();
+ await rtlToggle.click();
+ const rtlShell=await shell.boundingBox(),rtlTab=await page.getByRole('button',{name:'إظهار الدليل'}).boundingBox();
+ expect(rtlShell&&rtlTab).toBeTruthy();
+ expect(Math.abs(rtlTab!.x-rtlShell!.x)).toBeLessThanOrEqual(1);
+ await page.getByRole('button',{name:'إظهار الدليل'}).click();
+ await page.setViewportSize({width:330,height:844});
+ await expectRtlRightEdge();
+ await rtlToggle.click();
+ const mobileShell=await shell.boundingBox(),mobileTab=await page.getByRole('button',{name:'إظهار الدليل'}).boundingBox();
+ expect(mobileShell&&mobileTab).toBeTruthy();
+ expect(Math.abs(mobileTab!.x-mobileShell!.x)).toBeLessThanOrEqual(1);
+});
+
+test('public desktop panels collapse independently to docked 20 percent rails without covering map controls',async({page})=>{
+ const screenshots=`${artifactDirectory}/panel-anchoring`;
+ mkdirSync(screenshots,{recursive:true});
+ const directory=page.locator('.directory-shell');
+ const details=page.locator('.detail-card');
+ const leftToggle=page.getByRole('button',{name:'Collapse directory'});
+ const rightToggle=page.locator('.details-toggle');
+ const leftWidth=350;
+ const assertRailsAndControls=async(leftCollapsed:boolean,rightCollapsed:boolean)=>{
+  await expect.poll(async()=> (await directory.boundingBox())?.width).toBeCloseTo(leftCollapsed?leftWidth*.2:leftWidth,1);
+  await expect.poll(async()=> (await details.boundingBox())?.width).toBeCloseTo(rightCollapsed?expandedRightWidth*.2:expandedRightWidth,1);
+  const viewport=await page.evaluate(()=>innerWidth);
+  const left=await directory.boundingBox();
+  const leftButton=await directory.locator('.directory-toggle').boundingBox();
+  const right=await details.boundingBox();
+  const rightButton=await rightToggle.boundingBox();
+  const controls=await page.locator('.map-control-stack').boundingBox();
+  expect(left&&leftButton&&right&&rightButton&&controls).toBeTruthy();
+  const leftColors=await directory.evaluate(e=>({background:getComputedStyle(e).backgroundColor,button:getComputedStyle(e.querySelector('.directory-toggle')!).backgroundColor,buttonText:getComputedStyle(e.querySelector('.directory-toggle')!).color}));
+  const rightColors=await details.evaluate(e=>({background:getComputedStyle(e).backgroundColor}));
+  const rightButtonColors=await rightToggle.evaluate(e=>({background:getComputedStyle(e).backgroundColor,color:getComputedStyle(e).color}));
+  expect(leftColors).toEqual({background:'rgb(234, 244, 255)',button:'rgb(6, 75, 135)',buttonText:'rgb(255, 255, 255)'});
+  expect(rightColors).toEqual({background:'rgb(234, 244, 255)'});
+  expect(rightButtonColors).toEqual({background:'rgb(6, 75, 135)',color:'rgb(255, 255, 255)'});
+  console.log('PANEL-RAIL-GEOMETRY',JSON.stringify({left,leftButton,right,rightButton,controls,leftCollapsed,rightCollapsed,leftToggleStyle:await directory.locator('.directory-toggle').evaluate(e=>{const s=getComputedStyle(e);return {position:s.position,left:s.left,right:s.right,insetInlineStart:s.insetInlineStart,insetInlineEnd:s.insetInlineEnd,transform:s.transform,scale:s.scale,offsetParent:(e as HTMLElement).offsetParent?.className,offsetParentRect:(e as HTMLElement).offsetParent?.getBoundingClientRect().toJSON()}})}));
+  expect(left!.x).toBeCloseTo(0,1);
+  if(leftCollapsed){
+   expect(left!.width).toBeCloseTo(leftWidth*.2,1);
+   expect(leftButton!.x+leftButton!.width).toBeCloseTo(left!.x+left!.width,1);
+  } else {
+   expect(left!.width).toBeCloseTo(leftWidth,1);
+   expect(leftButton!.x+leftButton!.width/2).toBeCloseTo(left!.x+left!.width,1);
+  }
+  if(rightCollapsed){
+   expect(right!.width).toBeCloseTo(expandedRightWidth*.2,1);
+   expect(right!.x+right!.width).toBeCloseTo(viewport,1);
+   expect(rightButton!.x+rightButton!.width/2).toBeCloseTo(right!.x,1);
+  } else {
+   expect(rightButton!.x+rightButton!.width/2).toBeCloseTo(right!.x,1);
+  }
+  const overlaps=(a:{x:number,y:number,width:number,height:number},b:{x:number,y:number,width:number,height:number})=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;
+  if(leftCollapsed) expect(overlaps(controls!,left!)).toBe(false);
+  if(rightCollapsed) expect(overlaps(controls!,right!)).toBe(false);
+  await expect(page.getByRole('button',{name:'Zoom in'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'Zoom out'})).toBeVisible();
+  for(const button of await page.locator('.map-control-stack button').all()){
+   const box=await button.boundingBox();
+   expect(box&&box.width>=44&&box.height>=44).toBeTruthy();
+  }
+ };
+ let expandedRightWidth=0;
+ await page.setViewportSize({width:1440,height:1000});
+ await ready(page);
+ await expect(page.locator('.details-toggle')).toBeHidden();
+ await page.getByTestId('room-directory').locator('[data-room-id="B03-GF-G-28"]').click();
+ expandedRightWidth=(await details.boundingBox())!.width;
+ await assertRailsAndControls(false,false);
+ await page.screenshot({path:`${screenshots}/desktop-expanded.png`});
+ await leftToggle.click();
+ await assertRailsAndControls(true,false);
+ await page.screenshot({path:`${screenshots}/desktop-left-collapsed.png`});
+ await directory.locator('.directory-toggle').click();
+ await page.locator('.details-toggle').click();
+ await assertRailsAndControls(false,true);
+ await page.screenshot({path:`${screenshots}/desktop-right-collapsed.png`});
+ await directory.locator('.directory-toggle').click();
+ await assertRailsAndControls(true,true);
+ await page.screenshot({path:`${screenshots}/desktop-both-collapsed.png`});
+ await directory.locator('.directory-toggle').click();
+ await assertRailsAndControls(false,true);
+ await page.locator('.details-toggle').click();
+ await assertRailsAndControls(false,false);
+});
+
 test('unavailable destination remains discoverable but blocks route start (US2)', async ({page}) => {
  test.fail(true, 'Known product gap: WayfindingApp does not gate route actions on Room.availability.status.');
  await ready(page);
