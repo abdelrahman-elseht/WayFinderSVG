@@ -7,6 +7,8 @@ import firstFloor from '@data/buildings/B03/01.json';
 import firstGraph from '@data/buildings/B03/01.graph.json';
 import firstContent from '@content/B03/01.json';
 import { WayfindingApp } from '../components/WayfindingApp';
+import { publishedContent } from '../lib/content-store';
+import { validateFloorBundle } from '@wayfinding/map-engine';
 
 // Complete data bundles must share building metadata. The client still receives
 // only the configured floor; interactive floor switching is a separate phase.
@@ -30,11 +32,22 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
     const kiosk = registry.getKiosk(kioskId);
     if (!kiosk || kiosk.buildingId !== buildingId || kiosk.floorId !== floorId) throw new Error(`Kiosk ${kioskId} is not registered on ${buildingId}/${floorId}`);
   }
+  let publicBundle = bundle;
+  if (floorId === 'GF' || floorId === '01') {
+    try {
+      const contents = await publishedContent(floorId);
+      publicBundle = validateFloorBundle(bundle.floorData, bundle.graph, contents, { allowUnsafeGeometry: true });
+    } catch {
+      // Invalid or unavailable overrides never bypass the canonical bundle gate.
+      const canonicalContent = floorId === 'GF' ? content : firstContent;
+      publicBundle = validateFloorBundle(bundle.floorData, bundle.graph, canonicalContent, { allowUnsafeGeometry: true });
+    }
+  }
   return <>
     {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
       position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
       background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
     }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
-    <WayfindingApp {...bundle} floorOptions={registry.floors.filter(item => item.floorData.building.id === buildingId).map(item => item.floorData.floor)} configuredKioskId={kioskId} />
+    <WayfindingApp {...publicBundle!} floorOptions={registry.floors.filter(item => item.floorData.building.id === buildingId).map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

@@ -1,5 +1,26 @@
 # Known issues
 
+## Content Studio (`/cms`)
+
+The authenticated `/cms` editor manages only B03 Ground Floor `RoomContent`.
+Draft and published overrides are atomically written to
+`WAYFINDING_CONTENT_STORE`, or `.data/content-overrides/B03-GF.json` by default.
+Draft saves do not affect visitors; publishing makes the override available to
+the public app on its next request. The content store and uploaded assets use
+local disk by default (`.data/content-overrides` and `.data/media`). Deployments
+with ephemeral filesystems must mount persistent storage at
+`WAYFINDING_CONTENT_STORE` and `WAYFINDING_MEDIA_STORE`; no cloud provider is
+configured or implied. Uploads are admin-authenticated, same-origin, limited to
+JPEG/PNG/WebP/MP4/WebM and 20 MB, signature-checked, and stored under opaque
+server-generated names. Canonical content, room geometry, navigation evidence
+and source provenance are never rewritten. Optional content presentation fields
+control block color and bilingual map stickers. Draft and published overrides
+are validated when read and before public substitution. Writes use an exclusive
+lock, unique temporary files, atomic rename, and a content revision to reject
+stale editors.
+Malformed overrides fail closed and the public app falls back to canonical
+validated content. The CMS currently covers GF only.
+
 Raised-block correction (2026-10-12): previously missing enclosed-room blocks now have candidate source-derived display outlines on GF and 01, including lifts/escalators. Original semantic unknowns are retained where label position or closure interpretation prevents promoting a contour. Open circulation, the skylight void and schedule-only First Floor entries without source positions are intentionally not fabricated as solid blocks. GF G-19/G-20/G-21 routes now stop at the cafeteria suite entrance; internal suite access remains unmapped and is explained in both languages. See `SEMANTIC_REVIEW.md` for generation evidence.
 
 ## Visual route rounding limits (2026-10-18)
@@ -83,4 +104,10 @@ contains a pre-existing duplicate undirected edge pair. G-39/G-40 stay
 edge-free; G-35/G-01 and G-37/G-42 pair connectivity is retained. Confirmed
 admin saves replace `data/buildings/B03/GF.graph.json`, used by the runtime app.
 Geometry/connectivity findings remain diagnostics and do not block saving.
+
+## CMS presentation previews and color categories (2026-11-10)
+
+The CMS uses actual semantic/display footprints and canonical source texture UVs for the compact room preview. Rooms without a supplied footprint show drawing detail and the draft color/sticker swatch only; no replacement contour is inferred. WebGL failure also uses the labeled drawing fallback. Extrusion height remains illustrative. Preview navigation/audio controls are intentionally inactive. Named color categories and their assignments publish together and do not change semantic room categories or access evidence.
+
+The required data checks in this shared worktree remain blocked by the existing `graph.edges[5]: edge crosses outside navigable areas` failure. The CMS upgrades do not repair or regenerate that graph. Independent browser verification of the sticky/stacked preview and published presentation remains a separate check.
 

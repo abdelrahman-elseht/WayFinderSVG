@@ -1,0 +1,2 @@
+.room-content-image,.room-content-video,.detail-media-image{display:block;width:100%;max-height:240px;object-fit:contain;border-radius:6px;background:#eef2ed}
+.room-content-presentation .room-description{white-space:pre-wrap}

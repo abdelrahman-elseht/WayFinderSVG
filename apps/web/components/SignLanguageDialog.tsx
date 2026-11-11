@@ -94,10 +94,10 @@ export function SignLanguageDialog({ room, video, language, onClose }: Props) {
   );
 }
 
-export function SignLanguageAction({ language, onClick }: { language: Language; onClick: () => void }) {
+export function SignLanguageAction({ language, onClick, disabled = false }: { language: Language; onClick: () => void; disabled?: boolean }) {
   const alternateLanguage = language === 'en' ? 'ar' : 'en';
   return (
-    <button type="button" className="sign-language-action" onClick={event => { event.currentTarget.focus(); onClick(); }} aria-haspopup="dialog" data-testid="sign-language-action">
+    <button type="button" className="sign-language-action" disabled={disabled} onClick={event => { event.currentTarget.focus(); onClick(); }} aria-haspopup="dialog" data-testid="sign-language-action">
       <span className="sign-language-action-icon"><Hand size={18} /></span>
       <span className="sign-language-action-copy">
         <strong>{t(language, 'signLanguageDescription')}</strong>

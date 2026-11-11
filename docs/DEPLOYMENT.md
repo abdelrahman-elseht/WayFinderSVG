@@ -45,6 +45,12 @@ npm start
 
 For deployment from a checkout, retain `node_modules`, `apps/web/.next`, `apps/web/public`, the root manifest/lockfile, and the Next.js configuration. This project currently uses Next's normal Node server, not a standalone-output package or static export. Source PDFs and full extraction JSON are audit inputs, not public assets. Do not copy `maps/B03/GF/source` into the public directory. Inter and Noto Sans Arabic are bundled locally, with no runtime font CDN request.
 
+The CMS writes content overrides and uploaded room media to local disk by default. On deployments with ephemeral filesystems, mount persistent storage and set `WAYFINDING_CONTENT_STORE` to a durable JSON-file path and `WAYFINDING_MEDIA_STORE` to a durable directory writable by the Node process. Media upload is Node-runtime only; no object-storage provider is configured. Upload limits are 20 MB and JPEG, PNG, WebP, MP4, or WebM with matching filename extension and file signature.
+
+In `/cms`, named color categories manage presentation colors independently of semantic room categories. Assign a category to the active room or selected rooms in bulk; renaming/recoloring updates every assignment. Unassign rooms before deleting their category. The sticky desktop preview shows unsaved changes immediately, with a room extrusion above the full destination card; narrow layouts stack these panels. Navigation/audio buttons are inactive in preview. Source geometry and names remain read-only, and missing geometry/WebGL produces an explicit drawing fallback.
+
+Save draft persists content, categories and assignments together without changing the public app. Publish atomically publishes the same complete snapshot; public requests use only published groups and content. Stale saves return HTTP 409 and require reloading. Back up the complete override JSON (both content snapshots and `draftColorGroups`/`publishedColorGroups`) and media directory. Legacy files without group arrays remain readable as empty categories. Content/group requests remain bounded to 300 KB. No source pipeline run or floor enablement is needed for presentation changes.
+
 ## Configuration
 
 Optional environment variables are read by the server page **during production generation**. Set them before `npm run build`; rebuild after changing them. For local development, restart `npm run dev` after changing configuration.

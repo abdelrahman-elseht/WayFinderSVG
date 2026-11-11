@@ -1,0 +1,23 @@
+.first-floor-readonly{position:fixed;inset:0;overflow:auto;background:#edf1ef;color:#20323d;font:13px/1.5 'Noto Sans Arabic',sans-serif}
+.first-floor-header{min-height:112px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#17333b;color:#f4f7f5}
+.first-floor-kicker{font:12px Consolas,monospace;color:#9ed1ca}
+.first-floor-header h1{font-size:23px;margin:4px 0}
+.first-floor-header p{margin:0;color:#c7d5d4}
+.first-floor-header dl{display:flex;gap:18px;margin:0}
+.first-floor-header dl div{min-width:64px}
+.first-floor-header dt{font-size:10px;color:#b7cbca}
+.first-floor-header dd{margin:2px 0 0;font:18px Consolas,monospace}
+.first-floor-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);gap:16px;padding:16px}
+.first-floor-map-panel,.first-floor-inventory{min-width:0;background:#fff;border:1px solid #d2dcda;border-radius:4px}
+.first-floor-map-panel{display:flex;flex-direction:column;min-height:55vh;padding:10px}
+.first-floor-map{display:block;width:100%;height:min(62vh,760px);min-height:340px;background:#f8f8f4;pointer-events:none;user-select:none}
+.first-floor-map-note{margin:8px 2px 0;color:#5a6e73;font-size:11px}
+.first-floor-inventory{padding:14px;align-self:start}
+.first-floor-inventory h2{margin:0;font-size:16px}
+.first-floor-inventory>p{color:#5a6e73;font-size:11px}
+.first-floor-table-wrap{max-height:70vh;overflow:auto}
+.first-floor-readonly table{width:100%;border-collapse:collapse;text-align:left;font-size:11px}
+.first-floor-readonly th,.first-floor-readonly td{padding:7px 5px;border-bottom:1px solid #e0e7e5;vertical-align:top}
+.first-floor-readonly thead{position:sticky;top:0;background:#eef3f1}
+.first-floor-readonly tbody th{font-family:Consolas,monospace;white-space:nowrap}
+@media(max-width:850px){.first-floor-header{align-items:flex-start;flex-direction:column;padding:18px}.first-floor-header dl{flex-wrap:wrap;gap:10px 18px}.first-floor-layout{grid-template-columns:1fr;padding:10px}.first-floor-map-panel{min-height:0}.first-floor-map{height:55vh;min-height:300px}.first-floor-table-wrap{max-height:55vh}}

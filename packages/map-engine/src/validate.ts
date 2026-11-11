@@ -41,7 +41,18 @@ function roomAvailability(value: unknown, path: string) {
 function nullableText(value: unknown, path: string) { if (value !== null) text(value, path); }
 function mediaUrl(value: unknown, path: string) {
   const source = text(value, path);
-  if (!(source.startsWith('/') || /^https?:\/\//i.test(source)) || source.startsWith('//') || source.includes('..') || source.includes('\\')) fail(path, 'expected a safe local or http(s) media URL');
+  const local = source.startsWith('/') && !source.startsWith('//');
+  let decodedPath = source.split(/[?#]/, 1)[0];
+  try { decodedPath = decodeURIComponent(decodedPath); } catch { fail(path, 'expected a safe local or http(s) media URL'); }
+  const segments = decodedPath.split('/');
+  if ((!local && !/^https?:\/\//i.test(source)) || source.startsWith('//')
+    || /[\u0000-\u001f\\]/.test(source) || segments.includes('..')) fail(path, 'expected a safe local or http(s) media URL');
+  if (!local) {
+    try {
+      const parsed = new URL(source);
+      if (!['http:', 'https:'].includes(parsed.protocol) || !parsed.hostname || parsed.username || parsed.password) fail(path, 'expected a safe local or http(s) media URL');
+    } catch { fail(path, 'expected a safe local or http(s) media URL'); }
+  }
 }
 const statuses = ['confirmed', 'candidate', 'unknown'];
 function point(value: unknown, path: string): Point {
@@ -172,6 +183,18 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
   contents.forEach((c,i)=> {
     const p=`contents[${i}]`;
     localized(c.description,`${p}.description`); localized(c.imageAlt,`${p}.imageAlt`); bool(c.placeholder,`${p}.placeholder`); nullableText(c.image,`${p}.image`);
+    if (c.image !== null) mediaUrl(c.image, `${p}.image`);
+    if (c.presentation !== undefined) {
+      const presentation = object(c.presentation, `${p}.presentation`);
+      if (presentation.blockColor !== undefined && (typeof presentation.blockColor !== 'string' || !/^#[0-9a-f]{6}$/i.test(presentation.blockColor))) fail(`${p}.presentation.blockColor`, 'expected a six-digit hex color');
+      if (presentation.colorGroupId !== undefined && (typeof presentation.colorGroupId !== 'string' || !/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$/.test(presentation.colorGroupId))) fail(`${p}.presentation.colorGroupId`, 'invalid color category ID');
+      if (presentation.stickerLabel !== undefined) {
+        const label = object(presentation.stickerLabel, `${p}.presentation.stickerLabel`);
+        for (const language of ['en', 'ar']) {
+          if (typeof label[language] !== 'string' || label[language].length > 160) fail(`${p}.presentation.stickerLabel.${language}`, 'expected a string of at most 160 characters (blank uses source name)');
+        }
+      }
+    }
     if (c.signLanguageVideo !== undefined) {
       const video = object(c.signLanguageVideo, `${p}.signLanguageVideo`);
       mediaUrl(video.url, `${p}.signLanguageVideo.url`);

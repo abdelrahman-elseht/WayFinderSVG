@@ -66,7 +66,11 @@ export interface RoomContent {
   image: string | null;
   imageAlt: Localized;
   signLanguageVideo?: SignLanguageVideo;
+  /** CMS presentation only; source-owned Room identity and geometry stay unchanged. */
+  presentation?: { blockColor?: string; colorGroupId?: string; stickerLabel?: Localized };
 }
+/** Named presentation colors, independent of source-owned Room.category. */
+export interface ColorGroup { id: string; name: string; color: string }
 export interface Building { id: string; name: Localized; floorIds: string[] }
 export interface Floor {
   id: string;

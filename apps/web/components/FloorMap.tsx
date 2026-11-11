@@ -4,16 +4,16 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
-import type { Floor, Language, MapFeature, Point, Room } from '@wayfinding/map-engine';
+import type { Floor, Language, MapFeature, Point, Room, RoomContent } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 import { featureBlock, roomBlock, roomFootprint, type MapBlock } from './mapBlocks';
 
 import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
-type Props = { floor: Floor; rooms: Room[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
+type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
-function useFloorTexture(asset: string) {
+export function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
   const [inkTexture, setInkTexture] = useState<THREE.CanvasTexture | null>(null);
   useEffect(() => {
@@ -46,19 +46,19 @@ function useFloorTexture(asset: string) {
   }, [asset]);
   return { texture, inkTexture };
 }
-function useForcedColors() {
+export function useForcedColors() {
   const [forcedColors, setForcedColors] = useState(false);
   useEffect(() => { const media = window.matchMedia('(forced-colors: active)'); const update = () => setForcedColors(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   return forcedColors;
 }
-const CAMERA_OFFSET = new THREE.Vector3(5, 30, 22);
+export const CAMERA_OFFSET = new THREE.Vector3(5, 30, 22);
 const roomY = (room: Room) => (roomBlock(room)?.height ?? .05) + .13;
-const BlockShape = memo(function BlockShape({ block, center, selected = false, onSelect, texture, width, depth, forcedColors }: { block: MapBlock; center: Point; selected?: boolean; onSelect?: () => void; texture: THREE.Texture | null; width: number; depth: number; forcedColors: boolean }) {
+export const BlockShape = memo(function BlockShape({ block, center, selected = false, onSelect, texture, width, depth, forcedColors }: { block: MapBlock; center: Point; selected?: boolean; onSelect?: () => void; texture: THREE.Texture | null; width: number; depth: number; forcedColors: boolean }) {
   const [hovered, setHovered] = useState(false);
   const material = useRef<THREE.MeshStandardMaterial>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => { const media = window.matchMedia('(prefers-reduced-motion: reduce)'); const update = () => setReducedMotion(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
-  const targetColor = useMemo(() => new THREE.Color(forcedColors ? selected ? highContrastMapPalette.selection : hovered ? highContrastMapPalette.hover : highContrastMapPalette.room : selected ? mapPalette.selection : hovered ? mapPalette.hover : categoryColors[block.category]), [forcedColors, selected, hovered, block.category]);
+  const targetColor = useMemo(() => new THREE.Color(forcedColors ? selected ? highContrastMapPalette.selection : hovered ? highContrastMapPalette.hover : highContrastMapPalette.room : selected ? mapPalette.selection : hovered ? mapPalette.hover : block.color ?? categoryColors[block.category]), [forcedColors, selected, hovered, block.category, block.color]);
   useFrame((_, delta) => {
     const blend = reducedMotion ? 1 : 1 - Math.exp(-delta * 12);
     // Keep every footprint anchored to the plan during hover and selection.
@@ -81,24 +81,26 @@ const BlockShape = memo(function BlockShape({ block, center, selected = false, o
   return <group>
     <mesh name={block.id} userData={{ mapBlock: true, height: block.height }} castShadow receiveShadow geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .02, 0]} onClick={onSelect ? event => { event.stopPropagation(); onSelect(); } : undefined} onPointerOver={onSelect ? event => { event.stopPropagation(); setHovered(true); } : undefined} onPointerOut={() => setHovered(false)}>
       <meshStandardMaterial key={texture?.uuid ?? 'loading'} attach="material-0" ref={material} map={forcedColors ? null : texture} color={targetColor} roughness={.95} />
-      <meshStandardMaterial attach="material-1" color={forcedColors ? highContrastMapPalette.roomSide : selected ? mapPalette.selectionSide : categoryColors[block.category]} roughness={1} />
+      <meshStandardMaterial attach="material-1" color={forcedColors ? highContrastMapPalette.roomSide : selected ? mapPalette.selectionSide : block.color ?? categoryColors[block.category]} roughness={1} />
     </mesh>
     <Line points={border} color={forcedColors ? selected ? highContrastMapPalette.selectionOutline : highContrastMapPalette.outline : selected ? mapPalette.selection : mapPalette.ink} lineWidth={selected ? 2.4 : 1.5} />
     {block.geometryStatus !== 'confirmed' && <Line points={border} color={forcedColors ? highContrastMapPalette.candidate : selected ? mapPalette.candidateSelected : mapPalette.candidate} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
   </group>;
 });
-function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
+function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
   const { camera, size } = useThree();
   const [visible, setVisible] = useState<Set<string>>(new Set());
   const signature = useRef('');
   const vector = useMemo(() => new THREE.Vector3(), []);
   const orderedRooms = useMemo(() => [...rooms].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId)), [rooms, selectedId]);
+  const labels = useMemo(() => new Map((contents ?? []).map(item => [item.id, item.presentation?.stickerLabel])), [contents]);
   useFrame(() => {
     const occupied: { x: number; y: number; width: number }[] = []; const next: string[] = [];
     for (const room of orderedRooms) {
       vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE).project(camera);
       const x = (vector.x + 1) * size.width / 2; const y = (1 - vector.y) * size.height / 2;
-      const labelWidth = room.name[language].length * 7 + room.code.length * 7 + 38;
+      const label = labels.get(room.contentRef)?.[language]?.trim() || room.name[language];
+      const labelWidth = label.length * 7 + room.code.length * 7 + 38;
       const width = room.id === selectedId ? 210 : Math.max(52, labelWidth);
       if (x < -width || x > size.width + width || y < -30 || y > size.height + 30) continue;
       if (!occupied.some(item => Math.abs(item.x - x) < (item.width + width) / 2 + 5 && Math.abs(item.y - y) < 32)) {
@@ -107,9 +109,9 @@ function MapLabels({ rooms, language, selectedId, onSelect, center }: Pick<Props
     }
     const key = next.join('|'); if (key !== signature.current) { signature.current = key; setVisible(new Set(next)); }
   });
-  return <>{rooms.map(room => <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
-    <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${roomFootprint(room) ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${room.name[language]}, ${room.code}`} title={`${room.name[language]} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{room.name[language]}</span><span className="map-label-code">{room.code}</span></button>
-  </Html>)}</>;
+  return <>{rooms.map(room => { const label = labels.get(room.contentRef)?.[language]?.trim() || room.name[language]; return <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
+    <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${roomFootprint(room) ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${label}, ${room.code}`} title={`${label} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{label}</span><span className="map-label-code">{room.code}</span></button>
+  </Html>; })}</>;
 }
 const routeArrowShape = (() => { const shape = new THREE.Shape(); shape.moveTo(.16, 0); shape.lineTo(-.12, -.12); shape.lineTo(-.12, .12); shape.closePath(); return shape; })();
 function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
@@ -146,7 +148,8 @@ function Scene(props: Props) {
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
   const { texture, inkTexture } = useFloorTexture(floor.mapAsset);
   const selected = rooms.find(room => room.id === selectedId);
-  const blocks = useMemo(() => rooms.map(roomBlock).filter((block): block is MapBlock => block !== null), [rooms]);
+  const contentById = useMemo(() => new Map((props.contents ?? []).map(item => [item.id, item])), [props.contents]);
+  const blocks = useMemo(() => rooms.map(room => roomBlock(room, contentById.get(room.contentRef))).filter((block): block is MapBlock => block !== null), [rooms, contentById]);
   const equipment = useMemo(() => (props.mapFeatures ?? []).map(featureBlock), [props.mapFeatures]);
   const routeFrame = useMemo(() => {
     if (route.length < 2) return null;
@@ -187,11 +190,11 @@ function Scene(props: Props) {
     {blocks.map(block => <BlockShape key={block.id} block={block} center={center} selected={block.id === selectedId} onSelect={() => onSelect(block.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     {equipment.map(block => <BlockShape key={block.id} block={block} center={center} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
-    <MapLabels rooms={rooms} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
+    <MapLabels rooms={rooms} contents={props.contents} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
 }
-class MapBoundary extends Component<{ children: React.ReactNode; fallback: React.ReactNode }, { error: boolean }> {
+export class MapBoundary extends Component<{ children: React.ReactNode; fallback: React.ReactNode }, { error: boolean }> {
   state = { error: false };
   static getDerivedStateFromError() { return { error: true }; }
   render() { return this.state.error ? this.props.fallback : this.props.children; }
