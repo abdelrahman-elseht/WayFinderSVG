@@ -1,10 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { controls, deleteControls, inside, moveGraphNodes, propagateSourceLinks, rectangleSelection, selectionStats, translate, type Spine } from '../../apps/web/components/admin/editor-model';
+import { coincidenceClusters, controls, deleteControls, inside, moveGraphNodes, nextCoincidenceMember, propagateSourceLinks, rectangleSelection, selectionStats, translate, type Spine } from '../../apps/web/components/admin/editor-model';
 import { adminAuthorized } from '../../apps/web/lib/admin-auth';
 import type { NavigationGraph } from '@wayfinding/map-engine';
 
 const spines: Spine[] = [{ id: 'spine:0', index: 0, kind: 'spine', coordinates: [[0, 0], [10.3, 10.7], [20.8, 15.2], [30, 30]], sourceReferences: ['source'] }];
 describe('navigation source editor', () => {
+  it('clusters coincident handles with stable source-before-graph ordering', () => {
+    const clusters = coincidenceClusters([
+      { id: 'z', kind: 'graph', point: [10, 10] }, { id: 'b', kind: 'source', point: [10.2, 10.1] },
+      { id: 'a', kind: 'source', point: [50, 50] },
+    ], 0.5);
+    expect(clusters).toHaveLength(2);
+    const overlap = clusters.find(cluster => cluster.members.some(member => member.id === 'b'))!;
+    expect(overlap.members.map(member => member.id)).toEqual(['b', 'z']);
+    expect(nextCoincidenceMember(overlap).id).toBe('b');
+    expect(nextCoincidenceMember(overlap, 'b').id).toBe('z');
+    expect(coincidenceClusters([
+      { id: 'a', kind: 'source', point: [0, 0] }, { id: 'b', kind: 'source', point: [.4, 0] }, { id: 'c', kind: 'graph', point: [.8, 0] },
+    ], .5)[0].members.map(member => member.id)).toEqual(['a', 'b', 'c']);
+  });
   it('moves an entire selection by the same snapped delta, including endpoints', () => {
     const result = translate(spines, new Set(controls(spines).map(c => c.id)), [12, -12], 5);
     expect(result[0].coordinates).toEqual([[10, -10], [20.3, .6999999999999993], [30.8, 5.199999999999999], [40, 20]]);

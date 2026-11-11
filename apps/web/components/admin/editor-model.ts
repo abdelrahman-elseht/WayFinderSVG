@@ -2,6 +2,8 @@ import type { FloorData, NavigationGraph, Point } from '@wayfinding/map-engine';
 
 export type Spine = { id: string; index: number; kind: 'spine' | 'connection'; coordinates: Point[]; sourceReferences: string[]; note?: string };
 export type Control = { id: string; spine: string; index: number; point: Point; protected: boolean };
+export type CoincidenceMember = { id: string; kind: 'source' | 'graph'; point: Point };
+export type CoincidenceCluster = { id: string; point: Point; members: CoincidenceMember[] };
 export type NodeMoves = Record<string, Point>;
 export type Settings = { minimum: number; preferred: number; maximum: number };
 export type Diagnostic = { id: string; changed: boolean; state: 'red' | 'orange' | 'green' | 'unchecked'; wallClearance: number | null; walkableBoundaryClearance: number | null; nearbyWallIndices: number[]; tests: { safe: boolean; areaCovered: boolean; wallIndices: number[]; roomInteriors: string[] } | null };
@@ -13,6 +15,24 @@ export type Report = { valid: boolean; draftOnly?: boolean; safetyChecked?: bool
 export const controls = (spines: Spine[]): Control[] => spines.flatMap(s => s.coordinates.map((point, index) => ({
   id: `${s.id}/${index}`, spine: s.id, index, point, protected: false,
 })));
+
+/** Group handles that occupy the same drawing location without changing their semantic IDs. */
+export function coincidenceClusters(items: CoincidenceMember[], tolerance = 0.5): CoincidenceCluster[] {
+  const sorted = [...items].sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'source' ? -1 : 1) || a.id.localeCompare(b.id));
+  const parent = sorted.map((_, index) => index);
+  const find = (index: number): number => parent[index] === index ? index : (parent[index] = find(parent[index]));
+  const join = (a: number, b: number) => { const ra = find(a), rb = find(b); if (ra !== rb) parent[rb] = ra; };
+  for (let i = 0; i < sorted.length; i++) for (let j = i + 1; j < sorted.length; j++)
+    if (Math.hypot(sorted[i].point[0] - sorted[j].point[0], sorted[i].point[1] - sorted[j].point[1]) <= tolerance) join(i, j);
+  const groups = new Map<number, CoincidenceMember[]>();
+  sorted.forEach((item, index) => { const root = find(index); groups.set(root, [...(groups.get(root) ?? []), item]); });
+  return [...groups.values()].map((members, index) => ({ id: `cluster-${index}-${members[0].point.join('-')}`, point: [...members[0].point], members }));
+}
+
+export function nextCoincidenceMember(cluster: CoincidenceCluster, currentId?: string): CoincidenceMember {
+  const current = cluster.members.findIndex(member => member.id === currentId);
+  return cluster.members[(current + 1 + cluster.members.length) % cluster.members.length];
+}
 
 export function moveGraphNodes(graph: NavigationGraph, moves: NodeMoves): NavigationGraph {
   const points = new Map(graph.nodes.map(node => [node.id, moves[node.id] || node.point]));

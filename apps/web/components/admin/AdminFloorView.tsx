@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import NavigationEditor from './NavigationEditor';
-import FirstFloorReadOnly from './FirstFloorReadOnly';
 import './admin-floor-view.css';
 
 export default function AdminFloorView() {
@@ -21,6 +20,6 @@ export default function AdminFloorView() {
         <option value="01">First Floor (01)</option>
       </select>
     </div>
-    {floor === 'GF' ? <NavigationEditor key="GF" /> : <FirstFloorReadOnly key="01" />}
+    <NavigationEditor key={floor} floorId={floor} />
   </>;
 }

@@ -1,11 +1,77 @@
 """First-floor approaches and horizontal graph, bounded by reviewed source ink."""
 import heapq
+import hashlib
+import json
 import math
 from collections import defaultdict
 import numpy as np
 from shapely.geometry import Point, LineString, Polygon, box
 from shapely.ops import unary_union, nearest_points
 from shapely import contains_xy, covers, linestrings, constrained_delaunay_triangles, set_precision
+
+
+def simplify_graph(graph):
+    """Contract only unreferenced degree-two junctions without changing routes."""
+    result = json.loads(json.dumps(graph))
+    nodes = {node['id']: node for node in result['nodes']}
+    edges = {edge['id']: edge for edge in result['edges']}
+    protected = {node['id'] for node in result['nodes'] if node.get('roomId')}
+    degree = defaultdict(list)
+
+    def rebuild_degree():
+        degree.clear()
+        for edge in edges.values():
+            degree[edge['from']].append(edge['id'])
+            degree[edge['to']].append(edge['id'])
+
+    rebuild_degree()
+    contracted = 0
+    while True:
+        candidate = next((node_id for node_id in sorted(nodes)
+                          if node_id not in protected and len(degree[node_id]) == 2), None)
+        if candidate is None:
+            break
+        first_id, second_id = sorted(degree[candidate])
+        first, second = edges[first_id], edges[second_id]
+        a = first['to'] if first['from'] == candidate else first['from']
+        b = second['to'] if second['from'] == candidate else second['from']
+        if a == b:
+            protected.add(candidate)
+            continue
+        def oriented(edge, start, end):
+            if edge['from'] == start and edge['to'] == end:
+                return edge['geometry']
+            if edge['from'] == end and edge['to'] == start:
+                return list(reversed(edge['geometry']))
+            raise ValueError('Edge endpoints do not match graph topology')
+        left, right = oriented(first, a, candidate), oriented(second, candidate, b)
+        metadata_first = {k: v for k, v in first.items()
+                          if k not in ('id', 'from', 'to', 'geometry', 'distance', 'pathType')}
+        metadata_second = {k: v for k, v in second.items()
+                           if k not in ('id', 'from', 'to', 'geometry', 'distance', 'pathType')}
+        path_types = {first.get('pathType', 'corridor'),
+                      second.get('pathType', 'corridor')}
+        if (metadata_first != metadata_second or
+                (len(path_types) > 1 and path_types != {'corridor', 'door'})):
+            protected.add(candidate)
+            continue
+        geometry = left + right[1:]
+        edge_id = 'B03-01-es-' + hashlib.sha256(
+            (min(first_id, second_id) + '\0' + max(first_id, second_id)).encode()).hexdigest()[:12]
+        merged = dict(metadata_first,
+                      pathType='door' if 'door' in path_types else first.get('pathType', 'corridor'),
+                      id=edge_id, **{'from': a, 'to': b},
+                      geometry=geometry, distance=first['distance'] + second['distance'])
+        del edges[first_id], edges[second_id]
+        edges[edge_id] = merged
+        del nodes[candidate]
+        contracted += 1
+        rebuild_degree()
+    result['nodes'] = [nodes[key] for key in sorted(nodes)]
+    result['edges'] = [edges[key] for key in sorted(edges)]
+    return result, {'originalNodes': len(graph['nodes']), 'originalEdges': len(graph['edges']),
+                    'simplifiedNodes': len(result['nodes']), 'simplifiedEdges': len(result['edges']),
+                    'contractedNodes': contracted}
 
 
 def pieces(g):
@@ -320,12 +386,17 @@ def derive(rooms, context, cfg):
     def add_edge(a, b, points, kind='corridor'):
         if a == b:
             return
-        simplified = [points[0]]; i = 0
-        while i < len(points)-1:
-            j = len(points)-1
-            while j > i+1 and not domain.covers(LineString([points[i], points[j]])):
-                j -= 1
-            simplified.append(points[j]); i = j
+        # Keep the selected grid path's length. Long visibility chords stay
+        # inside the corridor union but can shorten the full-grid reference.
+        simplified = [points[0]]
+        for index, point in enumerate(points[1:-1], 1):
+            previous = simplified[-1]
+            following = points[index + 1]
+            cross = ((point[0] - previous[0]) * (following[1] - point[1]) -
+                     (point[1] - previous[1]) * (following[0] - point[0]))
+            if abs(cross) > 1e-8:
+                simplified.append(point)
+        simplified.append(points[-1])
         simplified = [rnd(p) for p in simplified]; line = LineString(simplified)
         if line.length < .001:
             return

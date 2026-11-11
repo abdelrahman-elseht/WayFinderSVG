@@ -8,14 +8,24 @@ export const dynamic = 'force-dynamic';
 const root = existsSync(path.join(process.cwd(), 'scripts/semantic-map/admin_editor.py')) ? process.cwd() : path.resolve(process.cwd(), '../..');
 let active = 0;
 
-async function worker(payload: unknown) {
+const workerScripts = {
+  GF: 'admin_editor.py',
+  '01': 'floor_01_admin_editor.py',
+} as const;
+type FloorId = keyof typeof workerScripts;
+const allowedFloor = (value: unknown): value is FloorId =>
+  typeof value === 'string' && Object.prototype.hasOwnProperty.call(workerScripts, value);
+
+async function worker(floorId: FloorId, payload: unknown) {
   if (active >= 2) throw new Error('Editor busy. Retry after the current validation completes.');
   active++;
   try {
     return await new Promise<unknown>((resolve, reject) => {
       const local = path.join(root, process.platform === 'win32' ? '.venv/Scripts/python.exe' : '.venv/bin/python');
       const executable = process.env.PYTHON_EXECUTABLE || (existsSync(local) ? local : 'python');
-      const child = spawn(executable, [path.join(root, 'scripts/semantic-map/admin_editor.py')], {
+      const script = path.join(root, 'scripts/semantic-map', workerScripts[floorId]);
+      if (!existsSync(script)) { reject(new Error(`Admin editor worker is unavailable for floor ${floorId}`)); return; }
+      const child = spawn(executable, [script], {
         cwd: root, shell: false, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe'],
       });
       let output = '', error = '';
@@ -37,7 +47,9 @@ const json = (value: unknown, status = 200) => Response.json(value, { status, he
 
 export async function GET(request: Request) {
   if (!adminAuthorized(request.headers)) return adminDenied();
-  try { return json(await worker({ action: 'load' })); }
+  const floorId = new URL(request.url).searchParams.get('floorId');
+  if (!allowedFloor(floorId)) return json({ error: 'Unsupported floorId' }, 400);
+  try { return json(await worker(floorId, { action: 'load', floorId })); }
   catch (error) { return json({ error: String(error) }, 503); }
 }
 
@@ -68,6 +80,15 @@ export async function POST(request: Request) {
     if (size > 300_000) { await reader.cancel(); return json({ error: 'Draft exceeds 300 KB' }, 413); }
     chunks.push(value);
   }
-  try { return json(await worker(JSON.parse(Buffer.concat(chunks).toString('utf8')))); }
+  let body: string;
+  try { body = new TextDecoder('utf-8', { fatal: true }).decode(Buffer.concat(chunks)); }
+  catch { return json({ error: 'Request body must be valid UTF-8' }, 400); }
+  try {
+    const payload: unknown = JSON.parse(body);
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload) || !allowedFloor((payload as Record<string, unknown>).floorId))
+      return json({ error: 'Unsupported floorId' }, 400);
+    const floorId = (payload as Record<string, unknown>).floorId as FloorId;
+    return json(await worker(floorId, payload));
+  }
   catch (error) { return json({ error: error instanceof Error ? error.message : String(error) }, 422); }
 }
