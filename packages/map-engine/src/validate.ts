@@ -38,6 +38,14 @@ function roomAvailability(value: unknown, path: string) {
   // it possible for configuration to point at a different/nonexistent room.
   if (v.roomId !== undefined) fail(`${path}.roomId`, 'availability must be attached to its room record');
 }
+function adminDrawingReview(value: unknown, path: string) {
+  const review = object(value, path);
+  if (review.kind !== 'admin-drawing-review') fail(`${path}.kind`, 'expected admin drawing review');
+  text(review.sourceReference, `${path}.sourceReference`);
+  text(review.note, `${path}.note`);
+  if (review.status !== 'candidate' || review.accessibility !== 'unknown')
+    fail(path, 'admin drawing review must remain candidate with unknown accessibility');
+}
 function nullableText(value: unknown, path: string) { if (value !== null) text(value, path); }
 function mediaUrl(value: unknown, path: string) {
   const source = text(value, path);
@@ -155,6 +163,13 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     if(r.navigationNote!==undefined) localized(r.navigationNote,`${p}.navigationNote`);
     if(r.navigationPartial!==undefined) { bool(r.navigationPartial,`${p}.navigationPartial`); if(r.navigationPartial && !r.navigationNote) fail(p,'partial navigation requires an explanatory bilingual note'); }
     if(r.availability!==undefined) roomAvailability(r.availability,`${p}.availability`);
+    if(r.adminEndpointHistory!==undefined) array(r.adminEndpointHistory,`${p}.adminEndpointHistory`).forEach((entry,j)=>{
+      const prior=object(entry,`${p}.adminEndpointHistory[${j}]`);
+      nullableText(prior.doorNodeId,`${p}.adminEndpointHistory[${j}].doorNodeId`);
+      if(prior.navigationNote!==undefined) localized(prior.navigationNote,`${p}.adminEndpointHistory[${j}].navigationNote`);
+      if(prior.navigationPartial!==undefined) bool(prior.navigationPartial,`${p}.adminEndpointHistory[${j}].navigationPartial`);
+      adminDrawingReview(prior.review,`${p}.adminEndpointHistory[${j}].review`);
+    });
     if(r.displayFootprint!==undefined) {
       const display=object(r.displayFootprint,`${p}.displayFootprint`);
       if(r.polygon!==null) fail(`${p}.displayFootprint`,'must not override an existing semantic footprint');
@@ -222,6 +237,42 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
   const areas=array(graph.navigableAreas,'graph.navigableAreas').map((v,i)=>polygon(v,`graph.navigableAreas[${i}]`));
   if(drawing && !areas.length) fail('graph.navigableAreas','drawing-based routing requires source navigable areas');
   areas.forEach((area,i)=>area.forEach(p=>inBounds(p,`graph.navigableAreas[${i}]`)));
+  if(graph.adminAuthoring!==undefined) {
+    const audit=object(graph.adminAuthoring,'graph.adminAuthoring');
+    array(audit.originalNavigableAreas,'graph.adminAuthoring.originalNavigableAreas')
+      .forEach((value,i)=>polygon(value,`graph.adminAuthoring.originalNavigableAreas[${i}]`)
+        .forEach((p,j)=>inBounds(p,`graph.adminAuthoring.originalNavigableAreas[${i}][${j}]`)));
+    records(audit.navigableAreaEdits,'graph.adminAuthoring.navigableAreaEdits').forEach((edit,i)=>{
+      const p=`graph.adminAuthoring.navigableAreaEdits[${i}]`;
+      choice(edit.operation,['add','subtract'],`${p}.operation`);
+      polygon(edit.polygon,`${p}.polygon`).forEach((v,j)=>inBounds(v,`${p}.polygon[${j}]`));
+      adminDrawingReview(edit.review,`${p}.review`);
+    });
+    records(audit.addedNodes,'graph.adminAuthoring.addedNodes').forEach((node,i)=>{
+      const p=`graph.adminAuthoring.addedNodes[${i}]`;
+      adminDrawingReview(node.adminReview,`${p}.adminReview`);
+      if(node.buildingId!==buildingId || node.floorId!==floorId || node.status!=='candidate')
+        fail(p,'added-node audit identity/evidence must belong to this floor');
+      choice(node.type,['junction','entrance'],`${p}.type`);
+      inBounds(point(node.point,`${p}.point`),`${p}.point`);
+    });
+    const editedIds: string[]=[];
+    array(audit.edgeGeometryEdits,'graph.adminAuthoring.edgeGeometryEdits').forEach((value,i)=>{
+      const p=`graph.adminAuthoring.edgeGeometryEdits[${i}]`;
+      const edit=object(value,p);
+      editedIds.push(text(edit.edgeId,`${p}.edgeId`));
+      if(edit.kind!=='admin-drawing-review' || edit.status!=='candidate' || edit.accessibility!=='unknown')
+        fail(p,'edge edit history must remain an admin candidate with unknown accessibility');
+      adminDrawingReview(edit.review,`${p}.review`);
+      const original=object(edit.before,`${p}.before`);
+      text(original.id,`${p}.before.id`); text(original.from,`${p}.before.from`); text(original.to,`${p}.before.to`);
+      const before=array(original.geometry,`${p}.before.geometry`).map((v,j)=>point(v,`${p}.before.geometry[${j}]`));
+      const geometry=array(edit.geometry,`${p}.geometry`).map((v,j)=>point(v,`${p}.geometry[${j}]`));
+      if(before.length<2 || geometry.length<2) fail(p,'edge edit history requires complete polylines');
+      geometry.forEach((v,j)=>inBounds(v,`${p}.geometry[${j}]`));
+    });
+    unique(editedIds,'graph.adminAuthoring.edgeGeometryEdits');
+  }
   const walls=array(graph.walls,'graph.walls').map((v,i)=>{const w=array(v,`graph.walls[${i}]`); if(w.length!==2) fail('graph.walls','expected two endpoints'); return [point(w[0],`graph.walls[${i}][0]`),point(w[1],`graph.walls[${i}][1]`)] as [Point,Point];});
   nodes.forEach((n,i)=>{
     const p=`graph.nodes[${i}]`; point(n.point,`${p}.point`); choice(n.type,['junction','door','entrance','elevator','stairs','kiosk'],`${p}.type`); choice(n.status,statuses,`${p}.status`);
@@ -229,6 +280,10 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     if(n.floorId===floorId) inBounds(n.point as Point,`${p}.point`);
     if(n.roomId!==undefined && !roomIds.has(text(n.roomId,`${p}.roomId`))) fail(p,'node refers to missing room');
     if(n.type==='door' && n.roomId===undefined) fail(p,'door requires a room association');
+    if(n.adminReview!==undefined) {
+      adminDrawingReview(n.adminReview,`${p}.adminReview`);
+      if(n.status!=='candidate') fail(p,'admin drawing-reviewed nodes must remain candidate');
+    }
   });
   roomValues.forEach((r,i)=>{
     if(r.doorNodeId===null) return;
@@ -276,7 +331,10 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
         for(const area of areas) for(let k=0;k<area.length;k++) {
           const c=area[k],d=area[(k+1)%area.length],den=(b[0]-a[0])*(d[1]-c[1])-(b[1]-a[1])*(d[0]-c[0]);
           if(Math.abs(den)<1e-12 || !intersects(a,b,c,d)) continue;
-          cuts.push(((c[0]-a[0])*(d[1]-c[1])-(c[1]-a[1])*(d[0]-c[0]))/den);
+          const t=((c[0]-a[0])*(d[1]-c[1])-(c[1]-a[1])*(d[0]-c[0]))/den;
+          const u=((c[0]-a[0])*(b[1]-a[1])-(c[1]-a[1])*(b[0]-a[0]))/den;
+          // Tolerant contact can include line extensions; cuts must lie on both finite segments.
+          if(t>=0 && t<=1 && u>=0 && u<=1) cuts.push(t);
         }
         cuts.sort((a,b)=>a-b);
         if(!options.allowUnsafeGeometry) for(let k=1;k<cuts.length;k++) {const t=(cuts[k-1]+cuts[k])/2; if(areas.length && !areas.some(poly=>contains([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t],poly))) fail(p,'edge crosses outside navigable areas');}

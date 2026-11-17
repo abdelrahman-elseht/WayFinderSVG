@@ -30,6 +30,63 @@ export interface Provenance {
   note: string;
   status: EvidenceStatus;
 }
+/** Administrator review of drawing placement; never field/accessibility certification. */
+export interface AdminDrawingReview {
+  kind: 'admin-drawing-review';
+  sourceReference: string;
+  note: string;
+  status: 'candidate';
+  accessibility: 'unknown';
+}
+/** Transaction deltas accepted by both floor workers, not persisted audit records. */
+export interface NavigationAuthoringEdits {
+  navigableAreaEdits?: {
+    id: string;
+    operation: 'add' | 'subtract';
+    polygon: Point[];
+    sourceReference: string;
+    note: string;
+  }[];
+  addedNodes?: {
+    id: string;
+    buildingId: 'B03';
+    floorId: 'GF' | '01';
+    point: Point;
+    type: 'junction' | 'entrance';
+    roomId?: string;
+    status: 'candidate';
+    sourceReference: string;
+    note: string;
+  }[];
+  roomEntryBindings?: {
+    roomId: string;
+    nodeId: string;
+    sourceReference: string;
+    note: string;
+  }[];
+  edgeGeometryEdits?: Record<string, {
+    geometry: Point[];
+    sourceReference: string;
+    note: string;
+  }>;
+}
+export interface AdminNavigableAreaEdit {
+  id: string;
+  operation: 'add' | 'subtract';
+  polygon: Point[];
+  sourceReference: string;
+  note: string;
+  review: AdminDrawingReview;
+}
+export interface AdminEdgeGeometryEdit {
+  edgeId: string;
+  before: NavigationEdge;
+  geometry: Point[];
+  kind: 'admin-drawing-review';
+  status: 'candidate';
+  accessibility: 'unknown';
+  review: AdminDrawingReview;
+}
 export interface Room {
   id: string;
   code: string;
@@ -53,6 +110,13 @@ export interface Room {
   navigationNote?: Localized;
   /** True when the supplied plan does not cover the final connection to this destination. */
   navigationPartial?: boolean;
+  /** Prior endpoint qualifications retained when an admin binds a reviewed candidate approach. */
+  adminEndpointHistory?: {
+    doorNodeId: string | null;
+    navigationNote?: Localized;
+    navigationPartial?: boolean;
+    review: AdminDrawingReview;
+  }[];
   /** Optional operational availability; omission preserves the legacy available default. */
   availability?: RoomAvailability;
   public: boolean;
@@ -100,6 +164,7 @@ export interface NavigationNode {
   type: NodeType;
   roomId?: string;
   status: EvidenceStatus;
+  adminReview?: AdminDrawingReview;
 }
 export interface NavigationEdge {
   id: string;
@@ -123,6 +188,13 @@ export interface NavigationGraph {
   metersPerUnit: number | null;
   calibrationStatus: EvidenceStatus;
   navigableAreas: Point[][];
+  /** Optional publication audit metadata; canonical source evidence remains separate. */
+  adminAuthoring?: {
+    originalNavigableAreas: Point[][];
+    navigableAreaEdits: AdminNavigableAreaEdit[];
+    addedNodes: NavigationNode[];
+    edgeGeometryEdits: AdminEdgeGeometryEdit[];
+  };
   walls: [Point, Point][];
   status: EvidenceStatus;
 }

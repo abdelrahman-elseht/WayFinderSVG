@@ -10,12 +10,12 @@ from shapely.ops import unary_union, nearest_points
 from shapely import contains_xy, covers, linestrings, constrained_delaunay_triangles, set_precision
 
 
-def simplify_graph(graph):
+def simplify_graph(graph, protected_node_ids=()):
     """Contract only unreferenced degree-two junctions without changing routes."""
     result = json.loads(json.dumps(graph))
     nodes = {node['id']: node for node in result['nodes']}
     edges = {edge['id']: edge for edge in result['edges']}
-    protected = {node['id'] for node in result['nodes'] if node.get('roomId')}
+    protected = set(protected_node_ids) | {node['id'] for node in result['nodes'] if node.get('roomId')}
     degree = defaultdict(list)
 
     def rebuild_degree():

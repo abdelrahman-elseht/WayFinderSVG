@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { adminAuthorized, adminDenied } from '../../../../lib/admin-auth';
+import { navigationStorePath } from '../../../../lib/navigation-store';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,6 +28,7 @@ async function worker(floorId: FloorId, payload: unknown) {
       if (!existsSync(script)) { reject(new Error(`Admin editor worker is unavailable for floor ${floorId}`)); return; }
       const child = spawn(executable, [script], {
         cwd: root, shell: false, windowsHide: true, stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, WAYFINDING_NAVIGATION_STORE: navigationStorePath('GF') },
       });
       let output = '', error = '';
       const timer = setTimeout(() => { child.kill(); reject(new Error('Reconstruction timed out; check recovery journal before retrying a save.')); }, 240_000);
@@ -90,5 +92,8 @@ export async function POST(request: Request) {
     const floorId = (payload as Record<string, unknown>).floorId as FloorId;
     return json(await worker(floorId, payload));
   }
-  catch (error) { return json({ error: error instanceof Error ? error.message : String(error) }, 422); }
+  catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    return json({ error: message }, /revision changed|Source changed|Source revision/i.test(message) ? 409 : 422);
+  }
 }
