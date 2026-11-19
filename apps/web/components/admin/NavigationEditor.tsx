@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import { memo, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent } from 'react';
 import type { NavigationGraph, Point, RouteResult } from '@wayfinding/map-engine';
 import { findRoute } from '@wayfinding/routing';
 import { controls, deleteControls, exportConfig, graphEditPayload, HANDLE_DRAG_THRESHOLD, inside, mergeGraphNodes, mergeSourceLinks, moveGraphNodes, pickHandles, pointSegmentDistance, propagateSourceLinks, rectangleSelection, selectHandle, selectionStats, translateSelection, type AddedGraphEdge, type CoincidenceMember, type Control, type NodeMerges, type NodeMoves, type Report, type Session, type Settings, type Spine } from './editor-model';
@@ -10,6 +10,7 @@ import './editor.css';
 type Layer = { name: string; visible: boolean; locked: boolean; selectable: boolean; color: string };
 type Mode = 'Select' | 'Multi-select' | 'Move' | 'Lasso' | 'Draw corridor' | 'Add source control' | 'Measure clearance' | 'Add junction' | 'Add room entry' | 'Draw walkable mask' | 'Edit edge bends';
 type Frame = { spines: Spine[]; nodeMoves: NodeMoves; deletedNodes: string[]; addedEdges: AddedGraphEdge[]; nodeMerges?: NodeMerges; authoring?: AuthoringEdits; label: string };
+const emptyFrame = { spines: [] as Spine[], nodeMoves: {} as NodeMoves, deletedNodes: [] as string[], addedEdges: [] as AddedGraphEdge[], nodeMerges: {} as NodeMerges, authoring: emptyAuthoringEdits(), label: 'Empty draft' } satisfies Frame;
 type Gesture = { kind: 'move' | 'box' | 'lasso' | 'pan'; start: Point; current: Point; path: Point[]; selected: Set<string>; nodes: Set<string>; view: number[]; additive: boolean };
 const layerDefaults: Layer[] = [
   { name: 'Room entrances', color: '#c97525', visible: true, locked: false, selectable: true },
@@ -28,6 +29,42 @@ const sourceLabel = (reference: string) => reference.endsWith('/master.svg') ? '
   : reference.endsWith('/alignment.json') ? 'Floor source alignment'
   : reference.includes('#/corridorSpines/') ? `Corridor spine ${reference.split('/').at(-1)}`
   : reference.split('/').slice(-2).join('/');
+
+// Keep the native select's keyboard behavior without mounting the entire source pack.
+const SOURCE_PAGE_SIZE = 98;
+export const SourceEvidencePicker = memo(function SourceEvidencePicker({ references, value, onChange, disabled, language }: {
+  references: string[]; value: string; onChange: (value: string) => void; disabled: boolean; language: 'en' | 'ar';
+}) {
+  const [query, setQuery] = useState('');
+  const [page, setPage] = useState(0);
+  const ar = language === 'ar';
+  const matches = useMemo(() => {
+    const search = query.trim().toLowerCase();
+    return search ? references.filter(reference => reference.toLowerCase().includes(search) || sourceLabel(reference).toLowerCase().includes(search)) : references;
+  }, [references, query]);
+  const lastPage = Math.max(0, Math.ceil(matches.length / SOURCE_PAGE_SIZE) - 1);
+  const currentPage = Math.min(page, lastPage);
+  const visible = matches.slice(currentPage * SOURCE_PAGE_SIZE, (currentPage + 1) * SOURCE_PAGE_SIZE);
+  // An edited/restored reference must remain selected, even outside this search/page.
+  const options = value && !visible.includes(value) ? [value, ...visible] : visible;
+  return <div dir={ar ? 'rtl' : 'ltr'} aria-label={ar ? 'اختيار دليل المصدر' : 'Source evidence picker'}>
+    <label>{ar ? 'البحث في أدلة المصدر' : 'Search source evidence'}<input type="search" dir="ltr" value={query} disabled={disabled} onChange={event => { setQuery(event.target.value); setPage(0); }} onKeyDown={event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const exact = matches.find(reference => reference === query.trim());
+        if (exact || matches.length === 1) onChange(exact || matches[0]);
+      }
+      if (event.key === 'Escape') { event.preventDefault(); setQuery(''); setPage(0); }
+    }} /></label>
+    <label>{ar ? 'مرجع مصدر التحرير' : 'Authoring source reference'}<select dir="ltr" value={value} disabled={disabled} onChange={event => onChange(event.target.value)}>
+      <option value="">{ar ? 'اختر دليلاً من مخطط الطابق' : 'Choose supplied floor evidence'}</option>
+      {options.map(reference => <option title={reference} value={reference} key={reference}>{sourceLabel(reference)} - {reference}</option>)}
+    </select></label>
+    <p className="muted" aria-live="polite">{ar ? `نتائج البحث: ${matches.length} من ${references.length}. الصفحة ${currentPage + 1} من ${lastPage + 1}.` : `${matches.length} of ${references.length} references. Page ${currentPage + 1} of ${lastPage + 1}.`}</p>
+    <div className="button-pair"><button type="button" disabled={disabled || currentPage === 0} onClick={() => setPage(currentPage - 1)}>{ar ? 'الأدلة السابقة' : 'Previous evidence page'}</button><button type="button" disabled={disabled || currentPage === lastPage} onClick={() => setPage(currentPage + 1)}>{ar ? 'الأدلة التالية' : 'Next evidence page'}</button></div>
+    {value && <><code dir="ltr" style={{ display: 'block', overflowWrap: 'anywhere' }}>{value}</code><button type="button" disabled={disabled} onClick={() => onChange('')}>{ar ? 'مسح الدليل المحدد' : 'Clear selected evidence'}</button></>}
+  </div>;
+});
 async function api(floorId: 'GF' | '01', action: string, body: Record<string, unknown>) {
   const response = await fetch('/api/admin/navigation', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Navigation-Editor': '1' }, body: JSON.stringify({ floorId, action, ...body }) });
   const result = await response.json();
@@ -49,7 +86,7 @@ const Architecture = memo(function Architecture({ session, layers, hideAreas = f
   const [x, y, width, height] = session.floor.floor.viewBox;
   return <g pointerEvents="none">
     <image href={session.floor.floor.mapAsset} x={x} y={y} width={width} height={height} preserveAspectRatio="none" opacity=".68" />
-    {layers[6].visible && !hideAreas && session.graph.navigableAreas.map((ring, i) => <polygon key={i} points={pointsString(ring)} fill={layers[6].color} fillOpacity=".13" stroke={layers[6].color} strokeWidth=".45" />)}
+    {layers[6].visible && !hideAreas && session.graph.navigableAreas.map((ring, i) => <polygon key={i} points={pointsString(ring)} fill={layers[6].color} fillOpacity=".13" stroke="none" />)}
     {layers[4].visible && session.floor.rooms.map(room => { const polygon = room.polygon || room.displayFootprint?.polygon; return polygon ? <polygon key={room.id} points={pointsString(polygon)} fill={layers[4].color} fillOpacity=".12" stroke={layers[4].color} strokeWidth=".8" /> : null; })}
     {layers[7].visible && <path d={session.graph.walls.map(([a, b]) => `M${a}L${b}`).join('')} fill="none" stroke={layers[7].color} strokeWidth=".8" />}
   </g>;
@@ -90,19 +127,27 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const [selectedMask, setSelectedMask] = useState('');
   const [editingMaskId, setEditingMaskId] = useState('');
   const [authorSource, setAuthorSource] = useState(''), [authorNote, setAuthorNote] = useState('');
+  const [maskError, setMaskError] = useState('');
+  const [reviewFocus, setReviewFocus] = useState<'source' | 'note' | null>(null);
+  const authoringPanel = useRef<HTMLElement>(null), completedMaskPoints = useRef<Point[] | null>(null);
+  useEffect(() => {
+    if (!reviewFocus || !leftPanelOpen) return;
+    const field = authoringPanel.current?.querySelector<HTMLElement>(reviewFocus === 'source' ? 'select' : 'textarea');
+    field?.scrollIntoView?.({ block: 'nearest', behavior: 'instant' });
+    field?.focus();
+    setReviewFocus(null);
+  }, [reviewFocus, leftPanelOpen]);
   const [entryRoom, setEntryRoom] = useState('');
   const [bendPoints, setBendPoints] = useState<Point[] | null>(null);
   const [bendEdgeId, setBendEdgeId] = useState('');
   const floor01 = floorId === '01';
   const graphEditing = true;
-  const spines = frames[cursor]?.spines || [];
-  const nodeMoves = frames[cursor]?.nodeMoves || {};
-  const deletedNodes = frames[cursor]?.deletedNodes || [];
-  const addedEdges = frames[cursor]?.addedEdges || [];
-  const nodeMerges = frames[cursor]?.nodeMerges || {};
-  const authored = frames[cursor]?.authoring || emptyAuthoringEdits();
+  const frame = frames[cursor] || emptyFrame;
+  const { spines, nodeMoves, deletedNodes, addedEdges } = frame;
+  const nodeMerges = frame.nodeMerges || emptyFrame.nodeMerges;
+  const authored = frame.authoring || emptyFrame.authoring;
   const unfinishedDrawing = maskPoints.length > 0 || bendPoints !== null;
-  const sourceReferences = session?.authoringSourceReferences || [...new Set(session?.spines.flatMap(spine => spine.sourceReferences) || [])];
+  const sourceReferences = useMemo(() => session?.authoringSourceReferences || [...new Set(session?.spines.flatMap(spine => spine.sourceReferences) || [])], [session?.authoringSourceReferences, session?.spines]);
   const deletedNodeSet = new Set(deletedNodes);
   const draftKey = JSON.stringify({ spines, nodeMoves, deletedNodes, addedEdges, nodeMerges, authored, settings });
   const sourceChanged = session ? JSON.stringify(spines) !== JSON.stringify(session.spines) : false;
@@ -110,36 +155,45 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const editable = layers[1].visible && !layers[1].locked && layers[1].selectable;
   const editableIds = new Set(controls(spines).filter(c => editable).map(c => c.id));
   const delta: Point = gesture?.kind === 'move' ? [gesture.current[0] - gesture.start[0], gesture.current[1] - gesture.start[1]] : [0, 0];
-  // Keep draft IDs and coordinates anchored to the loaded session, even after reconstruction.
-  const baseGraph = session ? { ...session.graph, nodes: [...session.graph.nodes, ...authored.addedNodes] } : undefined;
   const rawEvidence = session?.evidence;
-  const positionedGraph = baseGraph && session ? moveGraphNodes(propagateSourceLinks(baseGraph, session.spines, spines, rawEvidence || []), nodeMoves) : baseGraph;
-  const currentGraph = positionedGraph ? mergeGraphNodes(positionedGraph, nodeMerges, false).graph : positionedGraph;
-  const movement = gesture?.kind === 'move' ? translateSelection(spines, currentGraph, nodeMoves, gesture.selected, gesture.nodes, delta, grid) : { spines, nodeMoves };
+  // View/inspector changes and live drags must not rebuild the committed graph.
+  const { baseGraph, currentGraph } = useMemo(() => {
+    // Keep draft IDs and coordinates anchored to the loaded session, even after reconstruction.
+    const baseGraph = session ? { ...session.graph, nodes: [...session.graph.nodes, ...authored.addedNodes] } : undefined;
+    const positionedGraph = baseGraph && session ? moveGraphNodes(propagateSourceLinks(baseGraph, session.spines, spines, rawEvidence || []), nodeMoves) : baseGraph;
+    return { baseGraph, currentGraph: positionedGraph ? mergeGraphNodes(positionedGraph, nodeMerges, false).graph : positionedGraph };
+  }, [session, authored.addedNodes, spines, rawEvidence, nodeMoves, nodeMerges]);
+  const movement = useMemo(() => gesture?.kind === 'move'
+    ? translateSelection(spines, currentGraph, nodeMoves, gesture.selected, gesture.nodes, [gesture.current[0] - gesture.start[0], gesture.current[1] - gesture.start[1]], grid)
+    : { spines, nodeMoves }, [spines, currentGraph, nodeMoves, gesture, grid]);
   const preview = movement.spines;
   const selected = controls(preview).filter(c => selection.has(c.id));
   const stats = selectionStats(selected);
-  const sourceGraph = baseGraph && session ? propagateSourceLinks(baseGraph, session.spines, preview, rawEvidence || []) : baseGraph;
-  const propagatedMoves = baseGraph && sourceGraph ? Object.fromEntries(sourceGraph.nodes.filter(node => baseGraph.nodes.find(original => original.id === node.id)?.point.some((value, index) => value !== node.point[index])).map(node => [node.id, node.point])) : {};
-  const movedGraph = sourceGraph ? moveGraphNodes(sourceGraph, { ...propagatedMoves, ...movement.nodeMoves }) : undefined;
-  const unmergedGraph = movedGraph ? {
-    ...movedGraph,
-    nodes: movedGraph.nodes.filter(n => !deletedNodeSet.has(n.id)),
-    edges: [
-      ...movedGraph.edges.filter(e => !deletedNodeSet.has(e.from) && !deletedNodeSet.has(e.to)),
-      ...addedEdges.flatMap(edge => {
-        const from = movedGraph.nodes.find(n => n.id === edge.from), to = movedGraph.nodes.find(n => n.id === edge.to);
-        return from && to && !deletedNodeSet.has(from.id) && !deletedNodeSet.has(to.id)
-          ? [{ ...edge, geometry: [from.point, to.point], distance: Math.hypot(to.point[0] - from.point[0], to.point[1] - from.point[1]) }]
-          : [];
-      }),
-    ],
-  } : undefined;
-  const merged = unmergedGraph ? mergeGraphNodes(unmergedGraph, Object.fromEntries(Object.entries(nodeMerges).filter(([from, to]) => !deletedNodeSet.has(from) && !deletedNodeSet.has(to))), false) : undefined;
-  const graph = merged ? applyEdgeGeometryEdits(merged.graph, anchoredEdgeGeometryEdits(merged.graph, authored.edgeGeometryEdits)) : undefined;
+  const { propagatedMoves, unmergedGraph, graph, evidence } = useMemo(() => {
+    const deletedNodeSet = new Set(deletedNodes);
+    const sourceGraph = baseGraph && session ? propagateSourceLinks(baseGraph, session.spines, preview, rawEvidence || []) : baseGraph;
+    const propagatedMoves = baseGraph && sourceGraph ? Object.fromEntries(sourceGraph.nodes.filter(node => baseGraph.nodes.find(original => original.id === node.id)?.point.some((value, index) => value !== node.point[index])).map(node => [node.id, node.point])) : {};
+    const movedGraph = sourceGraph ? moveGraphNodes(sourceGraph, { ...propagatedMoves, ...movement.nodeMoves }) : undefined;
+    const unmergedGraph = movedGraph ? {
+      ...movedGraph,
+      nodes: movedGraph.nodes.filter(n => !deletedNodeSet.has(n.id)),
+      edges: [
+        ...movedGraph.edges.filter(e => !deletedNodeSet.has(e.from) && !deletedNodeSet.has(e.to)),
+        ...addedEdges.flatMap(edge => {
+          const from = movedGraph.nodes.find(n => n.id === edge.from), to = movedGraph.nodes.find(n => n.id === edge.to);
+          return from && to && !deletedNodeSet.has(from.id) && !deletedNodeSet.has(to.id)
+            ? [{ ...edge, geometry: [from.point, to.point], distance: Math.hypot(to.point[0] - from.point[0], to.point[1] - from.point[1]) }]
+            : [];
+        }),
+      ],
+    } : undefined;
+    const merged = unmergedGraph ? mergeGraphNodes(unmergedGraph, Object.fromEntries(Object.entries(nodeMerges).filter(([from, to]) => !deletedNodeSet.has(from) && !deletedNodeSet.has(to))), false) : undefined;
+    const graph = merged ? applyEdgeGeometryEdits(merged.graph, anchoredEdgeGeometryEdits(merged.graph, authored.edgeGeometryEdits)) : undefined;
+    const evidence = merged ? mergeSourceLinks(rawEvidence || [], merged.edgeIds) : rawEvidence;
+    return { propagatedMoves, unmergedGraph, graph, evidence };
+  }, [baseGraph, session, preview, rawEvidence, movement.nodeMoves, deletedNodes, addedEdges, nodeMerges, authored.edgeGeometryEdits]);
   const draftFloor = session ? applyRoomEntryBindings(session.floor, authored.roomEntryBindings) : undefined;
   const pendingNodeIds = new Set(authored.addedNodes.map(node => node.id));
-  const evidence = merged ? mergeSourceLinks(rawEvidence || [], merged.edgeIds) : rawEvidence;
   const isGraphCurrent = !changed || (reportKey === draftKey && !!report?.graph);
   const edge = graph?.edges.find(e => e.id === inspect), node = graph?.nodes.find(n => n.id === inspect);
   const edgeEvidence = evidence?.find(e => e.edgeId === inspect);
@@ -212,7 +266,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     setSelection(new Set()); setNodeSelection(new Set()); setInspect(null);
     if (endpoints.length) setMessage(`Source endpoints retained: ${endpoints.map(c => c.id).join(', ')}. Endpoints can move but cannot be deleted; only selected interior controls and eligible graph nodes were removed.`);
   }
-  function cancelDrawing() { setMaskPoints([]); setEditingMaskId(''); setBendPoints(null); setBendEdgeId(''); setMode('Select'); }
+  function cancelDrawing() { setMaskPoints([]); setMaskError(''); setEditingMaskId(''); setBendPoints(null); setBendEdgeId(''); setMode('Select'); }
   function chooseTool(tool: Mode) {
     if (unfinishedDrawing) { setMessage('Finish or cancel the active drawing before choosing another tool.'); return; }
     cancelDrawing(); setMode(tool);
@@ -247,16 +301,19 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   }
   async function run(action: 'reconstruct' | 'preview' | 'draft' | 'save' | 'candidate') {
     if (!session || busy) return;
-    if (unfinishedDrawing) { setMessage('Finish or cancel the active polygon/bend drawing before previewing or saving.'); return; }
+    if (bendPoints !== null) { setMessage('Finish or cancel the active polygon/bend drawing before previewing or saving.'); return; }
+    const requestAuthoring = mode === 'Draw walkable mask' || maskPoints.length ? finishMask() : authored;
+    if (!requestAuthoring) return;
+    const requestKey = JSON.stringify({ spines, nodeMoves, deletedNodes, addedEdges, nodeMerges, authored: requestAuthoring, settings });
     setBusy(true); setMessage(action === 'preview' ? 'Generating an isolated admin preview; checks will be reported but will not block the preview...' : action === 'draft' ? 'Saving visual preview draft only...' : 'Reconstructing and validating source spines...');
     try {
       const mergeMoves = Object.fromEntries(Object.entries(nodeMerges).flatMap(([id, target]) => {
         const point = graph?.nodes.find(node => node.id === target)?.point;
         return point ? [[id, point]] : [];
       }));
-      const pendingIds = new Set(authored.addedNodes.map(node => node.id));
+      const pendingIds = new Set(requestAuthoring.addedNodes.map(node => node.id));
       const existingMoves = Object.fromEntries(Object.entries({ ...nodeMoves, ...mergeMoves }).filter(([id]) => !pendingIds.has(id)));
-      const response = await api(floorId, action, { revision: session.revision, spines, ...graphEditPayload(existingMoves, Object.fromEntries(Object.entries(propagatedMoves).filter(([id]) => !pendingIds.has(id)))), deletedNodes, addedEdges, nodeMerges, ...authoringPayload(authored, nodeMoves), edgeGeometryEdits: unmergedGraph ? anchoredEdgeGeometryEdits(unmergedGraph, authored.edgeGeometryEdits) : authored.edgeGeometryEdits, settings });
+      const response = await api(floorId, action, { revision: session.revision, spines, ...graphEditPayload(existingMoves, Object.fromEntries(Object.entries(propagatedMoves).filter(([id]) => !pendingIds.has(id)))), deletedNodes, addedEdges, nodeMerges, ...authoringPayload(requestAuthoring, nodeMoves), edgeGeometryEdits: unmergedGraph ? anchoredEdgeGeometryEdits(unmergedGraph, requestAuthoring.edgeGeometryEdits) : requestAuthoring.edgeGeometryEdits, settings });
       const result: Report = {
         ...response,
         valid: response.valid ?? !!response.saved,
@@ -273,7 +330,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
         changes: response.changes || [],
         errors: response.errors || [],
       };
-      setReport(result); setReportKey(draftKey);
+      setReport(result); setReportKey(requestKey);
       if (action !== 'draft') setLive(result);
       const rejected = result.diagnostics.filter(d => d.changed && d.tests && !d.tests.safe).map(d => d.id);
       const details = [
@@ -393,15 +450,27 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     setSelection(new Set()); setNodeSelection(new Set([created.id])); setInspect(created.id); setMode('Select');
     setMessage(roomId ? 'Candidate room approach placed. Select it and a corridor junction, then Connect nodes before saving. Physical access and wheelchair accessibility remain unknown.' : 'Candidate junction placed. Select it and another graph node to connect; no automatic links or accessibility claims are added.');
   }
-  function finishMask() {
-    if (!reviewReady()) return;
-    if (maskPoints.length < 3 || maskPoints.length > 256 || !maskPoints.every(point => point.every(Number.isFinite))) { setMessage('A walkable mask needs 3-256 finite polygon vertices.'); return; }
-    const area = maskPoints.reduce((sum, point, i) => { const next = maskPoints[(i + 1) % maskPoints.length]; return sum + point[0] * next[1] - next[0] * point[1]; }, 0);
-    if (Math.abs(area) < 1e-9) { setMessage('The mask polygon must enclose a non-zero area.'); return; }
-    const mask: NavigableAreaEdit = { id: editingMaskId || `B03-${floorId}-mask-${crypto.randomUUID().replaceAll('-', '')}`, operation: maskOperation, polygon: maskPoints.map(point => [...point] as Point), sourceReference: authorSource, note: authorNote.trim() };
-    commitAuthoring({ ...authored, navigableAreaEdits: editingMaskId ? authored.navigableAreaEdits.map(item => item.id === editingMaskId ? mask : item) : [...authored.navigableAreaEdits, mask] }, `${maskOperation === 'add' ? 'Add' : 'Subtract'} candidate walkable mask`);
+  function finishMask(): AuthoringEdits | null {
+    if (busy || mode !== 'Draw walkable mask' || completedMaskPoints.current === maskPoints) return null;
+    const fail = (error: string, field?: 'source' | 'note') => {
+      setMaskError(error); setMessage(error);
+      if (field) { setLeftPanelOpen(true); setReviewFocus(field); }
+      return null;
+    };
+    const polygon = maskPoints.filter((point, index) => !index || point[0] !== maskPoints[index - 1][0] || point[1] !== maskPoints[index - 1][1]);
+    if (polygon.length > 1 && polygon[0][0] === polygon.at(-1)![0] && polygon[0][1] === polygon.at(-1)![1]) polygon.pop();
+    if (polygon.length < 3 || polygon.length > 256 || !polygon.every(point => point.every(Number.isFinite))) return fail(t('A walkable mask needs 3-256 finite polygon vertices.', 'يحتاج قناع المشي إلى 3-256 رأس مضلع بإحداثيات محدودة.'));
+    const area = polygon.reduce((sum, point, i) => { const next = polygon[(i + 1) % polygon.length]; return sum + point[0] * next[1] - next[0] * point[1]; }, 0);
+    if (Math.abs(area) < 1e-9) return fail(t('The mask polygon must enclose a non-zero area.', 'يجب أن يحيط مضلع القناع بمساحة غير صفرية.'));
+    if (!sourceReferences.includes(authorSource)) return fail(t('Choose supplied floor source evidence for this walkable mask.', 'اختر دليل مصدر الطابق المتاح لقناع المشي.'), 'source');
+    if (!authorNote.trim() || authorNote.trim().length > 2000) return fail(t('Enter an authoring review note (1-2000 characters) for this walkable mask.', 'أدخل ملاحظة مراجعة التحرير (1-2000 حرف) لقناع المشي.'), 'note');
+    const mask: NavigableAreaEdit = { id: editingMaskId || `B03-${floorId}-mask-${crypto.randomUUID().replaceAll('-', '')}`, operation: maskOperation, polygon: polygon.map(point => [...point] as Point), sourceReference: authorSource, note: authorNote.trim() };
+    const next = { ...authored, navigableAreaEdits: editingMaskId ? authored.navigableAreaEdits.map(item => item.id === editingMaskId ? mask : item) : [...authored.navigableAreaEdits, mask] };
+    completedMaskPoints.current = maskPoints;
+    commitAuthoring(next, `${maskOperation === 'add' ? 'Add' : 'Subtract'} candidate walkable mask`);
     setSelectedMask(mask.id); cancelDrawing();
     setMessage('Walkable mask added to the draft with candidate/unknown review provenance. Run in admin checks the area union; supplied walls and room/void exclusions remain protected.');
+    return next;
   }
   function beginBends() {
     if (!edge || busy) return;
@@ -430,6 +499,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const shortcuts = useRef<(e: KeyboardEvent) => void>(() => {});
   shortcuts.current = event => {
     if ((event.target as HTMLElement)?.closest('input,select,textarea,button')) return;
+    if (event.key === 'Enter' && mode === 'Draw walkable mask') { event.preventDefault(); if (!busy) finishMask(); return; }
     if (event.code === 'Space') { event.preventDefault(); space.current = true; }
     const ctrl = event.ctrlKey || event.metaKey;
     if (ctrl && ['z', 'y', 'a', 's'].includes(event.key.toLowerCase())) {
@@ -467,7 +537,18 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     const additive = event.shiftKey || event.ctrlKey || event.metaKey || mode === 'Multi-select';
     if (mode === 'Draw corridor' && !space.current && event.button === 0) { setDrawPoints([...drawPoints, point]); return; }
     if (!space.current && event.button === 0) {
-      if (mode === 'Draw walkable mask') { if (maskPoints.length < 256) setMaskPoints([...maskPoints, point]); return; }
+      if (mode === 'Draw walkable mask') {
+        const matrix = svg.current?.getScreenCTM();
+        const first = maskPoints[0];
+        if (matrix && first && maskPoints.length >= 3 && Math.hypot(
+          matrix.a * first[0] + matrix.c * first[1] + matrix.e - event.clientX,
+          matrix.b * first[0] + matrix.d * first[1] + matrix.f - event.clientY,
+        ) <= 10) { event.preventDefault(); finishMask(); return; }
+        const last = maskPoints.at(-1);
+        // A double-click's second pointerdown is not a second polygon vertex.
+        if (maskPoints.length < 256 && (!last || last[0] !== point[0] || last[1] !== point[1])) setMaskPoints([...maskPoints, point]);
+        return;
+      }
       if (mode === 'Add junction' || mode === 'Add room entry') { createNode(point); return; }
       if (mode === 'Edit edge bends' && bendPoints) {
         let segment = 0, distance = Infinity;
@@ -565,7 +646,9 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const wallOverlay = showNearbyWalls ? selectedDiagnostic?.flatMap(d => d.nearbyWallIndices.map(index => ({
     index, wall: session?.graph.walls[index], contact: d.tests?.wallIndices.includes(index) ?? false,
   }))) || [] : [];
-  const selectedNodeWalls = node && session ? Math.min(...session.graph.walls.map(([a, b]) => pointSegmentDistance(node.point, a, b))) : undefined;
+  const selectedNodeWalls = useMemo(() => node && session
+    ? Math.min(...session.graph.walls.map(([a, b]) => pointSegmentDistance(node.point, a, b)))
+    : undefined, [node, session]);
   const sourceAnchors = [...controls(spines).map(c => ({ id: c.id, point: c.point })), ...(session?.graph.nodes.filter(n => n.roomId).map(n => ({ id: n.id, point: n.point })) || [])];
   function addConnection() {
     const a = sourceAnchors.find(n => n.id === connectionStart), b = sourceAnchors.find(n => n.id === connectionEnd);
@@ -591,9 +674,16 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
       <button onClick={connectSelectedNodes} disabled={selectedNodeIds.size !== 2 || busy}>{t('Connect nodes', 'وصل عقدتين')}</button>
       <button onClick={mergeSelectedNodes} disabled={selectedNodeIds.size < 2 || busy}>{t('Merge nodes', 'دمج العقد')}</button>
       <button onClick={undo} disabled={!cursor || busy}>Undo</button><button onClick={redo} disabled={cursor >= frames.length - 1 || busy}>Redo</button>
-      <button onClick={() => void run('draft')} disabled={busy || !changed}>Save preview draft</button><button onClick={() => void run('preview')} disabled={busy}>Run in admin</button>
+      <button onClick={() => void run('draft')} disabled={busy || (!changed && !maskPoints.length)}>Save preview draft</button><button onClick={() => void run('preview')} disabled={busy}>Run in admin</button>
       <button className="primary" onClick={() => void saveReview()} disabled={busy}>Save and publish</button>
     </nav>
+    {mode === 'Draw walkable mask' && <section className="editor-drawing-bar" aria-label={t('Walkable mask drawing controls', 'أدوات رسم قناع المشي')}>
+      <strong aria-live="polite">{t(`Pending drawing: ${maskPoints.length} mask vertices`, `رسم معلق: ${maskPoints.length} رؤوس للقناع`)}</strong>
+      <span>{t('Finish here, or save/preview to finish and include this mask.', 'أنهِ الرسم هنا أو احفظ/عاين لإنهاء القناع وتضمينه.')}</span>
+      <button type="button" disabled={busy} onClick={() => { finishMask(); }}>{t('Finish walkable mask', 'إنهاء قناع المشي')}</button>
+      <button type="button" disabled={busy} onClick={cancelDrawing}>{t('Cancel mask', 'إلغاء القناع')}</button>
+      {maskError && <p className="editor-drawing-error" role="alert">{maskError}</p>}
+    </section>}
     <div className={`editor-workspace${leftPanelOpen ? '' : ' left-collapsed'}${rightPanelOpen ? '' : ' right-collapsed'}`}>
       <aside className={`editor-left${leftPanelOpen ? '' : ' collapsed'}`} aria-label="Navigation layers">
         <button className="panel-toggle" type="button" aria-expanded={leftPanelOpen} aria-controls="navigation-layers-panel" onClick={() => setLeftPanelOpen(open => !open)}>{leftPanelOpen ? '‹' : '›'}<span className="panel-toggle-label">{leftPanelOpen ? 'Collapse layers' : 'Expand layers'}</span></button>
@@ -613,10 +703,10 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
         <div className="button-pair"><button onClick={selectAll}>Select filtered</button><button aria-label="Clear selection" onClick={() => { setSelection(new Set()); setNodeSelection(new Set()); setInspect(null); }}>Clear</button></div>
         <button onClick={selectSpine}>Select spine controls</button>
         <button onClick={() => { const owner = spines.find(s => s.id === spineFilter); const edgeIds = evidence?.filter(e => owner && e.sourceSpineIds.includes(owner.index)).map(e => e.edgeId) || []; const nodes = graph?.edges.filter(e => edgeIds.includes(e.id)).flatMap(e => [e.from, e.to]) || []; setMessage(`Derived junctions for ${spineFilter}: ${[...new Set(nodes)].join(', ')}. Edit their source controls to regenerate.`); setInspect(nodes[0] || null); }}>Inspect connected junctions</button>
-        <section className="authoring-tools" aria-label="Candidate geometry authoring">
+        <section ref={authoringPanel} className="authoring-tools" aria-label="Candidate geometry authoring">
           <h2>Candidate geometry authoring</h2>
           <p className="muted">Choose the geometry yourself on the source drawing. All additions remain candidate, with unknown physical and wheelchair access. Mask edits do not remove walls, room solids or void exclusions.</p>
-          <label>Authoring source reference<select value={authorSource} disabled={busy} onChange={event => setAuthorSource(event.target.value)}><option value="">Choose supplied floor evidence</option>{sourceReferences.map(reference => <option title={reference} value={reference} key={reference}>{sourceLabel(reference)}</option>)}</select></label>
+          <SourceEvidencePicker key={floorId} references={sourceReferences} value={authorSource} disabled={busy} language={language} onChange={setAuthorSource} />
           {authorSource && <details><summary>Selected evidence reference</summary><code>{authorSource}</code></details>}
           <label>Authoring review note<textarea value={authorNote} disabled={busy} maxLength={2000} onChange={event => setAuthorNote(event.target.value)} /></label>
           <label>Entry / approach room<select value={entryRoom} disabled={busy} onChange={event => setEntryRoom(event.target.value)}><option value="">Choose room</option>{session.floor.rooms.map(room => <option value={room.id} key={room.id}>{room.code} - {room.name[language]}</option>)}</select></label>
@@ -624,7 +714,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
           {(mode === 'Add junction' || mode === 'Add room entry') && <p role="status">Click the map to place the candidate {mode === 'Add junction' ? 'junction' : 'room approach'}. Select two nodes and Connect nodes afterwards. <button disabled={busy} onClick={cancelDrawing}>Cancel node placement</button></p>}
           <label>Walkable mask operation<select value={maskOperation} disabled={busy} onChange={event => setMaskOperation(event.target.value as 'add' | 'subtract')}><option value="add">Add supported walking area</option><option value="subtract">Subtract walking area</option></select></label>
           <button disabled={busy} onClick={() => chooseTool('Draw walkable mask')}>Start walkable polygon</button>
-          {mode === 'Draw walkable mask' && <div><p>Click map vertices in order, then finish explicitly. {maskPoints.length} mask vertices.</p><ol className="authoring-vertices">{maskPoints.map((point, index) => <li key={index}><span>Vertex {index + 1}</span><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Mask vertex ${index + 1} ${axis ? 'Y' : 'X'}`} type="number" step="any" value={point[axis]} disabled={busy} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); if (Number.isFinite(value)) setMaskPoints(maskPoints.map((old, i) => i === index ? old.map((v, a) => a === axis ? value : v) as Point : old)); }} /></label>)}</div><button disabled={busy} onClick={() => setMaskPoints(maskPoints.filter((_, i) => i !== index))}>Remove vertex {index + 1}</button></li>)}</ol><div className="button-pair"><button disabled={busy || maskPoints.length < 3} onClick={finishMask}>Finish walkable mask</button><button disabled={busy} onClick={cancelDrawing}>Cancel mask</button></div></div>}
+          {mode === 'Draw walkable mask' && <div><p>{t('Click vertices in order. Click the first vertex, double-click the last, press Enter, or use Finish walkable mask to close it.', 'انقر رؤوس المضلع بالترتيب. للإغلاق انقر الرأس الأول أو انقر الأخير مرتين أو اضغط Enter أو زر إنهاء القناع.')} {maskPoints.length} mask vertices.</p><ol className="authoring-vertices">{maskPoints.map((point, index) => <li key={index}><span>Vertex {index + 1}</span><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Mask vertex ${index + 1} ${axis ? 'Y' : 'X'}`} type="number" step="any" value={point[axis]} disabled={busy} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); if (Number.isFinite(value)) setMaskPoints(maskPoints.map((old, i) => i === index ? old.map((v, a) => a === axis ? value : v) as Point : old)); }} /></label>)}</div><button disabled={busy} onClick={() => setMaskPoints(maskPoints.filter((_, i) => i !== index))}>Remove vertex {index + 1}</button></li>)}</ol></div>}
           <label>Draft walkable mask<select value={selectedMask} onChange={event => setSelectedMask(event.target.value)}><option value="">Choose draft mask</option>{authored.navigableAreaEdits.map((mask, index) => <option key={mask.id} value={mask.id}>{index + 1} - {mask.operation} - {mask.polygon.length} vertices</option>)}</select></label>
           <div className="button-pair"><button disabled={busy || unfinishedDrawing || !authored.navigableAreaEdits.some(mask => mask.id === selectedMask)} onClick={() => { const mask = authored.navigableAreaEdits.find(item => item.id === selectedMask); if (!mask) return; cancelDrawing(); setEditingMaskId(mask.id); setMaskPoints(mask.polygon.map(point => [...point] as Point)); setMaskOperation(mask.operation); setAuthorSource(mask.sourceReference); setAuthorNote(mask.note); setMode('Draw walkable mask'); setLayers(current => current.map((layer, index) => index === 6 ? { ...layer, visible: true } : layer)); }}>Edit draft mask</button><button disabled={busy || unfinishedDrawing || !selectedMask} onClick={() => { commitAuthoring({ ...authored, navigableAreaEdits: authored.navigableAreaEdits.filter(mask => mask.id !== selectedMask) }, 'Remove draft walkable mask'); setSelectedMask(''); cancelDrawing(); }}>Remove draft mask</button></div>
           <p className="muted">Draft: {authored.addedNodes.length} nodes, {authored.roomEntryBindings.length} room bindings, {authored.navigableAreaEdits.length} masks, {Object.keys(authored.edgeGeometryEdits).length} edge edits.</p>
@@ -646,13 +736,13 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
         </div>
       </aside>
       <section className="editor-stage" aria-label="Architectural drawing workspace">
-        <div className="canvas-heading"><span>{mode} / {selection.size + nodeSelection.size} selected</span><span>{changed ? 'Unsaved preview edits' : 'Source unchanged'} · {isGraphCurrent ? 'Graph current' : 'Graph preview required'}</span></div>
+        <div className="canvas-heading"><span>{mode} / {selection.size + nodeSelection.size} selected</span><span>{mode === 'Draw walkable mask' ? t(`Pending drawing: ${maskPoints.length} mask vertices`, `رسم معلق: ${maskPoints.length} رؤوس للقناع`) : bendPoints !== null ? t('Pending edge bend drawing', 'رسم انحناءات مسار معلق') : changed ? 'Unsaved preview edits' : 'Source unchanged'} · {isGraphCurrent ? 'Graph current' : 'Graph preview required'}</span></div>
         <div className={split ? 'canvas-pair' : 'canvas-single'}>
           {split && <svg className="original-canvas" aria-label="Original route comparison" viewBox={view.join(' ')}><Architecture session={session} layers={layers} />{session.spines.map(s => <polyline key={s.id} points={pointsString(s.coordinates)} fill="none" stroke="#71828d" strokeWidth="2" />)}{routes && <polyline points={pointsString(routes.original.points)} fill="none" stroke="#c97525" strokeWidth="5" />}<text x={view[0] + 15} y={view[1] + 25} fontSize="18">Original</text></svg>}
-          <svg ref={svg} className="editor-canvas" role="application" aria-label="Navigation graph canvas" tabIndex={0} viewBox={view.join(' ')} onPointerDown={startGesture} onPointerMove={moveGesture} onPointerUp={endGesture} onPointerCancel={() => { gestureRef.current = null; pendingPick.current = null; lastPick.current = null; setGesture(null); }} onWheel={event => { const p = position(event), factor = event.deltaY > 0 ? 1.12 : 1 / 1.12; const width = Math.max(80, Math.min(6200, view[2] * factor)); const ratio = width / view[2]; setView([p[0] - (p[0] - view[0]) * ratio, p[1] - (p[1] - view[1]) * ratio, width, view[3] * ratio]); }}>
+          <svg ref={svg} className="editor-canvas" role="application" aria-label="Navigation graph canvas" tabIndex={0} viewBox={view.join(' ')} onPointerDown={startGesture} onPointerMove={moveGesture} onPointerUp={endGesture} onDoubleClick={event => { if (!busy && mode === 'Draw walkable mask') { event.preventDefault(); finishMask(); } }} onPointerCancel={() => { gestureRef.current = null; pendingPick.current = null; lastPick.current = null; setGesture(null); }} onWheel={event => { const p = position(event), factor = event.deltaY > 0 ? 1.12 : 1 / 1.12; const width = Math.max(80, Math.min(6200, view[2] * factor)); const ratio = width / view[2]; setView([p[0] - (p[0] - view[0]) * ratio, p[1] - (p[1] - view[1]) * ratio, width, view[3] * ratio]); }}>
             <Architecture session={session} layers={layers} hideAreas />
-            {layers[6].visible && <g pointerEvents="none" aria-label="Walkable area preview">{(reportKey === draftKey && report?.graph ? report.graph.navigableAreas : session.graph.navigableAreas).map((ring, i) => <polygon key={`walkable-${i}`} points={pointsString(ring)} fill={layers[6].color} fillOpacity=".13" stroke={layers[6].color} strokeWidth=".45" />)}{authored.navigableAreaEdits.map(mask => <polygon key={mask.id} data-mask={mask.id} points={pointsString(mask.polygon)} fill={mask.operation === 'add' ? '#25804b' : '#cc3b43'} fillOpacity=".15" stroke={selectedMask === mask.id ? '#d98918' : mask.operation === 'add' ? '#25804b' : '#cc3b43'} strokeDasharray="5 3" vectorEffect="non-scaling-stroke"><title>{mask.operation} candidate mask: {mask.note}</title></polygon>)}</g>}
-            {maskPoints.length > 0 && <g pointerEvents="none"><polygon data-testid="active-mask-polygon" points={pointsString(maskPoints)} fill={maskOperation === 'add' ? '#25804b' : '#cc3b43'} fillOpacity=".18" stroke="#d98918" strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />{maskPoints.map((point, index) => <circle key={index} cx={point[0]} cy={point[1]} r={view[2] / 500} fill="#d98918" />)}</g>}
+            {layers[6].visible && <g pointerEvents="none" aria-label="Walkable area preview">{(reportKey === draftKey && report?.graph ? report.graph.navigableAreas : session.graph.navigableAreas).map((ring, i) => <polygon key={`walkable-${i}`} points={pointsString(ring)} fill={layers[6].color} fillOpacity=".13" stroke="none" />)}{authored.navigableAreaEdits.map(mask => <polygon key={mask.id} data-mask={mask.id} points={pointsString(mask.polygon)} fill={mask.operation === 'add' ? '#25804b' : '#cc3b43'} fillOpacity=".15" stroke={selectedMask === mask.id ? '#d98918' : mask.operation === 'add' ? '#25804b' : '#cc3b43'} strokeDasharray="5 3" vectorEffect="non-scaling-stroke"><title>{mask.operation} candidate mask: {mask.note}</title></polygon>)}</g>}
+            {maskPoints.length > 0 && <g pointerEvents="none"><polyline data-testid="active-mask-polygon" points={pointsString(maskPoints)} fill="none" stroke="#d98918" strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />{maskPoints.map((point, index) => <circle key={index} cx={point[0]} cy={point[1]} r={view[2] / 500} fill="#d98918" />)}</g>}
             {bendPoints && <g pointerEvents="none"><polyline data-testid="active-edge-bends" points={pointsString(bendPoints)} fill="none" stroke="#d98918" strokeWidth="3" strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />{bendPoints.map((point, index) => <circle key={index} cx={point[0]} cy={point[1]} r={view[2] / 500} fill={index === 0 || index === bendPoints.length - 1 ? '#007d91' : '#d98918'} />)}</g>}
             {wallOverlay.map(({ index, wall, contact }) => wall ? <line key={`wall-guide-${index}`} x1={wall[0][0]} y1={wall[0][1]} x2={wall[1][0]} y2={wall[1][1]} stroke={contact ? '#ff1738' : '#e58c17'} strokeWidth={contact ? 3 : 1.8} vectorEffect="non-scaling-stroke" pointerEvents="none"><title>{contact ? 'Intersected source wall' : 'Nearby source wall'} · #{index}</title></line> : null)}
             {drawPoints.length > 0 && <polyline points={pointsString(drawPoints)} fill="none" stroke="#d98918" strokeDasharray="4 4" strokeWidth="3" pointerEvents="none" />}

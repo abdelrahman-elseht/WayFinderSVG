@@ -41,6 +41,7 @@ function stableValue(value: unknown): string {
 
 /** Explicit aliases only: proximity never changes graph topology by itself. */
 export function mergeGraphNodes(graph: NavigationGraph, merges: NodeMerges, checkCoincidence = true, protectedIds: Set<string> = new Set()) {
+  if (!Object.keys(merges).length) return { graph, aliases: {}, edgeIds: Object.fromEntries(graph.edges.map(edge => [edge.id, edge.id])) };
   const nodes = new Map(graph.nodes.map(node => [node.id, node]));
   const resolve = (id: string): string => {
     const seen = new Set<string>();
