@@ -8,6 +8,8 @@ import type { Floor, Language, MapFeature, Point, Room, RoomContent } from '@way
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 import { featureBlock, roomBlock, roomFootprint, type MapBlock } from './mapBlocks';
+import { shouldDisplayMapLabel } from './map-label-policy';
+import { RouteEndpointPin } from './RouteEndpointPin';
 
 import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
@@ -87,12 +89,13 @@ export const BlockShape = memo(function BlockShape({ block, center, selected = f
     {block.geometryStatus !== 'confirmed' && <Line points={border} color={forcedColors ? highContrastMapPalette.candidate : selected ? mapPalette.candidateSelected : mapPalette.candidate} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
   </group>;
 });
-function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
+export function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
   const { camera, size } = useThree();
   const [visible, setVisible] = useState<Set<string>>(new Set());
   const signature = useRef('');
   const vector = useMemo(() => new THREE.Vector3(), []);
-  const orderedRooms = useMemo(() => [...rooms].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId)), [rooms, selectedId]);
+  const labelRooms = useMemo(() => rooms.filter(room => shouldDisplayMapLabel(room.id)), [rooms]);
+  const orderedRooms = useMemo(() => [...labelRooms].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId)), [labelRooms, selectedId]);
   const labels = useMemo(() => new Map((contents ?? []).map(item => [item.id, item.presentation?.stickerLabel])), [contents]);
   useFrame(() => {
     const occupied: { x: number; y: number; width: number }[] = []; const next: string[] = [];
@@ -109,34 +112,33 @@ function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: 
     }
     const key = next.join('|'); if (key !== signature.current) { signature.current = key; setVisible(new Set(next)); }
   });
-  return <>{rooms.map(room => { const label = labels.get(room.contentRef)?.[language]?.trim() || room.name[language]; return <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
+  return <>{labelRooms.map(room => { const label = labels.get(room.contentRef)?.[language]?.trim() || room.name[language]; return <Html key={room.id} position={[(room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE]} center zIndexRange={room.id === selectedId ? [30, 20] : [10, 0]}>
     <button type="button" className={`map-label ${selectedId === room.id ? 'selected' : ''} ${visible.has(room.id) ? '' : 'compact-marker'} ${roomFootprint(room) ? 'has-outline' : 'marker-only'}`} tabIndex={-1} aria-label={`${label}, ${room.code}`} title={`${label} · ${room.code}`} aria-pressed={selectedId === room.id} onClick={() => onSelect(room.id)}><span className="map-pin" /><span className="map-label-name">{label}</span><span className="map-label-code">{room.code}</span></button>
   </Html>; })}</>;
 }
 const routeArrowShape = (() => { const shape = new THREE.Shape(); shape.moveTo(.16, 0); shape.lineTo(-.12, -.12); shape.lineTo(-.12, .12); shape.closePath(); return shape; })();
-function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
+export function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
   const points = useMemo(() => route.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [route, center]);
   const endpointPoints = useMemo(() => fullRoute.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [fullRoute, center]);
-  if (points.length < 2) return null;
+  if (endpointPoints.length < 2) return null;
   const routeColor = forcedColors ? highContrastMapPalette.route : mapPalette.route;
-  const destinationColor = forcedColors ? highContrastMapPalette.routeDestination : mapPalette.routeDestination;
   const tip = points.at(-1)!;
   const previous = points.at(-2)!;
-  const tangent = new THREE.Vector2(tip[0] - previous[0], tip[2] - previous[2]);
+  const tangent = tip && previous ? new THREE.Vector2(tip[0] - previous[0], tip[2] - previous[2]) : new THREE.Vector2();
   const angle = Math.atan2(-tangent.y, tangent.x);
   return <group renderOrder={20}>
     {/* Route widths are screen-space pixels so zooming the orthographic camera
         does not make the underlay/core grow or disappear. */}
+    {points.length >= 2 && <>
     <Line points={points} color={forcedColors ? highContrastMapPalette.routeUnderlay : mapPalette.routeUnderlay} lineWidth={10} worldUnits={false} depthTest depthWrite={false} renderOrder={20} />
     <Line points={points} color={routeColor} lineWidth={5} worldUnits={false} depthTest depthWrite={false} renderOrder={21} />
     <mesh position={[tip[0] - Math.cos(angle) * .06, .105, tip[2] + Math.sin(angle) * .06]} rotation={[-Math.PI / 2, 0, angle]} renderOrder={22}>
       <shapeGeometry args={[routeArrowShape]} />
       <meshBasicMaterial color={routeColor} depthTest depthWrite={false} />
     </mesh>
-    {[endpointPoints[0], endpointPoints[endpointPoints.length - 1]].map((point, index) => <group key={index} position={point}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} renderOrder={22}><circleGeometry args={[.19, 32]} /><meshBasicMaterial color={forcedColors ? highContrastMapPalette.endpointUnderlay : mapPalette.endpointUnderlay} depthTest /></mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, .005, 0]} renderOrder={23}>{index ? <planeGeometry args={[.22, .22]} /> : <ringGeometry args={[.07, .13, 32]} />}<meshBasicMaterial color={index ? destinationColor : routeColor} depthTest /></mesh>
-    </group>)}
+    </>}
+    <RouteEndpointPin role="origin" position={endpointPoints[0]} forcedColors={forcedColors} />
+    <RouteEndpointPin role="destination" position={endpointPoints[endpointPoints.length - 1]} forcedColors={forcedColors} />
   </group>;
 }
 function Scene(props: Props) {
