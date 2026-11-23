@@ -20,9 +20,10 @@ const copy = { en: { brand: 'NAID', wayfinding: 'CAMPUS WAYFINDING', welcome: 'W
 export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph, floorOptions = [floorData.floor], audioService, configuredKioskId }: { floorData: FloorData; graph: NavigationGraph; contents: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
   const router = useRouter();
   const bundles = useMemo(() => floorBundles ?? [{ floorData, graph, contents }], [floorBundles, floorData, graph, contents]);
+  const defaultOriginBundle = bundles.find(bundle => bundle.floorData.floor.id === 'GF') ?? bundles[0];
   const [language, setLanguage] = useState<Language>('en');
   const [buildingId] = useState(floorData.building.id); const [floorId, setFloorId] = useState(floorData.floor.id);
-  const [originFloorId, setOriginFloorId] = useState(() => bundles.find(bundle => bundle.floorData.kiosks.some(item => item.id === configuredKioskId))?.floorData.floor.id ?? floorData.floor.id);
+  const [originFloorId, setOriginFloorId] = useState(() => bundles.find(bundle => bundle.floorData.kiosks.some(item => item.id === configuredKioskId))?.floorData.floor.id ?? defaultOriginBundle.floorData.floor.id);
   const [selectedId, setSelectedId] = useState<string | null>(null); const [customStartId, setCustomStartId] = useState<string | null>(null); const [destinationId, setDestinationId] = useState<string | null>(null);
   const [signLanguageRoomId, setSignLanguageRoomId] = useState<string | null>(null);
   const [query, setQuery] = useState(''); const [category, setCategory] = useState<RoomCategory | 'all'>('all'); const [mode, setMode] = useState<'browse' | 'navigate'>('navigate');
@@ -30,6 +31,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const [playbackPhase, setPlaybackPhase] = useState<PlaybackPhase>('idle'); const [playbackProgress, setPlaybackProgress] = useState(0); const [followCamera, setFollowCamera] = useState(true);
   const [playbackRouteKey, setPlaybackRouteKey] = useState('');
   const playbackTimer = useRef<number | null>(null); const playbackStartedAt = useRef(0); const playbackOrigin = useRef(0);
+  const playbackPaintAt = useRef(Number.NEGATIVE_INFINITY);
   const [muted, setMuted] = useState(false); const [audioSupported, setAudioSupported] = useState(true); const [accessibleOnly, setAccessibleOnly] = useState(false); const [zoom, setZoom] = useState(1); const [reset, setReset] = useState(0);
   const [directoryCollapsed, setDirectoryCollapsed] = useState(false); const [detailsCollapsed, setDetailsCollapsed] = useState(false);
   const audio = useRef<TTSService | null>(null); const c = copy[language];
@@ -80,7 +82,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const visibleRoute = useMemo(() => clipVisualRouteAtProgress(visualRoute,
     reducedMotion || (playbackPhase === 'complete' && playbackRouteKey === routeKey) ? 1
       : playbackRouteKey === routeKey ? playbackPosition?.partProgress ?? 0 : 0),
-  [visualRoute, reducedMotion, playbackPhase, playbackRouteKey, routeKey, playbackPosition]);
+  [visualRoute, reducedMotion, playbackPhase, playbackRouteKey, routeKey, playbackPosition?.partProgress]);
   const transitionInstruction = activePart?.kind === 'transition' ? routeInstructions.find(instruction =>
     instruction.nodeId === activePart.fromNodeId && ['stairs', 'elevator', 'escalator'].includes(instruction.type)) : undefined;
   const currentInstruction = transitionInstruction ?? (playbackPhase === 'complete' ? routeInstructions.at(-1) : routeInstructions[0]);
@@ -100,9 +102,16 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     if (playbackPhase !== 'playing' || !playbackDurationMs || reducedMotion) return;
     playbackStartedAt.current = performance.now(); playbackOrigin.current = playbackProgress;
+    playbackPaintAt.current = Number.NEGATIVE_INFINITY;
     const duration = (1 - playbackOrigin.current) * playbackDurationMs;
     const tick = () => {
-      const next = Math.min(1, playbackOrigin.current + (performance.now() - playbackStartedAt.current) / duration);
+      const now = performance.now();
+      const next = Math.min(1, playbackOrigin.current + (now - playbackStartedAt.current) / duration);
+      if (next < 1 && now - playbackPaintAt.current < 33) {
+        playbackTimer.current = window.requestAnimationFrame(tick);
+        return;
+      }
+      playbackPaintAt.current = now;
       setPlaybackProgress(value => Math.max(value, next));
       if (next >= 1) { setPlaybackPhase('complete'); return; }
       playbackTimer.current = window.requestAnimationFrame(tick);
@@ -133,13 +142,13 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   function selectRoom(id: string) { setSelectedId(id); setSignLanguageRoomId(null); }
   function stopPlayback() { if (playbackTimer.current !== null) window.cancelAnimationFrame(playbackTimer.current); playbackTimer.current = null; setPlaybackPhase('stopped'); setPlaybackProgress(0); setFollowCamera(false); }
   function changeFloor(nextFloorId: string) {
-    stopPlayback(); setOriginFloorId(nextFloorId); setFloorId(nextFloorId);
+    stopPlayback(); setFloorId(nextFloorId);
     setCustomStartId(null); setDestinationId(null); setSelectedId(null); setJourneyStarted(false); setPlaybackPhase('idle');
     const params = new URLSearchParams(window.location.search); params.set('floor', nextFloorId);
     router.push(`${window.location.pathname}?${params.toString()}`);
   }
-  function resetKiosk() { stopPlayback(); setOriginFloorId(floorId); setCustomStartId(null); setDestinationId(null); setSelectedId(null); setSignLanguageRoomId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
-  function goToRoom(id: string) { stopPlayback(); setOriginFloorId(floorId); setDestinationId(id); setSelectedId(id); setJourneyStarted(false); setPlaybackPhase('idle'); }
+  function resetKiosk() { stopPlayback(); setOriginFloorId(defaultOriginBundle.floorData.floor.id); setFloorId(defaultOriginBundle.floorData.floor.id); setCustomStartId(null); setDestinationId(null); setSelectedId(null); setSignLanguageRoomId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
+  function goToRoom(id: string) { stopPlayback(); setDestinationId(id); setSelectedId(id); setMode('navigate'); setJourneyStarted(false); setPlaybackPhase('idle'); }
   function togglePlayback() {
     if (playbackPhase === 'playing') { setPlaybackPhase('paused'); return; }
     setJourneyStarted(true);
@@ -168,11 +177,11 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
       <section className={`map-workspace ${selected && !detailsCollapsed ? 'has-selection' : ''} ${selected ? 'has-room-details' : ''} ${detailsCollapsed ? 'details-collapsed' : ''}`} aria-label={t(language, 'map')}>
         <button type="button" className="panel-collapse-control details-toggle" aria-expanded={!detailsCollapsed} aria-controls="room-details" aria-label={detailsCollapsed ? (language === 'ar' ? 'إظهار التفاصيل' : 'Expand details') : (language === 'ar' ? 'إخفاء التفاصيل' : 'Collapse details')} title={detailsCollapsed ? 'Expand details / إظهار التفاصيل' : 'Collapse details / إخفاء التفاصيل'} onClick={() => setDetailsCollapsed(value => !value)}><ChevronDown size={18} /></button>
         <div className="map-topline"><div><p className="eyebrow">{c.overview}</p><h2>{activeFloor.floor.name[language]}</h2><p>{rooms.length} {c.roomCount} <span>·</span> <bdi>{buildingId}</bdi></p></div><label className="floor-select"><Layers size={18} /><span className="sr-only">{t(language, 'floor')}</span><select aria-label={t(language, 'floor')} value={floorId} onChange={event => changeFloor(event.target.value)} data-testid="floor-select">{floorOptions.map(option => <option key={option.id} value={option.id}>{option.name[language]} · {option.id}</option>)}</select><ChevronDown size={15} /></label></div>
-        <div className="map-canvas" data-testid="floor-map"><FloorMap floor={activeFloor.floor} rooms={rooms} contents={activeContents} mapFeatures={activeFloor.mapFeatures} language={language} selectedId={selectedId} onSelect={selectRoom} route={floorRoute} visibleRoute={visibleRoute} playbackPhase={playbackPhase} playbackProgress={playbackProgress} followCamera={followCamera} zoom={zoom} reset={reset} /></div>
+        <div className="map-canvas" data-testid="floor-map"><FloorMap key={`${activeFloor.floor.id}:${activeFloor.floor.mapAsset}`} floor={activeFloor.floor} rooms={rooms} contents={activeContents} mapFeatures={activeFloor.mapFeatures} language={language} selectedId={selectedId} onSelect={selectRoom} route={floorRoute} visibleRoute={visibleRoute} playbackPhase={playbackPhase} playbackProgress={playbackProgress} followCamera={followCamera} zoom={zoom} reset={reset} /></div>
         <div className="map-evidence"><Info size={14} /><span>{c.mapReview}</span></div>
         <div className="map-control-stack" role="group" aria-label={t(language, 'mapControls')}><button onClick={() => setZoom(value => Math.min(3, value * 1.2))} aria-label={t(language, 'zoomIn')}><Plus size={20} /></button><button onClick={() => setZoom(value => Math.max(.6, value / 1.2))} aria-label={t(language, 'zoomOut')}><Minus size={20} /></button><span /><button onClick={() => { setZoom(1); setReset(value => value + 1); }} aria-label={t(language, 'resetView')}><LocateFixed size={19} /></button></div>
         {!selected && <div className="map-welcome"><span><Compass size={24} strokeWidth={1.5} /></span><div><strong>{t(language, 'selectRoom')}</strong><p>{c.directoryHelp}</p></div></div>}
-        {selected && <DestinationDetails room={selected} content={selectedContent} floor={activeFloor.floor} language={language} collapsed={detailsCollapsed} audioSupported={audioSupported} onClose={() => { setSelectedId(null); setSignLanguageRoomId(null); }} onDestination={() => goToRoom(selected.id)} onStart={() => { setCustomStartId(selected.id); setOriginFloorId(floorId); setMode('navigate'); }} onSpeak={() => audio.current?.speak(speechText, language)} onStop={() => audio.current?.stop()} onSignLanguage={() => setSignLanguageRoomId(selected.id)} />}
+        {selected && <DestinationDetails room={selected} content={selectedContent} floor={activeFloor.floor} language={language} collapsed={detailsCollapsed} audioSupported={audioSupported} onClose={() => { setSelectedId(null); setSignLanguageRoomId(null); }} onDestination={() => goToRoom(selected.id)} onStart={() => { stopPlayback(); setCustomStartId(selected.id); setMode('navigate'); setJourneyStarted(false); setPlaybackPhase('idle'); }} onSpeak={() => audio.current?.speak(speechText, language)} onStop={() => audio.current?.stop()} onSignLanguage={() => setSignLanguageRoomId(selected.id)} />}
         <div className="map-bottom"><div className="map-legend"><span><i className="legend-marker" />{c.marker}</span><span><i className="legend-selected" />{c.selected}</span><span className="legend-pan">{t(language, 'panMap')}</span></div><button className="reset-kiosk" onClick={resetKiosk} data-testid="reset-kiosk"><RotateCcw size={15} />{kioskNode ? c.resetKiosk : t(language, 'resetPlanningRoute')}</button></div>
       </section>
     </main>

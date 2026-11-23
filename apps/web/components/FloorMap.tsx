@@ -15,36 +15,71 @@ import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
 type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
+type FloorTextures = { texture: THREE.CanvasTexture; inkTexture: THREE.CanvasTexture };
+const floorTextureCache = new Map<string, Promise<FloorTextures>>();
+
+function loadFloorTextures(asset: string): Promise<FloorTextures> {
+  const cached = floorTextureCache.get(asset);
+  if (cached) return cached;
+  const promise = fetch(asset).then(response => {
+    if (!response.ok) throw Error('Map unavailable');
+    return response.text();
+  }).then(svg => new Promise<FloorTextures>((resolve, reject) => {
+    const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
+    doc.documentElement.setAttribute('preserveAspectRatio', 'none');
+    doc.documentElement.setAttribute('width', '4096');
+    doc.documentElement.setAttribute('height', '2048');
+    const blobUrl = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(doc)], { type: 'image/svg+xml' }));
+    const image = new Image();
+    image.onload = () => {
+      URL.revokeObjectURL(blobUrl);
+      const canvas = document.createElement('canvas');
+      canvas.width = 4096;
+      canvas.height = 2048;
+      const context = canvas.getContext('2d');
+      if (!context) {
+        reject(new Error('Map canvas unavailable'));
+        return;
+      }
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const inkCanvas = document.createElement('canvas');
+      inkCanvas.width = 4096;
+      inkCanvas.height = 2048;
+      inkCanvas.getContext('2d')?.drawImage(canvas, 0, 0);
+      const inkTexture = new THREE.CanvasTexture(inkCanvas);
+      inkTexture.colorSpace = THREE.SRGBColorSpace;
+      inkTexture.anisotropy = 4;
+      context.fillStyle = mapPalette.backing;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.anisotropy = 4;
+      resolve({ texture, inkTexture });
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(blobUrl);
+      reject(new Error('Map image unavailable'));
+    };
+    image.src = blobUrl;
+  }));
+  floorTextureCache.set(asset, promise);
+  return promise;
+}
+
 export function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
   const [inkTexture, setInkTexture] = useState<THREE.CanvasTexture | null>(null);
   useEffect(() => {
-    let disposed = false; let created: THREE.CanvasTexture | null = null; let ink: THREE.CanvasTexture | null = null; let blobUrl: string | null = null;
-    fetch(asset).then(response => { if (!response.ok) throw Error('Map unavailable'); return response.text(); }).then(svg => {
+    let disposed = false;
+    setTexture(null);
+    setInkTexture(null);
+    loadFloorTextures(asset).then(result => {
       if (disposed) return;
-      const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
-      // The texture UVs span the entire canonical viewBox. SVG's default
-      // xMidYMid meet adds letterboxing when the raster aspect differs, shifting
-      // CAD ink relative to room footprints. Map that viewBox edge-to-edge;
-      // the world plane restores its source aspect ratio.
-      doc.documentElement.setAttribute('preserveAspectRatio', 'none');
-      doc.documentElement.setAttribute('width', '4096'); doc.documentElement.setAttribute('height', '2048');
-      blobUrl = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(doc)], { type: 'image/svg+xml' }));
-      const image = new Image();
-      image.onload = () => {
-        if (disposed) return;
-        const canvas = document.createElement('canvas'); canvas.width = 4096; canvas.height = 2048;
-        const context = canvas.getContext('2d'); if (!context) return;
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-        const inkCanvas = document.createElement('canvas'); inkCanvas.width = 4096; inkCanvas.height = 2048; inkCanvas.getContext('2d')?.drawImage(canvas, 0, 0);
-        ink = new THREE.CanvasTexture(inkCanvas); ink.colorSpace = THREE.SRGBColorSpace; ink.anisotropy = 8; setInkTexture(ink);
-        context.fillStyle = mapPalette.backing; context.fillRect(0, 0, canvas.width, canvas.height); context.drawImage(image, 0, 0, canvas.width, canvas.height);
-        created = new THREE.CanvasTexture(canvas); created.colorSpace = THREE.SRGBColorSpace; created.anisotropy = 8; setTexture(created);
-        if (blobUrl) URL.revokeObjectURL(blobUrl); blobUrl = null;
-      };
-      image.src = blobUrl;
+      setTexture(result.texture);
+      setInkTexture(result.inkTexture);
     }).catch(() => { /* Source image remains available in the accessible fallback. */ });
-    return () => { disposed = true; created?.dispose(); ink?.dispose(); if (blobUrl) URL.revokeObjectURL(blobUrl); };
+    return () => { disposed = true; };
   }, [asset]);
   return { texture, inkTexture };
 }
@@ -143,9 +178,11 @@ export function RouteOverlay({ route, fullRoute = route, center, forcedColors }:
   </group>;
 }
 function Scene(props: Props) {
-  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, followCamera = false, zoom, reset } = props;
+  const { floor, rooms, language, selectedId, onSelect, route, visibleRoute = route, playbackPhase = 'idle', followCamera = false, zoom, reset } = props;
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
+  const followTarget = useRef(new THREE.Vector3());
+  const following = useRef(false);
   const forcedColors = useForcedColors();
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
@@ -178,14 +215,18 @@ function Scene(props: Props) {
     controls.current?.target.set(x, 0, z); camera.position.copy(CAMERA_OFFSET).add(new THREE.Vector3(x, 0, z)); camera.lookAt(x, 0, z); controls.current?.update();
   }, [selectedId, camera, center, routeFrame]);
   useEffect(() => {
-    if (!followCamera || !visibleRoute?.length) return;
+    following.current = playbackPhase === 'playing' && followCamera && !!visibleRoute?.length;
+    if (!following.current) return;
     const point = visibleRoute[visibleRoute.length - 1];
-    const x = (point[0] - center[0]) / SCALE; const z = (point[1] - center[1]) / SCALE;
-    controls.current?.target.lerp(new THREE.Vector3(x, 0, z), .18);
-    camera.position.lerp(CAMERA_OFFSET.clone().add(new THREE.Vector3(x, 0, z)), .18);
-    camera.lookAt(controls.current?.target ?? new THREE.Vector3(x, 0, z));
-  }, [followCamera, visibleRoute, center, camera]);
+    followTarget.current.set((point[0] - center[0]) / SCALE, 0, (point[1] - center[1]) / SCALE);
+  }, [followCamera, playbackPhase, visibleRoute, center]);
   useEffect(() => { controls.current?.target.set(0, 0, 0); camera.position.copy(CAMERA_OFFSET); camera.lookAt(0, 0, 0); controls.current?.update(); }, [reset, camera]);
+  useFrame(() => {
+    if (!following.current) return;
+    controls.current?.target.lerp(followTarget.current, .18);
+    camera.position.lerp(CAMERA_OFFSET.clone().add(followTarget.current), .18);
+    camera.lookAt(controls.current?.target ?? followTarget.current);
+  });
   return <>
     <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[2048, 2048]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
@@ -208,5 +249,5 @@ export default function FloorMap(props: Props) {
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
-  return <MapBoundary fallback={fallback}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 2]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  return <MapBoundary fallback={fallback}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.5]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }
