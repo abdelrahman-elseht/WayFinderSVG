@@ -8,6 +8,7 @@ import floorJson from '../../data/buildings/B03/GF.json';
 import graphJson from '../../data/buildings/B03/GF.graph.json';
 import contentJson from '../../content/B03/GF.json';
 import { syntheticCorner } from '../fixtures/routing';
+vi.mock('next/navigation', () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn() }) }));
 vi.mock('next/dynamic', () => ({default:()=>()=> <div data-testid="isolated-map-stub"/>}));
 afterEach(cleanup);
 const floor=floorJson as unknown as FloorData, graph=graphJson as unknown as NavigationGraph;
@@ -38,7 +39,8 @@ describe('independent React UI state with real data and isolated map rendering',
   fireEvent.click(screen.getByText('Navigate'));
   const destination=screen.getByTestId('destination-select') as HTMLSelectElement;
   const english=Array.from(destination.options).find(option=>option.value==='B03-GF-G-43');
-  expect(english?.textContent).toBe('Mechanical Lab — G-43');
+  expect(english?.textContent).toContain('Mechanical Lab — G-43');
+  expect(english?.textContent).toContain('Ground Floor');
   fireEvent.click(screen.getByTestId('language-toggle'));
   const arabic=Array.from((screen.getByTestId('destination-select') as HTMLSelectElement).options).find(option=>option.value==='B03-GF-G-43');
   expect(arabic?.textContent).toContain('G-43');

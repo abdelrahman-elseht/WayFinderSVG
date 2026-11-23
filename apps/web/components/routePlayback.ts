@@ -1,4 +1,4 @@
-import type { Point } from '@wayfinding/map-engine';
+import type { NavigationGraph, Point, RouteResult } from '@wayfinding/map-engine';
 import type { VisualRoute } from '../../../packages/routing/src/visual-route';
 
 /** Reveal cached geometry using original route distance, without rebuilding corners. */
@@ -67,6 +67,60 @@ export function playbackDuration(points: readonly Point[], options: PlaybackDura
   const minMs = Number.isFinite(options.minMs) ? Math.max(0, options.minMs as number) : 900;
   const maxMs = Number.isFinite(options.maxMs) ? Math.max(minMs, options.maxMs as number) : 6000;
   return Math.min(maxMs, Math.max(minMs, routeArcLength(points) / speed));
+}
+
+export type RoutePlaybackPart =
+  | { kind: 'floor'; floorId: string; points: Point[]; duration: number }
+  | { kind: 'transition'; floorId: string; points: Point[]; fromNodeId: string; duration: number };
+
+export function routePlaybackPlan(graph: NavigationGraph, route: RouteResult): RoutePlaybackPart[] {
+  if (route.status !== 'ok' || !route.nodeIds.length) return [];
+  const nodes = new Map(graph.nodes.map(node => [node.id, node]));
+  const edges = new Map(graph.edges.map(edge => [edge.id, edge]));
+  const first = nodes.get(route.nodeIds[0]);
+  if (!first) return [];
+  const parts: RoutePlaybackPart[] = [];
+  let floorId = first.floorId;
+  let points: Point[] = [[...first.point]];
+  for (let index = 0; index < route.edgeIds.length; index += 1) {
+    const edge = edges.get(route.edgeIds[index]);
+    const from = nodes.get(route.nodeIds[index]);
+    const to = nodes.get(route.nodeIds[index + 1]);
+    if (!edge || !from || !to) return [];
+    if (from.floorId !== to.floorId) {
+      parts.push({ kind: 'floor', floorId, points, duration: points.length > 1 ? playbackDuration(points) : 0 });
+      parts.push({ kind: 'transition', floorId: to.floorId, points: [[...to.point]], fromNodeId: from.id, duration: 1600 });
+      floorId = to.floorId;
+      points = [[...to.point]];
+      continue;
+    }
+    const geometry = edge.from === from.id ? edge.geometry : [...edge.geometry].reverse();
+    for (const point of geometry) {
+      if (!points.length || points.at(-1)![0] !== point[0] || points.at(-1)![1] !== point[1]) points.push([...point]);
+    }
+  }
+  parts.push({ kind: 'floor', floorId, points, duration: points.length > 1 ? playbackDuration(points) : 0 });
+  return parts;
+}
+
+export function playbackPlanDuration(parts: readonly RoutePlaybackPart[]): number {
+  return parts.reduce((total, part) => total + part.duration, 0);
+}
+
+export function playbackPlanPosition(parts: readonly RoutePlaybackPart[], progress: number) {
+  if (!parts.length) return null;
+  const duration = playbackPlanDuration(parts);
+  let elapsed = clampProgress(progress) * duration;
+  for (let index = 0; index < parts.length; index += 1) {
+    const part = parts[index];
+    if (part.duration === 0) continue;
+    if (elapsed < part.duration || index === parts.length - 1) {
+      return { part, partProgress: clampProgress(elapsed / part.duration) };
+    }
+    elapsed -= part.duration;
+  }
+  const last = parts.at(-1)!;
+  return { part: last, partProgress: 1 };
 }
 
 export function clampInstructionIndex(index: number, instructionCount: number): number {

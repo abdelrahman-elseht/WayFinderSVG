@@ -53,7 +53,12 @@ function prepareSnapshot(graph: NavigationGraph, accessibleOnly: boolean, unsafe
   const drawing = graph.routingPolicy === 'drawing-based';
   if (!Array.isArray(graph.nodes) || !Array.isArray(graph.edges)) return null;
   if (!validConstraints(graph)) return null;
-  const safe = createPolylineValidator(graph);
+  const safeByFloor = new Map<string, (points: Point[]) => boolean>();
+  const safeOnFloor = (floorId: string, points: Point[]) => {
+    let safe = safeByFloor.get(floorId);
+    if (!safe) { safe = createPolylineValidator(graph, floorId); safeByFloor.set(floorId, safe); }
+    return safe(points);
+  };
   if (graph.calibrationStatus === 'confirmed' && !calibrated(graph)) return null;
   const unit: Unit = calibrated(graph) ? 'meter' : 'map-unit';
   const nodes = new Map<string, NavigationNode>();
@@ -80,19 +85,22 @@ function prepareSnapshot(graph: NavigationGraph, accessibleOnly: boolean, unsafe
     if (!Array.isArray(edge.geometry) || edge.geometry.length < 2 || !edge.geometry.every(validPoint)) return null;
     if (!equalPoint(edge.geometry[0], from.point) || !equalPoint(edge.geometry[edge.geometry.length - 1], to.point)) return null;
     const vertical = from.floorId !== to.floorId;
-    if (vertical && edge.pathType !== 'stairs' && edge.pathType !== 'elevator') return null;
+    if (vertical && !['stairs', 'elevator', 'escalator'].includes(edge.pathType)) return null;
     if (!vertical && edge.floorId !== from.floorId) return null;
     if (vertical && edge.floorId !== from.floorId && edge.floorId !== to.floorId) return null;
     if (from.buildingId !== to.buildingId) return null;
     // Admin-edited drawing graphs may intentionally cross supplied wall evidence.
     // Keep all structural checks above, but allow those edges in the runtime route
     // calculation when explicitly requested by the host application.
-    if (!unsafeGeometry && !safe(edge.geometry)) return null;
+    if (!unsafeGeometry && !vertical && !safeOnFloor(from.floorId, edge.geometry)) {
+      if (graph.floorConstraints) continue;
+      return null;
+    }
     if (drawing && !vertical) {
       const length = polylineLength(edge.geometry) * (edge.distanceUnit === 'meter' ? graph.metersPerUnit! : 1);
       if (length <= 0 || Math.abs(edge.distance - length) > Math.max(.01, length * 1e-5)) return null;
     }
-    if (accessibleOnly && (edge.accessibility !== 'confirmed' || edge.pathType === 'stairs')) continue;
+    if (accessibleOnly && (edge.accessibility !== 'confirmed' || edge.pathType === 'stairs' || edge.pathType === 'escalator')) continue;
     // Distances are validated graph weights. Vertical costs need not equal the 2D polyline length.
     const cost = edge.distanceUnit === 'map-unit' && unit === 'meter'
       ? edge.distance * graph.metersPerUnit! : edge.distance;
@@ -119,7 +127,8 @@ export function findRoute(
   if (!start || !end) return graph.status === 'confirmed'
     ? failure('invalid', messages.missing, unit) : failure('unconfirmed', messages.unconfirmed, unit);
   if (!supported(graph, start.status) || !supported(graph, end.status)) return failure('unconfirmed', messages.unconfirmed, unit);
-  if (!options.unsafeGeometry && (!safePolyline([start.point, start.point], graph) || !safePolyline([end.point, end.point], graph))) return failure('invalid', messages.invalid, unit);
+  if (!options.unsafeGeometry && (!safePolyline([start.point, start.point], graph, start.floorId)
+    || !safePolyline([end.point, end.point], graph, end.floorId))) return failure('invalid', messages.invalid, unit);
   const distances = new Map<string, number>([[startId, 0]]);
   const previous = new Map<string, Step>();
   const open = new Set([startId]);
@@ -171,6 +180,7 @@ const instructionText: Record<InstructionType, Localized> = {
   'enter-corridor': { en: 'Enter the corridor.', ar: 'ادخل الممر.' },
   stairs: { en: 'Take the stairs.', ar: 'استخدم الدرج.' },
   elevator: { en: 'Take the elevator.', ar: 'استخدم المصعد.' },
+  escalator: { en: 'Take the escalator.', ar: 'استخدم السلم الكهربائي.' },
   'destination-left': { en: 'Your destination is on the left.', ar: 'وجهتك على اليسار.' },
   'destination-right': { en: 'Your destination is on the right.', ar: 'وجهتك على اليمين.' },
   arrival: { en: 'You have arrived at your destination.', ar: 'لقد وصلت إلى وجهتك.' },
@@ -205,14 +215,14 @@ function instructionsFor(steps: Step[], start: NavigationNode, unit: Unit): Rout
   let incoming: Vector | undefined;
   steps.forEach((step, index) => {
     const segments = vectors(step.points);
-    const vertical = step.edge.pathType === 'stairs' || step.edge.pathType === 'elevator';
+    const vertical = step.edge.pathType === 'stairs' || step.edge.pathType === 'elevator' || step.edge.pathType === 'escalator';
     if (vertical) {
-      const action = instructionText[step.edge.pathType as 'stairs' | 'elevator'];
+      const action = instructionText[step.edge.pathType as 'stairs' | 'elevator' | 'escalator'];
       const text = step.from.floorId === step.to.floorId ? action : {
         en: `${action.en.replace(/\.$/, '')} to floor ${step.to.floorId}.`,
         ar: `${action.ar.replace(/\.$/, '')} إلى الطابق ${step.to.floorId}.`,
       };
-      add(step.edge.pathType as 'stairs' | 'elevator', step.from.id, step.cost, text);
+      add(step.edge.pathType as 'stairs' | 'elevator' | 'escalator', step.from.id, step.cost, text);
       incoming = undefined; // A new floor has no established facing direction.
       return;
     }
@@ -245,7 +255,7 @@ export function generateInstructions(graph: NavigationGraph, nodeIds: string[], 
   if (!prepared) return [];
   const start = prepared.nodes.get(nodeIds[0]);
   if (!start || !supported(graph, start.status)) return [];
-  if (!safePolyline([start.point, start.point], graph)) return [];
+  if (!safePolyline([start.point, start.point], graph, start.floorId)) return [];
   const steps: Step[] = [];
   for (let i = 0; i < edgeIds.length; i++) {
     const step = prepared.adjacency.get(nodeIds[i])?.find(item => item.edge.id === edgeIds[i] && item.to.id === nodeIds[i + 1]);

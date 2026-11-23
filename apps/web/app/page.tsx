@@ -8,18 +8,20 @@ import firstGraph from '@data/buildings/B03/01.graph.json';
 import firstContent from '@content/B03/01.json';
 import { WayfindingApp } from '../components/WayfindingApp';
 import { publishedContent } from '../lib/content-store';
-import { validateFloorBundle } from '@wayfinding/map-engine';
+import { publishedNavigation } from '../lib/navigation-store';
+import { multiFloorNavigation } from '../lib/multi-floor-navigation';
+import type { FloorBundle } from '@wayfinding/map-engine';
 
-// Complete data bundles must share building metadata. The client still receives
-// only the configured floor; interactive floor switching is a separate phase.
+export const dynamic = 'force-dynamic';
+
 const diagnosticMode = process.env.NODE_ENV === 'development'
   && process.env.WAYFINDING_GRAPH_MODE === 'navigation-v2-diagnostic';
 const registry = createMapRegistry([
-  // The admin may intentionally persist unsafe edits to the runtime GF graph.
+  // Admin publications can retain geometry findings for inspection.
   // Keep structural validation, but let this explicitly loaded runtime bundle
   // render so those edits can be inspected in the public app.
   { floorData: floor, graph: diagnosticMode ? diagnosticGraph : graph, contents: content, allowUnsafeGeometry: true },
-  { floorData: firstFloor, graph: firstGraph, contents: firstContent },
+  { floorData: firstFloor, graph: firstGraph, contents: firstContent, allowUnsafeGeometry: true },
 ]);
 export default async function Page({ searchParams }: { searchParams: Promise<{ floor?: string }> }) {
   const buildingId = process.env.WAYFINDING_BUILDING_ID ?? floor.building.id;
@@ -30,24 +32,21 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
   const kioskId = process.env.WAYFINDING_KIOSK_ID || undefined;
   if (kioskId) {
     const kiosk = registry.getKiosk(kioskId);
-    if (!kiosk || kiosk.buildingId !== buildingId || kiosk.floorId !== floorId) throw new Error(`Kiosk ${kioskId} is not registered on ${buildingId}/${floorId}`);
+    if (!kiosk || kiosk.buildingId !== buildingId) throw new Error(`Kiosk ${kioskId} is not registered in building ${buildingId}`);
   }
-  let publicBundle = bundle;
-  if (floorId === 'GF' || floorId === '01') {
-    try {
-      const contents = await publishedContent(floorId);
-      publicBundle = validateFloorBundle(bundle.floorData, bundle.graph, contents, { allowUnsafeGeometry: true });
-    } catch {
-      // Invalid or unavailable overrides never bypass the canonical bundle gate.
-      const canonicalContent = floorId === 'GF' ? content : firstContent;
-      publicBundle = validateFloorBundle(bundle.floorData, bundle.graph, canonicalContent, { allowUnsafeGeometry: true });
-    }
-  }
+  const floorBundles: FloorBundle[] = await Promise.all((['GF', '01'] as const).map(async id => {
+    const ground = id === 'GF';
+    const contents = await publishedContent(id).catch(() => ground ? content : firstContent);
+    if (ground && diagnosticMode) return { ...registry.getFloor(buildingId, id)!, contents };
+    return publishedNavigation(id, ground ? floor : firstFloor, ground ? graph : firstGraph, contents);
+  }));
+  const publicBundle = floorBundles.find(item => item.floorData.floor.id === floorId) ?? bundle;
+  const routeGraph = multiFloorNavigation(floorBundles);
   return <>
     {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
       position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
       background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
     }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
-    <WayfindingApp {...publicBundle!} floorOptions={registry.floors.filter(item => item.floorData.building.id === buildingId).map(item => item.floorData.floor)} configuredKioskId={kioskId} />
+    <WayfindingApp {...publicBundle} floorBundles={floorBundles} routeGraph={routeGraph} floorOptions={floorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

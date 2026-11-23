@@ -253,8 +253,13 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
       adminDrawingReview(node.adminReview,`${p}.adminReview`);
       if(node.buildingId!==buildingId || node.floorId!==floorId || node.status!=='candidate')
         fail(p,'added-node audit identity/evidence must belong to this floor');
-      choice(node.type,['junction','entrance'],`${p}.type`);
+      choice(node.type,['junction','entrance','escalator','elevator'],`${p}.type`);
       inBounds(point(node.point,`${p}.point`),`${p}.point`);
+      if (node.type === 'escalator' || node.type === 'elevator') {
+        text(node.transitionId,`${p}.transitionId`); text(node.transitionName,`${p}.transitionName`);
+        choice(node.transitionAccessibility,['confirmed','inaccessible','unknown'],`${p}.transitionAccessibility`);
+        choice(node.transitionRestriction,['open','closed','unknown'],`${p}.transitionRestriction`);
+      }
     });
     const editedIds: string[]=[];
     array(audit.edgeGeometryEdits,'graph.adminAuthoring.edgeGeometryEdits').forEach((value,i)=>{
@@ -275,9 +280,18 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
   }
   const walls=array(graph.walls,'graph.walls').map((v,i)=>{const w=array(v,`graph.walls[${i}]`); if(w.length!==2) fail('graph.walls','expected two endpoints'); return [point(w[0],`graph.walls[${i}][0]`),point(w[1],`graph.walls[${i}][1]`)] as [Point,Point];});
   nodes.forEach((n,i)=>{
-    const p=`graph.nodes[${i}]`; point(n.point,`${p}.point`); choice(n.type,['junction','door','entrance','elevator','stairs','kiosk'],`${p}.type`); choice(n.status,statuses,`${p}.status`);
+    const p=`graph.nodes[${i}]`; point(n.point,`${p}.point`); choice(n.type,['junction','door','entrance','elevator','escalator','stairs','kiosk'],`${p}.type`); choice(n.status,statuses,`${p}.status`);
     if(n.buildingId!==buildingId || !floorIds.includes(text(n.floorId,`${p}.floorId`))) fail(p,'node building/floor is not registered');
     if(n.floorId===floorId) inBounds(n.point as Point,`${p}.point`);
+    const hasTransitionMetadata = n.transitionId !== undefined
+      || n.transitionName !== undefined || n.transitionAccessibility !== undefined || n.transitionRestriction !== undefined;
+    if (n.type === 'escalator' || n.type === 'elevator' || hasTransitionMetadata) {
+      if ((n.type !== 'escalator' && n.type !== 'elevator') || n.roomId !== undefined)
+        fail(p,'vertical transition metadata requires an unbound escalator or elevator node');
+      text(n.transitionId,`${p}.transitionId`); text(n.transitionName,`${p}.transitionName`);
+      choice(n.transitionAccessibility,['confirmed','inaccessible','unknown'],`${p}.transitionAccessibility`);
+      choice(n.transitionRestriction,['open','closed','unknown'],`${p}.transitionRestriction`);
+    }
     if(n.roomId!==undefined && !roomIds.has(text(n.roomId,`${p}.roomId`))) fail(p,'node refers to missing room');
     if(n.type==='door' && n.roomId===undefined) fail(p,'door requires a room association');
     if(n.adminReview!==undefined) {
@@ -303,12 +317,12 @@ export function validateFloorBundle(floorInput: unknown, graphInput: unknown, co
     if(k.status==='confirmed' && k.nodeId===null) fail(p,'confirmed kiosk requires nodeId');
   });
   edges.forEach((e,i)=>{
-    const p=`graph.edges[${i}]`; text(e.from,`${p}.from`); text(e.to,`${p}.to`); choice(e.pathType,['corridor','door','entrance','stairs','elevator'],`${p}.pathType`);
+    const p=`graph.edges[${i}]`; text(e.from,`${p}.from`); text(e.to,`${p}.to`); choice(e.pathType,['corridor','door','entrance','stairs','elevator','escalator'],`${p}.pathType`);
     choice(e.distanceUnit,['map-unit','meter'],`${p}.distanceUnit`); choice(e.accessibility,['confirmed','inaccessible','unknown'],`${p}.accessibility`); choice(e.restriction,['open','closed','unknown'],`${p}.restriction`); choice(e.status,statuses,`${p}.status`); bool(e.bidirectional,`${p}.bidirectional`);
     const from=nodeMap.get(e.from), to=nodeMap.get(e.to);
     if(!from || !to || e.from===e.to) fail(p,'edge requires two distinct existing endpoints');
     if(e.floorId!==from.floorId || !floorIds.includes(text(e.floorId,`${p}.floorId`))) fail(p,'edge floor must match its starting node');
-    if(from.floorId!==to.floorId && e.pathType!=='stairs' && e.pathType!=='elevator') fail(p,'floor transition requires stairs or elevator');
+    if(from.floorId!==to.floorId && !['stairs','elevator','escalator'].includes(e.pathType as string)) fail(p,'floor transition requires stairs, escalator or elevator');
     const geometry=array(e.geometry,`${p}.geometry`).map((v,j)=>point(v,`${p}.geometry[${j}]`));
     if(geometry.length<2 || !same(geometry[0],from.point as Point) || !same(geometry[geometry.length-1],to.point as Point)) fail(p,'geometry must join the named nodes');
     const length=geometry.slice(1).reduce((sum,v,j)=>sum+Math.hypot(v[0]-geometry[j][0],v[1]-geometry[j][1]),0);

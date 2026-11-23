@@ -113,6 +113,7 @@ def load():
             'authoringSourceReferences': persistence.authoring_source_references(ROOT, floor, spines(config)),
             'mergeProtectedNodeIds': sorted(persistence.merge_protected_ids(ROOT, '01', floor, config)),
             'runtimePublication': persistence.publication(ROOT, '01'),
+            'transitionCandidates': persistence.transition_candidates(ROOT, '01', compact),
             'evidence': {'graphReview': review.get('graphReview', {}),
                          'sourceStatusExceptions': [r for r in review.get('rooms', [])
                              if r.get('status') == 'source-status-exception'],
@@ -177,7 +178,8 @@ def execute(payload):
             saved, current['graph'], current['floor'],
             protected_ids=current.get('mergeProtectedNodeIds', ()),
             source_references=current['authoringSourceReferences'],
-            exclusions=current['config'].get('voidExclusions', []))
+            exclusions=current['config'].get('voidExclusions', []),
+            known_transition_nodes=persistence.transition_nodes(ROOT, '01'))
         return {'candidate': candidate, 'revision': revision(), 'spines': saved['spines'],
                 'nodeMoves': saved.get('explicitNodeMoves', saved.get('nodeMoves', {})), 'deletedNodes': saved.get('deletedNodes', []),
                 'addedEdges': saved.get('addedEdges', []),
@@ -199,7 +201,8 @@ def execute(payload):
     overlay, overlay_excluded, edited_floor, merge, normalized_edits = persistence.authored_overlay(
         current['graph'], current['floor'], payload, applied, deleted, added_edges, merges,
         protected_ids=protected, source_references=source_references,
-        exclusions=current['config'].get('voidExclusions', []))
+        exclusions=current['config'].get('voidExclusions', []),
+        known_transition_nodes=persistence.transition_nodes(ROOT, '01'))
     payload.update(normalized_edits)
     merged_links = persistence.merge_source_links(current.get('sourceLinks', []), merge)
     if action == 'validate':

@@ -1,4 +1,4 @@
-import type { NavigationGraph, Point } from '@wayfinding/map-engine';
+import type { NavigationGraph, Point, RouteResult } from '@wayfinding/map-engine';
 import { createPolylineValidator, validConstraints } from './geometry-safety';
 
 export interface CornerDiagnostic {
@@ -31,6 +31,8 @@ export interface SmoothingOptions {
   simplifyTolerance?: number;
   /** Additional source vertex indices that must remain exact. */
   protectedIndices?: readonly number[];
+  /** Exact route points that must remain fixed in the visual route. */
+  protectedPoints?: readonly Point[];
   /** Opt-in QA instrumentation; never logs or attaches diagnostics in the UI. */
   onDiagnostics?: (corners: readonly CornerDiagnostic[]) => void;
 }
@@ -52,6 +54,16 @@ const distance = (a: Point, b: Point) => Math.hypot(b[0] - a[0], b[1] - a[1]);
 const copy = (p: Point): Point => [p[0], p[1]];
 const lerp = (a: Point, b: Point, t: number): Point => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 const equal = (a: Point, b: Point) => distance(a, b) <= 1e-7;
+
+/** Return graph anchors and non-corridor transitions traversed by a route. */
+export function routeProtectedPoints(graph: NavigationGraph, route: RouteResult): Point[] {
+  const nodes = new Set(route.nodeIds);
+  const edges = new Set(route.edgeIds);
+  return [
+    ...graph.nodes.filter(node => nodes.has(node.id) && (node.type !== 'junction' || node.roomId)).map(node => node.point),
+    ...graph.edges.filter(edge => edges.has(edge.id) && edge.pathType !== 'corridor').flatMap(edge => edge.geometry),
+  ];
+}
 
 /**
  * Prepare once per immutable floor graph. Own a detached snapshot so validation
@@ -102,10 +114,12 @@ export function createRouteSmoother(input: NavigationGraph) {
     if (config.segmentFraction >= 0.5 || config.maxTurnDegrees >= 180
       || config.minTurnDegrees >= config.maxTurnDegrees || config.minRadius > config.radius) return original;
     const protectedIndices = new Set(options.protectedIndices);
+    const protectedPoints = options.protectedPoints ?? [];
     const diagnostics: CornerDiagnostic[] = [];
     const vertices: { point: Point; station: number; locked: boolean; sourceIndex: number; protectionReason?: string }[] = [];
     source.forEach((point, index) => {
       const protectionReason = protectedIndices.has(index) ? 'explicit-anchor'
+        : protectedPoints.some(anchor => equal(anchor, point)) ? 'route-anchor'
         : anchors.find(anchor => equal(anchor.point, point))?.reason;
       const locked = !!protectionReason;
       const previous = vertices.at(-1);

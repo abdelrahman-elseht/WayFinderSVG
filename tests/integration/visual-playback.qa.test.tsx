@@ -11,6 +11,7 @@ import floorJson from '../../data/buildings/B03/GF.json';
 import contentJson from '../../content/B03/GF.json';
 
 const captured = vi.hoisted(() => ({ props: {} as { route: Point[]; visibleRoute: Point[]; playbackProgress: number } }));
+vi.mock('next/navigation', () => ({ useRouter: () => ({ push: vi.fn(), replace: vi.fn() }) }));
 vi.mock('next/dynamic', () => ({
   default: () => (props: typeof captured.props) => { captured.props = props; return <div />; },
 }));

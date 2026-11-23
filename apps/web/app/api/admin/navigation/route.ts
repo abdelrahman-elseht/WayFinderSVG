@@ -23,7 +23,7 @@ async function worker(floorId: FloorId, payload: unknown) {
   try {
     return await new Promise<unknown>((resolve, reject) => {
       const local = path.join(root, process.platform === 'win32' ? '.venv/Scripts/python.exe' : '.venv/bin/python');
-      const executable = process.env.PYTHON_EXECUTABLE || (existsSync(local) ? local : 'python');
+      const executable = process.env.PYTHON_EXECUTABLE || (existsSync(local) ? local : 'python3');
       const script = path.join(root, 'scripts/semantic-map', workerScripts[floorId]);
       if (!existsSync(script)) { reject(new Error(`Admin editor worker is unavailable for floor ${floorId}`)); return; }
       const child = spawn(executable, [script], {

@@ -56,10 +56,11 @@ Drawing-based navigation is enabled. The source-constrained graph contains 149 n
 - **Schedule and plan disagree** on several codes/names (notably G-08, G-17, G-24, G-25, G-34). The full inventory preserves both sources and flags conflicts rather than treating a translation or alias as a resolution.
 - **Physical accessibility and public access are unknown.** Directory visibility does not assert access. Accessible-only routing excludes unknown links.
 - **Content is placeholder copy; no room photos were supplied.** Details use source-map thumbnails and explicit placeholder descriptions.
+- **Graph validation has pre-existing failures.** The current published First Floor graph fails `npm run validate:data` and `npm run test:data` at `graph.edges[122]`, which crosses outside navigable areas. With the original branch graphs, validation reaches the Ground Floor and fails at `graph.edges[0]`, which leaves navigable areas. The edited First Floor graph and its related floor changes predate this transition implementation and remain intact for review.
 
 ## Architecture limits
 
-The typed model supports multiple buildings/floors/kiosks and vertical links; only B03 GF source data is supplied. Graph v1 walls/navigable-area arrays do not identify their floor. The router therefore rejects constrained graphs spanning multiple confirmed floors instead of applying one floor's geometry to another. Before commissioning multi-floor routes, introduce floor-scoped obstacle evidence in a versioned contract.
+The public app currently supports GF and Floor 01 selection and routes between them only through matching, administrator-paired escalator or elevator landings. Candidate landings require source evidence and review notes on both floors. The runtime combines their published graphs with floor-scoped wall and walkable-area checks. Floor 02 is not registered in the public app, and no transition should be considered field-verified until its physical identity, access, and status are confirmed.
 
 Browser speech depends on installed voices and browser playback policy. The adapter cannot guarantee an Arabic voice on every kiosk; provision and test the chosen kiosk browser or substitute deterministic audio through TTSService.
 

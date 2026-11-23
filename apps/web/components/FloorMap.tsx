@@ -120,7 +120,8 @@ const routeArrowShape = (() => { const shape = new THREE.Shape(); shape.moveTo(.
 export function RouteOverlay({ route, fullRoute = route, center, forcedColors }: { route: Point[]; fullRoute?: Point[]; center: Point; forcedColors: boolean }) {
   const points = useMemo(() => route.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [route, center]);
   const endpointPoints = useMemo(() => fullRoute.map(([x, y]) => [(x - center[0]) / SCALE, .095, (y - center[1]) / SCALE] as [number, number, number]), [fullRoute, center]);
-  if (endpointPoints.length < 2) return null;
+  if (!endpointPoints.length) return null;
+  if (endpointPoints.length === 1) return <RouteEndpointPin role="origin" position={endpointPoints[0]} forcedColors={forcedColors} />;
   const routeColor = forcedColors ? highContrastMapPalette.route : mapPalette.route;
   const tip = points.at(-1)!;
   const previous = points.at(-2)!;
@@ -154,7 +155,7 @@ function Scene(props: Props) {
   const blocks = useMemo(() => rooms.map(room => roomBlock(room, contentById.get(room.contentRef))).filter((block): block is MapBlock => block !== null), [rooms, contentById]);
   const equipment = useMemo(() => (props.mapFeatures ?? []).map(featureBlock), [props.mapFeatures]);
   const routeFrame = useMemo(() => {
-    if (route.length < 2) return null;
+    if (!route.length) return null;
     const xs = route.map(point => (point[0] - center[0]) / SCALE); const zs = route.map(point => (point[1] - center[1]) / SCALE);
     const x = (Math.min(...xs) + Math.max(...xs)) / 2; const z = (Math.min(...zs) + Math.max(...zs)) / 2;
     const right = new THREE.Vector3(CAMERA_OFFSET.z, 0, -CAMERA_OFFSET.x).normalize();

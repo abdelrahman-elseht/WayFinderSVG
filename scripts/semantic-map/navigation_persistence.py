@@ -54,6 +54,33 @@ def authoring_source_references(root, floor, spine_records):
     return sorted(references)
 
 
+def transition_nodes(root, floor_id):
+    other_floor = '01' if floor_id == 'GF' else 'GF'
+    publication = read_snapshot(root, other_floor)
+    if publication:
+        other_graph = publication['graph']
+    else:
+        canonical = root / f'data/buildings/B03/{other_floor}.graph.json'
+        other_graph = json.loads(canonical.read_text('utf-8')) if canonical.exists() else {'nodes': []}
+    return [node for node in other_graph.get('nodes', []) if node.get('type') in ('escalator', 'elevator')]
+
+
+def transition_candidates(root, floor_id, graph):
+    other_nodes = transition_nodes(root, floor_id)
+    all_nodes = [*graph.get('nodes', []), *other_nodes]
+    counts = {}
+    for node in all_nodes:
+        transition_id = node.get('transitionId')
+        if transition_id:
+            counts[transition_id] = counts.get(transition_id, 0) + 1
+    required = ('transitionId', 'transitionName', 'type', 'transitionAccessibility', 'transitionRestriction', 'floorId', 'id')
+    return [{key: node[key] for key in required}
+            for node in other_nodes
+            if node.get('transitionId')
+            and all(key in node for key in required)
+            and counts.get(node['transitionId']) == 1]
+
+
 def _review(item, context):
     reference, note = item.get('sourceReference'), item.get('note')
     if (not isinstance(reference, str) or not reference.strip() or
@@ -115,9 +142,10 @@ def _simple_rings(domain):
 
 
 def authored_overlay(graph, floor, payload, moves, deleted, additions, merges, *,
-                     protected_ids=(), source_references=(), exclusions=()):
+                     protected_ids=(), source_references=(), exclusions=(), known_transition_nodes=()):
     edits = authoring_edits(payload)
-    context = {'floor': floor, 'sourceReferences': set(source_references), 'exclusions': exclusions}
+    context = {'floor': floor, 'sourceReferences': set(source_references), 'exclusions': exclusions,
+               'transitionNodes': known_transition_nodes}
     result, excluded = edited_graph(
         graph, moves, deleted, additions, protected_ids=protected_ids, pending_merges=merges,
         added_nodes=edits['addedNodes'], area_edits=edits['navigableAreaEdits'],
@@ -152,12 +180,13 @@ def authored_overlay(graph, floor, payload, moves, deleted, additions, merges, *
 
 
 def validate_authoring_candidate(saved, graph, floor, *, protected_ids=(),
-                                source_references=(), exclusions=()):
+                                source_references=(), exclusions=(), known_transition_nodes=()):
     """A serialized draft has the same geometry/identity boundary as a live edit."""
     return authored_overlay(
         graph, floor, saved, saved.get('nodeMoves', {}), saved.get('deletedNodes', []),
         saved.get('addedEdges', []), saved.get('nodeMerges', {}),
-        protected_ids=protected_ids, source_references=source_references, exclusions=exclusions)
+        protected_ids=protected_ids, source_references=source_references, exclusions=exclusions,
+        known_transition_nodes=known_transition_nodes)
 
 
 def encoded(value):
@@ -611,13 +640,34 @@ def add_graph_nodes(graph, additions, *, context=None):
             raise ValueError('Added graph nodes must be objects')
         node_id, point = node.get('id'), node.get('point')
         kind, room_id = node.get('type'), node.get('roomId')
+        transition = kind in ('escalator', 'elevator')
         if (not isinstance(node_id, str) or not node_id.startswith('B03-' + str(node.get('floorId')) + '-admin-node-')
                 or node_id in ids or node.get('floorId') not in ('GF', '01')
-                or node.get('buildingId') != 'B03' or kind not in ('junction', 'entrance')
+                or node.get('buildingId') != 'B03' or kind not in ('junction', 'entrance', 'escalator', 'elevator')
                 or node.get('status') != 'candidate'
                 or not isinstance(point, list) or len(point) != 2
                 or any(type(axis) not in (int, float) or not math.isfinite(axis) for axis in point)):
             raise ValueError('Added graph node has invalid identity, type, evidence or point')
+        if transition:
+            if (not isinstance(node.get('transitionId'), str) or not node['transitionId'].startswith('B03-transition-')
+                    or not isinstance(node.get('transitionName'), str) or not node['transitionName'].strip()
+                    or node.get('transitionAccessibility') not in ('confirmed', 'inaccessible', 'unknown')
+                    or node.get('transitionRestriction') not in ('open', 'closed', 'unknown')
+                    or room_id is not None):
+                raise ValueError('Escalator and elevator landings require a transition identity, name, access and restriction status')
+            linked = [existing for existing in [*result['nodes'], *(context or {}).get('transitionNodes', [])]
+                      if existing.get('transitionId') == node['transitionId']]
+            if len(linked) > 1:
+                raise ValueError('A vertical transition can have only one landing per floor')
+            if linked:
+                other = linked[0]
+                if (other.get('floorId') == node['floorId'] or other.get('type') != kind
+                        or other.get('transitionName') != node['transitionName']
+                        or other.get('transitionAccessibility') != node['transitionAccessibility']
+                        or other.get('transitionRestriction') != node['transitionRestriction']):
+                    raise ValueError('The paired vertical landing must match its opposite-floor type, name, access and status')
+        elif any(node.get(key) is not None for key in ('transitionId', 'transitionName', 'transitionAccessibility', 'transitionRestriction')):
+            raise ValueError('Transition metadata requires an escalator or elevator node')
         if context is None or node['floorId'] != context['floor']['floor']['id']:
             raise ValueError('Added graph nodes must belong to the loaded floor')
         review = _review(node, context)
@@ -638,6 +688,8 @@ def add_graph_nodes(graph, additions, *, context=None):
             raise ValueError('A room-entry node must be bound to a selected room')
         ids.add(node_id)
         persisted = {key: node[key] for key in ('id', 'buildingId', 'floorId', 'point', 'type', 'status')}
+        if transition:
+            persisted.update({key: node[key] for key in ('transitionId', 'transitionName', 'transitionAccessibility', 'transitionRestriction')})
         if room_id is not None:
             persisted['roomId'] = room_id
         persisted['adminReview'] = review

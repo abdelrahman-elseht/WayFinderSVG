@@ -82,6 +82,25 @@ class NavigationPersistenceTests(unittest.TestCase):
         self.assertEqual(persistence.snapshot_path(self.root, 'GF'), self.root / 'durable/live.json')
         self.assertEqual(persistence.snapshot_path(self.root, '01'), self.root / 'durable/live.json.01')
 
+    def test_transition_pair_option_disappears_after_the_second_landing_is_published(self):
+        transition_node = {
+            'id': 'B03-GF-admin-node-lift', 'buildingId': 'B03', 'floorId': 'GF',
+            'point': [5, 5], 'type': 'elevator', 'status': 'candidate',
+            'transitionId': 'B03-transition-lift', 'transitionName': 'Service lift',
+            'transitionAccessibility': 'confirmed', 'transitionRestriction': 'open',
+        }
+        ground = self.snapshot('GF', 'ground')
+        ground['graph'] = {'nodes': [transition_node], 'edges': []}
+        persistence.atomic(persistence.snapshot_path(self.root, 'GF'), persistence.encoded(ground))
+
+        available = persistence.transition_candidates(self.root, '01', {'nodes': []})
+        self.assertEqual(available, [{key: transition_node[key] for key in (
+            'transitionId', 'transitionName', 'type', 'transitionAccessibility',
+            'transitionRestriction', 'floorId', 'id') }])
+
+        paired_node = {**transition_node, 'id': 'B03-01-admin-node-lift', 'floorId': '01'}
+        self.assertEqual(persistence.transition_candidates(self.root, '01', {'nodes': [paired_node]}), [])
+
     def test_added_candidate_edge_is_persistable_only_when_supported(self):
         graph = {
             'nodes': [
@@ -184,6 +203,27 @@ class NavigationPersistenceTests(unittest.TestCase):
             persistence.authored_overlay(graph, floor, {
                 **payload, 'addedNodes': [{**payload['addedNodes'][0], 'sourceReference': 'made-up'}]
             }, {}, [], payload['addedEdges'], {}, source_references=source)
+
+    def test_vertical_transition_landing_metadata_is_persisted_with_review_evidence(self):
+        floor = {'floor': {'id': '01', 'viewBox': [0, 0, 10, 10]}, 'rooms': []}
+        graph = {'routingPolicy': 'drawing-based', 'metersPerUnit': None,
+                 'navigableAreas': [[[0, 0], [10, 0], [10, 10], [0, 10]]],
+                 'walls': [], 'nodes': [], 'edges': []}
+        source = 'maps/B03/01/master.svg'
+        transition = {'id': 'B03-01-admin-node-lift', 'buildingId': 'B03', 'floorId': '01',
+                      'point': [5, 5], 'type': 'elevator', 'status': 'candidate',
+                      'transitionId': 'B03-transition-lift', 'transitionName': 'Service lift',
+                      'transitionAccessibility': 'confirmed', 'transitionRestriction': 'open',
+                      'sourceReference': source, 'note': 'SYNTHETIC landing review'}
+        result, _, _, _, _ = persistence.authored_overlay(
+            graph, floor, {'addedNodes': [transition]}, {}, [], [], {},
+            source_references={source})
+        stored = result['nodes'][0]
+        self.assertEqual({key: stored[key] for key in (
+            'type', 'transitionId', 'transitionName', 'transitionAccessibility', 'transitionRestriction')}, {
+                'type': 'elevator', 'transitionId': 'B03-transition-lift', 'transitionName': 'Service lift',
+                'transitionAccessibility': 'confirmed', 'transitionRestriction': 'open'})
+        self.assertEqual(result['adminAuthoring']['addedNodes'][0]['adminReview']['status'], 'candidate')
 
     def test_edge_geometry_edit_keeps_endpoints_and_requires_full_supported_geometry(self):
         graph = {'metersPerUnit': None, 'navigableAreas': [

@@ -8,7 +8,7 @@ import { anchoredEdgeGeometryEdits, applyEdgeGeometryEdits, applyRoomEntryBindin
 import './editor.css';
 
 type Layer = { name: string; visible: boolean; locked: boolean; selectable: boolean; color: string };
-type Mode = 'Select' | 'Multi-select' | 'Move' | 'Lasso' | 'Draw corridor' | 'Add source control' | 'Measure clearance' | 'Add junction' | 'Add room entry' | 'Draw walkable mask' | 'Edit edge bends';
+type Mode = 'Select' | 'Multi-select' | 'Move' | 'Lasso' | 'Draw corridor' | 'Add source control' | 'Measure clearance' | 'Add junction' | 'Add room entry' | 'Add transition landing' | 'Draw walkable mask' | 'Edit edge bends';
 type Frame = { spines: Spine[]; nodeMoves: NodeMoves; deletedNodes: string[]; addedEdges: AddedGraphEdge[]; nodeMerges?: NodeMerges; authoring?: AuthoringEdits; label: string };
 const emptyFrame = { spines: [] as Spine[], nodeMoves: {} as NodeMoves, deletedNodes: [] as string[], addedEdges: [] as AddedGraphEdge[], nodeMerges: {} as NodeMerges, authoring: emptyAuthoringEdits(), label: 'Empty draft' } satisfies Frame;
 type Gesture = { kind: 'move' | 'box' | 'lasso' | 'pan'; start: Point; current: Point; path: Point[]; selected: Set<string>; nodes: Set<string>; view: number[]; additive: boolean };
@@ -25,6 +25,8 @@ const layerDefaults: Layer[] = [
 const protectedLayerIndices = new Set([4, 5, 7]);
 const pointsString = (points: Point[]) => points.map(p => p.join(',')).join(' ');
 const fmt = (value: number | undefined) => value === undefined || !Number.isFinite(value) ? 'Unavailable' : value.toFixed(3);
+const inSupportedWalkableArea = (point: Point, areas: Point[][]) => areas.some(area => inside(point, area)
+  || area.some((vertex, index) => pointSegmentDistance(point, vertex, area[(index + 1) % area.length]) <= 0.01));
 const sourceLabel = (reference: string) => reference.endsWith('/master.svg') ? 'Floor drawing (master.svg)'
   : reference.endsWith('/alignment.json') ? 'Floor source alignment'
   : reference.includes('#/corridorSpines/') ? `Corridor spine ${reference.split('/').at(-1)}`
@@ -56,7 +58,7 @@ export const SourceEvidencePicker = memo(function SourceEvidencePicker({ referen
       }
       if (event.key === 'Escape') { event.preventDefault(); setQuery(''); setPage(0); }
     }} /></label>
-    <label>{ar ? 'مرجع مصدر التحرير' : 'Authoring source reference'}<select dir="ltr" value={value} disabled={disabled} onChange={event => onChange(event.target.value)}>
+    <label>{ar ? 'مرجع مصدر التحرير' : 'Authoring source reference'}<select data-authoring-source dir="ltr" value={value} disabled={disabled} onChange={event => onChange(event.target.value)}>
       <option value="">{ar ? 'اختر دليلاً من مخطط الطابق' : 'Choose supplied floor evidence'}</option>
       {options.map(reference => <option title={reference} value={reference} key={reference}>{sourceLabel(reference)} - {reference}</option>)}
     </select></label>
@@ -128,16 +130,33 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const [editingMaskId, setEditingMaskId] = useState('');
   const [authorSource, setAuthorSource] = useState(''), [authorNote, setAuthorNote] = useState('');
   const [maskError, setMaskError] = useState('');
-  const [reviewFocus, setReviewFocus] = useState<'source' | 'note' | null>(null);
+  const [reviewFocus, setReviewFocus] = useState<'source' | 'note' | 'name' | null>(null);
+  const [focusTransitionSetup, setFocusTransitionSetup] = useState(false);
   const authoringPanel = useRef<HTMLElement>(null), completedMaskPoints = useRef<Point[] | null>(null);
+  const sourceOverridePanel = useRef<HTMLDetailsElement>(null), reviewDetails = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
     if (!reviewFocus || !leftPanelOpen) return;
-    const field = authoringPanel.current?.querySelector<HTMLElement>(reviewFocus === 'source' ? 'select' : 'textarea');
+    const selector = reviewFocus === 'source' ? '[data-authoring-source]'
+      : reviewFocus === 'note' ? 'textarea' : '[data-transition-name]';
+    if (reviewFocus === 'source') sourceOverridePanel.current!.open = true;
+    if (reviewFocus === 'note') reviewDetails.current!.open = true;
+    const field = authoringPanel.current?.querySelector<HTMLElement>(selector);
     field?.scrollIntoView?.({ block: 'nearest', behavior: 'instant' });
     field?.focus();
     setReviewFocus(null);
   }, [reviewFocus, leftPanelOpen]);
+  useEffect(() => {
+    if (!focusTransitionSetup || !leftPanelOpen) return;
+    authoringPanel.current?.scrollIntoView?.({ block: 'start', behavior: 'smooth' });
+    authoringPanel.current?.querySelector<HTMLElement>('[data-transition-kind]')?.focus();
+    setFocusTransitionSetup(false);
+  }, [focusTransitionSetup, leftPanelOpen]);
   const [entryRoom, setEntryRoom] = useState('');
+  const [transitionType, setTransitionType] = useState<'escalator' | 'elevator'>('escalator');
+  const [transitionId, setTransitionId] = useState('');
+  const [transitionName, setTransitionName] = useState('');
+  const [transitionAccessibility, setTransitionAccessibility] = useState<'confirmed' | 'inaccessible' | 'unknown'>('unknown');
+  const [transitionRestriction, setTransitionRestriction] = useState<'open' | 'closed' | 'unknown'>('unknown');
   const [bendPoints, setBendPoints] = useState<Point[] | null>(null);
   const [bendEdgeId, setBendEdgeId] = useState('');
   const floor01 = floorId === '01';
@@ -194,6 +213,8 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   }, [baseGraph, session, preview, rawEvidence, movement.nodeMoves, deletedNodes, addedEdges, nodeMerges, authored.edgeGeometryEdits]);
   const draftFloor = session ? applyRoomEntryBindings(session.floor, authored.roomEntryBindings) : undefined;
   const pendingNodeIds = new Set(authored.addedNodes.map(node => node.id));
+  const transitionOptions = session?.transitionCandidates?.filter(candidate => candidate.type === transitionType) ?? [];
+  const selectedTransition = transitionOptions.find(candidate => candidate.transitionId === transitionId);
   const isGraphCurrent = !changed || (reportKey === draftKey && !!report?.graph);
   const edge = graph?.edges.find(e => e.id === inspect), node = graph?.nodes.find(n => n.id === inspect);
   const edgeEvidence = evidence?.find(e => e.edgeId === inspect);
@@ -201,7 +222,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
   const selectedIds = new Set(visibleControls.filter(control => selection.has(control.id) && editableIds.has(control.id)).map(control => control.id));
   const filteredNodes = graph?.nodes.filter(n => (!roomFilter || n.roomId === roomFilter)
     && (!spineFilter || evidence?.some(item => item.sourceSpineIds.includes(spines.find(s => s.id === spineFilter)!.index) && graph.edges.some(edge => edge.id === item.edgeId && (edge.from === n.id || edge.to === n.id))))
-    && (typeFilter === 'all' || typeFilter === 'graph' || typeFilter === 'room' && !!n.roomId || typeFilter === 'junction' && n.type === 'junction' && !n.roomId || typeFilter === 'candidate-entry' && n.type === 'entrance' && (pendingNodeIds.has(n.id) || 'adminReview' in n))
+    && (typeFilter === 'all' || typeFilter === 'graph' || typeFilter === 'room' && !!n.roomId || typeFilter === 'junction' && n.type === 'junction' && !n.roomId || typeFilter === 'candidate-entry' && n.type === 'entrance' && (pendingNodeIds.has(n.id) || 'adminReview' in n) || typeFilter === 'transition' && (n.type === 'escalator' || n.type === 'elevator'))
     && (connectionFilter === 'all' || graph.edges.some(e => e.from === n.id || e.to === n.id) === (connectionFilter === 'connected')));
   const visibleHandles = [
     ...(layers[1].visible ? visibleControls.map(c => ({ id: c.id, kind: 'source' as const, point: c.point })) : []),
@@ -223,7 +244,9 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     setMessage(`Loading Floor ${floorId} source configuration and architectural evidence...`);
     fetch(`/api/admin/navigation?floorId=${floorId}`, { signal: controller.signal }).then(async response => { const data = await response.json(); if (!response.ok) throw new Error(data.error); return sessionFromResponse(data, floorId); }).then(data => {
       if (controller.signal.aborted) return;
+      const floorDrawingReference = data.floor.floor.mapAsset.replace(/^\//, '');
       setSession(data); setFrames([{ spines: data.spines, nodeMoves: {}, deletedNodes: [], addedEdges: [], label: 'Loaded source configuration' }]); setView(data.floor.floor.viewBox);
+      setAuthorSource(data.authoringSourceReferences?.includes(floorDrawingReference) ? floorDrawingReference : '');
       setRouteStart(data.floor.rooms[0]?.id || '');
       setRouteEnd(data.floor.rooms[1]?.id || data.floor.rooms[0]?.id || '');
       setEntryRoom(data.floor.rooms[0]?.id || '');
@@ -271,6 +294,12 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     if (unfinishedDrawing) { setMessage('Finish or cancel the active drawing before choosing another tool.'); return; }
     cancelDrawing(); setMode(tool);
     if (tool === 'Draw walkable mask') setLayers(current => current.map((layer, index) => index === 6 ? { ...layer, visible: true } : layer));
+    if (tool === 'Add transition landing') setLayers(current => current.map((layer, index) => index === 6 ? { ...layer, visible: true } : layer));
+  }
+  function showTransitionSetup() {
+    setLeftPanelOpen(true);
+    setFocusTransitionSetup(true);
+    setMessage('Choose Escalator or Lift, then configure the landing in the left panel.');
   }
   function undo() { if (!busy) { cancelDrawing(); setCursor(Math.max(0, cursor - 1)); setSelection(new Set()); setNodeSelection(new Set()); setInspect(null); } }
   function redo() { if (!busy) { cancelDrawing(); setCursor(Math.min(frames.length - 1, cursor + 1)); setSelection(new Set()); setNodeSelection(new Set()); setInspect(null); } }
@@ -355,6 +384,11 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
           : `Reconstruction completed with diagnostics; the edited graph remains available for review. ${details || 'Inspect the connectivity report.'}${result.lostRoomPairs?.length ? ` ${result.lostRoomPairs.length} other room-pair connections changed; see the report.` : ''}`);
       if (result.candidate) setSession(s => s ? { ...s, candidates: [...new Set([...s.candidates, result.candidate!])] } : s);
       if (result.saved && result.graph && result.revision) {
+        if (typeof BroadcastChannel !== 'undefined') {
+          const channel = new BroadcastChannel('wayfinding-navigation-publication');
+          channel.postMessage({ floorId });
+          channel.close();
+        }
         // The saved graph already contains the complete authored overlay.
         setFrames([{ spines, nodeMoves: {}, deletedNodes: [], addedEdges: [], nodeMerges: {}, authoring: emptyAuthoringEdits(), label: 'Loaded published graph' }]);
         setCursor(0);
@@ -426,6 +460,9 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
       bidirectional: true, geometry: [a.point, b.point],
     };
     commit(spines, `Connect graph nodes ${from} and ${to}`, nodeMoves, deletedNodes, [...addedEdges, edge]);
+    setNodeSelection(new Set());
+    setSelection(new Set());
+    setMode('Select');
     setInspect(edge.id);
     setMessage(t(
       'Candidate connection added. It will save only if its straight segment is covered by navigable-area evidence and does not touch a wall. Accessibility remains unknown.',
@@ -433,22 +470,62 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
     ));
   }
   function reviewReady() {
-    if (!sourceReferences.includes(authorSource) || !authorNote.trim() || authorNote.trim().length > 2000) {
-      setMessage('Choose supplied floor source evidence and enter a review note (1-2000 characters).'); return false;
+    if (!sourceReferences.includes(authorSource)) {
+      setReviewFocus('source');
+      setMessage('Choose the source evidence for this landing.');
+      return false;
+    }
+    if (!authorNote.trim() || authorNote.trim().length > 2000) {
+      setReviewFocus('note');
+      setMessage('Enter a short review note for this landing.');
+      return false;
     }
     return true;
   }
+  function beginTransitionPlacement() {
+    if (!sourceReferences.includes(authorSource) && !reviewReady()) return;
+    if (!selectedTransition && !transitionName.trim()) {
+      setReviewFocus('name');
+      setMessage('Name this escalator or lift before placing it.');
+      return;
+    }
+    if (!authorNote.trim()) {
+      setAuthorNote('Position selected in the admin editor; physical access and step-free suitability are unverified.');
+    }
+    chooseTool('Add transition landing');
+  }
   function createNode(point: Point) {
+    if (mode === 'Add transition landing' && !inSupportedWalkableArea(point, graph?.navigableAreas ?? [])) {
+      setMessage('Place the landing inside the highlighted green walkable area. Do not add a walkable mask to extend this area.');
+      return;
+    }
     if (!reviewReady() || !point.every(Number.isFinite)) return;
+    if (mode === 'Add transition landing' && !selectedTransition && !transitionName.trim()) {
+      setReviewFocus('name');
+      setMessage('Name this escalator or lift before placing it.');
+      return;
+    }
     const roomId = mode === 'Add room entry' ? entryRoom : undefined;
     if (mode === 'Add room entry' && !session?.floor.rooms.some(room => room.id === roomId)) { setMessage('Choose the room for this entry/approach first.'); return; }
-    const created = createCandidateNode(floorId, point, roomId ? 'entrance' : 'junction', roomId, authorSource, authorNote.trim());
+    const created = mode === 'Add transition landing'
+      ? {
+          ...createCandidateNode(floorId, point, 'junction', undefined, authorSource, authorNote.trim()),
+          type: transitionType,
+          transitionId: selectedTransition?.transitionId || `B03-transition-${crypto.randomUUID().replaceAll('-', '')}`,
+          transitionName: selectedTransition?.transitionName || transitionName.trim(),
+          transitionAccessibility: selectedTransition?.transitionAccessibility || transitionAccessibility,
+          transitionRestriction: selectedTransition?.transitionRestriction || transitionRestriction,
+        }
+      : createCandidateNode(floorId, point, roomId ? 'entrance' : 'junction', roomId, authorSource, authorNote.trim());
     const binding = roomId ? { roomId, nodeId: created.id, sourceReference: authorSource, note: authorNote.trim() } : null;
     commitAuthoring({ ...authored, addedNodes: [...authored.addedNodes, created], roomEntryBindings: binding ? [...authored.roomEntryBindings.filter(item => item.roomId !== roomId), binding] : authored.roomEntryBindings }, `Add candidate ${roomId ? 'room approach' : 'junction'} ${created.id}`);
     setTypeFilter('graph'); setRoomFilter(''); setSpineFilter(''); setConnectionFilter('all');
     setLayers(current => current.map((layer, index) => index === (roomId ? 0 : 2) ? { ...layer, visible: true, locked: false, selectable: true } : layer));
-    setSelection(new Set()); setNodeSelection(new Set([created.id])); setInspect(created.id); setMode('Select');
-    setMessage(roomId ? 'Candidate room approach placed. Select it and a corridor junction, then Connect nodes before saving. Physical access and wheelchair accessibility remain unknown.' : 'Candidate junction placed. Select it and another graph node to connect; no automatic links or accessibility claims are added.');
+    setSelection(new Set()); setNodeSelection(new Set([created.id])); setInspect(created.id);
+    setMode(mode === 'Add transition landing' ? 'Multi-select' : 'Select');
+    setMessage(mode === 'Add transition landing'
+      ? `Landing placed. Click a nearby corridor node, then Connect nodes. Save and publish this floor before adding the matching landing on the other floor.`
+      : roomId ? 'Candidate room approach placed. Select it and a corridor junction, then Connect nodes before saving. Physical access and wheelchair accessibility remain unknown.' : 'Candidate junction placed. Select it and another graph node to connect; no automatic links or accessibility claims are added.');
   }
   function finishMask(): AuthoringEdits | null {
     if (busy || mode !== 'Draw walkable mask' || completedMaskPoints.current === maskPoints) return null;
@@ -549,7 +626,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
         if (maskPoints.length < 256 && (!last || last[0] !== point[0] || last[1] !== point[1])) setMaskPoints([...maskPoints, point]);
         return;
       }
-      if (mode === 'Add junction' || mode === 'Add room entry') { createNode(point); return; }
+      if (mode === 'Add junction' || mode === 'Add room entry' || mode === 'Add transition landing') { createNode(point); return; }
       if (mode === 'Edit edge bends' && bendPoints) {
         let segment = 0, distance = Infinity;
         for (let i = 0; i < bendPoints.length - 1; i++) { const d = pointSegmentDistance(point, bendPoints[i], bendPoints[i + 1]); if (d < distance) { distance = d; segment = i; } }
@@ -669,6 +746,7 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
       <button aria-label="Dismiss saved route notice" onClick={() => setSavedRouteNotice(false)}>Dismiss</button>
     </div>}
     <nav className="editor-toolbar" aria-label="Editor tools">
+      <button className="primary transition-setup-shortcut" disabled={busy} onClick={showTransitionSetup}>Set up lift / escalator</button>
       {(['Select', 'Multi-select', 'Move', 'Lasso', 'Draw corridor', 'Add source control', 'Measure clearance', 'Add junction', 'Add room entry', 'Draw walkable mask'] as Mode[]).map(tool => <button key={tool} disabled={busy} aria-pressed={mode === tool} onClick={() => chooseTool(tool)}>{tool}</button>)}
       <button onClick={remove} disabled={(!selectedIds.size && (!graphEditing || !selectedNodeIds.size)) || busy}>Delete</button><span className="toolbar-divider" />
       <button onClick={connectSelectedNodes} disabled={selectedNodeIds.size !== 2 || busy}>{t('Connect nodes', 'وصل عقدتين')}</button>
@@ -697,25 +775,41 @@ export default function NavigationEditor({ floorId = 'GF' }: { floorId?: 'GF' | 
         </div>)}
         <h2>Selection filters</h2>
         <label>Source spine<select value={spineFilter} onChange={e => setSpineFilter(e.target.value)}><option value="">All source spines</option>{spines.map(s => <option key={s.id} value={s.id}>{s.index} · {s.id}</option>)}</select></label>
-        <label>Node type<select value={typeFilter} onChange={e => setTypeFilter(e.target.value)}><option value="all">All nodes</option><option value="control">Source controls</option><option value="graph">All graph nodes</option><option value="junction">Derived junctions</option><option value="room">Room approaches</option><option value="candidate-entry">Admin candidate entries</option></select></label>
+        <label>Node type<select value={typeFilter} onChange={e => setTypeFilter(e.target.value)}><option value="all">All nodes</option><option value="control">Source controls</option><option value="graph">All graph nodes</option><option value="junction">Derived junctions</option><option value="room">Room approaches</option><option value="candidate-entry">Admin candidate entries</option><option value="transition">Vertical transition landings</option></select></label>
         <label>Room<select value={roomFilter} onChange={e => setRoomFilter(e.target.value)}><option value="">All rooms</option>{session.floor.rooms.map(r => <option key={r.id} value={r.id}>{r.code} · {r.name[language]}</option>)}</select></label>
         <label>Graph connection<select value={connectionFilter} onChange={e => setConnectionFilter(e.target.value)}><option value="all">All</option><option value="connected">Connected</option><option value="isolated">Isolated</option></select></label>
         <div className="button-pair"><button onClick={selectAll}>Select filtered</button><button aria-label="Clear selection" onClick={() => { setSelection(new Set()); setNodeSelection(new Set()); setInspect(null); }}>Clear</button></div>
         <button onClick={selectSpine}>Select spine controls</button>
         <button onClick={() => { const owner = spines.find(s => s.id === spineFilter); const edgeIds = evidence?.filter(e => owner && e.sourceSpineIds.includes(owner.index)).map(e => e.edgeId) || []; const nodes = graph?.edges.filter(e => edgeIds.includes(e.id)).flatMap(e => [e.from, e.to]) || []; setMessage(`Derived junctions for ${spineFilter}: ${[...new Set(nodes)].join(', ')}. Edit their source controls to regenerate.`); setInspect(nodes[0] || null); }}>Inspect connected junctions</button>
         <section ref={authoringPanel} className="authoring-tools" aria-label="Candidate geometry authoring">
-          <h2>Candidate geometry authoring</h2>
-          <p className="muted">Choose the geometry yourself on the source drawing. All additions remain candidate, with unknown physical and wheelchair access. Mask edits do not remove walls, room solids or void exclusions.</p>
-          <SourceEvidencePicker key={floorId} references={sourceReferences} value={authorSource} disabled={busy} language={language} onChange={setAuthorSource} />
-          {authorSource && <details><summary>Selected evidence reference</summary><code>{authorSource}</code></details>}
-          <label>Authoring review note<textarea value={authorNote} disabled={busy} maxLength={2000} onChange={event => setAuthorNote(event.target.value)} /></label>
+          <h2>Add an escalator or lift landing</h2>
+          <p className="muted">The visible floor drawing is selected as evidence. Place this landing, then pair it on the other floor.</p>
+          <label>Transition kind<select data-transition-kind value={transitionType} disabled={busy || mode === 'Add transition landing'} onChange={event => { setTransitionType(event.target.value as 'escalator' | 'elevator'); setTransitionId(''); setTransitionName(''); }}><option value="escalator">Escalator</option><option value="elevator">Lift</option></select></label>
+          <label>Pair with landing<select value={transitionId} disabled={busy} onChange={event => { const candidate = transitionOptions.find(item => item.transitionId === event.target.value); setTransitionId(event.target.value); setTransitionName(candidate?.transitionName || ''); if (candidate) { setTransitionType(candidate.type); setTransitionAccessibility(candidate.transitionAccessibility); setTransitionRestriction(candidate.transitionRestriction); } }}><option value="">Start a new pair</option>{transitionOptions.map(candidate => <option key={candidate.transitionId} value={candidate.transitionId}>{candidate.transitionName} · floor {candidate.floorId} · {candidate.type}</option>)}</select></label>
+          <label>Transition name<input data-transition-name value={transitionName} disabled={busy || !!selectedTransition} maxLength={80} onChange={event => setTransitionName(event.target.value)} /></label>
+          <button className="primary transition-place-button" disabled={busy} onClick={beginTransitionPlacement}>Place landing on drawing</button>
+          <details className="transition-advanced"><summary>Access and status</summary>
+            <label>Step-free access<select value={transitionAccessibility} disabled={busy || !!selectedTransition} onChange={event => setTransitionAccessibility(event.target.value as 'confirmed' | 'inaccessible' | 'unknown')}><option value="unknown">Unknown</option><option value="confirmed">Confirmed step-free</option><option value="inaccessible">Not step-free</option></select></label>
+            <label>Transition status<select value={transitionRestriction} disabled={busy || !!selectedTransition} onChange={event => setTransitionRestriction(event.target.value as 'open' | 'closed' | 'unknown')}><option value="unknown">Unknown</option><option value="open">Open</option><option value="closed">Closed</option></select></label>
+          </details>
+          <details ref={sourceOverridePanel} className="transition-advanced">
+            <summary>Use different source evidence</summary>
+            <SourceEvidencePicker key={floorId} references={sourceReferences} value={authorSource} disabled={busy} language={language} onChange={setAuthorSource} />
+          </details>
+          <details ref={reviewDetails} className="transition-advanced">
+            <summary>Review note</summary>
+            <label>Authoring review note<textarea value={authorNote} disabled={busy} maxLength={2000} onChange={event => setAuthorNote(event.target.value)} /></label>
+          </details>
+          {mode === 'Add transition landing' && <p role="status">Click inside the green walkable area to place the {transitionType} landing. <button disabled={busy} onClick={cancelDrawing}>Cancel</button></p>}
+          <h2>Other map edits</h2>
           <label>Entry / approach room<select value={entryRoom} disabled={busy} onChange={event => setEntryRoom(event.target.value)}><option value="">Choose room</option>{session.floor.rooms.map(room => <option value={room.id} key={room.id}>{room.code} - {room.name[language]}</option>)}</select></label>
           <div className="button-pair"><button disabled={busy} onClick={() => chooseTool('Add junction')}>Place junction</button><button disabled={busy || !entryRoom} onClick={() => chooseTool('Add room entry')}>Place room approach</button></div>
-          {(mode === 'Add junction' || mode === 'Add room entry') && <p role="status">Click the map to place the candidate {mode === 'Add junction' ? 'junction' : 'room approach'}. Select two nodes and Connect nodes afterwards. <button disabled={busy} onClick={cancelDrawing}>Cancel node placement</button></p>}
+          {(mode === 'Add junction' || mode === 'Add room entry') && <p role="status">Click the map to place the candidate {mode === 'Add junction' ? 'junction' : 'room approach'}. <button disabled={busy} onClick={cancelDrawing}>Cancel node placement</button></p>}
           <label>Walkable mask operation<select value={maskOperation} disabled={busy} onChange={event => setMaskOperation(event.target.value as 'add' | 'subtract')}><option value="add">Add supported walking area</option><option value="subtract">Subtract walking area</option></select></label>
           <button disabled={busy} onClick={() => chooseTool('Draw walkable mask')}>Start walkable polygon</button>
           {mode === 'Draw walkable mask' && <div><p>{t('Click vertices in order. Click the first vertex, double-click the last, press Enter, or use Finish walkable mask to close it.', 'انقر رؤوس المضلع بالترتيب. للإغلاق انقر الرأس الأول أو انقر الأخير مرتين أو اضغط Enter أو زر إنهاء القناع.')} {maskPoints.length} mask vertices.</p><ol className="authoring-vertices">{maskPoints.map((point, index) => <li key={index}><span>Vertex {index + 1}</span><div className="button-pair">{[0, 1].map(axis => <label key={axis}>{axis ? 'Y' : 'X'}<input aria-label={`Mask vertex ${index + 1} ${axis ? 'Y' : 'X'}`} type="number" step="any" value={point[axis]} disabled={busy} onChange={event => { if (event.target.value === '') return; const value = Number(event.target.value); if (Number.isFinite(value)) setMaskPoints(maskPoints.map((old, i) => i === index ? old.map((v, a) => a === axis ? value : v) as Point : old)); }} /></label>)}</div><button disabled={busy} onClick={() => setMaskPoints(maskPoints.filter((_, i) => i !== index))}>Remove vertex {index + 1}</button></li>)}</ol></div>}
           <label>Draft walkable mask<select value={selectedMask} onChange={event => setSelectedMask(event.target.value)}><option value="">Choose draft mask</option>{authored.navigableAreaEdits.map((mask, index) => <option key={mask.id} value={mask.id}>{index + 1} - {mask.operation} - {mask.polygon.length} vertices</option>)}</select></label>
+          <p className="muted">Walkable masks can refine supported areas. They cannot extend circulation outside the existing green areas.</p>
           <div className="button-pair"><button disabled={busy || unfinishedDrawing || !authored.navigableAreaEdits.some(mask => mask.id === selectedMask)} onClick={() => { const mask = authored.navigableAreaEdits.find(item => item.id === selectedMask); if (!mask) return; cancelDrawing(); setEditingMaskId(mask.id); setMaskPoints(mask.polygon.map(point => [...point] as Point)); setMaskOperation(mask.operation); setAuthorSource(mask.sourceReference); setAuthorNote(mask.note); setMode('Draw walkable mask'); setLayers(current => current.map((layer, index) => index === 6 ? { ...layer, visible: true } : layer)); }}>Edit draft mask</button><button disabled={busy || unfinishedDrawing || !selectedMask} onClick={() => { commitAuthoring({ ...authored, navigableAreaEdits: authored.navigableAreaEdits.filter(mask => mask.id !== selectedMask) }, 'Remove draft walkable mask'); setSelectedMask(''); cancelDrawing(); }}>Remove draft mask</button></div>
           <p className="muted">Draft: {authored.addedNodes.length} nodes, {authored.roomEntryBindings.length} room bindings, {authored.navigableAreaEdits.length} masks, {Object.keys(authored.edgeGeometryEdits).length} edge edits.</p>
         </section>

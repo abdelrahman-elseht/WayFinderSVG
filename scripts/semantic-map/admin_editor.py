@@ -62,9 +62,10 @@ def bootstrap():
     if STORE.exists():
         candidates = sorted(p.stem for p in STORE.glob('candidate-*.json'))
     report_evidence = common.read('artifacts/navigation-v2/reconstruction-report.json').get('edgeEvidence', [])
+    loaded_graph = published['graph'] if published else common.read(GRAPH)
     return {'revision': revision(), 'spines': snapshot(e), 'floor': e.floor,
-            'graph': published['graph'] if published else common.read(GRAPH),
-            'runtimeGraph': published['graph'] if published else common.read('data/buildings/B03/GF.graph.json'),
+            'graph': loaded_graph,
+            'runtimeGraph': loaded_graph if published else common.read('data/buildings/B03/GF.graph.json'),
             'config': published['config'] if published else common.read(CONFIG),
             'evidence': published.get('sourceLinks', report_evidence) if published else report_evidence,
             'authoringSourceReferences': persistence.authoring_source_references(
@@ -78,7 +79,8 @@ def bootstrap():
             'mergeProtectedNodeIds': sorted(persistence.merge_protected_ids(ROOT, 'GF', e.floor,
                 common.read(CONFIG))),
             'runtimePublication': persistence.publication(ROOT, 'GF'),
-            'buildingBoundaryAvailable': False}
+            'buildingBoundaryAvailable': False,
+            'transitionCandidates': persistence.transition_candidates(ROOT, 'GF', loaded_graph)}
 
 
 def finite(value, low, high):
@@ -439,7 +441,8 @@ def _execute(payload):
             saved, common.read(GRAPH), e.floor,
             protected_ids=persistence.merge_protected_ids(ROOT, 'GF', e.floor, common.read(CONFIG)),
             source_references=persistence.authoring_source_references(ROOT, e.floor, snapshot(e)),
-            exclusions=common.read(CONFIG).get('voidExclusions', []))
+            exclusions=common.read(CONFIG).get('voidExclusions', []),
+            known_transition_nodes=persistence.transition_nodes(ROOT, 'GF'))
         # Restore into a draft, never bypass validation or silently overwrite files.
         restored_moves = explicit_node_moves(
             saved, validated_node_moves(saved.get('nodeMoves', {}), pending_ids), common.read(GRAPH),
@@ -482,7 +485,8 @@ def _execute(payload):
     preview_graph, preview_excluded, edited_floor, merge, normalized_edits = persistence.authored_overlay(
         loaded_graph, e.floor, payload, applied, payload['deletedNodes'], payload['addedEdges'],
         payload['nodeMerges'], protected_ids=protected, source_references=source_references,
-        exclusions=config.get('voidExclusions', []))
+        exclusions=config.get('voidExclusions', []),
+        known_transition_nodes=persistence.transition_nodes(ROOT, 'GF'))
     payload.update(normalized_edits)
     merged_links = persistence.merge_source_links(source_links, merge)
     if action == 'save':

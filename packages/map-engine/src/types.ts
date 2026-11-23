@@ -52,8 +52,12 @@ export interface NavigationAuthoringEdits {
     buildingId: 'B03';
     floorId: 'GF' | '01';
     point: Point;
-    type: 'junction' | 'entrance';
+    type: 'junction' | 'entrance' | 'escalator' | 'elevator';
     roomId?: string;
+    transitionId?: string;
+    transitionName?: string;
+    transitionAccessibility?: 'confirmed' | 'inaccessible' | 'unknown';
+    transitionRestriction?: 'open' | 'closed' | 'unknown';
     status: 'candidate';
     sourceReference: string;
     note: string;
@@ -154,8 +158,12 @@ export interface Kiosk {
   nodeId: string | null;
   status: EvidenceStatus;
 }
-export type NodeType = 'junction' | 'door' | 'entrance' | 'elevator' | 'stairs' | 'kiosk';
-export type PathType = 'corridor' | 'door' | 'entrance' | 'stairs' | 'elevator';
+export type NodeType = 'junction' | 'door' | 'entrance' | 'elevator' | 'escalator' | 'stairs' | 'kiosk';
+export type PathType = 'corridor' | 'door' | 'entrance' | 'stairs' | 'elevator' | 'escalator';
+export interface FloorNavigationConstraints {
+  walls: [Point, Point][];
+  navigableAreas: Point[][];
+}
 export interface NavigationNode {
   id: string;
   buildingId: string;
@@ -163,6 +171,10 @@ export interface NavigationNode {
   point: Point;
   type: NodeType;
   roomId?: string;
+  transitionId?: string;
+  transitionName?: string;
+  transitionAccessibility?: 'confirmed' | 'inaccessible' | 'unknown';
+  transitionRestriction?: 'open' | 'closed' | 'unknown';
   status: EvidenceStatus;
   adminReview?: AdminDrawingReview;
 }
@@ -188,6 +200,8 @@ export interface NavigationGraph {
   metersPerUnit: number | null;
   calibrationStatus: EvidenceStatus;
   navigableAreas: Point[][];
+  /** Used only by combined runtime graphs. Persisted floor graphs keep local constraints at the root. */
+  floorConstraints?: Record<string, FloorNavigationConstraints>;
   /** Optional publication audit metadata; canonical source evidence remains separate. */
   adminAuthoring?: {
     originalNavigableAreas: Point[][];
@@ -221,7 +235,7 @@ export interface FloorData {
   /** Explicit planning origin; never presented as the physical kiosk or current position. */
   navigationDefaults?: { startRoomId: string };
 }
-export type InstructionType = 'start' | 'continue' | 'slight-left' | 'slight-right' | 'left' | 'right' | 'enter-corridor' | 'stairs' | 'elevator' | 'destination-left' | 'destination-right' | 'arrival';
+export type InstructionType = 'start' | 'continue' | 'slight-left' | 'slight-right' | 'left' | 'right' | 'enter-corridor' | 'stairs' | 'elevator' | 'escalator' | 'destination-left' | 'destination-right' | 'arrival';
 export interface RouteInstruction {
   type: InstructionType;
   text: Localized;

@@ -70,27 +70,26 @@ Run independent topology checks and an all-pairs route matrix for the floor. Pos
 
 ## 4. Register the floor in the application
 
-The current `packages/map-engine/src/registry.ts` and `scripts/integration/pipeline.mjs` already support scanning multiple floor bundles. Extend the application seam deliberately:
+The current `packages/map-engine/src/registry.ts` and `scripts/integration/pipeline.mjs` support scanning multiple floor bundles. `apps/web/app/page.tsx` loads the published GF and Floor 01 navigation snapshots for the public floor selector.
 
 - Import each validated `floorData`, graph, and content bundle in `apps/web/app/page.tsx` and pass all bundles to `createMapRegistry`.
 - Resolve `WAYFINDING_BUILDING_ID`, `WAYFINDING_FLOOR_ID`, and an optional existing kiosk ID against that complete registry.
-- Refactor `WayfindingApp` to receive the registry/floor catalog or an equivalent validated selection model; the current single-bundle prop cannot populate a real multi-floor selector.
-- Keep the active floor explicit in route state. Reset destination/start when changing floors unless a validated vertical journey is being followed.
+- `WayfindingApp` receives validated floor bundles and the combined route graph. Manual floor selection resets the journey, while playback follows the route's floor legs.
 - Copy each canonical SVG with `npm run prepare:maps`; do not import source extraction JSON into the browser.
 
 Do not expose F1/F2 by adding labels alone. A floor option is valid only after its bundle passes the shared validator and its public map asset exists.
 
 ## 5. Connect floors safely
 
-Same-floor routing can use the existing drawing-based checks. Cross-floor routing needs more evidence and a contract update:
+Same-floor routing uses each floor's drawing-based checks. Cross-floor routes use matching candidate escalator or elevator landings that an administrator places and reviews on both floors:
 
 - Identify the same physical stair/elevator on adjacent floors with source provenance on every endpoint.
-- Add vertical node/edge types with explicit `stairs` or `elevator` path types, floor IDs, distance units, restriction, and accessibility status.
-- Scope `walls` and `navigableAreas` to their floor (or version the graph contract to hold per-floor constraints). The current v1 arrays have no floor identifier and therefore reject constrained multi-floor graphs rather than applying one floor's walls to another.
+- Add vertical node/edge types with explicit `escalator` or `elevator` path types, floor IDs, distance units, restriction, and accessibility status.
+- The combined runtime graph carries floor-scoped `walls` and `navigableAreas` constraints. Published floor graphs retain their local constraints at the root.
 - Validate each horizontal segment against its own floor's enclosure. Validate vertical links as transitions; never project them through a 2D floor polygon.
-- Test both directions, disconnected/closed vertical links, accessible-only exclusion of stairs/unknown lifts, and bilingual floor-change instructions.
+- Test both directions, disconnected/closed vertical links, accessible-only exclusion of escalators and unverified step-free links, and bilingual floor-change instructions.
 
-Keep current behavior fail-closed until this contract and evidence exist. A drawing that merely shows a stair symbol is not enough to claim a connected route between floors.
+An unmatched landing never creates a cross-floor route. A drawing that merely shows a stair or lift symbol is not enough to claim a connected route between floors; an administrator must review and pair source-backed landings on both floors.
 
 ## 6. Acceptance checklist
 
