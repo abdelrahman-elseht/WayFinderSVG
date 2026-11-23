@@ -7,7 +7,7 @@ import { WayfindingApp } from '../../apps/web/components/WayfindingApp';
 import { multiFloorNavigation } from '../../apps/web/lib/multi-floor-navigation';
 
 const browser = vi.hoisted(() => ({
-  map: {} as { floor: { id: string }; route: Point[]; visibleRoute: Point[] },
+  map: {} as { floor: { id: string; mapAsset: string }; route: Point[]; visibleRoute: Point[] },
   router: { push: vi.fn(), replace: vi.fn() },
 }));
 vi.mock('next/navigation', () => ({ useRouter: () => browser.router }));
@@ -83,10 +83,12 @@ describe('public cross-floor route playback', () => {
     await waitFor(() => expect(screen.getByTestId('route-status').className).toContain('ok'));
     expect(screen.getByTestId('route-status').textContent).toContain(`Take the escalator to floor ${destinationFloor}.`);
     await waitFor(() => expect(browser.map.floor.id).toBe(startFloor));
+    expect(browser.map.floor.mapAsset).toBe(`/maps/SYNTHETIC_TEST_BUILDING/${startFloor}/master.svg`);
 
     now = 1100;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.floor.id).toBe(destinationFloor));
+    expect(browser.map.floor.mapAsset).toBe(`/maps/SYNTHETIC_TEST_BUILDING/${destinationFloor}/master.svg`);
     expect(browser.router.replace).toHaveBeenCalledWith(expect.stringContaining(`floor=${destinationFloor}`));
 
     now = 2800;

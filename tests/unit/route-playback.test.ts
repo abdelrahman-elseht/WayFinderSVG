@@ -15,7 +15,7 @@ describe('route playback geometry and timing', () => {
   it('uses bounded arc-length timing independent of point count', () => {
     expect(routeArcLength([[0, 0], [3, 4]])).toBe(5);
     expect(playbackDuration([[0, 0], [3, 4]])).toBe(900);
-    expect(playbackDuration([[0, 0], [10000, 0]])).toBe(6000);
-    expect(playbackDuration([[0, 0], [350, 0]])).toBeCloseTo(1000);
+    expect(playbackDuration([[0, 0], [10000, 0]])).toBe(9000);
+    expect(playbackDuration([[0, 0], [350, 0]])).toBe(1400);
   });
 });

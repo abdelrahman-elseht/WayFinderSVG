@@ -63,9 +63,9 @@ export interface PlaybackDurationOptions {
 
 /** Calculate a deterministic, bounded duration from route distance. */
 export function playbackDuration(points: readonly Point[], options: PlaybackDurationOptions = {}): number {
-  const speed = Number.isFinite(options.speed) && (options.speed ?? 0) > 0 ? options.speed as number : 0.35;
+  const speed = Number.isFinite(options.speed) && (options.speed ?? 0) > 0 ? options.speed as number : 0.25;
   const minMs = Number.isFinite(options.minMs) ? Math.max(0, options.minMs as number) : 900;
-  const maxMs = Number.isFinite(options.maxMs) ? Math.max(minMs, options.maxMs as number) : 6000;
+  const maxMs = Number.isFinite(options.maxMs) ? Math.max(minMs, options.maxMs as number) : 9000;
   return Math.min(maxMs, Math.max(minMs, routeArcLength(points) / speed));
 }
 
