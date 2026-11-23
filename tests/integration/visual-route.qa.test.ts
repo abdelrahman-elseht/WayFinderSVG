@@ -8,7 +8,7 @@ import first from '../../data/buildings/B03/01.graph.json';
 
 describe.each([['GF', ground], ['01', first]] as const)('%s real floor visual routes', (_, data) => {
   it('keeps all reachable endpoint routes safe without changing navigation data', () => {
-    const graph = data as NavigationGraph;
+    const graph = data as unknown as NavigationGraph;
     const before = JSON.stringify(graph);
     const smooth = createRouteSmoother(graph);
     const safe = createPolylineValidator(graph);
