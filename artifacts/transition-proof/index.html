@@ -30,7 +30,7 @@
     </header>
 
     <h1>Ground Floor ↔ First Floor</h1>
-    <p class="intro">Lift 5 and the west escalator are paired as bidirectional transitions in the public route graph. The screenshots show successful visitor routes in both directions, with the active map changing floors at the transition.</p>
+    <p class="intro">Lift 5 and the west escalator are paired as bidirectional transitions in the route graph. Each screenshot shows the selected endpoints, the device instruction, and the active map on the destination floor.</p>
 
     <section class="summary" aria-label="Transition verification status">
       <article><b>2 paired transitions</b><span>Lift 5 and West Escalator each have a landing on both floors.</span></article>
@@ -64,11 +64,11 @@
     <section class="routes" aria-label="West escalator route screenshots">
       <article class="route-card">
         <div class="route-head"><div><h3>Ground Floor to First Floor</h3><p>Security Room G-22 → Corridor 1 F-01</p></div><span class="direction">GF → 01</span></div>
-        <figure><img src="./escalator-ground-to-first.jpg" alt="Public wayfinding map showing the selected route from Ground Floor Security Room G-22 to First Floor Corridor 1 via the west escalator"><figcaption><strong>Route instruction:</strong> Take the escalator to floor 01. The map and building heading show First Floor.</figcaption></figure>
+        <figure><img src="./escalator-ground-to-first.jpg" alt="Live wayfinding route from Ground Floor Security Room G-22 to First Floor Corridor 1, with the escalator instruction and First Floor map visible"><figcaption><strong>Live route proof:</strong> The endpoint selectors show G-22 and F-01, and the directions say “Take the escalator to floor 01.” The active map is First Floor.</figcaption></figure>
       </article>
       <article class="route-card">
         <div class="route-head"><div><h3>First Floor to Ground Floor</h3><p>Corridor 1 F-01 → Security Room G-22</p></div><span class="direction">01 → GF</span></div>
-        <figure><img src="./escalator-first-to-ground.jpg" alt="Public wayfinding map showing the selected route from First Floor Corridor 1 to Ground Floor Security Room G-22 via the west escalator"><figcaption><strong>Route instruction:</strong> Take the escalator to floor GF. The map and building heading show Ground Floor.</figcaption></figure>
+        <figure><img src="./escalator-first-to-ground.jpg" alt="Live wayfinding route from First Floor Corridor 1 to Ground Floor Security Room G-22, with the escalator instruction and Ground Floor map visible"><figcaption><strong>Live route proof:</strong> The endpoint selectors show F-01 and G-22, and the directions say “Take the escalator to floor GF.” The active map is Ground Floor.</figcaption></figure>
       </article>
     </section>
 
@@ -77,27 +77,27 @@
     <section class="routes" aria-label="Lift 5 route screenshots">
       <article class="route-card">
         <div class="route-head"><div><h3>Ground Floor to First Floor</h3><p>Valve Room G-10 → Valve Room F-19</p></div><span class="direction">GF → 01</span></div>
-        <figure><img src="./lift-ground-to-first.jpg" alt="Public wayfinding map showing the paired Lift 5 route from Ground Floor Valve Room G-10 to First Floor Valve Room F-19"><figcaption><strong>Route instruction:</strong> Take the elevator to floor 01. The map and building heading show First Floor.</figcaption></figure>
+        <figure><img src="./lift-ground-to-first.jpg" alt="Live wayfinding route from Ground Floor Valve Room G-10 to First Floor Valve Room F-19, with the elevator instruction and First Floor map visible"><figcaption><strong>Live route proof:</strong> The endpoint selectors show G-10 and F-19, and the directions say “Take the elevator to floor 01.” The active map is First Floor.</figcaption></figure>
       </article>
       <article class="route-card">
         <div class="route-head"><div><h3>First Floor to Ground Floor</h3><p>Valve Room F-19 → Valve Room G-10</p></div><span class="direction">01 → GF</span></div>
-        <figure><img src="./lift-first-to-ground.jpg" alt="Public wayfinding map showing the paired Lift 5 route from First Floor Valve Room F-19 to Ground Floor Valve Room G-10"><figcaption><strong>Route instruction:</strong> Take the elevator to floor GF. The map and building heading show Ground Floor.</figcaption></figure>
+        <figure><img src="./lift-first-to-ground.jpg" alt="Live wayfinding route from First Floor Valve Room F-19 to Ground Floor Valve Room G-10, with the elevator instruction and Ground Floor map visible"><figcaption><strong>Live route proof:</strong> The endpoint selectors show F-19 and G-10, and the directions say “Take the elevator to floor GF.” The active map is Ground Floor.</figcaption></figure>
       </article>
     </section>
 
-    <section class="facts" aria-label="Published graph records">
-      <h2>Published transition records</h2>
+    <section class="facts" aria-label="Canonical transition graph records">
+      <h2>Transition graph records</h2>
       <div class="facts-grid">
         <div class="fact"><small>Lift pair identity</small><code>B03-transition-lift-5</code><br><span class="status">candidate</span><span class="status">access unknown</span></div>
         <div class="fact"><small>Escalator pair identity</small><code>B03-transition-escalator-west</code><br><span class="status">candidate</span><span class="status">access unknown</span></div>
-        <div class="fact"><small>Ground Floor publication</small><code>revision d95a461ccd324dc29b48662f4d4d7ca7</code><br><code>.data/navigation/B03-GF.json</code></div>
-        <div class="fact"><small>First Floor publication</small><code>revision 56af3030b6b94a0fb7fd5bcc57d9cb55</code><br><code>.data/navigation/B03-GF.json.01</code></div>
+        <div class="fact"><small>Ground Floor landings</small><code>Escalator · [2165.7, 1405.5]</code><br><code>Lift 5 · [2692, 1538]</code><br><code>data/buildings/B03/GF.graph.json</code></div>
+        <div class="fact"><small>First Floor landings</small><code>Escalator · [2031.26, 777.1]</code><br><code>Lift 5 · [2550, 1350]</code><br><code>data/buildings/B03/01.graph.json</code></div>
         <div class="fact"><small>Lift corridor approaches</small><code>GF G-10-side · 49.94 map units</code><br><code>01 F-19-side · 18.28 map units</code></div>
         <div class="fact"><small>West escalator corridor approaches</small><code>GF G-22-side · 82.70 map units</code><br><code>01 · 36.23 map units</code></div>
       </div>
       <p class="note">The source drawings locate the equipment but do not verify that the same physical unit connects the floors, that it is open to the public, or that it is step-free. Both transition pairs remain candidate links and must not be presented as field-verified access.</p>
     </section>
-    <p class="foot">Captured from the public wayfinding app at localhost:3666 after both floor snapshots were published. The route screenshots use the published transition graph.</p>
+    <p class="foot">Captured from the running wayfinding app at localhost:3666 using its current transition graph. Lift and escalator status remains candidate and access remains unknown.</p>
   </main>
 </body>
 </html>
