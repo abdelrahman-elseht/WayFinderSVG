@@ -17,6 +17,16 @@ export default {
           },
         ],
       },
+      {
+        source: '/maps/:path*',
+        has: [{ type: 'query', key: 'v', value: '.+' }],
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
 };

@@ -9,7 +9,8 @@ import firstContent from '@content/B03/01.json';
 import { WayfindingApp } from '../components/WayfindingApp';
 import { publishedContent } from '../lib/content-store';
 import { publishedNavigation } from '../lib/navigation-store';
-import type { FloorBundle } from '@wayfinding/map-engine';
+import { publicMapBundle, publicNavigationBundle, publicNavigationRevision } from '../lib/public-navigation-bundle';
+import type { FloorBundle, Room } from '@wayfinding/map-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -39,15 +40,26 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
     if (ground && diagnosticMode) return { ...registry.getFloor(buildingId, id)!, contents };
     return publishedNavigation(id, ground ? floor : firstFloor, ground ? graph : firstGraph, contents);
   }));
-  const publicFloorBundles = floorBundles.map(item => {
-    const { adminAuthoring: _adminAuthoring, ...publicGraph } = item.graph;
-    return { ...item, graph: publicGraph };
-  });
+  const publicFloorBundles = floorBundles.map(publicNavigationBundle);
+  const initialBundle = publicMapBundle(publicFloorBundles.find(item => item.floorData.floor.id === floorId) ?? bundle);
+  const directories = publicFloorBundles.map(item => ({
+    floor: item.floorData.floor,
+    rooms: item.floorData.rooms.map((room): Pick<Room, 'id' | 'code' | 'buildingId' | 'floorId' | 'name' | 'category' | 'centroid' | 'doorNodeId' | 'aliases' | 'public' | 'navigationPartial' | 'navigationNote' | 'geometryStatus' | 'contentRef'> => ({
+      id: room.id, code: room.code, buildingId: room.buildingId, floorId: room.floorId,
+      name: room.name, category: room.category, centroid: room.centroid, doorNodeId: room.doorNodeId,
+      aliases: room.aliases, public: room.public, navigationPartial: room.navigationPartial,
+      navigationNote: room.navigationNote, geometryStatus: room.geometryStatus, contentRef: room.contentRef,
+    })),
+    kiosks: item.floorData.kiosks,
+    navigationDefaults: item.floorData.navigationDefaults,
+    revision: publicNavigationRevision(item),
+  }));
+  const initialRevision = directories.find(item => item.floor.id === floorId)?.revision;
   return <>
     {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
       position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
       background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
     }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
-    <WayfindingApp floorBundles={publicFloorBundles} floorOptions={publicFloorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
+    <WayfindingApp floorBundle={initialBundle} initialGraphLoaded={false} floorDirectories={directories} initialRevision={initialRevision} floorOptions={publicFloorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

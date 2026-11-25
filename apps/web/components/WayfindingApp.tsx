@@ -16,21 +16,90 @@ import { DestinationDetails } from './DestinationDetails';
 import { TransitionChoiceDialog, type TransitionChoice } from './TransitionChoiceDialog';
 import { multiFloorNavigation, routeGraphForTransition } from '../lib/multi-floor-navigation';
 const FloorMap = dynamic(() => import('./FloorMap'), { ssr: false });
+type DirectoryRoom = Pick<Room, 'id' | 'code' | 'buildingId' | 'floorId' | 'name' | 'category' | 'centroid' | 'doorNodeId' | 'aliases' | 'public' | 'navigationPartial' | 'navigationNote' | 'geometryStatus' | 'contentRef'>;
+type FloorDirectory = { floor: Floor; rooms: DirectoryRoom[]; kiosks: FloorData['kiosks']; navigationDefaults: FloorData['navigationDefaults']; revision: string };
 const categoryKeys: Record<RoomCategory, string> = { classroom: 'categoryClassroom', office: 'categoryOffice', laboratory: 'categoryLaboratory', service: 'categoryService', restroom: 'categoryRestroom', circulation: 'categoryCirculation', other: 'categoryOther' };
 const copy = { en: { brand: 'NAID', wayfinding: 'CAMPUS WAYFINDING', welcome: 'Where would you like to go?', explore: 'Explore the ground floor', all: 'All spaces', spaces: 'spaces', browse: 'Browse', navigate: 'Navigate', floorNote: 'One floor. Every destination.', overview: 'Floor overview', directoryHelp: 'Find a room in the directory or select its marker on the map.', source: 'Source-based floor plan', marker: 'Room marker', selected: 'Selected', selectedDetails: 'DESTINATION DETAILS', mapReview: 'Outlines under review', resetKiosk: 'Reset to kiosk', plan: 'Plan your visit', roomCount: 'rooms on this floor', sourcePreview: 'Drawing detail', noKiosk: 'Kiosk position not configured', footer: 'B03 / GROUND FLOOR', category: 'Filter by category' }, ar: { brand: 'الأكاديمية', wayfinding: 'دليل التنقل في الحرم', welcome: 'إلى أين تريد الذهاب؟', explore: 'استكشف الطابق الأرضي', all: 'جميع المساحات', spaces: 'مساحات', browse: 'استكشاف', navigate: 'التنقل', floorNote: 'طابق واحد. جميع الوجهات.', overview: 'نظرة على الطابق', directoryHelp: 'ابحث في الدليل أو اختر علامة الغرفة على الخريطة.', source: 'خريطة مستندة إلى المصدر', marker: 'علامة الغرفة', selected: 'محدد', selectedDetails: 'تفاصيل الوجهة', mapReview: 'الحدود قيد المراجعة', resetKiosk: 'العودة إلى الكشك', plan: 'خطط لزيارتك', roomCount: 'غرفة في هذا الطابق', sourcePreview: 'تفصيل من الرسم', noKiosk: 'لم يتم تحديد موقع الكشك', footer: 'B03 / الطابق الأرضي', category: 'تصفية حسب الفئة' } };
 
-export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph: suppliedRouteGraph, floorOptions, audioService, configuredKioskId }: { floorData?: FloorData; graph?: NavigationGraph; contents?: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
+export function WayfindingApp({ floorData, graph, contents, floorBundle, initialGraphLoaded = true, floorDirectories, initialRevision, floorBundles: suppliedFloorBundles, routeGraph: suppliedRouteGraph, floorOptions, audioService, configuredKioskId }: { floorData?: FloorData; graph?: NavigationGraph; contents?: RoomContent[]; floorBundle?: FloorBundle; initialGraphLoaded?: boolean; floorDirectories?: FloorDirectory[]; initialRevision?: string; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
   const router = useRouter();
-  const bundles = useMemo(() => floorBundles ?? (floorData && graph && contents ? [{ floorData, graph, contents }] : []), [floorBundles, floorData, graph, contents]);
-  const initialBundle = bundles[0];
+  const initialBundle = floorBundle ?? suppliedFloorBundles?.[0] ?? (floorData && graph && contents ? { floorData, graph, contents } : null);
   if (!initialBundle) throw new Error('WayfindingApp requires a floor bundle');
-  const availableFloors = floorOptions ?? bundles.map(bundle => bundle.floorData.floor);
-  const routeGraph = useMemo(() => suppliedRouteGraph ?? (bundles.length > 1 ? multiFloorNavigation(bundles) : undefined), [suppliedRouteGraph, bundles]);
-  const defaultOriginBundle = bundles.find(bundle => bundle.floorData.floor.id === 'GF') ?? initialBundle;
+  const directories = useMemo(() => floorDirectories ?? (suppliedFloorBundles ?? [initialBundle]).map(bundle => ({
+    floor: bundle.floorData.floor,
+    rooms: bundle.floorData.rooms,
+    kiosks: bundle.floorData.kiosks,
+    navigationDefaults: bundle.floorData.navigationDefaults,
+    revision: '',
+  })), [floorDirectories, suppliedFloorBundles, initialBundle]);
+  const availableFloors = floorOptions ?? directories.map(directory => directory.floor);
+  const defaultOriginDirectory = directories.find(directory => directory.floor.id === 'GF') ?? directories[0];
   const [language, setLanguage] = useState<Language>('en');
   const [buildingId] = useState(initialBundle.floorData.building.id); const [floorId, setFloorId] = useState(initialBundle.floorData.floor.id);
+  const [revisionOverrides, setRevisionOverrides] = useState<Map<string, string>>(() => new Map());
+  const [bundles, setBundles] = useState<FloorBundle[]>(() => suppliedFloorBundles ?? [initialBundle]);
+  const [loadedGraphFloorIds, setLoadedGraphFloorIds] = useState<Set<string>>(() => new Set(
+    suppliedFloorBundles?.map(bundle => bundle.floorData.floor.id)
+      ?? (initialGraphLoaded ? [initialBundle.floorData.floor.id] : []),
+  ));
+  const loadedGraphFloorIdsRef = useRef(loadedGraphFloorIds);
+  loadedGraphFloorIdsRef.current = loadedGraphFloorIds;
+  const floorRevision = (id: string) => revisionOverrides.get(id) ?? directories.find(directory => directory.floor.id === id)?.revision ?? '';
+  const loadedGraphRevisions = useRef(new Map([...loadedGraphFloorIds].map(id => [id, directories.find(directory => directory.floor.id === id)?.revision || initialRevision || ''])));
+  const graphIsCurrent = (id: string) => {
+    if (!loadedGraphFloorIdsRef.current.has(id)) return false;
+    const currentRevision = floorRevision(id);
+    return !currentRevision || loadedGraphRevisions.current.get(id) === currentRevision;
+  };
+  const bundleRequests = useRef(new Map<string, Promise<FloorBundle>>());
+  const [bundleLoadError, setBundleLoadError] = useState<string | null>(null);
+  const ensureFloorBundle = useCallback((requestedFloorId: string): Promise<FloorBundle> => {
+    const loaded = bundles.find(bundle => bundle.floorData.floor.id === requestedFloorId);
+    if (loaded && graphIsCurrent(requestedFloorId)) return Promise.resolve(loaded);
+    const pending = bundleRequests.current.get(requestedFloorId);
+    if (pending) return pending;
+    const directory = directories.find(item => item.floor.id === requestedFloorId);
+    if (!directory) return Promise.reject(new Error(`Unknown floor ${requestedFloorId}`));
+    const revision = floorRevision(requestedFloorId);
+    const url = revision
+      ? `/api/navigation/${requestedFloorId}?revision=${encodeURIComponent(revision)}`
+      : `/api/navigation/${requestedFloorId}`;
+    const request = fetch(url).then(async response => {
+      if (!response.ok && response.status !== 409) throw new Error(`Could not load floor ${requestedFloorId}`);
+      const payload = await response.json() as { revision?: string; bundle?: FloorBundle };
+      const nextBundle = payload.bundle;
+      if (typeof payload.revision !== 'string' || !nextBundle
+        || nextBundle.floorData.floor.id !== requestedFloorId
+        || nextBundle.floorData.building.id !== buildingId
+        || !Array.isArray(nextBundle.graph.nodes) || !Array.isArray(nextBundle.graph.edges)
+        || !Array.isArray(nextBundle.contents)) throw new Error(`Invalid floor bundle ${requestedFloorId}`);
+      if (response.status === 409) {
+        setRevisionOverrides(current => new Map(current).set(requestedFloorId, payload.revision!));
+        router.refresh();
+      }
+      setBundles(current => current.some(bundle => bundle.floorData.floor.id === requestedFloorId)
+        ? current.map(bundle => bundle.floorData.floor.id === requestedFloorId ? nextBundle : bundle)
+        : [...current, nextBundle]);
+      loadedGraphFloorIdsRef.current = new Set(loadedGraphFloorIdsRef.current).add(requestedFloorId);
+      setLoadedGraphFloorIds(loadedGraphFloorIdsRef.current);
+      loadedGraphRevisions.current.set(requestedFloorId, payload.revision!);
+      return nextBundle;
+    }).finally(() => bundleRequests.current.delete(requestedFloorId));
+    bundleRequests.current.set(requestedFloorId, request);
+    return request;
+  }, [bundles, directories, buildingId, revisionOverrides, router]);
+  useEffect(() => { setRevisionOverrides(new Map()); }, [directories]);
+  useEffect(() => {
+    if (!floorBundle || !initialRevision) return;
+    setBundles([floorBundle]);
+    const loadedIds = initialGraphLoaded ? new Set([floorBundle.floorData.floor.id]) : new Set<string>();
+    loadedGraphFloorIdsRef.current = loadedIds;
+    setLoadedGraphFloorIds(loadedIds);
+    loadedGraphRevisions.current = new Map(initialGraphLoaded ? [[floorBundle.floorData.floor.id, initialRevision]] : []);
+    bundleRequests.current.clear();
+  }, [floorBundle, initialGraphLoaded, initialRevision]);
   const activeFloorIdRef = useRef(floorId); activeFloorIdRef.current = floorId;
-  const [originFloorId, setOriginFloorId] = useState(() => bundles.find(bundle => bundle.floorData.kiosks.some(item => item.id === configuredKioskId))?.floorData.floor.id ?? defaultOriginBundle.floorData.floor.id);
+  const [originFloorId, setOriginFloorId] = useState(() => directories.find(directory => directory.kiosks.some(item => item.id === configuredKioskId))?.floor.id ?? defaultOriginDirectory.floor.id);
   const [selectedId, setSelectedId] = useState<string | null>(null); const [customStartId, setCustomStartId] = useState<string | null>(null); const [destinationId, setDestinationId] = useState<string | null>(null);
   const [selectedTransitionId, setSelectedTransitionId] = useState<string | null>(null);
   const [signLanguageRoomId, setSignLanguageRoomId] = useState<string | null>(null);
@@ -52,12 +121,13 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const [directoryCollapsed, setDirectoryCollapsed] = useState(false); const [detailsCollapsed, setDetailsCollapsed] = useState(false);
   const audio = useRef<TTSService | null>(null); const c = copy[language];
   const currentBundle = bundles.find(bundle => bundle.floorData.floor.id === floorId) ?? initialBundle;
-  const originBundle = bundles.find(bundle => bundle.floorData.floor.id === originFloorId) ?? currentBundle;
+  const originDirectory = directories.find(directory => directory.floor.id === originFloorId) ?? defaultOriginDirectory;
   const activeFloor = currentBundle.floorData;
   const activeGraph = currentBundle.graph;
   const activeContents = currentBundle.contents;
   const transitionNodes = useMemo(() => activeGraph.nodes.filter(node => node.type === 'elevator' || node.type === 'escalator'), [activeGraph]);
-  const allRooms = useMemo(() => bundles.flatMap(bundle => bundle.floorData.rooms).filter(room => room.public && room.buildingId === buildingId), [bundles, buildingId]);
+  const allRooms = useMemo(() => directories.flatMap(directory => directory.rooms).filter(room => room.public && room.buildingId === buildingId), [directories, buildingId]);
+  const floorName = (id: string) => directories.find(directory => directory.floor.id === id)?.floor.name[language] ?? id;
   const allContents = useMemo(() => bundles.flatMap(bundle => bundle.contents), [bundles]);
   const rooms = useMemo(() => activeFloor.rooms.filter(room => room.public && room.buildingId === buildingId), [activeFloor.rooms, buildingId]);
   const selected = rooms.find(room => room.id === selectedId) ?? null;
@@ -70,10 +140,10 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const speechText = selected ? `${selected.name[language]}. ${selected.code}. ${description}` : '';
   const results = useMemo(() => searchRooms(rooms, query, language).filter(room => category === 'all' || category === room.category), [rooms, query, language, category]);
   const categories = useMemo(() => [...new Set(rooms.map(room => room.category))], [rooms]);
-  const kiosk = originBundle.floorData.kiosks.find(item => item.buildingId === buildingId && item.floorId === originFloorId && (configuredKioskId ? item.id === configuredKioskId : originBundle.floorData.kiosks.length === 1));
+  const kiosk = originDirectory.kiosks.find(item => item.buildingId === buildingId && item.floorId === originFloorId && (configuredKioskId ? item.id === configuredKioskId : originDirectory.kiosks.length === 1));
   const kioskNode = kiosk?.status === 'confirmed' ? kiosk.nodeId : null;
-  const originRooms = originBundle.floorData.rooms;
-  const defaultStartRoom = originRooms.find(room => room.id === originBundle.floorData.navigationDefaults?.startRoomId) ?? null;
+  const originRooms = originDirectory.rooms;
+  const defaultStartRoom = originRooms.find(room => room.id === originDirectory.navigationDefaults?.startRoomId) ?? null;
   const startRoom = customStartId ? allRooms.find(room => room.id === customStartId) ?? null : kioskNode ? null : defaultStartRoom;
   const startNode = customStartId ? startRoom?.doorNodeId ?? null : kioskNode ?? defaultStartRoom?.doorNodeId ?? null;
   const defaultStartLabel = kioskNode ? t(language, 'kiosk') : defaultStartRoom ? `${defaultStartRoom.name[language]} (${t(language, 'defaultStart')})` : t(language, 'chooseStart');
@@ -81,9 +151,22 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const destinationNode = destinationRoom?.doorNodeId ?? null;
   const partialRoute = Boolean(startRoom?.navigationPartial || destinationRoom?.navigationPartial);
   const startFloorId = startRoom?.floorId ?? originFloorId;
-  const crossFloor = !!routeGraph && !!destinationRoom && startFloorId !== destinationRoom.floorId;
-  const startGraph = bundles.find(bundle => bundle.floorData.floor.id === startFloorId)?.graph ?? originBundle.graph;
-  const routingGraph = crossFloor ? routeGraph : startGraph;
+  const crossFloor = !!destinationRoom && startFloorId !== destinationRoom.floorId;
+  const routeGraph = useMemo(() => suppliedRouteGraph ?? (bundles.length > 1 ? multiFloorNavigation(bundles) : undefined), [suppliedRouteGraph, bundles]);
+  const startGraph = bundles.find(bundle => bundle.floorData.floor.id === startFloorId)?.graph;
+  const routingGraph = (crossFloor ? routeGraph : startGraph) ?? currentBundle.graph;
+  useEffect(() => {
+    if (!destinationRoom) return;
+    const requiredFloorIds = new Set([startFloorId, destinationRoom.floorId]);
+    const missing = [...requiredFloorIds].filter(id => !graphIsCurrent(id));
+    if (!missing.length) { setBundleLoadError(null); return; }
+    let active = true;
+    setBundleLoadError(null);
+    void Promise.all(missing.map(ensureFloorBundle)).catch(error => {
+      if (active) setBundleLoadError(error instanceof Error ? error.message : String(error));
+    });
+    return () => { active = false; };
+  }, [startFloorId, destinationRoom?.floorId, bundles, loadedGraphFloorIds, ensureFloorBundle]);
   const transitionGraphs = useMemo(() => {
     if (!routeGraph) return new Map<string, NavigationGraph>();
     const nodes = new Map(routeGraph.nodes.map(node => [node.id, node]));
@@ -91,7 +174,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     return new Map([...ids].map(transitionId => [transitionId, routeGraphForTransition(routeGraph, transitionId)]));
   }, [routeGraph]);
   const transitionChoices = useMemo(() => {
-    if (!crossFloor || !routeGraph || !destinationRoom) return [];
+    if (!crossFloor || !routeGraph || !destinationRoom || !graphIsCurrent(startFloorId) || !graphIsCurrent(destinationRoom.floorId)) return [];
     const nodes = new Map(routeGraph.nodes.map(node => [node.id, node]));
     const options = new Map<string, TransitionChoice>();
     for (const edge of routeGraph.edges) {
@@ -111,27 +194,28 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
         { accessibleOnly },
       ).status === 'ok' }))
       .sort((left, right) => Number(left.type === 'elevator') - Number(right.type === 'elevator'));
-  }, [crossFloor, routeGraph, transitionGraphs, destinationRoom, startFloorId, startNode, destinationNode, accessibleOnly]);
+  }, [crossFloor, routeGraph, transitionGraphs, destinationRoom, startFloorId, startNode, destinationNode, accessibleOnly, loadedGraphFloorIds, directories]);
   useEffect(() => {
     if (!crossFloor || !destinationRoom) return;
-    const destinationAsset = bundles.find(bundle => bundle.floorData.floor.id === destinationRoom.floorId)?.floorData.floor.mapAsset;
+    const destinationAsset = directories.find(directory => directory.floor.id === destinationRoom.floorId)?.floor.mapAsset;
     if (!destinationAsset) return;
     void import('./FloorMap')
       .then(({ preloadFloorTexture }) => preloadFloorTexture(destinationAsset))
       .catch(() => {
         // The active map load retries after the prefetch cache evicts a failed texture promise.
       });
-  }, [crossFloor, destinationRoom, bundles]);
+  }, [crossFloor, destinationRoom, directories]);
   const showTransitionChoice = crossFloor && transitionChoices.some(option => option.available) && !selectedTransitionId;
   const selectedRoutingGraph = useMemo(() => {
     if (!crossFloor || !selectedTransitionId) return routingGraph;
     return transitionGraphs.get(selectedTransitionId) ?? routingGraph;
   }, [routingGraph, transitionGraphs, crossFloor, selectedTransitionId]);
-  const route = useMemo(() => destinationId && !showTransitionChoice
+  const route = useMemo(() => destinationId && graphIsCurrent(startFloorId)
+    && (!crossFloor || (!!routeGraph && graphIsCurrent(destinationRoom!.floorId))) && !showTransitionChoice && !!selectedRoutingGraph
     ? findRoute(selectedRoutingGraph, startNode, destinationNode, { accessibleOnly, unsafeGeometry: !crossFloor })
     : null,
-  [selectedRoutingGraph, startNode, destinationNode, accessibleOnly, destinationId, crossFloor, showTransitionChoice]);
-  const playbackParts = useMemo(() => route?.status === 'ok' ? routePlaybackPlan(selectedRoutingGraph, route) : [], [selectedRoutingGraph, route]);
+  [selectedRoutingGraph, startNode, destinationNode, accessibleOnly, destinationId, crossFloor, routeGraph, showTransitionChoice, loadedGraphFloorIds, loadedGraphRevisions.current, startFloorId, destinationRoom?.floorId, directories]);
+  const playbackParts = useMemo(() => route?.status === 'ok' && selectedRoutingGraph ? routePlaybackPlan(selectedRoutingGraph, route) : [], [selectedRoutingGraph, route]);
   const playbackDurationMs = useMemo(() => playbackPlanDuration(playbackParts), [playbackParts]);
   const playbackPosition = useMemo(() => playbackPlanPosition(playbackParts, playbackProgress), [playbackParts, playbackProgress]);
   const activePart = playbackPosition?.part;
@@ -155,19 +239,26 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     if (typeof BroadcastChannel === 'undefined') return;
     const channel = new BroadcastChannel('wayfinding-navigation-publication');
     channel.onmessage = event => {
-      if (bundles.some(bundle => bundle.floorData.floor.id === event.data?.floorId)) router.refresh();
+      if (directories.some(directory => directory.floor.id === event.data?.floorId)) router.refresh();
     };
     return () => channel.close();
-  }, [bundles, router]);
+  }, [directories, router]);
   useEffect(() => { setFloorId(initialBundle.floorData.floor.id); }, [initialBundle.floorData.floor.id]);
+  useEffect(() => {
+    if (!floorBundle || !initialRevision) return;
+    setBundles([floorBundle]);
+    bundleRequests.current.clear();
+  }, [floorBundle, initialRevision]);
   useEffect(() => {
     const syncFloorFromHistory = () => {
       const requestedFloor = new URLSearchParams(window.location.search).get('floor');
-      if (requestedFloor && bundles.some(bundle => bundle.floorData.floor.id === requestedFloor)) setFloorId(requestedFloor);
+      if (!requestedFloor || !directories.some(directory => directory.floor.id === requestedFloor)) return;
+      if (graphIsCurrent(requestedFloor)) setFloorId(requestedFloor);
+      else void ensureFloorBundle(requestedFloor).then(() => setFloorId(requestedFloor)).catch(error => setBundleLoadError(String(error)));
     };
     window.addEventListener('popstate', syncFloorFromHistory);
     return () => window.removeEventListener('popstate', syncFloorFromHistory);
-  }, [bundles]);
+  }, [bundles, directories, ensureFloorBundle]);
   useEffect(() => { audio.current?.setMuted(muted); }, [muted]);
   useEffect(() => { if (speechText && !journeyStarted) audio.current?.speak(speechText, language); else if (!journeyStarted) audio.current?.stop(); return () => audio.current?.stop(); }, [speechText, language, journeyStarted]);
   useEffect(() => {
@@ -247,13 +338,22 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => { document.documentElement.lang = language; document.documentElement.dir = getDirection(language); }, [language]);
   function selectRoom(id: string) { setSelectedId(id); setSignLanguageRoomId(null); }
   function stopPlayback() { if (playbackTimer.current !== null) window.cancelAnimationFrame(playbackTimer.current); playbackTimer.current = null; setPlaybackPhase('stopped'); setPlaybackProgress(0); setFollowCamera(false); }
-  function changeFloor(nextFloorId: string) {
+  async function changeFloor(nextFloorId: string) {
+    if (!graphIsCurrent(nextFloorId)) {
+      try {
+        await ensureFloorBundle(nextFloorId);
+      } catch (error) {
+        setBundleLoadError(error instanceof Error ? error.message : String(error));
+        return;
+      }
+    }
+    setBundleLoadError(null);
     stopPlayback(); setFloorId(nextFloorId);
     setCustomStartId(null); setDestinationId(null); setSelectedTransitionId(null); setSelectedId(null); setJourneyStarted(false); setPlaybackPhase('idle');
     const params = new URLSearchParams(window.location.search); params.set('floor', nextFloorId);
     window.history.pushState(null, '', `${window.location.pathname}?${params.toString()}`);
   }
-  function resetKiosk() { stopPlayback(); setOriginFloorId(defaultOriginBundle.floorData.floor.id); setFloorId(defaultOriginBundle.floorData.floor.id); setCustomStartId(null); setDestinationId(null); setSelectedTransitionId(null); setSelectedId(null); setSignLanguageRoomId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
+  function resetKiosk() { stopPlayback(); setOriginFloorId(defaultOriginDirectory.floor.id); void ensureFloorBundle(defaultOriginDirectory.floor.id).then(() => setFloorId(defaultOriginDirectory.floor.id)).catch(error => setBundleLoadError(String(error))); setCustomStartId(null); setDestinationId(null); setSelectedTransitionId(null); setSelectedId(null); setSignLanguageRoomId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
   function goToRoom(id: string) { stopPlayback(); setSelectedTransitionId(null); setDestinationId(id); setSelectedId(id); setMode('navigate'); setJourneyStarted(false); setPlaybackPhase('idle'); }
   function togglePlayback() {
     if (playbackPhase === 'playing') { setPlaybackPhase('paused'); return; }
@@ -277,12 +377,14 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     <a className="skip-link" href="#directory">{t(language, 'skipToDirectory')}</a>
     <header className="app-header"><a className="brand" href="#directory" aria-label={t(language, 'appTitle')}><span className="brand-icon"><img src="/academy-logo.webp" alt="" /></span><span><strong>{c.brand}</strong><small>{c.wayfinding}</small></span></a><div className="header-divider" /><div className="building-heading"><span>{t(language, 'building')} <b dir="ltr">{buildingId}</b></span><small>{activeFloor.floor.name[language]}</small></div><div className="header-actions"><span className="campus-tag"><span />{c.source}</span><button className="language-button" onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')} aria-label={t(language, language === 'en' ? 'switchToArabic' : 'switchToEnglish')} data-testid="language-toggle"><span className={language === 'en' ? 'active' : ''}>EN</span><span className="language-divider" /><span lang="ar" className={language === 'ar' ? 'active' : ''}>العربية</span></button><button className="icon-button header-audio" onClick={() => setMuted(!muted)} title={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-label={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-pressed={muted}>{muted ? <VolumeX size={20} /> : <Volume2 size={20} />}</button></div></header>
     <main id="main-content" className={`main-layout ${directoryCollapsed ? 'directory-collapsed' : ''}`}>
+      {bundleLoadError && <p role="alert" data-testid="bundle-load-error">{bundleLoadError}</p>}
+      {destinationId && !route && (!graphIsCurrent(startFloorId) || (crossFloor && (!routeGraph || !graphIsCurrent(destinationRoom?.floorId ?? '')))) && !bundleLoadError && <p role="status" data-testid="route-data-loading">{t(language, 'loading')}</p>}
       <div className={`directory-shell ${directoryCollapsed ? 'is-collapsed' : ''}`}>
       <button type="button" className="panel-collapse-control directory-toggle" aria-expanded={!directoryCollapsed} aria-controls="directory" aria-label={directoryCollapsed ? (language === 'ar' ? 'إظهار الدليل' : 'Expand directory') : (language === 'ar' ? 'إخفاء الدليل' : 'Collapse directory')} title={directoryCollapsed ? 'Expand directory / إظهار الدليل' : 'Collapse directory / إخفاء الدليل'} onClick={() => setDirectoryCollapsed(value => !value)}><ChevronDown size={18} /></button>
       <aside id="directory" className="directory-panel" aria-label={t(language, 'directory')}>
         <div className="directory-intro"><p className="eyebrow">{t(language, 'building')} <span dir="ltr">{buildingId}</span> <span className="eyebrow-dot">·</span> {activeFloor.floor.name[language]}</p><h1>{c.welcome}</h1><p>{c.floorNote}</p></div>
         <div className="mode-tabs" role="group" aria-label={c.plan}><button className={mode === 'browse' ? 'active' : ''} aria-pressed={mode === 'browse'} onClick={() => setMode('browse')}><Layers size={16} />{c.browse}</button><button className={mode === 'navigate' ? 'active' : ''} aria-pressed={mode === 'navigate'} onClick={() => setMode('navigate')}><Navigation size={16} />{c.navigate}</button></div>
-        {mode === 'browse' ? <><div className="search-box"><Search size={19} /><label className="sr-only" htmlFor="room-search">{t(language, 'search')}</label><input id="room-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t(language, 'searchPlaceholder')} autoComplete="off" />{query && <button aria-label={t(language, 'clearSearch')} onClick={() => setQuery('')}><X size={16} /></button>}</div><div className="category-row"><label className="sr-only" htmlFor="category-filter">{c.category}</label><select id="category-filter" value={category} onChange={event => setCategory(event.target.value as RoomCategory | 'all')}><option value="all">{c.all}</option>{categories.map(item => <option key={item} value={item}>{t(language, categoryKeys[item])}</option>)}</select><span>{results.length} {c.spaces}</span></div><div className="room-directory" aria-label={t(language, 'searchResults')} data-testid="room-directory">{results.map(room => <button key={room.id} data-room-id={room.id} className={`directory-room ${selectedId === room.id ? 'active' : ''}`} aria-pressed={selectedId === room.id} onClick={() => selectRoom(room.id)}><span className={`room-symbol ${room.category}`}><MapPin size={18} strokeWidth={1.7} /></span><span className="room-text"><strong>{room.name[language]}</strong><small><bdi>{room.code}</bdi><span> · </span>{t(language, categoryKeys[room.category])}</small></span>{selectedId === room.id ? <Check size={17} /> : <ArrowUpRight size={17} className="room-arrow" />}</button>)}{!results.length && <p className="empty-search">{t(language, rooms.length ? 'noResults' : 'noRooms')}</p>}</div></> : <div className="navigation-panel"><div className="journey-fields"><label htmlFor="start-room"><span className="start-dot" />{t(language, 'start')}</label><select id="start-room" value={customStartId ?? ''} onChange={event => { setSelectedTransitionId(null); setCustomStartId(event.target.value || null); }} data-testid="start-select"><option value="">{defaultStartLabel}</option>{allRooms.map(room => <option key={room.id} value={room.id}>{room.name[language]} — {room.code} · {bundles.find(bundle => bundle.floorData.floor.id === room.floorId)?.floorData.floor.name[language]}</option>)}</select><label htmlFor="destination-room"><MapPin size={14} />{t(language, 'destination')}</label><select id="destination-room" value={destinationId ?? ''} onChange={event => { const roomId = event.target.value || null; setSelectedTransitionId(null); setDestinationId(roomId); setSelectedId(roomId); }} data-testid="destination-select"><option value="">{t(language, 'chooseDestination')}</option>{allRooms.map(room => <option key={room.id} value={room.id}>{room.name[language]} — {room.code} · {bundles.find(bundle => bundle.floorData.floor.id === room.floorId)?.floorData.floor.name[language]}</option>)}</select></div>{!customStartId && !kioskNode && <p className="inline-note" data-testid="kiosk-status"><Info size={15} />{t(language, defaultStartRoom ? 'planningOriginNote' : 'kioskUnconfigured')}</p>}<label className="checkbox-label"><input type="checkbox" checked={accessibleOnly} onChange={event => setAccessibleOnly(event.target.checked)} />{t(language, 'accessibleOnly')}</label><button className="text-button reset-start" onClick={() => { setSelectedTransitionId(null); setCustomStartId(null); }}>{t(language, kioskNode ? 'clearStart' : 'restoreDefaultStart')}</button>{route && <div className={`route-result ${route.status}`} role="status" data-testid="route-status">{route.status === 'ok' ? <><h3>{t(language, partialRoute ? 'partialRoute' : 'directions')}</h3>{partialRoute && <p className="route-partial-notice" data-testid="partial-route-note">{t(language, 'partialRouteNote')}</p>}<strong>{route.distanceUnit === 'meter' ? `${Math.round(route.distance)} ${t(language, 'meters')}` : t(language, 'routeOnPlan')}</strong>{routingGraph.routingPolicy === 'drawing-based' && <p>{t(language, 'drawingRouteNote')}</p>}{startRoom?.navigationNote && <p className="route-endpoint-note">{t(language, 'start')}: {startRoom.navigationNote[language]}</p>}{destinationRoom?.navigationNote && <p className="route-endpoint-note" data-testid="arrival-note">{destinationRoom.navigationNote[language]}</p>}{route.instructions.some(instruction => ['stairs', 'elevator', 'escalator'].includes(instruction.type)) && <p className="route-endpoint-note" data-testid="floor-transition-status">{transitionInstruction?.text[language] ?? bundles.find(bundle => bundle.floorData.floor.id === destinationRoom?.floorId)?.floorData.floor.name[language]}</p>}<ol>{route.instructions.map((instruction, index) => <li key={`${instruction.nodeId}-${index}`}>{instruction.type === 'arrival' && partialRoute ? t(language, 'mappedSegmentEnd') : destinationRoom?.navigationNote && ['arrival', 'destination-left', 'destination-right'].includes(instruction.type) ? t(language, instruction.type === 'destination-left' ? 'mappedApproachLeft' : instruction.type === 'destination-right' ? 'mappedApproachRight' : 'mappedApproachArrival') : instruction.text[language]}</li>)}</ol><div className="playback-controls" role="group"><button className="secondary-button" onClick={togglePlayback} disabled={playbackPhase === 'complete'} data-testid="playback-toggle">{playbackPhase === 'playing' ? t(language, 'playbackPause') : t(language, 'playbackStart')}</button><button className="secondary-button" onClick={stopPlayback} disabled={playbackPhase === 'idle' || playbackPhase === 'stopped'} data-testid="playback-stop">{t(language, 'playbackStop')}</button><button className="text-button" onClick={() => { stopPlayback(); setPlaybackPhase('ready'); setJourneyStarted(false); }} data-testid="playback-reset">{t(language, 'playbackReset')}</button><progress className="playback-progress" value={playbackProgress} max="1" /></div></> : <><span className="route-status-icon"><Navigation size={19} /></span><h3>{t(language, 'routeNotFound')}</h3><p>{route.reason?.[language] || t(language, 'noConnectingRoute')}</p></>}</div>}<button className="secondary-button clear-route" onClick={() => { setSelectedTransitionId(null); setDestinationId(null); }} title={t(language, 'resetRoute')} aria-label={t(language, 'resetRoute')}><RotateCcw size={15} /></button></div>}
+        {mode === 'browse' ? <><div className="search-box"><Search size={19} /><label className="sr-only" htmlFor="room-search">{t(language, 'search')}</label><input id="room-search" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t(language, 'searchPlaceholder')} autoComplete="off" />{query && <button aria-label={t(language, 'clearSearch')} onClick={() => setQuery('')}><X size={16} /></button>}</div><div className="category-row"><label className="sr-only" htmlFor="category-filter">{c.category}</label><select id="category-filter" value={category} onChange={event => setCategory(event.target.value as RoomCategory | 'all')}><option value="all">{c.all}</option>{categories.map(item => <option key={item} value={item}>{t(language, categoryKeys[item])}</option>)}</select><span>{results.length} {c.spaces}</span></div><div className="room-directory" aria-label={t(language, 'searchResults')} data-testid="room-directory">{results.map(room => <button key={room.id} data-room-id={room.id} className={`directory-room ${selectedId === room.id ? 'active' : ''}`} aria-pressed={selectedId === room.id} onClick={() => selectRoom(room.id)}><span className={`room-symbol ${room.category}`}><MapPin size={18} strokeWidth={1.7} /></span><span className="room-text"><strong>{room.name[language]}</strong><small><bdi>{room.code}</bdi><span> · </span>{t(language, categoryKeys[room.category])}</small></span>{selectedId === room.id ? <Check size={17} /> : <ArrowUpRight size={17} className="room-arrow" />}</button>)}{!results.length && <p className="empty-search">{t(language, rooms.length ? 'noResults' : 'noRooms')}</p>}</div></> : <div className="navigation-panel"><div className="journey-fields"><label htmlFor="start-room"><span className="start-dot" />{t(language, 'start')}</label><select id="start-room" value={customStartId ?? ''} onChange={event => { setSelectedTransitionId(null); setCustomStartId(event.target.value || null); }} data-testid="start-select"><option value="">{defaultStartLabel}</option>{allRooms.map(room => <option key={room.id} value={room.id}>{room.name[language]} — {room.code} · {floorName(room.floorId)}</option>)}</select><label htmlFor="destination-room"><MapPin size={14} />{t(language, 'destination')}</label><select id="destination-room" value={destinationId ?? ''} onChange={event => { const roomId = event.target.value || null; setSelectedTransitionId(null); setDestinationId(roomId); setSelectedId(roomId); }} data-testid="destination-select"><option value="">{t(language, 'chooseDestination')}</option>{allRooms.map(room => <option key={room.id} value={room.id}>{room.name[language]} — {room.code} · {floorName(room.floorId)}</option>)}</select></div>{!customStartId && !kioskNode && <p className="inline-note" data-testid="kiosk-status"><Info size={15} />{t(language, defaultStartRoom ? 'planningOriginNote' : 'kioskUnconfigured')}</p>}<label className="checkbox-label"><input type="checkbox" checked={accessibleOnly} onChange={event => setAccessibleOnly(event.target.checked)} />{t(language, 'accessibleOnly')}</label><button className="text-button reset-start" onClick={() => { setSelectedTransitionId(null); setCustomStartId(null); }}>{t(language, kioskNode ? 'clearStart' : 'restoreDefaultStart')}</button>{route && <div className={`route-result ${route.status}`} role="status" data-testid="route-status">{route.status === 'ok' ? <><h3>{t(language, partialRoute ? 'partialRoute' : 'directions')}</h3>{partialRoute && <p className="route-partial-notice" data-testid="partial-route-note">{t(language, 'partialRouteNote')}</p>}<strong>{route.distanceUnit === 'meter' ? `${Math.round(route.distance)} ${t(language, 'meters')}` : t(language, 'routeOnPlan')}</strong>{routingGraph.routingPolicy === 'drawing-based' && <p>{t(language, 'drawingRouteNote')}</p>}{startRoom?.navigationNote && <p className="route-endpoint-note">{t(language, 'start')}: {startRoom.navigationNote[language]}</p>}{destinationRoom?.navigationNote && <p className="route-endpoint-note" data-testid="arrival-note">{destinationRoom.navigationNote[language]}</p>}{route.instructions.some(instruction => ['stairs', 'elevator', 'escalator'].includes(instruction.type)) && <p className="route-endpoint-note" data-testid="floor-transition-status">{transitionInstruction?.text[language] ?? floorName(destinationRoom?.floorId ?? "")}</p>}<ol>{route.instructions.map((instruction, index) => <li key={`${instruction.nodeId}-${index}`}>{instruction.type === 'arrival' && partialRoute ? t(language, 'mappedSegmentEnd') : destinationRoom?.navigationNote && ['arrival', 'destination-left', 'destination-right'].includes(instruction.type) ? t(language, instruction.type === 'destination-left' ? 'mappedApproachLeft' : instruction.type === 'destination-right' ? 'mappedApproachRight' : 'mappedApproachArrival') : instruction.text[language]}</li>)}</ol><div className="playback-controls" role="group"><button className="secondary-button" onClick={togglePlayback} disabled={playbackPhase === 'complete'} data-testid="playback-toggle">{playbackPhase === 'playing' ? t(language, 'playbackPause') : t(language, 'playbackStart')}</button><button className="secondary-button" onClick={stopPlayback} disabled={playbackPhase === 'idle' || playbackPhase === 'stopped'} data-testid="playback-stop">{t(language, 'playbackStop')}</button><button className="text-button" onClick={() => { stopPlayback(); setPlaybackPhase('ready'); setJourneyStarted(false); }} data-testid="playback-reset">{t(language, 'playbackReset')}</button><progress className="playback-progress" value={playbackProgress} max="1" /></div></> : <><span className="route-status-icon"><Navigation size={19} /></span><h3>{t(language, 'routeNotFound')}</h3><p>{route.reason?.[language] || t(language, 'noConnectingRoute')}</p></>}</div>}<button className="secondary-button clear-route" onClick={() => { setSelectedTransitionId(null); setDestinationId(null); }} title={t(language, 'resetRoute')} aria-label={t(language, 'resetRoute')}><RotateCcw size={15} /></button></div>}
         <div className="directory-footer"><span className="footer-icon"><Info size={16} /></span><p>{t(language, 'publicDirectoryNotice')}</p></div>
       </aside></div>
       <section className={`map-workspace ${selected && !detailsCollapsed ? 'has-selection' : ''} ${selected ? 'has-room-details' : ''} ${detailsCollapsed ? 'details-collapsed' : ''}`} aria-label={t(language, 'map')}>
@@ -299,7 +401,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     <footer className="app-footer"><span><span className="status-dot" /><bdi>{buildingId} / {activeFloor.floor.name[language]}</bdi></span><span>{kioskNode ? kiosk?.name[language] : c.noKiosk}</span><span><Compass size={13} />{t(language, 'accessibilityUnknown')}</span></footer>
     <div className="sr-only" aria-live="polite" aria-atomic="true" data-testid="live-status">{selected ? `${t(language, 'selectedRoom')}: ${selected.name[language]}, ${selected.code}.` : ''} {route && route.status !== 'ok' ? route.reason?.[language] : ''} {muted ? t(language, 'audioMuted') : ''}</div>
     {signLanguageRoom && signLanguageContent?.signLanguageVideo?.url && <SignLanguageDialog room={signLanguageRoom} video={signLanguageContent.signLanguageVideo} language={language} onClose={closeSignLanguage} />}
-    {showTransitionChoice && <TransitionChoiceDialog language={language} options={transitionChoices} startLabel={startRoom?.name[language] ?? defaultStartLabel} destinationFloor={bundles.find(bundle => bundle.floorData.floor.id === destinationRoom?.floorId)?.floorData.floor.name[language] ?? destinationRoom?.floorId ?? ''} onChoose={chooseTransition} onClose={closeTransitionChoice} />}
+    {showTransitionChoice && <TransitionChoiceDialog language={language} options={transitionChoices} startLabel={startRoom?.name[language] ?? defaultStartLabel} destinationFloor={floorName(destinationRoom?.floorId ?? "") ?? destinationRoom?.floorId ?? ''} onChoose={chooseTransition} onClose={closeTransitionChoice} />}
   </div>;
 }
 

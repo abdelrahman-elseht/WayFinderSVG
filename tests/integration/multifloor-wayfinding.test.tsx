@@ -148,6 +148,40 @@ describe('public cross-floor route playback', () => {
     expect(dialog.textContent).toContain('Test lift');
   });
 
+  it('loads the destination floor graph on demand before showing cross-floor choices', async () => {
+    const ground = floorBundle('GF');
+    const first = floorBundle('01');
+    const directory = (bundle: FloorBundle, revision: string) => ({
+      floor: bundle.floorData.floor,
+      rooms: bundle.floorData.rooms,
+      kiosks: bundle.floorData.kiosks,
+      navigationDefaults: bundle.floorData.navigationDefaults,
+      revision,
+    });
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const floorId = String(input).includes('/GF?') ? 'GF' : '01';
+      const bundle = floorId === 'GF' ? ground : first;
+      return new Response(JSON.stringify({ revision: floorId === 'GF' ? 'ground-revision' : 'first-revision', bundle }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(performance, 'now').mockReturnValue(0);
+    vi.stubGlobal('requestAnimationFrame', () => 1);
+    vi.stubGlobal('cancelAnimationFrame', () => {});
+    vi.stubGlobal('matchMedia', () => ({ matches: false }));
+    render(<WayfindingApp {...ground} floorBundle={ground}
+      floorDirectories={[directory(ground, 'ground-revision'), directory(first, 'first-revision')]}
+      initialRevision="ground-revision" initialGraphLoaded={false} floorOptions={[ground.floorData.floor, first.floorData.floor]}
+      audioService={{ speak: vi.fn(), stop: vi.fn(), setMuted: vi.fn(), isSupported: () => true }} />);
+
+    fireEvent.change(screen.getByTestId('destination-select'), { target: { value: 'destination' } });
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledWith('/api/navigation/GF?revision=ground-revision'));
+    expect(fetchMock).toHaveBeenCalledWith('/api/navigation/01?revision=first-revision');
+    expect(await screen.findByRole('dialog')).toBeTruthy();
+  });
+
   it('holds playback at a landing until the destination-floor map is ready', async () => {
     const ground = floorBundle('GF');
     const first = floorBundle('01');
