@@ -48,3 +48,17 @@ export function multiFloorNavigation(bundles: FloorBundle[]): NavigationGraph {
     }])),
   };
 }
+
+export function routeGraphForTransition(graph: NavigationGraph, transitionId: string): NavigationGraph {
+  const nodes = new Map(graph.nodes.map(node => [node.id, node]));
+  return {
+    ...graph,
+    edges: graph.edges.filter(edge => {
+      if (edge.pathType !== 'elevator' && edge.pathType !== 'escalator') return true;
+      const from = nodes.get(edge.from);
+      const to = nodes.get(edge.to);
+      if (!from || !to || from.floorId === to.floorId) return true;
+      return edge.id === `vertical-${transitionId}`;
+    }),
+  };
+}

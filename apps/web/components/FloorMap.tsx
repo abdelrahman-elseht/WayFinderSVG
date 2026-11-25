@@ -4,16 +4,17 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
-import type { Floor, Language, MapFeature, Point, Room, RoomContent } from '@wayfinding/map-engine';
+import type { Floor, Language, MapFeature, NavigationNode, Point, Room, RoomContent } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 import { featureBlock, roomBlock, roomFootprint, type MapBlock } from './mapBlocks';
 import { shouldDisplayMapLabel } from './map-label-policy';
 import { RouteEndpointPin } from './RouteEndpointPin';
+import { MapTransitionMarkers } from './MapTransitionMarkers';
 
 import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
-type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
+type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; transitionNodes: NavigationNode[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; onMapReady: (floorId: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
 type FloorTextures = { texture: THREE.CanvasTexture; inkTexture: THREE.CanvasTexture };
 const floorTextureCache = new Map<string, Promise<FloorTextures>>();
@@ -70,18 +71,23 @@ function loadFloorTextures(asset: string): Promise<FloorTextures> {
 export function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
   const [inkTexture, setInkTexture] = useState<THREE.CanvasTexture | null>(null);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     let disposed = false;
+    setLoaded(false);
     setTexture(null);
     setInkTexture(null);
     loadFloorTextures(asset).then(result => {
       if (disposed) return;
       setTexture(result.texture);
       setInkTexture(result.inkTexture);
-    }).catch(() => { /* Source image remains available in the accessible fallback. */ });
+      setLoaded(true);
+    }).catch(() => {
+      if (!disposed) setLoaded(true);
+    });
     return () => { disposed = true; };
   }, [asset]);
-  return { texture, inkTexture };
+  return { texture, inkTexture, loaded };
 }
 export function useForcedColors() {
   const [forcedColors, setForcedColors] = useState(false);
@@ -186,7 +192,10 @@ function Scene(props: Props) {
   const forcedColors = useForcedColors();
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
-  const { texture, inkTexture } = useFloorTexture(floor.mapAsset);
+  const { texture, inkTexture, loaded } = useFloorTexture(floor.mapAsset);
+  useEffect(() => {
+    if (loaded) props.onMapReady(floor.id);
+  }, [loaded, props.onMapReady, floor.id]);
   const selected = rooms.find(room => room.id === selectedId);
   const contentById = useMemo(() => new Map((props.contents ?? []).map(item => [item.id, item])), [props.contents]);
   const blocks = useMemo(() => rooms.map(room => roomBlock(room, contentById.get(room.contentRef))).filter((block): block is MapBlock => block !== null), [rooms, contentById]);
@@ -235,19 +244,24 @@ function Scene(props: Props) {
     {equipment.map(block => <BlockShape key={block.id} block={block} center={center} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
     <MapLabels rooms={rooms} contents={props.contents} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
+    <MapTransitionMarkers nodes={props.transitionNodes} language={language} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
 }
-export class MapBoundary extends Component<{ children: React.ReactNode; fallback: React.ReactNode }, { error: boolean }> {
+export class MapBoundary extends Component<{ children: React.ReactNode; fallback: React.ReactNode; onFallback?: () => void }, { error: boolean }> {
   state = { error: false };
   static getDerivedStateFromError() { return { error: true }; }
+  componentDidCatch() { this.props.onFallback?.(); }
   render() { return this.state.error ? this.props.fallback : this.props.children; }
 }
 export default function FloorMap(props: Props) {
   const [supported, setSupported] = useState<boolean | null>(null);
   useEffect(() => { try { const canvas = document.createElement('canvas'); const gl = canvas.getContext('webgl2'); setSupported(Boolean(gl)); gl?.getExtension('WEBGL_lose_context')?.loseContext(); } catch { setSupported(false); } }, []);
+  useEffect(() => {
+    if (supported === false) props.onMapReady(props.floor.id);
+  }, [supported, props.floor.id, props.onMapReady]);
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
-  return <MapBoundary fallback={fallback}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.5]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.5]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }

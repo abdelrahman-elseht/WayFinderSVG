@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts/semantic-map'))
@@ -32,6 +33,36 @@ class EditorTests(unittest.TestCase):
         finding = next(d for d in session['diagnostics'] if d['id'] == 'spine:0')
         self.assertFalse(finding['tests']['safe'])
         self.assertIn('runtimeGraph', session)
+
+    def test_bootstrap_uses_runtime_graph_when_no_publication_exists(self):
+        transition = {'id': 'gf-lift', 'type': 'elevator', 'transitionId': 'lift-5'}
+        runtime_graph = {'nodes': [transition], 'edges': []}
+        diagnostic_graph = {'nodes': [], 'edges': []}
+        floor = {'floor': {'id': 'GF'}, 'rooms': []}
+        evidence = SimpleNamespace(
+            raw=[], cfg={'corridorSpines': []}, reviewed_connections=[], floor=floor,
+            geometry_diagnostics=[], references=lambda _indices: [],
+        )
+
+        def read(name):
+            return {
+                editor.RUNTIME_GRAPH: runtime_graph,
+                editor.GRAPH: diagnostic_graph,
+                'artifacts/navigation-v2/reconstruction-report.json': {'edgeEvidence': []},
+                editor.CONFIG: {},
+            }.get(name, {})
+
+        with patch.object(editor, 'Evidence', return_value=evidence), \
+             patch.object(editor.common, 'read', side_effect=read), \
+             patch.object(editor.persistence, 'read_snapshot', return_value=None), \
+             patch.object(editor.persistence, 'authoring_source_references', return_value=[]), \
+             patch.object(editor.persistence, 'transition_candidates', return_value=[]), \
+             patch.object(editor.persistence, 'merge_protected_ids', return_value=[]), \
+             patch.object(editor.persistence, 'publication', return_value={}):
+            session = editor.bootstrap()
+
+        self.assertEqual(session['graph']['nodes'], [transition])
+        self.assertEqual(session['runtimeGraph']['nodes'], [transition])
 
     def test_revision_and_coordinates_fail_closed(self):
         payload = self.payload()

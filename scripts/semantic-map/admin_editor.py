@@ -53,6 +53,10 @@ def snapshot(e):
     return result
 
 
+def loaded_navigation_graph(published):
+    return published['graph'] if published else common.read(RUNTIME_GRAPH)
+
+
 def bootstrap():
     e = Evidence()
     published = persistence.read_snapshot(ROOT, 'GF')
@@ -62,10 +66,10 @@ def bootstrap():
     if STORE.exists():
         candidates = sorted(p.stem for p in STORE.glob('candidate-*.json'))
     report_evidence = common.read('artifacts/navigation-v2/reconstruction-report.json').get('edgeEvidence', [])
-    loaded_graph = published['graph'] if published else common.read(GRAPH)
+    loaded_graph = loaded_navigation_graph(published)
     return {'revision': revision(), 'spines': snapshot(e), 'floor': e.floor,
             'graph': loaded_graph,
-            'runtimeGraph': loaded_graph if published else common.read('data/buildings/B03/GF.graph.json'),
+            'runtimeGraph': loaded_graph,
             'config': published['config'] if published else common.read(CONFIG),
             'evidence': published.get('sourceLinks', report_evidence) if published else report_evidence,
             'authoringSourceReferences': persistence.authoring_source_references(
@@ -98,10 +102,9 @@ def point_list(value):
     return value
 
 
-def validated_node_moves(value, extra_ids=()):
+def validated_node_moves(value, allowed):
     if not isinstance(value, dict) or len(value) > 1000:
         raise ValueError('Invalid node move collection')
-    allowed = {node['id'] for node in common.read(GRAPH)['nodes']} | set(extra_ids)
     result = {}
     for node_id, point in value.items():
         if not isinstance(point, list) or len(point) != 2:
@@ -197,12 +200,11 @@ def reconcile_node_edits(previous, moves, deleted, current, rebuilt):
     return combined_moves, combined_deleted
 
 
-def validated_deleted_nodes(value, extra_ids=()):
+def validated_deleted_nodes(value, allowed):
     if not isinstance(value, list) or len(value) > 1000:
         raise ValueError('Invalid deleted-node collection')
     if any(not isinstance(node_id, str) for node_id in value):
         raise ValueError('Deleted nodes must reference graph node IDs')
-    allowed = {node['id'] for node in common.read(GRAPH)['nodes']} | set(extra_ids)
     if len(set(value)) != len(value):
         raise ValueError('Deleted nodes must reference unique existing graph nodes')
     return [node_id for node_id in value if node_id in allowed]
@@ -427,6 +429,8 @@ def _execute(payload):
         raise ValueError('Source revision changed. Export your draft and reload before saving.')
     e = Evidence()
     published = persistence.read_snapshot(ROOT, 'GF')
+    loaded_graph = loaded_navigation_graph(published)
+    loaded_ids = {node['id'] for node in loaded_graph['nodes']}
     if published and isinstance(published.get('floorData'), dict):
         e.floor = published['floorData']
     if action == 'restore':
@@ -435,21 +439,22 @@ def _execute(payload):
             raise ValueError('Invalid candidate ID')
         saved = json.loads((STORE / (candidate + '.json')).read_text('utf-8'))
         pending_ids = persistence.pending_node_ids(saved)
-        persistence.validate_merge_candidate(saved, payload['revision'], common.read(GRAPH),
+        allowed_ids = loaded_ids | pending_ids
+        persistence.validate_merge_candidate(saved, payload['revision'], loaded_graph,
             persistence.merge_protected_ids(ROOT, 'GF', e.floor, common.read(CONFIG)) if saved.get('nodeMerges') else ())
         persistence.validate_authoring_candidate(
-            saved, common.read(GRAPH), e.floor,
+            saved, loaded_graph, e.floor,
             protected_ids=persistence.merge_protected_ids(ROOT, 'GF', e.floor, common.read(CONFIG)),
             source_references=persistence.authoring_source_references(ROOT, e.floor, snapshot(e)),
             exclusions=common.read(CONFIG).get('voidExclusions', []),
             known_transition_nodes=persistence.transition_nodes(ROOT, 'GF'))
         # Restore into a draft, never bypass validation or silently overwrite files.
         restored_moves = explicit_node_moves(
-            saved, validated_node_moves(saved.get('nodeMoves', {}), pending_ids), common.read(GRAPH),
+            saved, validated_node_moves(saved.get('nodeMoves', {}), allowed_ids), loaded_graph,
             snapshot(e), saved['spines'],
             common.read('artifacts/navigation-v2/reconstruction-report.json').get('edgeEvidence', []))
         return {'spines': saved['spines'], 'nodeMoves': restored_moves,
-                'deletedNodes': validated_deleted_nodes(saved.get('deletedNodes', []), pending_ids),
+                'deletedNodes': validated_deleted_nodes(saved.get('deletedNodes', []), allowed_ids),
                 'addedEdges': saved.get('addedEdges', []), 'restored': candidate,
                 'nodeMerges': saved.get('nodeMerges', {}),
                 **persistence.authoring_edits(saved),
@@ -458,23 +463,18 @@ def _execute(payload):
     raw_deleted = payload.get('deletedNodes', [])
     raw_added_edges = payload.get('addedEdges', [])
     pending_ids = persistence.pending_node_ids(payload)
-    if not isinstance(raw_moves, dict) or not isinstance(raw_deleted, list):
-        # Let the validators provide the established shape errors.
-        payload['nodeMoves'] = validated_node_moves(raw_moves)
-        payload['deletedNodes'] = validated_deleted_nodes(raw_deleted)
-    allowed_ids = {node['id'] for node in common.read(GRAPH)['nodes']} | pending_ids
+    allowed_ids = loaded_ids | pending_ids
+    payload['nodeMoves'] = validated_node_moves(raw_moves, allowed_ids)
+    payload['deletedNodes'] = validated_deleted_nodes(raw_deleted, allowed_ids)
     stale_moves = sorted(set(raw_moves) - allowed_ids)
     stale_deleted = sorted({node_id for node_id in raw_deleted if isinstance(node_id, str)} - allowed_ids)
-    payload['nodeMoves'] = validated_node_moves(raw_moves, pending_ids)
-    payload['deletedNodes'] = validated_deleted_nodes(raw_deleted, pending_ids)
     if not isinstance(raw_added_edges, list) or len(raw_added_edges) > 1000:
         raise ValueError('Invalid added-edge collection')
     payload['addedEdges'] = raw_added_edges
     payload['nodeMerges'] = payload.get('nodeMerges', {})
     payload.update(persistence.authoring_edits(payload))
     config, changes, diagnostics = prepare(payload, e, check_geometry=action not in ('draft', 'save'))
-    loaded_graph = common.read(GRAPH)
-    previous = persistence.read_snapshot(ROOT, 'GF') or {}
+    previous = published or {}
     source_links = previous.get('sourceLinks', common.read('artifacts/navigation-v2/reconstruction-report.json').get('edgeEvidence', []))
     applied, explicit = draft_overlay(
         payload, payload['nodeMoves'], loaded_graph, snapshot(e), payload.get('spines', []),
@@ -492,7 +492,6 @@ def _execute(payload):
     if action == 'save':
         # Node edits publish the graph the administrator actually loaded, without
         # regenerating source geometry or erasing previously published edits.
-        previous = persistence.read_snapshot(ROOT, 'GF') or {}
         if stale_moves or stale_deleted:
             raise ValueError('Graph edit targets are absent from the loaded graph: ' + ', '.join(stale_moves + stale_deleted))
         moves, deleted = publication_edits(previous, applied, payload['deletedNodes'], loaded_graph)
@@ -539,7 +538,7 @@ def _execute(payload):
               'staleNodeMoves': stale_moves, 'staleDeletedNodes': stale_deleted,
               'buildingClearance': None, 'buildingClearanceNote': 'No independent verified building-envelope polygon is supplied; walkable boundary is not a facade measurement.'}
     if payload['nodeMoves'] or payload['deletedNodes']:
-        result['graphEditImpact'] = graph_edit_impact(common.read(GRAPH), payload['nodeMoves'], payload['deletedNodes'])
+        result['graphEditImpact'] = graph_edit_impact(loaded_graph, payload['nodeMoves'], payload['deletedNodes'])
     if action == 'validate':
         return result
     has_graph_overlay = bool(payload['nodeMerges'] or payload['addedEdges'] or
