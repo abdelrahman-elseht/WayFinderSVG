@@ -166,6 +166,7 @@ describe('public cross-floor route playback', () => {
       }} />);
 
     act(() => browser.map.onMapReady('GF'));
+    act(() => browser.map.onMapReady('01'));
     fireEvent.change(screen.getByTestId('destination-select'), { target: { value: 'destination' } });
     fireEvent.click(await screen.findByRole('button', { name: /Escalator route/ }));
     await waitFor(() => expect(screen.getByTestId('route-status').className).toContain('ok'));

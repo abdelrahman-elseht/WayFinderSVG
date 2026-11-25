@@ -141,6 +141,14 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     return () => channel.close();
   }, [bundles, router]);
   useEffect(() => { setFloorId(floorData.floor.id); }, [floorData.floor.id]);
+  useEffect(() => {
+    const syncFloorFromHistory = () => {
+      const requestedFloor = new URLSearchParams(window.location.search).get('floor');
+      if (requestedFloor && bundles.some(bundle => bundle.floorData.floor.id === requestedFloor)) setFloorId(requestedFloor);
+    };
+    window.addEventListener('popstate', syncFloorFromHistory);
+    return () => window.removeEventListener('popstate', syncFloorFromHistory);
+  }, [bundles]);
   useEffect(() => { audio.current?.setMuted(muted); }, [muted]);
   useEffect(() => { if (speechText && !journeyStarted) audio.current?.speak(speechText, language); else if (!journeyStarted) audio.current?.stop(); return () => audio.current?.stop(); }, [speechText, language, journeyStarted]);
   useEffect(() => {
@@ -204,11 +212,18 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     const nextFloor = playbackPosition?.part.floorId;
     if (!nextFloor || nextFloor === floorId || !['playing', 'paused', 'complete'].includes(playbackPhase)) return;
+    floorReadyAtRef.current.delete(nextFloor);
+    setReadyFloorIds(current => {
+      if (!current.has(nextFloor)) return current;
+      const next = new Set(current);
+      next.delete(nextFloor);
+      return next;
+    });
     setFloorId(nextFloor);
     const params = new URLSearchParams(window.location.search);
     params.set('floor', nextFloor);
     window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`);
-  }, [playbackPosition?.part.floorId, floorId, playbackPhase, router]);
+  }, [playbackPosition?.part.floorId, floorId, playbackPhase]);
   useEffect(() => { if (journeyStarted && currentInstruction) audio.current?.speak(currentInstruction.text[language], language); }, [journeyStarted, currentInstruction, language]);
   useEffect(() => { document.documentElement.lang = language; document.documentElement.dir = getDirection(language); }, [language]);
   function selectRoom(id: string) { setSelectedId(id); setSignLanguageRoomId(null); }
