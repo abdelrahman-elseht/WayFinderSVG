@@ -697,7 +697,12 @@ def add_graph_nodes(graph, additions, *, context=None):
         history = result.setdefault('adminAuthoring', {
             'originalNavigableAreas': json.loads(json.dumps(areas)), 'navigableAreaEdits': [],
             'addedNodes': [], 'edgeGeometryEdits': []})
-        history['addedNodes'].append(json.loads(json.dumps(persisted)))
+        prior = next((index for index, item in enumerate(history['addedNodes'])
+                      if item.get('id') == node_id), None)
+        if prior is None:
+            history['addedNodes'].append(json.loads(json.dumps(persisted)))
+        else:
+            history['addedNodes'][prior] = json.loads(json.dumps(persisted))
     return result
 
 

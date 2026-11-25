@@ -22,11 +22,17 @@ describe('published cross-floor transition choices', () => {
   it.each([
     ['Main Entrance to F-01 by escalator', 'B03-transition-escalator-west', 'GF', 'G-01', '01', 'F-01', 'escalator'],
     ['Main Entrance to F-19 by Lift 5', 'B03-transition-lift-5', 'GF', 'G-01', '01', 'F-19', 'elevator'],
+    ['Main Entrance to F-11 by Lift 5', 'B03-transition-lift-5', 'GF', 'G-01', '01', 'F-11', 'elevator'],
+    ['Main Entrance to F-11 by escalator', 'B03-transition-escalator-west', 'GF', 'G-01', '01', 'F-11', 'escalator'],
+    ['Main Entrance to F-31 by Lift 5', 'B03-transition-lift-5', 'GF', 'G-01', '01', 'F-31', 'elevator'],
+    ['Main Entrance to F-31 by escalator', 'B03-transition-escalator-west', 'GF', 'G-01', '01', 'F-31', 'escalator'],
     ['F-01 to G-22 by escalator', 'B03-transition-escalator-west', '01', 'F-01', 'GF', 'G-22', 'escalator'],
     ['F-19 to G-10 by Lift 5', 'B03-transition-lift-5', '01', 'F-19', 'GF', 'G-10', 'elevator'],
   ] as const)('routes %s through the selected landing pair', (_scenario, transitionId, startFloor, startRoom, destinationFloor, destinationRoom, instructionType) => {
     const graph = routeGraphForTransition(combinedGraph, transitionId);
-    const route = findRoute(graph, doorNode(startFloor, startRoom), doorNode(destinationFloor, destinationRoom));
+    const route = findRoute(graph, doorNode(startFloor, startRoom), doorNode(destinationFloor, destinationRoom), {
+      unsafeGeometry: true,
+    });
 
     expect(route.status).toBe('ok');
     expect(route.instructions.map(instruction => instruction.type)).toContain(instructionType);

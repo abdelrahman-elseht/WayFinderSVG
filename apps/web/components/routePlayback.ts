@@ -73,7 +73,9 @@ export function playbackDuration(points: readonly Point[], options: PlaybackDura
 
 export type RoutePlaybackPart =
   | { kind: 'floor'; floorId: string; points: Point[]; duration: number }
-  | { kind: 'transition'; floorId: string; points: Point[]; fromNodeId: string; duration: number };
+  | { kind: 'transition'; floorId: string; points: Point[]; framePoints: Point[]; fromNodeId: string; duration: number };
+
+export const FLOOR_TRANSITION_LEAD_IN_MS = 200;
 
 const playbackDurationCache = new WeakMap<readonly RoutePlaybackPart[], number>();
 
@@ -93,7 +95,7 @@ export function routePlaybackPlan(graph: NavigationGraph, route: RouteResult): R
     if (!edge || !from || !to) return [];
     if (from.floorId !== to.floorId) {
       parts.push({ kind: 'floor', floorId, points, duration: points.length > 1 ? playbackDuration(points) : 0 });
-      parts.push({ kind: 'transition', floorId: to.floorId, points: [[...to.point]], fromNodeId: from.id, duration: 1600 });
+      parts.push({ kind: 'transition', floorId: to.floorId, points: [[...to.point]], framePoints: [], fromNodeId: from.id, duration: FLOOR_TRANSITION_LEAD_IN_MS });
       floorId = to.floorId;
       points = [[...to.point]];
       continue;
@@ -104,6 +106,12 @@ export function routePlaybackPlan(graph: NavigationGraph, route: RouteResult): R
     }
   }
   parts.push({ kind: 'floor', floorId, points, duration: points.length > 1 ? playbackDuration(points) : 0 });
+  for (let index = 0; index < parts.length - 1; index += 1) {
+    const part = parts[index];
+    if (part.kind === 'transition' && parts[index + 1]?.kind === 'floor') {
+      part.framePoints = parts[index + 1].points;
+    }
+  }
   return parts;
 }
 

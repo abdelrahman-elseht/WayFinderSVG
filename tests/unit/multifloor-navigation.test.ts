@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { FloorBundle, NavigationEdge, NavigationGraph, NavigationNode, Point } from '@wayfinding/map-engine';
 import { findRoute } from '@wayfinding/routing';
 import { multiFloorNavigation } from '../../apps/web/lib/multi-floor-navigation';
-import { playbackPlanPosition, routePlaybackPlan } from '../../apps/web/components/routePlayback';
+import { FLOOR_TRANSITION_LEAD_IN_MS, playbackPlanDuration, playbackPlanPosition, routePlaybackPlan } from '../../apps/web/components/routePlayback';
 import { validConstraints } from '../../packages/routing/src/geometry-safety';
 
 const area = (left: number, right: number): Point[] => [[left, -2], [right, -2], [right, 2], [left, 2]];
@@ -102,6 +102,10 @@ describe('paired vertical navigation', () => {
     expect(parts.map(part => part.kind)).toEqual(['floor', 'transition', 'floor']);
     expect(parts.map(part => part.floorId)).toEqual(['GF', '01', '01']);
     expect(parts[0].kind === 'floor' ? parts[0].points : []).toEqual([[0, 0], [10, 0]]);
-    expect(playbackPlanPosition(parts, 0.75)?.part.floorId).toBe('01');
+    expect(parts[1]).toMatchObject({ kind: 'transition', floorId: '01', points: [[10, 0]], framePoints: [[10, 0], [20, 0]], duration: FLOOR_TRANSITION_LEAD_IN_MS });
+    expect(playbackPlanDuration(parts)).toBe(2000);
+    expect(playbackPlanPosition(parts, 0.5)).toMatchObject({ part: { kind: 'transition', floorId: '01' }, partProgress: 0.5 });
+    expect(playbackPlanPosition(parts, 0.55)?.part.floorId).toBe('01');
+    expect(playbackPlanPosition(parts, 0.55)?.part.kind).toBe('floor');
   });
 });

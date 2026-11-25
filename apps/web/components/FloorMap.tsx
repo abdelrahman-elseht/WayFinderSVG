@@ -1,20 +1,19 @@
 'use client';
-import { Component, memo, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { Component, memo, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
-import type { Floor, Language, MapFeature, NavigationNode, Point, Room, RoomContent } from '@wayfinding/map-engine';
+import type { Floor, Language, MapFeature, Point, Room, RoomContent } from '@wayfinding/map-engine';
 import { t } from '@wayfinding/i18n';
 import type { PlaybackPhase } from './routePlayback';
 import { featureBlock, roomBlock, roomFootprint, type MapBlock } from './mapBlocks';
 import { shouldDisplayMapLabel } from './map-label-policy';
 import { RouteEndpointPin } from './RouteEndpointPin';
-import { MapTransitionMarkers } from './MapTransitionMarkers';
 
 import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
-type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; transitionNodes: NavigationNode[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; onMapReady: (floorId: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
+type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; route: Point[]; frameRoute?: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
 const MAP_TEXTURE_WIDTH = 2048;
 const MAP_TEXTURE_HEIGHT = 1024;
@@ -80,23 +79,18 @@ export function preloadFloorTexture(asset: string): Promise<void> {
 export function useFloorTexture(asset: string) {
   const [texture, setTexture] = useState<THREE.CanvasTexture | null>(null);
   const [inkTexture, setInkTexture] = useState<THREE.CanvasTexture | null>(null);
-  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     let disposed = false;
-    setLoaded(false);
     setTexture(null);
     setInkTexture(null);
     loadFloorTextures(asset).then(result => {
       if (disposed) return;
       setTexture(result.texture);
       setInkTexture(result.inkTexture);
-      setLoaded(true);
-    }).catch(() => {
-      if (!disposed) setLoaded(true);
-    });
+    }).catch(() => {});
     return () => { disposed = true; };
   }, [asset]);
-  return { texture, inkTexture, loaded };
+  return { texture, inkTexture };
 }
 export function useForcedColors() {
   const [forcedColors, setForcedColors] = useState(false);
@@ -201,33 +195,31 @@ function Scene(props: Props) {
   const forcedColors = useForcedColors();
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
   const width = floor.viewBox[2] / SCALE; const depth = floor.viewBox[3] / SCALE;
-  const { texture, inkTexture, loaded } = useFloorTexture(floor.mapAsset);
-  useEffect(() => {
-    if (loaded) props.onMapReady(floor.id);
-  }, [loaded, props.onMapReady, floor.id]);
+  const { texture, inkTexture } = useFloorTexture(floor.mapAsset);
   const selected = rooms.find(room => room.id === selectedId);
   const contentById = useMemo(() => new Map((props.contents ?? []).map(item => [item.id, item])), [props.contents]);
   const blocks = useMemo(() => rooms.map(room => roomBlock(room, contentById.get(room.contentRef))).filter((block): block is MapBlock => block !== null), [rooms, contentById]);
   const equipment = useMemo(() => (props.mapFeatures ?? []).map(featureBlock), [props.mapFeatures]);
+  const framePoints = props.frameRoute ?? route;
   const routeFrame = useMemo(() => {
-    if (!route.length) return null;
-    const xs = route.map(point => (point[0] - center[0]) / SCALE); const zs = route.map(point => (point[1] - center[1]) / SCALE);
+    if (!framePoints.length) return null;
+    const xs = framePoints.map(point => (point[0] - center[0]) / SCALE); const zs = framePoints.map(point => (point[1] - center[1]) / SCALE);
     const x = (Math.min(...xs) + Math.max(...xs)) / 2; const z = (Math.min(...zs) + Math.max(...zs)) / 2;
     const right = new THREE.Vector3(CAMERA_OFFSET.z, 0, -CAMERA_OFFSET.x).normalize();
     const up = new THREE.Vector3().crossVectors(CAMERA_OFFSET.clone().normalize(), right).normalize();
-    const projected = route.map(([px, py]) => new THREE.Vector3((px - center[0]) / SCALE - x, 0, (py - center[1]) / SCALE - z));
+    const projected = framePoints.map(([px, py]) => new THREE.Vector3((px - center[0]) / SCALE - x, 0, (py - center[1]) / SCALE - z));
     const horizontal = projected.map(point => point.dot(right)); const vertical = projected.map(point => point.dot(up));
     return { x, z, width: Math.max(...horizontal.map(Math.abs)) * 2 + 4, height: Math.max(...vertical.map(Math.abs)) * 2 + 4 };
-  }, [route, center]);
+  }, [framePoints, center]);
   // The parent reveals one cached, validated visual route, including at completion.
   // Raw route remains available for framing and exact endpoint markers only.
   const renderRoute = visibleRoute;
-  useEffect(() => {
+  useLayoutEffect(() => {
     const orthographic = camera as THREE.OrthographicCamera;
     orthographic.zoom = Math.min(size.width / (routeFrame?.width ?? width * 1.13), size.height / (routeFrame?.height ?? depth * 1.26)) * zoom;
     orthographic.updateProjectionMatrix();
   }, [camera, size.width, size.height, width, depth, zoom, routeFrame]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const x = routeFrame ? routeFrame.x : selected ? (selected.centroid[0] - center[0]) / SCALE : 0;
     const z = routeFrame ? routeFrame.z : selected ? (selected.centroid[1] - center[1]) / SCALE : 0;
     controls.current?.target.set(x, 0, z); camera.position.copy(CAMERA_OFFSET).add(new THREE.Vector3(x, 0, z)); camera.lookAt(x, 0, z); controls.current?.update();
@@ -253,7 +245,6 @@ function Scene(props: Props) {
     {equipment.map(block => <BlockShape key={block.id} block={block} center={center} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
     <MapLabels rooms={rooms} contents={props.contents} language={language} selectedId={selectedId} onSelect={onSelect} center={center} playbackPhase={playbackPhase} />
-    <MapTransitionMarkers nodes={props.transitionNodes} language={language} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
 }
@@ -266,12 +257,9 @@ export class MapBoundary extends Component<{ children: React.ReactNode; fallback
 export default function FloorMap(props: Props) {
   const [supported, setSupported] = useState<boolean | null>(null);
   useEffect(() => { try { const canvas = document.createElement('canvas'); const gl = canvas.getContext('webgl2'); setSupported(Boolean(gl)); gl?.getExtension('WEBGL_lose_context')?.loseContext(); } catch { setSupported(false); } }, []);
-  useEffect(() => {
-    if (supported === false) props.onMapReady(props.floor.id);
-  }, [supported, props.floor.id, props.onMapReady]);
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
   const frameloop = props.playbackPhase === 'playing' && props.followCamera ? 'always' : 'demand';
-  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas frameloop={frameloop} orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  return <MapBoundary fallback={fallback}><Canvas frameloop={frameloop} orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }

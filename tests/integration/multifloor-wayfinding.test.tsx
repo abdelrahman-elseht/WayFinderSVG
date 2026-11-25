@@ -4,28 +4,23 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { FloorBundle, FloorData, NavigationEdge, NavigationGraph, NavigationNode, Point, RoomContent } from '@wayfinding/map-engine';
 import { WayfindingApp } from '../../apps/web/components/WayfindingApp';
-import { MapTransitionMarkers } from '../../apps/web/components/MapTransitionMarkers';
 import { multiFloorNavigation, routeGraphForTransition } from '../../apps/web/lib/multi-floor-navigation';
 import { findRoute } from '@wayfinding/routing';
 
 const browser = vi.hoisted(() => ({
-  map: {} as { floor: { id: string; mapAsset: string }; route: Point[]; visibleRoute: Point[]; transitionNodes: NavigationNode[]; playbackProgress: number; onMapReady: (floorId: string) => void },
-  deferMapReady: false,
+  map: {} as { floor: { id: string; mapAsset: string }; route: Point[]; frameRoute: Point[]; visibleRoute: Point[]; playbackProgress: number },
   router: { push: vi.fn(), replace: vi.fn() },
 }));
 vi.mock('next/navigation', () => ({ useRouter: () => browser.router }));
 vi.mock('next/dynamic', () => ({
   default: () => (props: typeof browser.map) => {
     browser.map = props;
-    React.useEffect(() => {
-      if (!browser.deferMapReady) props.onMapReady(props.floor.id);
-    }, [props.floor.id, props.onMapReady]);
-    return <div data-testid="floor-map"><MapTransitionMarkers nodes={props.transitionNodes} language="en" center={[0, 0]} /></div>;
+    return <div data-testid="floor-map" />;
   },
 }));
 vi.mock('@react-three/drei', () => ({ Html: ({ children }: { children: React.ReactNode }) => <>{children}</> }));
 
-afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); browser.deferMapReady = false; browser.router.push.mockClear(); browser.router.replace.mockClear(); });
+afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); browser.router.push.mockClear(); browser.router.replace.mockClear(); });
 
 function landingNode(id: string, floorId: 'GF' | '01', point: Point, type: 'escalator' | 'elevator' = 'escalator'): NavigationNode {
   return { id, buildingId: 'SYNTHETIC_TEST_BUILDING', floorId, point, type, status: 'candidate',
@@ -96,8 +91,7 @@ describe('public cross-floor route playback', () => {
       speak: vi.fn(), stop: vi.fn(), setMuted: vi.fn(), isSupported: () => true,
     }} />);
 
-    expect(screen.getByText('Test escalator')).toBeTruthy();
-    expect(screen.getByText('Test lift')).toBeTruthy();
+    expect(screen.queryByTestId(/^transition-marker-/)).toBeNull();
 
     fireEvent.change(screen.getByTestId('start-select'), { target: { value: startRoom === 'start' ? '' : startRoom } });
     fireEvent.change(screen.getByTestId('destination-select'), { target: { value: destinationRoom } });
@@ -110,18 +104,29 @@ describe('public cross-floor route playback', () => {
     await waitFor(() => expect(browser.map.floor.id).toBe(startFloor));
     expect(browser.map.floor.mapAsset).toBe(`/maps/SYNTHETIC_TEST_BUILDING/${startFloor}/master.svg`);
 
-    now = 1100;
+    now = 800;
+    act(() => tick(now));
+    await waitFor(() => expect(browser.map.floor.id).toBe(startFloor));
+    now = 1000;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.floor.id).toBe(destinationFloor));
     expect(browser.map.floor.mapAsset).toBe(`/maps/SYNTHETIC_TEST_BUILDING/${destinationFloor}/master.svg`);
-    expect(screen.getByText('Test escalator')).toBeTruthy();
-    expect(screen.getByText('Test lift')).toBeTruthy();
+    expect(browser.map.route).toHaveLength(1);
+    expect(browser.map.frameRoute.length).toBeGreaterThan(1);
+    expect(screen.queryByTestId(/^transition-marker-/)).toBeNull();
     expect(window.location.search).toContain(`floor=${destinationFloor}`);
     expect(browser.router.replace).not.toHaveBeenCalled();
 
+    const landingRoute = browser.map.visibleRoute;
+    now = 1099;
+    act(() => tick(now));
+    expect(browser.map.visibleRoute).toEqual(landingRoute);
+    now = 1116;
+    act(() => tick(now));
+    expect(browser.map.playbackProgress).toBeGreaterThan(0.55);
+    now = 1132;
+    act(() => tick(now));
     await waitFor(() => expect(browser.map.visibleRoute.at(-1)).toEqual(expect.arrayContaining([expect.any(Number)])));
-    const transitionLanding = transitionType === 'escalator' ? 10 : 12;
-    expect(browser.map.visibleRoute.at(-1)![0]).toBe(transitionLanding);
   });
 
   it('opens the transition chooser from Go here on a First Floor room with the default start', async () => {
@@ -182,7 +187,7 @@ describe('public cross-floor route playback', () => {
     expect(await screen.findByRole('dialog')).toBeTruthy();
   });
 
-  it('holds playback at a landing until the destination-floor map is ready', async () => {
+  it('continues playback across a floor change without waiting for the destination map', async () => {
     const ground = floorBundle('GF');
     const first = floorBundle('01');
     const floorBundles = [ground, first];
@@ -193,14 +198,10 @@ describe('public cross-floor route playback', () => {
     vi.stubGlobal('requestAnimationFrame', (callback: FrameRequestCallback) => { tick = callback; return 1; });
     vi.stubGlobal('cancelAnimationFrame', () => {});
     vi.stubGlobal('matchMedia', () => ({ matches: false }));
-    browser.deferMapReady = true;
     render(<WayfindingApp {...ground} floorBundles={floorBundles} routeGraph={routeGraph}
       floorOptions={floorBundles.map(bundle => bundle.floorData.floor)} audioService={{
         speak: vi.fn(), stop: vi.fn(), setMuted: vi.fn(), isSupported: () => true,
       }} />);
-
-    act(() => browser.map.onMapReady('GF'));
-    act(() => browser.map.onMapReady('01'));
     fireEvent.change(screen.getByTestId('destination-select'), { target: { value: 'destination' } });
     fireEvent.click(await screen.findByRole('button', { name: /Escalator route/ }));
     await waitFor(() => expect(screen.getByTestId('route-status').className).toContain('ok'));
@@ -208,23 +209,15 @@ describe('public cross-floor route playback', () => {
     now = 1000;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.floor.id).toBe('01'));
-    const transitionProgress = browser.map.playbackProgress;
+    const destinationProgress = browser.map.playbackProgress;
 
     now = 2500;
     act(() => tick(now));
-    expect(browser.map.playbackProgress).toBe(transitionProgress);
-    expect(browser.map.visibleRoute).toHaveLength(1);
+    expect(browser.map.playbackProgress).toBeGreaterThan(destinationProgress);
 
-    act(() => browser.map.onMapReady('01'));
-    now = 3700;
+    now = 3800;
     act(() => tick(now));
-    expect(browser.map.playbackProgress).toBe(transitionProgress);
-    expect(browser.map.visibleRoute).toHaveLength(1);
-
-    now = 5100;
-    act(() => tick(now));
-    now += 40;
-    act(() => tick(now));
+    expect(browser.map.playbackProgress).toBeGreaterThan(destinationProgress);
     await waitFor(() => expect(browser.map.visibleRoute.length).toBeGreaterThan(1));
   });
 });

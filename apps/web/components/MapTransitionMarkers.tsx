@@ -36,11 +36,10 @@ export function MapTransitionMarkers({ nodes, language, center }: {
         role="img"
         data-testid={`transition-marker-${node.id}`}
         aria-label={`${node.transitionName}, ${typeLabel}, ${accessibilityLabel}`}
-        title={`${typeLabel} · ${accessibilityLabel}`}
+        title={`${node.transitionName} · ${typeLabel} · ${accessibilityLabel}`}
         dir={language === 'ar' ? 'rtl' : 'ltr'}
       >
         <span className="map-transition-marker-icon" aria-hidden="true"><Icon size={15} strokeWidth={2.2} /></span>
-        <span className="map-transition-marker-copy"><strong>{node.transitionName}</strong><small>{typeLabel}</small></span>
       </div>
     </Html>;
   })}</>;

@@ -569,28 +569,6 @@
       }
     },
     {
-      "id": "B03-01-admin-node-lift-transition",
-      "buildingId": "B03",
-      "floorId": "01",
-      "point": [
-        2487.0308540860856,
-        1310.4467264612229
-      ],
-      "type": "elevator",
-      "status": "candidate",
-      "transitionId": "B03-transition-lift-5",
-      "transitionName": "Lift 5",
-      "transitionAccessibility": "unknown",
-      "transitionRestriction": "unknown",
-      "adminReview": {
-        "kind": "admin-drawing-review",
-        "sourceReference": "maps/B03/01/source/0002.json#0002-path-10069",
-        "note": "Placed at the source-marked Lift 5 landing closest to Valve Room F-19 and linked to the existing F-19-side corridor approach. Inter-floor continuity, public access, and step-free suitability remain unverified.",
-        "status": "candidate",
-        "accessibility": "unknown"
-      }
-    },
-    {
       "id": "B03-01-j101411",
       "buildingId": "B03",
       "floorId": "01",
@@ -1411,18 +1389,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-01-j188598",
-      "buildingId": "B03",
-      "floorId": "01",
-      "point": [
-        2458.2071338371115,
-        1307.028685051789
-      ],
-      "type": "junction",
-      "reason": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-01-j188881",
       "buildingId": "B03",
       "floorId": "01",
@@ -1439,8 +1405,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2457.8304934554208,
-        1307.4202709572114
+        2459.1104104495994,
+        1301.0209008095794
       ],
       "type": "junction",
       "reason": "junction",
@@ -1487,8 +1453,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2458.1216600972534,
-        1306.8222375544558
+        2459.401577091432,
+        1300.4228674068238
       ],
       "type": "junction",
       "reason": "junction",
@@ -1547,8 +1513,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2461.1650658420544,
-        1283.1350289250943
+        2459.031948969306,
+        1297.640325212597
       ],
       "type": "junction",
       "reason": "junction",
@@ -1583,8 +1549,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2458.123119273086,
-        1305.3868219505935
+        2459.4030362672647,
+        1298.9874518029615
       ],
       "type": "junction",
       "reason": "turn",
@@ -1620,8 +1586,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2457.849346588027,
-        1307.3055797761713
+        2459.1292635822056,
+        1300.9062096285393
       ],
       "type": "junction",
       "reason": "junction",
@@ -1668,8 +1634,8 @@
       "buildingId": "B03",
       "floorId": "01",
       "point": [
-        2458.767149560995,
-        1304.9567080649235
+        2460.047066555174,
+        1298.5573379172915
       ],
       "type": "junction",
       "reason": "junction",
@@ -2242,18 +2208,6 @@
       "status": "candidate"
     },
     {
-      "id": "B03-01-j29711",
-      "buildingId": "B03",
-      "floorId": "01",
-      "point": [
-        2020.3310972853935,
-        603.944570126671
-      ],
-      "type": "junction",
-      "reason": "junction",
-      "status": "candidate"
-    },
-    {
       "id": "B03-01-j31141",
       "buildingId": "B03",
       "floorId": "01",
@@ -2284,18 +2238,6 @@
       "point": [
         2008.3219018891248,
         719.7000986515621
-      ],
-      "type": "junction",
-      "reason": "junction",
-      "status": "candidate"
-    },
-    {
-      "id": "B03-01-j42563",
-      "buildingId": "B03",
-      "floorId": "01",
-      "point": [
-        1955.7652973421175,
-        720.3068991966134
       ],
       "type": "junction",
       "reason": "junction",
@@ -3490,9 +3432,100 @@
       "type": "junction",
       "reason": "junction",
       "status": "candidate"
+    },
+    {
+      "id": "B03-01-admin-node-lift-transition",
+      "buildingId": "B03",
+      "floorId": "01",
+      "point": [
+        2511.0925630214733,
+        1311.2589702960172
+      ],
+      "type": "elevator",
+      "status": "candidate",
+      "transitionId": "B03-transition-lift-5",
+      "transitionName": "Lift 5",
+      "transitionAccessibility": "unknown",
+      "transitionRestriction": "unknown",
+      "adminReview": {
+        "kind": "admin-drawing-review",
+        "sourceReference": "maps/B03/01/master.svg",
+        "note": "Candidate Floor 01 lift landing placed beside B03-01-F-19-approach and paired with the existing Ground Floor Lift 5 landing.",
+        "status": "candidate",
+        "accessibility": "unknown"
+      }
     }
   ],
   "edges": [
+    {
+      "id": "B03-01-admin-0a39b83de9ad4a28bcda15089779c227",
+      "from": "B03-01-F-30-approach",
+      "to": "B03-01-j168416",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 31.36947320252665,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2009.5766627538426,
+          1277.645347862418
+        ],
+        [
+          2009.98398144287,
+          1246.2785191975752
+        ]
+      ]
+    },
+    {
+      "id": "B03-01-admin-5118e32f851740c888101d5ef0bc3d76",
+      "from": "B03-01-j39012",
+      "to": "B03-01-j47595",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 0.31275465060116314,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2008.3219018891248,
+          719.7000986515621
+        ],
+        [
+          2008.571967124534,
+          719.8879359468801
+        ]
+      ]
+    },
+    {
+      "id": "B03-01-admin-86481cfe2d4244369e52c0e31b87c5ca",
+      "from": "B03-01-j159255",
+      "to": "B03-01-j98494",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 355.18964193189277,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2366.4916744725747,
+          1267.9708259708098
+        ],
+        [
+          2419.503354220017,
+          916.7594315855182
+        ]
+      ]
+    },
     {
       "id": "B03-01-admin-943461b531a74b8a878cdafd4529a888",
       "from": "B03-01-j117355",
@@ -3513,6 +3546,52 @@
         [
           1035.6804800271677,
           863.8156327068338
+        ]
+      ]
+    },
+    {
+      "id": "B03-01-admin-a1b42712b9be4f0fbcaafcd54a42f592",
+      "from": "B03-01-j159255",
+      "to": "B03-01-j192910",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 97.1801501809336,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2366.4916744725747,
+          1267.9708259708098
+        ],
+        [
+          2459.031948969306,
+          1297.640325212597
+        ]
+      ]
+    },
+    {
+      "id": "B03-01-admin-dc6683a112f6468e8c94e5c0547c6803",
+      "from": "B03-01-j159255",
+      "to": "B03-01-j169132",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 178.46692099396842,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          2366.4916744725747,
+          1267.9708259708098
+        ],
+        [
+          2189.5120148121664,
+          1244.9786108632256
         ]
       ]
     },
@@ -3540,12 +3619,12 @@
       ]
     },
     {
-      "id": "B03-01-admin-lift-approach",
-      "from": "B03-01-admin-node-lift-transition",
-      "to": "B03-01-F-19-approach",
+      "id": "B03-01-admin-f9c3f8f68f3a48e48aabafc3d0be83ed",
+      "from": "B03-01-j197200",
+      "to": "B03-01-j207205",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 0.38594607995155783,
+      "distance": 102.56514161430448,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -3553,12 +3632,35 @@
       "bidirectional": true,
       "geometry": [
         [
-          2487.0308540860856,
-          1310.4467264612229
+          2460.047066555174,
+          1298.5573379172915
         ],
         [
-          2486.651309966478,
-          1310.5167310175125
+          2442.491283567157,
+          1399.6088235968202
+        ]
+      ]
+    },
+    {
+      "id": "B03-01-admin-fd446e9a91b4452189352469775f0a0a",
+      "from": "B03-01-F-56-approach",
+      "to": "B03-01-j46835",
+      "floorId": "01",
+      "pathType": "corridor",
+      "distance": 19.574150862355037,
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "geometry": [
+        [
+          1854.546566032038,
+          704.7482214048513
+        ],
+        [
+          1855.4845133863694,
+          724.2998872352284
         ]
       ]
     },
@@ -3770,52 +3872,6 @@
       ]
     },
     {
-      "id": "B03-01-e0010",
-      "from": "B03-01-j21850",
-      "to": "B03-01-j29711",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 1.9958598910487577,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2019.4680235335336,
-          602.1449700590039
-        ],
-        [
-          2020.3310972853935,
-          603.944570126671
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-e0013",
-      "from": "B03-01-j29711",
-      "to": "B03-01-j31141",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 116.51768073104196,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2020.3310972853935,
-          603.944570126671
-        ],
-        [
-          2008.2028606652432,
-          719.8293223567495
-        ]
-      ]
-    },
-    {
       "id": "B03-01-e0014",
       "from": "B03-01-j31141",
       "to": "B03-01-j43279",
@@ -3904,52 +3960,6 @@
         [
           2032.5624186465566,
           720.4451745434919
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-e0024",
-      "from": "B03-01-j42563",
-      "to": "B03-01-j47574",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 1.0520334199769947,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1955.7652973421175,
-          720.3068991966134
-        ],
-        [
-          1955.710785596392,
-          721.357519387894
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-e0025",
-      "from": "B03-01-j42563",
-      "to": "B03-01-j43279",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 0.3028881951546163,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          1955.7652973421175,
-          720.3068991966134
-        ],
-        [
-          1955.581886504213,
-          720.5479421871838
         ]
       ]
     },
@@ -8103,7 +8113,7 @@
       "to": "B03-01-j192910",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 71.35654073695797,
+      "distance": 81.76416552240913,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -8115,8 +8125,8 @@
           1244.427558396357
         ],
         [
-          2461.1650658420544,
-          1283.1350289250943
+          2459.031948969306,
+          1297.640325212597
         ]
       ]
     },
@@ -9666,52 +9676,6 @@
       ]
     },
     {
-      "id": "B03-01-e0307",
-      "from": "B03-01-j188598",
-      "to": "B03-01-j189313",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 0.5433208061962529,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2458.2071338371115,
-          1307.028685051789
-        ],
-        [
-          2457.8304934554208,
-          1307.4202709572114
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-e0308",
-      "from": "B03-01-j188598",
-      "to": "B03-01-j190745",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 0.22344200446745455,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2458.2071338371115,
-          1307.028685051789
-        ],
-        [
-          2458.1216600972534,
-          1306.8222375544558
-        ]
-      ]
-    },
-    {
       "id": "B03-01-e0309",
       "from": "B03-01-j188881",
       "to": "B03-01-j189597",
@@ -9740,7 +9704,7 @@
       "to": "B03-01-j218619",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 152.61326352528906,
+      "distance": 159.13576315989582,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -9748,8 +9712,8 @@
       "bidirectional": true,
       "geometry": [
         [
-          2457.8304934554208,
-          1307.4202709572114
+          2459.1104104495994,
+          1301.0209008095794
         ],
         [
           2433.0,
@@ -9771,12 +9735,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2457.8304934554208,
-          1307.4202709572114
+          2459.1104104495994,
+          1301.0209008095794
         ],
         [
-          2458.1216600972534,
-          1306.8222375544558
+          2459.401577091432,
+          1300.4228674068238
         ]
       ]
     },
@@ -9863,12 +9827,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2458.1216600972534,
-          1306.8222375544558
+          2459.401577091432,
+          1300.4228674068238
         ],
         [
-          2457.849346588027,
-          1307.3055797761713
+          2459.1292635822056,
+          1300.9062096285393
         ]
       ]
     },
@@ -10039,7 +10003,7 @@
       "to": "B03-01-j197200",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 21.953033571072318,
+      "distance": 1.367982461038603,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -10047,12 +10011,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2461.1650658420544,
-          1283.1350289250943
+          2459.031948969306,
+          1297.640325212597
         ],
         [
-          2458.767149560995,
-          1304.9567080649235
+          2460.047066555174,
+          1298.5573379172915
         ]
       ]
     },
@@ -10062,7 +10026,7 @@
       "to": "B03-01-j195058",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 22.4587562384499,
+      "distance": 1.3973030570256821,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -10070,12 +10034,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2461.1650658420544,
-          1283.1350289250943
+          2459.031948969306,
+          1297.640325212597
         ],
         [
-          2458.123119273086,
-          1305.3868219505935
+          2459.4030362672647,
+          1298.9874518029615
         ]
       ]
     },
@@ -10162,12 +10126,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2458.123119273086,
-          1305.3868219505935
+          2459.4030362672647,
+          1298.9874518029615
         ],
         [
-          2458.767149560995,
-          1304.9567080649235
+          2460.047066555174,
+          1298.5573379172915
         ]
       ]
     },
@@ -10246,7 +10210,7 @@
       "to": "B03-01-j207205",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 93.57221232592067,
+      "distance": 100.09509669885256,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -10254,8 +10218,8 @@
       "bidirectional": true,
       "geometry": [
         [
-          2457.849346588027,
-          1307.3055797761713
+          2459.1292635822056,
+          1300.9062096285393
         ],
         [
           2442.491283567157,
@@ -10415,12 +10379,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2458.767149560995,
-          1304.9567080649235
+          2460.047066555174,
+          1298.5573379172915
         ],
         [
-          2457.849346588027,
-          1307.3055797761713
+          2459.1292635822056,
+          1300.9062096285393
         ]
       ]
     },
@@ -11887,7 +11851,7 @@
       "to": "B03-01-j195058",
       "floorId": "01",
       "pathType": "door",
-      "distance": 28.985748761648235,
+      "distance": 29.58703599204081,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -11899,8 +11863,8 @@
           1310.5167310175125
         ],
         [
-          2458.123119273086,
-          1305.3868219505935
+          2459.4030362672647,
+          1298.9874518029615
         ]
       ]
     },
@@ -12287,6 +12251,33 @@
       "restriction": "unknown",
       "status": "candidate",
       "bidirectional": true,
+      "pathType": "corridor",
+      "id": "B03-01-es-27763480a70b",
+      "from": "B03-01-j189313",
+      "to": "B03-01-j190745",
+      "geometry": [
+        [
+          2459.1104104495994,
+          1301.0209008095794
+        ],
+        [
+          2458.2071338371115,
+          1307.028685051789
+        ],
+        [
+          2459.401577091432,
+          1300.4228674068238
+        ]
+      ],
+      "distance": 12.788245929042496
+    },
+    {
+      "floorId": "01",
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
       "pathType": "door",
       "id": "B03-01-es-2acf6bbab924",
       "from": "B03-01-j56870",
@@ -12477,6 +12468,33 @@
       "status": "candidate",
       "bidirectional": true,
       "pathType": "corridor",
+      "id": "B03-01-es-9d248b49779f",
+      "from": "B03-01-j21850",
+      "to": "B03-01-j31141",
+      "geometry": [
+        [
+          2019.4680235335336,
+          602.1449700590039
+        ],
+        [
+          2020.3310972853935,
+          603.944570126671
+        ],
+        [
+          2008.2028606652432,
+          719.8293223567495
+        ]
+      ],
+      "distance": 118.51354062209072
+    },
+    {
+      "floorId": "01",
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "pathType": "corridor",
       "id": "B03-01-es-a2fb23781f5d",
       "from": "B03-01-j67297",
       "to": "B03-01-j68768",
@@ -12584,6 +12602,33 @@
       "restriction": "unknown",
       "status": "candidate",
       "bidirectional": true,
+      "pathType": "corridor",
+      "id": "B03-01-es-b1400d9020cf",
+      "from": "B03-01-j47574",
+      "to": "B03-01-j43279",
+      "geometry": [
+        [
+          1955.710785596392,
+          721.357519387894
+        ],
+        [
+          1955.7652973421175,
+          720.3068991966134
+        ],
+        [
+          1955.581886504213,
+          720.5479421871838
+        ]
+      ],
+      "distance": 1.354921615131611
+    },
+    {
+      "floorId": "01",
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
       "pathType": "door",
       "id": "B03-01-es-b5d35ecfde99",
       "from": "B03-01-j38910",
@@ -12657,6 +12702,33 @@
         ]
       ],
       "distance": 45.02104338001758
+    },
+    {
+      "floorId": "01",
+      "distanceUnit": "map-unit",
+      "accessibility": "unknown",
+      "restriction": "unknown",
+      "status": "candidate",
+      "bidirectional": true,
+      "pathType": "corridor",
+      "id": "B03-01-es-cb48824e932f",
+      "from": "B03-01-j143585",
+      "to": "B03-01-F-19-approach",
+      "geometry": [
+        [
+          2521.1107715365583,
+          1244.427558396357
+        ],
+        [
+          2487.0308540860856,
+          1310.4467264612229
+        ],
+        [
+          2486.651309966478,
+          1310.5167310175125
+        ]
+      ],
+      "distance": 74.68245559021081
     },
     {
       "floorId": "01",
@@ -12744,12 +12816,12 @@
       "distance": 58.333784981314565
     },
     {
-      "id": "B03-01-admin-fd446e9a91b4452189352469775f0a0a",
-      "from": "B03-01-F-56-approach",
-      "to": "B03-01-j46835",
+      "id": "B03-01-admin-458e17948d95452dbe49cd785987fbf7",
+      "from": "B03-01-F-19-approach",
+      "to": "B03-01-admin-node-lift-transition",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 19.574150862355037,
+      "distance": 24.452520729873058,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -12757,114 +12829,22 @@
       "bidirectional": true,
       "geometry": [
         [
-          1854.546566032038,
-          704.7482214048513
+          2486.651309966478,
+          1310.5167310175125
         ],
         [
-          1855.4845133863694,
-          724.2998872352284
+          2511.0925630214733,
+          1311.2589702960172
         ]
       ]
     },
     {
-      "id": "B03-01-admin-5118e32f851740c888101d5ef0bc3d76",
-      "from": "B03-01-j39012",
-      "to": "B03-01-j47595",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 0.31275465060116314,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2008.3219018891248,
-          719.7000986515621
-        ],
-        [
-          2008.571967124534,
-          719.8879359468801
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-86481cfe2d4244369e52c0e31b87c5ca",
-      "from": "B03-01-j159255",
-      "to": "B03-01-j98494",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 355.18964193189277,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2366.4916744725747,
-          1267.9708259708098
-        ],
-        [
-          2419.503354220017,
-          916.7594315855182
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-dc6683a112f6468e8c94e5c0547c6803",
-      "from": "B03-01-j159255",
-      "to": "B03-01-j169132",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 178.46692099396842,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2366.4916744725747,
-          1267.9708259708098
-        ],
-        [
-          2189.5120148121664,
-          1244.9786108632256
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-0a39b83de9ad4a28bcda15089779c227",
-      "from": "B03-01-F-30-approach",
-      "to": "B03-01-j168416",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 31.36947320252665,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2009.5766627538426,
-          1277.645347862418
-        ],
-        [
-          2009.98398144287,
-          1246.2785191975752
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-ab27ae7e23594ca4b32ed5a193483e2c",
+      "id": "B03-01-admin-9ecf46ead22b4024b3087bb5c94aa372",
       "from": "B03-01-admin-node-lift-transition",
       "to": "B03-01-j143585",
       "floorId": "01",
       "pathType": "corridor",
-      "distance": 74.29650951025926,
+      "distance": 67.57811863579637,
       "distanceUnit": "map-unit",
       "accessibility": "unknown",
       "restriction": "unknown",
@@ -12872,58 +12852,12 @@
       "bidirectional": true,
       "geometry": [
         [
-          2487.0308540860856,
-          1310.4467264612229
+          2511.0925630214733,
+          1311.2589702960172
         ],
         [
           2521.1107715365583,
           1244.427558396357
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-a1b42712b9be4f0fbcaafcd54a42f592",
-      "from": "B03-01-j159255",
-      "to": "B03-01-j192910",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 95.88015480086281,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2366.4916744725747,
-          1267.9708259708098
-        ],
-        [
-          2461.1650658420544,
-          1283.1350289250943
-        ]
-      ]
-    },
-    {
-      "id": "B03-01-admin-f9c3f8f68f3a48e48aabafc3d0be83ed",
-      "from": "B03-01-j197200",
-      "to": "B03-01-j207205",
-      "floorId": "01",
-      "pathType": "corridor",
-      "distance": 96.04127648315018,
-      "distanceUnit": "map-unit",
-      "accessibility": "unknown",
-      "restriction": "unknown",
-      "status": "candidate",
-      "bidirectional": true,
-      "geometry": [
-        [
-          2458.767149560995,
-          1304.9567080649235
-        ],
-        [
-          2442.491283567157,
-          1399.6088235968202
         ]
       ]
     }
@@ -282362,8 +282296,8 @@
         "buildingId": "B03",
         "floorId": "01",
         "point": [
-          2550.0,
-          1350.0
+          2490.747070187923,
+          1313.3846131992677
         ],
         "type": "elevator",
         "status": "candidate",
@@ -282373,8 +282307,8 @@
         "transitionRestriction": "unknown",
         "adminReview": {
           "kind": "admin-drawing-review",
-          "sourceReference": "maps/B03/01/source/0002.json#0002-path-10069",
-          "note": "Placed at the source-marked Lift 5 landing closest to Valve Room F-19 and linked to the existing F-19-side corridor approach. Inter-floor continuity, public access, and step-free suitability remain unverified.",
+          "sourceReference": "maps/B03/01/master.svg",
+          "note": "Candidate Floor 01 lift landing placed beside B03-01-F-19-approach and paired with the existing Ground Floor Lift 5 landing.",
           "status": "candidate",
           "accessibility": "unknown"
         }
