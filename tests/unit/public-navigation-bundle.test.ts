@@ -6,6 +6,8 @@ import type { FloorBundle } from '@wayfinding/map-engine';
 import floor from '../../data/buildings/B03/GF.json';
 import graph from '../../data/buildings/B03/GF.graph.json';
 import content from '../../content/B03/GF.json';
+import firstFloor from '../../data/buildings/B03/01.json';
+import firstGraph from '../../data/buildings/B03/01.graph.json';
 import { publicMapBundle, publicNavigationBundle, publicNavigationRevision } from '../../apps/web/lib/public-navigation-bundle';
 
 describe('public navigation bundle', () => {
@@ -37,5 +39,19 @@ describe('public navigation bundle', () => {
     expect(mapBundle.graph.walls).toEqual([]);
     expect(mapBundle.graph.navigableAreas).toEqual([]);
     expect(mapBundle.floorData.rooms).toHaveLength(floor.rooms.length);
+  });
+
+  it('preserves both First Floor transition markers, including the lift landing', () => {
+    const firstFloorBundle = publicMapBundle({ floorData: firstFloor, graph: firstGraph, contents: [] } as unknown as FloorBundle);
+    expect(firstFloorBundle.graph.nodes.filter(node => node.type === 'elevator' || node.type === 'escalator').map(node => node.id)).toEqual([
+      'B03-01-admin-node-escalator-transition',
+      'B03-01-admin-node-lift-transition',
+    ]);
+    expect(firstFloorBundle.graph.nodes.find(node => node.id === 'B03-01-admin-node-lift-transition')).toMatchObject({
+      floorId: '01',
+      type: 'elevator',
+      transitionId: 'B03-transition-lift-5',
+      point: [2487.0308540860856, 1310.4467264612229],
+    });
   });
 });
