@@ -95,4 +95,3 @@ A valid transition trace still requires a production server built after the GF e
 - The 3.78-second development response is not a production performance metric.
 - The production artifact was generated before the current branch’s later changes and was not rebuilt because data validation fails on GF edge 116.
 - No WASM implementation was added because the evidence does not identify route CPU as the transition bottleneck.
-
