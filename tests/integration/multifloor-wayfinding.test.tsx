@@ -118,7 +118,7 @@ describe('public cross-floor route playback', () => {
     expect(screen.getByText('Test lift')).toBeTruthy();
     expect(browser.router.replace).toHaveBeenCalledWith(expect.stringContaining(`floor=${destinationFloor}`));
 
-    now = 2800;
+    now = 4500;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.visibleRoute.at(-1)).toEqual(expect.arrayContaining([expect.any(Number)])));
     if (routeDirection > 0) expect(browser.map.visibleRoute.at(-1)![0]).toBeGreaterThan(10);
@@ -168,7 +168,7 @@ describe('public cross-floor route playback', () => {
 
     act(() => browser.map.onMapReady('GF'));
     fireEvent.change(screen.getByTestId('destination-select'), { target: { value: 'destination' } });
-    fireEvent.click(await screen.findByRole('button', { name: 'Escalator route' }));
+    fireEvent.click(await screen.findByRole('button', { name: /Escalator route/ }));
     await waitFor(() => expect(screen.getByTestId('route-status').className).toContain('ok'));
 
     now = 1000;
@@ -182,6 +182,11 @@ describe('public cross-floor route playback', () => {
     expect(browser.map.visibleRoute).toHaveLength(1);
 
     act(() => browser.map.onMapReady('01'));
+    now = 3500;
+    act(() => tick(now));
+    expect(browser.map.playbackProgress).toBe(transitionProgress);
+    expect(browser.map.visibleRoute).toHaveLength(1);
+
     now = 4500;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.visibleRoute.length).toBeGreaterThan(1));

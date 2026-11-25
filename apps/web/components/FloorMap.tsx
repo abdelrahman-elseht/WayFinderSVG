@@ -16,6 +16,8 @@ import { categoryColors, highContrastMapPalette, mapPalette } from './palette';
 export { categoryColors } from './palette';
 type Props = { floor: Floor; rooms: Room[]; contents?: RoomContent[]; mapFeatures?: MapFeature[]; transitionNodes: NavigationNode[]; language: Language; selectedId: string | null; onSelect: (id: string) => void; onMapReady: (floorId: string) => void; route: Point[]; visibleRoute?: Point[]; playbackPhase?: PlaybackPhase; playbackProgress?: number; followCamera?: boolean; zoom: number; reset: number };
 const SCALE = 100;
+const MAP_TEXTURE_WIDTH = 2048;
+const MAP_TEXTURE_HEIGHT = 1024;
 type FloorTextures = { texture: THREE.CanvasTexture; inkTexture: THREE.CanvasTexture };
 const floorTextureCache = new Map<string, Promise<FloorTextures>>();
 
@@ -28,15 +30,15 @@ function loadFloorTextures(asset: string): Promise<FloorTextures> {
   }).then(svg => new Promise<FloorTextures>((resolve, reject) => {
     const doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
     doc.documentElement.setAttribute('preserveAspectRatio', 'none');
-    doc.documentElement.setAttribute('width', '4096');
-    doc.documentElement.setAttribute('height', '2048');
+    doc.documentElement.setAttribute('width', String(MAP_TEXTURE_WIDTH));
+    doc.documentElement.setAttribute('height', String(MAP_TEXTURE_HEIGHT));
     const blobUrl = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(doc)], { type: 'image/svg+xml' }));
     const image = new Image();
     image.onload = () => {
       URL.revokeObjectURL(blobUrl);
       const canvas = document.createElement('canvas');
-      canvas.width = 4096;
-      canvas.height = 2048;
+      canvas.width = MAP_TEXTURE_WIDTH;
+      canvas.height = MAP_TEXTURE_HEIGHT;
       const context = canvas.getContext('2d');
       if (!context) {
         reject(new Error('Map canvas unavailable'));
@@ -44,8 +46,8 @@ function loadFloorTextures(asset: string): Promise<FloorTextures> {
       }
       context.drawImage(image, 0, 0, canvas.width, canvas.height);
       const inkCanvas = document.createElement('canvas');
-      inkCanvas.width = 4096;
-      inkCanvas.height = 2048;
+      inkCanvas.width = MAP_TEXTURE_WIDTH;
+      inkCanvas.height = MAP_TEXTURE_HEIGHT;
       inkCanvas.getContext('2d')?.drawImage(canvas, 0, 0);
       const inkTexture = new THREE.CanvasTexture(inkCanvas);
       inkTexture.colorSpace = THREE.SRGBColorSpace;
@@ -131,14 +133,17 @@ export const BlockShape = memo(function BlockShape({ block, center, selected = f
   </group>;
 });
 export function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
-  const { camera, size } = useThree();
+  const { camera, size, clock } = useThree();
   const [visible, setVisible] = useState<Set<string>>(new Set());
   const signature = useRef('');
+  const lastLayoutAt = useRef(Number.NEGATIVE_INFINITY);
   const vector = useMemo(() => new THREE.Vector3(), []);
   const labelRooms = useMemo(() => rooms.filter(room => shouldDisplayMapLabel(room.id)), [rooms]);
   const orderedRooms = useMemo(() => [...labelRooms].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId)), [labelRooms, selectedId]);
   const labels = useMemo(() => new Map((contents ?? []).map(item => [item.id, item.presentation?.stickerLabel])), [contents]);
   useFrame(() => {
+    if (clock.elapsedTime - lastLayoutAt.current < .12) return;
+    lastLayoutAt.current = clock.elapsedTime;
     const occupied: { x: number; y: number; width: number }[] = []; const next: string[] = [];
     for (const room of orderedRooms) {
       vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE).project(camera);
@@ -237,7 +242,7 @@ function Scene(props: Props) {
     camera.lookAt(controls.current?.target ?? followTarget.current);
   });
   return <>
-    <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[2048, 2048]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
+    <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[1024, 1024]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.02, 0]}><planeGeometry args={[width, depth]} /><meshBasicMaterial key={inkTexture?.uuid ?? 'loading'} map={inkTexture} transparent opacity={inkTexture ? 1 : 0} depthWrite={false} toneMapped={false} /></mesh>
     {blocks.map(block => <BlockShape key={block.id} block={block} center={center} selected={block.id === selectedId} onSelect={() => onSelect(block.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
@@ -263,5 +268,5 @@ export default function FloorMap(props: Props) {
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
-  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.5]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }

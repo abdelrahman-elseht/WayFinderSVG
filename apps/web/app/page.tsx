@@ -9,7 +9,6 @@ import firstContent from '@content/B03/01.json';
 import { WayfindingApp } from '../components/WayfindingApp';
 import { publishedContent } from '../lib/content-store';
 import { publishedNavigation } from '../lib/navigation-store';
-import { multiFloorNavigation } from '../lib/multi-floor-navigation';
 import type { FloorBundle } from '@wayfinding/map-engine';
 
 export const dynamic = 'force-dynamic';
@@ -40,13 +39,16 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
     if (ground && diagnosticMode) return { ...registry.getFloor(buildingId, id)!, contents };
     return publishedNavigation(id, ground ? floor : firstFloor, ground ? graph : firstGraph, contents);
   }));
-  const publicBundle = floorBundles.find(item => item.floorData.floor.id === floorId) ?? bundle;
-  const routeGraph = multiFloorNavigation(floorBundles);
+  const publicFloorBundles = floorBundles.map(item => {
+    const { adminAuthoring: _adminAuthoring, ...publicGraph } = item.graph;
+    return { ...item, graph: publicGraph };
+  });
+  const publicBundle = publicFloorBundles.find(item => item.floorData.floor.id === floorId) ?? bundle;
   return <>
     {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
       position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
       background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
     }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
-    <WayfindingApp {...publicBundle} floorBundles={floorBundles} routeGraph={routeGraph} floorOptions={floorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
+    <WayfindingApp {...publicBundle} floorBundles={publicFloorBundles} floorOptions={publicFloorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

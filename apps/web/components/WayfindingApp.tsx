@@ -14,17 +14,19 @@ import { SignLanguageDialog } from './SignLanguageDialog';
 import { isPlaceholderVideo } from './RoomContentPresentation';
 import { DestinationDetails } from './DestinationDetails';
 import { TransitionChoiceDialog, type TransitionChoice } from './TransitionChoiceDialog';
-import { routeGraphForTransition } from '../lib/multi-floor-navigation';
+import { multiFloorNavigation, routeGraphForTransition } from '../lib/multi-floor-navigation';
 const FloorMap = dynamic(() => import('./FloorMap'), { ssr: false });
 const categoryKeys: Record<RoomCategory, string> = { classroom: 'categoryClassroom', office: 'categoryOffice', laboratory: 'categoryLaboratory', service: 'categoryService', restroom: 'categoryRestroom', circulation: 'categoryCirculation', other: 'categoryOther' };
 const copy = { en: { brand: 'NAID', wayfinding: 'CAMPUS WAYFINDING', welcome: 'Where would you like to go?', explore: 'Explore the ground floor', all: 'All spaces', spaces: 'spaces', browse: 'Browse', navigate: 'Navigate', floorNote: 'One floor. Every destination.', overview: 'Floor overview', directoryHelp: 'Find a room in the directory or select its marker on the map.', source: 'Source-based floor plan', marker: 'Room marker', selected: 'Selected', selectedDetails: 'DESTINATION DETAILS', mapReview: 'Outlines under review', resetKiosk: 'Reset to kiosk', plan: 'Plan your visit', roomCount: 'rooms on this floor', sourcePreview: 'Drawing detail', noKiosk: 'Kiosk position not configured', footer: 'B03 / GROUND FLOOR', category: 'Filter by category' }, ar: { brand: 'الأكاديمية', wayfinding: 'دليل التنقل في الحرم', welcome: 'إلى أين تريد الذهاب؟', explore: 'استكشف الطابق الأرضي', all: 'جميع المساحات', spaces: 'مساحات', browse: 'استكشاف', navigate: 'التنقل', floorNote: 'طابق واحد. جميع الوجهات.', overview: 'نظرة على الطابق', directoryHelp: 'ابحث في الدليل أو اختر علامة الغرفة على الخريطة.', source: 'خريطة مستندة إلى المصدر', marker: 'علامة الغرفة', selected: 'محدد', selectedDetails: 'تفاصيل الوجهة', mapReview: 'الحدود قيد المراجعة', resetKiosk: 'العودة إلى الكشك', plan: 'خطط لزيارتك', roomCount: 'غرفة في هذا الطابق', sourcePreview: 'تفصيل من الرسم', noKiosk: 'لم يتم تحديد موقع الكشك', footer: 'B03 / الطابق الأرضي', category: 'تصفية حسب الفئة' } };
 
-export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph, floorOptions = [floorData.floor], audioService, configuredKioskId }: { floorData: FloorData; graph: NavigationGraph; contents: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
+export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph: suppliedRouteGraph, floorOptions = [floorData.floor], audioService, configuredKioskId }: { floorData: FloorData; graph: NavigationGraph; contents: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
   const router = useRouter();
   const bundles = useMemo(() => floorBundles ?? [{ floorData, graph, contents }], [floorBundles, floorData, graph, contents]);
+  const routeGraph = useMemo(() => suppliedRouteGraph ?? (bundles.length > 1 ? multiFloorNavigation(bundles) : undefined), [suppliedRouteGraph, bundles]);
   const defaultOriginBundle = bundles.find(bundle => bundle.floorData.floor.id === 'GF') ?? bundles[0];
   const [language, setLanguage] = useState<Language>('en');
   const [buildingId] = useState(floorData.building.id); const [floorId, setFloorId] = useState(floorData.floor.id);
+  const activeFloorIdRef = useRef(floorId); activeFloorIdRef.current = floorId;
   const [originFloorId, setOriginFloorId] = useState(() => bundles.find(bundle => bundle.floorData.kiosks.some(item => item.id === configuredKioskId))?.floorData.floor.id ?? defaultOriginBundle.floorData.floor.id);
   const [selectedId, setSelectedId] = useState<string | null>(null); const [customStartId, setCustomStartId] = useState<string | null>(null); const [destinationId, setDestinationId] = useState<string | null>(null);
   const [selectedTransitionId, setSelectedTransitionId] = useState<string | null>(null);
@@ -35,6 +37,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const [playbackRouteKey, setPlaybackRouteKey] = useState('');
   const playbackTimer = useRef<number | null>(null); const playbackStartedAt = useRef(0); const playbackOrigin = useRef(0);
   const playbackPausedAt = useRef<number | null>(null); const waitingFloorId = useRef<string | null>(null);
+  const waitingFloorStartedAt = useRef<number | null>(null);
   const [readyFloorIds, setReadyFloorIds] = useState<Set<string>>(() => new Set());
   const readyFloorIdsRef = useRef(readyFloorIds); readyFloorIdsRef.current = readyFloorIds;
   const playbackPaintAt = useRef(Number.NEGATIVE_INFINITY);
@@ -142,29 +145,34 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     if (playbackPhase !== 'playing' || !playbackDurationMs || reducedMotion) return;
     playbackStartedAt.current = performance.now(); playbackOrigin.current = playbackProgress;
-    playbackPausedAt.current = null; waitingFloorId.current = null;
+    playbackPausedAt.current = null; waitingFloorId.current = null; waitingFloorStartedAt.current = null;
     playbackPaintAt.current = Number.NEGATIVE_INFINITY;
     const duration = (1 - playbackOrigin.current) * playbackDurationMs;
     const tick = () => {
       const now = performance.now();
-      const waitingFor = waitingFloorId.current;
-      if (waitingFor && !readyFloorIdsRef.current.has(waitingFor)) {
-        playbackTimer.current = window.requestAnimationFrame(tick);
-        return;
-      }
       if (playbackPausedAt.current !== null) {
+        const waitingFor = waitingFloorId.current;
+        const loaded = waitingFor !== null && readyFloorIdsRef.current.has(waitingFor);
+        if (loaded && waitingFloorStartedAt.current === null) waitingFloorStartedAt.current = now;
+        const waited = waitingFloorStartedAt.current !== null && now - waitingFloorStartedAt.current >= 1200;
+        if (!loaded || !waited) {
+          playbackTimer.current = window.requestAnimationFrame(tick);
+          return;
+        }
         playbackStartedAt.current += now - playbackPausedAt.current;
         playbackPausedAt.current = null;
         waitingFloorId.current = null;
+        waitingFloorStartedAt.current = null;
       }
       const next = Math.min(1, playbackOrigin.current + (now - playbackStartedAt.current) / duration);
       const nextPart = playbackPlanPosition(playbackParts, next)?.part;
-      if (nextPart && !readyFloorIdsRef.current.has(nextPart.floorId)) {
-        // Hold the route at the landing until the destination drawing textures are ready.
+      if (nextPart && nextPart.floorId !== activeFloorIdRef.current && waitingFloorId.current !== nextPart.floorId) {
+        // Give the destination floor time to load before revealing its route segment.
         if (waitingFloorId.current !== nextPart.floorId) {
           setPlaybackProgress(value => Math.max(value, next));
           playbackPausedAt.current = now;
           waitingFloorId.current = nextPart.floorId;
+          waitingFloorStartedAt.current = null;
         }
         playbackTimer.current = window.requestAnimationFrame(tick);
         return;
@@ -184,7 +192,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     if (route?.status !== 'ok' || !playbackParts.length) {
       if (playbackTimer.current !== null) window.cancelAnimationFrame(playbackTimer.current);
-      playbackTimer.current = null; playbackPausedAt.current = null; waitingFloorId.current = null;
+      playbackTimer.current = null; playbackPausedAt.current = null; waitingFloorId.current = null; waitingFloorStartedAt.current = null;
       setPlaybackRouteKey(''); setPlaybackPhase('idle'); setPlaybackProgress(0); setJourneyStarted(false); return;
     }
     // A new valid route always cancels the prior animation and starts from zero.
@@ -232,7 +240,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
 
   return <div className="wayfinding-app" dir={getDirection(language)} data-language={language}>
     <a className="skip-link" href="#directory">{t(language, 'skipToDirectory')}</a>
-    <header className="app-header"><a className="brand" href="#directory" aria-label={t(language, 'appTitle')}><span className="brand-icon"><img src="/academy-logo.png" alt="" /></span><span><strong>{c.brand}</strong><small>{c.wayfinding}</small></span></a><div className="header-divider" /><div className="building-heading"><span>{t(language, 'building')} <b dir="ltr">{buildingId}</b></span><small>{activeFloor.floor.name[language]}</small></div><div className="header-actions"><span className="campus-tag"><span />{c.source}</span><button className="language-button" onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')} aria-label={t(language, language === 'en' ? 'switchToArabic' : 'switchToEnglish')} data-testid="language-toggle"><span className={language === 'en' ? 'active' : ''}>EN</span><span className="language-divider" /><span lang="ar" className={language === 'ar' ? 'active' : ''}>العربية</span></button><button className="icon-button header-audio" onClick={() => setMuted(!muted)} title={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-label={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-pressed={muted}>{muted ? <VolumeX size={20} /> : <Volume2 size={20} />}</button></div></header>
+    <header className="app-header"><a className="brand" href="#directory" aria-label={t(language, 'appTitle')}><span className="brand-icon"><img src="/academy-logo.webp" alt="" /></span><span><strong>{c.brand}</strong><small>{c.wayfinding}</small></span></a><div className="header-divider" /><div className="building-heading"><span>{t(language, 'building')} <b dir="ltr">{buildingId}</b></span><small>{activeFloor.floor.name[language]}</small></div><div className="header-actions"><span className="campus-tag"><span />{c.source}</span><button className="language-button" onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')} aria-label={t(language, language === 'en' ? 'switchToArabic' : 'switchToEnglish')} data-testid="language-toggle"><span className={language === 'en' ? 'active' : ''}>EN</span><span className="language-divider" /><span lang="ar" className={language === 'ar' ? 'active' : ''}>العربية</span></button><button className="icon-button header-audio" onClick={() => setMuted(!muted)} title={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-label={t(language, muted ? 'unmuteAudio' : 'muteAudio')} aria-pressed={muted}>{muted ? <VolumeX size={20} /> : <Volume2 size={20} />}</button></div></header>
     <main id="main-content" className={`main-layout ${directoryCollapsed ? 'directory-collapsed' : ''}`}>
       <div className={`directory-shell ${directoryCollapsed ? 'is-collapsed' : ''}`}>
       <button type="button" className="panel-collapse-control directory-toggle" aria-expanded={!directoryCollapsed} aria-controls="directory" aria-label={directoryCollapsed ? (language === 'ar' ? 'إظهار الدليل' : 'Expand directory') : (language === 'ar' ? 'إخفاء الدليل' : 'Collapse directory')} title={directoryCollapsed ? 'Expand directory / إظهار الدليل' : 'Collapse directory / إخفاء الدليل'} onClick={() => setDirectoryCollapsed(value => !value)}><ChevronDown size={18} /></button>
