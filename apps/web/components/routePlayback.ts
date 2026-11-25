@@ -7,19 +7,20 @@ export function clipVisualRouteAtProgress(route: VisualRoute, progress: number):
   if (!route.points.length) return [];
   if (normalized === 1) return route.points;
   const target = normalized * route.sourceLength;
-  const visible: Point[] = [route.points[0]];
-  for (let i = 1; i < route.points.length; i++) {
-    const from = route.sourceDistances[i - 1], to = route.sourceDistances[i];
-    if (to <= target) {
-      visible.push(route.points[i]);
-      continue;
-    }
-    if (target > from && to > from) {
-      const t = (target - from) / (to - from);
-      const a = route.points[i - 1], b = route.points[i];
-      visible.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
-    }
-    break;
+  let low = 1;
+  let high = route.sourceDistances.length;
+  while (low < high) {
+    const middle = (low + high) >> 1;
+    if (route.sourceDistances[middle] <= target) low = middle + 1;
+    else high = middle;
+  }
+  const segment = Math.min(low, route.points.length - 1);
+  const visible = route.points.slice(0, segment);
+  const from = route.sourceDistances[segment - 1], to = route.sourceDistances[segment];
+  if (target > from && to > from) {
+    const t = (target - from) / (to - from);
+    const a = route.points[segment - 1], b = route.points[segment];
+    visible.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t]);
   }
   return visible;
 }
@@ -73,6 +74,8 @@ export type RoutePlaybackPart =
   | { kind: 'floor'; floorId: string; points: Point[]; duration: number }
   | { kind: 'transition'; floorId: string; points: Point[]; fromNodeId: string; duration: number };
 
+const playbackDurationCache = new WeakMap<readonly RoutePlaybackPart[], number>();
+
 export function routePlaybackPlan(graph: NavigationGraph, route: RouteResult): RoutePlaybackPart[] {
   if (route.status !== 'ok' || !route.nodeIds.length) return [];
   const nodes = new Map(graph.nodes.map(node => [node.id, node]));
@@ -104,7 +107,11 @@ export function routePlaybackPlan(graph: NavigationGraph, route: RouteResult): R
 }
 
 export function playbackPlanDuration(parts: readonly RoutePlaybackPart[]): number {
-  return parts.reduce((total, part) => total + part.duration, 0);
+  const cached = playbackDurationCache.get(parts);
+  if (cached !== undefined) return cached;
+  const duration = parts.reduce((total, part) => total + part.duration, 0);
+  playbackDurationCache.set(parts, duration);
+  return duration;
 }
 
 export function playbackPlanPosition(parts: readonly RoutePlaybackPart[], progress: number) {
