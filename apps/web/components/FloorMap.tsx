@@ -67,7 +67,14 @@ function loadFloorTextures(asset: string): Promise<FloorTextures> {
     image.src = blobUrl;
   }));
   floorTextureCache.set(asset, promise);
+  void promise.catch(() => {
+    if (floorTextureCache.get(asset) === promise) floorTextureCache.delete(asset);
+  });
   return promise;
+}
+
+export function preloadFloorTexture(asset: string): Promise<void> {
+  return loadFloorTextures(asset).then(() => undefined);
 }
 
 export function useFloorTexture(asset: string) {
@@ -126,8 +133,8 @@ export const BlockShape = memo(function BlockShape({ block, center, selected = f
     {block.geometryStatus !== 'confirmed' && <Line points={border} color={forcedColors ? highContrastMapPalette.candidate : selected ? mapPalette.candidateSelected : mapPalette.candidate} lineWidth={.8} dashed dashSize={.11} gapSize={.07} />}
   </group>;
 });
-export function MapLabels({ rooms, contents, language, selectedId, onSelect, center }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect'> & { center: Point }) {
-  const { camera, size, clock } = useThree();
+export function MapLabels({ rooms, contents, language, selectedId, onSelect, center, playbackPhase }: Pick<Props, 'rooms' | 'contents' | 'language' | 'selectedId' | 'onSelect' | 'playbackPhase'> & { center: Point }) {
+  const { camera, size } = useThree();
   const [visible, setVisible] = useState<Set<string>>(new Set());
   const signature = useRef('');
   const lastLayoutAt = useRef(Number.NEGATIVE_INFINITY);
@@ -136,8 +143,10 @@ export function MapLabels({ rooms, contents, language, selectedId, onSelect, cen
   const orderedRooms = useMemo(() => [...labelRooms].sort((a, b) => Number(b.id === selectedId) - Number(a.id === selectedId)), [labelRooms, selectedId]);
   const labels = useMemo(() => new Map((contents ?? []).map(item => [item.id, item.presentation?.stickerLabel])), [contents]);
   useFrame(() => {
-    if (clock.elapsedTime - lastLayoutAt.current < .12) return;
-    lastLayoutAt.current = clock.elapsedTime;
+    const layoutInterval = playbackPhase === 'playing' ? .2 : .12;
+    const now = performance.now() / 1000;
+    if (now - lastLayoutAt.current < layoutInterval) return;
+    lastLayoutAt.current = now;
     const occupied: { x: number; y: number; width: number }[] = []; const next: string[] = [];
     for (const room of orderedRooms) {
       vector.set((room.centroid[0] - center[0]) / SCALE, roomY(room), (room.centroid[1] - center[1]) / SCALE).project(camera);
@@ -187,6 +196,7 @@ function Scene(props: Props) {
   const { size, camera } = useThree();
   const controls = useRef<OrbitControlsType>(null);
   const followTarget = useRef(new THREE.Vector3());
+  const cameraTargetPosition = useRef(new THREE.Vector3());
   const following = useRef(false);
   const forcedColors = useForcedColors();
   const center = useMemo<Point>(() => [floor.viewBox[0] + floor.viewBox[2] / 2, floor.viewBox[1] + floor.viewBox[3] / 2], [floor.viewBox]);
@@ -232,7 +242,8 @@ function Scene(props: Props) {
   useFrame(() => {
     if (!following.current) return;
     controls.current?.target.lerp(followTarget.current, .18);
-    camera.position.lerp(CAMERA_OFFSET.clone().add(followTarget.current), .18);
+    cameraTargetPosition.current.copy(CAMERA_OFFSET).add(followTarget.current);
+    camera.position.lerp(cameraTargetPosition.current, .18);
     camera.lookAt(controls.current?.target ?? followTarget.current);
   });
   return <>
@@ -241,7 +252,7 @@ function Scene(props: Props) {
     {blocks.map(block => <BlockShape key={block.id} block={block} center={center} selected={block.id === selectedId} onSelect={() => onSelect(block.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     {equipment.map(block => <BlockShape key={block.id} block={block} center={center} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     <RouteOverlay route={renderRoute} fullRoute={route} center={center} forcedColors={forcedColors} />
-    <MapLabels rooms={rooms} contents={props.contents} language={language} selectedId={selectedId} onSelect={onSelect} center={center} />
+    <MapLabels rooms={rooms} contents={props.contents} language={language} selectedId={selectedId} onSelect={onSelect} center={center} playbackPhase={playbackPhase} />
     <MapTransitionMarkers nodes={props.transitionNodes} language={language} center={center} />
     <OrbitControls ref={controls} enableRotate={false} enableDamping={false} minZoom={8} maxZoom={160} mouseButtons={{ LEFT: THREE.MOUSE.PAN, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN }} touches={{ ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }} />
   </>;
@@ -261,5 +272,6 @@ export default function FloorMap(props: Props) {
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
-  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  const frameloop = props.playbackPhase === 'playing' && props.followCamera ? 'always' : 'demand';
+  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas frameloop={frameloop} orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }

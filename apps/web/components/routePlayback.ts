@@ -5,6 +5,7 @@ import type { VisualRoute } from '../../../packages/routing/src/visual-route';
 export function clipVisualRouteAtProgress(route: VisualRoute, progress: number): Point[] {
   const normalized = clampProgress(progress);
   if (!route.points.length) return [];
+  if (route.points.length === 1 || route.sourceLength <= 0) return [[...route.points[0]]];
   if (normalized === 1) return route.points;
   const target = normalized * route.sourceLength;
   let low = 1;

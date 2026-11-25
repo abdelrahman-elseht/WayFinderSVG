@@ -87,6 +87,22 @@ describe('CMS content store', () => {
     expect(JSON.parse(await readFile(path.join(directory, 'overrides.json'), 'utf8')).draft[0].description.en).toBe(edited[0].description.en);
   });
 
+  it('invalidates parsed snapshots after atomic writes and isolates returned state', async () => {
+    const initial = await useStore();
+    const firstDraft = structuredClone(initial.draft);
+    firstDraft[0].description.en += ' first publication';
+    const firstRevision = await writeContentState({ ...initial, draft: firstDraft }, contentRevision(initial));
+
+    const cached = await readContentState();
+    cached.draft[0].description.en = 'mutated by caller';
+    expect((await readContentState()).draft[0].description.en).toBe(firstDraft[0].description.en);
+
+    const secondDraft = structuredClone(firstDraft);
+    secondDraft[0].description.en += ' second publication';
+    await writeContentState({ ...initial, draft: secondDraft }, firstRevision);
+    expect((await readContentState()).draft[0].description.en).toBe(secondDraft[0].description.en);
+  });
+
   it('normalizes legacy stores to empty groups and hashes the normalized snapshot', async () => {
     const state = await useStore();
     const legacy = { draft: state.draft, published: state.published };

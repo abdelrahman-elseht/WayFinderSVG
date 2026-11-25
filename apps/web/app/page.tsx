@@ -43,12 +43,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ f
     const { adminAuthoring: _adminAuthoring, ...publicGraph } = item.graph;
     return { ...item, graph: publicGraph };
   });
-  const publicBundle = publicFloorBundles.find(item => item.floorData.floor.id === floorId) ?? bundle;
   return <>
     {diagnosticMode && <aside role="status" data-testid="navigation-v2-diagnostic-banner" style={{
       position: 'fixed', top: 8, left: 8, zIndex: 10000, padding: '8px 12px',
       background: '#fff3cd', color: '#422006', border: '2px solid #b45309', fontWeight: 700,
     }}>DEVELOPMENT TEST ONLY | Navigation V2 diagnostic candidate | G-39 and G-40 have no incident edges</aside>}
-    <WayfindingApp {...publicBundle} floorBundles={publicFloorBundles} floorOptions={publicFloorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
+    <WayfindingApp floorBundles={publicFloorBundles} floorOptions={publicFloorBundles.map(item => item.floorData.floor)} configuredKioskId={kioskId} />
   </>;
 }

@@ -19,13 +19,16 @@ const FloorMap = dynamic(() => import('./FloorMap'), { ssr: false });
 const categoryKeys: Record<RoomCategory, string> = { classroom: 'categoryClassroom', office: 'categoryOffice', laboratory: 'categoryLaboratory', service: 'categoryService', restroom: 'categoryRestroom', circulation: 'categoryCirculation', other: 'categoryOther' };
 const copy = { en: { brand: 'NAID', wayfinding: 'CAMPUS WAYFINDING', welcome: 'Where would you like to go?', explore: 'Explore the ground floor', all: 'All spaces', spaces: 'spaces', browse: 'Browse', navigate: 'Navigate', floorNote: 'One floor. Every destination.', overview: 'Floor overview', directoryHelp: 'Find a room in the directory or select its marker on the map.', source: 'Source-based floor plan', marker: 'Room marker', selected: 'Selected', selectedDetails: 'DESTINATION DETAILS', mapReview: 'Outlines under review', resetKiosk: 'Reset to kiosk', plan: 'Plan your visit', roomCount: 'rooms on this floor', sourcePreview: 'Drawing detail', noKiosk: 'Kiosk position not configured', footer: 'B03 / GROUND FLOOR', category: 'Filter by category' }, ar: { brand: 'الأكاديمية', wayfinding: 'دليل التنقل في الحرم', welcome: 'إلى أين تريد الذهاب؟', explore: 'استكشف الطابق الأرضي', all: 'جميع المساحات', spaces: 'مساحات', browse: 'استكشاف', navigate: 'التنقل', floorNote: 'طابق واحد. جميع الوجهات.', overview: 'نظرة على الطابق', directoryHelp: 'ابحث في الدليل أو اختر علامة الغرفة على الخريطة.', source: 'خريطة مستندة إلى المصدر', marker: 'علامة الغرفة', selected: 'محدد', selectedDetails: 'تفاصيل الوجهة', mapReview: 'الحدود قيد المراجعة', resetKiosk: 'العودة إلى الكشك', plan: 'خطط لزيارتك', roomCount: 'غرفة في هذا الطابق', sourcePreview: 'تفصيل من الرسم', noKiosk: 'لم يتم تحديد موقع الكشك', footer: 'B03 / الطابق الأرضي', category: 'تصفية حسب الفئة' } };
 
-export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph: suppliedRouteGraph, floorOptions = [floorData.floor], audioService, configuredKioskId }: { floorData: FloorData; graph: NavigationGraph; contents: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
+export function WayfindingApp({ floorData, graph, contents, floorBundles, routeGraph: suppliedRouteGraph, floorOptions, audioService, configuredKioskId }: { floorData?: FloorData; graph?: NavigationGraph; contents?: RoomContent[]; floorBundles?: FloorBundle[]; routeGraph?: NavigationGraph; floorOptions?: Floor[]; audioService?: TTSService; configuredKioskId?: string }) {
   const router = useRouter();
-  const bundles = useMemo(() => floorBundles ?? [{ floorData, graph, contents }], [floorBundles, floorData, graph, contents]);
+  const bundles = useMemo(() => floorBundles ?? (floorData && graph && contents ? [{ floorData, graph, contents }] : []), [floorBundles, floorData, graph, contents]);
+  const initialBundle = bundles[0];
+  if (!initialBundle) throw new Error('WayfindingApp requires a floor bundle');
+  const availableFloors = floorOptions ?? bundles.map(bundle => bundle.floorData.floor);
   const routeGraph = useMemo(() => suppliedRouteGraph ?? (bundles.length > 1 ? multiFloorNavigation(bundles) : undefined), [suppliedRouteGraph, bundles]);
-  const defaultOriginBundle = bundles.find(bundle => bundle.floorData.floor.id === 'GF') ?? bundles[0];
+  const defaultOriginBundle = bundles.find(bundle => bundle.floorData.floor.id === 'GF') ?? initialBundle;
   const [language, setLanguage] = useState<Language>('en');
-  const [buildingId] = useState(floorData.building.id); const [floorId, setFloorId] = useState(floorData.floor.id);
+  const [buildingId] = useState(initialBundle.floorData.building.id); const [floorId, setFloorId] = useState(initialBundle.floorData.floor.id);
   const activeFloorIdRef = useRef(floorId); activeFloorIdRef.current = floorId;
   const [originFloorId, setOriginFloorId] = useState(() => bundles.find(bundle => bundle.floorData.kiosks.some(item => item.id === configuredKioskId))?.floorData.floor.id ?? defaultOriginBundle.floorData.floor.id);
   const [selectedId, setSelectedId] = useState<string | null>(null); const [customStartId, setCustomStartId] = useState<string | null>(null); const [destinationId, setDestinationId] = useState<string | null>(null);
@@ -48,7 +51,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const [muted, setMuted] = useState(false); const [audioSupported, setAudioSupported] = useState(true); const [accessibleOnly, setAccessibleOnly] = useState(false); const [zoom, setZoom] = useState(1); const [reset, setReset] = useState(0);
   const [directoryCollapsed, setDirectoryCollapsed] = useState(false); const [detailsCollapsed, setDetailsCollapsed] = useState(false);
   const audio = useRef<TTSService | null>(null); const c = copy[language];
-  const currentBundle = bundles.find(bundle => bundle.floorData.floor.id === floorId) ?? bundles[0];
+  const currentBundle = bundles.find(bundle => bundle.floorData.floor.id === floorId) ?? initialBundle;
   const originBundle = bundles.find(bundle => bundle.floorData.floor.id === originFloorId) ?? currentBundle;
   const activeFloor = currentBundle.floorData;
   const activeGraph = currentBundle.graph;
@@ -81,6 +84,12 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const crossFloor = !!routeGraph && !!destinationRoom && startFloorId !== destinationRoom.floorId;
   const startGraph = bundles.find(bundle => bundle.floorData.floor.id === startFloorId)?.graph ?? originBundle.graph;
   const routingGraph = crossFloor ? routeGraph : startGraph;
+  const transitionGraphs = useMemo(() => {
+    if (!routeGraph) return new Map<string, NavigationGraph>();
+    const nodes = new Map(routeGraph.nodes.map(node => [node.id, node]));
+    const ids = new Set(routeGraph.edges.filter(edge => edge.pathType === 'elevator' || edge.pathType === 'escalator').map(edge => nodes.get(edge.from)?.transitionId).filter((id): id is string => Boolean(id)));
+    return new Map([...ids].map(transitionId => [transitionId, routeGraphForTransition(routeGraph, transitionId)]));
+  }, [routeGraph]);
   const transitionChoices = useMemo(() => {
     if (!crossFloor || !routeGraph || !destinationRoom) return [];
     const nodes = new Map(routeGraph.nodes.map(node => [node.id, node]));
@@ -98,16 +107,26 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     }
     return [...options.values()]
       .map(option => ({ ...option, available: findRoute(
-        routeGraphForTransition(routeGraph, option.transitionId), startNode, destinationNode,
+        transitionGraphs.get(option.transitionId) ?? routeGraph, startNode, destinationNode,
         { accessibleOnly },
       ).status === 'ok' }))
       .sort((left, right) => Number(left.type === 'elevator') - Number(right.type === 'elevator'));
-  }, [crossFloor, routeGraph, destinationRoom, startFloorId, startNode, destinationNode, accessibleOnly]);
+  }, [crossFloor, routeGraph, transitionGraphs, destinationRoom, startFloorId, startNode, destinationNode, accessibleOnly]);
+  useEffect(() => {
+    if (!crossFloor || !destinationRoom) return;
+    const destinationAsset = bundles.find(bundle => bundle.floorData.floor.id === destinationRoom.floorId)?.floorData.floor.mapAsset;
+    if (!destinationAsset) return;
+    void import('./FloorMap')
+      .then(({ preloadFloorTexture }) => preloadFloorTexture(destinationAsset))
+      .catch(() => {
+        // The active map load retries after the prefetch cache evicts a failed texture promise.
+      });
+  }, [crossFloor, destinationRoom, bundles]);
   const showTransitionChoice = crossFloor && transitionChoices.some(option => option.available) && !selectedTransitionId;
   const selectedRoutingGraph = useMemo(() => {
     if (!crossFloor || !selectedTransitionId) return routingGraph;
-    return routeGraphForTransition(routingGraph, selectedTransitionId);
-  }, [routingGraph, crossFloor, selectedTransitionId]);
+    return transitionGraphs.get(selectedTransitionId) ?? routingGraph;
+  }, [routingGraph, transitionGraphs, crossFloor, selectedTransitionId]);
   const route = useMemo(() => destinationId && !showTransitionChoice
     ? findRoute(selectedRoutingGraph, startNode, destinationNode, { accessibleOnly, unsafeGeometry: !crossFloor })
     : null,
@@ -140,7 +159,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     };
     return () => channel.close();
   }, [bundles, router]);
-  useEffect(() => { setFloorId(floorData.floor.id); }, [floorData.floor.id]);
+  useEffect(() => { setFloorId(initialBundle.floorData.floor.id); }, [initialBundle.floorData.floor.id]);
   useEffect(() => {
     const syncFloorFromHistory = () => {
       const requestedFloor = new URLSearchParams(window.location.search).get('floor');
@@ -268,7 +287,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
       </aside></div>
       <section className={`map-workspace ${selected && !detailsCollapsed ? 'has-selection' : ''} ${selected ? 'has-room-details' : ''} ${detailsCollapsed ? 'details-collapsed' : ''}`} aria-label={t(language, 'map')}>
         <button type="button" className="panel-collapse-control details-toggle" aria-expanded={!detailsCollapsed} aria-controls="room-details" aria-label={detailsCollapsed ? (language === 'ar' ? 'إظهار التفاصيل' : 'Expand details') : (language === 'ar' ? 'إخفاء التفاصيل' : 'Collapse details')} title={detailsCollapsed ? 'Expand details / إظهار التفاصيل' : 'Collapse details / إخفاء التفاصيل'} onClick={() => setDetailsCollapsed(value => !value)}><ChevronDown size={18} /></button>
-        <div className="map-topline"><div><p className="eyebrow">{c.overview}</p><h2>{activeFloor.floor.name[language]}</h2><p>{rooms.length} {c.roomCount} <span>·</span> <bdi>{buildingId}</bdi></p></div><label className="floor-select"><Layers size={18} /><span className="sr-only">{t(language, 'floor')}</span><select aria-label={t(language, 'floor')} value={floorId} onChange={event => changeFloor(event.target.value)} data-testid="floor-select">{floorOptions.map(option => <option key={option.id} value={option.id}>{option.name[language]} · {option.id}</option>)}</select><ChevronDown size={15} /></label></div>
+        <div className="map-topline"><div><p className="eyebrow">{c.overview}</p><h2>{activeFloor.floor.name[language]}</h2><p>{rooms.length} {c.roomCount} <span>·</span> <bdi>{buildingId}</bdi></p></div><label className="floor-select"><Layers size={18} /><span className="sr-only">{t(language, 'floor')}</span><select aria-label={t(language, 'floor')} value={floorId} onChange={event => changeFloor(event.target.value)} data-testid="floor-select">{availableFloors.map(option => <option key={option.id} value={option.id}>{option.name[language]} · {option.id}</option>)}</select><ChevronDown size={15} /></label></div>
         <div className="map-canvas" data-testid="floor-map"><FloorMap floor={activeFloor.floor} rooms={rooms} contents={activeContents} mapFeatures={activeFloor.mapFeatures} transitionNodes={transitionNodes} language={language} selectedId={selectedId} onSelect={selectRoom} onMapReady={markFloorReady} route={floorRoute} visibleRoute={visibleRoute} playbackPhase={playbackPhase} playbackProgress={playbackProgress} followCamera={followCamera} zoom={zoom} reset={reset} /></div>
         <div className="map-evidence"><Info size={14} /><span>{c.mapReview}</span></div>
         <div className="map-control-stack" role="group" aria-label={t(language, 'mapControls')}><button onClick={() => setZoom(value => Math.min(3, value * 1.2))} aria-label={t(language, 'zoomIn')}><Plus size={20} /></button><button onClick={() => setZoom(value => Math.max(.6, value / 1.2))} aria-label={t(language, 'zoomOut')}><Minus size={20} /></button><span /><button onClick={() => { setZoom(1); setReset(value => value + 1); }} aria-label={t(language, 'resetView')}><LocateFixed size={19} /></button></div>

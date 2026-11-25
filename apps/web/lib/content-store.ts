@@ -1,5 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { mkdir, open, readFile, rename, rm } from 'node:fs/promises';
+import { mkdir, open, readFile, rename, rm, stat } from 'node:fs/promises';
 import path from 'node:path';
 import type { ColorGroup, RoomContent } from '@wayfinding/map-engine';
 import { presentationColor, validateColorGroups, validateFloorBundle } from '@wayfinding/map-engine';
@@ -26,6 +26,15 @@ const bundles = {
   '01': { floor: firstFloor, graph: firstGraph, canonical: () => import('@content/B03/01.json') },
 } as const;
 
+type ContentCacheEntry = {
+  stamp: string;
+  state: Required<ContentStoreState>;
+  published: RoomContent[];
+};
+const contentCache = new Map<string, ContentCacheEntry>();
+const canonicalCache = new Map<CmsFloorId, RoomContent[]>();
+const validatedCanonicalCache = new Map<CmsFloorId, RoomContent[]>();
+
 export function isCmsFloorId(value: unknown): value is CmsFloorId {
   return value === 'GF' || value === '01';
 }
@@ -39,7 +48,19 @@ function storePath(floorId: CmsFloorId = 'GF') {
 }
 
 async function canonical(floorId: CmsFloorId): Promise<RoomContent[]> {
-  return (await bundles[floorId].canonical()).default as RoomContent[];
+  const cached = canonicalCache.get(floorId);
+  if (cached) return cached;
+  const value = (await bundles[floorId].canonical()).default as RoomContent[];
+  canonicalCache.set(floorId, value);
+  return value;
+}
+
+async function validatedCanonical(floorId: CmsFloorId): Promise<RoomContent[]> {
+  const cached = validatedCanonicalCache.get(floorId);
+  if (cached) return cached;
+  const value = assertContent(await canonical(floorId), floorId);
+  validatedCanonicalCache.set(floorId, value);
+  return value;
 }
 
 function assertContent(value: unknown, floorId: CmsFloorId): RoomContent[] {
@@ -70,17 +91,35 @@ function normalizeState(value: ContentStoreState, floorId: CmsFloorId): Required
 }
 
 export async function readContentState(floorId: CmsFloorId = 'GF'): Promise<Required<ContentStoreState>> {
-  const base = assertContent(await canonical(floorId), floorId);
+  const base = await validatedCanonical(floorId);
+  const target = storePath(floorId);
   try {
-    const value = JSON.parse(await readFile(storePath(floorId), 'utf8')) as Partial<ContentStoreState>;
+    const metadata = await stat(target, { bigint: true });
+    const stamp = `${metadata.dev}:${metadata.ino}:${metadata.mtimeNs}:${metadata.ctimeNs}:${metadata.size}`;
+    const cached = contentCache.get(target);
+    if (cached?.stamp === stamp) return structuredClone(cached.state);
+    const value = JSON.parse(await readFile(target, 'utf8')) as Partial<ContentStoreState>;
     if (!value || !Array.isArray(value.draft) || !Array.isArray(value.published)) {
       throw new Error('Content store must contain draft and published arrays');
     }
-    return normalizeState(value as ContentStoreState, floorId);
+    const state = normalizeState(value as ContentStoreState, floorId);
+    const published = resolvePublished(state);
+    contentCache.set(target, { stamp, state, published });
+    return structuredClone(state);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return normalizeState({ floorId, draft: base, published: base }, floorId);
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      contentCache.delete(target);
+      return normalizeState({ floorId, draft: base, published: base }, floorId);
+    }
     throw error;
   }
+}
+
+function resolvePublished(state: Required<ContentStoreState>): RoomContent[] {
+  return state.published.map(item => {
+    const color = presentationColor(item, state.publishedColorGroups);
+    return color ? { ...item, presentation: { ...item.presentation, blockColor: color } } : item;
+  });
 }
 
 async function acquireLock(lockPath: string): Promise<() => Promise<void>> {
@@ -139,9 +178,8 @@ export async function writeContentState(
 
 export async function publishedContent(floorId: CmsFloorId = 'GF'): Promise<RoomContent[]> {
   const state = await readContentState(floorId);
-  // Resolve only the published snapshot, so callers cannot expose draft colors.
-  return state.published.map(item => {
-    const color = presentationColor(item, state.publishedColorGroups);
-    return color ? { ...item, presentation: { ...item.presentation, blockColor: color } } : item;
-  });
+  const target = storePath(floorId);
+  const cached = contentCache.get(target);
+  if (cached) return structuredClone(cached.published);
+  return resolvePublished(state);
 }
