@@ -109,7 +109,7 @@ export async function readContentState(floorId: CmsFloorId = 'GF'): Promise<Requ
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       contentCache.delete(target);
-      return normalizeState({ floorId, draft: base, published: base }, floorId);
+      return structuredClone(normalizeState({ floorId, draft: base, published: base }, floorId));
     }
     throw error;
   }

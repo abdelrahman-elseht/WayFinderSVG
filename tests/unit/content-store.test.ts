@@ -89,9 +89,12 @@ describe('CMS content store', () => {
 
   it('invalidates parsed snapshots after atomic writes and isolates returned state', async () => {
     const initial = await useStore();
+    const initialRevision = contentRevision(initial);
     const firstDraft = structuredClone(initial.draft);
     firstDraft[0].description.en += ' first publication';
-    const firstRevision = await writeContentState({ ...initial, draft: firstDraft }, contentRevision(initial));
+    initial.draft[0].description.en = 'mutated before first publication';
+    expect((await readContentState()).draft[0].description.en).not.toBe('mutated before first publication');
+    const firstRevision = await writeContentState({ ...initial, draft: firstDraft }, initialRevision);
 
     const cached = await readContentState();
     cached.draft[0].description.en = 'mutated by caller';
