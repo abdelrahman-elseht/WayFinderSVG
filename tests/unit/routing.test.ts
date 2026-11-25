@@ -248,6 +248,18 @@ describe('explicit drawing-based source routing', () => {
     graph.routingPolicy = 'verified-only';
     expect(findRoute(graph, 'a', 'c').status).toBe('unconfirmed');
   });
+  it('keeps cached route results isolated from caller mutation and separates route options', () => {
+    const graph = drawing();
+    const route = findRoute(graph, 'a', 'c');
+    route.points[0][0] = 99;
+    route.instructions[0].text.en = 'changed by caller';
+
+    expect(findRoute(graph, 'a', 'c').points[0]).toEqual([0, 0]);
+    expect(findRoute(graph, 'a', 'c').instructions[0].text.en).not.toBe('changed by caller');
+    expect(findRoute(graph, 'a', 'c', { accessibleOnly: true }).status).toBe('unavailable');
+    graph.edges.forEach(edge => { edge.accessibility = 'confirmed'; });
+    expect(findRoute(graph, 'a', 'c', { accessibleOnly: true }).status).toBe('ok');
+  });
   it('rejects missing enclosures, nonfinite source geometry, false weights and unknown policies', () => {
     const graph = drawing(); graph.navigableAreas = [];
     expect(findRoute(graph, 'a', 'c').status).toBe('invalid');

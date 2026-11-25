@@ -101,14 +101,8 @@ const roomY = (room: Room) => (roomBlock(room)?.height ?? .05) + .13;
 export const BlockShape = memo(function BlockShape({ block, center, selected = false, onSelect, texture, width, depth, forcedColors }: { block: MapBlock; center: Point; selected?: boolean; onSelect?: () => void; texture: THREE.Texture | null; width: number; depth: number; forcedColors: boolean }) {
   const [hovered, setHovered] = useState(false);
   const material = useRef<THREE.MeshStandardMaterial>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  useEffect(() => { const media = window.matchMedia('(prefers-reduced-motion: reduce)'); const update = () => setReducedMotion(media.matches); update(); media.addEventListener('change', update); return () => media.removeEventListener('change', update); }, []);
   const targetColor = useMemo(() => new THREE.Color(forcedColors ? selected ? highContrastMapPalette.selection : hovered ? highContrastMapPalette.hover : highContrastMapPalette.room : selected ? mapPalette.selection : hovered ? mapPalette.hover : block.color ?? categoryColors[block.category]), [forcedColors, selected, hovered, block.category, block.color]);
-  useFrame((_, delta) => {
-    const blend = reducedMotion ? 1 : 1 - Math.exp(-delta * 12);
-    // Keep every footprint anchored to the plan during hover and selection.
-    material.current?.color.lerp(targetColor, blend);
-  });
+  useEffect(() => { material.current?.color.copy(targetColor); }, [targetColor]);
   const geometry = useMemo(() => {
     const shape = new THREE.Shape();
     block.polygon.forEach(([x, y], index) => index ? shape.lineTo((x - center[0]) / SCALE, -(y - center[1]) / SCALE) : shape.moveTo((x - center[0]) / SCALE, -(y - center[1]) / SCALE));
@@ -124,7 +118,7 @@ export const BlockShape = memo(function BlockShape({ block, center, selected = f
   const border = useMemo(() => block.polygon.concat([block.polygon[0]]).map(([x, y]) => [(x - center[0]) / SCALE, block.height + .027, (y - center[1]) / SCALE] as [number, number, number]), [block.polygon, block.height, center]);
   if (!geometry || !border) return null;
   return <group>
-    <mesh name={block.id} userData={{ mapBlock: true, height: block.height }} castShadow receiveShadow geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .02, 0]} onClick={onSelect ? event => { event.stopPropagation(); onSelect(); } : undefined} onPointerOver={onSelect ? event => { event.stopPropagation(); setHovered(true); } : undefined} onPointerOut={() => setHovered(false)}>
+    <mesh name={block.id} userData={{ mapBlock: true, height: block.height }} geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, .02, 0]} onClick={onSelect ? event => { event.stopPropagation(); onSelect(); } : undefined} onPointerOver={onSelect ? event => { event.stopPropagation(); setHovered(true); } : undefined} onPointerOut={() => setHovered(false)}>
       <meshStandardMaterial key={texture?.uuid ?? 'loading'} attach="material-0" ref={material} map={forcedColors ? null : texture} color={targetColor} roughness={.95} />
       <meshStandardMaterial attach="material-1" color={forcedColors ? highContrastMapPalette.roomSide : selected ? mapPalette.selectionSide : block.color ?? categoryColors[block.category]} roughness={1} />
     </mesh>
@@ -242,8 +236,7 @@ function Scene(props: Props) {
     camera.lookAt(controls.current?.target ?? followTarget.current);
   });
   return <>
-    <ambientLight intensity={1.4} /><directionalLight castShadow position={[-12, 24, -8]} intensity={1.7} shadow-mapSize={[1024, 1024]} shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={18} shadow-camera-bottom={-18} shadow-bias={-.0005} shadow-normalBias={.02} />
-    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -.035, 0]}><planeGeometry args={[width, depth]} /><shadowMaterial transparent opacity={.13} /></mesh>
+    <ambientLight intensity={1.4} /><directionalLight position={[-12, 24, -8]} intensity={1.7} />
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.02, 0]}><planeGeometry args={[width, depth]} /><meshBasicMaterial key={inkTexture?.uuid ?? 'loading'} map={inkTexture} transparent opacity={inkTexture ? 1 : 0} depthWrite={false} toneMapped={false} /></mesh>
     {blocks.map(block => <BlockShape key={block.id} block={block} center={center} selected={block.id === selectedId} onSelect={() => onSelect(block.id)} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
     {equipment.map(block => <BlockShape key={block.id} block={block} center={center} texture={texture} width={width} depth={depth} forcedColors={forcedColors} />)}
@@ -268,5 +261,5 @@ export default function FloorMap(props: Props) {
   const fallback = <div className="map-fallback"><img src={props.floor.mapAsset} alt={t(props.language, 'sourceDrawing')} /><p>{t(props.language, 'mapKeyboardHelp')}</p></div>;
   if (supported === false) return fallback;
   if (supported === null) return <div className="map-loading">{t(props.language, 'loading')}</div>;
-  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas shadows orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
+  return <MapBoundary fallback={fallback} onFallback={() => props.onMapReady(props.floor.id)}><Canvas orthographic camera={{ position: [5, 30, 22], zoom: 25, near: .1, far: 150 }} gl={{ antialias: true, alpha: true }} dpr={[1, 1.25]} aria-label={t(props.language, 'map')}><Suspense fallback={null}><Scene {...props} /></Suspense></Canvas></MapBoundary>;
 }

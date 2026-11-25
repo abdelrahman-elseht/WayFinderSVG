@@ -116,13 +116,12 @@ describe('public cross-floor route playback', () => {
     expect(browser.map.floor.mapAsset).toBe(`/maps/SYNTHETIC_TEST_BUILDING/${destinationFloor}/master.svg`);
     expect(screen.getByText('Test escalator')).toBeTruthy();
     expect(screen.getByText('Test lift')).toBeTruthy();
-    expect(browser.router.replace).toHaveBeenCalledWith(expect.stringContaining(`floor=${destinationFloor}`));
+    expect(window.location.search).toContain(`floor=${destinationFloor}`);
+    expect(browser.router.replace).not.toHaveBeenCalled();
 
-    now = 4500;
-    act(() => tick(now));
     await waitFor(() => expect(browser.map.visibleRoute.at(-1)).toEqual(expect.arrayContaining([expect.any(Number)])));
-    if (routeDirection > 0) expect(browser.map.visibleRoute.at(-1)![0]).toBeGreaterThan(10);
-    else expect(browser.map.visibleRoute.at(-1)![0]).toBeLessThan(10);
+    const transitionLanding = transitionType === 'escalator' ? 10 : 12;
+    expect(browser.map.visibleRoute.at(-1)![0]).toBe(transitionLanding);
   });
 
   it('opens the transition chooser from Go here on a First Floor room with the default start', async () => {
@@ -182,12 +181,14 @@ describe('public cross-floor route playback', () => {
     expect(browser.map.visibleRoute).toHaveLength(1);
 
     act(() => browser.map.onMapReady('01'));
-    now = 3500;
+    now = 3700;
     act(() => tick(now));
     expect(browser.map.playbackProgress).toBe(transitionProgress);
     expect(browser.map.visibleRoute).toHaveLength(1);
 
-    now = 4500;
+    now = 5100;
+    act(() => tick(now));
+    now += 40;
     act(() => tick(now));
     await waitFor(() => expect(browser.map.visibleRoute.length).toBeGreaterThan(1));
   });

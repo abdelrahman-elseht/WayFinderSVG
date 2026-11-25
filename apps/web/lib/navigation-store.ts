@@ -1,8 +1,14 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { validateFloorBundle, type FloorBundle } from '@wayfinding/map-engine';
 
 export type NavigationFloorId = 'GF' | '01';
+
+type SnapshotCacheEntry = { stamp: string; snapshot: {
+  schemaVersion: number; buildingId: string; floorId: NavigationFloorId; revision: string;
+  graph: unknown; floorData?: unknown;
+} };
+const snapshotCache = new Map<string, SnapshotCacheEntry>();
 
 export function navigationStorePath(floorId: NavigationFloorId): string {
   const configured = process.env.WAYFINDING_NAVIGATION_STORE;
@@ -31,7 +37,24 @@ export function navigationFloorData(floorData: FloorBundle['floorData'], graph: 
   };
 }
 
-/** No process cache: every public request observes the last atomic publication. */
+async function readPublishedSnapshot(floorId: NavigationFloorId) {
+  const target = navigationStorePath(floorId);
+  let metadata;
+  try {
+    metadata = await stat(target, { bigint: true });
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null;
+    throw error;
+  }
+  const stamp = `${metadata.mtimeNs}:${metadata.size}`;
+  const cached = snapshotCache.get(target);
+  if (cached?.stamp === stamp) return cached.snapshot;
+  const snapshot = JSON.parse(await readFile(target, 'utf8')) as SnapshotCacheEntry['snapshot'];
+  snapshotCache.set(target, { stamp, snapshot });
+  return snapshot;
+}
+
+/** Re-read metadata on every request so atomic publication renames invalidate the parsed snapshot cache. */
 export async function publishedNavigation(
   floorId: NavigationFloorId,
   floorData: unknown,
@@ -41,15 +64,17 @@ export async function publishedNavigation(
   let resolvedFloor = floorData;
   let graph = canonicalGraph;
   try {
-    const snapshot = JSON.parse(await readFile(navigationStorePath(floorId), 'utf8'));
+    const snapshot = await readPublishedSnapshot(floorId);
+    if (!snapshot) throw Object.assign(new Error('Publication not found'), { code: 'ENOENT' });
     if (snapshot.schemaVersion !== 1 || snapshot.buildingId !== 'B03' || snapshot.floorId !== floorId
       || typeof snapshot.revision !== 'string' || !snapshot.graph) {
       throw new Error(`Invalid navigation publication for B03/${floorId}`);
     }
     graph = snapshot.graph;
     if (snapshot.floorData !== undefined) {
-      if (!snapshot.floorData || snapshot.floorData.floor?.id !== floorId
-        || snapshot.floorData.building?.id !== 'B03') {
+      const publishedFloor = snapshot.floorData as { floor?: { id?: unknown }; building?: { id?: unknown } } | null;
+      if (!publishedFloor || publishedFloor.floor?.id !== floorId
+        || publishedFloor.building?.id !== 'B03') {
         throw new Error(`Invalid published floor data for B03/${floorId}`);
       }
       resolvedFloor = snapshot.floorData;

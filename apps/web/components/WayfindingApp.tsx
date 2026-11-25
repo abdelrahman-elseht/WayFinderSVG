@@ -37,11 +37,12 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   const [playbackRouteKey, setPlaybackRouteKey] = useState('');
   const playbackTimer = useRef<number | null>(null); const playbackStartedAt = useRef(0); const playbackOrigin = useRef(0);
   const playbackPausedAt = useRef<number | null>(null); const waitingFloorId = useRef<string | null>(null);
-  const waitingFloorStartedAt = useRef<number | null>(null);
   const [readyFloorIds, setReadyFloorIds] = useState<Set<string>>(() => new Set());
   const readyFloorIdsRef = useRef(readyFloorIds); readyFloorIdsRef.current = readyFloorIds;
+  const floorReadyAtRef = useRef(new Map<string, number>());
   const playbackPaintAt = useRef(Number.NEGATIVE_INFINITY);
   const markFloorReady = useCallback((readyFloorId: string) => {
+    if (!floorReadyAtRef.current.has(readyFloorId)) floorReadyAtRef.current.set(readyFloorId, performance.now());
     setReadyFloorIds(current => current.has(readyFloorId) ? current : new Set(current).add(readyFloorId));
   }, []);
   const [muted, setMuted] = useState(false); const [audioSupported, setAudioSupported] = useState(true); const [accessibleOnly, setAccessibleOnly] = useState(false); const [zoom, setZoom] = useState(1); const [reset, setReset] = useState(0);
@@ -145,16 +146,15 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     if (playbackPhase !== 'playing' || !playbackDurationMs || reducedMotion) return;
     playbackStartedAt.current = performance.now(); playbackOrigin.current = playbackProgress;
-    playbackPausedAt.current = null; waitingFloorId.current = null; waitingFloorStartedAt.current = null;
+    playbackPausedAt.current = null; waitingFloorId.current = null;
     playbackPaintAt.current = Number.NEGATIVE_INFINITY;
-    const duration = (1 - playbackOrigin.current) * playbackDurationMs;
     const tick = () => {
       const now = performance.now();
       if (playbackPausedAt.current !== null) {
         const waitingFor = waitingFloorId.current;
         const loaded = waitingFor !== null && readyFloorIdsRef.current.has(waitingFor);
-        if (loaded && waitingFloorStartedAt.current === null) waitingFloorStartedAt.current = now;
-        const waited = waitingFloorStartedAt.current !== null && now - waitingFloorStartedAt.current >= 1200;
+        const readyAt = waitingFor ? floorReadyAtRef.current.get(waitingFor) : undefined;
+        const waited = readyAt !== undefined && now - readyAt >= 1200;
         if (!loaded || !waited) {
           playbackTimer.current = window.requestAnimationFrame(tick);
           return;
@@ -162,17 +162,18 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
         playbackStartedAt.current += now - playbackPausedAt.current;
         playbackPausedAt.current = null;
         waitingFloorId.current = null;
-        waitingFloorStartedAt.current = null;
       }
+      const duration = (1 - playbackOrigin.current) * playbackDurationMs;
       const next = Math.min(1, playbackOrigin.current + (now - playbackStartedAt.current) / duration);
       const nextPart = playbackPlanPosition(playbackParts, next)?.part;
       if (nextPart && nextPart.floorId !== activeFloorIdRef.current && waitingFloorId.current !== nextPart.floorId) {
         // Give the destination floor time to load before revealing its route segment.
         if (waitingFloorId.current !== nextPart.floorId) {
           setPlaybackProgress(value => Math.max(value, next));
+          playbackOrigin.current = next;
+          playbackStartedAt.current = now;
           playbackPausedAt.current = now;
           waitingFloorId.current = nextPart.floorId;
-          waitingFloorStartedAt.current = null;
         }
         playbackTimer.current = window.requestAnimationFrame(tick);
         return;
@@ -192,7 +193,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
   useEffect(() => {
     if (route?.status !== 'ok' || !playbackParts.length) {
       if (playbackTimer.current !== null) window.cancelAnimationFrame(playbackTimer.current);
-      playbackTimer.current = null; playbackPausedAt.current = null; waitingFloorId.current = null; waitingFloorStartedAt.current = null;
+      playbackTimer.current = null; playbackPausedAt.current = null; waitingFloorId.current = null;
       setPlaybackRouteKey(''); setPlaybackPhase('idle'); setPlaybackProgress(0); setJourneyStarted(false); return;
     }
     // A new valid route always cancels the prior animation and starts from zero.
@@ -206,7 +207,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     setFloorId(nextFloor);
     const params = new URLSearchParams(window.location.search);
     params.set('floor', nextFloor);
-    router.replace(`${window.location.pathname}?${params.toString()}`);
+    window.history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`);
   }, [playbackPosition?.part.floorId, floorId, playbackPhase, router]);
   useEffect(() => { if (journeyStarted && currentInstruction) audio.current?.speak(currentInstruction.text[language], language); }, [journeyStarted, currentInstruction, language]);
   useEffect(() => { document.documentElement.lang = language; document.documentElement.dir = getDirection(language); }, [language]);
@@ -216,7 +217,7 @@ export function WayfindingApp({ floorData, graph, contents, floorBundles, routeG
     stopPlayback(); setFloorId(nextFloorId);
     setCustomStartId(null); setDestinationId(null); setSelectedTransitionId(null); setSelectedId(null); setJourneyStarted(false); setPlaybackPhase('idle');
     const params = new URLSearchParams(window.location.search); params.set('floor', nextFloorId);
-    router.push(`${window.location.pathname}?${params.toString()}`);
+    window.history.pushState(null, '', `${window.location.pathname}?${params.toString()}`);
   }
   function resetKiosk() { stopPlayback(); setOriginFloorId(defaultOriginBundle.floorData.floor.id); setFloorId(defaultOriginBundle.floorData.floor.id); setCustomStartId(null); setDestinationId(null); setSelectedTransitionId(null); setSelectedId(null); setSignLanguageRoomId(null); setQuery(''); setCategory('all'); setJourneyStarted(false); setZoom(1); setReset(value => value + 1); audio.current?.stop(); }
   function goToRoom(id: string) { stopPlayback(); setSelectedTransitionId(null); setDestinationId(id); setSelectedId(id); setMode('navigate'); setJourneyStarted(false); setPlaybackPhase('idle'); }

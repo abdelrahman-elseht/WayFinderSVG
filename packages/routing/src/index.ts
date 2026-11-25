@@ -9,8 +9,9 @@ type Step = { edge: NavigationEdge; from: NavigationNode; to: NavigationNode; po
 type Prepared = { nodes: Map<string, NavigationNode>; adjacency: Map<string, Step[]>; unit: Unit };
 const EPSILON = 1e-7;
 const supported = (graph: NavigationGraph, status: NavigationNode['status']) => status === 'confirmed' || (graph.routingPolicy === 'drawing-based' && status === 'candidate');
-// Content signatures invalidate on mutation; preparations own detached snapshots.
-const preparedCache = new WeakMap<NavigationGraph, { signature: string; values: Map<string, Prepared | null> }>();
+// Content fingerprints invalidate on mutation while avoiding JSON serialization of the full graph.
+const preparedCache = new WeakMap<NavigationGraph, { fingerprint: string; values: Map<string, Prepared | null> }>();
+const routeCache = new WeakMap<NavigationGraph, { fingerprint: string; values: Map<string, RouteResult> }>();
 const validPoint = (point: Point) => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite);
 const equalPoint = (a: Point, b: Point) => Math.hypot(a[0] - b[0], a[1] - b[1]) <= EPSILON;
 const calibrated = (graph: NavigationGraph) => graph.calibrationStatus === 'confirmed'
@@ -36,11 +37,42 @@ function failure(status: Exclude<RouteResult['status'], 'ok'>, reason: Localized
   return { status, reason, nodeIds: [], edgeIds: [], points: [], distance: 0, distanceUnit: unit, instructions: [] };
 }
 
-function prepare(input: NavigationGraph, accessibleOnly = false, unsafeGeometry = false): Prepared | null {
-  let signature: string;
-  try { signature = JSON.stringify(input, (_key, value) => typeof value === 'number' && !Number.isFinite(value) ? { invalidNumber: String(value) } : value); } catch { return null; }
+function hashValue(hash: number, value: unknown): number {
+  const text = `${typeof value}:${typeof value === 'number' && !Number.isFinite(value) ? String(value) : String(value ?? '')};`;
+  for (let index = 0; index < text.length; index++) hash = Math.imul(hash ^ text.charCodeAt(index), 16777619);
+  return hash >>> 0;
+}
+
+function graphFingerprint(graph: NavigationGraph): string {
+  let hash = 2166136261;
+  const add = (value: unknown) => { hash = hashValue(hash, value); };
+  add(graph.routingPolicy); add(graph.metersPerUnit); add(graph.calibrationStatus); add(graph.status);
+  const addPoints = (points?: Point[]) => { add(points?.length); points?.forEach(point => { add(point?.[0]); add(point?.[1]); }); };
+  add('walls'); add(graph.walls?.length); graph.walls?.forEach(wall => { add(wall?.length); wall?.forEach(point => { add(point?.[0]); add(point?.[1]); }); });
+  add('areas'); add(graph.navigableAreas?.length); graph.navigableAreas?.forEach(addPoints);
+  add('nodes'); add(graph.nodes?.length); graph.nodes?.forEach(node => {
+    add(node.id); add(node.buildingId); add(node.floorId); add(node.point?.[0]); add(node.point?.[1]); add(node.type);
+    add(node.roomId); add(node.transitionId); add(node.transitionName); add(node.transitionAccessibility); add(node.transitionRestriction); add(node.status);
+  });
+  add('edges'); add(graph.edges?.length); graph.edges?.forEach(edge => {
+    add(edge.id); add(edge.from); add(edge.to); add(edge.floorId); add(edge.pathType); add(edge.distance); add(edge.distanceUnit);
+    add(edge.accessibility); add(edge.restriction); add(edge.status); add(edge.bidirectional); addPoints(edge.geometry);
+  });
+  if (graph.floorConstraints) for (const floorId of Object.keys(graph.floorConstraints).sort()) {
+    add(floorId); const constraints = graph.floorConstraints[floorId];
+    add(constraints.walls.length); constraints.walls.forEach(wall => { add(wall.length); wall.forEach(point => { add(point?.[0]); add(point?.[1]); }); });
+    constraints.navigableAreas.forEach(addPoints);
+  }
+  return hash.toString(16);
+}
+
+function copyRouteResult(result: RouteResult): RouteResult {
+  return structuredClone(result);
+}
+
+function prepare(input: NavigationGraph, accessibleOnly = false, unsafeGeometry = false, fingerprint = graphFingerprint(input)): Prepared | null {
   let cached = preparedCache.get(input);
-  if (!cached || cached.signature !== signature) { cached = { signature, values: new Map() }; preparedCache.set(input, cached); }
+  if (!cached || cached.fingerprint !== fingerprint) { cached = { fingerprint, values: new Map() }; preparedCache.set(input, cached); }
   const key = `${accessibleOnly}:${unsafeGeometry}`;
   if (cached.values.has(key)) return cached.values.get(key)!;
   const prepared = prepareSnapshot(structuredClone(input), accessibleOnly, unsafeGeometry);
@@ -121,7 +153,11 @@ export function findRoute(
   const unit: Unit = calibrated(graph) ? 'meter' : 'map-unit';
   if (startId === null) return failure('unavailable', messages.start, unit);
   if (endId === null) return failure('unavailable', messages.destination, unit);
-  const prepared = prepare(graph, options.accessibleOnly, options.unsafeGeometry);
+  const fingerprint = graphFingerprint(graph);
+  const cacheKey = JSON.stringify([startId, endId, options.accessibleOnly ?? false, options.unsafeGeometry ?? false]);
+  const cachedRoutes = routeCache.get(graph);
+  if (cachedRoutes?.fingerprint === fingerprint && cachedRoutes.values.has(cacheKey)) return copyRouteResult(cachedRoutes.values.get(cacheKey)!);
+  const prepared = prepare(graph, options.accessibleOnly, options.unsafeGeometry, fingerprint);
   if (!prepared) return failure('invalid', messages.invalid, unit);
   const start = prepared.nodes.get(startId), end = prepared.nodes.get(endId);
   if (!start || !end) return graph.status === 'confirmed'
@@ -166,8 +202,11 @@ export function findRoute(
   for (const point of steps.length ? steps.flatMap(step => step.points) : [start.point]) {
     if (!points.length || !equalPoint(points[points.length - 1], point)) points.push([...point]);
   }
-  return { status: 'ok', reason: null, nodeIds, edgeIds, points, distance: distances.get(endId)!, distanceUnit: unit,
+  const result = { status: 'ok' as const, reason: null, nodeIds, edgeIds, points, distance: distances.get(endId)!, distanceUnit: unit,
     instructions: instructionsFor(steps, start, unit) };
+  const nextCache = cachedRoutes?.fingerprint === fingerprint ? cachedRoutes : { fingerprint, values: new Map<string, RouteResult>() };
+  nextCache.values.set(cacheKey, result); routeCache.set(graph, nextCache);
+  return copyRouteResult(result);
 }
 
 const instructionText: Record<InstructionType, Localized> = {
